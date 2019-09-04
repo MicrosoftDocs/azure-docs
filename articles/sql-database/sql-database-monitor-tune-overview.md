@@ -21,7 +21,7 @@ Automatic tuning enables a database to adapt to the workload and automatically o
 To ensure that a database runs without problems, you should:
 - [Monitor database performance](#monitor-database-performance) to make sure that the resources assigned to the database can handle the workload. If the database is hitting resource limits, consider:
    - Identifying and optimizing the top resource-consuming queries.
-   - Adding more resources by upgrading the service tier.
+   - Adding more resources by [upgrading the service tier](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources).
 - [Troubleshoot performance problems](#troubleshoot-performance-problems) to identify why a potential problem occurred and to identify the root cause of the problem. After you identify the root cause, take steps to fix the problem.
 
 ## Monitor database performance
@@ -36,10 +36,13 @@ The Azure SQL Database service includes tools and resources to help you troubles
 
 Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply tuning recommendations to improve the performance of the workload. You can also let Azure SQL Database [automatically optimize performance of the queries](sql-database-automatic-tuning.md) by applying all identified recommendations. Then verify that the recommendations improved database performance.
 
+> [!NOTE]
+> Indexing is available in single database and elastic pools only. Indexing isn't available in a managed instance.
+
 Choose from the following options to monitor and troubleshoot database performance:
 
 - In the [Azure portal](https://portal.azure.com), select **SQL databases** and select the database. In the **Monitoring** chart, look for resources approaching their maximum utilization. DTU consumption is shown by default. Select **Edit** to change the time range and values shown.
-- Tools such as SQL Server Management Studio provide many useful reports, like [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017). Use these reports to monitor resource usage and identify top resource-consuming queries. You can use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) to identify queries whose performance has regressed.
+- Tools such as SQL Server Management Studio provide many useful reports, like [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard). Use these reports to monitor resource usage and identify top resource-consuming queries. You can use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) to identify queries whose performance has regressed.
 - In the [Azure portal](https://portal.azure.com), use [Query Performance Insight](sql-database-query-performance.md) to identify the queries that use the most resources. This feature is available in single database and elastic pools only.
 - Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations to help you create and drop indexes, parameterize queries, and fix schema problems. This feature is available in single database and elastic pools only.
 - Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) to automatically monitor database performance. When a performance problem is detected, a diagnostic log is generated. The log provides details and a root cause analysis (RCA) of the problem. A performance-improvement recommendation is provided when possible.
@@ -101,7 +104,7 @@ Several workarounds can mitigate PSP problems. Each workaround has associated tr
 - Use the [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint to override the actual parameter value and instead use the density vector average. You can also do this by capturing the incoming parameter values in local variables and then using the local variables within the predicates instead of using the parameters themselves. For this fix, the average density must be *good enough*.
 - Disable parameter sniffing entirely by using the [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint.
 - Use the [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint to prevent recompilations in cache. This workaround assumes that the good-enough common plan is the one in cache already. You can also disable automatic statistics updates to reduce the chances that the good plan will be evicted and a new bad plan will be compiled.
-- Force the plan by explicitly using the [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint by explicitly specifying, by setting a specific plan using Query Store, or by enabling [automatic tuning](sql-database-automatic-tuning.md).
+- Force the plan by explicitly using the [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint by rewriting the query and adding the hint in the query text. Or set a specific plan by using Query Store or by enabling [automatic tuning](sql-database-automatic-tuning.md).
 - Replace the single procedure with a nested set of procedures that can each be used based on conditional logic and the associated parameter values.
 - Create dynamic string execution alternatives to a static procedure definition.
 
@@ -170,7 +173,7 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 - **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated.  For example, if one system has more processors, a parallel plan might be chosen. 
 
-- **Different statistics**: The statistics associated with the referenced objects might have changed or might be materially different from the original system's statistics.  If the statistics change and a recompilation happens, the query optimizer uses statistics starting from that point in time. The revised statistics' data distributions and frequencies might differ from those of the original compilation.  These changes are used to create cardinality estimates. (*Cardinality estimates* are the number of rows that are expected to flow through the logical query tree.) Changes to cardinality estimates might lead you to choose different physical operators and associated orders of operations.  Even minor changes to statistics can result in a changed query execution plan.
+- **Different statistics**: The statistics associated with the referenced objects might have changed or might be materially different from the original system's statistics.  If the statistics change and a recompilation happens, the query optimizer uses the statistics starting from when they changed. The revised statistics' data distributions and frequencies might differ from those of the original compilation.  These changes are used to create cardinality estimates. (*Cardinality estimates* are the number of rows that are expected to flow through the logical query tree.) Changes to cardinality estimates might lead you to choose different physical operators and associated orders of operations.  Even minor changes to statistics can result in a changed query execution plan.
 
 - **Changed database compatibility level or cardinality estimator version**:  Changes to the database compatibility level can enable new strategies and features that might result in a different query execution plan.  Beyond the database compatibility level, a disabled or enabled trace flag 4199 or a changed state of the database-scoped configuration QUERY_OPTIMIZER_HOTFIXES can also influence query execution plan choices at compile time.  Trace flags 9481 (force legacy CE) and 2312 (force default CE) also affect the plan. 
 
@@ -228,7 +231,6 @@ The chart near the beginning of this article shows that the most common waits ar
 > For a set of T-SQL queries that use DMVs to troubleshoot waiting-related problems, see:
 >
 > - [Identify I/O performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
-> - [Identify TempDB performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identify memory grant waits](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
 > - [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
