@@ -26,9 +26,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure ML?
-            url: overview-what-is-azure-ml.md
+            url: service/overview-what-is-azure-ml.md
           - text: Architecture and concepts
-            url: concept-azure-machine-learning-architecture.md
+            url: service/concept-azure-machine-learning-architecture.md
             
   # PYTHON
   - title: Code with Python
@@ -36,17 +36,17 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Create your first ML experiment
-            url: tutorial-1st-experiment-sdk-setup.md
+            url: service/tutorial-1st-experiment-sdk-setup.md
       - linkListType: tutorial
         links:
           - text: Train image classification models
-            url: tutorial-train-models-with-aml.md                     
+            url: service/tutorial-train-models-with-aml.md                     
           - text: Predict taxi fares with automated ML
-            url: tutorial-auto-train-models.md  
+            url: service/tutorial-auto-train-models.md  
       - linkListType: how-to-guide
         links:
           - text: Train image classification models
-            url: tutorial-train-models-with-aml.md     
+            url: service/tutorial-train-models-with-aml.md     
 
   # VISUAL INTERFACE
   - title: Use the visual interface for ML
@@ -54,19 +54,19 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Train your first automated ML experiment
-            url: tutorial-first-experiment-automated-ml.md
+            url: service/tutorial-first-experiment-automated-ml.md
           - text: Train your first visual interface experiment
-            url: ui-tutorial-automobile-price-train-score.md
+            url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
         links:
           - text: Predict a car's price
-            url: ui-sample-regression-predict-automobile-price-basic.md                 
+            url: service/ui-sample-regression-predict-automobile-price-basic.md                 
           - text: Predict credit risk
-            url: ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
+            url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
           - text: Predict flight delays
-            url: ui-sample-classification-predict-flight-delay.md
+            url: service/ui-sample-classification-predict-flight-delay.md
           - text: Predict churn & upsell
-            url: ui-sample-classification-predict-churn.md     
+            url: service/ui-sample-classification-predict-churn.md     
 
   # MLOps
   - title: Deploy & manage models (MLOps)
@@ -74,17 +74,17 @@ landingContent:
       - linkListType: overview
         links:
           - text: 'MLOps'
-            url: concept-model-management-and-deployment.md
+            url: service/concept-model-management-and-deployment.md
       - linkListType: how-to-guide
         links:
           - text: How & where to deploy ML models
-            url: how-to-deploy-and-where.md
+            url: service/how-to-deploy-and-where.md
           - text: Request-response model consumption
-            url: how-to-consume-web-service.md
+            url: service/how-to-consume-web-service.md
           - text: Batch predictions with ML pipelines
-            url: how-to-run-batch-predictions.md
+            url: service/how-to-run-batch-predictions.md
           - text: Troubleshoot deployments
-            url: how-to-troubleshoot-deployment.md
+            url: service/how-to-troubleshoot-deployment.md
 
   # Reference
   - title: Reference
