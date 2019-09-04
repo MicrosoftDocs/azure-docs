@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/03/2019
+  ms.date: 09/04/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -40,9 +40,9 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Command-Line PowerShell modules
+          - text: PowerShell modules
             url: powershell-module.md
-          - text: Algorithm & Module reference
+          - text: Algorithm & modules
             url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
           - text: REST management APIs
             url: https://docs.microsoft.com/rest/api/machinelearning/
@@ -50,11 +50,11 @@ landingContent:
             url: web-service-error-codes.md
 
   # MORE
-  - title: Other Azure ML technologies
+  - title: More Azure ML technologies
     linkLists:
       - linkListType: reference
         links:
           - text: Azure Machine Learning service
             url: /azure/machine-learning/
-          - text: Azure Data Science Virtual Machine
+          - text: Data Science Virtual Machine
             url: /azure/machine-learning/data-science-virtual-machine
