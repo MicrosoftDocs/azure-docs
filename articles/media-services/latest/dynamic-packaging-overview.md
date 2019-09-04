@@ -45,6 +45,8 @@ You can use these delivery protocols for your content in Media Services dynamic 
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
+If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
+
 ## To take advantage of Dynamic Packaging
 
 To take advantage of **Dynamic Packaging**, you need to have an [Asset](assets-concept.md) with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to [encode your mezzanine (source) file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
