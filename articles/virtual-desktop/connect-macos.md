@@ -6,8 +6,8 @@ author: helohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.author: btaintor
+ms.date: 09/04/2019
+ms.author: helohr
 ---
 # Connect from macOS
 
