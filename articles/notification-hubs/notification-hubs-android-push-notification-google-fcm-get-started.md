@@ -521,7 +521,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     ```
 14. Ensure you have a virtual device for running the app. If you do not have one, add one as follows:
     ![Open device manager](./media/notification-hubs-android-push-notification-google-fcm-get-started/open-device-manager.png)
-    ![Create virtual device](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.png)
+    ![Create virtual device](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.PNG)
 
 15. Run the app on your selected device and verify that it registers successfully with the hub.
 
