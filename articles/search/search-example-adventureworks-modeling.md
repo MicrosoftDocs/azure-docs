@@ -12,7 +12,7 @@ ms.author: heidist
 ---
 # Example: Model the AdventureWorks Inventory database for Azure Search
 
-Azure Search accepts a flattened rowset as inputs to the [indexing (data ingestion) pipeline](search-what-is-an-index.md). If your source data originates from a relational database, this article demonstrates one approach for creating a flattened rowset, using the AdventureWorks sample database as an example.
+Azure Search accepts a flattened rowset as inputs to the [indexing (data ingestion) pipeline](search-what-is-an-index.md). If your source data originates from a SQL Server relational database, this article demonstrates one approach for creating a flattened rowset prior to indexing, using the AdventureWorks sample database as an example.
 
 ## About AdventureWorks
 
@@ -38,7 +38,7 @@ Resolving this issue is not as simple as moving the target index to the ProductM
 
 ## Use a Collection data type
 
-The "correct approach" is to utilize a search-schema feature that does not have a direct parallel in the database model: **Collection(Edm.String)**. A Collection data type is used when you have a list of individual strings, rather than a very long (single) string. If you have tags or keywords, you would use a Collection data type for this field.
+The "correct approach" is to utilize a search-schema feature that does not have a direct parallel in the database model: **Collection(Edm.String)**. This construct is defined in the Azure Search index schema. A Collection data type is used when you need to represent a list of individual strings, rather than a very long (single) string. If you have tags or keywords, you would use a Collection data type for this field.
 
 By defining multi-value index fields of **Collection(Edm.String)** for "color", "size", and "image", the ancillary information is retained for faceting and filtering without polluting the index with duplicate entries. Similarly, apply aggregate functions to the numeric Product fields, indexing **minListPrice** instead of every single product **listPrice**.
 
@@ -159,5 +159,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [Example: Multi-level facet taxonomies in Azure Search](search-example-adventureworks-multilevel-faceting.md)
-
-
