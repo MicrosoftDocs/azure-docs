@@ -32,7 +32,7 @@ To find the variable pricing for a VM size, within a specific region, use.....
 
 ## Use the Azure CLI
 
-The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [getting started article](quick-create-cli.md). Just add the '--Priority' parameter and set it to *Spot*:
+The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [getting started article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--Priority' parameter and set it to *Spot*:
 
 ```azurecli
 az vm create \
