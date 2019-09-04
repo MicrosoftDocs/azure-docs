@@ -78,6 +78,7 @@ landingContent:
           - text: Predict automobile prices with linear regression
             url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
+        links:
           - text: 'Predict credit risk'
             url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
           - text: 'Predict delays'
