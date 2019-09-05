@@ -22,16 +22,16 @@ productDirectory:
       links:
         - url: ./service/overview.md
           text: What is Azure Blockchain Service?
-        - url: ./service/consortium.md
-          text: Using Private consortium
-    - title: Azure Blockchain Workbench
+      footerLink:
+        url: https://docs.microsoft.com/azure/blockchain/service
+        text: See more
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
         - url: ./workbench/overview.md
           text: What is Azure Blockchain Workbench?
-        - url: ./workbench/deploy.md
-          text: Deploy Azure Blockchain Workbench
-
+      footerLink:
+        url: https://docs.microsoft.com/azure/blockchain/workbench
+        text: See more
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
