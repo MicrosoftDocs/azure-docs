@@ -1,7 +1,6 @@
 ---
 title: Manage remote on-premises resources using PowerShell Azure Functions
 description: Shows how to configure App Service Hybrid Connections to work with PowerShell functions
-services: functions
 author: eamono
 manager: gailey777
 
