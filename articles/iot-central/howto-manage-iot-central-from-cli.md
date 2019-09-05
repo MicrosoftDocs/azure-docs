@@ -63,6 +63,9 @@ These commands first create a resource group in the east US region for the appli
 | iotc-demo@1.0.0          | Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
 | iotc-devkit-sample@1.0.0 | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
 
+> [!NOTE]
+> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
+
 ## View your applications
 
 Use the [az iotcentral app list](/cli/azure/iotcentral/app#az-iotcentral-app-list) command to list your IoT Central applications and view metadata.
