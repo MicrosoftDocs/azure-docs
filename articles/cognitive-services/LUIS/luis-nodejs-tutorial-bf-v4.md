@@ -214,6 +214,8 @@ The bot emulator needs access to your LUIS resource in order to provide detailed
 
     ![Open **Advanced edit**, to see the value for each setting.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
 
+<a name="ask-bot-a-question-for-the-book-flight-intent"></a>
+
 ## Use the bot emulator to test the bot
 
 Ask bot a question for the Book Flight intent.
