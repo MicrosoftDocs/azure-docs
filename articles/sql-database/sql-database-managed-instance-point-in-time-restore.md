@@ -204,7 +204,7 @@ DROP DATABASE WorldWideImporters;
 
 Use one of the following methods to connect to your managed instance database: 
 
-- [VM method](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [SQL virtual machine](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Public endpoint](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
@@ -249,7 +249,7 @@ ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Use one of the following methods to connect to your managed instance database: 
 
-- [VM method](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [SQL virtual machine](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Public endpoint](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
