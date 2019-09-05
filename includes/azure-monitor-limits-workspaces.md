@@ -47,8 +47,7 @@ ms.custom: "include file"
 
 | Category | Limits | Comments |
 |:---|:---|:---|
-| Maximum records returned for non-aggregated data | 5,000 | |
-| Maximum records for aggregated data | 500,000 | Aggregated data is a search that includes the `summarize` command. |
+| Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
 | Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
 | Maximum request rate | 200 requests per 30 seconds per AAD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
@@ -59,7 +58,7 @@ ms.custom: "include file"
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 500 | |
-| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
+| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of October, 2019. |
 | Data export | Not currently available | Use Azure Function or Logic App to aggregate and export data. | 
 
 >[!NOTE]
