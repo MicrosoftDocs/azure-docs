@@ -58,13 +58,11 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     | Vision                      | Speech                  | Language                          | Decision             | Search                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
-    | [Computer vision]()         | [Speech Services]()     | [Immersive reader]()              | [Anomaly Detector]() | [Bing Search API V7]() |
-    | [Computer vision service]() | [Speaker Recognition]() | [Language Understanding (LUIS)]() | [Immersive reader]() | [Bing Custom Search]() |
-    | [Face]()                    |                         | [QnA Maker]()                     | [Personalizer]()     | [Bing Entity Search]() |
-    | [Form Recognizer]()         |                         | [Text Analytics]()                |                      | [Bing Spell Check]()   |
-    | [Ink Recognizer]()          |                         | [Translator Text]()               |                      |                        |
-    | [Video Indexer]()           |                         |                                   |                      |                        |
-
+    | [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Immersive reader]()              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Speaker Recognition](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [Immersive reader]() | [Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/CognitiveServices_MP)     | [Bing Entity Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
+    | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)                    | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
     To see all available cognitive services in the portal, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
 
