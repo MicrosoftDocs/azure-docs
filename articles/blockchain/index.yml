@@ -22,8 +22,8 @@ productDirectory:
       links:
         - url: ./service/overview.md
           text: What is Azure Blockchain Service?
-        - url: ./service/create-member.md
-          text: Create an Azure Blockchain Service blockchain member
+        - url: ./service/consortium.md
+          text: Using Private consortium
     - title: Azure Blockchain Workbench
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
@@ -31,6 +31,36 @@ productDirectory:
           text: What is Azure Blockchain Workbench?
         - url: ./workbench/deploy.md
           text: Deploy Azure Blockchain Workbench
+
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  title: Get started with Azure Blockchain Service
+  items:
+    - title: Deploy
+      links:
+        - url: ./service/create-member.md
+          itemType: quickstart
+          text: Create an Azure Blockchain Service blockchain member using the portal
+        - url: ./service/create-member-cli.md
+          itemType: quickstart
+          text: Create an Azure Blockchain Service blockchain member using Azure CLI
+    # Card
+    - title: Connect
+      links:
+        - url: ./service/connect-metamask.md
+          itemType: quickstart
+          text: Use MetaMask to connect and deploy a smart contract
+    - title: Use
+      links:
+        - url: ./service/send-tranasaction.md
+          itemType: tutorial
+          text: Use smart contracts on Azure Blockchain Service
+    - title: Manage
+      links:
+        - url: ./service/configure-transaction-nodes.md
+          itemType: how-to-guide
+          text: Configure transaction nodes
 
 additionalContent:
   sections:
