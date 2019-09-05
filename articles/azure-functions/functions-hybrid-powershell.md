@@ -178,7 +178,7 @@ Click Save and run to test the function
 
 ## Managing other systems on-premises from the hybrid connection server
 
-You can use the hybrid connection server to connect to other servers and management systems in the local environment. This enables management of your data center operations from Azure Functions using PowerShell. The below script registers a PowerShell configuration session that runs under supplied credentials. These credentials need to be an administrator on the remote servers. You can then use this configuration to access other endpoints in the local data center.
+You can use the connected on-premises server to connect to other servers and management systems in the local environment. This lets you manage your data center operations from Azure using your PowerShell functions. The following script registers a PowerShell configuration session that runs under the supplied credentials. These credentials need to be an administrator on the remote servers. You can then use this configuration to access other endpoints in the local server or data center.
 
 ```powershell
 # Input bindings are passed in via param block.
