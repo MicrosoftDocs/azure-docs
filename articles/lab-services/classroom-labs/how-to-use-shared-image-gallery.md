@@ -30,14 +30,14 @@ After a shared image gallery is attached, a lab account admin or a teacher can s
 1. On the home page for the lab, select **Save image** on the tile in the **Template** section.
 
     ![Save image button](../media/how-to-use-shared-image-gallery/save-image-button.png)
-2.  In the **Save virtual machine iamge** window, enter a name for the image, and select **Save**. 
+2.  In the **Save virtual machine image** window, enter a name for the image, and select **Save**. 
 
     ![Save virtual machine image window](../media/how-to-use-shared-image-gallery/save-virtual-machine-image.png)
 3. Check the status on the lab tile. 
 
     ![Status of the save image operation](../media/how-to-use-shared-image-gallery/save-image-status.png)
 
- You can also upload upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
+ You can also upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
 
 ## Use an image from the shared image gallery
 A teacher/professor can pick a custom image available in the shared image gallery for the template during new lab creation.
