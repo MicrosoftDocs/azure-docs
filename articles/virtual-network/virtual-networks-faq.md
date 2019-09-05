@@ -37,7 +37,7 @@ Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtu
 Yes. You can use a VNet without connecting it to your premises. For example, you could run Microsoft Windows Server Active Directory domain controllers and SharePoint farms solely in an Azure VNet.
 
 ### Can I perform WAN optimization between VNets or a VNet and my on-premises data center?
-Yes. You can deploy a [WAN optimization network virtual appliance](https://azure.microsoft.com/marketplace/?term=wan+optimization) from several vendors through the Azure Marketplace.
+Yes. You can deploy a [WAN optimization network virtual appliance](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) from several vendors through the Azure Marketplace.
 
 ## Configuration
 
