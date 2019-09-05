@@ -79,7 +79,7 @@ Steps to add the RBAC roles:
 
 ## Add a new NFS storage target
 
-An NFS storage target has some extra fields to specify how to reach the storage export and how to efficiently cache its data. Also, you can create multiple storage targets from one NFS host if it has more than one export available.
+An NFS storage target has some extra fields to specify how to reach the storage export and how to efficiently cache its data. Also, you can create multiple namespace paths from one NFS host if it has more than one export available.
 
 ![Screenshot of add storage target page with NFS target defined](media/hpc-cache-add-nfs-target.png)
 
@@ -99,11 +99,11 @@ For each export, fill in these values:
 
 * **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
-  The virtual path should start with a slash ``/``.
+<!--  The virtual path should start with a slash ``/``. -->
 
 * **NFS export path** - Enter the path to the NFS export.
 
-* **Subdirectory path** - If you want to mount a specific subdirectory of the export, enter it here. If not, enter a slash (``/``).
+* **Subdirectory path** - If you want to mount a specific subdirectory of the export, enter it here. If not, leave this field blank. 
 
 When finished, click **OK** to add the storage target.
 

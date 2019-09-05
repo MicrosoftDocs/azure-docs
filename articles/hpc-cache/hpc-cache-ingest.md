@@ -16,7 +16,7 @@ This article explains the best ways to move data to Blob storage for use with Az
 
 Keep these facts in mind:
 
-* Azure HPC Cache uses a specialized storage format to store and reference data in Blob storage. This is why a Blob storage target must either be a new, empty container or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud filesystem.)
+* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud filesystem.)
 
 * Copying data through the Azure HPC Cache is best when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
 
@@ -53,7 +53,7 @@ If you don't want to use the Avere CLFSLoad utility, or if you want to add a lar
 
 ![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to Blob storage.](media/hpc-cache-parallel-ingest.png) 
 
-The ``cp`` or ``copy`` commands that are commonly used to using to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cluster’s resources.
+The ``cp`` or ``copy`` commands that you typically use to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cluster’s resources.
 
 This section explains strategies for creating a multi-client, multi-threaded file copying system to move data to Blob storage with Azure HPC Cache. It explains file transfer concepts and decision points that can be used for efficient data copying using multiple clients and simple copy commands.
 

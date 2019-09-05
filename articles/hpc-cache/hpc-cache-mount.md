@@ -19,7 +19,7 @@ Use the mount addresses listed on the cache overview page and the virtual namesp
 > [!NOTE] 
 > The cache mount addresses correspond to network interfaces inside the cache's subnet. These NICs appear in the resource group with names ending in `-cluster-nic-` and a number. Do not alter or delete these interfaces, or the cache will become unavailable.
 
-The storage targets paths are shown in the Storage Targets page. 
+The virtual namespace paths are shown in the **Storage targets** page. 
 ![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/storage-target-path.png)
 
 ## Mount command syntax

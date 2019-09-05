@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
@@ -19,20 +19,20 @@ When you add a storage target, you set the client-facing filepath. Client machin
 
 Plan your aggregated namespace so that client machines can conveniently reach the information they need, and administrators and workflow engineers can easily distinguish the paths.
 
-For example, consider a system where an Azure HPC Cache instance is being used to process data stored in Azure Blob based on template data stored at another site. 
+For example, consider a system where an Azure HPC Cache instance is being used to process data stored in Azure Blob. The analysis requires template files that are stored in an on-premises datacenter.
 
-The template data is stored in an on-premises datacenter. The template data needed is in subdirectories: 
+The template data is stored in a datacenter, and the information needed for this job is stored in these subdirectories:
 
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-The storage system exposes these exports: 
+The datacenter storage system exposes these exports: 
 
     /
     /goldline
     /goldline/templates
 
-The data to be analyzed is copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload)).
+The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload)).
 
 To allow easy access through the cache, consider creating storage targets with these virtual namespace paths:
 
