@@ -1,7 +1,7 @@
 ---
 title:  Troubleshoot Azure VM connectivity problems
 author: TobyTu
-ms.author: Lin.Gen,kaushika 
+ms.author: Lin.Gen
 manager: dcscontentpm 
 audience: ITPro  
 ms.topic: article  
