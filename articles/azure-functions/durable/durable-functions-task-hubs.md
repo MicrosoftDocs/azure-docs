@@ -116,7 +116,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### Javascript
+### JavaScript
 
 The task hub property in the `function.json` file is set via App Setting:
 ```json
