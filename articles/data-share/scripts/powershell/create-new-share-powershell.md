@@ -38,7 +38,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShare](/powershell/module/az.resources/new-azdatashare) | Creates a data share. |
+| [New-AzDataShare](/powershell/module/az.datashare/new-azdatashare?view=azps-2.6.0) | Creates a data share. |
 |||
 
 ## Next steps
