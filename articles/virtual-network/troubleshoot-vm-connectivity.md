@@ -250,6 +250,6 @@ Follow these steps to check the state of the NIC:
     > After you make this selection, the **ProvisioningState** is displayed as **Updating**. The same result is shown on the regular Azure Resource Manager portal. If the operation is completed successfully, the **ProvisioningState** value changes to **Succeeded**, as shown.
 10. Refresh your portal. The network adapter should be in a success state.
 
-#### Step 2: Follow [Step 4](#step-4-perform-connectivity-check) to run a connectivity check.
+#### Step 2: Follow [Step 4](#step-4-perform-a-connectivity-check) to run a connectivity check.
 
 #### Step 3: Refer the table under [Step 5](#step-5-fix-the-issue-in-the-connectivity-check-result), and follow the steps to resolve the issues.
