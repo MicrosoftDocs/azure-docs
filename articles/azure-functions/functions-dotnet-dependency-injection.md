@@ -10,7 +10,7 @@ keywords: azure functions, functions, serverless architecture
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/28/2019
+ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
 ---

@@ -37,7 +37,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.resources/get-azdatashareinvitation) | Get and list sent data share invitations. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Get and list sent data share invitations. |
 |||
 
 ## Next steps
