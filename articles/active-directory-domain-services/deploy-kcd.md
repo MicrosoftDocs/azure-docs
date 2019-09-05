@@ -22,7 +22,7 @@ This article shows you how to configure resource-basd Kerberos constrained deleg
 
 ## Prerequisites
 
-To complete this tutorial, you need the following resources:
+To complete this article, you need the following resources:
 
 * An active Azure subscription.
     * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -58,7 +58,7 @@ In this scenario, let's assume you have a web app that runs on the computer name
     > [!NOTE]
     > The computer accounts for the web app and the web API must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for a computer account in the built-in *AAD DC Computers* container.
 
-1. Finally, configure resource-based KCD using the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet:
+1. Finally, configure resource-based KCD using the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet. From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets. Provide your own computer names as needed:
     
     ```powershell
     $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
@@ -76,7 +76,7 @@ In this scenario, let's assume you have a web app that runs as a service account
     > [!NOTE]
     > Again, the computer account for the web API VM, and the service account for the web app, must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for accounts in the built-in *AAD DC Computers* or *AAD DC Users* containers. This also means that you can't use user accounts synchronized from Azure AD to set up resource-based KCD. You must create and use service accounts specifically created in Azure AD DS.
 
-1. Finally, configure resource-based KCD using the [Set-ADUser][Set-ADUser] PowerShell cmdlet:
+1. Finally, configure resource-based KCD using the [Set-ADUser][Set-ADUser] PowerShell cmdlet. From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets. Provide your own service names as needed:
 
     ```powershell
     $ImpersonatingAccount = Get-ADUser -Identity appsvc
@@ -85,8 +85,7 @@ In this scenario, let's assume you have a web app that runs as a service account
 
 ## Next steps
 
-* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
-* [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx)
+To learn more about how delegation works in Active Directory Domain Services, see [Kerberos Constrained Delegation Overview][kcd-technet].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
@@ -96,3 +95,6 @@ In this scenario, let's assume you have a web app that runs as a service account
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
 [Set-ADUser]: /powershell/module/addsadministration/set-aduser
+
+<!-- EXTERNAL LINKS -->
+[kcd-technet]: https://technet.microsoft.com/library/jj553400.aspx
