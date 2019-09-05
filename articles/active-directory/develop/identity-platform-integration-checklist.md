@@ -74,6 +74,7 @@ Use the following checklist to ensure that your application is effectively integ
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Use modern authentication solutions (OAuth 2.0, [OpenID Connect](v2-protocols-oidc.md)) to securely sign in users. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don’t implement the protocols yourself – use [Microsoft-supported authentication libraries](reference-v2-libraries.md) (MSAL, server middleware). Make sure you're using the latest version of the authentication library that you've integrated with. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If the data your app requires is available through [Microsoft Graph](https://developer.microsoft.com/graph), request permissions for this data using the Microsoft Graph endpoint rather than the individual API. |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |Don't look at the access token value, or attempt to parse it as a client.  They can change values, formats, or even become encrypted without warning - always use the id_token if your client needs to learn something about the user, or call Microsoft Graph.  Only web APIs should parse access tokens (since they are the ones defining the format and setting the encryption keys). |
 
 ### End-user experience
 
