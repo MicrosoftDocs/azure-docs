@@ -11,7 +11,8 @@ ms.author: aahi
 You can access Azure Cognitive Services through two different resources: A multi-service resource, or a single-service one.
 
 * Multi-service resource:
-    * Use a single key for most Azure Cognitive Services.
+    * Access multiple Azure Cognitive Services with a single key and endpoint.
+    * Consolidates billing from the services you use.
 * Single-service resource:
-    * Enables access to a specified cognitive service. 
+    * Access a single Azure Cognitive Service with a unique key and endpoint for each service created. 
     * Use the free tier to try out the service.   

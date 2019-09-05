@@ -56,35 +56,15 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     
     Use the below links to create a resource for the available Cognitive Services:
 
-    * Vision
-        * [Computer vision]()
-        * [Computer vision service]()
-        * [Face]()
-        * [Form Recognizer]()
-        * [Ink Recognizer]()
-        * [Video Indexer]()
-    
-    * Speech
-        * [Speech Services]()
-        * [Speaker Recognition]()
-        * [Video Indexer]()
-    
-    * Language
-        * [Immersive reader]()
-        * [Language Understanding (LUIS)]()
-        * [QnA Maker]()
-        * [Text Analytics]()
-        * [Translator Text]()
-    
-    * Decision
-        * [Anomaly Detector]()
-        * [Immersive reader]()
-        * [Personalizer]()
-    * Search
-        * [Bing Search API V7]()
-        * [Bing Custom Search]()
-        * [Bing Entity Search]()
-        * [Bing Spell Check]()
+    | Vision                      | Speech                  | Language                          | Decision             | Search                 |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
+    | [Computer vision]()         | [Speech Services]()     | [Immersive reader]()              | [Anomaly Detector]() | [Bing Search API V7]() |
+    | [Computer vision service]() | [Speaker Recognition]() | [Language Understanding (LUIS)]() | [Immersive reader]() | [Bing Custom Search]() |
+    | [Face]()                    |                         | [QnA Maker]()                     | [Personalizer]()     | [Bing Entity Search]() |
+    | [Form Recognizer]()         |                         | [Text Analytics]()                |                      | [Bing Spell Check]()   |
+    | [Ink Recognizer]()          |                         | [Translator Text]()               |                      |                        |
+    | [Video Indexer]()           |                         |                                   |                      |                        |
+
 
     To see all available cognitive services in the portal, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
 
@@ -127,11 +107,11 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
 ## Get the keys for your resource
 
-After your resource is successfully deployed, click on **Next Steps** in the deployment window, then **Go to resource**.
+After your resource is successfully deployed, click on **Go to resource** under **Next Steps**.
 
 ![Search for Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-From the quickstart pane that opens, you can access your endpoint and key.
+From the quickstart pane that opens, you can access your key and endpoint.
 
 ![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
