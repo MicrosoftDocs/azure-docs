@@ -138,6 +138,8 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname --dest
 
 For detailed explanation of available parameters, see [managed instance CLI](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore). 
 
+---
+
 ## Restore a deleted database 
  
 Restoring a deleted database can only be done with PowerShell. The database can be restored to the same instance, or another instance. 
@@ -228,6 +230,8 @@ Use the following Azure CLI command to drop an existing database from a managed 
 ```azurecli-interactive
 az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 ```
+---
+
 
 
 ### ALTER new database name with original 
