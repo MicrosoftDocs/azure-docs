@@ -57,7 +57,7 @@ To filter by values in the data fields and specify the comparison operator, use 
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
 * value or values - The value or values to compare to the key.
 
-**A single filter with multiple values** constitutes an **OR**, so the value of the key field must be one of these values. Here is an example:
+If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
 
 ```json
 "advancedFilters": [
@@ -71,7 +71,8 @@ To filter by values in the data fields and specify the comparison operator, use 
     }
 ]
 ```
-Alternatively, **multiple different filters** constitute an **AND**, so each filter condition must be met. Here is an example: 
+
+If you specify multiple different filters, an **AND** operation is performed, so each filter condition must be met. Here is an example: 
 
 ```json
 "advancedFilters": [
