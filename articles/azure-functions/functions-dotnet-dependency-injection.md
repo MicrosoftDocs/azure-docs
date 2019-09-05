@@ -66,7 +66,7 @@ namespace MyNamespace
 
 ## Use injected dependencies
 
-ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
+ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. 
 
 ```csharp
 using System;
@@ -107,7 +107,7 @@ namespace MyNamespace
 }
 ```
 
-The use of constructor injection means that you should not use static functions if you want to take advantage of dependency injection.
+The use of constructor injection means that you should not use static functions if you want to take advantage of dependency injection. For cosmos client refer [this](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/CodeSamples/AzureFunctions/AzureFunctionsCosmosClient.cs).
 
 ## Service lifetimes
 

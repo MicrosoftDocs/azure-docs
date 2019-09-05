@@ -13,8 +13,6 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 
 ---
-
-
 # Using the Geo Artificial Intelligence Data Science Virtual Machine
 
 Use the Geo AI Data Science VM to fetch data for analysis, perform data wrangling, and build models for AI applications that consume geospatial information. After you've provisioned your Geo AI Data Science VM and signed in to ArcGIS Pro through your ArcGIS account, you can start interacting with ArcGIS desktop and ArcGIs online. You can also access ArcGIS from Python interfaces and an R language bridge that's preconfigured on the Geo-Data Science VM. To build rich AI applications, combine the Geo-Data Science VM with the machine-learning and deep-learning frameworks and other data science software that are available on it.  
@@ -47,4 +45,3 @@ In addition to the machine-learning and deep-learning framework-based samples fr
 Additional samples that use the Data Science VM are available here:
 
 * [Samples](dsvm-samples-and-walkthroughs.md)
-
