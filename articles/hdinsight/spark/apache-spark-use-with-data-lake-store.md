@@ -1,6 +1,6 @@
 ---
 title: Use Apache Spark to analyze data in Azure Data Lake Storage Gen1
-description: Run Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
+description: Run Apache Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
