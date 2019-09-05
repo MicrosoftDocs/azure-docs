@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -125,7 +125,9 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
+| dataset | Name of the Google BigQuery dataset. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table. This property is supported for backward compatibility. For new workload, use `dataset` and `table`. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -134,11 +136,12 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
     "name": "GoogleBigQueryDataset",
     "properties": {
         "type": "GoogleBigQueryObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

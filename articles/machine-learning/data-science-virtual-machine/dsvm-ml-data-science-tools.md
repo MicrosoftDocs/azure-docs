@@ -20,15 +20,16 @@ Here are some of the ML tools and libraries on Data Science Virtual Machines.
 
 ## Azure Machine Learning SDK for Python
 See the full reference for the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml).
+
 |    |           |
 | ------------- | ------------- |
-| What is it?   |   Azure Machine Learning is a cloud service that you can use to develop and deploy ML models. You can track your models as you build, train, scale, and manage them by using the Python SDK. Deploy models as containers and run them in the cloud, on-premises, or on Azure IoT Edge.   |
-| Supported editions     | Windows (conda environment: AzureML), Linux (conda environment: py36)    |
-| Typical uses      | General ML platform      |
-| How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As Python SDK and Azure CLI. Activate to the conda environment `AzureML` on Windows edition *or* to `py36` on Linux edition.      |
-| Link to samples      | Sample Jupyter notebooks are included in the `AzureML` directory under notebooks.  |
-| Related tools      | Visual Studio Code, Jupyter   |
+| What is it? |   Azure Machine Learning is a cloud service that you can use to develop and deploy ML models. You can track your models as you build, train, scale, and manage them by using the Python SDK. Deploy models as containers and run them in the cloud, on-premises, or on Azure IoT Edge. |
+| Supported editions  | Windows (conda environment: AzureML), Linux (conda environment: py36) |
+| Typical uses      | General ML platform  |
+| How is it configured or installed? |  Installed with GPU support |
+| How to use or run it | As Python SDK and Azure CLI. Activate to the conda environment `AzureML` on Windows edition *or* to `py36` on Linux edition.  |
+| Link to samples | Sample Jupyter notebooks are included in the `AzureML` directory under notebooks.  |
+| Related tools  | Visual Studio Code, Jupyter   |
 
 ## XGBoost 
 |    |           |
