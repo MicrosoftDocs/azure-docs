@@ -185,52 +185,45 @@ In order to develop the web app bot code, download the code and use on your loca
 ## Install dependencies and start the bot code in Visual Studio
 
 1. In VSCode, from the integrated terminal, install dependencies with the command `npm install`.
-1. Also from the integrated terminal, start the bot with the command `npm start`. 
+1. Also from the integrated terminal, start the bot with the command `npm start`. This begins a web app for your bot with an HTTP endpoint. The console provides the URL and port number to access the running website. You need the port number in the next section of this tutorial.
 
+    ```console
+    > core-bot@1.0.0 start C:\Users\diberry\repos\bots\2019-bot-nodejs-basic
+    > node ./index.js
+    
+    
+    restify listening to http://[::]:3978
+    
+    Get Bot Framework Emulator: https://aka.ms/botframework-emulator
+    ```
+
+## Create an environment file and add LUIS values
+
+The bot emulator needs access to your LUIS resource in order to provide detailed LUIS results.
+
+1. In the root of the project, create a file named `.env` and add the following environment variables:
+
+    ```console
+    LuisAppId= 
+    LuisAPIKey=
+    LuisAPIHostName=
+    ```
+
+1. From the Azure portal, for your bot resource, open the App Service's Configuration Settings for the application.
+1. Open **Advanced edit**, to see the value for each setting.
+
+    ![Open **Advanced edit**, to see the value for each setting.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
 
 ## Use the bot emulator to test the bot
 
+Ask bot a question for the Book Flight intent.
+
 1. Begin the Bot Emulator and select **Open Bot**.
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
-1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **.env** file in the root of the bot code you downloaded.
-
-    Optionally, you can create a new bot configuration and copy the `MicrosoftAppId` and `MicrosoftAppPassword` from the **.env** file in the Visual Studio project for the bot. The name of the bot configuration file should be the same as the bot name. 
-
-    ```json
-    {
-        "name": "<bot name>",
-        "description": "<bot description>",
-        "services": [
-            {
-                "type": "endpoint",
-                "appId": "<appId from .env>",
-                "appPassword": "<appPassword from .env>",
-                "endpoint": "http://localhost:3978/api/messages",
-                "id": "<don't change this value>",
-                "name": "http://localhost:3978/api/messages"
-            }
-        ],
-        "padlock": "",
-        "version": "2.0",
-        "overrides": null,
-        "path": "<local path to .bot file>"
-    }
-    ```
 
 1. In the bot emulator, enter `Book a flight from Seattle to Berlin tomorrow` and get the same response for the basic bot as you received in the **Test in Web Chat**.
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
-
-
-## Ask bot a question for the Book Flight intent
-
-1. In the bot emulator, book a flight by entering the following utterance: 
-
-    ```console
-    Book a flight from Paris to Berlin on March 22, 2020
-    ```
-
-    The bot emulator asks to confirm. 
 
 1. Select **Yes**. The bot responds with a summary of its actions. 
 1. From the log of the bot emulator, select the line that includes `Luis Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
