@@ -51,34 +51,9 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
-## Create a role assignment in Windows Virtual Desktop Preview
-
-Now that you’ve created a service principal, you can use it to sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create the role assignment.
-
-First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
-
-Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and create a role assignment for the service principal.
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
-```
-
-## Sign in with the service principal
-
-After you create a role assignment for the service principal, make sure the service principal can sign in to Windows Virtual Desktop by running the following cmdlet:
-
-```powershell
-$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
-```
-
-After you've signed in, make sure everything works by testing a few Windows Virtual Desktop PowerShell cmdlets with the service principal.
-
 ## View your credentials in PowerShell
 
-Before you end your PowerShell session, view your credentials and write them down for future reference. The password is especially important because you won’t be able to retrieve it after you close this PowerShell session.
+Before you create the role assignment for your service principal, view your credentials and write them down for future reference. The password is especially important because you won’t be able to retrieve it after you close this PowerShell session.
 
 Here are the three credentials you should write down and the cmdlets you need to run to get them:
 
@@ -99,6 +74,36 @@ Here are the three credentials you should write down and the cmdlets you need to
     ```powershell
     $svcPrincipal.AppId
     ```
+
+## Create a role assignment in Windows Virtual Desktop Preview
+
+Next, you need to create a Remote Desktop Services (RDS) role assignment so the service principal can sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create RDS role assignments.
+
+First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+
+Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your RDS tenants.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+Get-RdsTenant
+```
+
+When you find the tenant name for the tenant you want to create an RDS role assignment for, use that name in the following cmdlet:
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
+```
+
+## Sign in with the service principal
+
+After you create a role assignment for the service principal, make sure the service principal can sign in to Windows Virtual Desktop by running the following cmdlet:
+
+```powershell
+$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+```
+
+After you've signed in, make sure everything works by testing a few Windows Virtual Desktop PowerShell cmdlets with the service principal.
 
 ## Next steps
 
