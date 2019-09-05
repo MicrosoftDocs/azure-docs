@@ -245,7 +245,7 @@ Invoke-Command -ComputerName $HybridEndpoint `
                -ConfigurationName $SessionName
 ```
 
-Replace the following variables with the values you have in your environment:
+Replace these variables in the above script with the values you have in your environment:
 * $HybridEndpoint
 * $RemoteServer
 
