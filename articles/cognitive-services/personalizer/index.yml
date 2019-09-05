@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Personalizer Documentation
-summary: Learn how to use Personalizer service to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
+summary: Learn how to use Personalizer to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
 
 metadata:
   ms.topic: landing-page
