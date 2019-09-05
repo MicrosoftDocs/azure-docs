@@ -135,37 +135,40 @@ This code sample shows you how to retrieve the module twin and update reported p
 In addition to the above code, you can add below code block to get the twin update message on your device.
 
 ```python
-import random
 import time
-import sys
-import iothub_client
-from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
+import threading
+from azure.iot.device import IoTHubModuleClient
 
-PROTOCOL = IoTHubTransportProvider.AMQP
-CONNECTION_STRING = ""
+CONNECTION_STRING = "{deviceConnectionString}"
 
 
-def module_twin_callback(update_state, payload, user_context):
-    print("")
-    print("Twin callback called with:")
-    print("updateStatus: %s" % update_state)
-    print("context: %s" % user_context)
-    print("payload: %s" % payload)
-
-
-try:
-    module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
-    module_client.set_module_twin_callback(module_twin_callback, 1234)
-
-    print("Waiting for incoming twin messages.  Hit Control-C to exit.")
+def twin_update_listener(client):
     while True:
+        patch = client.receive_twin_desired_properties_patch()  # blocking call
+        print("")
+        print("Twin desired properties patch received:")
+        print(patch)
 
-        time.sleep(1000000)
+def iothub_client_sample_run():
+    try:
+        module_client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
 
-except IoTHubError as iothub_error:
-    print("Unexpected error {0}".format(iothub_error))
-except KeyboardInterrupt:
-    print("module client sample stopped")
+        twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(module_client,))
+        twin_update_listener_thread.daemon = True
+        twin_update_listener_thread.start()
+
+        while True:
+            time.sleep(1000000)
+
+    except KeyboardInterrupt:
+        print("IoTHubModuleClient sample stopped")
+
+
+if __name__ == '__main__':
+    print ( "Starting the IoT Hub Python sample..." )
+    print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+
+    iothub_client_sample_run()
 ```
 
 ## Next steps

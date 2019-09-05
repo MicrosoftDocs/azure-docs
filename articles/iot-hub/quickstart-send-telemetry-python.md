@@ -27,22 +27,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The sample application you run in this quickstart is written using Python. Currently, the Microsoft Azure IoT SDKs for Python support only specific versions of Python for each platform. To learn more, see the [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
-
-This quickstart assumes you are using a Windows development machine. For Windows systems, only [Python 3.6.x](https://www.python.org/downloads/release/python-368/) is supported. The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit, then download the x86 installer; for the 64-bit architecture, download the x86-64 installer. Additionally, make sure the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) is installed for your architecture (x86 or x64).
-
-You can download Python for other platforms from [Python.org](https://www.python.org/downloads/).
-
-You can verify the current version of Python on your development machine using one of the following commands:
-
-```python
-python - -version
-```
-
-```python
-python3 - -version
-```
-
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 ```azurecli-interactive
@@ -96,7 +80,7 @@ The simulated device application connects to a device-specific endpoint on your 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. In the local terminal window, run the following commands to run the simulated device application:
@@ -108,13 +92,7 @@ The simulated device application connects to a device-specific endpoint on your 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
     ![Run the simulated device](media/quickstart-send-telemetry-python/SimulatedDevice.png)
-    
-### To avoid the import iothub_client error
-The current version of the Azure IoT SDK for Python is a wrapper over [our C SDK](https://github.com/azure/azure-iot-sdk-c). It is generated using the [Boost](https://www.boost.org/) library. Because of that, it comes with several significant limitations. See more details [here](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)
 
-1. Check that you have the right version of [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues). Be aware that only certain versions works fine for this sample. 
-2. Check that you have the right version of C++ runtime  [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). (We recommend the latest).
-3. Verify that you have installed the iothub client: `pip install azure-iothub-device-client`.
 
 ## Read the telemetry from your hub
 
