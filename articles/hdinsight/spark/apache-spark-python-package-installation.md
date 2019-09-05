@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ---
 
-# Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight
+# Script Action to install external Python packages for Jupyter notebooks in Apache Spark on HDInsight
+
 > [!div class="op_single_selector"]
 > * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Using Script Action](apache-spark-python-package-installation.md)
