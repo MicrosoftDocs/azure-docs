@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/04/2018
 ms.author: jingwang
 
 ---
@@ -86,14 +86,16 @@ The following properties are supported for Amazon Redshift linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Amazon Redshift dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Amazon Redshift dataset.
 
-To copy data from Amazon Redshift, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from Amazon Redshift, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
-| tableName | Name of the table in the Amazon Redshift. | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to: **AmazonRedshiftTable** | Yes |
+| schema | Name of the schema. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -102,15 +104,18 @@ To copy data from Amazon Redshift, set the type property of the dataset to **Rel
     "name": "AmazonRedshiftDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "AmazonRedshiftTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Amazon Redshift linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
