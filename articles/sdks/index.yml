@@ -32,7 +32,7 @@ sections:
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="">
               <br><b>Java SDK</b></a>
               <p>Get the Azure libraries for Java</p>
-      - html: <a href="/javascript/azure/">
+      - html: <a href="/azure/javascript/">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_nodejs.svg" alt="">
               <br><b>Node SDK</b></a>
               <p>Get the Azure libraries for Node</p>
