@@ -4,7 +4,7 @@ description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
@@ -16,27 +16,27 @@ This article explains the best ways to move data to Blob storage for use with Az
 
 Keep these facts in mind:
 
-* Azure HPC Cache uses a customized filesystem to store and reference data in Blob storage. This is why a Blob storage target must either be a new, empty container or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud filesystem.)
+* Azure HPC Cache uses a specialized storage format to store and reference data in Blob storage. This is why a Blob storage target must either be a new, empty container or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud filesystem.)
 
-* Copying data through the Azure HPC Cache is best when you use multiple clients and parallel operations. A simple copy command from one client gives slow copy performance.
+* Copying data through the Azure HPC Cache is best when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
 
-A Python-based utility is available to load content onto a Blob storage container. Read [Pre-load data in Blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
+A Python-based utility is available to load content into a Blob storage container. Read [Pre-load data in Blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
 
 If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest tips in [Copy data through the Azure HPC Cache](#copy-data-through-the-azure-hpc-cache). 
 
 ## Pre-load data in Blob storage with CLFSLoad
 
-You can use the [Avere CLFSLoad](https://aka.ms/avere-clfsload) utility to copy data to a new Blob storage container before you add it as a storage target. This utility runs on a Linux VM and writes data in the proprietary format needed for Azure HPC Cache.
+You can use the [Avere CLFSLoad](https://aka.ms/avere-clfsload) utility to copy data to a new Blob storage container before you add it as a storage target. This utility runs on a Linux VM and writes data in the proprietary format needed for Azure HPC Cache. This is the most efficient way to populate a Blob storage container for use with the cache.
 
 This option works with new, empty containers only. Create the container before using Avere CLFSLoad.
 
-Detailed information is included in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload).
+Detailed information is included in the [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). <!-- caution literal link -->
 
 A general overview of the process:
 
 1. Prepare a Linux system (physical or VM) with Python version 3.6 or later. (Python 3.7 is recommended for better performance.)
 1. Install the Avere-CLFSLoad software on the Linux system.
-1. Execute the transfer from the Linux command line. 
+1. Execute the transfer from the Linux command line.
 
 The Avere CLFSLoad utility needs the following information:
 
@@ -49,7 +49,7 @@ The requirements are explained in detail in the [Avere CLFSLoad readme](https://
 
 ## Copy data through the Azure HPC Cache
 
-Because Azure HPC Cache is designed to serve multiple clients simultaneously, the most efficient way to write data to a Blob storage target is with parallel writes from multiple clients.
+If you don't want to use the Avere CLFSLoad utility, or if you want to add a large amount of data to an existing Blob storage target, you can copy it through the cache. Azure HPC Cache is designed to serve multiple clients simultaneously, so to copy data through the cache, you should use parallel writes from multiple clients.
 
 ![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to Blob storage.](media/hpc-cache-parallel-ingest.png) 
 

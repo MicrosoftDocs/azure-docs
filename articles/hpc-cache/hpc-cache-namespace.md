@@ -13,15 +13,15 @@ ms.author: v-erkell
 
 Azure HPC Cache allows clients to access a variety of storage systems through a virtual namespace that hides the details of the back-end storage system.
 
-When you add a storage target, you set the client-facing filepath. Client machines mount this filepath. You can change the storage target associated with that path, for example to replace a hardware storage system with cloud storage, without needing to rewrite client-facing procedures.
+When you add a storage target, you set the client-facing filepath. Client machines mount this filepath. You can change the storage target associated with that path. For example, you could replace a hardware storage system with cloud storage without needing to rewrite client-facing procedures.
 
 ## Aggregated namespace example
 
 Plan your aggregated namespace so that client machines can conveniently reach the information they need, and administrators and workflow engineers can easily distinguish the paths.
 
-For example, consider a system where an Azure HPC Cache instance is being used to process data stored at one site based on templates stored at another site. 
+For example, consider a system where an Azure HPC Cache instance is being used to process data stored in Azure Blob based on template data stored at another site. 
 
-The templates are stored in an on-premises datacenter. The template data needed is in subdirectories: 
+The template data is stored in an on-premises datacenter. The template data needed is in subdirectories: 
 
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
@@ -32,7 +32,7 @@ The storage system exposes these exports:
     /goldline
     /goldline/templates
 
-The data to be analyzed is in an Azure Blob storage container named "sourcecollection". 
+The data to be analyzed is copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-cflsload).
 
 To allow easy access through the cache, consider creating storage targets with these virtual namespace paths:
 
