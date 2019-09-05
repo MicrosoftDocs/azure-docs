@@ -18,9 +18,9 @@ ms.custom: mvc
 
 This quickstart shows how to use C# to programmatically create an [Enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created using the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
 
-This quickstart expects you've already created an IoT hub and Device Provisioning Service instance. If you haven't already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart before proceeding with this article.
+This quickstart expects you've already created an IoT hub and Device Provisioning Service instance. If you haven't already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart before you continue with this article.
 
-Although the steps in this article work on both Windows and Linux machines, this article is developed for a Windows development machine.
+Although the steps in this article work on both Windows and Linux computers, this article uses a Windows development computer.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test to
 
 To use this test tooling to generate certificates, do the following steps:
 
-1. Open a command prompt or Git Bash shell, and change to a working folder on your machine. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a Command Prompt window or Git Bash shell, and change to a working folder on your computer. Run the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
    ```cmd/sh
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -63,7 +63,7 @@ In addition to the tooling in the C SDK, the [Group certificate verification sam
 
 For the sample in this quickstart, you need the connection string for your provisioning service.
 
-1. Sign in to the Azure portal, select **All resources** on the left-hand menu and open your Device Provisioning Service.
+1. Sign in to the Azure portal, select **All resources** and then your Device Provisioning Service.
 
 1. Select **Shared access policies**, then choose the access policy you want to use to open its properties. In **Access Policy**, copy and note down the primary key connection string.
 
@@ -71,7 +71,7 @@ For the sample in this quickstart, you need the connection string for your provi
 
 ## Create the enrollment group sample 
 
-The steps in this section show how to create a .NET Core console app that adds an enrollment group to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the enrollment group. To learn more about developing with IoT Core, see the [Windows IoT Core developer documentation](https://docs.microsoft.com/windows/iot-core/).
+This section shows how to create a .NET Core console app that adds an enrollment group to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the enrollment group. To learn more about developing with IoT Core, see the [Windows IoT Core developer documentation](https://docs.microsoft.com/windows/iot-core/).
 
 1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** for C# project template and select **Next**.
 
@@ -85,9 +85,9 @@ The steps in this section show how to create a .NET Core console app that adds a
 
     ![NuGet Package Manager window](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
-   This procedure downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+   This step downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
-1. Add the following `using` statements after the other `using` statements at the top of the **Program.cs** file:
+1. Add the following `using` statements after the other `using` statements at the top of **Program.cs**:
 
    ```csharp
    using System.Security.Cryptography.X509Certificates;
@@ -163,7 +163,7 @@ The steps in this section show how to create a .NET Core console app that adds a
 
 ## Run the enrollment group sample
   
-Run the sample in Visual Studio to create the enrollment group. On successful creation, the command window displays the properties of the new enrollment group.
+Run the sample in Visual Studio to create the enrollment group. On successful creation, the Command Prompt window displays the properties of the new enrollment group.
 
 You can verify that the enrollment group has been created. Go to the Device Provisioning Service summary, and select **Manage enrollments**, then select **Enrollment Groups**. You should see a new enrollment entry that corresponds to the registration ID you used in the sample.
 
@@ -177,7 +177,7 @@ If you plan to explore the C# service sample, don't clean up the resources creat
 
 1. Close the C# sample output window on your computer.
 
-1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *Registration ID* for the enrollment entry you created using this quickstart and select **Delete**.
+1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select **Enrollment Groups**. Select the *Registration ID* for the enrollment entry you created using this quickstart and select **Delete**.
 
 1. From your Device Provisioning service in the Azure portal, select **Certificates**, choose the certificate you uploaded for this quickstart, and select **Delete** at the top of **Certificate Details**.  
 

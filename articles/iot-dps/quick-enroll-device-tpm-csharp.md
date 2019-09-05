@@ -35,15 +35,15 @@ This article shows how to programmatically create an individual enrollment for a
 
 For the sample in this quickstart, you need the connection string for your provisioning service.
 
-1. Sign in to the Azure portal, select on the **All resources** button on the left-hand menu and open your Device Provisioning Service.
+1. Sign in to the Azure portal, select **All resources** and then your Device Provisioning Service.
 
-1. Select **Shared access policies**, then select the access policy you want to use to open its properties. In **Access Policy**, copy and note down the primary key connection string.
+1. Choose **Shared access policies**, then select the access policy you want to use to open its properties. In **Access Policy**, copy and note down the primary key connection string.
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-tpm-csharp/get-service-connection-string-vs2019.png)
 
 ## Create the individual enrollment sample
 
-The steps in this section show how to create a .NET Core console app that adds an individual enrollment for a TPM device to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the individual enrollment. To learn more about developing with IoT Core, see [Windows IoT Core developer documentation](https://docs.microsoft.com/windows/iot-core/).
+This section shows how to create a .NET Core console app that adds an individual enrollment for a TPM device to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the individual enrollment. To learn more about developing with IoT Core, see [Windows IoT Core developer documentation](https://docs.microsoft.com/windows/iot-core/).
 
 1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** for C# project template and select **Next**.
 
@@ -57,15 +57,15 @@ The steps in this section show how to create a .NET Core console app that adds a
 
    ![NuGet Package Manager window](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
-   This procedure downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+   This step downloads, installs, and adds a reference to the [Azure IoT Provisioning Service Client SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
-1. Add the following `using` statements after the other `using` statements at the top of the **Program.cs** file:
+1. Add the following `using` statements after the other `using` statements at the top of **Program.cs**:
   
    ```csharp
    using System.Threading.Tasks;
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
-    
+
 1. Add the following fields to the **Program** class, and make the listed changes.
 
    ```csharp
@@ -138,7 +138,7 @@ The steps in this section show how to create a .NET Core console app that adds a
   
 Run the sample in Visual Studio to create the individual enrollment for your TPM device.
 
-On successful creation, the command window displays the properties of the new individual enrollment.
+On successful creation, the Command Prompt window displays the properties of the new individual enrollment.
 
 You can verify that the individual enrollment has been created. Go to the Device Provisioning Service summary, and select **Manage enrollments**, then select **Individual Enrollments**. You should see a new enrollment entry that corresponds to the registration ID you used in the sample.
 
@@ -150,7 +150,7 @@ If you've been following the steps in the [Create and provision a simulated TPM 
 
 ## Clean up resources
 
-If you plan to explore the C# service sample, don't clean up the resources created in this quickstart. otherwise, use the following steps to delete all resources created by this quickstart.
+If you plan to explore the C# service sample, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
 
 1. Close the C# sample output window on your computer.
 
