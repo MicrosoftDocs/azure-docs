@@ -14,8 +14,8 @@
       items:
       - name: Authentication
         href: authentication.md
-      - name: Cloud Storage
-        href: 
+      - name: Data Storage
+        href: data-storage.md
       - name: Real-time and Offline Data Storage
         href: 
       - name: Serverless Compute
