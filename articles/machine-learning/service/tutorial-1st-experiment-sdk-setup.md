@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 08/28/2019
 ---
 
-# Tutorial: Get started creating your first ML experiment
+# Tutorial: Get started creating your first ML experiment with the Python SDK
 
 In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure portal and the SDK.
 
