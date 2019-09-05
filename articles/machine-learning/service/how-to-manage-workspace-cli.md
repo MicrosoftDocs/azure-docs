@@ -325,4 +325,10 @@ az ml workspace delete -w <workspace-name> -g <resource-group-name>
 > [!IMPORTANT]
 > Deleting a workspace does not delete the application insight, storage account, key vault, or container registry used by the workspace.
 
+You can also delete the resource group, which deletes the workspace and all other Azure resources in the resource group. To delete the resource group, use the following command:
+
+```azurecli-interactive
+az group delete -g <resource-group-name>
+```
+
 For more information, see the [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
