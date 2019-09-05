@@ -42,7 +42,7 @@ To take advantage of Dynamic Packaging, you need to [encode](encoding-concept.md
 > [!TIP]
 > If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
 
-One way to get the MP4 files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
+One way to get the MP4 and streaming configuration files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
 
 To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you have chosen.
 
