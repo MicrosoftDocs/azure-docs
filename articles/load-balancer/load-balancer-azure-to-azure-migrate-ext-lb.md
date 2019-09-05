@@ -55,38 +55,49 @@ The following steps show how to prepare the external load balancer for the move 
 6. Choose **Download** in the **Export template** blade.
 7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template and a shell script and PowerShell script to deploy the template.
 8. To edit the parameter of the external load balancer public IP name, open the **parameters.json** file and edit the **value** property:
-    
-        ```json
-         {
-           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-           "contentVersion": "1.0.0.0",
-           "parameters": {
-           "publicIPAddresses_myPublicIP_name": {
-             "value": "null"
-          }
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_myPublicIP_name": {
+            "value": "null"
          }
-        }          
+     }
+    }
 
-        ```
+    ```
 
-9. Change the **null** value in the .json file to a name of your choice for the target external load balancer public IP. Save the parameters.json file. Ensure you enclose the name in quotes.
+9. Change the **null** value in the .json file to a name of your choice for the target external load balancer public IP. Save the **parameters.json** file. Ensure you enclose the name in quotes.
 
 10. To edit the target region where the external load balancer public IP configuration will be moved, open the **template.json** file:
 
-          ```json
-                "resources": [
-               {
-               "type": "Microsoft.Network/publicIPAddresses",
-               "apiVersion": "2019-06-01",
-               "name": "[parameters('publicIPAddresses_myPublicIP_name')]",
-               "location": "TARGET REGION",
-               "sku": {
+    ```json
+     "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('publicIPAddresses_myPublicIP_name')]",
+            "location": "TARGET REGION",
+            "sku": {
                 "name": "Standard",
                 "tier": "Regional"
-               },
-              ]
-          ```
-  
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "2a7eaf58-3b7f-4e99-9ef2-05dc6deeaf96",
+                "ipAddress": "13.86.180.137",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Static",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            }
+        }
+    ]
+
+    ```
+
 11. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
@@ -115,36 +126,37 @@ The following steps show how to prepare the external load balancer for the move 
                ] 
          ```
 
-    For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+        For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
 
     
-    * **Public IP allocation method** and **Idle time out** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle time out can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**.:
+    * **Public IP allocation method** and **Idle time out** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle time out can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
-    ```json
-            "resources": [
-              {
+        ```json
+             "resources": [
+          {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2019-06-01",
-            "name": "[parameters('publicIPAddresses_myPubIP_name')]",
-            "location": "TARGET REGION",
+            "name": "[parameters('publicIPAddresses_myPublicIP_name')]",
+            "location": "eastus",
             "sku": {
-                "name": "Basic",
+                "name": "Standard",
                 "tier": "Regional"
             },
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
-                "ipAddress": "52.177.6.204",
+                "resourceGuid": "2a7eaf58-3b7f-4e99-9ef2-05dc6deeaf96",
+                "ipAddress": "13.86.180.137",
                 "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
+                "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-              }
-             }
-            ]
-    ```
+            }
+          }
+        ] 
 
-    For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+        ```
+
+      For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
 
 13. Save the **template.json** file.
 
@@ -175,74 +187,71 @@ The following steps show how to prepare the external load balancer for the move 
 7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template and a shell script and PowerShell script to deploy the template.
 8. To edit the parameter of the external load balancer name, open the **parameters.json** file and edit the first **value** property:
 
-         ```json
-               {
-                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-                "contentVersion": "1.0.0.0",
-             "parameters": {
-                 "loadBalancers_myLoadBalancer_name": {
-                   "value": null
-              },
-               "publicIPAddresses_myPublicIP_externalid": {
-                 "value": null
-              }
-                }
-               } 
-         ```
-       
-  
+    ```json
+      {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_myLoadBalancer_name": {
+            "value": "null"
+        },
+        "publicIPAddresses_myPublicIP_externalid": {
+            "value": "null"
+           } 
+        }
+      }  
 
-9. Change the **null** value in the .json file to a name of your choice for the target public IP. Save the **parameters.json** file. Ensure you enclose the name in quotes.
+    ```
+ 
+9. Change the **null** value in the .json file to a name of your choice for the target external load balancer. Save the **parameters.json** file. Ensure you enclose the name in quotes.
 10. To edit value of the public IP external ID, you must first obtain the ID and then copy and paste it into the **parameters.json** file.  To obtain the ID, login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
 11. Locate the resource group in the **target region** that contains the public IP that you deployed above and click on it.
 12. Select **Settings** > **Properties** of the public IP.
 13. Copy the full path of the **Resource ID** of the public IP by clicking on the copy button in the properties page next to the path.
 14. In the **parameters.json** file, paste the **Resource ID** in place of the **null** value in the second **value** property, ensure you enclose the path in quotes:
 
-         ```json
-          { 
-         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-         "contentVersion": "1.0.0.0",
-          "parameters": {
-           "loadBalancers_myLoadBalancer_name": {
-            "value": "MyLoadBalancer"
-            },
-          "publicIPAddresses_myPublicIP_externalid": {
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_myLoadBalancer_name": {
+            "value": "myLoadBalancer"
+        },
+        "publicIPAddresses_myPublicIP_externalid": {
             "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-MOVE/providers/Microsoft.Network/publicIPAddresses/MyPublicIP"
-                }
-               }
-              }
-    
-         ```
-15. If you have configured outbound NAT and outbound rules for the load balancer, a third entry will be present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP:
-       
-           ```json
+        }
+      }
+    }
 
-                {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-           "contentVersion": "1.0.0.0",
-             "parameters": {
-               "loadBalancers_myLoadBalancer_name": {
-                 "value": null
-             },
-              "publicIPAddresses_myPublicIP_externalid": {
-                "value": null
-             },
-              "publicIPAddresses_myPublicIPOutbound_externalid": {
-                "value": null
-             }
-              }
-            }
+    ```
 
-           ```
+15. If you have configured outbound NAT and outbound rules for the load balancer, a third entry will be present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP and paste that entry into the **parameters.json** file:
 
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_myLoadBalancer_name": {
+            "value": "myLoadBalancer"
+        },
+        "publicIPAddresses_myPublicIP_externalid": {
+            "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-MOVE/providers/Microsoft.Network/publicIPAddresses/MyPublicIP"
+        },
+        "publicIPAddresses_myPublicIPOutbound_externalid": {
+            "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-MOVE/providers/Microsoft.Network/publicIPAddresses/myPublicIPOutbound"
+        }
+     }
+   }
+   ```
 
 16. Save the **parameters.json** file.
 17. To edit the target region where the external load balancer configuration will be moved, open the **template.json** file:
 
-         ```json
-         "resources": [
-            {
+    ```json
+    "resources": [
+        {
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2019-06-01",
             "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
@@ -251,44 +260,43 @@ The following steps show how to prepare the external load balancer for the move 
                 "name": "Standard",
                 "tier": "Regional"
             },
-         ```
-  
-17. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+    ```
+
+18. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-18. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
+19. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
     * **Sku** - You can change the sku of the external load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
 
-            ```json
-                   "resources": [
-                   {
-                  "type": "Microsoft.Network/loadBalancers",
-                  "apiVersion": "2019-06-01",
-                  "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
-                  "location": "TARGET REGION",
-                  "sku": {
+        ```json
+        "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
+            "location": "TARGET REGION",
+            "sku": {
                 "name": "Standard",
                 "tier": "Regional"
-              },
-            ```
-    For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+            },
+        ```
+      For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
-    
-                ```json
-   
-                 "loadBalancingRules": [
+
+        ```json
+        "loadBalancingRules": [
                     {
-                        "name": "myHTTPRule",
-                        "etag": "W/\"c1d4a545-9921-49ff-a8f4-823e61658788\"",
+                        "name": "myInboundRule",
+                        "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
                             },
                             "frontendPort": 80,
                             "backendPort": 80,
@@ -297,50 +305,50 @@ The following steps show how to prepare the external load balancer for the move 
                             "protocol": "Tcp",
                             "enableTcpReset": false,
                             "loadDistribution": "Default",
-                            "disableOutboundSnat": false,
+                            "disableOutboundSnat": true,
                             "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), concat('/backendAddressPools/', parameters('loadBalancers_myLoadBalancer_name'), 'BEPool'))]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/backendAddressPools/myBEPoolInbound')]"
                             },
                             "probe": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/probes/myHealthProbe')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/probes/myHTTPProbe')]"
                             }
                         }
                     }
-                ],
-    
-                ```
-    For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+                ]
+        ```
+       For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
     * **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **template.json** file:
 
-           ```json
-                 "probes": [
+        ```json
+        "probes": [
                     {
-                        "name": "myHealthProbe",
-                        "etag": "W/\"1f605658-3769-4e96-a801-b362d6429818\"",
+                        "name": "myHTTPProbe",
+                        "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "protocol": "Tcp",
+                            "protocol": "Http",
                             "port": 80,
+                            "requestPath": "/",
                             "intervalInSeconds": 15,
                             "numberOfProbes": 2
                         }
                     }
                 ],
-           ```
-    For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+        ```
+       For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balacer by adding or removing entries to the **inboundNatRules** section of the **template.json** file:
+    * **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **template.json** file:
 
-            ```json
-                   "inboundNatRules": [
-                      {
+        ```json
+        "inboundNatRules": [
+                    {
                         "name": "myInboundNATRule",
-                        "etag": "W/\"1f605658-3769-4e96-a801-b362d6429818\"",
+                        "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
                             },
                             "frontendPort": 4422,
                             "backendPort": 3389,
@@ -349,43 +357,39 @@ The following steps show how to prepare the external load balancer for the move 
                             "protocol": "Tcp",
                             "enableTcpReset": false
                         }
-                      }
-                     ],
-            ```
-         To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
-           
-       
-                ```json
-                 
-                      {
-                        "type": "Microsoft.Network/loadBalancers/inboundNatRules",
-                        "apiVersion": "2019-06-01",
-                        "name": "[concat(parameters('loadBalancers_myLoadBalancer_name'), '/myInboundNATRule')]",
-                        "dependsOn": [
-                         "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name'))]"
-                             ],
-                            "properties": {
-                            "provisioningState": "Succeeded",
-                            "frontendIPConfiguration": {
-                             "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
-                             },
-                              "frontendPort": 4422,
-                              "backendPort": 3389,
-                              "enableFloatingIP": false,
-                              "idleTimeoutInMinutes": 4,
-                              "protocol": "Tcp",
-                               "enableTcpReset": false
-                                }
-                        }
-           
-                ```
-         For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+                    }
+                ]
+        ```
+        To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
 
+        ```json
+        {
+            "type": "Microsoft.Network/loadBalancers/inboundNatRules",
+            "apiVersion": "2019-06-01",
+            "name": "[concat(parameters('loadBalancers_myLoadBalancer_name'), '/myInboundNATRule')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "frontendIPConfiguration": {
+                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
+                },
+                "frontendPort": 4422,
+                "backendPort": 3389,
+                "enableFloatingIP": false,
+                "idleTimeoutInMinutes": 4,
+                "protocol": "Tcp",
+                "enableTcpReset": false
+            }
+        }
+        ```
+        For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
     * **Outbound rules** - You can add or remove outbound rules in the configuration by editing the **outboundRules** property in the **template.json** file:
-   
-            ```json
-             "outboundRules": [
+
+        ```json
+        "outboundRules": [
                     {
                         "name": "myOutboundRule",
                         "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
@@ -406,13 +410,12 @@ The following steps show how to prepare the external load balancer for the move 
                         }
                     }
                 ]
+        ```
 
-            ```
+         For more information on outbound rules, see [Load Balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
-          For more information on outbound rules, see [Load Balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
-
-19. Save the **template.json** file.
-20. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and external load balancer public IP into the target region:
+20. Save the **template.json** file.
+21. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and external load balancer public IP into the target region:
 
     ```azurepowershell-interactive
 
