@@ -543,13 +543,12 @@
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
             - name: Troubleshooting
               href: platform/diagnostics-extension-troubleshooting.md
-            - name: Linux
-              items: 
-              - name: Use with VMs
-                href: ../virtual-machines/extensions/diagnostics-linux.md   
-              - name: GuestOS to Metrics-VM Linux (Telegraf)
-                href: platform/collect-custom-metrics-linux-telegraf.md   
-
+          - name: Linux
+            items: 
+            - name: Use with VMs
+              href: ../virtual-machines/extensions/diagnostics-linux.md   
+            - name: GuestOS to Metrics-VM Linux (Telegraf)
+              href: platform/collect-custom-metrics-linux-telegraf.md   
         - name: Log Analytics agents  
           items:
           - name: Overview
