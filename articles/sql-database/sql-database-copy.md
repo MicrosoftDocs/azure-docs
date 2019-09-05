@@ -67,6 +67,7 @@ To create a database copy, you will need to be in the following roles
 - Custom role on the source and target databases with following permission:
 
    Microsoft.Sql/servers/databases/read
+   
    Microsoft.Sql/servers/databases/write
 
 To cancel a database copy, you will need to be in the following roles
@@ -76,6 +77,7 @@ To cancel a database copy, you will need to be in the following roles
 - Custom role on the source and target databases with following permission:
 
    Microsoft.Sql/servers/databases/read
+   
    Microsoft.Sql/servers/databases/write
    
 To manage database copy using Azure portal, you will also need the following permissions:
