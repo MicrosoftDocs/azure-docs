@@ -59,9 +59,6 @@ From here, follow the prompts to choose a subscription, a globally unique app na
 
 After deployment, your app is available at `http://<app name>.azurewebsites.net`.
 
-> [!IMPORTANT]
-> With the `mcr.microsoft.com/azuredocs/go` image, you must navigate to `http://<app name>.azurewebsites.net/hello` to see the app.
-
 A **Resource Group** is a named collection of all your application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 
 An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine.
@@ -69,9 +66,6 @@ An **App Service Plan** defines the physical resources that will be used to host
 ## Browse the website
 
 The **Output** panel will open during deployment to indicate the status of the operation. When the operation completes, find the app you created in the **APP SERVICE** explorer, right-click it, then select **Browse Website** to open the site in your browser.
-
-> [!IMPORTANT]
-> With the `mcr.microsoft.com/azuredocs/go` image, remember to add  `/hello` to the URL in the address bar in order to see the app.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
