@@ -1,6 +1,6 @@
 ---
 title: Use ScaleR and SparkR with Azure HDInsight
-description: Use ScaleR and SparkR with ML Services on HDInsight
+description: Use ScaleR and SparkR for data manipulation and model development with ML Services on Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
