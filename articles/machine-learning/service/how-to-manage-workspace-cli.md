@@ -47,19 +47,30 @@ To install the machine learning extension, use the following command:
 az extension add -n azure-cli-ml
 ```
 
-## Resource group
+## Create a workspace
 
-The Azure Machine Learning service workspace must be created inside a resource group. You can use an existing resource group or create a new one.
+The Azure Machine Learning service workspace relies on the following Azure services or entities:
 
-To __use an existing resource group__, skip to the [Create the workspace](#create-the-workspace) section and provide the name of the resource group when creating the workspace.
+> [!IMPORTANT]
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group.
 
-To __create a new resource group__, use the following command. Replace `<resourcegroupname>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
+| Service | Parameter to specify an existing instance |
+| ---- | ---- |
+| **Azure resource group** | `-g <resource-group-name>`
+| **Azure Storage Account** | `--storage-account <service-id>` |
+| **Azure Application Insights** | `--application-insights <service-id>` |
+| **Azure Key Vault** | `--keyvault <service-id>` |
+| **Azure Container Registry** | `--container-registry <service-id>` |
+
+### Create a resource group
+
+The Azure Machine Learning service workspace must be created inside a resource group. You can use an existing resource group or create a new one. To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
 > [!TIP]
 > You should select a region where the Azure Machine Learning service is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
-az group create --name <resource-grou-pname> --location <location>
+az group create --name <resource-group-name> --location <location>
 ```
 
 The response from this command is similar to the following JSON:
@@ -80,20 +91,6 @@ The response from this command is similar to the following JSON:
 
 For more information on working with resource groups, see [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
-## Create the workspace
-
-The Azure Machine Learning service workspace relies on the following Azure services:
-
-> [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation.
-
-| Service | Parameter to specify an existing instance |
-| ---- | ---- |
-| **Azure Storage Account** | `--storage-account <service-id>` |
-| **Azure Application Insights** | `--application-insights <service-id>` |
-| **Azure Key Vault** | `--keyvault <service-id>` |
-| **Azure Container Registry** | `--container-registry <service-id>` |
-
 ### Automatically create required resources
 
 To create a new workspace where the __services are automatically created__, use the following command:
@@ -112,8 +109,8 @@ The output of this command is similar to the following JSON:
   "description": "",
   "friendlyName": "<workspace-name>",
   "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
-  "identityPrincipalId": "77158e44-0709-4489-af2c-8b86d280c8a8",
-  "identityTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "identityPrincipalId": "<GUID>",
+  "identityTenantId": "<GUID>",
   "identityType": "SystemAssigned",
   "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
   "location": "<location>",
@@ -121,7 +118,7 @@ The output of this command is similar to the following JSON:
   "resourceGroup": "<resource-group-name>",
   "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
   "type": "Microsoft.MachineLearningServices/workspaces",
-  "workspaceid": "2451d145-c782-404c-b96d-10bd39b244d1"
+  "workspaceid": "<GUID>"
 }
 ```
 
@@ -187,8 +184,8 @@ The output of this command is similar to the following JSON:
   "description": "",
   "friendlyName": "<workspace-name>",
   "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
-  "identityPrincipalId": "77158e44-0709-4489-af2c-8b86d280c8a8",
-  "identityTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "identityPrincipalId": "<GUID>",
+  "identityTenantId": "<GUID>",
   "identityType": "SystemAssigned",
   "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
   "location": "<location>",
@@ -196,11 +193,128 @@ The output of this command is similar to the following JSON:
   "resourceGroup": "<resource-group-name>",
   "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
   "type": "Microsoft.MachineLearningServices/workspaces",
-  "workspaceid": "2451d145-c782-404c-b96d-10bd39b244d1"
+  "workspaceid": "<GUID>"
 }
 ```
 
-## Delete the workspace
+## List workspaces
+
+To list all the workspaces for your Azure subscription, use the following command:
+
+```azurecli-interactive
+az ml workspace list
+```
+
+The output of this command is similar to the following JSON:
+
+```json
+]
+  {
+    "resourceGroup": "myresourcegroup",
+    "subscriptionId": "<subscription-id>",
+    "workspaceName": "myml"
+  },
+  {
+    "resourceGroup": "anotherresourcegroup",
+    "subscriptionId": "<subscription-id>",
+    "workspaceName": "anotherml"
+  }
+]
+```
+
+For more information, see the [az ml workspace list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) documentation.
+
+## Get workspace information
+
+To get information about a workspace, use the following command:
+
+```azurecli-interactive
+az ml workspace show -w <workspace-name> -g <resource-group-name>
+```
+
+The output of this command is similar to the following JSON:
+
+```json
+{
+  "applicationInsights": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/application-insight-name>",
+  "creationTime": "2019-08-30T18:55:03.1807976+00:00",
+  "description": "",
+  "friendlyName": "",
+  "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
+  "identityPrincipalId": "<GUID>",
+  "identityTenantId": "<GUID>",
+  "identityType": "SystemAssigned",
+  "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
+  "location": "<location>",
+  "name": "larryml",
+  "resourceGroup": "<resource-group-name>",
+  "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
+  "tags": {},
+  "type": "Microsoft.MachineLearningServices/workspaces",
+  "workspaceid": "<GUID>"
+}
+```
+
+For more information, see the [az ml workspace show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) documentation.
+
+## Update a workspace
+
+To update a workspace, use the following command:
+
+```azurecli-interactive
+az ml workspace update -w <workspace-name> -g <resource-group-name>
+```
+
+The output of this command is similar to the following JSON:
+
+```json
+{
+  "applicationInsights": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/application-insight-name>",
+  "creationTime": "2019-08-30T18:55:03.1807976+00:00",
+  "description": "",
+  "friendlyName": "",
+  "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
+  "identityPrincipalId": "<GUID>",
+  "identityTenantId": "<GUID>",
+  "identityType": "SystemAssigned",
+  "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
+  "location": "<location>",
+  "name": "larryml",
+  "resourceGroup": "<resource-group-name>",
+  "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
+  "tags": {},
+  "type": "Microsoft.MachineLearningServices/workspaces",
+  "workspaceid": "<GUID>"
+}
+```
+
+For more information, see the [az ml workspace update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) documentation.
+
+## Share a workspace with another user
+
+To share a workspace with another user on your subscription, use the following command:
+
+```azurecli-interactive
+az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
+```
+
+For more information on roles-based access control (RBAC) with Azure Machine Learning service, see [Manage users and roles](how-to-assign-roles.md).
+
+For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
+
+## Sync keys for dependent resources
+
+If you change access keys for one of the resources used by your workspace, use the following command to sync the new keys with the workspace:
+
+```azurecli-interactive
+az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
+```
+
+For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
+
+For more information, see the [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
+
+## Delete a workspace
 
 To delete a workspace after it is no longer needed, use the following command:
 
@@ -210,3 +324,5 @@ az ml workspace delete -w <workspace-name> -g <resource-group-name>
 
 > [!IMPORTANT]
 > Deleting a workspace does not delete the application insight, storage account, key vault, or container registry used by the workspace.
+
+For more information, see the [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
