@@ -72,6 +72,16 @@
       href: ./afds/waf-front-door-rate-limit-powershell.md
     - name: Monitor and logging
       href: ./afds/waf-front-door-monitor.md
+- name: Troubleshoot
+  items:
+  - name: Application Gateway
+    items:
+     - name: Troubleshoot WAF
+       href: ./ag/web-application-firewall-troubleshoot.md
+     - name: Log analytics
+       href: ./ag/log-analytics.md
+  - name: Front Door
+
 - name: Reference
   items:
   - name: Azure CLI
