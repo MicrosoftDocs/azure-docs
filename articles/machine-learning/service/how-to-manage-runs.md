@@ -224,7 +224,7 @@ creating a batch of runs is more efficient than creating them one by one.
 Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs, each running on different 
 compute targets, connected by common parent run ID.
 
-Use the ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) 
+Use the ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) 
 method to submit a child run from within a parent run. To do this in the parent run script, get the run context and submit the child run 
 using the ''submit_child''' method of the context instance.
 
