@@ -31,7 +31,7 @@ Azure Storage bandwidth, also referred to as throughput, is related to the reque
 
 Azure Storage provides two latency metrics for block blobs. These metrics can be viewed in the Azure portal:
 
-- **End-to-end (E2E) latency** measures the interval from when Azure Storage receives the first packet of the request until Azure Storage receives a client acknowledgement on the last packet of the response.
+- **End-to-end (E2E) latency** measures the interval from when Azure Storage receives the first packet of the request until Azure Storage receives a client acknowledgment on the last packet of the response.
 
 - **Server latency** measures the interval from when Azure Storage receives the last packet of the request until the first packet of the response is returned from Azure Storage.
 
