@@ -240,7 +240,7 @@
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
     - name: Customize HTTP function endpoint
       href: functions-create-serverless-api.md
-    - name: Hybrid environments with PowerShell
+    - name: Connect to on-premises resources
       href: functions-hybrid-powershell.md
   - name: Troubleshoot
     items:
