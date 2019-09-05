@@ -21,12 +21,8 @@
         href: QuickStarts/javascript-analyze.md
       - name: Node.js
         href: QuickStarts/node-analyze.md
-      - name: PHP
-        href: QuickStarts/php-analyze.md
       - name: Python
         href: QuickStarts/python-analyze.md
-      - name: Ruby
-        href: QuickStarts/ruby-analyze.md
     - name: Analyze a local image
       items:
       - name: C#
@@ -47,12 +43,8 @@
         href: QuickStarts/javascript-thumb.md
       - name: Node.js
         href: QuickStarts/node-thumb.md
-      - name: PHP
-        href: QuickStarts/php-thumb.md
       - name: Python
         href: QuickStarts/python-thumb.md
-      - name: Ruby
-        href: QuickStarts/ruby-thumb.md
     - name: Extract text (Read API)
       items:
       - name: C#
@@ -77,16 +69,10 @@
         href: QuickStarts/javascript-print-text.md
       - name: Node.js
         href: QuickStarts/node-print-text.md
-      - name: PHP
-        href: QuickStarts/php-print-text.md
       - name: Python
         href: QuickStarts/python-print-text.md
-      - name: Ruby
-        href: QuickStarts/ruby-print-text.md
     - name: Use a domain model
       items:
-      - name: PHP
-        href: QuickStarts/php-domain.md
       - name: Python
         href: QuickStarts/python-domain.md
   - name: Using the .NET SDK
