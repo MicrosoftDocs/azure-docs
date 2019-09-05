@@ -183,6 +183,8 @@ and Resource Manager template with Visual Studio.
 You can also add the template as an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to a Visual Studio solution. 
 Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
 
+<a name="link-integration-account"></a>
+
 ## Link to integration account
 
 To build logic apps for business-to-business (B2B) enterprise integration scenarios, you can link your logic app to a previously created [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that exists in the same region as your logic app. An integration account contains B2B artifacts, such as trading partners, agreements, schemas, and maps, and lets your logic app use B2B connectors for XML validation and flat file encoding or decoding. Although you can [create this link by using the Azure portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), you can also use Visual Studio after meeting the [prerequisites](#requirements), and your logic app exists as a JSON (.json) file inside an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
