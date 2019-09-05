@@ -3,7 +3,7 @@ title: Best practices | Microsoft Docs
 description: Recommendations and best practices you should know as you use materialized views to improve your query performance. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
-manager: craigg
+manager: craigggit 
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
@@ -96,3 +96,205 @@ Materialized view is stored in data warehouse just like a table in column store,
 
 These two performance tuning features were introduced in Azure data warehouse around the same time for different scenarios and goals.  Use result set caching for faster response from repetitive queries against static data and the queries need to be deterministic top-level SELECT queries.  Materialized view does not require its leveraging queries to be deterministic or identical and allows data changes in the base tables.  
 
+## Example
+
+This example uses a TPCDS-like query which finds customers who spend more money via catalog than in stores.  Identify preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of 3 sub-SELECT statements involving SUM() and GROUP BY. 
+
+```sql
+with year_total as (
+select c_customer_id customer_id
+       ,c_first_name customer_first_name
+       ,c_last_name customer_last_name
+       ,c_preferred_cust_flag customer_preferred_cust_flag
+       ,c_birth_country customer_birth_country
+       ,c_login customer_login
+       ,c_email_address customer_email_address
+       ,d_year dyear
+       ,sum(isnull(ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt+ss_ext_sales_price, 0)/2) year_total
+       ,'s' sale_type
+from customer
+     ,store_sales_partitioned
+     ,date_dim
+where c_customer_sk = ss_customer_sk
+   and ss_sold_date_sk = d_date_sk
+group by c_customer_id
+         ,c_first_name
+         ,c_last_name
+         ,c_preferred_cust_flag
+         ,c_birth_country
+         ,c_login
+         ,c_email_address
+         ,d_year
+union all
+select c_customer_id customer_id
+       ,c_first_name customer_first_name
+       ,c_last_name customer_last_name
+       ,c_preferred_cust_flag customer_preferred_cust_flag
+       ,c_birth_country customer_birth_country
+       ,c_login customer_login
+       ,c_email_address customer_email_address
+       ,d_year dyear
+       ,sum(isnull(cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt+cs_ext_sales_price, 0)/2) year_total
+       ,'c' sale_type
+from customer
+     ,catalog_sales_partitioned
+     ,date_dim
+where c_customer_sk = cs_bill_customer_sk
+   and cs_sold_date_sk = d_date_sk
+group by c_customer_id
+         ,c_first_name
+         ,c_last_name
+         ,c_preferred_cust_flag
+         ,c_birth_country
+         ,c_login
+         ,c_email_address
+         ,d_year
+union all
+select c_customer_id customer_id
+       ,c_first_name customer_first_name
+       ,c_last_name customer_last_name
+       ,c_preferred_cust_flag customer_preferred_cust_flag
+       ,c_birth_country customer_birth_country
+       ,c_login customer_login
+       ,c_email_address customer_email_address
+       ,d_year dyear
+       ,sum(isnull(ws_ext_list_price-ws_ext_wholesale_cost-ws_ext_discount_amt+ws_ext_sales_price, 0)/2) year_total
+       ,'w' sale_type
+from customer
+     ,web_sales_partitioned
+     ,date_dim
+where c_customer_sk = ws_bill_customer_sk
+   and ws_sold_date_sk = d_date_sk
+group by c_customer_id
+         ,c_first_name
+         ,c_last_name
+         ,c_preferred_cust_flag
+         ,c_birth_country
+         ,c_login
+         ,c_email_address
+         ,d_year
+         )
+  select top 100 
+                  t_s_secyear.customer_id
+                 ,t_s_secyear.customer_first_name
+                 ,t_s_secyear.customer_last_name
+                 ,t_s_secyear.customer_birth_country
+from year_total t_s_firstyear
+     ,year_total t_s_secyear
+     ,year_total t_c_firstyear
+     ,year_total t_c_secyear
+     ,year_total t_w_firstyear
+     ,year_total t_w_secyear
+where t_s_secyear.customer_id = t_s_firstyear.customer_id
+   and t_s_firstyear.customer_id = t_c_secyear.customer_id
+   and t_s_firstyear.customer_id = t_c_firstyear.customer_id
+   and t_s_firstyear.customer_id = t_w_firstyear.customer_id
+   and t_s_firstyear.customer_id = t_w_secyear.customer_id
+   and t_s_firstyear.sale_type = 's'
+   and t_c_firstyear.sale_type = 'c'
+   and t_w_firstyear.sale_type = 'w'
+   and t_s_secyear.sale_type = 's'
+   and t_c_secyear.sale_type = 'c'
+   and t_w_secyear.sale_type = 'w'
+   and t_s_firstyear.dyear+0 =  1999
+   and t_s_secyear.dyear+0 = 1999+1
+   and t_c_firstyear.dyear+0 =  1999
+   and t_c_secyear.dyear+0 =  1999+1
+   and t_w_firstyear.dyear+0 = 1999
+   and t_w_secyear.dyear+0 = 1999+1
+   and t_s_firstyear.year_total > 0
+   and t_c_firstyear.year_total > 0
+   and t_w_firstyear.year_total > 0
+   and case when t_c_firstyear.year_total > 0 then t_c_secyear.year_total / t_c_firstyear.year_total else null end
+           > case when t_s_firstyear.year_total > 0 then t_s_secyear.year_total / t_s_firstyear.year_total else null end
+   and case when t_c_firstyear.year_total > 0 then t_c_secyear.year_total / t_c_firstyear.year_total else null end
+           > case when t_w_firstyear.year_total > 0 then t_w_secyear.year_total / t_w_firstyear.year_total else null end
+order by t_s_secyear.customer_id
+         ,t_s_secyear.customer_first_name
+         ,t_s_secyear.customer_last_name
+         ,t_s_secyear.customer_birth_country
+OPTION ( LABEL = 'Query04-af359846-253-3');
+```
+
+Check the estimated execution plan for this query.  There are 18 shuffles and 17 joins operations which take more time to execution.  Now create one materialized view for each sub-SELECT statements.   
+
+```sql
+create materialized view nbViewSS with (distribution=hash(customer_id)) as
+select c_customer_id customer_id
+       ,c_first_name customer_first_name
+       ,c_last_name customer_last_name
+       ,c_preferred_cust_flag customer_preferred_cust_flag
+       ,c_birth_country customer_birth_country
+       ,c_login customer_login
+       ,c_email_address customer_email_address
+       ,d_year dyear
+       ,sum(isnull(ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt+ss_ext_sales_price, 0)/2) year_total
+          , count_big(*) as cb
+from dbo.customer
+     ,dbo.store_sales
+     ,dbo.date_dim
+where c_customer_sk = ss_customer_sk
+   and ss_sold_date_sk = d_date_sk
+group by c_customer_id
+         ,c_first_name
+         ,c_last_name
+         ,c_preferred_cust_flag
+         ,c_birth_country
+         ,c_login
+         ,c_email_address
+         ,d_year
+
+create materialized view nbViewCS with (distribution=hash(customer_id)) as
+select c_customer_id customer_id
+       ,c_first_name customer_first_name
+       ,c_last_name customer_last_name
+       ,c_preferred_cust_flag customer_preferred_cust_flag
+       ,c_birth_country customer_birth_country
+       ,c_login customer_login
+       ,c_email_address customer_email_address
+       ,d_year dyear
+       ,sum(isnull(cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt+cs_ext_sales_price, 0)/2) year_total
+          , count_big(*) as cb
+from dbo.customer
+     ,dbo.catalog_sales
+     ,dbo.date_dim
+where c_customer_sk = cs_bill_customer_sk
+   and cs_sold_date_sk = d_date_sk
+group by c_customer_id
+         ,c_first_name
+         ,c_last_name
+         ,c_preferred_cust_flag
+         ,c_birth_country
+         ,c_login
+         ,c_email_address
+         ,d_year
+
+
+create materialized view nbViewWS with (distribution=hash(customer_id)) as
+select c_customer_id customer_id
+       ,c_first_name customer_first_name
+       ,c_last_name customer_last_name
+       ,c_preferred_cust_flag customer_preferred_cust_flag
+       ,c_birth_country customer_birth_country
+       ,c_login customer_login
+       ,c_email_address customer_email_address
+       ,d_year dyear
+       ,sum(isnull(ws_ext_list_price-ws_ext_wholesale_cost-ws_ext_discount_amt+ws_ext_sales_price, 0)/2) year_total
+          , count_big(*) as cb
+from dbo.customer
+     ,dbo.web_sales
+     ,dbo.date_dim
+where c_customer_sk = ws_bill_customer_sk
+   and ws_sold_date_sk = d_date_sk
+group by c_customer_id
+         ,c_first_name
+         ,c_last_name
+         ,c_preferred_cust_flag
+         ,c_birth_country
+         ,c_login
+         ,c_email_address
+         ,d_year
+
+```
+Do not change the original query.  Check its estimated execution plan again.  The number of shuffles changes from 18 to # and the number of joins changes from 17 to #. Hover over the join operator icons in the plan, the Output List shows the new materialized views are used for producing the data, not the base tables.
+ 
