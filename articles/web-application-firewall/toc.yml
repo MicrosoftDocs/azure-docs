@@ -84,6 +84,8 @@
 
 - name: Reference
   items:
+  - name: CRS rules
+    href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
     href: /cli/azure/ext/azure-firewall/network/firewall
   - name: Azure PowerShell

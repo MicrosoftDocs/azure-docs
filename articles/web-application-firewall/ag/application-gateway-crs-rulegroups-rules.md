@@ -4,14 +4,63 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 4/11/2019
+ms.date: 09/06/2019
 ms.author: victorh
 ms.topic: conceptual
 ---
 
-# Web application firewall CRS rule groups and rules
+# Web Application Firewall CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.0 or 2.2.9. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
+
+## Core rule sets
+
+The Application Gateway WAF comes pre-configured with CRS 3.0 by default. But you can choose to use CRS 2.2.9 instead. CRS 3.0 offers reduced false positives compared with CRS 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
+
+The WAF protects against the following web vulnerabilities:
+
+- SQL-injection attacks
+- Cross-site scripting attacks
+- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
+- HTTP protocol violations
+- HTTP protocol anomalies, such as missing host user-agent and accept headers
+- Bots, crawlers, and scanners
+- Common application misconfigurations (for example, Apache and IIS)
+
+### OWASP CRS 3.0
+
+CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+
+|Rule group|Description|
+|---|---|
+|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](#crs913)**|Protect against port and environment scanners|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protect against protocol and encoding issues|
+|**[REQUEST-921-PROTOCOL-ATTACK](#crs921)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943)**|Protect against session-fixation attacks|
+
+### OWASP CRS 2.2.9
+
+CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+
+|Rule group|Description|
+|---|---|
+|**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
+|**[crs_21_protocol_anomalies](#crs21)**|Protect against incorrect header information|
+|**[crs_23_request_limits](#crs23)**|Protect against arguments or files that exceed limitations|
+|**[crs_30_http_policy](#crs30)**|Protect against restricted methods, headers, and file types|
+|**[crs_35_bad_robots](#crs35)**|Protect against web crawlers and scanners|
+|**[crs_40_generic_attacks](#crs40)**|Protect against generic attacks (such as session fixation, remote file inclusion, and PHP injection)|
+|**[crs_41_sql_injection_attacks](#crs41sql)**|Protect against SQL-injection attacks|
+|**[crs_41_xss_attacks](#crs41xss)**|Protect against cross-site scripting  attacks|
+|**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
+|**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
 
 The following rule groups and rules are available when using Application Gateway with web application firewall.
 
@@ -476,4 +525,4 @@ The following rule groups and rules are available when using Application Gateway
 
 ## Next steps
 
-Learn how to disable WAF rules: [Customize WAF rules](application-gateway-customize-waf-rules-portal.md)
+- [Customize Web Application Firewall rules using the Azure portal](application-gateway-customize-waf-rules-portal.md)
