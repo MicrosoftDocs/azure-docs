@@ -46,7 +46,7 @@ productDirectory:
   items:
     # Card
     - title: Use Azure IoT Hub to build your own IoT solution
-      imageSrc: ./media/index/IoTHub.svg
+      imageSrc: ../media/index/IoTHub.svg
       links:
         - url: ../iot-hub/about-iot-hub.md
           text: What is Azure IoT Hub?
@@ -58,7 +58,7 @@ productDirectory:
           text: See more
     # Card
     - title: Use Azure IoT Central to deploy a fully managed IoT solution
-      imageSrc: ./media/index/iot-central.svg
+      imageSrc: ../media/index/iot-central.svg
       links:
         - url: ../iot-central/overview-iot-central.md
           text: What is Azure IoT Central?
@@ -70,7 +70,7 @@ productDirectory:
           text: See more
     # Card
     - title: Use Azure IoT solution accelerators to customize a pre-built IoT solution
-      imageSrc: ./media/index/iot-solution-accelerators.svg
+      imageSrc: ../media/index/iot-solution-accelerators.svg
       links:
         - url: ../iot-accelerators/about-iot-accelerators.md
           text: What are Azure IoT solution accelerators?
@@ -82,7 +82,7 @@ productDirectory:
           text: See more
     # Card
     - title: Use Azure IoT Edge to run cloud intelligence on devices
-      imageSrc: ./media/index/iot-edge-alt.svg
+      imageSrc: ../media/index/iot-edge-alt.svg
       links:
         - url: ../iot-edge/about-iot-edge.md
           text: What is Azure IoT Edge?
@@ -94,7 +94,7 @@ productDirectory:
           text: See more   
     # Card
     - title: Use Azure Digital Twins to create connected and smart infrastructures
-      imageSrc: ./media/index/digital_twin.svg
+      imageSrc: ../media/index/digital_twin.svg
       links:
         - url: ../digital-twins/about-digital-twins.md
           text: What is Azure Digital Twins?
@@ -106,7 +106,7 @@ productDirectory:
           text: See more   
     # Card
     - title: Use Azure IoT Hub Device Provisioning Service to securely provision devices at scale
-      imageSrc: ./media/index/dps.svg
+      imageSrc: ../media/index/dps.svg
       links:
         - url: ../iot-dps/about-iot-dps.md
           text: What is Azure IoT Hub Device Provisioning Service?
@@ -118,7 +118,7 @@ productDirectory:
           text: See more
     # Card
     - title: Use Azure Time Series Insights to explore and analyze device data
-      imageSrc: ./media/index/time-series-insights.svg
+      imageSrc: ../media/index/time-series-insights.svg
       links:
         - url: ../time-series-insights/time-series-insights-update-overview.md
           text: What is Azure Time Series Insights?
@@ -130,7 +130,7 @@ productDirectory:
           text: See more   
     # Card
     - title: Use Azure Maps to actuate mobility in your enterprise
-      imageSrc: ./media/index/azure-maps-icon-portal.svg
+      imageSrc: ../media/index/azure-maps-icon-portal.svg
       links:
         - url: ../azure-maps/about-azure-maps.md
           text: What is Azure Maps?
