@@ -87,13 +87,13 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 #### [Read](#tab/read)
 
-Start by creating a folder named *ocr*, copy, and paste the following YAML content into a new file named `Chart.yml`.
+Start by creating a folder named *read*, copy, and paste the following YAML content into a new file named `Chart.yml`.
 
 ```yaml
 apiVersion: v1
-name: ocr
+name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-ocr to a Kubernetes cluster
+description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
 ```
 
 To configure the Helm chart default values, copy and paste the following YAML into a file named `values.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
@@ -101,12 +101,12 @@ To configure the Helm chart default values, copy and paste the following YAML in
 ```yaml
 # These settings are deployment specific and users can provide customizations
 
-ocr:
+read:
   enabled: true
   image:
-    name: cognitive-services-ocr
+    name: cognitive-services-read
     registry: containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-ocr
+    repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
     args:
@@ -118,7 +118,7 @@ ocr:
 > [!IMPORTANT]
 > If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
 
-Create a *templates* folder under the *ocr* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
+Create a *templates* folder under the *read* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
 
 > Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. [- Helm Chart Template Guide][chart-template-guide]
 
@@ -126,39 +126,39 @@ Create a *templates* folder under the *ocr* directory. Copy and paste the follow
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: ocr
+  name: read
 spec:
   template:
     metadata:
       labels:
-        app: ocr-app
+        app: read-app
     spec:
       containers:
-      - name: {{.Values.ocr.image.name}}
-        image: {{.Values.ocr.image.registry}}{{.Values.ocr.image.repository}}
+      - name: {{.Values.read.image.name}}
+        image: {{.Values.read.image.registry}}{{.Values.read.image.repository}}
         ports:
         - containerPort: 5000
         env:
         - name: EULA
-          value: {{.Values.ocr.image.args.eula}}
+          value: {{.Values.read.image.args.eula}}
         - name: billing
-          value: {{.Values.ocr.image.args.billing}}
+          value: {{.Values.read.image.args.billing}}
         - name: apikey
-          value: {{.Values.ocr.image.args.apikey}}
+          value: {{.Values.read.image.args.apikey}}
       imagePullSecrets:
-      - name: {{.Values.ocr.image.pullSecret}}
+      - name: {{.Values.read.image.pullSecret}}
 
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: ocr
+  name: read
 spec:
   type: LoadBalancer
   ports:
   - port: 5000
   selector:
-    app: ocr-app
+    app: read-app
 ```
 
 The template specifies a load balancer service and the deployment of your container/image for Read.
@@ -256,16 +256,16 @@ registry.
 
 #### [Read](#tab/read)
 
-To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `ocr` folder.
+To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `read` folder.
 
 ```console
-helm install ocr --name ocr
+helm install read --name read
 ```
 
 Here is an example output you might expect to see from a successful install execution:
 
 ```console
-NAME:   ocr
+NAME: read
 LAST DEPLOYED: Thu Sep 04 13:24:06 2019
 NAMESPACE: default
 STATUS: DEPLOYED
@@ -273,15 +273,15 @@ STATUS: DEPLOYED
 RESOURCES:
 ==> v1/Pod(related)
 NAME                    READY  STATUS             RESTARTS  AGE
-ocr-57cb76bcf7-45sdh    0/1    ContainerCreating  0         0s
+read-57cb76bcf7-45sdh   0/1    ContainerCreating  0         0s
 
 ==> v1/Service
 NAME     TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)         AGE
-ocr      LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
+read     LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
 
 ==> v1beta1/Deployment
 NAME    READY  UP-TO-DATE  AVAILABLE  AGE
-ocr     0/1    1           0          0s
+read    0/1    1           0          0s
 ```
 
 The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
@@ -295,17 +295,17 @@ You should expect to see something similar to the following output:
 ```console
 λ kubectl get all
 NAME                        READY   STATUS    RESTARTS   AGE
-pod/ocr-57cb76bcf7-45sdh    1/1     Running   0          17s
+pod/read-57cb76bcf7-45sdh   1/1     Running   0          17s
 
 NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
 service/kubernetes     ClusterIP      10.96.0.1      <none>        443/TCP          45h
-service/ocr            LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
+service/read           LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
 
 NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/ocr    1/1     1            1           17s
+deployment.apps/read   1/1     1            1           17s
 
 NAME                              DESIRED   CURRENT   READY   AGE
-replicaset.apps/ocr-57cb76bcf7    1         1         1       17s
+replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
 
 #### [Recognize Text](#tab/recognize-text)

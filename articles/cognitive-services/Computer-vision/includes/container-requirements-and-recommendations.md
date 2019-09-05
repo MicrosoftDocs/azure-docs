@@ -12,15 +12,18 @@ ms.author: dapine
 
 #### [Read](#tab/read)
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Read container.
+The following table describes the minimum and recommended allocation of resources for each Read container.
 
 | Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
 | Read | 1 core, 8-GB memory, 0.5 TPS | 2 cores, 8-GB memory, 1 TPS | 0.5, 1 |
 
+> [!WARNING]
+> :loudspeaker: These values are **not** final, waiting to hear back from "@Kelly Freed" on changes! :eyes:
+
 #### [Recognize Text](#tab/recognize-text)
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
+The following table describes the minimum and recommended allocation of resources for each Recognize Text container.
 
 | Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
