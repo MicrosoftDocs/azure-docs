@@ -208,7 +208,7 @@ az ml workspace list
 The output of this command is similar to the following JSON:
 
 ```json
-]
+[
   {
     "resourceGroup": "myresourcegroup",
     "subscriptionId": "<subscription-id>",
