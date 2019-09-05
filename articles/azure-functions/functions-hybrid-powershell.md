@@ -1,5 +1,5 @@
 ---
-title: Managing hybrid environments with PowerShell in Azure Functions and App Service Hybrid Connections | Microsoft Docs
+title: Manage remote on-premises resources using PowerShell Azure Functions
 description: Shows how to configure App Service Hybrid Connections to work with PowerShell functions
 services: functions
 author: eamono
