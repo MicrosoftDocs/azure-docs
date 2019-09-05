@@ -24,10 +24,11 @@ productDirectory:
           text: What is Azure Blockchain Service?
         - url: https://docs.microsoft.com/azure/blockchain/service
           text: See more >
+    - title: Azure Blockchain Workbench Preview
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
         - url: ./workbench/overview.md
-          text: What is Azure Blockchain Workbench?
+          text: What is Azure Blockchain Workbench Preview?
           url: https://docs.microsoft.com/azure/blockchain/workbench
           text: See more >
 
