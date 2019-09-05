@@ -198,7 +198,7 @@ When you register a model, you provide a model name that's used for managing the
 When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
 
 > [!IMPORTANT]
-> If you used automated machine learning to train a model, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated ML, see [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) on GitHub.
+> If you used automated machine learning to train a model, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated machine learning, see [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) on GitHub.
 
 The following example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
 
@@ -808,6 +808,7 @@ In some cases, you might want to create a Docker image without deploying the mod
 Model packaging enables you to do these things. It packages all the assets needed to host a model as a web service and allows you to download either a fully built Docker image or the files needed to build one. There are two ways to use model packaging:
 
 **Download a packaged model:** Download a Docker image that contains the model and other files needed to host it as a web service.
+
 **Generate a Dockerfile:** Download the Dockerfile, model, entry script, and other assets needed to build a Docker image. You can then inspect the files or make changes before you build the image locally.
 
 Both packages can be used to get a local Docker image.
