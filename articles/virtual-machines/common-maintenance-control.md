@@ -7,11 +7,11 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/13/2019
+ms.date: 09/04/2019
 ms.author: cynthn
 ---
 
-<1-- Is it limited to isolated VM types for public preview? Isolated and Dedicated Hosts. What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? Yes. Azure functions? Separate dedicated hosts from isolated sizes? Other maintenance docs - what needs to be updated? -->
+<1-- Is it limited to isolated VM types for public preview? Isolated and Dedicated Hosts. What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? Yes. Azure functions? Separate dedicated hosts from isolated sizes? Other maintenance docs - what needs to be updated? What are the other options for --maintenancescope and how are they different? -->
 
 Maintenance control lets you decide when to apply updates to your VMs.
 
@@ -31,12 +31,12 @@ With maintenance control, you can:
 
 ## Enable preview
 
-For each subscription, register Maintenance Resource Provide (MRP) armclient post /subscriptions/<subscription id>/providers/Microsoft.Maintenance/register?api-version=2014-04-01-preview
+Remove any old versions of the maintenance extension, and install the preview version. 
 
-Machine level settings (required once on each machine from where MRP commands will be executed): 
-1. Install ARMClient used to invoke Azure Resource Manager API. You can install it from Chocolatey by running: choco source enable -n=chocolatey choco install armclient
-1. Install Azure CLI from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest 
-1. Add “Maintenance” extension az login az extension remove -n maintenance az extension add -y --source https://mrpcliextension.blob.core.windows.net/cliextension/maintenance-1.0.0-py2.py3-none-any.whl
+```azurecli-interactive
+az extension remove -n maintenance 
+az extension add -y --source https://mrpcliextension.blob.core.windows.net/cliextension/maintenance-1.0.0-py2.py3-none-any.whl
+```
 
 
 ## Create a maintenance configuration
@@ -44,45 +44,47 @@ Machine level settings (required once on each machine from where MRP commands wi
 Use [az maintenance configuration create]() to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. Replace the example subscription ID with your own. 
 
 ```bash
+az group create \
+   --location eastus \
+   --name myMaintenanceRG
 az maintenance configuration create \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g {resourceGroupName} \
+   -g myMaintenanceRG \
    --name myConfig \
-   --maintenanceScope Host \
+   --maintenanceScope All \
    --location  eastus
 ```
 
 Copy the configuration ID from the output to use later.
 
+For dedicated hosts, you can use `--maintenanceScope host` to have the configuration scoped to a dedicated host.
+
 ## Apply the configuration
 
 Use [az maintenance assignment create]() to apply the configuration.
+
+### VM
 
 To apply the configuration to a VM, use `--resource-type virtualMachines` and supply the name of the VM for `--resource-name` and the resource group for `-g`.
 
 ```bash
 az maintenance assignment create \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myResourceGroup \
+   --provider-name Microsoft.Compute \
+   -g myMaintenanceRG \
+   -l eastus \
    --resource-name myVM \
    --resource-type virtualMachines \
-   --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
-   -maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigura tions/myConfig" \
-   -l eastus
+   --maintenance-configuration-id '/subscriptions/f679944f-bdad-45da-98fb-6097116fd136/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig'
 ```
 
-To apply a configuration to a dedicated host, use `--resource-type hosts`. You will also need to supply the following
+### Dedicate host
 
-- `-g` is the resource group for the host
-- `--resource-name` the name of the host
--  `--resource-parent-name` the name of the host group 
-- `--resource-parent-type` should be set to `hostGroups` 
-- `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
+To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
+
+The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
 
 ```bash
 az maintenance assignment create \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
@@ -101,14 +103,20 @@ sourceGroups/myResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/
 
 Use [az maintenance update list]() to see if there are pending updates. Update --subscription to be the ID for the subscription that contains the VM.
 
+## VM
+
+Check for pending updates for a VM.
+
 ```bash
 az maintenance update list \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myResourceGroup \
-   -resource-name myVM \
+   -g myMaintenanceRg \
+   --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute
 ```
+
+### Dedicated host
 
 To check for pending updates for a dedicated host.
 
@@ -116,16 +124,20 @@ To check for pending updates for a dedicated host.
 az maintenance update list \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myHostResourceGroup \
-  --resource-name myHost \
-  --resource-type hosts \
-  --provider-name Microsoft.Compute \
-  --resource-parentname myHostGroup \
-  --resource-parent-type hostGroups
+   --resource-name myHost \
+   --resource-type hosts \
+   --provider-name Microsoft.Compute \
+   --resource-parentname myHostGroup \
+   --resource-parent-type hostGroups
 ```
 
 ## Apply updates
 
 Use [az maintenance apply update]() to apply pending updates.
+
+## VM
+
+Apply updates to a single VM.
 
 ```bash
 az maintenance apply update \
@@ -136,7 +148,9 @@ az maintenance apply update \
    --providername Microsoft.Compute
 ```
 
-To apply updates to a dedicated host.
+### Dedicated host
+
+Apply updates to a dedicated host.
 
 ```bash
 az maintenance apply update \
@@ -159,5 +173,4 @@ az maintenance configuration delete \
    -g myResourceGroup \
    --name myConfig
 ```
-
 
