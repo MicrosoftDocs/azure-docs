@@ -73,7 +73,7 @@ landingContent:
           - text: Best practices
             url: data-lake-storage-best-practices.md
           - text: Access control
-            url: ../common/data-lake-storage-access-control.md
+            url: data-lake-storage-access-control.md
       - linkListType: tutorial
         links:
           - text: Extract, transform, and load data with Azure Databricks
