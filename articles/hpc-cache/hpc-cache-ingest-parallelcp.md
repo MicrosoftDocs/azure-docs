@@ -82,7 +82,7 @@ sudo apt install -y gcc bison gcc binutils make parallel
 cd
 wget https://mirrors.kernel.org/gnu/libc/glibc-2.27.tar.bz2
 tar jxf glibc-2.27.tar.bz2
-ln -s /nfs/cache1 hpccache   
+ln -s /nfs/cache1 hpccache
 time parallelcp glibc-2.27 avere/glibc-2.27
 cd
 mkdir obj
