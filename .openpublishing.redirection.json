@@ -31660,6 +31660,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-java-v10.md",
+      "redirect_url": "https://github.com/azure/azure-storage-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/data-lake-storage/index.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false
