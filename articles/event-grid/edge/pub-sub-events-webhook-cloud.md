@@ -180,7 +180,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 5: Verify event delivery
 
-You can view the event delivered in the Azure Portal under the **Monitor** option of your function.
+You can view the event delivered in the Azure portal under the **Monitor** option of your function.
 
 ## Cleanup resources
 

@@ -11,11 +11,11 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Configuration
+# Event Grid Configuration
 
 Event Grid provides many configurations that can be modified per environment. The below section is a reference to all the available options along with their defaults.
 
-## TLS Configuration
+## TLS configuration
 
 For a deeper understanding on this topic refer to [Security and Authentication](security-authentication.md). Examples of its usage can be found [here](configure-api-protocol.md).
 
@@ -24,7 +24,7 @@ For a deeper understanding on this topic refer to [Security and Authentication](
 |`inbound:serverAuth:tlsPolicy`|TLS Policy of the Event Grid module. Default HTTPs only.
 |`inbound:serverAuth:serverCert:source`|Source of Server Certificate used by Event Grid Module for its TLS configuration. Default IoT Edge.
 
-## Incoming Client Authentication
+## Incoming client authentication
 
 Refer to [Security and Authentication](security-authentication.md) for a deeper understanding on this topic. Examples can be found [here](configure-client-auth.md).
 
@@ -37,7 +37,7 @@ Refer to [Security and Authentication](security-authentication.md) for a deeper 
 |`inbound:clientAuth:sasKeys:key1`| One of the values to use to validate incoming requests.
 |`inbound:clientAuth:sasKeys:key2`| Optional second value to use to validate incoming requests.
 
-## Outgoing Client Authentication
+## Outgoing client authentication
 
 Refer to [Security and Authentication](security-authentication.md) for a deeper understanding on this topic. Examples can be found [here](configure-identity-auth.md).
 
@@ -46,7 +46,7 @@ Refer to [Security and Authentication](security-authentication.md) for a deeper 
 |`outbound:clientAuth:clientCert:enabled`| To turn on/off attaching an identity certificate for outgoing requests. Default on.
 |`outbound:clientAuth:clientCert:source`| Source for retrieving Event Grid module's outgoing certificate. Default IoT Edge.
 
-## Webhook EventHandlers
+## Webhook event handlers
 
 Refer to [Security and Authentication](security-authentication.md) for a deeper understanding on this topic. Examples can be found [here](configure-webhook-subscriber-auth.md).
 
@@ -56,7 +56,7 @@ Refer to [Security and Authentication](security-authentication.md) for a deeper 
 |`outbound:webhook:skipServerCertValidation`| Flag to control whether to validate the subscriber's certificate. Default true.
 |`outbound:webhook:allowUnknownCA`| Policy to control whether a self-signed certificate can be presented by a subscriber. Default on.
 
-## Delivery and Retry
+## Delivery and retry
 
 Refer to [Delivery and Retry](delivery-retry.md) for a deeper understanding on this topic.
 
@@ -65,7 +65,7 @@ Refer to [Delivery and Retry](delivery-retry.md) for a deeper understanding on t
 | `broker:defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default 30.
 | `broker:defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default **7200** seconds
 
-## Output Batching
+## Output batching
 
 Refer to [Delivery and Output batching](delivery-output-batching.md) for a deeper understanding on this topic.
 
