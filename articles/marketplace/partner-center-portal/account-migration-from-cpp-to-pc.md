@@ -38,17 +38,17 @@ In the event that your CPP account does not have a Microsoft Partner Network ID,
 Migration needs to happen only once for a given account. Once a given partner has completed the migration for the account, all Owners will see this behavior on their Publisher Profile page:
 
 1. You will see the Partner Settings page in Microsoft Partner Network, where you can now manage account settings. 
-2. A yellow banner on your Publisher Profile page in CPP will be shown to users who have the Owner role, asking them to manage their account settings in Partner Center. 
-3. The account settings page in CPP is converted to read-only mode. 
+2. A yellow banner on your Publisher Profile page in CPP will be shown to users who have the Owner role, asking them to manage their account settings in Partner Center.
+3. The account settings page in CPP is converted to read-only mode.
 
 ## Move Dynamics 365-based solutions to Partner Center
 
 If you have created Dynamics 365 for Customer Engagement or Dynamics 365 for Finance and Operations solutions in the One Commercial Partner GTM portal, **these solutions should now be managed in Partner Center**.
 
-**If you did not move your solutions by August 31, 2019**, complete the below steps as soon as possible. Until you do so: 
+**If you did not move your solutions by August 31, 2019**, complete the below steps as soon as possible. Until you do so:
 - ISVs won’t have access to marketing benefits
 - Co-sell prioritized will lose their status
-- Those requiring Cloud Embed will be out of compliance
+- Those requiring Cloud Embed will be out of compliance after October 15, 2019
 
 > [!NOTE]
 > If your MPN membership account was originally created in Partner Membership Center (PMC), sign in to [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) to confirm that your account has been migrated before completing the steps below. If you see a profile screen with your MPN ID, you're ready to proceed. If not, you must start your account migration by following the prompts in the [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). If you need help with this, visit [support](https://partner.microsoft.com/support?issueid=100-0077).
