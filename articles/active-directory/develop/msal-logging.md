@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/22/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -22,24 +22,26 @@ ms.collection: M365-identity-device-management
 ---
 
 # Logging
+
 Microsoft Authentication Library (MSAL) apps to generate log messages that can help diagnose issues and provide details. An app can configure logging with a few lines of code, and have custom control over the level of detail and whether or not personal and organizational data is logged. It is recommended that you set an MSAL logging callback and provide a way for users to submit logs when they are having authentication issues.
 
 ## Logging levels
 
 MSAL's logger allows for several levels of detail to be capture:
 
-- Error: Indicates something has gone wrong and an error was generated. Use for debugging and identifying problems.
-- Warning: Events that are of question and the app needs more information on. There hasn't necessarily been an error or failure, but intended for diagnostic and pinpointing problems.
-- Info: MSAL will log events intended for informational purposes not necessarily intended for debugging.
-- Verbose: Default. MSAL will log a large amount of information and give full details into what library behavior.
+- **Error**: Indicates something has gone wrong and an error was generated. Use for debugging and identifying problems.
+- **Warning**: Events that are of question and the app needs more information on. There hasn't necessarily been an error or failure, but intended for diagnostic and pinpointing problems.
+- **Info**: MSAL will log events intended for informational purposes not necessarily intended for debugging.
+- **Verbose**: Default. MSAL will log a large amount of information and give full details into what library behavior.
 
 ## Personal and organizational data
+
 By default, the MSAL logger does not capture any highly sensitive personal or organizational data. The library provides you the option to enable logging personal and organizational data if you decide to do so.
 
 ## Logging in MSAL.NET
 
  > [!NOTE]
- > For more information about MSAL.NET, check out the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Get samples of MSAL.NET logging and more. 
+ > For more information about MSAL.NET, check out the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Get samples of MSAL.NET logging and more.
  
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
@@ -75,7 +77,43 @@ class Program
  }
  ```
 
- ## Logging in MSAL.js
+## Logging in MSAL for Android using Java
+
+Turn logging on at app creation by creating a logging callback. The callback takes these parameters:
+
+- `tag` enables you to associate log entries with a string. This can help you sort logging messages by types (strings) that you define.
+- `logLevel` enables you to decide which level of logging you want. Setting it to `Errors` means only errors will be logged, for example.
+- `message` is the content of the log entry.
+- `containsPII` specifies whether personal identifiable information (PII) or organizational identifiable information (OII) messages are logged. By default, this is set to false, so that your application doesn't log personal data. If `containsPII` is `true`, this method will receive the messages twice: once with the `containsPII` parameter set to `false` and the `message` without personal data, and a second time with the `containsPii` parameter set to `true` and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+By default, the MSAL logger will not capture any PII or OII.
+To enable logging PII or OII:
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+To disable PII & OII:
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+## Logging in MSAL.js
 
  You can enable logging in MSAL.js by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
 

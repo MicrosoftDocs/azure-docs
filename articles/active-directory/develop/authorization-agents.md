@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about which authorization agents I can use and how to enable them.
+#Customer intent: As an application developer, I want to learn about which options I can use to sign-in users and how to enable them.
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,53 +27,53 @@ This article describes the different authorization agents that the Microsoft Aut
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults.
 
-When using MSAL in your Android application, you can choose between using a browser or the Android WebView control to launch the interactive sign-in experience.
+When using MSAL in your Android application, you can choose between using a browser, or the Android WebView control, to launch the interactive sign-in experience.
 
 ![login_ux_msal](./media/authorization-agents/sign-in-ui.jpg)
 
-## Single sign implications
+## Single sign-in implications
 
-By default, applications use a browser/custom tabs strategy. Because Microsoft can persist a cookie in the browser, the user doesn't have to enter their credentials as many times. Which enables other native android or web apps to participate in a Single Sign-On (SSO) experience.
+By default, applications use a browser/custom tabs strategy. Because MSAL can persist a cookie in the browser, the user doesn't have to enter their credentials as often. Which enables other native android, or web, apps to participate in Single Sign-On (SSO).
 
-If the application uses a WebView strategy without integrating Authenticator or Company Portal support into their app, users can have a SSO experience with a single application, but not across the device or between native and web apps.
+If the application uses a `WebView` strategy without integrating Authenticator or Company Portal support into their app, users can have a SSO experience from a single application but not across the device or between native apps and web apps.
 
 If the application uses MSAL with Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign in with one of the apps.
 
 ## WebView
 
-To use the in-app WebView, specify the following line in the app configuration JSON that is passed to MSAL:
- 
+To use the in-app WebView, put the following line in the app configuration JSON that is passed to MSAL:
+
 ```json
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-By using the in-app WebView, the user signs in directly to the app. The tokens are kept inside the sandbox of the app and aren't available outside the app's cookie jar. As a result, the user cannot have a SSO experience across applications unless the apps integrate with the Authenticator or Company Portal.
+When using the in-app `WebView`, the user signs in directly to the app. The tokens are kept inside the sandbox of the app and aren't available outside the app's cookie jar. As a result, the user can't have a SSO experience across applications unless the apps integrate with the Authenticator or Company Portal.
 
-Additionally, the WebView affords apps more look and sign in look and feel customization. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
+Additionally, the `WebView` affords apps more sign in look and feel customization. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
 
 ## Default browser plus Chrome custom tabs
 
-By default, MSAL uses the browser plus [Chrome custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` using the following JSON configuration:
+By default, MSAL uses the browser and a [Chrome custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` by using the following JSON configuration:
 
 ```json
 "authorization_user_agent" : "BROWSER"
 ```
 
-Use this approach to provide a SSO experience using the device's browser. MSAL uses a shared cookie jar allowing other native or web apps to get SSO on the device by using the persist session cookie set by Microsoft.
+Use this approach to provide a SSO experience through the device's browser. MSAL uses a shared cookie jar, which allows other native apps or web apps to achieve  SSO on the device by using the persist session cookie set by MSAL.
 
 ## Browser selection heuristic
 
-It's impossible for MSAL to specify the exact browser package to use across the different Android phones. So MSAL implements a browser selection heuristic focused on providing the best cross-device SSO. The heuristic is implemented in the following method:
+It's impossible for MSAL to specify the exact browser package to use on each of the broad array of Android phones. So MSAL implements a browser selection heuristic that tries to provide the best cross-device SSO. The heuristic is implemented in the following method:
 
 ```java
 [com.microsoft.identity.common.internal.ui.browser.BrowserSelector.select(final Context context)](https://github.com/AzureAD/microsoft-authentication-library-common-for-android/blob/dev/common/src/main/java/com/microsoft/identity/common/internal/ui/browser/BrowserSelector.java#L57)
 ```
 
-MSAL retrieves the full list of browsers installed on the device to select which browser to use. The list is in the order returned by the package manager, which indirectly reflects the user's preferences. For example, the default browser, if set, is the first entry in the list. The _first_ browser in the list will be selected regardless of whether it supports custom tabs. If the browser does support Custom Tabs, MSAL will launch the Custom Tab. Custom Tabs have a look and feel closer to an in-app WebView and also allow some basic UI customization. See [Custom Tabs in Android](https://developer.chrome.com/multidevice/android/customtabs) to learn more.
+MSAL retrieves the full list of browsers installed on the device to select which browser to use. The list is in the order returned by the package manager, which indirectly reflects the user's preferences. For example, the default browser, if set, is the first entry in the list. The _first_ browser in the list will be chosen regardless of whether it supports custom tabs. If the browser supports Custom Tabs, MSAL will launch the Custom Tab. Custom Tabs have a look and feel closer to an in-app `WebView` and allow basic UI customization. See [Custom Tabs in Android](https://developer.chrome.com/multidevice/android/customtabs) to learn more.
 
-If there are no browser packages on the device, MSAL uses the in-app WebView.
+If there are no browser packages on the device, MSAL uses the in-app `WebView`.
 
-The order of browsers in the browser list is determined by the operating system and is in order of most preferred to least. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure a SSO experience.
+The order of browsers in the browser list is determined by the operating system. It is in order from most preferred to least. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure a SSO experience.
 
 > [!NOTE]
 > MSAL no longer always prefers Chrome if another browser is set as default. For example, on a device which has both Chrome and another browser pre-installed, MSAL will use the browser the user as set as the default.
