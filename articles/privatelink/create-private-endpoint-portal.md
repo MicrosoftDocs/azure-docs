@@ -18,9 +18,28 @@ This quickstart shows you how to create an Azure Private Endpoint in the Azure P
 
 Sign in to the Azure portal at https://portal.azure.com.
 
+## Create the virtual network
+
+Create a virtual network and the subnet to host the VM.
+
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+1. In **Create virtual network**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myVNet*. |
+    | Address space | Enter *10.1.0.0/16*. |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
+    | Location | Select **East US**.|
+    | Subnet - Name | Enter *mySubnet*. |
+    | Subnet - Address range | Enter *10.1.0.0/24*. |
+1. Leave the rest as default and select **Create**.
+
+
 ## Create virtual machine
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual Machine**.
 
 1. In **Create a virtual machine - Basics**, enter or select this information:
 
@@ -28,12 +47,12 @@ Sign in to the Azure portal at https://portal.azure.com.
     | ------- | ----- |
     | **PROJECT DETAILS** | |
     | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. You created this in the previous section. |
+    | Resource group | Select **myResourceGroup**. You created this in the previous section.  |
     | **INSTANCE DETAILS** |  |
     | Virtual machine name | Enter *myVm*. |
     | Region | Select **West US**. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
-    | Image | Leave the default **Windows Server 2019 Datacenter**. |
+    | Image | Select **Windows Server 2019 Datacenter**. |
     | Size | Leave the default **Standard DS1 v2**. |
     | **ADMINISTRATOR ACCOUNT** |  |
     | Username | Enter a username of your choosing. |
@@ -52,11 +71,12 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Leave the default **myVirtualNetwork**. |
-    | Subnet | Leave the default **myVirtualSubnet (10.1.0.0/24)**. |
+    | Virtual network | Leave the default **myVNet**.  |
+    | Address space | Leave the default **10.1.0.0/24**.|
+    | Subnet | Leave the default **mySubnet (10.1.0.0/24)**.|
     | Public IP | Leave the default **(new) myVm-ip**. |
     | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **HTTP** and **RDP**.
+    | Select inbound ports | Select **HTTP** and **RDP**.|
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
