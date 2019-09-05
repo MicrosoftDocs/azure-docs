@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot backend health issues in Application Gateway
-description: This article guides you in troubleshooting backend health issues for Application Gateway
+title: Troubleshoot backend health issues in Azure Application Gateway
+description: This article guides you in troubleshooting backend health issues for Azure Application Gateway
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
@@ -98,8 +98,9 @@ The message displayed in the Details column of the backend health tab
 provides more detailed insights on the issue and based on those, we
 can start troubleshooting the issue.
 
-**Note:** The default probe request is sent in the format of
-\<protocol\>://127.0.0.1:\<port\>/, for example, <http://127.0.0.1/> for
+> [!NOTE]
+> The default probe request is sent in the format of
+<protocol>://127.0.0.1:<port>/, for example, <http://127.0.0.1/> for
 an http probe on port 80 and considers only a response of HTTP Status
 codes 200-399 as healthy response. The protocol and the destination port
 are inherited from HTTP Settings. If you want Application Gateway to
@@ -336,7 +337,7 @@ trusted CA, for example, self-signed certificates, users should upload
 the issuer's certificate to Application Gateway.
 
 **Solution:** Follow the steps below to export and upload the trusted
-root certificate to the Application Gateway (Note: the steps provided
+root certificate to the Application Gateway (The steps provided
 below are for Windows clients)
 
 1.  Sign in to the machine where your application is hosted
@@ -404,8 +405,8 @@ certificate to the Application Gateway.
 For detailed steps on extracting and uploading Trusted Root Certificates
 in Application Gateway, see
 [here](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
-
-Note: The error mentioned could also occur if the backend server is not exchanging the complete chain of the cert including the Root -> Intermediate (if applicable) -> Leaf during the TLS handshake. To verify, you can use OpenSSL commands from any client and connect to the backend server using the configured settings in the Application Gateway probe.
+> [!NOTE]
+> The error mentioned could also occur if the backend server is not exchanging the complete chain of the cert including the Root -> Intermediate (if applicable) -> Leaf during the TLS handshake. To verify, you can use OpenSSL commands from any client and connect to the backend server using the configured settings in the Application Gateway probe.
 
 For example,
 ```
