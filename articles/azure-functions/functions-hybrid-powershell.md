@@ -138,7 +138,7 @@ Restart-Service HybridConnectionManager
 
 1. Create a new http trigger function from the function app
 ![Create new http trigger](./media/functions-hybrid-powershell/create-http-trigger-function.png)  
-1. Replace the PowerShell text with the below code
+1. Replace the PowerShell code from the template with the following code:
 
 ```powershell
 # Input bindings are passed in via param block.
