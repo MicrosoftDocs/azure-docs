@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 09/05/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -76,7 +76,7 @@ Turn off the lights
 
 Check that the top scoring intent corresponds to the intent you expected for each test utterance.
 
-In this example, "Turn off the lights" is correctly identified as the top scoring intent of "HomeAutomation.TurnOff."
+In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
 
 [![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
 
@@ -93,7 +93,7 @@ Select **Test** again to collapse the test pane.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint with a different utterance
+## Query the V2 API prediction endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -170,50 +170,52 @@ Select **Test** again to collapse the test pane.
     }
     ```
     
-1. For a [V3 API query](luis-migration-api-v3.md), in the browser, change the GET method HTTPS request, changing out the values in angle brackets for your own values. 
+## Query the V3 API prediction endpoint
 
-    |V2 URL with GET method|V3 URL with GET method|
-    |--|--|
-    |https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**|https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**|
+For a [V3 API query](luis-migration-api-v3.md), in the browser, change the GET method HTTPS request, changing out the values in angle brackets for your own values. 
 
-    The browser displays the **V3 API** version of the JSON response of your HTTP endpoint.
+|V2 URL with GET method|V3 URL with GET method|
+|--|--|
+|https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**|https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**|
 
-    ```json
-    {
-        "query": "turn off the lights",
-        "prediction": {
-            "normalizedQuery": "turn off the lights",
-            "topIntent": "HomeAutomation.TurnOff",
-            "intents": {
-                "HomeAutomation.TurnOff": {
-                    "score": 0.99649024
-                }
-            },
-            "entities": {
+The browser displays the **V3 API** version of the JSON response of your HTTP endpoint.
+
+```json
+{
+    "query": "turn off the lights",
+    "prediction": {
+        "normalizedQuery": "turn off the lights",
+        "topIntent": "HomeAutomation.TurnOff",
+        "intents": {
+            "HomeAutomation.TurnOff": {
+                "score": 0.99649024
+            }
+        },
+        "entities": {
+            "HomeAutomation.DeviceType": [
+                [
+                    "light"
+                ]
+            ],
+            "$instance": {
                 "HomeAutomation.DeviceType": [
-                    [
-                        "light"
-                    ]
-                ],
-                "$instance": {
-                    "HomeAutomation.DeviceType": [
-                        {
-                            "type": "HomeAutomation.DeviceType",
-                            "text": "lights",
-                            "startIndex": 13,
-                            "length": 6,
-                            "modelTypeId": 5,
-                            "modelType": "List Entity Extractor",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
-                    ]
-                }
+                    {
+                        "type": "HomeAutomation.DeviceType",
+                        "text": "lights",
+                        "startIndex": 13,
+                        "length": 6,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
             }
         }
     }
-    ```
+}
+```
 
 ## Clean up resources
 
