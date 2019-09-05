@@ -51,24 +51,18 @@ landingContent:
           - text: Design a Database using Azure CLI 
             url: tutorial-design-database-cli.md
 # Card 3
-  - title: Back up and migrate data
+  - title: Back up and restore data
     linkLists:
       - linkListType: concept
         links:
           - text: Back up and restore
             url: concepts-backup.md
-          - text: Migrate using dump and restore
-            url: concepts-migrate-dump-restore.md
-          - text: Migrate using import and export
-            url: concepts-migrate-import-export.md
       - linkListType: how-to-guide
         links:
           - text: Restore a server using the Azure portal
             url: howto-restore-server-portal.md
           - text: Restore a server using Azure CLI
             url: howto-restore-server-cli.md            
-          - text: Minimal downtime migrations
-            url: howto-migrate-online.md
 # Card 4
   - title: Connect to Azure Database for MariaDB
     linkLists:
@@ -79,15 +73,13 @@ landingContent:
           - text: Understand SSL
             url: concepts-ssl-connection-security.md
           - text: Understand Virtual Networks
-            url: concepts-data-access-and-security-vnet.md            
+            url: concepts-data-access-security-vnet.md          
       - linkListType: how-to-guide
         links:            
           - text: Create firewall rules
-            url: howto-manage-firewall-using-portal.md
+            url: howto-manage-firewall-portal.md
           - text: Configure SSL connectivity
             url: howto-configure-ssl.md
-          - text: Connect an existing Azure App Service
-            url: howto-connect-webapp.md
           - text: Troubleshoot connection issues
             url: howto-troubleshoot-common-connection-issues.md
       - linkListType: get-started
