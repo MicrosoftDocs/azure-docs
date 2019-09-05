@@ -34,10 +34,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     #### [Multi-service resource](#tab/multiservice)
 
-    The multi-service resource is named **Cognitive Services** in the portal. To create one, [click here](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) or search for **Cognitive Services** in the portal search bar. Then select **Create**.
-
-    ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png) <!--On the resource page, select **Create**. ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png) -->
-
+    The multi-service resource is named **Cognitive Services** in the portal. [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
     At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
     
@@ -54,13 +51,6 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    To see all available cognitive services in the portal, select **AI + Machine Learning**, under **Azure Marketplace**. If you don't see the service you're interested in, click on **See all** and scroll to **Cognitive Services**. Click **See more** to view the entire catalog of Cognitive Services.
-
-    Once you are on the service you are interested in, click **Create**.
-    
-    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-    ***
 3. On the **Create** page, provide the following information:
 
     #### [Multi-service resource](#tab/multiservice)
