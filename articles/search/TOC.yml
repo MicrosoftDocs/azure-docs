@@ -81,6 +81,8 @@
     href: search-lucene-query-architecture.md
   - name: Cognitive search
     href: cognitive-search-concept-intro.md
+  - name: Skillsets
+    href: cognitive-search-working-with-skillsets.md
   - name: Knowledge store 
     href: knowledge-store-concept-intro.md
   - name: Projections
