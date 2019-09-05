@@ -16,7 +16,7 @@ ms.date: 08/25/2019
 
 Point-in-time restore (PITR) enables you to create a database as a copy of another database at some point in time in the past. This article describes how to perform a point-in-time restore of a database in a managed instance.
 
-Point-in-time restore can be used in recovery scenarios, such as incidents caused by errors, incorrectly-loaded data, deletion of crucial data, and other issues as well as simply for testing or auditing purposes. Depending on your database settings, backup files are kept for a period between 7 and 35 days.
+Point-in-time restore can be used in recovery scenarios, such as incidents caused by errors, incorrectly loaded data, deletion of crucial data, and other issues as well as simply for testing or auditing purposes. Depending on your database settings, backup files are kept for a period between 7 and 35 days.
 
 Point-in-time restore can be used to:
 
