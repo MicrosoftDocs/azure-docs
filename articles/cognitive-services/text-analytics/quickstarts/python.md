@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/28/2019
+ms.date: 08/28/2019
 ms.author: aahi
 ---
 
@@ -45,11 +45,20 @@ import requests
 from pprint import pprint
 ```
 
-Create variables for your subscription key, and the endpoint for the Text Analytics REST API. Verify that the region in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you're using a free trial key, you don't need to change anything.
+Create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
     
 ```python
-subscription_key = "<ADD YOUR KEY HERE>"
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
+import os
+
+key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
 The following sections describe how to call each of the API's features.
@@ -58,11 +67,11 @@ The following sections describe how to call each of the API's features.
 
 ## Detect languages
 
-Append `languages` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+Append `/text/analytics/v2.1/languages` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
-language_api_url = text_analytics_base_url + "languages"
+language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
 The payload to the API consists of a list of `documents`, which are tuples containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
@@ -128,11 +137,11 @@ pprint(languages)
 
 ## Analyze sentiment
 
-To detect the sentiment (which ranges between positive or negative) of a set of documents, append `sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+To detect the sentiment (which ranges between positive or negative) of a set of documents, append `/text/analytics/v2.1/sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
-sentiment_url = text_analytics_base_url + "sentiment"
+sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
 As with the language detection example, create a dictionary with a `documents` key that consists of a list of documents. Each document is a tuple consisting of the `id`, the `text` to be analyzed and the `language` of the text. 
@@ -191,11 +200,11 @@ The sentiment score for a document is between 0.0 and 1.0, with a higher score i
 
 ## Extract key phrases
  
-To extract the key phrases from a set of documents, append `keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+To extract the key phrases from a set of documents, append `/text/analytics/v2.1/keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-keyphrase_url = text_analytics_base_url + "keyPhrases"
+keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
 ```
 
 This collection of documents is the same used for the sentiment analysis example.
@@ -268,11 +277,11 @@ pprint(key_phrases)
 
 ## Identify Entities
 
-To identify well-known entities (people, places, and things) in text documents, append `entities` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+To identify well-known entities (people, places, and things) in text documents, append `/text/analytics/v2.1/entities` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
-entities_url = text_analytics_base_url + "entities"
+entities_url = endpoint + "/text/analytics/v2.1/entities"
 ```
 
 Create a collection of documents, like in the previous examples. 
