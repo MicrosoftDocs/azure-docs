@@ -67,9 +67,9 @@ namespace MyNamespace
 
 A series of registration steps run before and after the runtime processes the startup class. Therefore, the keep in mind the following items:
 
-- **The startup class is meant for only setup and registration.** Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After your app is set up, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
+- *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
 
-- **The dependency injection container only holds explicitly registered types**. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during the set-up process or as injectable types.
+- *The dependency injection container only holds explicitly registered types*. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during setup or as injectable types.
 
 ## Use injected dependencies
 
@@ -130,10 +130,8 @@ View or download a [sample of different service lifetimes](https://aka.ms/functi
 If you need your own logging provider, register a custom type as an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
-> Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-
-> [!WARNING]
-> Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
+> - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
+> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
 
 ## Function app provided services
 
