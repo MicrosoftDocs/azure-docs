@@ -18,7 +18,7 @@ Use the Azure portal to create your cache.
 
 ![screenshot of project details page in Azure portal](media/create-1.png)
 
-In **Project Details**, select the subscription and resource group that will host the Azure HPC Cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subs) list.
+In **Project Details**, select the subscription and resource group that will host the Azure HPC Cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subscription) list.
 
 In **Service Details**, set the cache name and these other attributes:
 
