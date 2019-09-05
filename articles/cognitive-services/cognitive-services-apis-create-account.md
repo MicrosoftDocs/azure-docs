@@ -25,12 +25,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
 ## Create a new Azure Cognitive Services resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
-
-    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-
-2. Create a resource.
+1. Create a resource.
 
     #### [Multi-service resource](#tab/multiservice)
 
@@ -50,6 +45,12 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing Entity Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+
+    
+    You can also sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
+
+    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
+
 
 3. On the **Create** page, provide the following information:
 
