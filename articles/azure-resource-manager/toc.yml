@@ -90,6 +90,8 @@
       href: template-parameters.md
     - name: Variables
       href: template-variables.md
+    - name: Outputs
+      href: template-outputs.md
     - name: Resources
       items:
       - name: Child resource name and type
