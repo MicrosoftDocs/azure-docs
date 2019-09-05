@@ -1,6 +1,6 @@
 ---
 title: Set up Apache Kafka on HDInsight using Azure Resource Manager - Quickstart
-description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.
+description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure Resource Manager template. You also learn about Kafka topics, subscribers, and consumers.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
