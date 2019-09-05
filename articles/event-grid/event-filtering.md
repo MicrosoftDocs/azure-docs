@@ -57,7 +57,7 @@ To filter by values in the data fields and specify the comparison operator, use 
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
 * value or values - The value or values to compare to the key.
 
-**Multiple values in a single filter** constitutes an **OR**, so the value of the key field must be one of these values. Here is an example:
+**A single filter with multiple values** constitutes an **OR**, so the value of the key field must be one of these values. Here is an example:
 
 ```json
 "advancedFilters": [
@@ -71,7 +71,7 @@ To filter by values in the data fields and specify the comparison operator, use 
     }
 ]
 ```
-Alternatively, **multiple different filters** constitutes an **AND**, so the each filter condition must be met. Here is an example: 
+Alternatively, **multiple different filters** constitute an **AND**, so each filter condition must be met. Here is an example: 
 
 ```json
 "advancedFilters": [
@@ -119,7 +119,7 @@ All string comparisons are case-insensitve.
 
 For events in the Event Grid schema, use the following values for the key:
 
-* Id
+* ID
 * Topic
 * Subject
 * EventType
