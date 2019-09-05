@@ -259,7 +259,7 @@ Your authoring/starter key is only allowed 1000 endpoint queries a month. Create
 The first issue is to isolate if the issue is related to LUIS or happens outside the LUIS middleware. 
 
 #### Resolve issue in LUIS
-Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
+Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
