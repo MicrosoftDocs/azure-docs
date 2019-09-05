@@ -3,15 +3,15 @@ title: Azure Functions
 description: How to build serverless mobile apps using Azure Functions
 author: elamalani
 ​
-ms.assetid: 34a8a070-1010-4090-8588-ccff02097224
+ms.assetid: 12a8a079-9b3c-4634-2222-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
 ms.date: 09/04/2019
 ms.author: emalani
----
+---​
 
-​
 # Serverless Compute with Azure Functions
+
 Every mobile application needs a backend that is responsible for data storage, business logic, and security. Managing the infrastucture to host and execute backend code requires you to size, provision and scale a bunch of servers, manage OS updates and hardware involved, apply security patches and then monitor all these infrastructure for performance, availability, and fault tolerance. This is when serverless architecture comes very handy as developers have no servers to manage, no OS, or related software/hardware updates to manage and it saves a lot of developer time and cost which means faster time to market and focused energy on building application code logic. 
 
 **Benefits of serverless compute includes:**
