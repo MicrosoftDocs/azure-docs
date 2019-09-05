@@ -7,8 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high 
+ms.date: 09/05/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -82,12 +81,9 @@ Take the following steps if returning the device in Europe.
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
-1. Email `adbops@microsoft.com` to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
-2. The email subject should be - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
-
-    - Order name
-    - Address
-    - Contact name
+1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
+3. Affix the label on the box. 
+4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
 ### Pick up in Asia
 
