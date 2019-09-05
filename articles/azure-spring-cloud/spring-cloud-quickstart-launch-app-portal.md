@@ -1,6 +1,6 @@
 ---
 title: Launch a Java Spring application on Azure using the Azure portal | Microsoft Docs
-description: In this quickstart, you deploy a sample application to the Azure Managed Service for Spring Cloud on the Azure portal.
+description: In this quickstart, you deploy a sample application to the Azure Spring Cloud on the Azure portal.
 services: spring-cloud
 author: v-vasuke
 manager: jeconnoc
@@ -14,7 +14,7 @@ ms.author: v-vasuke
 ---
 # Quickstart: Launch a Java Spring application on Azure using the Azure portal
 
-Azure Managed Service for Spring Cloud enables you to easily run a Spring Cloud based microservices on Azure.
+Azure Spring Cloud enables you to easily run a Spring Cloud based microservices on Azure.
 
 This quickstart shows you how to deploy an existing Java Spring Cloud application to Azure. When you're finished, the provided sample application will be accessible on the web and ready to be managed via the Azure portal.
 
@@ -44,11 +44,11 @@ To complete this quickstart:
 
 1. In a web browser, open the [Azure portal](https://portal.azure.com), and sign into your account.
 
-1. Search for the **Azure Managed Service for Java Spring Cloud** and click on it to go to the overview page. Click the **Create** button to get started.
+1. Search for the **Azure Java Spring Cloud** and click on it to go to the overview page. Click the **Create** button to get started.
 
 1. Fill out the form, considering the following guidelines:
 
-- Resource Name: Specify the name of your service instance.
+- Service Name: Specify the name of your service instance.
 - Subscription: Select the subscription you want to be billed for this resource.
 - Resource group: Creating new resource groups for new resources is generally considered the best practice.
 - Location: Location of your service instance. Only West Europe and East US are supported at this time. 
@@ -90,10 +90,10 @@ You should now have individual JAR files for each service in their respective fo
 - Artifact Type: Only JAR file is supported at this time.
 - Select Artifact: Upload the JAR file from your local machine. Choose JAR file from PiggyMetrics\gateway\target\gateway.jar.
 - Java Environment: The Java Runtime version. Only Java 8 is supported at this time.
--	Port: Specify the port number of your application. Use 80 here.
--	vCPU: Specify the maximum CPU resource for your application. Use 0.5 here.
--	Memory: Specify the maximum memory resource for your application. Use 1000 MB here.
--	App Instance Count: Specify the instance count of your application. You can specify more than 2 instances for more capacity and high availability. The instance count can be updated after creation. Use 1 here. 
+- Port: Specify the port number of your application. Use 80 here.
+- vCPU: Specify the maximum CPU resource for your application. Use 1 here.
+- Memory: Specify the maximum memory resource for your application. Use 1GB here.
+- App Instance Count: Specify the instance count of your application. You can specify more than 2 instances for more capacity and high availability. The instance count can be updated after creation. Use 1 here. 
 
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
@@ -111,20 +111,20 @@ You should now have individual JAR files for each service in their respective fo
 Properly setting environment variables are essential to run the application.
 
 1.	Go to the service **Overview** page.
-2.	Click **Application Dashboard** entry in the menu.
+2.	Click **App Management** entry in the menu.
 3.	Click account-service application to show **Application Details** page and open the **Environment Variables** tab.
 4.	Add a new environment variable named "security.oauth2.client.client-secret" with value "XUoJBrTtqXBonU5zMVzSUtrLPKRQztLUQE4poDoIR1QdcDfGgnGgJO5wbFC7xCEL"
-5.	Restart account-service by clicking the **Restart** button at the top of the page.
+5.	Apply the changes you just made to account-service by clicking **Save** and then **Refresh**.
 6.	Go to auth-service's application details page and open the **Environment Variables** tab.
-7.	Add a new environment variable named "ACCOUNT_SERVICE_PASSWORD" with value "XUoJBrTtqXBonU5zMVzSUtrLPKRQztLUQE4poDoIR1QdcDfGgnGgJO5wbFC7xCEL" as below snapshot. 
-8.	Restart auth-service by clicking the **Restart** button at the top of the page.
-
+7.	Add a new environment variable named "ACCOUNT_SERVICE_PASSWORD" with value "XUoJBrTtqXBonU5zMVzSUtrLPKRQztLUQE4poDoIR1QdcDfGgnGgJO5wbFC7xCEL" as below snapshot.
+8. Apply the changes you just made to auth-service by clicking **Save** and then **Refresh**.
+.
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
 ## Assign public IP to gateway
-1.	Go to the service **Overview** page and open **Application Dashboard** page.
+1.	Go to the service **Overview** page and open **App Management** page.
 2.	Click gateway application to show the **Application Details** page.
-3.	Click **Assign Public IP** to assign a public IP to gateway. This can take up to a couple minutes. You can use this public IP to access all microservices via gateway. 
+3.	Click **Assign Domain** to assign a public IP to gateway. This can take up to a couple minutes. You can use this public IP to access all microservices via gateway.
 4.	Use Piggy Metrics by entering the assigned public IP into an internet browser.
 
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
