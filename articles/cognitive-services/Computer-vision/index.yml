@@ -27,44 +27,130 @@ landingContent:
           - text: What is Computer Vision?
             url: Home.md
 
-  # Card 
-  - title: Get started
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-
   - title: Recognize printed and handwritten text
-  - title: Detect objects in images
-  - title: Apply content tags to images
-  - title: Use containers
-  - title: Detect faces in images
-  - title: Get image description
-  - title: Use domain-specific models
-  - title: Categorize images
-  - title: 
-
-  # Card
-  - title: cardtitle3
     linkLists:
-      - linkListType: linkListType
+      - linkListType: concept
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+          - text: Printed and handwritten text recognition
+            url: concept-recognizing-text.md
+      - linkListType: quickstart
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: .NET SDK
+            url: quickstarts-sdk/csharp-hand-text-sdk.md
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: REST API (C#)
+            url: csharp-hand-text.md
+          - text: REST API (Python)
+            url: python-hand-text.md
+          - text: REST API (Java)
+            url: java-hand-text.md
+          - text: REST API (JavaScript)
+            url: javascript-hand-text.md
+
+
+  - title: Detect objects in images
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Printed and handwritten text recognition
+            url: concept-object-detection.md
+      - linkListType: quickstart
+        links:
+          - text: .NET SDK
+            url: quickstarts-sdk/csharp-analyze-sdk.md
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Java SDK
+            url: quickstarts-sdk/java-sdk.md
+
+  # Card 
+  - title: Apply content tags to images
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Content tags
+            url: concept-tagging-images.md
+      - linkListType: quickstart
+        links:
+          - text: .NET SDK
+            url: quickstarts-sdk/csharp-analyze-sdk.md
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Java SDK
+            url: quickstarts-sdk/java-sdk.md
+
+  - title: Use containers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Install and run containers
+            url: computer-vision-how-to-install-containers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure containers
+            url: computer-vision-resource-container-config.md
+      - linkListType: deploy
+        links:
+          - text: Use container instances
+            url: deploy-computer-vision-on-container-instances.md
+          - text: Use with Kubernetes and Helm
+            url: deploy-computer-vision-on-premises.md
+          
+  - title: Detect faces in images
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Face detection
+            url: concept-detecting-faces.md
+      - linkListType: quickstart
+        links:
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Java SDK
+            url: quickstarts-sdk/java-sdk.md
+  
+  - title: Get image description
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Image descriptions
+            url: concept-describing-faces.md
+      - linkListType: quickstart
+        links:
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Java SDK
+            url: quickstarts-sdk/java-sdk.md
+      - linkListType: tutorial
+        links:
+          - text: Generate metadata for images
+            url: tutorials/storage-lab-tutorial.md
+
+
+  - title: Use domain-specific models
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Domain-specific models
+            url: concept-detecting-domain-content.md
+      - linkListType: quickstart
+        links:
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Java SDK
+            url: quickstarts-sdk/java-sdk.md
+
+  - title: Categorize images
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Image categorization
+            url: concept-categorizing-images.md
+      - linkListType: quickstart
+        links:
+          - text: Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Java SDK
+            url: quickstarts-sdk/java-sdk.md
+
