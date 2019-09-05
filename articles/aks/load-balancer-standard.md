@@ -56,25 +56,23 @@ az extension update --name aks-preview
 
 ### Register AKSAzureStandardLoadBalancer preview feature
 
-To create an AKS cluster that can use a load balancer with the *Standard* SKU, you must enable the *AKSAzureStandardLoadBalancer* feature flag on your subscription. The *AKSAzureStandardLoadBalancer* feature also uses *VMSSPreview* when creating a cluster using virtual machine scale sets. This feature provides the latest set of service enhancements when configuring a cluster. While it's not required, it's recommended you enable the *VMSSPreview* feature flag as well.
+To create an AKS cluster that can use a load balancer with the *Standard* SKU, you must enable the *AKSAzureStandardLoadBalancer* feature flag on your subscription.
 
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
-Register the *VMSSPreview* and *AKSAzureStandardLoadBalancer* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+Register the *AKSAzureStandardLoadBalancer* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "VMSSPreview"
 az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureStandardLoadBalancer"
 ```
 
 > [!NOTE]
-> Any AKS cluster you create after you've successfully registered the *VMSSPreview* or *AKSAzureStandardLoadBalancer* feature flags use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
+> Any AKS cluster you create after you've successfully registered the *AKSAzureStandardLoadBalancer* feature flag use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
 ```
 
