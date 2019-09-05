@@ -92,7 +92,7 @@ For information about live streaming in Media Services v3, see [Live streaming o
 
 ## Video codecs supported by Dynamic Packaging
 
-Dynamic Packaging supports MP4 files, which contain video that's encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
+Dynamic Packaging supports MP4 files which contain video that's encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
 
 > [!NOTE]
 > Resolutions of up to 4K, and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
@@ -131,7 +131,7 @@ Dynamic Packaging doesn't support files that contain [Dolby Digital](https://en.
 
 ## Manifests 
  
-In Media Services Dynamic Packaging, the streaming client manifests for HLS, MPEG-DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL. For more information, see [delivery protocols](#delivery-protocols). 
+In Media Services Dynamic Packaging, the streaming client manifests for HLS, MPEG-DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL.  
 
 A manifest file includes streaming metadata such as track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), and video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments that are available and their location. Fragments (or segments) are the actual "chunks" of video content.
 
