@@ -34,13 +34,13 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     #### [Multi-service resource](#tab/multiservice)
 
-    >[!WARNING]
-    > At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
-    
     The multi-service resource is named **Cognitive Services** in the portal. To create one, [click here](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) or search for **Cognitive Services** in the portal search bar. Then select **Create**.
 
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png) <!--On the resource page, select **Create**. ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png) -->
 
+    
+    At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+    
 
     #### [Single-service resource](#tab/singleservice)
 
