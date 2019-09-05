@@ -1,4 +1,5 @@
-### YamlMime:YamlDocument
+### YamlMime:Landing
+
 title: Anomaly Detector API Documentation 
 summary: The Anomaly Detector API helps you easily embed anomaly detection capabilities into your apps so your users can quickly identify problems to minimize loss and customer impact. No machine-learning background required. Through a single API call, you can activate this pre-trained AI model that ingests time-series data of all types and volumes, selects the best-fitting anomaly detection model for your data to ensure high accuracy, and automatically surfaces incidents as soon as they happen. You can customize the service to detect anomalies of all sizes.  Use Anomaly Detector to identify business incidents, monitor IoT device traffic, manage fraud, respond to changing markets, and more.
 
