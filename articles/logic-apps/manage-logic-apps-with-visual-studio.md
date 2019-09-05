@@ -210,34 +210,34 @@ After you set the **Integration Account** property, the Azure Resource Manager t
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "logicAppName": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 80,
-      "metadata": {
-        "description": "Name of the Logic App."
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "logicAppName": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 80,
+         "metadata": {
+            "description": "Name of the Logic App."
       }
-    },
-    "logicAppLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location of the Logic App."
-      }
-    },
-    <connection-parameter-declarations>
-    "LogicAppIntegrationAccount": {
-      "type": "string",
-      "minLength": 1,
-      "defaultValue": "/subscriptions/XXXXXX-XXXXX-XXXXXXX/resourcegroups/ContosoResourceGroup/providers/Microsoft.Logic/integrationAccounts/Contoso-Integration-Account"
-    }
-  },
-  "variables": {},
-  "resources": [ { <Azure-resource-definitions> } ],
-  "outputs": {}
+      },
+      "logicAppLocation": {
+         "type": "string",
+         "defaultValue": "[resourceGroup().location]",
+         "metadata": {
+            "description": "Location of the Logic App."
+         }
+      },
+      <connection-parameter-declarations>
+      "LogicAppIntegrationAccount": {
+         "type": "string",
+         "minLength": 1,
+         "defaultValue": "/subscriptions/XXXXXX-XXXXX-XXXXXXX/resourcegroups/ContosoResourceGroup/providers/Microsoft.Logic/integrationAccounts/Contoso-Integration-Account"
+       }
+   },
+   "variables": {},
+   "resources": [ { <Azure-resource-definitions> } ],
+   "outputs": {}
 }
 ```
 
