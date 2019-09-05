@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is the Translator Text API?
-            url: overview.md
+            url: translator-info-overview.md
       - linkListType: get-started
         links:
           - text: Create a subscription
