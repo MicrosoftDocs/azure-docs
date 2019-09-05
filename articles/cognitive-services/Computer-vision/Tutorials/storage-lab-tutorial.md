@@ -9,7 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
+<<<<<<< HEAD
 ms.date: 09/04/2019
+=======
+ms.date: 09/03/2019
+>>>>>>> 5a3787a7b2da974586fa3aca79b7f10b7f62cdee
 ms.author: pafarley
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
