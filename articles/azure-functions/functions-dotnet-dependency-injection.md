@@ -185,8 +185,8 @@ public class HttpTrigger
 
     public HttpTrigger(IOptions<MyOptions> options)
     {
-        this._service = service;
-        this._settings = options.Value;
+        _service = service;
+        _settings = options.Value;
     }
 }
 ```
