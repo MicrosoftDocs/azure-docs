@@ -23,6 +23,8 @@ A PowerShell script is available to assist with developer debugging or support. 
 
 You can use the information to determine next steps and determine root cause of issues.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## Troubleshooting script
 
 The PowerShell troubleshooting script is available on GitHub. [Download a zip file](https://github.com/Azure-Samples/blockchain/archive/master.zip) or clone the sample from GitHub.

@@ -1,5 +1,5 @@
 > [!IMPORTANT]
 > Azure Blockchain Workbench is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Azure Blockchain Workbench is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> Use the [Azure Blockchain forum](https://aka.ms/workbenchforum) for public preview support.
+> Use the [Azure Blockchain forum](https://aka.ms/workbenchforum) for support.
