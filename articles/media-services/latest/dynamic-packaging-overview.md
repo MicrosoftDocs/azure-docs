@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/22/2019 
+ms.date: 09/07/2019 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -99,11 +99,7 @@ Dynamic Packaging supports MP4 files which contain video that's encoded with [H.
 
 ## <a id="audio-codecs"/>Audio codecs supported by Dynamic Packaging
 
-Dynamic Packaging supports the following audio protocols:
-
-### MP4 files
-
-Dynamic Packaging supports MP4 files, which contain audio that's encoded with the following protocols: 
+Dynamic Packaging supports audio that's encoded with the following protocols:
 
 * [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, or HE-AAC v2)
 * [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3)
@@ -118,9 +114,7 @@ Dynamic Packaging supports MP4 files, which contain audio that's encoded with th
     * DTS Express (dtse)
     * DTS-HD Lossless (no core) (dtsl)
 
-### Multiple audio tracks
-
-Dynamic Packaging supports multi audio tracks for HLS output (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
+Dynamic Packaging supports multiple audio tracks with DASH or HLS (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
 ### Additional notes
 
