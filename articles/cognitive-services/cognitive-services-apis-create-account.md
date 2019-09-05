@@ -37,12 +37,6 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     >[!WARNING]
     > At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
     
-    Creating a multi-service Cognitive Services resource:
-    * Lets you use a single Azure resource for most Azure Cognitive Services.
-    * You obtain a single key that can be used with multiple Azure Cognitive Services.
-    * Consolidates billing from the services you use. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for additional information.
-    
-    
     The multi-service resource is named **Cognitive Services** in the portal. To create one, [click here](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) or search for **Cognitive Services** in the portal search bar. Then select **Create**.
 
     ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png) <!--On the resource page, select **Create**. ![Create Cognitive Services account](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png) -->
@@ -50,10 +44,6 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     #### [Single-service resource](#tab/singleservice)
 
-    Subscribing to a single-service Cognitive Services resource:
-    * Lets you use a specified cognitive service.
-    * You obtain a key that is specific to the cognitive service you create a resource for.
-    
     Use the below links to create a resource for the available Cognitive Services:
 
     | Vision                      | Speech                  | Language                          | Decision             | Search                 |
