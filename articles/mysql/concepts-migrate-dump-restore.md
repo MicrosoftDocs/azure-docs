@@ -44,7 +44,7 @@ To optimize performance, take notice of these considerations when dumping large 
 -	Use partitioned tables when appropriate.
 -	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal. 
 -	Use the `defer-table-indexes` option in mysqlpump when dumping databases, so that index creation happens after tables data is loaded.
--   Use the `skip-definer` option in mysqlpump to omit definer and SQL SECURITY clauses from the create statements for views and stored programs.  When you reload the dump file it creates objects that use the default DEFINER and SQL SECURITY values.
+-   Use the `skip-definer` option in mysqlpump to omit definer and SQL SECURITY clauses from the create statements for views and stored procedures.  When you reload the dump file, it creates objects that use the default DEFINER and SQL SECURITY values.
 -   Copy the backup files to an Azure blob/store and perform the restore from there, which should be a lot faster than performing the restore across the Internet.
 
 ## Create a backup file from the command-line using mysqldump
