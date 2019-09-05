@@ -228,8 +228,8 @@ The following steps show how to prepare the external load balancer for the move 
 
 15. If you have configured outbound NAT and outbound rules for the load balancer, a third entry will be present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP and paste that entry into the **parameters.json** file:
 
-   ```json
-   {
+    ```json
+     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
@@ -242,9 +242,9 @@ The following steps show how to prepare the external load balancer for the move 
         "publicIPAddresses_myPublicIPOutbound_externalid": {
             "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-MOVE/providers/Microsoft.Network/publicIPAddresses/myPublicIPOutbound"
         }
+      }
      }
-   }
-   ```
+    ```
 
 16. Save the **parameters.json** file.
 17. To edit the target region where the external load balancer configuration will be moved, open the **template.json** file:
