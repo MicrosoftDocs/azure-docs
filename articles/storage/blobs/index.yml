@@ -25,10 +25,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Blob storage
-            url: storage-blobs-introduction.md
-          - text: Azure Data Lake Storage Gen2
-            url: data-lake-storage-introduction.md
+          - text: What is Azure blob storage?
+            url: storage-blobs-overview.md
   # Card
   - title: Get started
     linkLists:
@@ -44,8 +42,7 @@ landingContent:
             url: ../common/storage-account-overview.md
           - text: Data redundancy
             url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - text: Hot, cool, and archive storage 
-            url: storage-blob-storage-tiers.md
+
       - linkListType: how-to-guide
         links:
           - text: Create a storage account
@@ -61,20 +58,24 @@ landingContent:
         links:
           - text: Azure Data Lake Storage Gen2
             url: data-lake-storage-introduction.md
-          - text: Processing big data
-            url: data-lake-storage-data-scenarios.md
-      - linkListType: whats-new
-        links:
-          - text: Known issues
-            url: data-lake-storage-known-issues.md
       - linkListType: quickstart
         links:
           - text: Analyze data with Databricks
             url: data-lake-storage-quickstart-create-databricks-account.md
+      - linkListType: concept
+        links:
+          - text: Processing big data
+            url: data-lake-storage-data-scenarios.md
+          - text: Known issues
+            url: data-lake-storage-known-issues.md
+          - text: Multi-protocol access
+            url: data-lake-storage-multi-protocol-access.md
+          - text: Best practices
+            url: data-lake-storage-best-practices.md
+          - text: Access control
+            url: ../common/data-lake-storage-access-control.md
       - linkListType: tutorial
         links:
-          - text: Extract, transform, and load data with Azure HDInsight
-            url: data-lake-storage-tutorial-extract-transform-load-hive.md
           - text: Extract, transform, and load data with Azure Databricks
             url: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Insert data into Databricks tables by using Event Grid
@@ -109,7 +110,7 @@ landingContent:
           - text: Create a web app to upload image data
             url: storage-upload-process-images.md
   # Card
-  - title: Grant access permissions
+  - title: Grant permission
     linkLists:
       - linkListType: concept
         links:
@@ -140,6 +141,14 @@ landingContent:
             url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Transfer with Azure Data Factory
             url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-
+    # Card
+  - title: Backup and Archive data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Hot, cool, and archive storage 
+            url: storage-blob-storage-tiers.md
+          - text: Manage the Azure Blob storage lifecycle 
+            url: storage-lifecycle-management-concepts.md
 
 
