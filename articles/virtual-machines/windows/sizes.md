@@ -40,6 +40,59 @@ This article describes the available sizes and options for the Azure virtual mac
 - Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
+# List Virtual Machine sizes available in a Region
+
+## PowerShell
+
+To determine which SKUs are available in a region, use the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) command. Filter the results by location. You must have the latest version of PowerShell for this command.
+
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where {$_.Locations -icontains "eastus" -and $_.ResourceType -icontains "virtualMachines"}
+```
+
+The results include a list of SKUs for the location and any restrictions for that SKU.
+
+```powershell
+ResourceType                      Name Location     Zones                 Restriction          Capability    Value
+------------                      ---- --------     -----                 -----------          ----------    -----
+virtualMachines          Standard_B1ls   eastus {1, 3, 2}                             MaxResourceVolumeMB     1024
+virtualMachines          Standard_B1ms   eastus {1, 3, 2}                             MaxResourceVolumeMB     4096
+virtualMachines           Standard_B1s   eastus {1, 3, 2}                             MaxResourceVolumeMB     2048
+...
+```
+
+## Azure CLI
+
+To determine which SKUs are available in a region, use the `az vm list-skus` command. Use the `--location` parameter to filter output to location you are using.
+
+```azurecli-interactive
+az vm list-skus --location eastus --output table
+```
+
+The command returns results like:
+
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  eastus          Standard_B1ls     1,2,3    ...             None
+virtualMachines  eastus          Standard_B1ms     1,2,3    ...             None
+virtualMachines  eastus          Standard_B1s      1,2,3    ...             None
+...
+```
+
+
+## Azure portal
+
+To determine which SKUs are available in a region, use the [portal](https://portal.azure.com). Sign in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You don't need to complete the deployment.
+
+For example, start the process of creating a virtual machine. To see other available size, select **Change size**.
+
+![Create VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
+
+You can filter and scroll through the available sizes.
+
+![Available SKUs](./media/resource-manager-sku-not-available-errors/available-sizes.png)
+
 
 ## REST API
 
