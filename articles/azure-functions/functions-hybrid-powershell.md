@@ -8,7 +8,7 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 9/5/2019
 ms.author: eamono
-
+# Customer intent: As solution architect, I want to be able to connect my function app in Azure to on-premises resources so I can remotely manage those resources by using PowerShell functions.
 ---
 
 # Managing hybrid environments with PowerShell in Azure Functions and App Service Hybrid Connections
