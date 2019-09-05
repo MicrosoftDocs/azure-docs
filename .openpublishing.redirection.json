@@ -16885,6 +16885,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/how-to-prepare-linux-for-migration.md",
+      "redirect_url": "tutorial-prepare-vmware",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/how-to-create-group-dependencies.md",
       "redirect_url": "how-to-create-a-group#refine-a-group-with-dependency-mapping",
       "redirect_document_id": false
@@ -38958,6 +38963,16 @@
       "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
     },
+	{
+	  "source_path": "articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
+	  "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
+	  "redirect_document_id": false
+	},
+	{
+		"source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial.md",
+		"redirect_url": "/azure/cognitive-services/face/quickstarts/python-sdk#display-and-frame-faces",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
@@ -41379,6 +41394,41 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl-disk.md",
       "redirect_url": "/azure/cognitive-services/computer-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/analyze-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/ruby-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/analyze-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/generate-thumbnail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/ruby-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/generate-a-thumbnail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/extract-printed-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/ruby-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/extract-printed-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-domain.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/use-domain-model",
       "redirect_document_id": false
     },
     {
