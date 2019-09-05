@@ -1,5 +1,5 @@
 ---
-title: Language Understanding Bot C# v4 
+title: "Tutorial: Language Understanding Bot C# v4" 
 titleSuffix: Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). The bot is built with the Bot Framework version 4 and the Azure Web app bot service.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 09/04/2019
 ms.author: diberry
 ---
 
@@ -342,7 +342,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 
 1. In the bot emulator, book a flight by entering the following utterance: 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

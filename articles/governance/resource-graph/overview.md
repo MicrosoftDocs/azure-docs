@@ -38,7 +38,7 @@ facilities for calling individual resource providers for detailed properties one
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider. For a list of supported resource types,
 look for a **Yes** in the [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
-table.
+table. An alternative way to see supported resource types is through the [Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
 
 With Azure Resource Graph, you can:
 
@@ -106,10 +106,16 @@ For more information, see
 
 ## Running your first query
 
-Resource Graph supports Azure CLI, Azure PowerShell, and Azure SDK for .NET. The query is structured
-the same for each language. Learn how to enable Resource Graph in [Azure
-CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
-PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
+in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
+portal workflow. For more information, see [First query with Azure Resource Graph Explorer](first-query-portal.md).
+
+Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for .NET, and more. The query is
+structured the same for each language. Learn how to enable Resource Graph with:
+
+- [Azure portal and Resource Graph Explorer](first-query-portal.md) 
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## Next steps
 

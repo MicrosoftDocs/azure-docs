@@ -31,7 +31,7 @@ You can define additional endpoints in the target environment by using Traffic M
 
 For more information:
 
-- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager).
 - Review the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
 - Learn how to [create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
 - Read about the [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/).
@@ -60,7 +60,7 @@ Migrating an Azure Network Watcher instance from Azure Germany to global Azure i
 
 For more information:
 
-- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher).
 - Review the [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md).
 - Learn about [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Read about [Connection Monitor](../network-watcher/connection-monitor.md).

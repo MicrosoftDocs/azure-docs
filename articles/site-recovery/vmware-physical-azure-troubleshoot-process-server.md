@@ -165,7 +165,7 @@ Check whether the process server is actively pushing data to Azure.
 
   1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
   2. Select the **Performance** tab > **Open Resource Monitor**.
-  3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large vNotolume of data.
+  3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large volume of data.
 
        ![Volumes under processes with network activity](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 

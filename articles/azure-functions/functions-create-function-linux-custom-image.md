@@ -1,16 +1,13 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-services: functions 
-keywords: 
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
+manager: gwallace                                                                                                            
 ---
 
 # Create a function on Linux using a custom image
@@ -51,7 +48,7 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Create the local function app project
 
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory.
+Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
 ```bash
 func init MyFunctionProj --docker
@@ -63,7 +60,7 @@ When prompted, choose a worker runtime from the following languages:
 
 * `dotnet`: creates a .NET Core class library project (.csproj).
 * `node`: creates a JavaScript project.
-* `python`: creates a Python project.
+* `python`: creates a Python project.  
 
 When the command executes, you see something like the following output:
 

@@ -220,7 +220,7 @@
 - name: Reference
   items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/module/az.apimanagement/?view=azps-2.6.0
       - name: REST
         href: /rest/api/apimanagement/
       - name: REST (original)
