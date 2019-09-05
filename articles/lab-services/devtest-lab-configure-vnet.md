@@ -23,7 +23,7 @@ For example, you might need to access your corpnet resources from your VMs using
 This article explains how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
 
 > [!NOTE]
-> To learn about the costs associated with the Azure Virtual Network service, see [Pricing for Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
+> To learn about costs associated with the Azure Virtual Network service, see [Pricing for Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
 
 ## Configure a virtual network for a lab using the Azure portal
 The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
