@@ -28,11 +28,7 @@ In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represe
 
 ## To prepare your source files for delivery
 
-To prepare your source files for delivery by adaptive bitrate streaming, they need to be [encoded](encoding-concept.md) into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
-
-### Delivery protocols
-
-You can use these delivery protocols for your content in Media Services dynamic packaging:
+To take advantage of Dynamic Packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [Asset](assets-concept.md) with the encoded MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
 
 |Protocol|Example|
 |---|---|
@@ -43,11 +39,10 @@ You can use these delivery protocols for your content in Media Services dynamic 
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
+> [!TIP]
+> If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
 
-## To take advantage of Dynamic Packaging
-
-To take advantage of Dynamic Packaging, you need to have an [Asset](assets-concept.md) with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to [encode your mezzanine (source) file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
+One way to get the MP4 files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
 
 To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you have chosen.
 
