@@ -15,10 +15,10 @@ ms.custom: seodec18
 
 # Install and run Computer Vision containers
 
-There are two Docker containers available for Computer Vision. The **Recognize Text** and **Read** containers. The **Recognize Text** container allows you to detect and extract _printed text_ from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The **Read** container however, also detects _written text_ in images.
+There are two Docker containers available for Computer Vision. The **Recognize Text** and **Read** containers. The Recognize Text container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container however, also detects *handwritten and cursive text*, *small text*, *artistic font styles*, *oversized or missing capital letters at the beginning of word*, *subscript, superscript and even strikethrough* in blurry images. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
 
 > [!IMPORTANT]
-> The **Read** container is a superset of its predecessor the **Recognize Text** container, and consumers should migrate to using the **Read** container.
+> The Recognize Text container is being deprecated in favor of the Read container. The Read container is a superset of its predecessor the Recognize Text container, and consumers should migrate to using the Read container. Both containers work only with English.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -54,7 +54,7 @@ You must meet the following prerequisites before using the containers:
 
 Container images for Read are available.
 
-| Container | Repository |
+| Container | Container Registry / Repository / Image Name |
 |-----------|------------|
 | Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
@@ -62,7 +62,7 @@ Container images for Read are available.
 
 Container images for Recognize Text are available.
 
-| Container | Repository |
+| Container | Container Registry / Repository / Image Name |
 |-----------|------------|
 | Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
@@ -74,7 +74,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Read container
 
-```
+```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 ```
 
@@ -82,7 +82,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 ### Docker pull for the Recognize Text container
 
-```
+```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
@@ -156,11 +156,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 ### Asynchronous text recognition
 
-You can use the `POST /vision/v2.0/read` and `GET /vision/v2.0/textOperations/*{id}*` operations in concert to asynchronously recognize printed text in an image, similar to how the Computer Vision service uses those corresponding REST operations. The Recognize Text container only recognizes printed text, not handwritten text, at this time, so the `mode` parameter normally specified for the Computer Vision service operation is ignored by the Recognize Text container.
-
-### Synchronous text recognition
-
-You can use the `POST /vision/v2.0/readDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/readText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
+You can use the [`POST /vision/v2.0/read/core/asyncBatchAnalyze`][asyncBatchAnalyze] and [`GET /vision/v2.0/read/operations/{operationId}`][getRead] operations in concert to asynchronously recognize text in an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to GET request.
 
 #### [Recognize Text](#tab/recognize-text)
 
@@ -177,7 +173,6 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## Stop the container
 
@@ -219,3 +214,6 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+
+[asyncBatchRead]: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb
+[getRead]: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d
