@@ -75,6 +75,7 @@ The bot service creation process also creates a new LUIS app with intents and ex
 |--|--|
 |Book flight|`Travel to Paris`|
 |Cancel|`bye`|
+|GetWeather|`what's the weather like?`|
 |None|Anything outside the domain of the app.|
 
 ## Test the bot in Web Chat
@@ -297,6 +298,22 @@ In order to develop the web app bot code, download the code and use on your loca
     }
     ```
 
+## Create an environment file and add LUIS values
+
+The bot emulator needs access to your LUIS resource in order to provide detailed LUIS results.
+
+1. In the root of the project, create a file named `.env` and add the following environment variables:
+
+    ```console
+    LuisAppId= 
+    LuisAPIKey=
+    LuisAPIHostName=
+    ```
+
+1. From the Azure portal, for your bot resource, open the App Service's Configuration Settings for the application.
+1. Open **Advanced edit**, to see the value for each setting.
+
+    ![Open **Advanced edit**, to see the value for each setting.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
 
 ## Start the bot code in Visual Studio
 
