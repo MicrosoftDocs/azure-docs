@@ -20,13 +20,13 @@ Point-in-time restore can be used in recovery scenarios, such as incidents cause
 
 Point-in-time restore can be used to:
 
-1. Restore a database from an existing database
-1. Restore a database from a deleted database
+1. Restore a database from an existing database.
+1. Restore a database from a deleted database.
 
 Additionally, with a managed instance, point-in-time restore can be used to: 
 
-1. Restore a database to the same managed instance
-1. Restore a database to another managed instance
+1. Restore a database to the same managed instance.
+1. Restore a database to another managed instance.
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Additionally, with a managed instance, point-in-time restore can be used to:
 When restoring to another managed instance, both instances must be in the same subscription and region. Cross-region and cross-subscription restores are not currently supported.
 
 > [!WARNING]
-> Be careful with the storage size of your managed instance – depending on size of restoring data, you may run out of instance storage. If there is not enough space for restored data, an alternative approach should be used. 
+> Be careful with the storage size of your managed instance – depending on size of restoring data, you may run out of instance storage. If there is not enough space for restored data, use an alternative approach.
 
 The following table shows point-in-time recovery scenarios for managed instance:
 
@@ -90,11 +90,11 @@ Get-AzSubscription -SubscriptionId $subscriptionId
 Select-AzSubscription -SubscriptionId $subscriptionId
  
 Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
-                                  -ResourceGroupName $resourceGroupName `
-                                  -InstanceName $managedInstanceName `
-                                  -Name $databaseName `
-                                  -PointInTime $pointInTime `
-                                  -TargetInstanceDatabaseName $targetDatabase `
+                              -ResourceGroupName $resourceGroupName `
+                               -InstanceName $managedInstanceName `
+                               -Name $databaseName `
+                               -PointInTime $pointInTime `
+                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
 To restore the database to another managed instance, set the target resource group name and target managed instance name.  
@@ -104,13 +104,13 @@ $targetResourceGroupName = "<Resource group of target managed instance>"
 $targetInstanceName = "<Target managed instance name>"
 
 Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
-                                  -ResourceGroupName $resourceGroupName `
-                                  -InstanceName $managedInstanceName `
-                                  -Name $databaseName `
-                                  -PointInTime $pointInTime `
-                                  -TargetInstanceDatabaseName $targetDatabase `
-                                  -TargetResourceGroupName $targetResourceGroupName `
-                                  -TargetInstanceName $targetInstanceName 
+                              -ResourceGroupName $resourceGroupName `
+                              -InstanceName $managedInstanceName `
+                              -Name $databaseName `
+                              -PointInTime $pointInTime `
+                              -TargetInstanceDatabaseName $targetDatabase `
+                              -TargetResourceGroupName $targetResourceGroupName `
+                              -TargetInstanceName $targetInstanceName 
 ```
 
 For details, see [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
@@ -124,15 +124,17 @@ To restore the database using the Azure CLI, update the parameters with your val
 
 
 ```azurecli-interactive
-az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname --dest-name targetmidbname --time "2018-05-20T05:34:22"
+az sql midb restore -g mygroupname --mi myinstancename |
+-n mymanageddbname --dest-name targetmidbname --time "2018-05-20T05:34:22"
 ```
 
 
 To restore the database to another managed instance, set the target resource group name and target managed instance name.  
 
 ```azurecli-interactive
-az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname --dest-name targetmidbname |
-       --time "2018-05-20T05:34:22" --dest-resource-group mytargetinstancegroupname |
+az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
+       --dest-name targetmidbname --time "2018-05-20T05:34:22" |
+       --dest-resource-group mytargetinstancegroupname |
        --dest-mi mytargetinstancename
 ```
 
@@ -178,7 +180,8 @@ $location = "West Europe"
 $restoredDBName = "WorldWideImportersPITR"
 $resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$managedInstanceName/databases/$restoredDBName"
 
-New-AzResource -Location $location -Properties $properties -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
+New-AzResource -Location $location -Properties $properties 
+        -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
 ```
 
 ## Overwrite existing database 
@@ -230,11 +233,12 @@ Use the following Azure CLI command to drop an existing database from a managed 
 ```azurecli-interactive
 az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 ```
+
 ---
 
 
 
-### ALTER new database name with original 
+### ALTER new database name to original
 
 Connect directly to the managed instance, launch SQL Server Management Studio, and then execute the following Transact-SQL (T-SQL) query to change the name of the restored database to that of the dropped database you intended to overwrite. 
 
