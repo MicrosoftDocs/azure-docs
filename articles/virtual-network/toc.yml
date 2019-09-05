@@ -273,6 +273,8 @@
       href: troubleshoot-outbound-smtp-connectivity.md
     - name: About IP address 168.63.129.16
       href: what-is-ip-address-168-63-129-16.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
   - name: Classic
     items:
     - name: Create and manage a virtual network
