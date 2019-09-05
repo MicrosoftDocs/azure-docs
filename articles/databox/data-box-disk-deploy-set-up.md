@@ -310,9 +310,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 After the disk is unlocked, you can view the contents of the disk.
 
-For more information on how to set up disks, go to [Unpack your Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&linktarget=new).
-
-For more information on how to unlock disks, go to [Unlock Data Box Disk on Windows client](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&fromOrigin=https://ms.azure.com&linktarget=new).
+For more information on how to set up and unlock disks, go to [Set up Data Box Disk](data-box-disk-deploy-set-up.md).
 
 ::: zone-end
 
