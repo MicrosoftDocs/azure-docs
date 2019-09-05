@@ -4,7 +4,7 @@ description: How to open a help request for Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
@@ -13,7 +13,7 @@ ms.author: v-erkell
 Use the Azure portal to open a support ticket. Navigate to your cache instance, then click the **New support request** link that appears at the bottom of the sidebar.
 
 > [!NOTE]
-> During the preview period, you also can use [this link](<https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=6b415938-2927-0d9d-6c3c-fbacea64e42d>) to open a support case for the product Azure HPC Cache (Preview).
+> During the preview period, you also can use [this link](<https://support.microsoft.com/supportforbusiness/productselection?sapId=6b415938-2927-0d9d-6c3c-fbacea64e42d>) to open a support case for the product Azure HPC Cache (Preview).
 
 <!-- add screenshot of form with thing to select product etc. -->
 
