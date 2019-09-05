@@ -1,19 +1,11 @@
 ---
-title: 'Quickstart: Text Analytics client library for Node.js | Microsoft Docs'
-titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started with using the Text Analytics API.
-services: cognitive-services
-author: raymondl
-manager: nitinme
-
+author: aahill
 ms.service: cognitive-services
-ms.subservice: text-analytics
-ms.topic: quickstart
-ms.date: 08/28/2019
-ms.author: shthowse
+ms.topic: include
+ms.date: 09/05/2019
+ms.author: aahi
 ---
 
-# Quickstart: Text analytics client library for Node.js
 <a name="HOLTop"></a>
 
 Get started with the Text Analytics client library for .Node.js. Follow these steps to install the package and try out the example code for basic tasks. 

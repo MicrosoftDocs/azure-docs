@@ -1,19 +1,11 @@
 ---
-title: 'Quickstart: Text Analytics client library for Python | Microsoft Docs'
-titleSuffix: Azure Cognitive Services
-description: Use this quickstart to to begin using the Text Analytics API from Azure Cognitive Services.
-services: cognitive-services
-author: ctufts
-manager: assafi
-
+author: aahill
 ms.service: cognitive-services
-ms.subservice: text-analytics
-ms.topic: quickstart
-ms.date: 08/28/2019
+ms.topic: include
+ms.date: 09/05/2019
 ms.author: aahi
 ---
 
-# Quickstart: Text analytics client library for Python
 <a name="HOLTop"></a>
 
 Get started with the Text Analytics client library for Python. Follow these steps to install the package and try out the example code for basic tasks. 

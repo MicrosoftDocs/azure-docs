@@ -1,18 +1,10 @@
 ---
-title: 'Quickstart: Call the Text Analytics Cognitive Service using the Ruby SDK'
-titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
-services: cognitive-services
-author: raymondl
-manager: nitinme
-
+author: aahill
 ms.service: cognitive-services
-ms.subservice: text-analytics
-ms.topic: quickstart
-ms.date: 08/28/2019
-ms.author: tasharm
+ms.topic: include
+ms.date: 09/05/2019
+ms.author: aahi
 ---
-# Quickstart: Call the Text Analytics service using the Ruby SDK
 
 <a name="HOLTop"></a>
 

@@ -1,43 +1,43 @@
 ---
-title: "Quickstart: Text Analytics client library for Sentiment Analysis | Microsoft Docs"
+title: "Quickstart: Text Analytics client library | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, analyze sentiment by using the Text Analytics client library from Azure Cognitive Services.
+description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 08/30/2019
 ms.author: aahi
 zone_pivot_groups: text-analytics-programming-languages
 ---
 
-# Quickstart: Use the Text Analytics client library for sentiment analysis
+# Quickstart: Use the Text Analytics client library for detecting language
 
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/sentiment-analysis-csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts-2/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/sentiment-analysis-python.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts-2/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/sentiment-analysis-nodejs.md)]
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts-2/nodejs-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
 
-[!INCLUDE [Go quickstart](../includes/quickstarts/sentiment-analysis-go.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts-2/go-sdk.md)]
 
 ::: zone-end
 

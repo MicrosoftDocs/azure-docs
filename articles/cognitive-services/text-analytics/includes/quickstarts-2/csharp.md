@@ -1,18 +1,11 @@
 ---
-title: 'Quickstart: Text Analytics client library for .NET | Microsoft Docs'
-titleSuffix: Azure Cognitive Services
-description: Use this quickstart to to begin using the Text Analytics API from Azure Cognitive Services.
-services: cognitive-services
-author: raymondl
-manager: nitinme
-
+author: aahill
 ms.service: cognitive-services
-ms.subservice: text-analytics
-ms.topic: quickstart
-ms.date: 08/28/2019
-ms.author: assafi
+ms.topic: include
+ms.date: 09/05/2019
+ms.author: aahi
 ---
-# Quickstart: Text analytics client library for .NET
+
 <a name="HOLTop"></a>
 
 Get started with the Text Analytics client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
