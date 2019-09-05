@@ -68,7 +68,7 @@ Azure Migrate runs a lightweight appliance to discover VMware VMs, and send VM m
 
 **Support** | **Details**
 --- | ---
-**Appliance deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later. 
+**Appliance deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later. 
 **Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
 **Discovery** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
 **Assessment group** | You can add up to 35,000 machines in a single group.
