@@ -7,13 +7,16 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 09/04/2019
+ms.date: 09/05/2019
 ms.author: cynthn
 ---
 
 <1-- Is it limited to isolated VM types for public preview? Isolated and Dedicated Hosts. What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? Yes. Azure functions? Separate dedicated hosts from isolated sizes? Other maintenance docs - what needs to be updated? What are the other options for --maintenancescope and how are they different? -->
 
-Maintenance control lets you decide when to apply updates to your VMs.
+
+Manage platform updates that don't require a reboot using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. But customers with sensitive workloads like gaming, media streaming, and financial transactions can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives customers the option to wait on platform updates and apply them within a 35-day rolling window.  
+
+Maintenance control lets you decide when to apply updates to your isolated VMs.
 
 With maintenance control, you can:
 - Batch updates into one update package.
@@ -21,11 +24,10 @@ With maintenance control, you can:
 - Automate platform updates for your maintenance window using Azure Functions.
 - Maintenance configurations work across subscriptions and resource groups. 
 
-## Preview limitations
+## Limitations
 
-
+- VMs must be on a dedicated host, be created using an isolated VM size or on a Dedicated Node Group (DNG).
 - After 35 days, an update will automatically be applied and availability constraints will not be respected.
-
 - User must have Resource Owner access.
 
 
@@ -105,20 +107,20 @@ Use [az maintenance update list]() to see if there are pending updates. Update -
 
 ## VM
 
-Check for pending updates for a VM.
+Check for pending updates for a VM. In this example, the output is formatted as a table for readability.
 
 ```bash
 az maintenance update list \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myMaintenanceRg \
    --resource-name myVM \
    --resource-type virtualMachines \
-   --provider-name Microsoft.Compute
+   --provider-name Microsoft.Compute \
+   -o table
 ```
 
 ### Dedicated host
 
-To check for pending updates for a dedicated host.
+To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. 
 
 ```bash
 az maintenance update list \
@@ -128,7 +130,8 @@ az maintenance update list \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
    --resource-parentname myHostGroup \
-   --resource-parent-type hostGroups
+   --resource-parent-type hostGroups \
+   -o table
 ```
 
 ## Apply updates
