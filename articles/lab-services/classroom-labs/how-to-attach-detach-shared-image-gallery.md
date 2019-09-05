@@ -74,10 +74,7 @@ The following procedure shows you how to attach an existing shared image gallery
     All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button. 
 
 ## Save an image to the shared image gallery
-After a shared image gallery is attached, a lab account admin or a teacher can save or upload an image to the shared image gallery so that it can be reused by other teachers. For instructions for uploading an image to the shared image gallery, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
-
-> [!NOTE]
-> Curently, the Classroom Labs user interface (UI) doesn't support saving a lab image to the shared image gallery. 
+After a shared image gallery is attached, a lab account admin or a teacher can save or upload an image to the shared image gallery so that it can be reused by other teachers. You can use the Classroom Labs user interface (UI) to save a lab image to the shared image gallery. For instructions for uploading an image to the shared image gallery, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
 
 ## Detach a shared image gallery
 Only one shared image gallery can be attached to a lab. If you would like to attach another shared image gallery, detach the current one before attaching the new one. To detach a shared image gallery from your lab, select **Detach** on the toolbar, and confirm the detach operation. 
