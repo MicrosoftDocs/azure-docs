@@ -18,61 +18,61 @@ The following table provides an overview of our samples repository and the scena
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
-| Append Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Block Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
+| Append Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L166) |
+| Block Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L77) |
 | Client-Side Encryption | [Managing storage account keys in Azure Key Value with Python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
-| Copy Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Create Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Delete Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Delete Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Blob Metadata/Properties/Stats | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py) |
-| Container ACL/Metadata/Properties | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py) |
-| Get Page Ranges | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Lease Blob/Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py) |
-| List Blob/Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| Page Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
-| SAS | [Shared Access Signature in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py) |
-| Service Properties | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py) |
-| Snapshot Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py) |
+| Copy Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L102) |
+| Create Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L91) |
+| Delete Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L114) |
+| Delete Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L118) |
+| Blob Metadata/Properties/Stats | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L298) |
+| Container ACL/Metadata/Properties | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L268) |
+| Get Page Ranges | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L151) |
+| Lease Blob/Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L377) |
+| List Blob/Container | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L103) |
+| Page Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L124) |
+| SAS | [Shared Access Signature in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L145) |
+| Service Properties | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L540) |
+| Snapshot Blob | [Getting Started with Azure Blob Service in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L214) |
 
 ## File samples
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
-| Create Shares/Directories/Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py) |
-| Delete Shares/Directories/Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py) |
-| Directory Properties/Metadata | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py) |
-| Download Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py) |
-| File Properties/Metadata/Metrics | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py) |
-| File Service Properties | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py) |
-| List Directories and Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py) |
-| List Shares | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py) |
-| Share Properties/Metadata/Stats | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py) |
+| Create Shares/Directories/Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L71) |
+| Delete Shares/Directories/Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L170) |
+| Directory Properties/Metadata | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L175) |
+| Download Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L138) |
+| File Properties/Metadata/Metrics | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L193) |
+| File Service Properties | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L125) |
+| List Directories and Files | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L153) |
+| List Shares | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L82) |
+| Share Properties/Metadata/Stats | [Getting Started with Azure File Service in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L144) |
 
 ## Queue samples
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
-| Add Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py) |
-| Client-Side Encryption | [Managing storage account keys in Azure Key Value with Python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
-| Create Queues | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py) |
-| Delete Message/Queue | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py) |
-| Peek Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py) |
-| Queue ACL/Metadata/Stats | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py) |
-| Queue Service Properties | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py) |
-| Update Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py) |
+| Add Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L94) |
+| Client-Side Encryption | [Managing storage account keys in Azure Key Vault with Python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
+| Create Queues | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L75) |
+| Delete Message/Queue | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L144) |
+| Peek Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L110) |
+| Queue ACL/Metadata/Stats | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L148) |
+| Queue Service Properties | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
+| Update Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
 
 ## Table samples
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
-| Create Table | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
-| Delete Entity/Table | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
-| Insert/Merge/Replace Entity | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
-| Query Entities | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
+| Create Table | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
+| Delete Entity/Table | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79) |
+| Insert/Merge/Replace Entity | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57) |
+| Query Entities | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62) |
 | Query Tables | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
-| Table ACL/Properties | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_advanced_samples.py) |
-| Update Entity | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
+| Table ACL/Properties | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_advanced_samples.py#L138) |
+| Update Entity | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L68) |
 
 ## Azure Code Samples library
 
