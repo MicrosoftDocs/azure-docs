@@ -1,20 +1,20 @@
 ---
-title: Blockchain application versioning in Azure Blockchain Workbench
-description: How to use application versions in Azure Blockchain Workbench.
+title: Blockchain application versioning in Azure Blockchain Workbench Preview
+description: How to use application versions in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to create and use multiple versions of an Azure Blockchain Workbench app.
 ---
-# Azure Blockchain Workbench application versioning
+# Azure Blockchain Workbench Preview application versioning
 
-You can create and use multiple versions of an Azure Blockchain Workbench app. If multiple versions of the same application are uploaded, a version history is available and users can choose which version they want to use.
+You can create and use multiple versions of an Azure Blockchain Workbench Preview app. If multiple versions of the same application are uploaded, a version history is available and users can choose which version they want to use.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

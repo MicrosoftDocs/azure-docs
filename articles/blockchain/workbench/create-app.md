@@ -1,20 +1,20 @@
 ---
-title: Create a blockchain application in Azure Blockchain Workbench
-description: Tutorial on how to create a blockchain application in Azure Blockchain Workbench.
+title: Create a blockchain application in Azure Blockchain Workbench Preview
+description: Tutorial on how to create a blockchain application in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/30/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to use Azure Blockchain Workbench to create a blockchain app.
 ---
-# Tutorial: Create a blockchain application in Azure Blockchain Workbench
+# Tutorial: Create a blockchain application in Azure Blockchain Workbench Preview
 
-You can use Azure Blockchain Workbench to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
+You can use Azure Blockchain Workbench Preview to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
 
 You'll learn how to:
 
