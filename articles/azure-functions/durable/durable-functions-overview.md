@@ -145,13 +145,13 @@ The automatic checkpointing that happens at the `await` or `yield` call on `Task
 
 ### <a name="async-http"></a>Pattern #3: Async HTTP APIs
 
-The async HTTP APIs pattern addresses the problem of coordinating the state of long-running operations with external clients. A common way to implement this pattern is by having an HTTP call trigger the long-running action. Then, redirect the client to a status endpoint that the client polls to learn when the operation is finished.
+The async HTTP APIs pattern addresses the problem of coordinating the state of long-running operations with external clients. A common way to implement this pattern is by having an HTTP endpoint trigger the long-running action. Then, redirect the client to a status endpoint that the client polls to learn when the operation is finished.
 
 ![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions provides built-in APIs that simplify the code you write to interact with long-running function executions. The Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md) and [JavaScript](quickstart-js-vscode.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md) and [JavaScript](quickstart-js-vscode.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
 
-The following example shows REST commands that start an orchestrator and query its status. For clarity, some details are omitted from the example.
+The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -176,57 +176,11 @@ Content-Type: application/json
 {"runtimeStatus":"Completed","lastUpdatedTime":"2019-03-16T21:20:57Z", ...}
 ```
 
-Because the Durable Functions runtime manages state, you don't need to implement your own status-tracking mechanism.
+Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
 
-The Durable Functions extension has built-in webhooks that manage long-running orchestrations. You can implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the `orchestrationClient` binding. For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in webhooks that use a generated key for authentication.
+The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [orchestration client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
 
-Here are some examples of how to use the HTTP API pattern:
-
-#### C#
-
-```csharp
-// An HTTP-triggered function starts a new orchestrator function instance.
-[FunctionName("HttpStart")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient starter,
-    string functionName,
-    ILogger log)
-{
-    // The function name comes from the request URL.
-    // The function input comes from the request content.
-    dynamic eventData = await req.Content.ReadAsAsync<object>();
-    string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-
-    return starter.CreateCheckStatusResponse(req, instanceId);
-}
-```
-
-#### JavaScript (Functions 2.x only)
-
-```javascript
-// An HTTP-triggered function starts a new orchestrator function instance.
-const df = require("durable-functions");
-
-module.exports = async function (context, req) {
-    const client = df.getClient(context);
-
-    // The function name comes from the request URL.
-    // The function input comes from the request content.
-    const eventData = req.body;
-    const instanceId = await client.startNew(req.params.functionName, undefined, eventData);
-
-    context.log(`Started orchestration with ID = '${instanceId}'.`);
-
-    return client.createCheckStatusResponse(req, instanceId);
-};
-```
-
-In .NET, the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parameter is a value from the `orchestrationClient` output binding, which is part of the Durable Functions extension. In JavaScript, this object is returned by calling `df.getClient(context)`. These objects provide methods you can use to start, send events to, terminate, and query for new or existing orchestrator function instances.
-
-In the preceding examples, an HTTP-triggered function takes in a `functionName` value from the incoming URL and passes the value to [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). The [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) binding API then returns a response that contains a `Location` header and additional information about the instance. You can use the information later to look up the status of the started instance or to terminate the instance.
+See the [HTTP features](durable-functions-http-features.md) topic for more information on how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
 
 ### <a name="monitoring"></a>Pattern #4: Monitor
 
@@ -437,7 +391,7 @@ public class Counter
 }
 ```
 
-Clients can enqueue *operations* for (also known as "signaling") an entity function using the `orchestrationClient` binding.
+Clients can enqueue *operations* for (also known as "signaling") an entity function using the [orchestration client binding](durable-functions-bindings.md#orchestration-client).
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -469,7 +423,7 @@ In order to provide reliable and long-running execution guarantees, orchestrator
 
 ## Billing
 
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../functions-scale.md#consumption-plan), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions execution and billing](durable-functions-execution-and-billing.md) topic.
+Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../functions-scale.md#consumption-plan), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) topic.
 
 ## Jump right in
 
