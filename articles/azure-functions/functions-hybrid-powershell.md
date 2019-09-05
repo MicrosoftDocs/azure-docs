@@ -249,6 +249,6 @@ Replace these variables in the above script with the values you have in your env
 * $HybridEndpoint
 * $RemoteServer
 
-The above two scenarios enable you to connect and manage your on-premises environments using PowerShell in Azure Functions and App Service Hybrid Connections. You can learn additional information on [hybrid connections](../app-service/app-service-hybrid-connections.md) or [PowerShell in functions](./functions-reference-powershell.md) in the documentation.
+The above two scenarios enable you to connect and manage your on-premises environments using PowerShell in Azure Functions and Hybrid Connections. You can learn additional information on [Hybrid Connections](../app-service/app-service-hybrid-connections.md) or [PowerShell in functions](./functions-reference-powershell.md) in the documentation.
 
 You can also use Azure [virtual networks](./functions-create-vnet.md) to connect to your on-premises environment using Azure Functions.
