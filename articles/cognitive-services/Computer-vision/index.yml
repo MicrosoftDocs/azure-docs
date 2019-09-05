@@ -40,13 +40,13 @@ landingContent:
           - text: Python SDK
             url: quickstarts-sdk/python-sdk.md
           - text: REST API (C#)
-            url: csharp-hand-text.md
+            url: Quickstarts/csharp-hand-text.md
           - text: REST API (Python)
-            url: python-hand-text.md
+            url: Quickstarts/python-hand-text.md
           - text: REST API (Java)
-            url: java-hand-text.md
+            url: Quickstarts/java-hand-text.md
           - text: REST API (JavaScript)
-            url: javascript-hand-text.md
+            url: Quickstarts/javascript-hand-text.md
 
 
   - title: Detect objects in images
@@ -110,12 +110,12 @@ landingContent:
           - text: Java SDK
             url: quickstarts-sdk/java-sdk.md
   
-  - title: Get image description
+  - title: Get image descriptions
     linkLists:
       - linkListType: concept
         links:
           - text: Image descriptions
-            url: concept-describing-faces.md
+            url: concept-describing-images.md
       - linkListType: quickstart
         links:
           - text: Python SDK
