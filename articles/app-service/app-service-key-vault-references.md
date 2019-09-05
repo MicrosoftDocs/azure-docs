@@ -36,7 +36,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
     > [!NOTE]
-    > Key Vault References are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/key-vault-overview-vnet-service-endpoints.md).
+    > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 ## Reference syntax
 
