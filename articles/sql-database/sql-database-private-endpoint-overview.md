@@ -10,40 +10,25 @@ ms.date: 08/07/2019
 ---
 
 # What is Private Link?
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality go to https://docs.microsoft.com/en-us/azure/privatelink. A private endpoint is essentially a private IP address within a specific Vnet and Subnet. 
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality go to https://docs.microsoft.com/en-us/azure/privatelink. A private endpoint resource maps to a specific private IP address within a specific Virtual Network(Vnet) and Subnet. 
 
 For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
 
 ## Data Exfiltration prevention
 Data exfiltration - in context of Azure SQL Database - is when an authorized user, for example,  database admin is able extract data from one system - SQL Database owned by their organization - and move it another location/system outside the organization, for example,  SQL Database or storage account owned by a third party.
 
-Let us consider a simple scenario with a user running SQL Server Management Studio (SSMS) inside Azure VM connecting to SQL Database in West US data center. Here is how we could use the current set of network access controls to tighten down access via public endpoints.
-
-On Sql Database, we shall disable all logins via the public endpoint by setting Allow Azure Services to  **OFF** and ensuring no IP addresses are whitelisted in the server and database level firewall rules. Next we shall specifically whitelist traffic using Private Ip address of the VM via Service Endpoint and Vnet Firewall rules.
-
-Next on the Azure VM, we shall narrow down the scope of outgoing connection by using Network Security Groups(NSGs) and Service Tags as follows
-- Specify an NSG rule to allow traffic for  Service Tag = SQL.WestUs
-- Specify an NSG rule to deny traffic for  Service Tag = SQL (This will deny all other regions)
-
-At the end of this setup, the Azure VM can connect only to SQL Database in the West US region. However. note that the connectivity is not restricted to a single SQL Database; rather it can connect to any SQL Database in the West US region; including those that are not part of the subscription. While we have reduced the scope of data exfiltration to a specific region, we have not eliminated it altogether. 
-
-With Private Link, customers can now set up standard network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to specific private endpoints. Hence a malicious insider can only access the mapped PaaS resource (for example a SQL Database) and no other resource - thereby providing data exfiltration prevention capability
+With Private Link, customers can now set up standard network access controls on the client side to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to specific private endpoints. Hence a malicious insider can only access the mapped PaaS resource (for example a SQL Database) and no other resource - thereby providing data exfiltration prevention capability
 
 ## On-premises connectivity over private peering
-When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall via a [Server-level firewall rule](sql-database-server-level-firewall-rule.md). While this model works well for whitelisting individual machines for dev/test workloads, it is difficult to manage in a production environment. 
-With Private Link, customers can enable cros-premises access to the private endpoint using ER private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall to allow any IP addresses.
+When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall via a [Server-level firewall rule](sql-database-server-level-firewall-rule.md). 
 
+With Private Link, customers can enable cross-premises access to the private endpoint using ER private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall.
 
 ## How to set up Private Link for Azure SQL Database 
-
-### Creation Process
-Private Endpoints can be created as follows
+Private endpoints(PEs) can be created as follows
 - Portal: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-portal
 - PowerShell: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-powershell
 - CLI: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-cli
-
-### DNS configuration process
-*TBD Azure Networking docs TBD*
 
 ### Approval Process
 Once the network admin creates the Private Endpoint(PE), the Sql admin shall manage the Private Endpoint Connection (PEC) to SQL Database. 
@@ -51,7 +36,7 @@ Browse down to the Private endpoint connections blade(#1 in the screenshot below
  ![Screenshot of all PECs][3]
 
 Select an individual PEC from the list by clicking on it
-![Screenshot selected PEC][6]
+![Screenshot-selected PEC][6]
 
 Sql Admin can choose Approve or Reject a PEC and optionally add a short text response 
 ![Screenshot of PEC approval][4]
@@ -82,7 +67,7 @@ Host is up (0.00s latency).
 Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 ````
 
-The result indicates that there is one IP address that is up; which corresponds to the IP address for the private endpoint.
+The result shows that one IP address is up; which corresponds to the IP address for the private endpoint.
 
 ### Check Connectivity - Telnet
 Telnet Client is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
@@ -97,6 +82,7 @@ When telnet connects successfully, you will see a blank screen at the command wi
 
 ### Check Connectivity – SQL Server Management Studio (SSMS)
 Finally you can use [SSMS to connect to SQL Database](sql-database-connect-query-ssms.md) and then verify that you are connecting from the private IP address of the Azure Vm by running the following query 
+
 ````
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
