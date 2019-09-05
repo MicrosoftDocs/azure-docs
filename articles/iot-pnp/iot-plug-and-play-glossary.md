@@ -53,6 +53,7 @@ Azure IoT Device Workbench is a [Visual Studio code](#visual-studio-code) extens
 
 The Azure IoT explorer is a graphical tool you can use to interact with and test your [IoT Plug and Play devices](#iot-plug-and-play-device). After you install the tool on your local machine, you can use it to:
 
+- View the devices connected to your [IoT hub](#azure-iot-hub).
 - Connect to an IoT Plug and Play device.
 - View the [telemetry](#telemetry) the device sends.
 - Work with device [properties](#properties).
