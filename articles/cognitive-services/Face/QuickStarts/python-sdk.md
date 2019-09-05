@@ -21,6 +21,7 @@ Use the Face client library for Python to:
 * Find similar faces
 * Create and train a person group
 * Identify a face
+* Verify faces
 * Take a snapshot for data migration
 
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
@@ -85,6 +86,7 @@ These code snippets show you how to do the following tasks with the Face client 
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
+* [Verify faces](#verify-faces)
 * [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 ## Authenticate the client
@@ -180,6 +182,32 @@ The following code looks in the root of your project for an image _test-image-pe
 The **identify** method takes an array of detected faces and compares them to a **PersonGroup**. If it can match a detected face to a **Person**, it saves the result. This code prints detailed match results to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
+
+## Verify faces
+
+The Verify operation takes a face ID and either another face ID or a **Person** object and determines whether they belong to the same person.
+
+The following code detects faces in two source images and then verifies them against a face detected from a target image.
+
+### Get test images
+
+The following code blocks declare variables that will point to the source and target images for the verification operation.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_baseurl)]
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_photos)]
+
+### Detect faces for verification
+
+The following code detects faces in the source and target images and saves them to variables.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_detect)]
+
+### Get verification results
+
+The following code compares each of the source images to the target image and prints a message indicating whether they belong to the same person.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
 ## Take a snapshot for data migration
 
