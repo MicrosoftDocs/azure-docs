@@ -28,7 +28,7 @@ Use the Text Analytics client library for Node.js to perform:
 
 ### Create a Text Analytics Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text analytics using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text analytics using the [Azure portal](../../../cognitive-services-apis-create-account.md) or [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/)
@@ -58,7 +58,7 @@ const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics")
 
 Create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
 ```javascript
 const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
@@ -289,18 +289,18 @@ node index.js
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics With Power BI](../../tutorials/tutorial-power-bi-key-phrases.md)
 
 
-* [Text Analytics overview](../overview.md)
-* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
+* [Text Analytics overview](../../overview.md)
+* [Sentiment analysis](../../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Entity recognition](../../how-tos/text-analytics-how-to-entity-linking.md)
+* [Detect language](../../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Language recognition](../../how-tos/text-analytics-how-to-language-detection.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
