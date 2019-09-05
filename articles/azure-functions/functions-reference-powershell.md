@@ -511,17 +511,7 @@ You set this environment variable in the [app settings](functions-app-settings.m
 
 ### Considerations for using concurrency
 
-PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. This feature is how the Azure Functions PowerShell runtime works.
-
-There are some drawbacks with this approach.
-
-#### Concurrency is only as good as the machine it's running on
-
-If your function app is running on an [App Service plan](functions-scale.md#app-service-plan) that only supports a single core, then concurrency won't help much. That's because there are no additional cores to help balance the load. In this case, performance can vary when the single core has to context-switch between runspaces.
-
-The [Consumption plan](functions-scale.md#consumption-plan) runs using only one core, so you can't leverage concurrency. If you want to take full advantage of concurrency, instead deploy your functions to a function app running on a dedicated App Service plan with sufficient cores.
-
-#### Azure PowerShell state
+PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the PSWorkerInProcConcurrencyUpperBound application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
 Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
