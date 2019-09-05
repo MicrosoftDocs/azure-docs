@@ -18,7 +18,7 @@ Azure Blockchain Workbench Preview is deployed using a solution template in the 
 
 For more information about the components of Blockchain Workbench, see [Azure Blockchain Workbench architecture](architecture.md).
 
-[!INCLUDE [Preview note](../includes/preview.md)]
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## Prepare for deployment
 
