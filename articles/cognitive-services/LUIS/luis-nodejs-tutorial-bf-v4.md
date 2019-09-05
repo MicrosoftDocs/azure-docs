@@ -1,5 +1,5 @@
 ---
-title: Language Understanding Bot Node.js v4 
+title: "Tutorial: Language Understanding Bot Node.js v4" 
 titleSuffix: Azure Cognitive Services
 description: Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 09/04/2019
 ms.author: diberry
 ---
 
@@ -334,7 +334,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 1. In the bot emulator, book a flight by entering the following utterance: 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 
