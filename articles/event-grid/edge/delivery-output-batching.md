@@ -41,6 +41,7 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
   The batching policy knobs are not strict bounds on the batching behavior, and are respected on a best-effort basis. At low event rates, you will often observe the batch size being less than the requested Max Events Per Batch.
 
 * Default Off
+
   By default Event Grid only adds one event to each delivery request. The way to turn on Batching is to set either one of the aforementioned knobs on the Event Subscription json.
 
 * Default Values
@@ -51,22 +52,18 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
 
 ```json
 {
-    "properties":
-    {
-        "destination":
-        {
-            "endpointType": "WebHook",
-            "properties":
-            {
-                "endpointUrl": "<your_webhook_url>"
-            }
-        },
-        "deliveryPolicy":
-        {
-            "maxEventsPerBatch": 10,
-            "approxBatchSizeInBytes": 65536
-        }
+  "properties": {
+    "destination": {
+      "endpointType": "WebHook",
+      "properties": {
+        "endpointUrl": "<your_webhook_url>"
+      }
+    },
+    "deliveryPolicy": {
+      "maxEventsPerBatch": 10,
+      "approxBatchSizeInBytes": 65536
     }
+  }
 }
 ```
 

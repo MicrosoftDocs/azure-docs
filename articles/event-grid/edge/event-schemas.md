@@ -15,7 +15,7 @@ services: event-grid
 
 Event Grid module accepts and delivers events in JSON format. There are currently two schemas that are supported by Event Grid: -
 
-* **EventGridSchema** 
+* **EventGridSchema**
 * **CustomSchema**
 
 You can configure the schema that a publisher needs to conform to during topic creation. If unspecified, it defaults to **EventGridSchema**. Events that do not conform to the expected schema will be rejected.
@@ -45,6 +45,7 @@ EventGrid schema consists of a set of required properties that a publishing enti
 ```
 
 ### EventGrid schema properties
+
 All events have the following top-level data:
 
 | Property | Type | Required | Description |
@@ -61,17 +62,19 @@ All events have the following top-level data:
 ### Example - EventGrid schema event
 
 ```json
-[{
-       "id": "1807",
-       "eventType": "recordInserted",
-       "subject": "myapp/vehicles/motorcycles",
-       "eventTime": "2017-08-10T21:03:07+00:00",
-       "data": {
-            "make": "Ducati",
-            "model": "Monster"
-        },
-        "dataVersion": "1.0"
-}]
+[
+  {
+    "id": "1807",
+    "eventType": "recordInserted",
+    "subject": "myapp/vehicles/motorcycles",
+    "eventTime": "2017-08-10T21:03:07+00:00",
+    "data": {
+      "make": "Ducati",
+      "model": "Monster"
+    },
+    "dataVersion": "1.0"
+  }
+]
 ```
 
 ## CustomEvent schema
@@ -82,13 +85,15 @@ In custom schema, there are no mandatory properties that are enforced like the E
 
 No mandatory properties. It is up to the publishing entity to determine the payload.
 
-
 ### Example - Custom Schema Event
+
 ```json
-[{
-        "eventdata": {
-            "make": "Ducati",
-            "model": "Monster"
-        }
-}]
+[
+  {
+    "eventdata": {
+      "make": "Ducati",
+      "model": "Monster"
+    }
+  }
+]
 ```

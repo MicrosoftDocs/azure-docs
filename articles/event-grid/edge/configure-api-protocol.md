@@ -26,31 +26,31 @@ See [Security and authentication](security-authentication.md) guide for all the 
 
 ```json
  {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge"
-        ]
- }
+  "Env": [
+    "inbound:serverAuth:tlsPolicy=strict",
+    "inbound:serverAuth:serverCert:source=IoTEdge"
+  ]
+}
  ```
 
 ## Example 2: Enable HTTPS to other IoT Modules and non-IoT workloads
 
 ```json
  {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge"
-        ],
-        "HostConfig": {
-            "PortBindings": {
-                "4438/tcp": [
-                    {
-                        "HostPort": "4438"
-                    }
-                 ]
-             }
+  "Env": [
+    "inbound:serverAuth:tlsPolicy=strict",
+    "inbound:serverAuth:serverCert:source=IoTEdge"
+  ],
+  "HostConfig": {
+    "PortBindings": {
+      "4438/tcp": [
+        {
+          "HostPort": "4438"
         }
- }
+      ]
+    }
+  }
+}
  ```
 
 >[!NOTE]
@@ -60,36 +60,36 @@ See [Security and authentication](security-authentication.md) guide for all the 
 
 ```json
  {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:serverAuth:serverCert:source=IoTEdge"
-        ]
- }
+  "Env": [
+    "inbound:serverAuth:tlsPolicy=enabled",
+    "inbound:serverAuth:serverCert:source=IoTEdge"
+  ]
+}
  ```
 
 ## Example 4: Enable HTTP and HTTPS to other IoT Modules and non-IoT workloads
 
 ```json
  {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:serverAuth:serverCert:source=IoTEdge"
-        ],
-        "HostConfig": {
-            "PortBindings": {
-                "4438/tcp": [
-                    {
-                        "HostPort": "4438"
-                    }
-                 ],
-                 "5888/tcp": [
-                    {
-                        "HostPort": "5888"
-                    }
-                 ]
-             }
+  "Env": [
+    "inbound:serverAuth:tlsPolicy=enabled",
+    "inbound:serverAuth:serverCert:source=IoTEdge"
+  ],
+  "HostConfig": {
+    "PortBindings": {
+      "4438/tcp": [
+        {
+          "HostPort": "4438"
         }
- }
+      ],
+      "5888/tcp": [
+        {
+          "HostPort": "5888"
+        }
+      ]
+    }
+  }
+}
  ```
 
 >[!NOTE]

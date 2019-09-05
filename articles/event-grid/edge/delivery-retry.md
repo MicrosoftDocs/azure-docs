@@ -67,43 +67,39 @@ Refer to our [API  documentation](api.md) on how to do configure defaults per su
 ### Set up retry policy in Event Grid module with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
 
 ```json
- {
-        "Env": [
-            "broker:defaultMaxDeliveryAttempts=3",
-            "broker:defaultEventTimeToLiveInSeconds=1800",
-        ],
-        "HostConfig": {
-            "PortBindings": {
-                "4438/tcp": [
-                    {
-                        "HostPort": "4438"
-                    }
-                 ]
-             }
+{
+  "Env": [
+    "broker:defaultMaxDeliveryAttempts=3",
+    "broker:defaultEventTimeToLiveInSeconds=1800"
+  ],
+  "HostConfig": {
+    "PortBindings": {
+      "4438/tcp": [
+        {
+          "HostPort": "4438"
         }
- }
- ```
+      ]
+    }
+  }
+}
+```
 
 ### Set up Web hook subscription with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
 
 ```json
 {
-    "properties":
-    {
-        "destination":
-        {
-            "endpointType": "WebHook",
-            "properties":
-             {
-                "endpointUrl": "<your_webhook_url>",
-                "eventDeliverySchema": "eventgridschema",
-             }
-        },
-        "retryPolicy":
-             {
-                "eventExpiryInMinutes": 30,
-                "maxDeliveryAttempts": 3
-              },
+ "properties": {
+  "destination": {
+   "endpointType": "WebHook",
+   "properties": {
+    "endpointUrl": "<your_webhook_url>",
+    "eventDeliverySchema": "eventgridschema"
    }
+  },
+  "retryPolicy": {
+   "eventExpiryInMinutes": 30,
+   "maxDeliveryAttempts": 3
+  }
+ }
 }
 ```

@@ -25,7 +25,8 @@ In order to complete this tutorial, you will need an
 
 ## Step 1: Create Azure Function in Cloud via portal
 
-Follow the steps outlined in the [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) to create an Azure Function in cloud.
+Follow the steps outlined in the [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) to create an Azure Function in cloud. 
+
 Replace the code snippet like below:
 
 ```csharp
@@ -52,20 +53,23 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 In your new function, click </> Get function URL at the top right, select default (Function key), and then click Copy. You will need to use the function URL value later in the tutorial.
 
+> [!NOTE]
+> Refer to [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) documentation for more samples and tutorials on reacting to events and how to use EventGridEvent triggers instead of HTTP Triggers.
+
 ## Step 2: Create topic
 
 As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to.
 
 1. Create topic2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
-   ```json
-   {
-       "name": "sampleTopic2",
-       "properties" : {
-          "inputschema": "eventGridSchema",
-       },
-   }
-   ```
+    ```json
+         {
+          "name": "sampleTopic2",
+          "properties": {
+            "inputschema": "eventGridSchema"
+          }
+        }
+    ```
 
 1. Run the following command to create the topic. HTTP Status Code of 200 OK should be returned.
 
@@ -73,23 +77,45 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
+1. Run the following command to verify topic was created successfully. HTTP Status Code of 200 OK should be returned.
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
+    ```
+
+   Sample output:
+
+   ```json
+        [
+          {
+            "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/sampleTopic2",
+            "name": "sampleTopic2",
+            "type": "Microsoft.EventGrid/topics",
+            "properties": {
+              "endpoint": "https://<edge-vm-ip>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview",
+              "inputSchema": "EventGridSchema"
+            }
+          }
+        ]
+   ```
+
 ## Step 3: Create event subscription
 
    Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest.
 
 1. Create subscription2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
-   ```json
-    {
-      "properties": {
-        "destination": {
-          "endpointType": "WebHook",
+    ```json
+        {
           "properties": {
-            "endpointUrl": "<your-az-func-cloud-url>"
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-az-func-cloud-url>"
+              }
+            }
           }
         }
-      }
-    }
     ```
 
    >[!NOTE]
@@ -101,22 +127,49 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
 
+3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
+    ```
+
+    Sample output:
+
+   ```json
+        {
+          "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/sampleTopic2/eventSubscriptions/sampleSubscription2",
+          "type": "Microsoft.EventGrid/eventSubscriptions",
+          "name": "sampleSubscription2",
+          "properties": {
+            "Topic": "sampleTopic2",
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-az-func-cloud-url>"
+              }
+            }
+          }
+        }
+    ```
+
 ## Step 4: Publish event
 
 1. Create event2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
-   ```json
-   [{
-       "id": "eventId-func-1",
-       "eventType": "recordInserted",
-       "subject": "myapp/vehicles/motorcycles",
-       "eventTime": "2019-07-28T21:03:07+00:00",
-       "dataVersion": "1.0",
-       "data": {
-            "make": "Ducati",
-            "model": "Monster"
-        },
-    }]
+    ```json
+        [
+          {
+            "id": "eventId-func-1",
+            "eventType": "recordInserted",
+            "subject": "myapp/vehicles/motorcycles",
+            "eventTime": "2019-07-28T21:03:07+00:00",
+            "dataVersion": "1.0",
+            "data": {
+              "make": "Ducati",
+              "model": "Monster"
+            }
+          }
+        ]
     ```
 
 1. Run the following command to publish event
@@ -127,7 +180,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 5: Verify event delivery
 
-Refer to this [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) about viewing the events that were delivered to the function.
+You can view the event delivered in the Azure portal under the **Monitor** option of your function.
 
 ## Cleanup resources
 

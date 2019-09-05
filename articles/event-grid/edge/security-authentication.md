@@ -164,27 +164,27 @@ By default, Event Grid module is deployed with the following configuration:-
 
  ```json
  {
-        "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
-        ],
-        "HostConfig": {
-            "PortBindings": {
-                "4438/tcp": [
-                    {
-                        "HostPort": "4438"
-                    }
-                 ]
-             }
+  "Env": [
+    "inbound:serverAuth:tlsPolicy=strict",
+    "inbound:serverAuth:serverCert:source=IoTEdge",
+    "inbound:clientAuth:sasKeys:enabled=false",
+    "inbound:clientAuth:clientCert:enabled=true",
+    "inbound:clientAuth:clientCert:source=IoTEdge",
+    "inbound:clientAuth:clientCert:allowUnknownCA=true",
+    "outbound:clientAuth:clientCert:enabled=true",
+    "outbound:clientAuth:clientCert:source=IoTEdge",
+    "outbound:webhook:httpsOnly=true",
+    "outbound:webhook:skipServerCertValidation=false",
+    "outbound:webhook:allowUnknownCA=true"
+  ],
+  "HostConfig": {
+    "PortBindings": {
+      "4438/tcp": [
+        {
+          "HostPort": "4438"
         }
- }
- ```
+      ]
+    }
+  }
+}
+```
