@@ -165,7 +165,7 @@ If users want to enable secondary network adapters to talk outside their own sub
 
     ![IP route](media/troubleshoot-vm-connectivity/iproute.png)
 
-Now, try to connect to secondarynetwork adapter. If the connection is still unsuccessful, go to next step.
+Now, try to connect to secondary network adapter. If the connection is still unsuccessful, go to next step.
 
 #### Step 2: Check NSG settings for the network adapters.
 
@@ -224,7 +224,7 @@ Hops             : [
 
 ### Azure VM cannot connect to the internet
 
-#### Step 1: Check whether the neywork adapter is in a failed state.
+#### Step 1: Check whether the network adapter is in a failed state.
 
 Follow these steps to check the state of the NIC:
 
@@ -253,3 +253,7 @@ Follow these steps to check the state of the NIC:
 #### Step 2: Follow [Step 4](#step-4-perform-a-connectivity-check) to run a connectivity check.
 
 #### Step 3: Refer the table under [Step 5](#step-5-fix-the-issue-in-the-connectivity-check-result), and follow the steps to resolve the issues.
+
+## Next steps
+
+[Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
