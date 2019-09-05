@@ -15,6 +15,7 @@ ms.reviewer: nibruno; jrasnick
 # Best practices for performance tuning with materialized views 
 Materialized views in Azure SQL Data Warehouse allow for enhanced query performance for complex analytical workloads. Materialized views also provide a low maintenance method for performance tuning with zero query code changes. This article discusses the general guidance on using materialized views, including key concepts, benefits, common scenarios, best practice and considerations in design.  
 
+
 ## Materialized views vs. standard views
 Both standard views and materialized views are virtual tables with their content defined by SELECT queries.  A standard view processes its content each time  the view is used during query execution. Since the view content is not stored on disk, a standard view does not incur additional storage cost and does not require maintenance.  A materialized view pre-processes its content and stores the resulting data in Azure data warehouse just like a table.  Retrieving data from a materialized view is much faster than a standard view as data is already stored in the database and no re-computation is needed each time the materialized view is used.   Most of the constraints on a standard view still apply to a materialized view.   For details on materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).   
 
