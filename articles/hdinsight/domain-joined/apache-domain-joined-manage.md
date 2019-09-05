@@ -1,6 +1,6 @@
 ---
 title: Manage HDInsight clusters with Enterprise Security Enterprise - Azure
-description: Learn how to manage HDInsight clusters with Enterprise Security Package.
+description: Learn how to manage Azure HDInsight clusters with Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
