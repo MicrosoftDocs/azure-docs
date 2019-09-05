@@ -18,7 +18,7 @@ This article provides the properties and schema for [Azure Key Vault](../key-vau
 An Azure Key Vault account emits the following event types:
 
 | Event full Name | Event display name | description |
-| ---------- | ----------- |
+| ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | Certificate New Version Created | Triggered when new certificate or new certificate version is created |
 | Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when current version of certificate is about to expire (default  is 30 days before expiration date) |
 | Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when certificate is expired |
@@ -89,6 +89,7 @@ The following example show schema for **GeofenceResult**
 An event has the following top-level data:
 
 | Property | Type | Description |
+| ---------- | ----------- |---|
 | id | string | The id of the object that triggered this event. |
 | vaultName" | string | Key vault name of the object that triggered this event. |
 | objectType | string | The type of the object that triggered this event |
