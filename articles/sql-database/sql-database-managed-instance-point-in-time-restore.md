@@ -237,7 +237,6 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 ---
 
 
-
 ### ALTER new database name to original
 
 Connect directly to the managed instance, launch SQL Server Management Studio, and then execute the following Transact-SQL (T-SQL) query to change the name of the restored database to that of the dropped database you intended to overwrite. 
