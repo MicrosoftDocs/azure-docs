@@ -4,9 +4,9 @@ description: Provides a summary of support settings and limitations for the Azur
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ---
 
@@ -26,10 +26,10 @@ There are two versions of the Azure Migrate service:
 
 The table summarizes supported migration scenarios.
 
-**Deployment** | **Details*** 
+**Deployment** | **Details** 
 --- | --- 
 **On-premises assessment** | Assess on-premises workloads and data running on VMware VMs and Hyper-V VMs. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as third-party tools that include Cloudamize, Corent Tech, and Turbonomic Server.
-**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, and on AWS/GCP instances, to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as using third-party tools that include Carbonite and CorentTech.
+**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as using third-party tools that include Carbonite and CorentTech.
 
 Specific tool support is summarized as follows.
 
@@ -48,10 +48,10 @@ CorentTech | Migration | [Learn more](https://www.corenttech.com/).
 
 **Support** | **Details**
 --- | ---
-Subscription | You can have a single Azure Migrate project in a subscription.
+Subscription | You can have multiple Azure Migrate projects in a subscription.
 Azure permissions | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 VMware VMs  | Assess up to 35,000 VMware VMs in a single project.
-Hyper-V VMs	| Assess up to 10,000 Hyper-V VMs in a single project.
+Hyper-V VMs	| Assess up to 35,000 Hyper-V VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 

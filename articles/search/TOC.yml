@@ -13,10 +13,12 @@
     items:
     - name: Create and use an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with cognitive search (AI)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
+  - name: Java
+    href: search-get-started-java.md
   - name : Node.js
     href: search-get-started-nodejs.md
   - name: Postman
@@ -59,6 +61,8 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp
   - name: Java samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java
+  - name: JavaScript samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript
   - name: Python samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python
   - name: REST samples
@@ -115,10 +119,10 @@
       href: search-api-versions.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Develop in Java
-      href: search-get-started-java.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
         href: search-dotnet-sdk-migration-version-9.md
       - name: .NET SDK 5.0

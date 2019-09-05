@@ -4,7 +4,7 @@ description: Describes how to prepare for assessment and migration of on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -118,7 +118,7 @@ Make sure that the proxy resolves any CNAME records received while looking up th
 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
-1. Verify [Verify](migrate-support-matrix-vmware.md#assessment-appliance-requirements) requirements for setting up the Azure Migrate appliance in VMware.
+1. [Verify](migrate-support-matrix-vmware.md#assessment-appliance-requirements) requirements for setting up the Azure Migrate appliance in VMware.
 2. [Review](migrate-support-matrix-vmware.md#assessment-url-access-requirements) the Azure URLs that the appliance will need to access.
 3. Review the data that the appliance will collect during discovery and assessment.
 4. [Note](migrate-support-matrix-vmware.md#assessment-port-requirements) port access requirements for the appliance.
@@ -132,7 +132,7 @@ Review the requirements for agentless migration of VMware VMs.
 1. [Review](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware server requirements for agentless migration.
 2. Set up an account to access the vCenter Server with the [required permissions](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions) for agentless migration.
 3. [Note](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) the requirements for VMware VMs that you want to migrate to Azure using agentless migration.
-4. [Review](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) appliance requirements for agentless migration.]
+4. [Review](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) appliance requirements for agentless migration.
 5. Note appliance [URL access](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) and [port access](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) requirements for agentless migration.
 
 
@@ -158,5 +158,5 @@ In this tutorial, you:
 Continue to the second tutorial to set up an Azure Migrate project, and assess VMware VMs for migration to Azure.
 
 > [!div class="nextstepaction"] 
-> [Assess VMware VMs](./tutorial-migrate-vmware.md) 
+> [Assess VMware VMs](./tutorial-assess-vmware.md) 
 

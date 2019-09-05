@@ -10,19 +10,18 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
 
 ---
 # How to use Azure API Management with virtual networks
-Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routeable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
 Azure API Management can be deployed inside the virtual network (VNET), so it can access backend services within the network. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.
 
 > [!NOTE]
-> Azure API Management supports both classic and Azure Resource Manager VNets.
+> The API import document URL must be hosted on a publicly accessible internet address.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,6 +48,8 @@ To perform the steps described in this article, you must have:
     ![Virtual network menu of API Management][api-management-using-vnet-menu]
 4. Select the desired access type:
 
+   * **Off**: this is the default. API Management is not deployed into a virtual network.
+
    * **External**: the API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
 
      ![Public peering][api-management-vnet-public]
@@ -58,11 +59,6 @@ To perform the steps described in this article, you must have:
      ![Private peering][api-management-vnet-private]
 
      You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
-
-     > [!NOTE]
-     > **Service Endpoint** in the above diagram includes Gateway/Proxy, the Azure portal, the Developer portal, GIT, and the Direct Management Endpoint.
-     > **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure portal and Powershell.
-     > Also, note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on its configured Hostnames.
 
      > [!IMPORTANT]
      > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
@@ -141,7 +137,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 + **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
 
-+ **Developer portal CAPTCHA**: Outbound network connectivity for the developer portal's CAPTCHA, which resolves under the host `client.hip.live.com`.
++ **Developer portal CAPTCHA**: Outbound network connectivity for the developer portal's CAPTCHA, which resolves under the hosts `client.hip.live.com` and `partner.hip.live.com`.
 
 + **Azure portal Diagnostics**: To enable the flow of diagnostic logs from Azure portal when using the API Management extension from inside a Virtual Network, outbound access to `dc.services.visualstudio.com` on port 443 is required. This helps in troubleshooting issues you might face when using extension.
 
@@ -151,8 +147,11 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
     
   * All the control plane traffic from Internet to the management endpoint of your API Management service are routed through a specific set of Inbound IPs hosted by API Management. When the traffic is force tunneled the responses will not symmetrically map back to these Inbound source IPs. To overcome the limitation, we need to add the following user-defined routes ([UDRs][UDRs]) to steer traffic back to Azure by setting the destination of these host routes to "Internet". The set of Inbound IPs for control Plane traffic is as follows:
     
-    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32,
-    > 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+     | Azure Environment | Management IP Addresses                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Public      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32,    51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32,52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
+    | Azure Government  | 52.127.42.160/32, 52.127.34.192/32 |
+    | Azure China       | 139.217.51.16/32, 139.217.171.176/32 |
 
   * For other API Management service dependencies which are force tunneled, there should be a way to resolve the hostname and reach out to the endpoint. These include
       - Metrics and Health Monitoring

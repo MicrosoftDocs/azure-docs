@@ -21,12 +21,8 @@
         href: QuickStarts/javascript-analyze.md
       - name: Node.js
         href: QuickStarts/node-analyze.md
-      - name: PHP
-        href: QuickStarts/php-analyze.md
       - name: Python
         href: QuickStarts/python-analyze.md
-      - name: Ruby
-        href: QuickStarts/ruby-analyze.md
     - name: Analyze a local image
       items:
       - name: C#
@@ -47,12 +43,8 @@
         href: QuickStarts/javascript-thumb.md
       - name: Node.js
         href: QuickStarts/node-thumb.md
-      - name: PHP
-        href: QuickStarts/php-thumb.md
       - name: Python
         href: QuickStarts/python-thumb.md
-      - name: Ruby
-        href: QuickStarts/ruby-thumb.md
     - name: Extract text (Read API)
       items:
       - name: C#
@@ -77,16 +69,10 @@
         href: QuickStarts/javascript-print-text.md
       - name: Node.js
         href: QuickStarts/node-print-text.md
-      - name: PHP
-        href: QuickStarts/php-print-text.md
       - name: Python
         href: QuickStarts/python-print-text.md
-      - name: Ruby
-        href: QuickStarts/ruby-print-text.md
     - name: Use a domain model
       items:
-      - name: PHP
-        href: QuickStarts/php-domain.md
       - name: Python
         href: QuickStarts/python-domain.md
   - name: Using the .NET SDK
@@ -133,22 +119,22 @@
     href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
-  - name: Use Computer Vision
-    items:
-    - name: Java
-      href: Tutorials/java-tutorial.md
-    - name: JavaScript
-      href: Tutorials/javascript-tutorial.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Use containers
     items:
     - name: Install and run containers
       href: computer-vision-how-to-install-containers.md
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
     - name: Configure containers
       href: computer-vision-resource-container-config.md
+      displayName: docker, container, billing, apikey, pull, logging, on-premises
+    - name: Use with Kubernetes and Helm
+      href: deploy-computer-vision-on-premises.md
+      displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
+      displayName: container instances, container, containers, images
   - name: Use the Computer Vision Connected Service
     href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
@@ -175,8 +161,6 @@
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
-    - name: Swift
-      href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: Resources
   items: 
   - name: Samples  

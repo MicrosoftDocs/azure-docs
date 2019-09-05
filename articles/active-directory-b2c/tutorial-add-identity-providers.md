@@ -90,13 +90,11 @@ After you create the application for the identity provider that you want to add,
 
 ### Add the Azure Active Directory identity provider
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **Identity providers**, and then select **Add**.
+1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Contoso Azure AD*.
-1. Select **Identity provider type**, select **OpenID Connect (Preview)**, and then click **OK**.
-1. Click **Set up this identity provider**
-1. For **Metadata url**, enter the following URL, replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant.
+1. For **Metadata url**, enter the following URL replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -104,28 +102,27 @@ After you create the application for the identity provider that you want to add,
 
     For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-1. For **Client ID**, enter the *Application (client) ID* that you previously recorded.
-1. For **Client secret**, enter the *client secret* value that you previously recorded.
-1. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. [Domain hints](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
-1. Select **OK**.
-1. Select **Map this identity provider's claims** and set the following claims:
+1. For **Client ID**, enter the application ID that you previously recorded.
+1. For **Client secret**, enter the client secret that you previously recorded.
+1. Leave the default values for **Scope**, **Response type**, and **Response mode**.
+1. (Optional) Enter a value for **Domain_hint**. For example, *ContosoAD*. [Domain hints](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
+1. Under **Identity provider claims mapping**, enter the following claims mapping values:
 
-    - For **User ID**, enter `oid`.
-    - For **Display Name**, enter `name`.
-    - For **Given name**, enter `given_name`.
-    - For **Surname**, enter `family_name`.
-    - For **Email**, enter `unique_name`.
+    * **User ID**: *oid*
+    * **Display name**: *name*
+    * **Given name**: *given_name*
+    * **Surname**: *family_name*
+    * **Email**: *unique_name*
 
-1. Select **OK**, then select **Create** to save your configuration.
+1. Select **Save**.
 
 ### Add the Facebook identity provider
 
-1. Select **Identity providers**, and then select **Add**.
-1. Enter a **Name**. For example, enter *Facebook*.
-1. Select **Identity provider type**, select **Facebook**, then select **OK**.
-1. Select **Set up this identity provider** and enter the *App ID* that you recorded earlier as the **Client ID**.
-1. Enter the *App Secret* that you recorded as the **Client secret**.
-1. Select **OK** and then select **Create** to save your Facebook configuration.
+1. Select **Identity providers**, then select **Facebook**.
+1. Enter a **Name**. For example, *Facebook*.
+1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
+1. For the **Client secret**, enter the App Secret that you recorded.
+1. Select **Save**.
 
 ## Update the user flow
 
