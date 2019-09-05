@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Anomaly Detector API Documentation 
-summary: The Anomaly Detector API helps you easily embed anomaly detection capabilities into your apps so your users can quickly identify problems to minimize loss and customer impact. No machine-learning background required. Through a single API call, you can activate this pre-trained AI model that ingests time-series data of all types and volumes, selects the best-fitting anomaly detection model for your data to ensure high accuracy, and automatically surfaces incidents as soon as they happen. You can customize the service to detect anomalies of all sizes.  Use Anomaly Detector to identify business incidents, monitor IoT device traffic, manage fraud, respond to changing markets, and more.
+summary: Learn how to use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
 
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
@@ -34,8 +34,6 @@ landingContent:
       links:
         - text: Introducing the Anomaly Detector API
           url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
-        - text: Bring Anomaly Detector on-premises with containers support
-          url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
         - text: Algorithms used by the Anomaly Detection API 
           url: https://www.youtube.com/embed/ERTaAnwCarM
 
@@ -84,6 +82,10 @@ landingContent:
           url: anomaly-detector-container-configuration.md
         - text: Use container instances
           url: how-to/deploy-anomaly-detection-on-container-instances.md
+    - linkListType: video
+      links:
+        - text: Bring Anomaly Detector on-premises with containers support
+          url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
 
 - title: Join the Anomaly Detector community 
   linkLists:
@@ -110,3 +112,5 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2090788
         - text: Azure powershell
           url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+        - text: Azure CLI
+          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
