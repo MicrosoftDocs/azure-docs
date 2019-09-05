@@ -14,7 +14,7 @@ ms.author: emalani
 
 [Azure Maps](https://azure.microsoft.com/en-us/services/azure-maps/) provides location platform natively in Azure cloud, offers a portfolio of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications. It enables developers, enterprises, and ISVs to create location-aware apps and IoT, mobility, logistics, and asset tracking solutions.
 
-## Azure Maps Services
+## Azure Maps Features
 - **Search** provides details about nearby points of interest (POI), render locations on a map, and geocode (or reverse geocode) addresses to get corresponding latitude/longitude coordinates.
 - Improve travel time and avoid gridlock using **Traffic**
 - Integrate clear, easy-to-read **Maps** into your solution

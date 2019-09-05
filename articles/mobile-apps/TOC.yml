@@ -16,10 +16,10 @@
         href: authentication.md
       - name: Cloud Storage
         href: 
-      - name: Real time and Offline Data Storage
+      - name: Real-time and Offline Data Storage
         href: 
       - name: Serverless Compute
-        href: 
+        href: azure-functions.md
       - name: File Storage
         href: 
       - name: Mobile App Backend
