@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
-ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
@@ -573,7 +572,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/azure/python/
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

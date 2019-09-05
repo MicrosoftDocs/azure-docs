@@ -113,7 +113,7 @@ More [examples](./face-resource-container-config.md#example-docker-run-commands)
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `https://localhost:5000`, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs.
 
 
 <!--  ## Validate container is running -->
@@ -145,7 +145,6 @@ For more information about these options, see [Configure containers](./face-reso
 
 In this article, you learned concepts and workflow for how to download, install, and run Face API containers. In summary:
 
-* The Face API provides three Linux containers for Docker that provide key phrase extraction, language detection, and sentiment analysis.
 * Container images are downloaded from the Azure Container Registry.
 * Container images run in Docker.
 * You can use either the REST API or the SDK to call operations in Face API containers by specifying the host URI of the container.

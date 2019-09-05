@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -106,7 +106,7 @@ When done, type `exit` to leave the SSH session.
 
 Use a web browser of your choice to view the default NGINX welcome page. Type the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
 
-![NGINX default site](./media/quick-create-cli/nginx.png)
+![NGINX default site](./media/quick-create-portal/nginx.png)
 
 ## Clean up resources
 
