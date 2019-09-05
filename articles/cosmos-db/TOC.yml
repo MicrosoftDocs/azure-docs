@@ -455,6 +455,10 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
       - name: How-to guides
         items:
         - name: Graph data modeling
