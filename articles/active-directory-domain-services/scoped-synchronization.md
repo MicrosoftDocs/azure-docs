@@ -52,12 +52,9 @@ Use PowerShell to complete this set of steps. Refer to the instructions to [enab
 Complete the following steps to configure group-based scoped synchronization to your managed domain:
 
 1. Complete the following tasks:
-   * [Task 1: Install the required PowerShell modules](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
-   * [Task 2: Create the required service principal in your Azure AD directory](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * [Task 3: Create and configure the 'AAD DC Administrators' group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-   * [Task 4: Register the Azure AD Domain Services resource provider](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-   * [Task 5: Create a resource group](powershell-create-instance.md#task-5-create-a-resource-group).
-   * [Task 6: Create and configure the virtual network](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).
+   * [Install the required PowerShell modules](powershell-create-instance.md#prerequisites).
+   * [Create the required service principal and Azure AD group for administrative access](powershell-create-instance.md#create-required-azure-ad-resources).
+   * [Create supporting Azure resources like a virtual network and subnets](powershell-create-instance.md#create-supporting-azure-resources).
 
 2. Select the groups you want to sync and provide the display name of the groups you want synchronized to your managed domain.
 
@@ -73,7 +70,7 @@ Complete the following steps to configure group-based scoped synchronization to 
    > You must include the 'AAD DC Administrators' group in the list of groups configured for scoped synchronization. If you do not include this group, the managed domain will be unusable.
    >
 
-4. Now, create the managed domain and enable group-based scoped synchronization for the managed domain. Include the property ```"filteredSync" = "Enabled"``` in the ```Properties``` parameter. For instance, see the following script fragment, copied from [Task 7: Provision the Azure AD Domain Services managed domain](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Now, create the managed domain and enable group-based scoped synchronization for the managed domain. Include the property ```"filteredSync" = "Enabled"``` in the ```Properties``` parameter. For instance, see the following script fragment, copied from [Create an Azure AD DS managed domain](powershell-create-instance.md#create-an-azure-ad-ds-managed-domain).
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
