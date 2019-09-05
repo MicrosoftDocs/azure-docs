@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/17/2019
+ms.date: 09/03/2019
 ms.author: pafarley
 ---
 # Azure Cognitive Services Computer Vision SDK for Python
