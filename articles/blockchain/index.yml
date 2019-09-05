@@ -63,7 +63,7 @@ conceptualContent:
 additionalContent:
   sections:
     - title: Development tools, solution templates, and samples
-      summary: Blockchain app development tools, resource templates, and guidance.
+      summary: Blockchain app development tools, Azure Resource Management templates, and code samples.
       items:
         - title: Azure Blockchain Development Kit for Ethereum
           summary: Develop, deploy debug and manage your Azure Blockchain Service solution.
@@ -71,20 +71,12 @@ additionalContent:
         - title: Ethereum Blockchain connector
           summary: Use Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps to perform smart contract actions such as submitting transactions, reading contract state, and triggering flows on contract updates.
           url: https://docs.microsoft.com/en-us/connectors/blockchainethereum/
-        # Card
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain
-
-additionalContent:
-  sections:
-    - title: Blockchain solution templates
-      summary: Azure Resource Management templates for common blockchain deployments.
-      items:
         - title: Ethereum Proof-of-Authority consortium solution template
           summary: Deploy a multi-member consortium Proof-of-authority Ethereum network on Azure.
           url: ./templates/ethereum-poa-deployment.md
         - title: Hyperledger Fabric consortium solution template
           summary: Deploy a Hyperledger Fabric consortium network on Azure.
           url: ./templates/hyperledger-fabric-consortium-blockchain.md
-
