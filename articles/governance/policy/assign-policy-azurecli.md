@@ -7,7 +7,6 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/27/2019
 ms.author: hrasheed
 ---
 
@@ -16,6 +16,8 @@ Azure Data Lake Storage Gen2 is a cloud storage service dedicated to big data an
 ## Data Lake Storage Gen2 availability
 
 Data Lake Storage Gen2 is available as a storage option for almost all Azure HDInsight cluster types as both a default and an additional storage account. HBase, however, can have only one Data Lake Storage Gen2 account.
+
+For a full comparison of cluster creation options using Data Lake Storage Gen2, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
 > [!Note]  
 > After you select Data Lake Storage Gen2 as your **primary storage type**, you cannot select a Data Lake Storage Gen1 account as additional storage.
