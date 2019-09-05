@@ -118,7 +118,7 @@
     items:
     - name: Use portal for workspaces
       href: how-to-manage-workspace.md
-    - name: Use the CLI for workspaces
+    - name: Use the Azure CLI for workspaces
       href: how-to-manage-workspace-cli.md
     - name: Use a Resource Manager template
       displayName: arm
