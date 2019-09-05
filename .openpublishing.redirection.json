@@ -4481,6 +4481,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
+      "redirect_url": "/azure/app-service/containers/quickstart-docker",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
       "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
       "redirect_document_id": false
@@ -31660,6 +31665,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-java-v10.md",
+      "redirect_url": "https://github.com/azure/azure-storage-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/data-lake-storage/index.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false
@@ -41659,6 +41669,11 @@
 	    {
       "source_path": "articles/azure-monitor/app/sample-mscrm.md",
       "redirect_url": "/azure/azure-monitor/app/javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
+      "redirect_url": "/azure/sql-database/sql-database-instance-pools",
       "redirect_document_id": false
     }
   ]
