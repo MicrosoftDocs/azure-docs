@@ -374,7 +374,7 @@ The root directory contains the following directory structure:
 
 * **volatile**: This directory is for internal purposes. There's no guarantee that any files in this directory or that the directory itself will exist in the future.
 
-* **workitems**: This directory contains information about jobs and tasks on the compute node.
+* **workitems**: This directory contains the directories for jobs and their tasks on the compute node.
 
 * **Tasks**: Within the **workitems** directory, a directory is created for each task that runs on the node. It's accessed by referencing the `AZ_BATCH_TASK_DIR` environment variable.
 
