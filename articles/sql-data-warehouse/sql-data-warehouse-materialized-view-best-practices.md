@@ -13,7 +13,7 @@ ms.reviewer: nibruno; jrasnick
 ---
 
 # Best practices for performance tuning with materialized views 
-Materialized views in Azure SQL Data Warehouse allow for enhanced query performance for complex analytical workloads. Materialized views also provide a low maintenance method for performance tuning with zero query code changes. This article discusses the general guidance on using materialized views, including key concepts, benefits, common scenarios, best practice and considerations in design.  
+Materialized views in Azure SQL Data Warehouse allow for enhanced query performance for complex analytical workloads. Materialized views also provide a low maintenance method for performance tuning with zero query code changes. This article discusses the general guidance on using materialized views.  
 
 
 ## Materialized views vs. standard views
