@@ -5,7 +5,6 @@ author: eamono
 manager: gailey777
 
 ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 9/5/2019
 ms.author: eamono
