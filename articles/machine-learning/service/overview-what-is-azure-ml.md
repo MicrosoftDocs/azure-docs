@@ -30,6 +30,9 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 + [Jupyter notebooks](https://jupyter.org)  in which you use the [SDKs](https://docs.microsoft.com/azure/machine-learning/service/#reference) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
 ## What can I do with Azure Machine Learning service?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.

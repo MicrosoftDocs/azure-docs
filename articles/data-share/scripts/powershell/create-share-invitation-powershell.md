@@ -37,7 +37,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareInvitation](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | Create a data share invitation. |
+| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Create a data share invitation. |
 |||
 
 ## Next steps
