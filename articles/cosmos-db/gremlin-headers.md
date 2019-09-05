@@ -33,7 +33,7 @@ Most common status codes returned by the server are listed below.
 
 | Status | Explanation |
 | --- | --- |
-| **401** | Error message `"Unauthorized: Invalid credentials provided"` is returned when authentication password doesn't match Cosmos DB account key. Navigate to your Cosmos DB Gremlin account in Azure Portal and confirm that the key is correct.|
+| **401** | Error message `"Unauthorized: Invalid credentials provided"` is returned when authentication password doesn't match Cosmos DB account key. Navigate to your Cosmos DB Gremlin account in the Azure portal and confirm that the key is correct.|
 | **404** | Concurrent operations that attempt to delete and update the same edge or vertex simultaneously. Error message `"Owner resource does not exist"` indicates that specified database or collection is incorrect in connection parameters in `/dbs/<database name>/colls/<collection or graph name>` format.|
 | **408** | `"Server timeout"` indicates that traversal took more than **30 seconds** and was canceled by the server. Optimize your traversals to run quickly by filtering vertices or edges on every hop of traversal to narrow down search scope.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` This usually happens when vertex or an edge with an identifier already exists in the graph.| 
