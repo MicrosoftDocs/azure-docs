@@ -28,8 +28,8 @@ For the preview, VMs will be evicted based on capacity and the max price you set
 | Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
 | Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
-| After eviction the price for the VM goes back ot being < the max price. | The VM will not be automatically re-started.|
-| If the max price is set to `-1` | The VM will not be evicted for reasons. The max price will be the current price, up to the price for on-demand VMs. You will never charged above the on-demand price.| 
+| After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM youself, and it will be charged at the current price. |
+| If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for on-demand VMs. You will never charged above the on-demand price.| 
 
 
 
