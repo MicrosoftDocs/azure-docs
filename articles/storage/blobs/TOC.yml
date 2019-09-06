@@ -1,4 +1,4 @@
-- name: Azure Blob Storage documentation
+- name: Azure Blob storage documentation
   href: /azure/storage/blobs/
 - name: Overview
   expanded: true

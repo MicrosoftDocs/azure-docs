@@ -114,7 +114,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Authorize access to Azure storage
+          - text: Authorize access to Azure Storage
             url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - linkListType: how-to-guide
         links:
