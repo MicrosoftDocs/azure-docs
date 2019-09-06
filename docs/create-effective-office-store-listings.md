@@ -1,13 +1,12 @@
 ---
 title: Create effective listings in AppSource and within Office
 description: Make sure that the information you submit, including your title, description, logos, and images, clearly communicates the benefits and functionality that your solution provides.
-ms.date: 12/04/2018
 localization_priority: Normal
 ---
 
 # Create effective listings in AppSource and within Office
 
-The information and images that you submit to the Seller Dashboard become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and images—clearly communicates the benefits and functionality that your solution provides.
+The information and images that you submit to Partner Center become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and images—clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your title, description, and images:
 
