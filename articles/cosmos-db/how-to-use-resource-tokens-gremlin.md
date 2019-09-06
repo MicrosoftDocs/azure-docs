@@ -14,14 +14,14 @@ This article explains how to use [Cosmos DB Resource Tokens](secure-access-to-da
 
 ## Create a resource token
 
-TinkerPop Gremlin SDK doesn't have an API to create resource tokens. Resource token is a Cosmos DB concept. To create resource tokens please download [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access Graph database then it needs 2 separate SDKs.
+TinkerPop Gremlin SDK doesn't have an API to create resource tokens. Resource token is a Cosmos DB concept. To create resource tokens, please download [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access Graph database, then it needs 2 separate SDKs.
 
 Object model hierarchy above resource tokens:
-- **Cosmos DB Account** - this is the top-level entity that has DNS associated with it, for example `contoso.gremlin.cosmos.azure.com`
+- **Cosmos DB Account** - top-level entity that has DNS associated with it, for example `contoso.gremlin.cosmos.azure.com`
   - **Cosmos DB Database**
     - **User**
       - **Permission**
-        - *Token* - it is a property of **Permission** object that denotes what actions are allowed or denied.
+        - *Token* - a property of **Permission** object that denotes what actions are allowed or denied.
 
 Resource Token has a format `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. This string is opaque for the clients and should be used as-is without modification or interpretation.
 
@@ -88,11 +88,11 @@ builder.authProperties(authenticationProperties);
 
 ## Limit
 
-A single Gremlin account can issue unlimited number of tokens, however only up to **100** tokens can be used concurrently within **1 hour**. If application exceeds token limit per hour, authentication request will be denied with error message `"Exceeded allowed resource token limit of 100 that can be used concurrently"`. Closing active connections with specific tokens to free up slots for new tokens will not be fruitful. Cosmos DB Gremlin database engine keeps track of distrinct tokens encountered in the past hour before authentication request.
+A single Gremlin account can issue unlimited number of tokens, however only up to **100** tokens can be used concurrently within **1 hour**. If application exceeds token limit per hour, authentication request will be denied with error message `"Exceeded allowed resource token limit of 100 that can be used concurrently"`. Closing active connections with specific tokens to free up slots for new tokens won't be fruitful. Cosmos DB Gremlin database engine keeps track of distrinct tokens in the past hour before authentication request.
 
 ## Permission
 
-Common error that applications encounter while using resource tokens is `"Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header."`. This error is returned when Gremlin traversal attempts to write an edge or a vertex but resource token grants `Read` permissions only. Please inspect your traversal whether it contains any of the following steps: `.addV()`, `.addE()`, `.drop()` or `.property()`.
+Common error that applications encounter while using resource tokens is `"Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header."`. This error is returned when Gremlin traversal attempts to write an edge or a vertex but resource token grants `Read` permissions only. Inspect your traversal whether it contains any of the following steps: `.addV()`, `.addE()`, `.drop()`, or `.property()`.
 
 ## Next steps
 * [Role-based access control](role-based-access-control.md) in Azure Cosmos DB
