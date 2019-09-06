@@ -36,7 +36,7 @@ CRS 3.1 includes 12 rule groups, as shown in the following table. Each group con
 |**[General](#general-31)**|General group|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protect against protocol and encoding issues|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-31)**|Protect against protocol and encoding issues|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-31)**|Protect against header injection, request smuggling, and response splitting|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-31)**|Protect against file and path attacks|
 |**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-31)**|Protect against remote file inclusion (RFI) attacks|
@@ -55,7 +55,7 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 |**[General](#general-30)**|General group|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protect against protocol and encoding issues|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-30)**|Protect against protocol and encoding issues|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-30)**|Protect against header injection, request smuggling, and response splitting|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-30)**|Protect against file and path attacks|
 |**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-30)**|Protect against remote file inclusion (RFI) attacks|
@@ -310,9 +310,6 @@ The following rule groups and rules are available when using Application Gateway
 |942440|SQL Comment Sequence Detected.|
 |942450|SQL Hex Encoding Identified|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
-|942470|SQL Injection Attack|
-|942480|SQL Injection Attack|
-|942490|Detects classic SQL injection probings 3/3|
 
 ### <a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
