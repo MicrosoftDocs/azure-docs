@@ -25,7 +25,7 @@ The following table describes the cluster types and versions that are compatible
 | HDInsight 3.6 without ESP | Yes | Yes | No | No | No | No | No |
 | HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
 | HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | No | No | No | No | No |
 
 ## How it works
 
