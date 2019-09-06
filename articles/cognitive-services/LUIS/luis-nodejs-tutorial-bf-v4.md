@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: diberry
 ---
 
