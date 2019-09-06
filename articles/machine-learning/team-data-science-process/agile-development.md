@@ -1,6 +1,6 @@
 ---
 title: Agile development of data science projects - Team Data Science Process
-description: How developers can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
+description: Execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -15,15 +15,15 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Agile development of data science projects
 
-This document describes how developers can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to execute cloud-based, predictive analytics solutions efficiently. For an outline of the roles and tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md). 
+This document describes how developers can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to efficiently execute cloud-based, predictive analytics solutions. For an outline of the roles and tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md). 
 
 This article includes instructions on how to: 
 
-- Do *sprint planning* for work items involved in a project.
-  For more information about sprint planning, see [Scrum sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
+- Do *sprint planning* for work items involved in a project. For more information about sprint planning, see [Scrum sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
 - Add *work items* to sprints. 
+- Create and use an *agile-derived work item template* that specifically aligns with TDSP lifecycle stages.
 
-The following instructions outline the steps needed to set up a TDSP team environment using Azure Boards and Azure Repos. They use Azure DevOps Services because that is how to implement TDSP at Microsoft. If your group uses a different code hosting platform, the team lead tasks generally do not change, but the way to complete the tasks is different. For example, linking a work item with a Git branch might not be as easy as it is with Azure Boards and Azure Repos.
+The following instructions outline the steps needed to set up a TDSP team environment using Azure Boards and Azure Repos in Azure DevOps. The instructions use Azure DevOps because that is how to implement TDSP at Microsoft. If your group uses a different code hosting platform, the team lead tasks generally do not change, but the way to complete the tasks is different. For example, linking a work item with a Git branch might not be as easy with GitHub as it is with Azure Repos.
 
 The following figure illustrates a typical sprint planning, coding, and source-control workflow for a data science project:
 
@@ -35,7 +35,7 @@ In the TDSP sprint planning framework, there are four frequently-used *work item
 
 Here are the definitions for the work item types:
 
-- **Feature**: A feature corresponds to a project engagement. Different engagements with a client are different features, and it's best to consider different phases of a project as different features. If you choose a schema such as \<ClientName>-\<EngagementName> to name your features, you can easily recognize the context of the project and engagement from the names themselves.
+- **Feature**: A feature corresponds to a project engagement. Different engagements with a client are different features, and it's best to consider different phases of a project as different features. If you choose a schema such as *\<ClientName>-\<EngagementName>* to name your features, you can easily recognize the context of the project and engagement from the names themselves.
   
 - **User Story**: User Stories are work items needed to complete a Feature end-to-end. Examples of User Stories include:
   - Get data 
@@ -45,7 +45,7 @@ Here are the definitions for the work item types:
   - Operationalize models 
   - Retrain models
   
-- **Task**: Tasks are assignable work items that need to be done to complete a specific User Story. For example, Tasks in the User Story **Get data** could be:
+- **Task**: Tasks are assignable work items that need to be done to complete a specific User Story. For example, Tasks in the User Story *Get data* could be:
   - Get SQL Server credentials
   - Upload data to SQL Data Warehouse
   
@@ -58,7 +58,7 @@ Data scientists may feel more comfortable using an agile template that replaces 
 
 ## <a name='SprintPlanning-2'></a>Plan sprints
 
-Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. In Azure Boards, you can easily create, manage, and track work items, and conduct sprint planning to ensure that your projects are moving forward as expected. Sprint planning is useful for project prioritization and resource planning and allocation. 
+Many data scientists are engaged with multiple projects, which can proceed at different paces and take months to complete. Sprint planning is useful for project prioritization, and resource planning and allocation. In Azure Boards, you can easily create, manage, and track work items, and conduct sprint planning to ensure that your projects are moving forward as expected. 
 
 For more information about sprint planning in Azure Boards, see [Assign backlog items to a sprint](/azure/devops/boards/sprints/assign-work-sprint). 
 
@@ -106,16 +106,13 @@ To add a new User Story:
 
 Tasks are specific detailed steps that are needed to complete each User Story. After all Tasks of a User Story are completed, the User Story should be completed too. 
 
-To add a Task to a User Story, select the **+** next to the User Story item, and then fill in the detailed information for the Task.
+To add a Task to a User Story, select the **+** next to the User Story item, and then fill in the detailed information in the Task.
 
 ![Add a Task to a User Story](./media/agile-development/7-sprint-add-task.png)
 
-After you create the Features, User Stories, and Tasks, you can view them in the **Backlog** or **Board** views to track their status.
+After you create Features, User Stories, and Tasks, you can view them in the **Backlogs** or **Boards** views to track their status.
 
-![8](./media/agile-development/8-sprint-backlog-view.png)
-
-![9](./media/agile-development/9-link-to-a-new-branch.png)
-
+![Backlogs view](./media/agile-development/8-sprint-backlog-view.png)
 
 ## <a name='set-up-agile-dsp-6'></a>Set up and use an agile TDSP work template
 
@@ -147,14 +144,14 @@ Data scientists may feel more comfortable using an agile template that replaces 
    
    ![Set Portfolio backlog level](./media/agile-development/13-rename.png)  
    
-1. Follow the same steps to rename **Features**" to *TDSP Stages* and add the following new work item types:
+1. Follow the same steps to rename **Features** to *TDSP Stages*, and add the following new work item types:
    
    - Business Understanding
    - Data Acquisition
    - Modeling
    - Deployment
    
-1. Under **Requirement backlog**, rename **Stories** to *TDSP Substages*, add new work item type *TDSP Substage*, and set the default work item type to **TDSP Substage**.
+1. Under **Requirement backlog**, rename **Stories** to *TDSP Substages*, add the new work item type *TDSP Substage*, and set the default work item type to **TDSP Substage**.
    
 1. Under **Iteration backlog**, add a new work item type *TDSP Task*, and set it to be the default work item type. 
    
@@ -164,7 +161,7 @@ After you complete the steps, the backlog levels should look like this:
 
 ### Create Data Science work items
 
-You can use your new data science process template to create TDSP projects and track work items that correspond to TDSP lifecycle stages.
+You can use the data science process template to create TDSP projects and track work items that correspond to TDSP lifecycle stages.
 
 1. From your Azure DevOps organization main page, select **New project**. 
    
@@ -190,7 +187,7 @@ You can use your new data science process template to create TDSP projects and t
    
    ![Select data science work item type](./media/agile-development/17-dsworkitems1.png)
    
-1. Fill in the details of the new work item.
+1. Fill in the details in the new work item.
    
 1. Continue to select the **+** symbols next to work items to add new TDSP Stages, Substages, and Tasks. 
    
@@ -201,12 +198,12 @@ Here is an example of how the data science project work items should appear in B
 
 ## Next steps
 
-Here are links to additional resources on agile processes:
-
 [Collaborative coding with Git](collaborative-coding-with-git.md) describes how to do collaborative code development for data science projects using Git as the shared code development framework, and how to link these coding activities to the work planned with the agile process.
 
 [Example walkthroughs](walkthroughs.md) lists walkthroughs of specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications.
   
+Additional resources on agile processes:
+
 - [Agile process](/azure/devops/boards/work-items/guidance/agile-process)
   
 - [Agile process work item types and workflow](/azure/devops/boards/work-items/guidance/agile-process-workflow)
