@@ -36,7 +36,7 @@ You use the Azure portal or PowerShell to configure the scoped synchronization s
 
 | Action | | |
 |--|--|--|
-| Create an Azure AD DS managed domain and configure scoped synchronization | [Azure portal](#create-a-managed-domain-and-enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#create-a-managed-domain-and-enable-scoped-synchronization-using-powershell) |
+| Create an Azure AD DS managed domain and configure scoped synchronization | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
 | Modify scoped synchronization | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
 | Disable scoped synchronization | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
@@ -47,7 +47,7 @@ You use the Azure portal or PowerShell to configure the scoped synchronization s
 >  * Objects that are no longer required in the Azure AD DS managed domain are deleted. New objects are created in the managed domain.
 >  * Resynchronization may take a long time to complete. The synchronization time depends on the number of objects such as users, groups, and group memberships in the Azure AD DS managed domain and Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
 
-## Create a managed domain and enable scoped synchronization using the Azure portal
+## Enable scoped synchronization using the Azure portal
 
 1. Follow the [tutorial to create and configure an Azure AD DS instance](tutorial-create-instance.md). Complete all prerequisites and deployment steps other than for synchronization scope.
 1. Choose **Scoped** at the synchronization step, then select the Azure AD groups to synchronize to the Azure AD DS instance.
@@ -82,7 +82,7 @@ To disable group-based scoped synchronization for an Azure AD DS managed domain,
 
 Changing the scope of synchronization causes the Azure AD DS managed domain to resynchronize all data. Objects that are no longer required in the Azure AD DS managed domain are deleted, and resynchronization may take a long time to complete.
 
-## PowerShell script to configure groups for scoped synchronization
+## PowerShell script for scoped synchronization
 
 To configure scoped synchronization using PowerShell, first save the following script to a file named `Select-GroupsToSync.ps1`. This script configures Azure AD DS to synchronize selected groups from Azure AD. All user accounts that are part of the specified groups are synchronized to the Azure AD DS managed domain.
 
@@ -165,7 +165,7 @@ foreach ($id in $newGroupIds)
 Write-Output "****************************************************************************`n"
 ```
 
-## Create a managed domain and enable scoped synchronization using PowerShell
+## Enable scoped synchronization using PowerShell
 
 Use PowerShell to complete this set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
 
@@ -177,7 +177,7 @@ Use PowerShell to complete this set of steps. Refer to the instructions to [enab
 
 1. Determine the groups and users they contain that you want to synchronize from Azure AD. Make a list of the display names of the groups to synchronize to Azure AD DS.
 
-1. Run the [script from the previous section](scoped-synchronization.md#powershell-script-to-select-groups-for-scoped-synchronization) and use the *-groupsToAdd* parameter to pass the list of groups to synchronize.
+1. Run the [script from the previous section](#powershell-script-for-scoped-synchronization) and use the *-groupsToAdd* parameter to pass the list of groups to synchronize.
 
    > [!WARNING]
    > You must include the *AAD DC Administrators* group in the list of groups for scoped synchronization. If you don't include this group, the Azure AD DS managed domain is unusable.
@@ -215,7 +215,7 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 ## Modify scoped synchronization using Powershell
 
-To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, re-run the [PowerShell script](scoped-synchronization.md#powershell-script-to-select-groups-for-scoped-synchronization) and specify the new list of groups. In the following example, the groups to synchronize no longer includes *GroupName2*, and now includes *GroupName3*.
+To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, re-run the [PowerShell script](#powershell-script-for-scoped-synchronization) and specify the new list of groups. In the following example, the groups to synchronize no longer includes *GroupName2*, and now includes *GroupName3*.
 
 > [!WARNING]
 > You must include the *AAD DC Administrators* group in the list of groups for scoped synchronization. If you don't include this group, the Azure AD DS managed domain is unusable.
@@ -246,3 +246,6 @@ Changing the scope of synchronization causes the Azure AD DS managed domain to r
 ## Next steps
 
 To learn more about the synchronization process, see [Understand synchronization in Azure AD Domain Services](synchronization.md).
+
+<!-- EXTERNAL LINKS -->
+[Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
