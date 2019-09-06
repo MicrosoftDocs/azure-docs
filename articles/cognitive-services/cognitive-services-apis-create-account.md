@@ -32,17 +32,11 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     The multi-service resource is named **Cognitive Services** in the portal. [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
     At this time, the multi-service resource enables access to the following Cognitive Services:
-    * Computer Vision
-    * Content Moderator
-    * Face
-    * Language Understanding (LUIS)
-    * Text Analytics
-    * Translator Text
-    * Bing Search v7
-    * Bing Visual Search
-    * Bing Custom Search 
 
-    
+    |                 |                   |                    |                               |                |
+    |-----------------|-------------------|--------------------|-------------------------------|----------------|
+    | Computer Vision | Content Moderator | Face               | Language Understanding (LUIS) | Text Analytics |
+    | Translator Text | Bing Search v7    | Bing Visual Search | Bing Custom Search            |                |
 
     #### [Single-service resource](#tab/singleservice)
 
