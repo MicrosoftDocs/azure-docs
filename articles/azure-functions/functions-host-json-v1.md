@@ -1,10 +1,8 @@
 ---
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords:
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
@@ -41,6 +39,13 @@ The following sample *host.json* files have all possible options specified.
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -81,6 +86,9 @@ The following sample *host.json* files have all possible options specified.
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -110,6 +118,28 @@ The following sections of this article explain each top-level property. All are 
 ## applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
+## DocumentDB
+
+Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-bindings-cosmosdb.md).
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/a|Lease prefix to use across all functions in an app.|
 
 ## durableTask
 
@@ -233,6 +263,21 @@ Configuration settings for [Storage queue triggers and bindings](functions-bindi
 |batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. | 
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
 |newBatchThreshold|batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.| 
+
+## SendGrid
+
+Configuration setting for the [SendGrind output binding](functions-bindings-sendgrid.md)
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|from|n/a|The sender's email address across all functions.| 
 
 ## serviceBus
 

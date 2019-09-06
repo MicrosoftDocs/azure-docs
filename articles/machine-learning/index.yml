@@ -75,15 +75,15 @@ landingContent:
         links:
           - text: Use automated ML to predict subscriptions
             url: service/tutorial-first-experiment-automated-ml.md
-          - text: Predict automobile prices with linear regression
+          - text: Use linear regression to predict prices
             url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
         links:
-          - text: 'Predict credit risk'
+          - text: Predict credit risk
             url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
-          - text: 'Predict delays'
+          - text: Predict delays
             url: service/ui-sample-classification-predict-flight-delay.md
-          - text: 'Predict churn'
+          - text: Predict churn
             url: service/ui-sample-classification-predict-churn.md     
 
   # MLOps
