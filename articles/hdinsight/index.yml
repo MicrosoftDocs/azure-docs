@@ -32,12 +32,6 @@ landingContent:
             url: ./hdinsight-component-versioning.md
           - text: HDInsight supported node configurations
             url: ./hdinsight-supported-node-configuration.md
-          - text: Apache HBase overview
-            url: ./hbase/apache-hbase-overview.md
-          - text: Apache Storm overview
-            url: ./storm/apache-storm-overview.md
-          - text: ML Services overview
-            url: ./r-server/r-server-overview.md
       - linkListType: quickstart
         links:
           - text: Create HDInsight clusters in the portal
@@ -54,6 +48,10 @@ landingContent:
         links:
           - text: What is Apache Spark?
             url: ./spark/apache-spark-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create Apache Spark clusters in the Azure portal
+            url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
       - linkListType: concept
         links:
           - text: Optimize Spark jobs
@@ -76,6 +74,10 @@ landingContent:
         links:
           - text: What is Apache Hadoop?
             url: ./hadoop/apache-hadoop-introduction.md
+      - linkListType: quickstart
+        links:
+          - text: Create Apache Hadoop clusters in the Azure portal
+            url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
       - linkListType: concept
         links:
           - text: Hadoop ETL at Scale
@@ -100,6 +102,10 @@ landingContent:
         links:
           - text: What is Apache Kafka?
             url: ./kafka/apache-kafka-introduction.md
+      - linkListType: quickstart
+        links:
+          - text: Create Apache Kafka clusters in the Azure portal
+            url: ./kafka/apache-kafka-get-started.md
       - linkListType: concept
         links:
           - text: Optimize Kafka performance
@@ -120,12 +126,40 @@ landingContent:
             url: ./kafka/apache-kafka-ssl-encryption-authentication.md
 
   # Card
+  - title: Apache HBase
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Apache HBase?
+            url: ./hbase/apache-hbase-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Query HBase with Apache Phoenix
+            url: ./hbase/apache-hbase-phoenix-squirrel-linux.md      
+      - linkListType: concept
+        links:
+          - text: Accelerated Writes for Apache HBase
+            url: ./hbase/apache-hbase-accelerated-writes.md
+          - text: Apache Phoenix best practices
+            url: ./hbase/apache-hbase-phoenix-performance.md
+      - linkListType: tutorial
+        links:
+          - text: Use Apache HBase in Azure HDInsight
+            url: ./hbase/apache-hbase-tutorial-get-started-linux.md
+          - text: Migrate HBase to a new version
+            url: ./hbase/apache-hbase-migrate-new-version.md
+
+  # Card
   - title: Interactive query
     linkLists:
       - linkListType: overview
         links:
           - text: What is Interactive Query?
             url: ./interactive-query/apache-interactive-query-get-started.md
+      - linkListType: quickstart
+        links:
+          - text: Execute Apache Hive queries using Apache Zeppelin
+            url: ./interactive-query/hdinsight-connect-hive-zeppelin.md
       - linkListType: concept
         links:
           - text: Optimize Hive queries
@@ -148,6 +182,10 @@ landingContent:
         links:
           - text: HDInsight security overview
             url: ./domain-joined/hdinsight-security-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create Apache Spark clusters in the Azure portal
+            url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
       - linkListType: concept
         links:
           - text: Plan virtual network
@@ -163,3 +201,32 @@ landingContent:
           - text: Enterprise security setup with Azure ADDS
             url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
 
+  - title: ML Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is ML Services on HDInsight?
+            url: ./r-server/r-server-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Execute an R script on an ML Services cluster
+            url: ./r-server/machine-learning-services-quickstart-job-rstudio.md      
+      - linkListType: tutorial
+        links:
+          - text: Use R in a Spark compute context
+            url: ./r-server/ml-services-tutorial-spark-compute.md
+
+  - title: Apache Storm
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Apache Storm?
+            url: ./storm/apache-storm-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create and Apache Storm topology
+            url: ./storm/apache-storm-quickstart.md      
+      - linkListType: tutorial
+        links:
+          - text: Write to HDFS using Apache Storm
+            url: ./storm/apache-storm-write-data-lake-store.md
