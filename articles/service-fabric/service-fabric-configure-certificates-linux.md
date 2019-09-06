@@ -12,7 +12,7 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 09/06/2019
 ms.author: chackdan
 
 ---
