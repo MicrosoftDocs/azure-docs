@@ -88,7 +88,7 @@ builder.authProperties(authenticationProperties);
 
 ## Limit
 
-A single Gremlin account can issue unlimited number of tokens, however only up to **100** tokens can be used concurrently within **1 hour**. If application exceeds token limit per hour, authentication request will be denied with error message `"Exceeded allowed resource token limit of 100 that can be used concurrently"`. Closing active connections with specific tokens to free up slots for new tokens won't be fruitful. Cosmos DB Gremlin database engine keeps track of distrinct tokens in the past hour before authentication request.
+A single Gremlin account can issue unlimited number of tokens, however only up to **100** tokens can be used concurrently within **1 hour**. If application exceeds token limit per hour, authentication request will be denied with error message `"Exceeded allowed resource token limit of 100 that can be used concurrently"`. Closing active connections with specific tokens to free up slots for new tokens won't be fruitful. Cosmos DB Gremlin database engine keeps track of distinct tokens in the past hour before authentication request.
 
 ## Permission
 
