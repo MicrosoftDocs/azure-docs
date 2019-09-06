@@ -637,7 +637,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     > [!NOTE]  
     > This image only shows successful runs of the job, not the individual actions within the scheduled workflow. To see the individual actions, select one of the **Action** entries.
 
-    ![Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Coordinator Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## Troubleshooting
 

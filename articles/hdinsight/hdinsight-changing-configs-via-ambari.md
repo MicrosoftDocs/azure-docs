@@ -44,11 +44,11 @@ To modify the NameNode Java heap size:
 
 1. Type the new value in the text box, and then press **Enter** to save the change.
 
-    ![Edit NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Edit NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
 1. The NameNode Java heap size is changed to 1 GB from 2 GB.
 
-    ![Edited NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![Edited NameNode Java heap size2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
 1. Save your changes by clicking on the green **Save** button on the top of the configuration screen.
 
