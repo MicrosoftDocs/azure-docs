@@ -7,7 +7,7 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 06/10/2019
@@ -64,6 +64,13 @@ The zone redundant version of the high availability architecture is illustrated 
 ## Accelerated Database Recovery (ADR)
 
 [Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for single databases, elastic pools, and Azure SQL Data Warehouse.
+
+## Testing database fault resiliency
+
+High availability is a fundamenental part of Azure SQL Database platform and works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events woudl impact teh application before you deploy it for production. A special API has been created to allow you to restart the database thus triggering a failover. In the case zone redundant database the restart would result in redirecting the client connections to the new primary in a different AZ. So in addition to testing how failover impacts the existing database sessions, you can also verify if it impacts the end-to-end performance. Because the restart operation is intrusive and a large number of them would stress out the platform, only one restart is allowed every 30 minutes. For details, see [Restart database]() and [Restart elastic pool]().       
+
+> [!IMPORTANT]
+> Restart command is currently not available for Hypescale databases and Managed instancses.  
 
 ## Conclusion
 
