@@ -469,7 +469,7 @@ The results should look similar to the following example. The screenshot only sh
 Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-it 
+
 <a name="reset"></a>
 
 ## Reset and rerun
