@@ -167,8 +167,6 @@ Select controllers or containers at the top of the page to review the status and
 
 **Memory working set** shows both the resident memory and virtual memory (cache) included and is a total of what the application is using. **Memory RSS** shows only main memory (which is nothing but the resident memory in other words). This metric shows the actual capacity of available memory.
 
-Resident memory and virtual memory are generally shown as the "RES" and "VIRT" columns in "top" command output i.e., "RES" is the (physical) memory consumed by a process in RAM and "VIRT" is the total amount of (virtual) memory consumed by a process.
-
 ![Container nodes performance view](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
 By default, performance data is based on the last six hours, but you can change the window by using the **TimeRange** option at the upper left. You also can filter the results within the time range by selecting **Min**, **Avg**, **50th**, **90th**, **95th**, and **Max** in the percentile selector. 
