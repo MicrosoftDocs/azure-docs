@@ -74,3 +74,19 @@ landingContent:
         links:
           - text: Use container instances
             url: deploy-form-recognizer-on-container-instances.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Form Recognizer API
+            url: https://aka.ms/form-recognizer/api
+          - text: .NET SDK
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+
+
+      

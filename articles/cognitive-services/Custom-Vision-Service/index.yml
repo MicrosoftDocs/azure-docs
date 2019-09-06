@@ -108,3 +108,26 @@ landingContent:
             url: move-your-project-to-azure.md
           - text: Update your app to the 3.0 API
             url: update-application-to-3.0-sdk.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Training API
+            url: https://go.microsoft.com/fwlink/?linkid=865446
+          - text: Prediction API
+            url: https://go.microsoft.com/fwlink/?linkid=865445
+          - text: .NET SDK
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+          - text: Python SDK
+            url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
+          - text: Java SDK
+            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+          - text: Go SDK (training)
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
+          - text: Go SDK (prediction)
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
