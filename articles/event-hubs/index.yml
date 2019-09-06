@@ -99,6 +99,36 @@ landingContent:
             url: event-hubs-capture-python.md
 
   # Card
+  - title: Integrate with Apache Kafka
+    linkLists:
+      - linkListType: overview      
+        links:
+          - text: What is Event Hubs for Apache Kafka?
+            url: event-hubs-for-kafka-ecosystem-overview.md    
+      - linkListType: quickstart
+        links:
+          - text: Stream into Event Hubs for Apache Kafka
+            url: event-hubs-quickstart-kafka-enabled-event-hubs.md
+      - linkListType: tutorial
+        links:
+          - text: Process events using Stream Analytics
+            url: event-hubs-kafka-stream-analytics.md      
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Apache Kafka enabled event hub
+            url: event-hubs-create-kafka-enabled.md
+          - text: Mirror a Kafka broken in an event hub
+            url: event-hubs-kafka-mirror-maker-tutorial.md                          
+          - text: Connect Apache Spark to an event hub
+            url: event-hubs-kafka-spark-tutorial.md
+          - text: Connect Apache Flink to an event hub
+            url: event-hubs-kafka-flink-tutorial.md
+          - text: Integrate Apache Kafka Connect with an event hub
+            url: event-hubs-kafka-connect-tutorial.md
+          - text: Connect Akka streams to an event hub
+            url: event-hubs-kafka-akka-streams-tutorial.md
+            
+  # Card
   - title: Process events
     linkLists:
       - linkListType: tutorial      
@@ -137,32 +167,3 @@ landingContent:
           - text: Enable Virtual Networks integration and firewalls
             url: event-hubs-tutorial-virtual-networks-firewalls.md
             
-  # Card
-  - title: Integrate with Apache Kafka
-    linkLists:
-      - linkListType: overview      
-        links:
-          - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md    
-      - linkListType: quickstart
-        links:
-          - text: Stream into Event Hubs for Apache Kafka
-            url: event-hubs-quickstart-kafka-enabled-event-hubs.md
-      - linkListType: tutorial
-        links:
-          - text: Process events using Stream Analytics
-            url: event-hubs-kafka-stream-analytics.md      
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Apache Kafka enabled event hub
-            url: event-hubs-create-kafka-enabled.md
-          - text: Mirror a Kafka broken in an event hub
-            url: event-hubs-kafka-mirror-maker-tutorial.md                          
-          - text: Connect Apache Spark to an event hub
-            url: event-hubs-kafka-spark-tutorial.md
-          - text: Connect Apache Flink to an event hub
-            url: event-hubs-kafka-flink-tutorial.md
-          - text: Integrate Apache Kafka Connect with an event hub
-            url: event-hubs-kafka-connect-tutorial.md
-          - text: Connect Akka streams to an event hub
-            url: event-hubs-kafka-akka-streams-tutorial.md
