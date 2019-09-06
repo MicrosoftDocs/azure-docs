@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ---
+
 # Monitor cluster performance
 
 Monitoring the health and performance of an HDInsight cluster is essential for maintaining optimal performance and resource utilization. Monitoring can also help you detect and address cluster configuration errors and user code issues.
@@ -62,7 +63,7 @@ For a more detailed look at your queues, from the Ambari dashboard, select the *
 
 In the Resource Manager UI, select **Scheduler** from the left-hand menu. You see a list of your queues underneath *Application Queues*. Here you can see the capacity used for each of your queues, how well the jobs are distributed between them, and whether any jobs are resource-constrained.
 
-![Resource Manager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI menu](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## Storage throttling
 

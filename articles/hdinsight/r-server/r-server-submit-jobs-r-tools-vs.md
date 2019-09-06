@@ -54,7 +54,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 7. After running all the lines in the script, you should see an output similar to this:
 
-    ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
+    ![Workspace](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
 
 ## Submit jobs to an HDInsight ML Services cluster
 
