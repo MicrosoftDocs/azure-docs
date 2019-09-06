@@ -29,6 +29,8 @@ landingContent:
             url: event-hubs-about.md
           - text: What is Event Hubs for Apache Kafka?
             url: event-hubs-for-kafka-ecosystem-overview.md
+          - text: What is Event Hubs Capture?
+            url: event-hubs-capture-overview.md            
           - text: What is Event Hubs Dedicated?
             url: event-hubs-dedicated-overview.md
 
@@ -76,9 +78,9 @@ landingContent:
           - text: C (send only)
             url: event-hubs-c-getstarted-send.md                        
           - text: Apache Storm (receive only)
-            url: event-hubs-resource-manager-namespace-event-hub.md            
+            url: event-hubs-storm-getstarted-receive.md            
           - text: .NET Framework
-            url: event-hubs-storm-getstarted-receive.md
+            url: event-hubs-dotnet-framework-getstarted-send.md
 
   # Card
   - title: Capture events sent to an event hub
@@ -95,6 +97,18 @@ landingContent:
             url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
           - text: Enable capturing of events from a Python application
             url: event-hubs-capture-python.md
+
+  # Card
+  - title: Process events sent to an event hub
+    linkLists:
+      - linkListType: tutorial      
+        links:
+          - text: Visualize data anomalies on Event Hubs data streams
+            url: event-hubs-tutorial-visualize-anomalies.md
+          - text: Process Event Hubs for Apache Kafka events using Stream Analytics
+            url: event-hubs-kafka-stream-analytics.md
+          - text: Stream data into Azure Databricks using Event Hubs
+            url: ../azure-databricks/databricks-stream-from-eventhubs.md            
 
   # Card
   - title: Apache Kafka integration
@@ -126,14 +140,3 @@ landingContent:
           - text: Connect Akka streams to an event hub
             url: event-hubs-kafka-akka-streams-tutorial.md
 
-  # Card
-  - title: Process events sent to an event hub
-    linkLists:
-      - linkListType: tutorial      
-        links:
-          - text: Visualize data anomalies on Event Hubs data streams
-            url: event-hubs-tutorial-visualize-anomalies.md
-          - text: Process Event Hubs for Apache Kafka events using Stream Analytics
-            url: event-hubs-kafka-stream-analytics.md
-          - text: Stream data into Azure Databricks using Event Hubs
-            url: ../azure-databricks/databricks-stream-from-eventhubs.md            
