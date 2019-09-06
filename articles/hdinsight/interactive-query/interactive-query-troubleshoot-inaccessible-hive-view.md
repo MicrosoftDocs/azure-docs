@@ -1,5 +1,5 @@
 ---
-title: Apache Hive fails to establish a connection to Apache Zookeeper in Azure HDInsight
+title: Apache Hive fails to establish connection Apache Zookeeper - Azure HDInsight
 description: Hive View inaccessible due to Zookeeper Issues
 ms.service: hdinsight
 ms.topic: troubleshooting

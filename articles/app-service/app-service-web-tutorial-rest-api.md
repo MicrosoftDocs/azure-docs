@@ -1,5 +1,5 @@
 ---
-title: Host RESTful API with CORS - Azure App Service | Microsoft Docs
+title: 'Tutorial: Host RESTful API with CORS - Azure App Service'
 description: Learn how Azure App Service helps you host your RESTful APIs with CORS support.
 services: app-service\api
 documentationcenter: dotnet
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-javascript-september2019
 ms.custom: seodec18
 
 ---
