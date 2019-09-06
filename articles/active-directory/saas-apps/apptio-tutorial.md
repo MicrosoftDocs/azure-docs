@@ -85,10 +85,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Identifier** text box, type a URL:
     `urn:federation:apptio`
 
-1. Apptio application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
-
-	![image](common/edit-attribute.png)
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
