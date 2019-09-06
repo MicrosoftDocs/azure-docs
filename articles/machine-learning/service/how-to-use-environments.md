@@ -80,8 +80,9 @@ You can list the curated environments and their packages using following code:
 envs = Environment.list(workspace=ws)
 
 for env in envs:
-    print("Name",env)
-    print("packages", envs[env].python.conda_dependencies.serialize_to_string())
+    if env.startswith("AzureML"):
+        print("Name",env)
+        print("packages", envs[env].python.conda_dependencies.serialize_to_string())
 ```
 
 > [!WARNING]
