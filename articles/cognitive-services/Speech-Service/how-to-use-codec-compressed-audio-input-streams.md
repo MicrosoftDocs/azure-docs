@@ -17,13 +17,16 @@ ms.author: amishu
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
 
 > [!IMPORTANT]
-> Streaming compressed audio is only supported for C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
+> Streaming compressed audio is currently supported for C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). It is also supported on Android and iOS platform.
 > Speech SDK version 1.4.0 or higher is required.
 
 For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the following codec compressed input formats are supported:
 
 - MP3
 - OPUS/OGG
+- FLAC
+- ALAW in wav container
+- MULAW in wav container
 
 ## Prerequisites to using codec compressed audio input
 
@@ -32,7 +35,12 @@ Install these additional dependencies to use compressed audio input with the Spe
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
+Since gstreamer android binaries are not shipped with the SDK, so it needs to be built by customer using the documentation provided in [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c#).
 
+We need to make sure that following plugins are linked in the libgstreamer_android.so.
+```sh
+coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
+```
 ## Example code using codec compressed audio input
 
 To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
