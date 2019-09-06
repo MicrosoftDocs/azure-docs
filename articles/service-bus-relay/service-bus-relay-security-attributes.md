@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Service Bus Relay
-description: A checklist of security attributes for evaluating Azure Service Bus Relay
+title: Security controls for Azure Service Bus Relay
+description: A checklist of security controls for evaluating Azure Service Bus Relay
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.date: 04/23/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Service Bus Relay
+# Security controls for Azure Service Bus Relay
 
-This article documents the security attributes built into Azure Service Bus Relay.
+This article documents the security controls built into Azure Service Bus Relay.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

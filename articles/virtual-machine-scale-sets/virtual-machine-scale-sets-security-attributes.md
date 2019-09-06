@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Virtual Machine Scale Sets
-description: A checklist of security attributes for evaluating Azure Virtual Machine Scale Sets
+title: Security controls for Azure Virtual Machine Scale Sets
+description: A checklist of security controls for evaluating Azure Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 06/05/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Virtual Machine Scale Sets
+# Security controls for Azure Virtual Machine Scale Sets
 
-This article documents the security attributes built into Azure Virtual Machine Scale Sets.
+This article documents the security controls built into Azure Virtual Machine Scale Sets.
 
-[!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls header](../../includes/security-attributes-header.md)]
 
-[!INCLUDE [Security attributes header](../../includes/vm-vmss-security-attributes.md)]
+[!INCLUDE [Security controls header](../../includes/vm-vmss-security-attributes.md)]

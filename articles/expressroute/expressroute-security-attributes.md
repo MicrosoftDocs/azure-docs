@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure ExpressRoute
-description: A checklist of security attributes for evaluating Azure ExpressRoute
+title: Security controls for Azure ExpressRoute
+description: A checklist of security controls for evaluating Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.date: 06/05/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure ExpressRoute
+# Security controls for Azure ExpressRoute
 
-This article documents the security attributes built into Azure ExpressRoute.
+This article documents the security controls built into Azure ExpressRoute.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

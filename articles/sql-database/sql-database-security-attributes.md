@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure SQL Database
-description: A checklist of security attributes for evaluating Azure SQL Database
+title: Security controls for Azure SQL Database
+description: A checklist of security controls for evaluating Azure SQL Database
 services: sql-database
 author: msmbaldwin
 manager: barbkess
@@ -11,11 +11,11 @@ ms.date: 05/06/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure SQL Database
+# Security controls for Azure SQL Database
 
-This article documents the security attributes that are built into Azure SQL Database.
+This article documents the security controls that are built into Azure SQL Database.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
 
@@ -64,7 +64,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 |---|---|--|
 | Configuration-management support, such as versioning of configuration| No  | None |
 
-## Additional security attributes for SQL Database
+## Additional security controls for SQL Database
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|

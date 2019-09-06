@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Service Bus Messaging
-description: A checklist of security attributes for evaluating Azure Service Bus Messaging
+title: Security controls for Azure Service Bus Messaging
+description: A checklist of security controls for evaluating Azure Service Bus Messaging
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
@@ -11,11 +11,11 @@ ms.date: 04/23/2019
 ms.author: aschhab
 
 ---
-# Security attributes for Azure Service Bus Messaging
+# Security controls for Azure Service Bus Messaging
 
-This article documents the security attributes built into Azure Service Bus Messaging.
+This article documents the security controls built into Azure Service Bus Messaging.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

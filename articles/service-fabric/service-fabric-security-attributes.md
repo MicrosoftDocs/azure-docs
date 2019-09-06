@@ -1,6 +1,6 @@
 ﻿---
-title: Security attributes for Azure Service Fabric
-description: A checklist of security attributes for evaluating Azure Service Fabric
+title: Security controls for Azure Service Fabric
+description: A checklist of security controls for evaluating Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
@@ -13,11 +13,11 @@ ms.author: mbaldwin
 
 ---
 
-# Security attributes for Azure Service Fabric
+# Security controls for Azure Service Fabric
 
-This article documents the security attributes built into Azure Service Fabric. 
+This article documents the security controls built into Azure Service Fabric. 
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

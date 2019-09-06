@@ -1,6 +1,6 @@
 ﻿---
-title: Security attributes for Azure Cosmos DB
-description: A checklist of security attributes for evaluating Azure Cosmos DB
+title: Security controls for Azure Cosmos DB
+description: A checklist of security controls for evaluating Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: msmbaldwin
@@ -12,11 +12,11 @@ ms.date: 05/08/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Cosmos DB
+# Security controls for Azure Cosmos DB
 
-This article documents the security attributes built into Azure Cosmos DB.
+This article documents the security controls built into Azure Cosmos DB.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 
@@ -64,7 +64,7 @@ This article documents the security attributes built into Azure Cosmos DB.
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| No  | | 
 
-## Additional security attributes for Cosmos DB
+## Additional security controls for Cosmos DB
 
 | Security attribute | Yes/no | Notes|
 |---|---|--|

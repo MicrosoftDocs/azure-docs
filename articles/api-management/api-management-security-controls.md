@@ -1,21 +1,21 @@
 ---
-title: Security attributes for Azure API Management
-description: A checklist of security attributes for evaluating API Management
+title: Security controls for Azure API Management
+description: A checklist of security controls for evaluating API Management
 services: api-management
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: api-management
 
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for API Management
+# Security controls for API Management
 
-This article documents the security attributes built into API Management.
+This article documents the security controls built into API Management.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

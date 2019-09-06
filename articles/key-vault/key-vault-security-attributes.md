@@ -1,6 +1,6 @@
 ﻿---
-title: Security attributes for Azure Key Vault
-description: A checklist of security attributes for evaluating Azure Key Vault
+title: Security controls for Azure Key Vault
+description: A checklist of security controls for evaluating Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: barbkess
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Key Vault
+# Security controls for Azure Key Vault
 
-This article documents the security attributes built into Azure Key Vault. 
+This article documents the security controls built into Azure Key Vault. 
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

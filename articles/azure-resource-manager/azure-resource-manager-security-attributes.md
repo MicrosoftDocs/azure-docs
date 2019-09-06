@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Resource Manager
-description: A checklist of security attributes for evaluating Azure Resource Manager
+title: Security controls for Azure Resource Manager
+description: A checklist of security controls for evaluating Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
 manager: barbkess
@@ -10,11 +10,11 @@ ms.date: 04/25/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Resource Manager
+# Security controls for Azure Resource Manager
 
-This article documents the security attributes built into Azure Resource Manager.
+This article documents the security controls built into Azure Resource Manager.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure VPN Gateway
-description: A checklist of security attributes for evaluating Azure VPN Gateway
+title: Security controls for Azure VPN Gateway
+description: A checklist of security controls for evaluating Azure VPN Gateway
 services: sql-database
 author: msmbaldwin
 manager: barbkess
@@ -11,11 +11,11 @@ ms.date: 05/06/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure VPN Gateway
+# Security controls for Azure VPN Gateway
 
-This article documents the security attributes built into Azure VPN Gateway.
+This article documents the security controls built into Azure VPN Gateway.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 
 ## Preventative

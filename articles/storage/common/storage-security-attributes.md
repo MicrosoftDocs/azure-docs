@@ -1,6 +1,6 @@
 ﻿---
-title: Security attributes for Azure Storage
-description: A checklist of security attributes for evaluating Azure Storage
+title: Security controls for Azure Storage
+description: A checklist of security controls for evaluating Azure Storage
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Storage
+# Security controls for Azure Storage
 
-This article documents the security attributes built into Azure Storage. 
+This article documents the security controls built into Azure Storage. 
 
-[!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../../includes/security-attributes-header.md)]
 
 ## Preventative
 

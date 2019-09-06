@@ -1,6 +1,6 @@
 ﻿---
-title: Security attributes for Azure Backup
-description: A checklist of security attributes for evaluating Azure Backup
+title: Security controls for Azure Backup
+description: A checklist of security controls for evaluating Azure Backup
 ms.reviewer: mbaldwin
 author: dcurwin
 manager: carmonm
@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: dacurwin
 
 ---
-# Security attributes for Azure Backup
+# Security controls for Azure Backup
 
-This article documents the security attributes built into Azure Backup. 
+This article documents the security controls built into Azure Backup. 
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

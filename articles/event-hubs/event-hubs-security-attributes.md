@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Event Hubs
-description: A checklist of security attributes for evaluating Azure Event Hubs
+title: Security controls for Azure Event Hubs
+description: A checklist of security controls for evaluating Azure Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.date: 05/22/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Event Hubs
+# Security controls for Azure Event Hubs
 
-This article documents the security attributes built into Azure Event Hubs.
+This article documents the security controls built into Azure Event Hubs.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 

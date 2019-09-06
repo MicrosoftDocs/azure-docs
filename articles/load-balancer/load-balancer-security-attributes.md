@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Load Balancer
-description: A checklist of security attributes for evaluating Load Balancer
+title: Security controls for Azure Load Balancer
+description: A checklist of security controls for evaluating Load Balancer
 services: load-balancer
 author: msmbaldwin
 manager: barbkess
@@ -11,11 +11,11 @@ ms.date: 06/10/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Azure Load Balancer
+# Security controls for Azure Load Balancer
 
-This article documents the security attributes built into Azure Load Balancer.
+This article documents the security controls built into Azure Load Balancer.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 
