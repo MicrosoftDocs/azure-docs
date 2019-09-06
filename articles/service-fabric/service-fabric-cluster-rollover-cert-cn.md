@@ -1,6 +1,6 @@
 ---
-title: Rollover an Azure Service Fabric cluster certificate | Microsoft Docs
-description: Learn how to rollover a Service Fabric cluster certificate identified by the certificate common name.
+title: Roll over an Azure Service Fabric cluster certificate | Microsoft Docs
+description: Learn how to roll over a Service Fabric cluster certificate identified by the certificate common name.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -78,6 +78,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 >[!NOTE]
 > Computes Virtual Machine Scale Set Secrets do not support the same resource id for two separate secrets, as each secret is a versioned unique resource. 
 
-To learn more, read the following:
+## Next Steps
+
 * Learn about [cluster security](service-fabric-cluster-security.md).
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
