@@ -45,7 +45,7 @@ The following are key attributes of an alert rule:
 
 **Alert Description**: A description for the alert rule configured by the user.
 
-**Severity** – The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+**Severity**: The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
 
 Sev 0 = Critical
 
