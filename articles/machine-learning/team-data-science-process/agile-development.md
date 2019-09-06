@@ -19,11 +19,11 @@ This document describes how developers can execute a data science project in a s
 
 This article includes instructions on how to: 
 
-- Do *sprint planning* for work items involved in a project. For more information about sprint planning, see [Scrum sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
-- Add *work items* to sprints. 
+- Do *sprint planning* for work items involved in a project.
+- Add *work items* to sprints.
 - Create and use an *agile-derived work item template* that specifically aligns with TDSP lifecycle stages.
 
-The following instructions outline the steps needed to set up a TDSP team environment using Azure Boards and Azure Repos in Azure DevOps. The instructions use Azure DevOps because that is how to implement TDSP at Microsoft. If your group uses a different code hosting platform, the team lead tasks generally do not change, but the way to complete the tasks is different. For example, linking a work item with a Git branch might not be as easy with GitHub as it is with Azure Repos.
+The following instructions outline the steps needed to set up a TDSP team environment using Azure Boards and Azure Repos in Azure DevOps. The instructions use Azure DevOps because that is how to implement TDSP at Microsoft. If your group uses a different code hosting platform, the team lead tasks generally don't change, but the way to complete the tasks is different. For example, linking a work item with a Git branch might not be as easy with GitHub as it is with Azure Repos.
 
 The following figure illustrates a typical sprint planning, coding, and source-control workflow for a data science project:
 
@@ -31,7 +31,7 @@ The following figure illustrates a typical sprint planning, coding, and source-c
 
 ##  <a name='Terminology-1'></a>Work item types
 
-In the TDSP sprint planning framework, there are four frequently-used *work item* types: *Features*, *User Stories*, *Tasks*, and *Bugs*. The backlog for all work items is at the project level, not the Git repository level. 
+In the TDSP sprint planning framework, there are four frequently used *work item* types: *Features*, *User Stories*, *Tasks*, and *Bugs*. The backlog for all work items is at the project level, not the Git repository level. 
 
 Here are the definitions for the work item types:
 
@@ -56,9 +56,11 @@ Data scientists may feel more comfortable using an agile template that replaces 
 > [!NOTE]
 > TDSP borrows the concepts of Features, User Stories, Tasks, and Bugs from software code management (SCM). The TDSP concepts might differ slightly from their conventional SCM definitions.
 
-## <a name='SprintPlanning-2'></a>Plan sprints
+## <a name='SprintPlanning-2'></a>Sprint planning
 
-Many data scientists are engaged with multiple projects, which can proceed at different paces and take months to complete. Sprint planning is useful for project prioritization, and resource planning and allocation. In Azure Boards, you can easily create, manage, and track work items, and conduct sprint planning to ensure that your projects are moving forward as expected. 
+Many data scientists are engaged with multiple projects, which can proceed at different paces and take months to complete. Sprint planning is useful for project prioritization, and resource planning and allocation. In Azure Boards, you can easily create, manage, and track work items for your project, and conduct sprint planning to ensure that your projects are moving forward as expected. 
+
+For more information about sprint planning, see [Scrum sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
 
 For more information about sprint planning in Azure Boards, see [Assign backlog items to a sprint](/azure/devops/boards/sprints/assign-work-sprint). 
 
@@ -68,7 +70,7 @@ Add a Feature to represent the work for your project.
 
 1. From your project page, select **Boards** in the left navigation. 
    
-1. On the **Work items** page, select the dropdown arrow next to **New Work Item**, and select **Feature**. 
+1. On the **Work items** page, select the dropdown arrow next to **New Work Item**, and select **Feature** from the dropdown. 
    
    ![Select Feature from New Work Item](./media/agile-development/2-sprint-team-overview.png)
    
@@ -80,27 +82,27 @@ Add a Feature to represent the work for your project.
    
    You can also link the Feature to the project's Azure Repos repository by selecting **Add link** under the **Development** section. 
    
-   After you have finished editing the feature, select **Save**.
+   After you have finished editing the feature, select **Save & Close**.
    
-   ![Add link to Azure Repo and select Save](./media/agile-development/3a-add-link-repo.png)
+   ![Add link to Azure Repo and select Save & Close](./media/agile-development/3a-add-link-repo.png)
 
 ## <a name='AddStoryunderfeature-4'></a>Add a User Story to the Feature 
 
 Under the Feature, you can add User Stories to describe major steps needed to finish the project. 
 
-To add a new User Story:
+To add a new User Story to a Feature:
 
-1. In **Backlog** view, select the **+** to the left of the Feature, and then select **User Story**.  
+1. In **Backlog** view, select the **+** to the left of the Feature, and then select **User Story** from the popup menu.  
    
    ![Add a new User Story under the Feature](./media/agile-development/4-sprint-add-story.png)
    
 1. Give the User Story a title, and edit details such as assignment, status, description, comments, planning, and priority. 
    
-   You can also link the User Story to the project's Azure Repos repository by selecting **Add link** under the **Development** section. 
+   You can also link the User Story to a branch of the project's Azure Repos repository by selecting **Add link** under the **Development** section. Select the repository and branch you want to link the work item to, and then select **OK**.
+   
+   ![Add link](./media/agile-development/5-sprint-edit-story.png)
    
 1. When you're finished editing the User Story, select **Save & Close**. 
-   
-   ![Add link, Save & Close](./media/agile-development/5-sprint-edit-story.png)
 
 ## <a name='AddTaskunderstory-5'></a>Add a Task to a User Story 
 
@@ -122,15 +124,19 @@ Data scientists may feel more comfortable using an agile template that replaces 
 
 1. From your Azure DevOps organization main page, select **Organization settings** from the left navigation. 
    
-1. Select **Boards** > **Process** in the left navigation. In the **All processes** pane, select the **...** next to **Agile** and then select **Create inherited process**.
+1. In the **Organization Settings** left navigation, select **Boards** > **Process**. 
+   
+1. In the **All processes** pane, select the **...** next to **Agile**, and then select **Create inherited process**.
    
    ![Create inherited process from Agile](./media/agile-development/10-settings.png) 
    
-1. In the **Create inherited process from Agile** dialog, enter the name *AgileDataScienceProcess* and select **Create process**.
+1. In the **Create inherited process from Agile** dialog, enter the name *AgileDataScienceProcess*, and select **Create process**.
    
    ![Create AgileDataScienceProcess process](./media/agile-development/11-agileds.png)
    
-1. In **All processes**, select the new **AgileDataScienceProcess**. On the **Work item types** tab, disable **Epic**, **Feature**, **User Story**, and **Task** by selecting the **...** next to the item and then selecting **Disable**. 
+1. In **All processes**, select the new **AgileDataScienceProcess**. 
+   
+1. On the **Work item types** tab, disable **Epic**, **Feature**, **User Story**, and **Task** by selecting the **...** next to each item and then selecting **Disable**. 
    
    ![Disable work item types](./media/agile-development/12-disable.png)
    
@@ -173,7 +179,7 @@ You can use the data science process template to create TDSP projects and track 
    
 1. In the newly created project, select **Boards** > **Backlogs** in the left navigation.
    
-1. To make TDSP Projects visible, select the **Configure team settings** icon, select the **TDSP Projects** check box, and then select **Save and close**.
+1. To make TDSP Projects visible, select the **Configure team settings** icon. In the **Settings** screen, select the **TDSP Projects** check box, and then select **Save and close**.
    
    ![Select TDSP Projects check box](./media/agile-development/16-enabledsprojects1.png)
    
