@@ -28,10 +28,20 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 1. Create a resource.
 
     #### [Multi-service resource](#tab/multiservice)
-
+    
     The multi-service resource is named **Cognitive Services** in the portal. [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
-    At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+    At this time, the multi-service resource enables access to the following Cognitive Services:
+    * Computer Vision
+    * Content Moderator
+    * Face
+    * Language Understanding (LUIS)
+    * Text Analytics
+    * Translator Text
+    * Bing Search v7
+    * Bing Visual Search
+    * Bing Custom Search 
+
     
 
     #### [Single-service resource](#tab/singleservice)
