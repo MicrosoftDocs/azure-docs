@@ -107,6 +107,8 @@ landingContent:
             url: event-hubs-go-get-started-send.md
           - text: Apache Storm (receive only)
             url: event-hubs-storm-getstarted-receive.md            
+          - text: C (send only)
+            url: event-hubs-c-getstarted-send.md            
           - text: .NET Framework
             url: event-hubs-dotnet-framework-getstarted-send.md
 
