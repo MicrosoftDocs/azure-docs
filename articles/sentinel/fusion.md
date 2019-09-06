@@ -1,5 +1,5 @@
 ---
-title: Advanced multi-stage attack detection in Sentinel
+title: Advanced multistage attack detection in Sentinel
 description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multi-stage attack detection.
 services: sentinel
 documentationcenter: na
@@ -16,28 +16,32 @@ ms.date: 8/19/2019
 ms.author: cabailey
 
 ---
-# Advanced multi-stage attack detection in Azure Sentinel
+# Advanced multistage attack detection in Azure Sentinel
 
 Based on fusion technology, advanced multi-stage attack detection in Azure Sentinel uses machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products, into high-fidelity and actionable incidents. Customized for each tenant, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
 
 The incidents generated will always include two or more alerts, and be assigned high severity. For details about the alerts and the scenarios supported, see the [Scenarios supported for multi-stage attack detection](#scenarios-supported-for-multi-stage-attack-detection) section on this page.
 
-## Configuration for advanced multi-stage attack detection
+## Configuration for advanced multistage attack detection
 
-This technology is enabled by default in Sentinel. To check the status, or to disable it because you are using an alternative solution to create incidents based on multiple alerts, use the **Analytics** blade in the Azure portal:
+This technology is enabled by default in Azure Sentinel. To check the status, or to disable it because you are using an alternative solution to create incidents based on multiple alerts, use the **Analytics** blade in the Azure portal:
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
 
 2. Navigate to **Azure Sentinel** > **Configuration** > **Analytics**
 
-3. On the **Analytics** blade, locate **Advanced Multi-Stage Attack Detection** in the **NAME** column, and confirm whether the status is **Enabled** or **Disabled**.
+3. Select **Active rules** and locate **Advanced Multistage Attack Detection** in the **NAME** column. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
 
-4. To change the status, select this entry and on the **Advanced Multi-Stage Attack Detection** blade, select **Edit**.
+4. To change the status, select this entry and on the **Advanced Multistage Attack Detection** blade, select **Edit**.
+
+5. On the **Rule creation wizard** blade, the change of status is automatically selected for you, so select **Next: Review**, and then **Save**. 
 
 
-## Scenarios supported for multi-stage attack detection
+Rule templates are not applicable for the the advanced multistage attack alert.
 
-Using advanced multi-stage attack detection, Sentinel supports the following scenarios that combine anomaly events from Azure Active Directory Identity Protection and Microsoft Cloud App Security:
+## Scenarios supported for advanced multistage attack detection
+
+Using advanced multistage attack detection, Azure Sentinel supports the following scenarios that combine anomaly events from Azure Active Directory Identity Protection and Microsoft Cloud App Security:
 
 - [Impossible travel to atypical location](#impossible-travel-to-atypical-location)
 - [Sign-in activity for unfamiliar location](#sign-in-activity-for-unfamiliar-location)
@@ -47,7 +51,7 @@ Using advanced multi-stage attack detection, Sentinel supports the following sce
 
 You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection.md) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured.
 
-In the descriptions that follow, Sentinel will display the actual value from your data that is represented on this page as variables in brackets. For example, the actual display name of an account rather than \<*account name*>, and the actual number rather than \<*number*>.
+In the descriptions that follow, Azure Sentinel will display the actual value from your data that is represented on this page as variables in brackets. For example, the actual display name of an account rather than \<*account name*>, and the actual number rather than \<*number*>.
 
 ### Impossible travel to atypical location
 
