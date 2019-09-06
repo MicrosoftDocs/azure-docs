@@ -57,7 +57,7 @@ After you create your project, **Solution Explorer** contains a PowerShell deplo
 
 ## Customize your project
 
-Now you can edit the template to customize it for your application's needs, such as adding virtual machine extension properties or editing load-balancing rules. By default, the Virtual Machine Scale Set templates are configured to deploy the **AzureDiagnostics** extension, which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules.
+Now you can edit the template to customize it for your application's needs. You could add virtual machine extension properties or edit load-balancing rules. By default, the Virtual Machine Scale Set templates are configured to deploy the **AzureDiagnostics** extension, which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules.
 
 The load balancer lets you connect to the virtual machine instances with SSH (Linux) or RDP (Windows). The front-end port range starts at 50000. For Linux, this fact means that if you SSH to port 50000, you're routed to port 22 of the first virtual machine in the Scale Set. Connecting to port 50001 is routed to port 22 of the second virtual machine and so on.
 
@@ -79,7 +79,7 @@ Deploy the Azure Resource Manager Template to create the Virtual Machine Scale S
 
    ![Enter subscription and resource group](media\virtual-machine-scale-sets-vs-create\deploy-to-resource-group.png)
 
-1. Provide the username and password for the operating system. This is required to create the deployment. If you don't have PowerShell Tools for Visual Studio installed, select **Save passwords** to avoid a hidden PowerShell command prompt or use [Key Vault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/). Select **Save** to continue.
+1. Provide the username and password for the operating system. These values are required to create the deployment. If you don't have PowerShell Tools for Visual Studio installed, select **Save passwords** to avoid a hidden PowerShell command prompt or use [Key Vault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/). Select **Save** to continue.
 
     ![Edit deployment parameters](media\virtual-machine-scale-sets-vs-create\edit-deployment-parameters.png)
 
@@ -99,4 +99,4 @@ Select **View** > **Cloud Explorer** to view the new Virtual Machine Scale Set. 
 
 ## Next steps
 
-Once you’ve successfully deployed Virtual Machine Scale Sets through Visual Studio, you can further customize your project to suit your application requirements. For example, configure autoscale by adding an **Insights** resource, adding infrastructure to your template, such as standalone virtual machines, or deploying applications using the custom script extension. Good example templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository. You can search for `vmss`.
+Once you’ve successfully deployed Virtual Machine Scale Sets through Visual Studio, you can further customize your project to suit your application requirements. For example, configure autoscale by adding an **Insights** resource. You could add infrastructure to your template, such as standalone virtual machines, or deploy applications using the custom script extension. Good example templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository. Search for `vmss`.
