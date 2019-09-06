@@ -28,11 +28,11 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 ## [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
 |    |           |
 | ------------- | ------------- |
-| What is it?   |   Microsoft Azure Machine Learning is a cloud service that you can use to develop and deploy machine-learning models. You can track your models as you build, train, scale, and manage them by using the Python SDK. Deploy models as containers and run them in the cloud, on-premises, or on Azure IoT Edge.   |
+| What is it?   |   Azure Machine Learning is a cloud service that you can use to develop and deploy machine-learning models. You can track your models as you build, train, scale, and manage them by using the Python SDK. Deploy models as containers and run them in the cloud, on-premises, or on Azure IoT Edge.   |
 | Supported editions     | Windows (conda environment: AzureML), Linux (conda environment: py36)    |
 | Typical uses      | General machine-learning platform      |
 | How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As a Python SDK and in Azure CLI. Activate to the conda environment `AzureML` on Windows edition *or* to `py36` on Linux edition.      |
+| How to use or run it      | As a Python SDK and in the Azure CLI. Activate to the conda environment `AzureML` on Windows edition *or* to `py36` on Linux edition.      |
 | Link to samples      | Sample Jupyter notebooks are included in the `AzureML` directory under notebooks.  |
 | Related tools      | Visual Studio Code, Jupyter   |
 
@@ -43,7 +43,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning library      |
 | How is it configured or installed?      |  Installed with GPU support   |
-| How to use or run it      | As a Python library (2.7 and 3.5), R package, and as an on-path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows and `/dsvm/tools/xgboost/xgboost` for Linux)    |
+| How to use or run it      | As a Python library (2.7 and 3.5), R package, and on-path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows and `/dsvm/tools/xgboost/xgboost` for Linux)    |
 | Links to samples      | Samples are included on the VM, in `/dsvm/tools/xgboost/demo` on Linux, and `C:\dsvm\tools\xgboost\demo` on Windows.   |
 | Related tools      | LightGBM, MXNet   |
 
@@ -67,7 +67,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | What is it?   |  A collection of machine-learning algorithms for data-mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning tool     |
-| How to use or run it      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
+| How to use or run it      | On Windows, search for Weka on the **Start** menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
 | Link to samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related tools      |LightGBM, Rattle, XGBoost   |
 
@@ -77,7 +77,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 | What is it?   |   A graphical user interface for data mining by using R.   |
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General UI data-mining tool for R    |
-| How to use or run it      | As a UI tool. On Windows, start a command prompt, run R, and then inside R, run `rattle()`. On Linux, connect with X2Go, start a terminal, run R, and then inside R run `rattle()`. |
+| How to use or run it      | As a UI tool. On Windows, start a command prompt, run R, and then inside R, run `rattle()`. On Linux, connect with X2Go, start a terminal, run R, and then inside R, run `rattle()`. |
 | Link to samples      | [Rattle](https://togaware.com/onepager/) |
 | Related tools      |LightGBM, Weka, XGBoost   |
 
