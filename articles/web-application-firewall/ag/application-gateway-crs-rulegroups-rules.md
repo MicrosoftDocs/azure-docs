@@ -29,7 +29,7 @@ The WAF protects against the following web vulnerabilities:
 
 ### OWASP CRS 3.1
 
-CRS 3.1 includes 12 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 |Rule group|Description|
 |---|---|
@@ -45,10 +45,11 @@ CRS 3.1 includes 12 rule groups, as shown in the following table. Each group con
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-31)**|Protect against cross-site scripting attacks|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-31)**|Protect against SQL-injection attacks|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|Protect against session-fixation attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-31)**|Protect against JAVA attacks|
 
 ### OWASP CRS 3.0
 
-CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.0 includes 12 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 |Rule group|Description|
 |---|---|
@@ -310,6 +311,9 @@ The following rule groups and rules are available when using Application Gateway
 |942440|SQL Comment Sequence Detected.|
 |942450|SQL Hex Encoding Identified|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
+|942470|SQL Injection Attack|
+|942480|SQL Injection Attack|
+|942490|Detects classic SQL injection probings 3/3|
 
 ### <a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
@@ -318,6 +322,14 @@ The following rule groups and rules are available when using Application Gateway
 |943100|Possible Session Fixation Attack = Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
+
+### <a name="crs944-31"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA</p>
+
+|RuleId|Description|
+|---|---|
+|944120|Possible payload execution and remote command execution|
+|944130|Suspicious Java classes|
+|944200|Exploitation of Java deserialization Apache Commons|
 
 # [OWASP 3.0](#tab/owasp30)
 
