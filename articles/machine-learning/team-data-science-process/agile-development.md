@@ -178,13 +178,13 @@ You can use your new data science process template to create TDSP projects and t
    
 1. To make TDSP Projects visible, select the **Configure team settings** icon, select the **TDSP Projects** check box, and then select **Save and close**.
    
-   ![Select TDSP Projects check box](./media/agile-development/16-enabledsprojects.png)
+   ![Select TDSP Projects check box](./media/agile-development/16-enabledsprojects1.png)
    
 1. To create data science-specific work items, select **TDSP Projects** in the top bar, and then select **New work item**. 
    
 1. In the popup, give the TDSP Project work item a name, and select **Add to top**.
    
-   ![Create data science project work item](./media/agile-development/17-dsworkitems.png)
+   ![Create data science project work item](./media/agile-development/17-dsworkitems0.png)
    
 1. Select the **+** next to the new project, and select the type of work item to create. 
    
@@ -196,7 +196,7 @@ You can use your new data science process template to create TDSP projects and t
    
 Here is an example of how the data science project work items should appear in Backlog view:
 
-![18](./media/agile-development/18-workitems.png)
+![18](./media/agile-development/18-workitems1.png)
 
 
 ## Next steps
