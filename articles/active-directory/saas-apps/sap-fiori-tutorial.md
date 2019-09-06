@@ -44,7 +44,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * SAP Fiori supports **SP** initiated SSO
 
 > [!NOTE]
-> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Azure AD SAML single sign-on](https://docs.microsoft.com/en-gb/azure/active-directory/develop/single-sign-on-saml-protocol) information
+> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Azure AD SAML single sign-on](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) information
 
 ## Adding SAP Fiori from the gallery
 
