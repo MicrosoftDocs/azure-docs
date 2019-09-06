@@ -34,19 +34,21 @@ We use **python/pip** command to build virtual environment in your Home path. If
    pip install virtualenv
    ```
 
-3. For Linux only, install the required packages by running commands bellow if you encounter the error message.
-   
-    ![Python pip version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
-       
-   ```
-   sudo apt-get install libkrb5-dev 
-   ```
+## Other packages
 
-   ```
-   sudo apt-get install python-dev
-   ```
+Install the required packages by running commands below if you encounter the error message.
 
-4. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
+   ![Python pip version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+
+```
+sudo apt-get install libkrb5-dev
+```
+
+```
+sudo apt-get install python-dev
+```
+
+Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
 
 ## Next steps
 
