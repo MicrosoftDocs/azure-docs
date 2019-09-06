@@ -127,6 +127,15 @@ landingContent:
             url: event-hubs-capture-python.md
 
   # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide      
+        links:
+          - text: Troubleshoot exceptions
+            url: event-hubs-messaging-exceptions.md
+
+
+  # Card
   - title: Process events
     linkLists:
       - linkListType: tutorial      
@@ -165,10 +174,3 @@ landingContent:
           - text: Enable Virtual Networks integration and firewalls
             url: event-hubs-tutorial-virtual-networks-firewalls.md
             
-  # Card
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: how-to-guide      
-        links:
-          - text: Troubleshoot exceptions
-            url: event-hubs-messaging-exceptions.md
