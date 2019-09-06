@@ -20,7 +20,7 @@ ms.author: cabailey
 
 Based on fusion technology, advanced multistage attack detection in Azure Sentinel uses machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products, into high-fidelity and actionable incidents. Customized for each tenant, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
 
-The incidents generated will always include two or more alerts, and be assigned high severity. For details about the alerts and the scenarios supported, see the [Scenarios supported for multistage attack detection](#scenarios-supported-for-multistage-attack-detection) section on this page.
+The incidents generated will always include two or more alerts, and be assigned high severity. For details about the alerts and the scenarios supported, see the [Scenarios supported for multistage attack detection](#scenarios-supported-for-advanced-multistage-attack-detection) section on this page.
 
 ## Configuration for advanced multistage attack detection
 
