@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 09/05/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -82,7 +82,7 @@ Users with this role have all permissions in the Azure Information Protection se
 
 ### [B2C User Flow Administrator](#b2c-user-flow-administrator-permissions)
 
-Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
+Users with this role can create and manage B2C User Flows (also called "built-in" policies) in the Azure portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (also known as Custom) policies is also outside the scope of this role.
 
 ### [B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator-permissions)
 
@@ -188,10 +188,10 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 
 ### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
 
-This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service id, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
+This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
 
 * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (aka built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
+* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
@@ -228,7 +228,7 @@ Users with this role can change passwords, invalidate refresh tokens, manage ser
 > [!NOTE]
 > Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 >
-> This role was previously called "Password Administrator" in [Azure portal](https://portal.azure.com/). We have changed its name to "Helpdesk Administrator" to match its name in Azure AD PowerShell, Azure AD Graph API and Microsoft Graph API.
+> This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). We have changed its name to "Helpdesk Administrator" to match its name in Azure AD PowerShell, Azure AD Graph API and Microsoft Graph API.
 
 ### [Intune Administrator](#intune-service-administrator-permissions)
 
@@ -349,14 +349,14 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 
 ### [Service Support Administrator](#service-support-administrator-permissions)
 
-Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Service Support Administrator." It is "Service Administrator" in the [Azure portal](https://portal.azure.com), the [Microsoft 365 admin center](https://admin.microsoft.com), and the Intune portal.
 
 ### [SharePoint Administrator](#sharepoint-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
@@ -415,39 +415,49 @@ Can create and manage all aspects of app registrations and enterprise apps.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/applications/audience/update | Update applications.audience property in Azure Active Directory. |
-| microsoft.aad.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory. |
-| microsoft.aad.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/create | Create applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/credentials/update | Update applications.credentials property in Azure Active Directory. |
-| microsoft.aad.directory/applications/delete | Delete applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/owners/update | Update applications.owners property in Azure Active Directory. |
-| microsoft.aad.directory/applications/permissions/update | Update applications.permissions property in Azure Active Directory. |
-| microsoft.aad.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/read | Read appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/create | Create policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/delete | Delete policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/Application/appProxyAuthentication/update | Update App Proxy authentication properties on service principals in Azure Active Directory. |
+| microsoft.directory/Application/appProxyUrlSettings/update | Update application proxy internal and external URLS in Azure Active Directory. |
+| microsoft.directory/applications/applicationProxy/read | Read all of App Proxy properties. |
+| microsoft.directory/applications/applicationProxy/update | Update all of App Proxy properties. |
+| microsoft.directory/applications/audience/update | Update applications.audience property in Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
+| microsoft.directory/applications/create | Create applications in Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Update applications.credentials property in Azure Active Directory. |
+| microsoft.directory/applications/delete | Delete applications in Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Update applications.owners property in Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Update applications.permissions property in Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/read | Read appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/connectorGroups/everything/read | Read application proxy connector group properties in Azure Active Directory. |
+| microsoft.directory/connectorGroups/everything/update | Update all application proxy connector group properties in Azure Active Directory. |
+| microsoft.directory/connectorGroups/create | Create application proxy connector groups in Azure Active Directory. |
+| microsoft.directory/connectorGroups/delete | Delete application proxy connector groups in Azure Active Directory. |
+| microsoft.directory/connectors/everything/read | Read all application proxy connector properties in Azure Active Directory. |
+| microsoft.directory/connectors/create | Create application proxy connectors in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/create | Create policies in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/delete | Delete policies in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -459,10 +469,10 @@ Can create application registrations independent of the ‘Users can register ap
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/applications/createAsOwner | Create applications in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/appRoleAssignments/createAsOwner | Create appRoleAssignments in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | Create oAuth2PermissionGrants in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/servicePrincipals/createAsOwner | Create servicePrincipals in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/applications/createAsOwner | Create applications in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/appRoleAssignments/createAsOwner | Create appRoleAssignments in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/oAuth2PermissionGrants/createAsOwner | Create oAuth2PermissionGrants in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/servicePrincipals/createAsOwner | Create servicePrincipals in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 
 ### Authentication Administrator permissions
 
@@ -470,14 +480,14 @@ Allowed to view, set and reset authentication method information for any non-adm
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
+| microsoft.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
 
 ### Azure Information Protection Administrator permissions
 
@@ -539,7 +549,7 @@ Can perform common billing related tasks like updating payment information.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
+| microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
@@ -553,38 +563,38 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/applications/audience/update | Update applications.audience property in Azure Active Directory. |
-| microsoft.aad.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory. |
-| microsoft.aad.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/create | Create applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/credentials/update | Update applications.credentials property in Azure Active Directory. |
-| microsoft.aad.directory/applications/delete | Delete applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/owners/update | Update applications.owners property in Azure Active Directory. |
-| microsoft.aad.directory/applications/permissions/update | Update applications.permissions property in Azure Active Directory. |
-| microsoft.aad.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/create | Create policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/delete | Delete policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/applications/audience/update | Update applications.audience property in Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
+| microsoft.directory/applications/create | Create applications in Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Update applications.credentials property in Azure Active Directory. |
+| microsoft.directory/applications/delete | Delete applications in Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Update applications.owners property in Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Update applications.permissions property in Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/create | Create policies in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/delete | Delete policies in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -596,12 +606,12 @@ Full access to manage devices in Azure AD.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
-| microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/disable | Disable devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/enable | Enable devices in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/devices/delete | Delete devices in Azure Active Directory. |
+| microsoft.directory/devices/disable | Disable devices in Azure Active Directory. |
+| microsoft.directory/devices/enable | Enable devices in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
@@ -617,35 +627,35 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.cloudAppSecurity. |
-| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Create and delete administrativeUnits, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/allProperties/allTasks | Create and delete appRoleAssignments, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/contacts/allProperties/allTasks | Create and delete contacts, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/contracts/allProperties/allTasks | Create and delete contracts, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/devices/allProperties/allTasks | Create and delete devices, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/allProperties/allTasks | Create and delete directoryRoles, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/allProperties/allTasks | Create and delete groupSettings, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/allProperties/allTasks | Create and delete groupSettingTemplates, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/loginTenantBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete oAuth2PermissionGrants, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/organization/allProperties/allTasks | Create and delete organization, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/roleAssignments/allProperties/allTasks | Create and delete roleAssignments, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Create and delete roleDefinitions, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/serviceAction/activateService | Can perform the Activateservice service action in Azure Active Directory |
-| microsoft.aad.directory/serviceAction/disableDirectoryFeature | Can perform the Disabledirectoryfeature service action in Azure Active Directory |
-| microsoft.aad.directory/serviceAction/enableDirectoryFeature | Can perform the Enabledirectoryfeature service action in Azure Active Directory |
-| microsoft.aad.directory/serviceAction/getAvailableExtentionProperties | Can perform the Getavailableextentionproperties service action in Azure Active Directory |
-| microsoft.aad.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
-| microsoft.aad.directory/subscribedSkus/allProperties/allTasks | Create and delete subscribedSkus, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directory/users/allProperties/allTasks | Create and delete users, and read and update all properties in Azure Active Directory. |
-| microsoft.aad.directorySync/allEntities/allTasks | Perform all actions in Azure AD Connect. |
+| microsoft.directory/administrativeUnits/allProperties/allTasks | Create and delete administrativeUnits, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/allProperties/allTasks | Create and delete appRoleAssignments, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/contacts/allProperties/allTasks | Create and delete contacts, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/contracts/allProperties/allTasks | Create and delete contracts, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/devices/allProperties/allTasks | Create and delete devices, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/directoryRoles/allProperties/allTasks | Create and delete directoryRoles, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/groupSettings/allProperties/allTasks | Create and delete groupSettings, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/groupSettingTemplates/allProperties/allTasks | Create and delete groupSettingTemplates, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/loginTenantBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete oAuth2PermissionGrants, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/organization/allProperties/allTasks | Create and delete organization, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete roleAssignments, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/roleDefinitions/allProperties/allTasks | Create and delete roleDefinitions, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/serviceAction/activateService | Can perform the Activateservice service action in Azure Active Directory |
+| microsoft.directory/serviceAction/disableDirectoryFeature | Can perform the Disabledirectoryfeature service action in Azure Active Directory |
+| microsoft.directory/serviceAction/enableDirectoryFeature | Can perform the Enabledirectoryfeature service action in Azure Active Directory |
+| microsoft.directory/serviceAction/getAvailableExtentionProperties | Can perform the Getavailableextentionproperties service action in Azure Active Directory |
+| microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/subscribedSkus/allProperties/allTasks | Create and delete subscribedSkus, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/users/allProperties/allTasks | Create and delete users, and read and update all properties in Azure Active Directory. |
+| microsoft.directorySync/allEntities/allTasks | Perform all actions in Azure AD Connect. |
 | microsoft.aad.identityProtection/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Read all resources in microsoft.azure.advancedThreatProtection. |
@@ -722,14 +732,14 @@ Can manage Conditional Access capabilities.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/basic/update | Update policies.conditionalAccess property in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/create | Create policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/delete | Delete policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/owners/read | Read policies.conditionalAccess property in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/owners/update | Update policies.conditionalAccess property in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Read policies.conditionalAccess property in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/tenantDefault/update | Update policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/basic/update | Update policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/create | Create policies in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/delete | Delete policies in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/owners/read | Read policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/owners/update | Update policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/policiesAppliedTo/read | Read policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/tenantDefault/update | Update policies.conditionalAccess property in Azure Active Directory. |
 
 ### CRM Service Administrator permissions
 
@@ -787,61 +797,61 @@ Users assigned to this role are added to the local administrators group on Azure
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
+| microsoft.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
 
 ### Directory Readers permissions
 Can read basic directory information. For granting access to applications, not intended for users.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/administrativeUnits/basic/read | Read basic properties on administrativeUnits in Azure Active Directory. |
-| microsoft.aad.directory/administrativeUnits/members/read | Read administrativeUnits.members property in Azure Active Directory. |
-| microsoft.aad.directory/applications/basic/read | Read basic properties on applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/owners/read | Read applications.owners property in Azure Active Directory. |
-| microsoft.aad.directory/applications/policies/read | Read applications.policies property in Azure Active Directory. |
-| microsoft.aad.directory/contacts/basic/read | Read basic properties on contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/memberOf/read | Read contacts.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/contracts/basic/read | Read basic properties on contracts in Azure Active Directory. |
-| microsoft.aad.directory/devices/basic/read | Read basic properties on devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/memberOf/read | Read devices.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredOwners/read | Read devices.registeredOwners property in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredUsers/read | Read devices.registeredUsers property in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/basic/read | Read basic properties on directoryRoles in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/eligibleMembers/read | Read directoryRoles.eligibleMembers property in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/members/read | Read directoryRoles.members property in Azure Active Directory. |
-| microsoft.aad.directory/domains/basic/read | Read basic properties on domains in Azure Active Directory. |
-| microsoft.aad.directory/groups/appRoleAssignments/read | Read groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/groups/basic/read | Read basic properties on groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/memberOf/read | Read groups.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/groups/members/read | Read groups.members property in Azure Active Directory. |
-| microsoft.aad.directory/groups/owners/read | Read groups.owners property in Azure Active Directory. |
-| microsoft.aad.directory/groups/settings/read | Read groups.settings property in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | Read basic properties on oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/organization/basic/read | Read basic properties on organization in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Read organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
-| microsoft.aad.directory/roleAssignments/basic/read | Read basic properties on roleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/roleDefinitions/basic/read | Read basic properties on roleDefinitions in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Read servicePrincipals.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/read | Read basic properties on servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | Read servicePrincipals.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Read servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Read servicePrincipals.ownedObjects property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/read | Read servicePrincipals.owners property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/read | Read servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/subscribedSkus/basic/read | Read basic properties on subscribedSkus in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/read | Read basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/directReports/read | Read users.directReports property in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/read | Read users.manager property in Azure Active Directory. |
-| microsoft.aad.directory/users/memberOf/read | Read users.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Read users.oAuth2PermissionGrants property in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedDevices/read | Read users.ownedDevices property in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Read users.ownedObjects property in Azure Active Directory. |
-| microsoft.aad.directory/users/registeredDevices/read | Read users.registeredDevices property in Azure Active Directory. |
+| microsoft.directory/administrativeUnits/basic/read | Read basic properties on administrativeUnits in Azure Active Directory. |
+| microsoft.directory/administrativeUnits/members/read | Read administrativeUnits.members property in Azure Active Directory. |
+| microsoft.directory/applications/basic/read | Read basic properties on applications in Azure Active Directory. |
+| microsoft.directory/applications/owners/read | Read applications.owners property in Azure Active Directory. |
+| microsoft.directory/applications/policies/read | Read applications.policies property in Azure Active Directory. |
+| microsoft.directory/contacts/basic/read | Read basic properties on contacts in Azure Active Directory. |
+| microsoft.directory/contacts/memberOf/read | Read contacts.memberOf property in Azure Active Directory. |
+| microsoft.directory/contracts/basic/read | Read basic properties on contracts in Azure Active Directory. |
+| microsoft.directory/devices/basic/read | Read basic properties on devices in Azure Active Directory. |
+| microsoft.directory/devices/memberOf/read | Read devices.memberOf property in Azure Active Directory. |
+| microsoft.directory/devices/registeredOwners/read | Read devices.registeredOwners property in Azure Active Directory. |
+| microsoft.directory/devices/registeredUsers/read | Read devices.registeredUsers property in Azure Active Directory. |
+| microsoft.directory/directoryRoles/basic/read | Read basic properties on directoryRoles in Azure Active Directory. |
+| microsoft.directory/directoryRoles/eligibleMembers/read | Read directoryRoles.eligibleMembers property in Azure Active Directory. |
+| microsoft.directory/directoryRoles/members/read | Read directoryRoles.members property in Azure Active Directory. |
+| microsoft.directory/domains/basic/read | Read basic properties on domains in Azure Active Directory. |
+| microsoft.directory/groups/appRoleAssignments/read | Read groups.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/basic/read | Read basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/memberOf/read | Read groups.memberOf property in Azure Active Directory. |
+| microsoft.directory/groups/members/read | Read groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/read | Read groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/settings/read | Read groups.settings property in Azure Active Directory. |
+| microsoft.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/basic/read | Read basic properties on oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.directory/organization/basic/read | Read basic properties on organization in Azure Active Directory. |
+| microsoft.directory/organization/trustedCAsForPasswordlessAuth/read | Read organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
+| microsoft.directory/roleAssignments/basic/read | Read basic properties on roleAssignments in Azure Active Directory. |
+| microsoft.directory/roleDefinitions/basic/read | Read basic properties on roleDefinitions in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/read | Read servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/read | Read basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/memberOf/read | Read servicePrincipals.memberOf property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Read servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/ownedObjects/read | Read servicePrincipals.ownedObjects property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/read | Read servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/read | Read servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/subscribedSkus/basic/read | Read basic properties on subscribedSkus in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/basic/read | Read basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/directReports/read | Read users.directReports property in Azure Active Directory. |
+| microsoft.directory/users/manager/read | Read users.manager property in Azure Active Directory. |
+| microsoft.directory/users/memberOf/read | Read users.memberOf property in Azure Active Directory. |
+| microsoft.directory/users/oAuth2PermissionGrants/basic/read | Read users.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/users/ownedDevices/read | Read users.ownedDevices property in Azure Active Directory. |
+| microsoft.directory/users/ownedObjects/read | Read users.ownedObjects property in Azure Active Directory. |
+| microsoft.directory/users/registeredDevices/read | Read users.registeredDevices property in Azure Active Directory. |
 
 ### Directory Synchronization Accounts permissions
 
@@ -849,34 +859,34 @@ Only used by Azure AD Connect service.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
-| microsoft.aad.directory/policies/create | Create policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/delete | Delete policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/owners/read | Read policies.owners property in Azure Active Directory. |
-| microsoft.aad.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
-| microsoft.aad.directory/policies/policiesAppliedTo/read | Read policies.policiesAppliedTo property in Azure Active Directory. |
-| microsoft.aad.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Read servicePrincipals.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/read | Read basic properties on servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | Read servicePrincipals.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Read servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/read | Read servicePrincipals.owners property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Read servicePrincipals.ownedObjects property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/read | Read servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directorySync/allEntities/allTasks | Perform all actions in Azure AD Connect. |
+| microsoft.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
+| microsoft.directory/policies/create | Create policies in Azure Active Directory. |
+| microsoft.directory/policies/delete | Delete policies in Azure Active Directory. |
+| microsoft.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
+| microsoft.directory/policies/owners/read | Read policies.owners property in Azure Active Directory. |
+| microsoft.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
+| microsoft.directory/policies/policiesAppliedTo/read | Read policies.policiesAppliedTo property in Azure Active Directory. |
+| microsoft.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/read | Read servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/read | Read basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/memberOf/read | Read servicePrincipals.memberOf property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Read servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/read | Read servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/ownedObjects/read | Read servicePrincipals.ownedObjects property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/read | Read servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directorySync/allEntities/allTasks | Perform all actions in Azure AD Connect. |
 
 ### Directory Writers permissions
 
@@ -884,22 +894,22 @@ Can read & write basic directory information. For granting access to application
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
-| microsoft.aad.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
-| microsoft.aad.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/basic/update | Update basic properties on groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/create | Create groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/delete | Delete groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.directory/groupSettings/basic/update | Update basic properties on groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettings/create | Create groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettings/delete | Delete groupSettings in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 
 ### Exchange Service Administrator permissions
 
@@ -912,12 +922,12 @@ Can manage all aspects of the Exchange product.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
+| microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.directory/groups/unified/create | Create Office 365 Groups. |
+| microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
+| microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -938,16 +948,16 @@ Can invite guest users independent of the ‘members can invite guests’ settin
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/read | Read basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/directReports/read | Read users.directReports property in Azure Active Directory. |
-| microsoft.aad.directory/users/inviteGuest | Invite guest users in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/read | Read users.manager property in Azure Active Directory. |
-| microsoft.aad.directory/users/memberOf/read | Read users.memberOf property in Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Read users.oAuth2PermissionGrants property in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedDevices/read | Read users.ownedDevices property in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Read users.ownedObjects property in Azure Active Directory. |
-| microsoft.aad.directory/users/registeredDevices/read | Read users.registeredDevices property in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/basic/read | Read basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/directReports/read | Read users.directReports property in Azure Active Directory. |
+| microsoft.directory/users/inviteGuest | Invite guest users in Azure Active Directory. |
+| microsoft.directory/users/manager/read | Read users.manager property in Azure Active Directory. |
+| microsoft.directory/users/memberOf/read | Read users.memberOf property in Azure Active Directory. |
+| microsoft.directory/users/oAuth2PermissionGrants/basic/read | Read users.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/users/ownedDevices/read | Read users.ownedDevices property in Azure Active Directory. |
+| microsoft.directory/users/ownedObjects/read | Read users.ownedObjects property in Azure Active Directory. |
+| microsoft.directory/users/registeredDevices/read | Read users.registeredDevices property in Azure Active Directory. |
 
 ### Helpdesk Administrator permissions
 
@@ -955,9 +965,9 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -975,28 +985,28 @@ Can manage all aspects of the Intune product.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/create | Create contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/delete | Delete contacts in Azure Active Directory. |
-| microsoft.aad.directory/devices/basic/update | Update basic properties on devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
-| microsoft.aad.directory/devices/create | Create devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredOwners/update | Update devices.registeredOwners property in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredUsers/update | Update devices.registeredUsers property in Azure Active Directory. |
-| microsoft.aad.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/groups/delete | Delete groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
-| microsoft.aad.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
-| microsoft.aad.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
-| microsoft.aad.directory/groups/restore | Restore groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
+| microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
+| microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
+| microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
+| microsoft.directory/devices/basic/update | Update basic properties on devices in Azure Active Directory. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/devices/create | Create devices in Azure Active Directory. |
+| microsoft.directory/devices/delete | Delete devices in Azure Active Directory. |
+| microsoft.directory/devices/registeredOwners/update | Update devices.registeredOwners property in Azure Active Directory. |
+| microsoft.directory/devices/registeredUsers/update | Update devices.registeredUsers property in Azure Active Directory. |
+| microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1023,8 +1033,8 @@ Can manage product licenses on users and groups.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.directory/users/usageLocation/update | Update users.usageLocation property in Azure Active Directory. |
+| microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.directory/users/usageLocation/update | Update users.usageLocation property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -1086,22 +1096,22 @@ Do not use - not intended for general use.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/create | Create contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/delete | Delete contacts in Azure Active Directory. |
-| microsoft.aad.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
-| microsoft.aad.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/delete | Delete users in Azure Active Directory. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
-| microsoft.aad.directory/users/restore | Restore deleted users in Azure Active Directory. |
-| microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+| microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
+| microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
+| microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/delete | Delete users in Azure Active Directory. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
+| microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
+| microsoft.directory/users/restore | Restore deleted users in Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -1119,24 +1129,24 @@ Do not use - not intended for general use.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/create | Create contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/delete | Delete contacts in Azure Active Directory. |
-| microsoft.aad.directory/domains/allTasks | Create and delete domains, and read and update standard properties in Azure Active Directory. |
-| microsoft.aad.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/delete | Delete groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
-| microsoft.aad.directory/groups/restore | Restore groups in Azure Active Directory. |
-| microsoft.aad.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/delete | Delete users in Azure Active Directory. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
-| microsoft.aad.directory/users/restore | Restore deleted users in Azure Active Directory. |
-| microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+| microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
+| microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
+| microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
+| microsoft.directory/domains/allTasks | Create and delete domains, and read and update standard properties in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/delete | Delete users in Azure Active Directory. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
+| microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
+| microsoft.directory/users/restore | Restore deleted users in Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -1149,7 +1159,7 @@ Can reset passwords for non-administrators and Password administrators.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
+| microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Power BI Service Administrator permissions
@@ -1176,14 +1186,14 @@ Allowed to view, set and reset authentication method information for any user (a
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
+| microsoft.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
 
 ### Privileged Role Administrator permissions
 
@@ -1197,11 +1207,11 @@ Can manage role assignments in Azure AD,and all aspects of Privileged Identity M
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
-| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
-| microsoft.aad.directory/roleAssignments/allProperties/allTasks | Create and manage role assignments. |
-| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Create and manage role definitions. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
+| microsoft.directory/roleAssignments/allProperties/allTasks | Create and manage role assignments. |
+| microsoft.directory/roleDefinitions/allProperties/allTasks | Create and manage role definitions. |
 
 ### Reports Reader permissions
 
@@ -1214,8 +1224,8 @@ Can read sign-in and audit reports.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
@@ -1263,16 +1273,16 @@ Can read security information and reports,and manage configuration in Azure AD a
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
-| microsoft.aad.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/create | Create policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/delete | Delete policies in Azure Active Directory. |
-| microsoft.aad.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
-| microsoft.aad.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
+| microsoft.directory/policies/create | Create policies in Azure Active Directory. |
+| microsoft.directory/policies/delete | Delete policies in Azure Active Directory. |
+| microsoft.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
+| microsoft.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Update all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
@@ -1313,9 +1323,9 @@ Can read security information and reports in Azure AD and Office 365.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
-| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
@@ -1351,12 +1361,12 @@ Can manage all aspects of the SharePoint service.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
+| microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.directory/groups/unified/create | Create Office 365 Groups. |
+| microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
+| microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -1423,13 +1433,13 @@ Can manage the Microsoft Teams service.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
-| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
+| microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.directory/groups/unified/create | Create Office 365 Groups. |
+| microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
+| microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
@@ -1442,32 +1452,32 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/create | Create contacts in Azure Active Directory. |
-| microsoft.aad.directory/contacts/delete | Delete contacts in Azure Active Directory. |
-| microsoft.aad.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
-| microsoft.aad.directory/groups/delete | Delete groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
-| microsoft.aad.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
-| microsoft.aad.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
-| microsoft.aad.directory/groups/restore | Restore groups in Azure Active Directory. |
-| microsoft.aad.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.aad.directory/users/create | Create users in Azure Active Directory. |
-| microsoft.aad.directory/users/delete | Delete users in Azure Active Directory. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
-| microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
-| microsoft.aad.directory/users/restore | Restore deleted users in Azure Active Directory. |
-| microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
+| microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
+| microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
+| microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
+| microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
+| microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/create | Create users in Azure Active Directory. |
+| microsoft.directory/users/delete | Delete users in Azure Active Directory. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
+| microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
+| microsoft.directory/users/restore | Restore deleted users in Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |

@@ -38,6 +38,10 @@ The syntax for this function varies by name of the list operations. Each impleme
 | apiVersion |Yes |string |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
 | functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. | 
 
+### Valid uses
+
+The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+
 ### Implementations
 
 The possible uses of list* are shown in the following table.
