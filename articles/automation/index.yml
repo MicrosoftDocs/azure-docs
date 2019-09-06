@@ -81,21 +81,6 @@ landingContent:
           - text: Start runbooks on a Hybrid Runbook Worker
             url: automation-hrw-run-runbooks.md
 
-  - title: Work with Hybrid Environments
-    linkLists:
-      - linkListType: overview
-        links:
-         - text: Hybrid Runbook Worker Overview
-           url: automation-hybrid-runbook-worker.md
-      - linkListType: deploy
-        links:
-          - text: Deploy Windows Hybrid Runbook Worker
-            url: automation-windows-hrw-install.md
-          - text: Deploy Linux Hybrid Runbook Worker
-            url: automation-linux-hrw-install.md
-          - text: Start runbooks on a Hybrid Runbook Worker
-            url: automation-hrw-run-runbooks.md
-
   # Card
   - title: Cross Service Automation
     linkLists:
