@@ -8,8 +8,8 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-
 ---
+
 # Manage HDInsight clusters with Enterprise Security Package
 Learn the users and the roles in HDInsight Enterprise Security Package (ESP), and how to manage ESP clusters.
 
@@ -55,7 +55,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 4. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster](./media/apache-domain-joined-manage/unlink.png)
+   ![unlinked cluster](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## Use Eclipse to link to domain joined cluster
 
@@ -78,7 +78,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 4. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster](./media/apache-domain-joined-manage/unlink.png)
+   ![unlinked cluster](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## Access the clusters with Enterprise Security Package.
 
