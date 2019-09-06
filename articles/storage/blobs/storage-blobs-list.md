@@ -201,7 +201,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## See also
+## Next steps
 
 - [List Blobs](/rest/api/storageservices/list-blobs)
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
