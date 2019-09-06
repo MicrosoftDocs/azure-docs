@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) so you can track and reproduce your projects' software dependencies as they evolve.
 
-Software dependency management is a common task for developers. You want to be able to ensure that builds are reproducible without a lot of manual software configuration. With  solutions for local development, such as pip and Conda in mind, the Azure Machine Learning service Environments class provides a solution for both local and distributed cloud development.
+Software dependency management is a common task for developers. You want to be able to ensure that builds are reproducible without much manual software configuration. With  solutions for local development, such as pip and Conda in mind, the Azure Machine Learning service Environments class provides a solution for both local and distributed cloud development.
 
 The examples in this article show how to:
 
@@ -62,7 +62,7 @@ There are multiple ways to create an environment for your experiments.
 ### Use curated environment
 
 You can select one of the curated environments to start with. 
-* The __AzureML-Minimal__ environment contains a minimal set of packages to enable run tracking and and asset uploading. You can use it as a starting point for your own environment.
+* The __AzureML-Minimal__ environment contains a minimal set of packages to enable run tracking and asset uploading. You can use it as a starting point for your own environment.
 
 * The __AzureML-Tutorial__ environment contains common data science packages, such as Scikit-Learn, Pandas and Matplotlib, and larger set of azureml-sdk packages.
 
@@ -89,7 +89,7 @@ for env in envs:
 
 ### Instantiate an environment object
 
-To manually create an environment import the Environment class from the SDK and instantiate an environment object with the following code.
+To manually create an environment, import the Environment class from the SDK and instantiate an environment object with the following code.
 
 ```python
 from azureml.core import Environment
@@ -115,7 +115,7 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 
 If you have an existing Conda environment on your local computer, the service offers a solution for creating an environment object from it. This way you can reuse your local interactive environment on remote runs.
 
-The following creates an environment object out of the existing Conda environment `mycondaenv` with the [from_existing_conda_environment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-) method.
+The following code creates an environment object out of the existing Conda environment `mycondaenv` with the [from_existing_conda_environment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-) method.
 
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
@@ -144,7 +144,7 @@ run = myexp.submit(config=runconfig)
 run.wait_for_completion(show_output=True)
 ```
 
-Similarly, if you use an [`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) object for training you can submit the estimator instance directly as a run without having to specify an environment, this is because the `Estimator` object already encapsulates the environment and compute target.
+Similarly, if you use an [`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) object for training you can submit the estimator instance directly as a run without having to specify an environment. The `Estimator` object already encapsulates the environment and compute target.
 
 
 ## Add packages to an environment
@@ -192,7 +192,7 @@ Manage environments so you can update, track, and reuse them across compute targ
 
 The environment is automatically registered with your workspace when you submit a run or deploy a web service. You can also manually register the environment using the [register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#register-workspace-) method. This operation makes the environment into an entity that is tracked and versioned in the cloud, and can be shared between workspace users.
 
-The following registers the environment, `myenv`, to the workspace, `ws`.
+The following code registers the environment, `myenv`, to the workspace, `ws`.
 
 ```python
 myenv.register(workspace=ws)
@@ -281,7 +281,7 @@ and training Python script into a run configuration; a wrapper object used for s
 
 When you submit a training run, the building of a new environment can take several minutes depending on the size of the required dependencies. The environments are cached by the service, therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
 
-The following is a local script run example where you would use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) as your wrapper object.
+The following local script run example shows where you would use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) as your wrapper object.
 
 ```python
 from azureml.core import Environment, ScriptRunConfig, Experiment
@@ -312,7 +312,7 @@ If you don't specify the environment in your run configuration, the service will
 
 If you are using an [estimator](how-to-train-ml-models.md) for training, you can simply submit the estimator instance directly, as it already encapsulates the environment and compute target.
 
-The following uses an estimator for a single-node training run on a remote compute for a scikit-learn model, and assumes a  previously created compute target object, `compute_target` and datastore object, `ds`.
+The following code uses an estimator for a single-node training run on a remote compute for a scikit-learn model, and assumes a  previously created compute target object, `compute_target` and datastore object, `ds`.
 
 ```python
 from azureml.train.estimator import Estimator
