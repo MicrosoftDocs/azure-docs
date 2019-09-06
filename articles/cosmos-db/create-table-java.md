@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Table API with Java - Azure Cosmos DB'
+title: Use the Table API and Java to build an app - Azure Cosmos DB
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,9 +8,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
+ms.custom: seo-java-august2019, seo-java-september2019
 
 ---
-# Quickstart: Build a Table API app with Java and Azure Cosmos DB
+# Quickstart: Build a Java app to manage Azure Cosmos DB Table API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -19,7 +20,7 @@ ms.author: sngun
 > * [Python](create-table-python.md)
 > 
 
-This quickstart shows how to use Java and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
+This quickstart shows how to use Java and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. You'll learn how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -79,7 +80,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
    ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
 

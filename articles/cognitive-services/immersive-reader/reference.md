@@ -69,6 +69,7 @@ Contains the content to be shown in the Immersive Reader.
 | --------- | ----------- |
 | text/plain | Plain text. |
 | application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
 ### Options
 
@@ -100,7 +101,8 @@ Contains information about the error.
 | ---- | ----------- |
 | BadArgument | Supplied argument is invalid, see `message` for details. |
 | Timeout | The Immersive Reader failed to load within the specified timeout. |
-| TokenExpired| The supplied token is expired. |
+| TokenExpired | The supplied token is expired. |
+| Throttled | The call rate limit has been exceeded. |
 
 ## Launching the Immersive Reader
 
@@ -132,5 +134,5 @@ Use the most recent versions of the following browsers for the best experience w
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK on GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstart.md)

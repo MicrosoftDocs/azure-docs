@@ -2,7 +2,7 @@
 title: implement search traffic analytics - Azure Search
 description: Enable search traffic analytics for Azure Search to add telemetry and user-initiated events to log files.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual

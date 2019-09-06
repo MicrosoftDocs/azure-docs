@@ -11,7 +11,6 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi

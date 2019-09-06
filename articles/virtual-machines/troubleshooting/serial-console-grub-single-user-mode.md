@@ -9,11 +9,11 @@ editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.author: alsin
 ---
 
@@ -28,7 +28,7 @@ To enter single user mode, you will need to enter GRUB when your VM is booting u
 
 ![Linux Serial Console Restart button](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
-## General GRUB access
+## General GRUB Access
 To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout.
 
 You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below and at [this link](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
@@ -55,9 +55,24 @@ Once you are in single user mode, do the following to add a new user with sudo p
 RHEL will drop you into single user mode automatically if it cannot boot normally. However, if you have not set up root access for single user mode, you will not have a root password and will be unable to log in. There is a workaround (See 'Manually entering single user mode' below), but the suggestion is to set up root access initially.
 
 ### GRUB access in RHEL
-RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
+RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up. If it doesn't show up, ensure that the following lines are present in your GRUB file (`/etc/default/grub`):
 
-> Note: Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
+#### RHEL 8:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+```
+
+#### RHEL 7:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL_OUTPUT="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 net.ifnames=0"
+```
+
+> [!NOTE]
+> Red Hat also provides documentation for booting into Rescue Mode, Emergency Mode, Debug Mode, and resetting the root password. [Click here to access it](https://aka.ms/rhel7grubterminal).
 
 ### Set up root access for single user mode in RHEL
 Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
@@ -128,6 +143,7 @@ By default, Ubuntu images may not automatically show the GRUB screen. This can b
 1. Change the `GRUB_TIMEOUT` value to a non-zero value
 1. Open `/etc/default/grub` in a text editor of your choice
 1. Comment out the `GRUB_HIDDEN_TIMEOUT=1` line
+1. Ensure there is a line that says `GRUB_TIMEOUT_STYLE=menu`
 1. Run `sudo update-grub`
 
 ### Single user mode in Ubuntu
@@ -189,7 +205,7 @@ You will be automatically dropped into emergency shell if SLES cannot boot norma
 Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled.
 
 ### GRUB access in Oracle Linux
-Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press 'Esc'. You will see the GRUB screen show up.
+Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press 'Esc'. You will see the GRUB screen show up. If you do not see GRUB, ensure that the the value of the `GRUB_TERMINAL` line contains "serial console", like so: `GRUB_TERMINAL="serial console"`. Rebuild GRUB with `grub2-mkconfig -o /boot/grub/grub.cfg`.
 
 ### Single user mode in Oracle Linux
 Follow the instructions for RHEL above to enable single user mode in Oracle Linux.

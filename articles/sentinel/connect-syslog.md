@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
 
 ---
@@ -44,6 +44,9 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 1. In the Azure Sentinel portal, select **Data connectors** and select the **Syslog** line in the table and in the Syslog pane to the right, click **Open connector page**.
 2. If your Linux machine is within Azure, select **Download and install agent on Azure Linux virtual machine**. In the Virtual machines window, select the machines on which you want to install the agent and click **Connect** at the top.
 1. If your Linux machine not within Azure, select **Download and install agent on Linux non-Azure machine**. In the **Direct agent** window, copy the command under **Download and onboard agent for Linux** and run it on your machine. 
+   > [!NOTE]
+   > Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. 
+
 1. Under **Configure the logs to be connected** in the Syslog connector setup window, follow the instructions:
     1. Click the link to **Open your workspace advanced settings configuration**. 
     1. Select **Data**, followed by **Syslog**.

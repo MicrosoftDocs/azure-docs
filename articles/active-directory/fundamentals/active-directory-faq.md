@@ -65,6 +65,7 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 **Q: How do I leave a tenant when I am added as a collaborator?**
 
 **A:** When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization, and Microsoft is working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
+
 ---
 **Q: How can I connect my on-premises directory to Azure AD?**
 

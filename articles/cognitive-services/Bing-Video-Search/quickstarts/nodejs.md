@@ -70,7 +70,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
        });
        ```
 
-# Create and send the search request
+## Create and send the search request
 
 1. Create a function called `bing_video_search()`. Add the parameters for your request including your host name, and headers. Encode your search term and append it to your path parameter with the `?q=` parameter. Then send the request with `req.end()`.
 

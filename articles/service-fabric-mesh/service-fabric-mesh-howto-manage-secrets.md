@@ -3,8 +3,8 @@ title: Manage Azure Service Fabric Mesh Application Secrets | Microsoft Docs
 description: Manage application Secrets so you can securely create and deploy a Service Fabric Mesh application.
 services: service-fabric-mesh
 keywords: secrets
-author: aljo-microsoft
-ms.author: aljo
+author: athinanthny
+ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh

@@ -1,16 +1,15 @@
 ---
-title: 'Python Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+title: 'Python Quickstart: Create, load, and query indexes using REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Search REST API.
 
-ms.date: 07/11/2019
+ms.date: 08/28/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.custom: seodec2018
+ms.topic: quickstart
 ---
 # Quickstart: Create an Azure Search index in Python using Jupyter notebooks
 > [!div class="op_single_selector"]
@@ -67,6 +66,8 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
+
+   If you get ConnectionError `"Failed to establish a new connection"`, verify that the api-key is a primary or secondary admin key, and that all leading and trailing characters (`?` and `/`) are in place.
 
 1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property of existing indexes.
 

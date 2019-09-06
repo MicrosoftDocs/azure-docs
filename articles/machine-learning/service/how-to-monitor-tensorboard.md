@@ -5,7 +5,7 @@ description: Launch TensorBoard to visualize experiment run histories, and ident
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
@@ -30,16 +30,16 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
     * Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-        * Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md#create-notebook) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
 
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to this directory: **how-to-use-azureml > training-with-deep-learning**.
         * export-run-history-to-run-history.ipynb
         * tensorboard.ipynb
 
     * Your own Juptyer notebook server
-      * Use the [Create a workspace article](setup-create-workspace.md) to
           * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
-          * Create a workspace and its configuration file (config.json)
+          * [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).  
+          * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
 ## Option 1: Directly view run history in TensorBoard

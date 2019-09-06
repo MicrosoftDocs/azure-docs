@@ -18,12 +18,12 @@ Use this quickstart to get started with Azure Cognitive Services using the [Azur
 
 In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or more of the Azure Cognitive Services APIs.
 
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/) for free.
 * The [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Install the Azure CLI and sign in 
 
@@ -157,6 +157,14 @@ Use the [az cognitiveservices account keys list](https://docs.microsoft.com/cli/
 ```
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## Pricing tiers and billing
+
+Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
+* maximum number of allowed transactions per second (TPS).
+* service features enabled within the pricing tier.
+* The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
+
 
 ## Clean up resources
 

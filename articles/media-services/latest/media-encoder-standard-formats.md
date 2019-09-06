@@ -37,10 +37,6 @@ This article contains a list of the most common import and export file formats t
 | WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Yes |
 
-> [!NOTE]
-> 
-> 
-
 ### Audio formats in input containers
 
 Standard Encoder supports carrying the following audio formats in input containers:

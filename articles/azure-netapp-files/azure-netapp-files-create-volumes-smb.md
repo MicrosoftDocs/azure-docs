@@ -55,6 +55,18 @@ A subnet must be delegated to Azure NetApp Files.
     |    Secure LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
+* The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  
+
+    The address space for the virtual network where Azure NetApp Files is deployed must be added to a new or existing Active Directory site (where a domain controller reachable by Azure NetApp Files resides). 
+
+* The specified DNS servers must be reachable from the [delegated subnet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) of Azure NetApp Files.  
+
+    See [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) for supported network topologies.
+
+    The Network Security Groups (NSGs) and firewalls must have appropriately configured rules to allow for Active Directory and DNS traffic requests.
+
+    See [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
+
 ## Create an Active Directory connection
 
 1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
@@ -112,15 +124,15 @@ A subnet must be delegated to Azure NetApp Files.
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Virtual network**  
-        Specify the Azure virtual network (Vnet) from which you want to access the volume.  
+        Specify the Azure virtual network (VNet) from which you want to access the volume.  
 
-        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premises network through Express Route.   
+        The VNet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same VNet or from a VNet that is in the same region as the volume through VNet peering. You can also access the volume from  your on-premises network through Express Route.   
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each Vnet, only one subnet can be delegated to Azure NetApp Files.   
+        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
  
         ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -143,4 +155,6 @@ A subnet must be delegated to Azure NetApp Files.
 
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Install a new Active Directory forest using Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

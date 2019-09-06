@@ -145,7 +145,7 @@ The following configuration is an example [virtual host configured for SSL](http
 
 ### NGINX
 
-The following configuration is an example [NGINX server block](http://nginx.org/docs/http/configuring_https_servers.html) with SSL configuration:
+The following configuration is an example [NGINX server block](https://nginx.org/docs/http/configuring_https_servers.html) with SSL configuration:
 
 ![NGINX with SSL](media/self-signed-certificates/nginx-ssl.png)
 
@@ -156,7 +156,7 @@ The following configuration is an example [NGINX server block](http://nginx.org/
    ![Trusted root certificates](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > It's assumed that DNS has been configured to point the web server name (in this example, www.fabrikam.com) to your web server's IP address. If not, you can edit the [hosts file](https://answers.microsoft.com/windows/forum/windows_10-other_settings-winpc/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) to resolve the name.
+   > It's assumed that DNS has been configured to point the web server name (in this example, www.fabrikam.com) to your web server's IP address. If not, you can edit the [hosts file](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) to resolve the name.
 1. Browse to your website, and click the lock icon on your browser's address box to verify the site and certificate information.
 
 ## Verify the configuration with OpenSSL

@@ -58,7 +58,7 @@ This error means that the DNS for the given registry login server was pinged but
 
 ## CONNECTIVITY_FORBIDDEN_ERROR
 
-This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration.
+This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
 
 *Potential solutions*: Remove virtual network rules, or add the current client IP address to the allowed list.
 
@@ -85,6 +85,12 @@ This error means that the registry login server did not respond with a refresh t
 This error means that the registry login server did not respond with an access token, so that the access to the target registry was denied. This error can occur if the user does not have the right permissions on the registry or if the user credentials for the Azure CLI are stale.
 
 *Potential solutions*: Verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens, and credentials.
+
+## CONNECTIVITY_SSL_ERROR
+
+This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
+
+*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
 
 ## LOGIN_SERVER_ERROR
 

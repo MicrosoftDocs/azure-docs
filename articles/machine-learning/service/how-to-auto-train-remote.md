@@ -47,7 +47,6 @@ provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2
                                                             # for GPU, use "STANDARD_NC6"
                                                             # vm_priority = 'lowpriority', # optional
                                                             max_nodes=6)
-
 compute_target = ComputeTarget.create(
     ws, amlcompute_cluster_name, provisioning_config)
 
@@ -64,35 +63,37 @@ Cluster name restrictions include:
 + Cannot include any of the following characters:
   `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-## Access data using get_data() function
+## Access data using TabularDataset function
 
-Provide the remote resource access to your training data. For automated machine learning experiments running on remote compute, the data needs to be fetched using a `get_data()` function.
+Defined X and y as `TabularDataset`s, which are passed to Automated ML in the AutoMLConfig. `from_delimited_files` by default sets the `infer_column_types` to true, which will infer the columns type automatically. 
 
-To provide access, you must:
-+ Create a get_data.py file containing a `get_data()` function
-+ Place that file in a directory accessible as an absolute path
-
-You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
+If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each columns. In the following code sample, the data comes from the sklearn package.
 
 ```python
 # Create a project_folder if it doesn't exist
+if not os.path.isdir('data'):
+    os.mkdir('data')
+    
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-#Write the get_data file.
-%%writefile $project_folder/get_data.py
-
 from sklearn import datasets
+from azureml.core.dataset import Dataset
 from scipy import sparse
 import numpy as np
+import pandas as pd
 
-def get_data():
+data_train = datasets.load_digits()
 
-    digits = datasets.load_digits()
-    X_digits = digits.data[10:,:]
-    y_digits = digits.target[10:]
+pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
 
-    return { "X" : X_digits, "y" : y_digits }
+ds = ws.get_default_datastore()
+ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
+
+X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
+y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
+
 ```
 
 ## Create run configuration
@@ -116,7 +117,6 @@ run_config.environment.python.conda_dependencies = dependencies
 See this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) for an additional example of this design pattern.
 
 ## Configure experiment
-
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
 
 ```python
@@ -140,7 +140,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              )
 ```
@@ -155,7 +156,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              model_explainability=True,
                              X_valid=X_test

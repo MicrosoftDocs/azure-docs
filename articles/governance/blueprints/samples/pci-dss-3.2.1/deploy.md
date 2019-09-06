@@ -126,7 +126,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|[Preview]: Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
+|\[Preview\] Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
 |Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
 |Allowed Locations for resource groups|Policy Assignment |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
 |Deploy Auditing on SQL servers|Policy Assignment|Retention days|Data rentention in number of days. Default value is 180 but PCI requires 365.| 
@@ -143,7 +143,7 @@ following articles to learn about the overview and control mapping:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

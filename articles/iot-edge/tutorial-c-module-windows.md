@@ -48,7 +48,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
-* [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
+* [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configured to run Windows containers.
 * Install the Azure IoT C SDK for Windows x64 through vcpkg:
 
    ```powershell
@@ -241,7 +241,7 @@ The default module code receives messages on an input queue and passes them alon
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
     {
         printf("\r\nTwin callback called with (state=%s, size=%zu):\r\n%s\r\n",
-            ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+            MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
         JSON_Value *root_value = json_parse_string(payLoad);
         JSON_Object *root_object = json_value_get_object(root_value);
         if (json_object_dotget_value(root_object, "desired.TemperatureThreshold") != NULL) {
@@ -263,12 +263,12 @@ The default module code receives messages on an input queue and passes them alon
        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else
        {

@@ -1,12 +1,12 @@
 ---
-title: Understand Azure Digital Twins API authentication | Microsoft Docs
+title: 'Understand Azure Digital Twins API authentication | Microsoft Docs'
 description: Use Azure Digital Twins to connect and authenticate to APIs
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
 ---
 

@@ -93,6 +93,7 @@
   - name: Bing Entity Search endpoint
     href: entity-search-endpoint.md
   - name: Analytics for Bing Entity Search API
-    href: bing-entity-stats.md
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

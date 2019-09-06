@@ -39,6 +39,8 @@ Learn how to use the Apache Ambari REST API to manage and monitor Apache Hadoop 
 
 Connecting to Ambari on HDInsight requires HTTPS. Use the admin account name (the default is **admin**) and password you provided during cluster creation.
 
+For Enterprise Security Package clusters, instead of `admin`, use a fully qualified username like `username@domain.onmicrosoft.com`.
+
 ## Examples
 
 ### Setup (Preserve credentials)

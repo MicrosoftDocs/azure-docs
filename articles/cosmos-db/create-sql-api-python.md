@@ -79,7 +79,7 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the `CosmosGetStarted.py` file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos account, in the left navigation select **Keys**. You'll use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the `CosmosGetStarted.py` file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
@@ -117,10 +117,10 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
     db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
-* A new collection is created.
+* A new container is created.
 
     ```python
-    # Create collection options
+    # Create container options
     options = {
         'offerThroughput': 400
     }
@@ -168,7 +168,7 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
    
 ## Run the app
 
-1. In Visual Studio Code, select **View**>**Command Palette**. 
+1. In Visual Studio Code, select **View** > **Command Palette**. 
 
 2. At the prompt, enter  **Python: Select Interpreter** and then select the version of Python to use.
 

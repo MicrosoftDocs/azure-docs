@@ -70,6 +70,8 @@
     href: backup-architecture.md
   - name: Role-Based Access Control
     href: backup-rbac-rs-vault.md
+  - name: Security for cloud workloads
+    href: backup-azure-security-feature-cloud.md
   - name: Security for hybrid backups
     href: backup-azure-security-feature.md
   - name: Configure offline-backup
@@ -114,6 +116,8 @@
         href: backup-mabs-system-state-and-bmr.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
+    - name: Restore VMware VMs with Azure Backup Server
+      href: restore-azure-backup-server-vmware.md
   - name: Azure Backup Server on Azure Stack
     items:
     - name: Install Azure Backup Server

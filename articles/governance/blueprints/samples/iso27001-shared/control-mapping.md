@@ -172,13 +172,13 @@ unencrypted Service Fabric communication.
 - \[Preview\]: Deploy VM extension to audit Windows VM should not store passwords using reversible
   encryption
 - \[Preview\]: Audit Windows VM should not store passwords using reversible encryption
-- \[Preview\]: Monitor unencrypted SQL database in Azure Security Center
 - \[Preview\]: Monitor unencrypted VM Disks in Azure Security Center
 - Audit enablement of encryption of Automation account variables
 - Audit enabling of only secure connections to your Redis Cache
 - Audit secure transfer to storage accounts
 - Audit the setting of ClusterProtectionLevel property to EncryptAndSign in Service Fabric
 - Audit transparent data encryption status
+- Transparent Data Encryption on SQL databases should be enabled
 
 ## A.12.4.1 Event logging
 
@@ -190,9 +190,9 @@ Diagnostic logs provide insight into operations that were performed within Azure
 - \[Preview\]: Audit Dependency Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Auditing should be enabled on advanced data security settings on SQL Server
 
 ## A.12.4.3 Administrator and operator logs
 
@@ -204,9 +204,9 @@ operations that were performed within Azure resources.
 - \[Preview\]: Audit Dependency Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Auditing should be enabled on advanced data security settings on SQL Server
 
 ## A.12.4.4 Clock synchronization
 
@@ -218,9 +218,9 @@ internal clocks to create a time-correlated record of events across resources.
 - \[Preview\]: Audit Dependency Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Auditing should be enabled on advanced data security settings on SQL Server
 
 ## A.12.5.1 Installation of software on operational systems
 
@@ -289,7 +289,7 @@ following articles to learn about the architecture and how to deploy this sample
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

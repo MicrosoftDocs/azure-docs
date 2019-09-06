@@ -7,16 +7,13 @@ author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
-
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-
 ---
 # Troubleshoot Cloud Service roles that fail to start
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.

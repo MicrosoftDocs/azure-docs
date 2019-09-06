@@ -24,8 +24,8 @@ ms.author: sngun
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -373,6 +373,10 @@ New features and functionality and optimizations are only added to the current S
 
 Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
+> [!WARNING]
+> All versions **1.x** of the .NET SDK for SQL API will be retired on **August 30, 2020**.
+> 
+>
 <br/>
 
 | Version | Release Date | Retirement Date |
@@ -390,52 +394,52 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 | [2.1.1](#2.1.1) |September 27, 2018 |--- |
 | [2.1.0](#2.1.0) |September 21, 2018 |--- |
 | [2.0.0](#2.0.0) |September 07, 2018 |--- |
-| [1.22.0](#1.22.0) |April 19, 2018 |--- |
-| [1.21.1](#1.20.1) |March 09, 2018 |--- |
-| [1.20.2](#1.20.1) |February 21, 2018 |--- |
-| [1.20.1](#1.20.1) |February 05, 2018 |--- |
-| [1.19.1](#1.19.1) |November 16, 2017 |--- |
-| [1.19.0](#1.19.0) |November 10, 2017 |--- |
-| [1.18.1](#1.18.1) |November 07, 2017 |--- |
-| [1.18.0](#1.18.0) |October 17, 2017 |--- |
-| [1.17.0](#1.17.0) |August 10, 2017 |--- |
-| [1.16.1](#1.16.1) |August 07, 2017 |--- |
-| [1.16.0](#1.16.0) |August 02, 2017 |--- |
-| [1.15.0](#1.15.0) |June 30, 2017 |--- |
-| [1.14.1](#1.14.1) |May 23, 2017 |--- |
-| [1.14.0](#1.14.0) |May 10, 2017 |--- |
-| [1.13.4](#1.13.4) |May 09, 2017 |--- |
-| [1.13.3](#1.13.3) |May 06, 2017 |--- |
-| [1.13.2](#1.13.2) |April 19, 2017 |--- |
-| [1.13.1](#1.13.1) |March 29, 2017 |--- |
-| [1.13.0](#1.13.0) |March 24, 2017 |--- |
-| [1.12.2](#1.12.2) |March 20, 2017 |--- |
-| [1.12.1](#1.12.1) |March 14, 2017 |--- |
-| [1.12.0](#1.12.0) |February 15, 2017 |--- |
-| [1.11.4](#1.11.4) |February 06, 2017 |--- |
-| [1.11.3](#1.11.3) |January 26, 2017 |--- |
-| [1.11.1](#1.11.1) |December 21, 2016 |--- |
-| [1.11.0](#1.11.0) |December 08, 2016 |--- |
-| [1.10.0](#1.10.0) |September 27, 2016 |--- |
-| [1.9.5](#1.9.5) |September 01, 2016 |--- |
-| [1.9.4](#1.9.4) |August 24, 2016 |--- |
-| [1.9.3](#1.9.3) |August 15, 2016 |--- |
-| [1.9.2](#1.9.2) |July 23, 2016 |--- |
-| [1.8.0](#1.8.0) |June 14, 2016 |--- |
-| [1.7.1](#1.7.1) |May 06, 2016 |--- |
-| [1.7.0](#1.7.0) |April 26, 2016 |--- |
-| [1.6.3](#1.6.3) |April 08, 2016 |--- |
-| [1.6.2](#1.6.2) |March 29, 2016 |--- |
-| [1.5.3](#1.5.3) |February 19, 2016 |--- |
-| [1.5.2](#1.5.2) |December 14, 2015 |--- |
-| [1.5.1](#1.5.1) |November 23, 2015 |--- |
-| [1.5.0](#1.5.0) |October 05, 2015 |--- |
-| [1.4.1](#1.4.1) |August 25, 2015 |--- |
-| [1.4.0](#1.4.0) |August 13, 2015 |--- |
-| [1.3.0](#1.3.0) |August 05, 2015 |--- |
-| [1.2.0](#1.2.0) |July 06, 2015 |--- |
-| [1.1.0](#1.1.0) |April 30, 2015 |--- |
-| [1.0.0](#1.0.0) |April 08, 2015 |--- |
+| [1.22.0](#1.22.0) |April 19, 2018 | August 30, 2020 |
+| [1.21.1](#1.20.1) |March 09, 2018 |August 30, 2020 |
+| [1.20.2](#1.20.1) |February 21, 2018 |August 30, 2020 |
+| [1.20.1](#1.20.1) |February 05, 2018 |August 30, 2020 |
+| [1.19.1](#1.19.1) |November 16, 2017 |August 30, 2020 |
+| [1.19.0](#1.19.0) |November 10, 2017 |August 30, 2020 |
+| [1.18.1](#1.18.1) |November 07, 2017 |August 30, 2020 |
+| [1.18.0](#1.18.0) |October 17, 2017 |August 30, 2020 |
+| [1.17.0](#1.17.0) |August 10, 2017 |August 30, 2020 |
+| [1.16.1](#1.16.1) |August 07, 2017 |August 30, 2020 |
+| [1.16.0](#1.16.0) |August 02, 2017 |August 30, 2020 |
+| [1.15.0](#1.15.0) |June 30, 2017 |August 30, 2020 |
+| [1.14.1](#1.14.1) |May 23, 2017 |August 30, 2020 |
+| [1.14.0](#1.14.0) |May 10, 2017 |August 30, 2020 |
+| [1.13.4](#1.13.4) |May 09, 2017 |August 30, 2020 |
+| [1.13.3](#1.13.3) |May 06, 2017 |August 30, 2020 |
+| [1.13.2](#1.13.2) |April 19, 2017 |August 30, 2020 |
+| [1.13.1](#1.13.1) |March 29, 2017 |August 30, 2020 |
+| [1.13.0](#1.13.0) |March 24, 2017 |August 30, 2020 |
+| [1.12.2](#1.12.2) |March 20, 2017 |August 30, 2020 |
+| [1.12.1](#1.12.1) |March 14, 2017 |August 30, 2020 |
+| [1.12.0](#1.12.0) |February 15, 2017 |August 30, 2020 |
+| [1.11.4](#1.11.4) |February 06, 2017 |August 30, 2020 |
+| [1.11.3](#1.11.3) |January 26, 2017 |August 30, 2020 |
+| [1.11.1](#1.11.1) |December 21, 2016 |August 30, 2020 |
+| [1.11.0](#1.11.0) |December 08, 2016 |August 30, 2020 |
+| [1.10.0](#1.10.0) |September 27, 2016 |August 30, 2020 |
+| [1.9.5](#1.9.5) |September 01, 2016 |August 30, 2020 |
+| [1.9.4](#1.9.4) |August 24, 2016 |August 30, 2020 |
+| [1.9.3](#1.9.3) |August 15, 2016 |August 30, 2020 |
+| [1.9.2](#1.9.2) |July 23, 2016 |August 30, 2020 |
+| [1.8.0](#1.8.0) |June 14, 2016 |August 30, 2020 |
+| [1.7.1](#1.7.1) |May 06, 2016 |August 30, 2020 |
+| [1.7.0](#1.7.0) |April 26, 2016 |August 30, 2020 |
+| [1.6.3](#1.6.3) |April 08, 2016 |August 30, 2020 |
+| [1.6.2](#1.6.2) |March 29, 2016 |August 30, 2020 |
+| [1.5.3](#1.5.3) |February 19, 2016 |August 30, 2020 |
+| [1.5.2](#1.5.2) |December 14, 2015 |August 30, 2020 |
+| [1.5.1](#1.5.1) |November 23, 2015 |August 30, 2020 |
+| [1.5.0](#1.5.0) |October 05, 2015 |August 30, 2020 |
+| [1.4.1](#1.4.1) |August 25, 2015 |August 30, 2020 |
+| [1.4.0](#1.4.0) |August 13, 2015 |August 30, 2020 |
+| [1.3.0](#1.3.0) |August 05, 2015 |August 30, 2020 |
+| [1.2.0](#1.2.0) |July 06, 2015 |August 30, 2020 |
+| [1.1.0](#1.1.0) |April 30, 2015 |August 30, 2020 |
+| [1.0.0](#1.0.0) |April 08, 2015 | August 30, 2020 |
 
 
 ## FAQ

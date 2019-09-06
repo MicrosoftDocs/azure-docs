@@ -5,7 +5,7 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/01/2019
 
 ---
 
@@ -35,7 +35,7 @@ The following is a good guidance for choosing a partition key:
 
 * A single logical partition has an upper limit of 10 GB of storage.  
 
-* Azure Cosmos containers have a minimum throughput of 400 request units per second (RU/s). Requests to the same partition key can't exceed the throughput that's allocated to a partition. If requests exceed the allocated throughput, requests are rate-limited. So, it's important to pick a partition key that doesn't result in "hot spots" within your application.
+* Azure Cosmos containers have a minimum throughput of 400 request units per second (RU/s). When throughput is provisioned on a database, minimum RUs per container is 100 request units per second (RU/s). Requests to the same partition key can't exceed the throughput that's allocated to a partition. If requests exceed the allocated throughput, requests are rate-limited. So, it's important to pick a partition key that doesn't result in "hot spots" within your application.
 
 * Choose a partition key that has a wide range of values and access patterns that are evenly spread across logical partitions. This helps spread the data and the activity in your container across the set of logical partitions, so that resources for data storage and throughput can be distributed across the logical partitions.
 

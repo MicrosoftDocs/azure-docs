@@ -2,12 +2,12 @@
 title: What can Azure Backup Server back up
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
 
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 keywords:
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
 ---
 
@@ -26,6 +26,7 @@ This article lists the various servers and workloads that you can protect with A
 |Client computers (64-bit and 32-bit)|Windows 8|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)|Y|Y|Volume, share, folder, files, deduped volumes<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. Azure Backup Server uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
 |Client computers (64-bit and 32-bit)|Windows 7|Physical server<br /><br />On-premises Hyper-V virtual machine|Y|Y|Volume, share, folder, files, deduped volumes<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. Azure Backup Server uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
 |Client computers (64-bit and 32-bit)|Windows 7|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)|Y|Y|Volume, share, folder, files, deduped volumes<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. Azure Backup Server uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
+|Servers (64-bit)|Windows Server 2019|Azure virtual machine (when workload is running as Azure virtual machine)<br /><br />Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /><br />Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|Y<br /><br />Not Nano server|N<br /><br />Not Nano server|Volume, share, folder, file, system state/bare metal), deduped volumes|
 |Servers (32-bit and 64-bit)|Windows Server 2016|Azure virtual machine (when workload is running as Azure virtual machine)<br /><br />Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /><br />Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|Y<br /><br />Not Nano server|Y<br /><br />Not Nano server|Volume, share, folder, file, system state/bare metal), deduped volumes|
 |Servers (32-bit and 64-bit)|Windows Server 2012 R2 - Datacenter and Standard|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|Y|Y|Volume, share, folder, file<br /><br />Azure Backup Server must be running on at least Windows Server 2012 R2 to protect Windows Server 2012 deduped volumes.|
 |Servers (32-bit and 64-bit)|Windows Server 2012 R2 - Datacenter and Standard|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|Y|Y|Volume, share, folder, file, system state/bare metal)<br /><br />Azure Backup Server must be running on Windows Server 2012 or 2012 R2 to protect Windows Server 2012 deduped volumes.|
@@ -69,6 +70,7 @@ This article lists the various servers and workloads that you can protect with A
 |SharePoint|SharePoint 2010|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|Y|Y|Protect (all deployment scenarios): Farm, SharePoint search, frontend web server content<br /><br />Recover (all deployment scenarios): Farm, database, web application, file or list item, SharePoint search, frontend web server|
 |SharePoint|SharePoint 2010|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|Y|Y|Protect (all deployment scenarios): Farm, SharePoint search, frontend web server content<br /><br />Recover (all deployment scenarios): Farm, database, web application, file or list item, SharePoint search, frontend web server|
 |SharePoint|SharePoint 2010|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|Y|Y|Protect (all deployment scenarios): Farm, SharePoint search, frontend web server content<br /><br />Recover (all deployment scenarios): Farm, database, web application, file or list item, SharePoint search, frontend web server|
+|Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2019|Physical server<br /><br />On-premises Hyper-V virtual machine|Y|N|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2016|Physical server<br /><br />On-premises Hyper-V virtual machine|Y|Y|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2012 R2 - Datacenter and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|Y|Y|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2012 - Datacenter and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|Y|Y|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|

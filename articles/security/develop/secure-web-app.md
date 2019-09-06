@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security
+ms.subservice: security-develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -46,16 +47,16 @@ The app is a typical n-tier application with three tiers. The front end, back en
 
 The architecture consists of these components:
 
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the gateway and firewall for our application architecture.
-- [Azure Web Apps on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Provides the container runtime to run the Python app in a Linux environment.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
+- [Azure Application Gateway](../../application-gateway/index.yml). Provides the gateway and firewall for our application architecture.
+- [Azure Web Apps on Linux](../../app-service/containers/app-service-linux-intro.md). Provides the container runtime to run the Python app in a Linux environment.
+- [Azure Key Vault](../../key-vault/index.yml). Stores and encrypts our app's secrets and manages the creation of access policies around them.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). Securely stores our app's data.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) and [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Provides monitoring and alerts on the operation of our app.
+- [Azure Security Center](../../security-center/index.yml) and [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Provides monitoring and alerts on the operation of our app.
 
 ## Threat model
 Threat modeling is the process of identifying potential security threats to your business and application and then ensuring that a proper mitigation plan is in place.
 
-This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. This saves time and money later.
+This sample used the [Microsoft Threat Modeling Tool](threat-modeling-tool.md) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. This saves time and money later.
 
 This is the threat model for the sample app:
 
@@ -132,7 +133,7 @@ To get the application up and running, you need to install these tools:
 - [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
 - [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
 
-You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/free/) to test the sample app.
+You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/) to test the sample app.
 
 After installing these tools, you’re ready to deploy the app on Azure.
 
@@ -343,19 +344,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 A root certificate is included in the container. The steps taken to obtain the certificate are:
 
 1. Download the certificate file from the [Certificate Authority](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
+2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 3. Decode your certificate file:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security).
+Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 #### Deploy Azure Web Apps on Linux
 You can easily build Linux services on top of Azure App Service as Azure provides a set of prebuilt containers and images for widely used languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.

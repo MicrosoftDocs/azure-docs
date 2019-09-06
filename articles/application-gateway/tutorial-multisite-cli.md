@@ -223,7 +223,7 @@ The use of A-records is not recommended because the VIP may change when the appl
 
 ## Test the application gateway
 
-Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+Enter your domain name into the address bar of your browser. Such as, http\://www.contoso.com.
 
 ![Test contoso site in application gateway](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

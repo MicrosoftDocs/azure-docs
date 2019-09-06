@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/18/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -70,7 +70,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |Language Understanding [Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 |Cognitive Service [Subscription][pricing] - S0 - Standard tier|invalid|50/second|Querying your LUIS endpoint|
 |[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
-|Speech integration|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
+|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
 
 ## Keyboard controls
 
@@ -78,7 +78,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |--|--|
 |Control+E|switches between tokens and entities on utterances list|
 
-## Website sign in time period
+## Website sign-in time period
 
 Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to sign in again.
 

@@ -1,12 +1,10 @@
 ---
 title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store) 
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
@@ -28,11 +26,11 @@ Once a security group is assigned permissions, adding or removing users from the
 
 ### Security for groups
 
-When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the file system, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
+When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the container, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
 
 ### Security for service principals
 
-Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 file system. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
+Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 container. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
 
 ### Enable the Data Lake Storage Gen2 firewall with Azure service access
 
@@ -46,7 +44,7 @@ When architecting a system with Data Lake Storage Gen2 or any cloud service, you
 
 ### High availability and disaster recovery
 
-High availability (HA) and disaster recovery (DR) can sometimes be combined together, although each has a slightly different strategy, especially when it comes to data. Data Lake Storage Gen2 already handles 3x replication under the hood to guard against localized hardware failures. Additionally, other replication options, such as ZRS improve HA while GRS & RA-GRS improve DR. When building a plan for HA, in the event of a service interruption the workload needs access to the latest data as quickly as possible by switching over to a separately replicated instance locally or in a new region.
+High availability (HA) and disaster recovery (DR) can sometimes be combined together, although each has a slightly different strategy, especially when it comes to data. Data Lake Storage Gen2 already handles 3x replication under the hood to guard against localized hardware failures. Additionally, other replication options, such as ZRS or GZRS (preview), improve HA, while GRS & RA-GRS improve DR. When building a plan for HA, in the event of a service interruption the workload needs access to the latest data as quickly as possible by switching over to a separately replicated instance locally or in a new region.
 
 In a DR strategy, to prepare for the unlikely event of a catastrophic failure of a region, it is also important to have data replicated to a different region using GRS or RA-GRS replication. You must also consider your requirements for edge cases such as data corruption where you may want to create periodic snapshots to fall back to. Depending on the importance and size of the data, consider rolling delta snapshots of 1-, 6-, and 24-hour periods, according to risk tolerances.
 

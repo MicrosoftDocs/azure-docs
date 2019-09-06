@@ -5,7 +5,7 @@
  author: laurenhughes
  ms.service: multiple
  ms.topic: include
- ms.date: 04/11/2019
+ ms.date: 08/15/2019
  ms.author: lahugh
  ms.custom: include file
 ---
@@ -35,6 +35,16 @@ The basic tier sizes are primarily for development workloads and other applicati
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
 
 <br>
+
+### Standard A0 - A4 using CLI and PowerShell
+
+In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
+
+* Standard_A0 is ExtraSmall
+* Standard_A1 is Small
+* Standard_A2 is Medium
+* Standard_A3 is Large
+* Standard_A4 is ExtraLarge
 
 ### A-series  
 
@@ -168,6 +178,29 @@ Premium Storage caching:  Supported
 <sup>2</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
+
+### Ls-series
+
+The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.
+
+The Ls-series does not support the creation of a local cache to increase the IOPS achievable by durable data disks. The high throughput and IOPS of the local disk makes Ls-series VMs ideal for NoSQL stores such as Apache Cassandra and MongoDB which replicate data across multiple VMs to achieve persistence in the event of the failure of a single VM.
+
+ACU: 180-240
+
+Premium Storage:  Supported
+
+Premium Storage caching:  Not Supported
+ 
+| Size          | vCPU | Memory (GiB) | Temp storage (GiB) | Max data disks | Max temp storage throughput (IOPS / MBps) | Max uncached disk throughput (IOPS / MBps) | Max NICs / Expected network bandwidth (Mbps) | 
+|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20000 / 200 | 5000 / 125  | 2 / 4000  | 
+| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000 / 400 | 10000 / 250 | 4 / 8000  | 
+| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000 / 800 | 20000 / 500 | 8 / 16000 | 
+| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000 / 1600   | 40000 / 1000     | 8 / 20000 | 
+
+The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Designing for high performance](../articles/virtual-machines/windows/premium-storage-performance.md).
+
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 
 ### GS-series 
 

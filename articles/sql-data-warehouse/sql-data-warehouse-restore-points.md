@@ -56,7 +56,7 @@ User-defined restore points can also be created through Azure portal.
 
 1. Sign in to your [Azure portal][Azure portal] account.
 
-2. Navigate to the SQL data warehouse that you want to create a restore point for.
+2. Navigate to the SQL Data Warehouse that you want to create a restore point for.
 
 3. Select **Overview** from the left pane, select **+ New Restore Point**. If the New Restore Point button isn't enabled, make sure that the data warehouse isn't paused.
 

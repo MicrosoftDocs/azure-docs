@@ -3,13 +3,13 @@ title: Configure settings - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
+ms.author: diberry
 #Customer intent: 
 ---
 
@@ -82,6 +82,7 @@ From the Resource management's section for **Model and Policy**, review model cr
 ## Import and export learning policy
 
 From the Resource management's section for **Model and Policy**, import a new learning policy or export the current learning policy.
+You can get learning policy files from previous exports, or downloading the optimized policies discovered during Offline Evaluations. Making manual changes to these files will affect machine learning performance and accuracy of offline evaluations, and Microsoft cannot vouch for the accuracy of machine learning and evaluations, or service exceptions resulting from manually edited policies.
 
 ## Next steps
 

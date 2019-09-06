@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: magoedte
 ---
 
@@ -28,7 +28,10 @@ To set up Azure Monitor for VMs:
 
 ## Prerequisites
 
-Before you start, make sure that you understand the information in the following sections.
+Before you start, make sure that you understand the information in the following sections. 
+
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
 ### Log Analytics
 
@@ -41,8 +44,8 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - UK South
 - West Europe
 - Southeast Asia
-- Australia East
-- Australia Southeast
+- Australia East<sup>1</sup>
+- Australia Southeast<sup>1</sup>
 
 <sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.
 
@@ -79,7 +82,11 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | X |
 |Windows Server 2012 | X | X | |
-|Windows Server 2008 R2 | X | X| |
+|Windows Server 2008 R2 | X | X|  |
+|Windows 10 1803 | X | X | |
+|Windows 8.1 | X | X | |
+|Windows 8 | X | X | |
+|Windows 7 SP1 | X | X | |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux 6, 7 | X | X | X |
@@ -144,6 +151,9 @@ The Map feature in Azure Monitor for VMs gets its data from the Microsoft Depend
 
 Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension to install the agent as part of the experience.
 
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
+
 In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
@@ -158,8 +168,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## Role-based access control
 

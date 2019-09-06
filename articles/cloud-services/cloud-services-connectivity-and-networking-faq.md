@@ -7,16 +7,13 @@ author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
-
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-
 ---
 # Connectivity and networking issues for Azure Cloud Services: Frequently asked questions (FAQs)
 

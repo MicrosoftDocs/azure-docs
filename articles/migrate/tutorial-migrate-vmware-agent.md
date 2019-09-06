@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -51,7 +51,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 To decide whether you want to use agentless or agent-based migration, review these articles:
 
 - [Learn about](server-migrate-overview.md) the VMware migration options.
-- [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
+- [Compare migration methods](server-migrate-overview.md#compare-migration-methods).
 - [Follow this article](tutorial-migrate-vmware.md) to try out agentless migration.
 
 
@@ -301,6 +301,11 @@ After the replication appliance is registered, Azure Migrate Server Assessment c
 
 
 ## Replicate VMs
+
+Now, select VMs for migration.
+
+> [!NOTE]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 

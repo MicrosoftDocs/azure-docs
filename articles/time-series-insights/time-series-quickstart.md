@@ -10,22 +10,24 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
+ms.date: 07/29/2019
+# Customer intent: As a data analyst or developer, I want to quickly learn about the Time Series insights visualization explorer.
 ---
 
 # Quickstart: Explore Azure Time Series Insights
 
-This Azure Time Series Insights explorer quickstart helps you get started with Time Series Insights in a free demonstration environment. Through it, you learn how to use your web browser to visualize large volumes of IoT data and tour key features that are generally available now.
+This Azure Time Series Insights explorer quickstart helps you get started with Time Series Insights in a free demonstration environment. In this quickstart, you learn how to use your web browser to visualize large volumes of IoT data and tour key features that are generally available now.
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data so that you can quickly validate your IoT solution and avoid costly downtime to mission-critical devices. Azure Time Series Insights helps you to discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
 For additional flexibility, you can add Azure Time Series Insights to a preexisting application through its powerful [REST APIs](./time-series-insights-update-tsq.md) and [client SDK](./tutorial-create-tsi-sample-spa.md). You can use the APIs to store, query, and consume time series data in a client application of your choice. You also can use the client SDK to add UI components to your existing application.
 
-This Time Series Insights explorer quickstart offers a guided tour of features that are generally available now.
+This Time Series Insights explorer quickstart offers a guided tour of features that are in general availability.
+
+> [!IMPORTANT]
+> Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you haven't created one already.
 
 ## Prepare the demo environment
-
-1. Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you haven't created one already.
 
 1. In your browser, go to the [general availability demo](https://insights.timeseries.azure.com/demo).
 
@@ -74,6 +76,13 @@ This Time Series Insights explorer quickstart offers a guided tour of features t
    [![Filter series](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 After you finish the quickstart, you can experiment with the sample data set to create different visualizations.
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 

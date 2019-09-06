@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 
 ms.author: mimart
 author: msmimart
@@ -43,7 +43,7 @@ With direct federation, guest users sign into your Azure AD tenant using their o
 ## Limitations
 
 ### DNS-verified domains in Azure AD
-Direct federation is allowed only for domains that are ***not*** DNS-verified in Azure AD. Direct federation is allowed for unmanaged (email-verified or "viral") Azure AD tenants because they aren't DNS-verified.
+The domain you want to federate with must ***not*** be DNS-verified in Azure AD. You're allowed to set up direct federation with unmanaged (email-verified or "viral") Azure AD tenants because they aren't DNS-verified.
 ### Authentication URL
 Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
 -	accounts.google.com
@@ -63,7 +63,7 @@ If you specify the metadata URL in the identity provider settings, Azure AD will
 Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
 ## Frequently asked questions
 ### Can I set up direct federation with a domain for which an unmanaged (email-verified) tenant exists? 
-Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains. If you try to set up direct federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
+Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains. If you try to set up direct federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
 ### If direct federation and email one-time passcode authentication are both enabled, which method takes precedence?
 When direct federation is established with a partner organization, it takes precedence over email one-time passcode authentication for new guest users from that organization. If a guest user redeemed an invitation using one-time passcode authentication before you set up direct federation, they'll continue to use one-time passcode authentication. 
 ### Does direct federation address sign-in issues due to a partially synced tenancy?

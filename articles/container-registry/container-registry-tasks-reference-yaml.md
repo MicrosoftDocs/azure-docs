@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: danlep
 ---
 
@@ -93,7 +93,7 @@ The secret object has the following properties.
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | No | The identifier of the secret. | None |
 | `keyvault` | string | Yes | The Azure Key Vault Secret URL. | None |
-| `clientID` | string | Yes | The client ID of the user-assigned managed identity for Azure resources. | None |
+| `clientID` | string | Yes | The client ID of the [user-assigned managed identity](container-registry-tasks-authentication-managed-identity.md) for Azure resources. | None |
 
 ### network
 
@@ -377,7 +377,7 @@ Each step type supports several properties appropriate for its type. The followi
 | `repeat` | int | Yes | The number of retries to repeat the execution of a container. | 0 |
 | `retries` | int | Yes | The number of retries to attempt if a container fails its execution. A retry is only attempted if a container's exit code is non-zero. | 0 |
 | `retryDelay` | int (seconds) | Yes | The delay in seconds between retries of a container's execution. | 0 |
-| `secret` | object | Yes | Identifies an Azure Key Vault secret or managed identity for Azure resources. | None |
+| `secret` | object | Yes | Identifies an Azure Key Vault secret or [managed identity for Azure resources](container-registry-tasks-authentication-managed-identity.md). | None |
 | `startDelay` | int (seconds) | Yes | Number of seconds to delay a container's execution. | 0 |
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |

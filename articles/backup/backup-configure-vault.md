@@ -2,12 +2,12 @@
 title: Back up Windows machines with the Azure Backup MARS agent
 description: Use the Azure Backup Microsoft Recovery Services (MARS) agent to back up Windows machines.
 
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 
 # Back up Windows machines with the Azure Backup MARS agent
@@ -27,7 +27,7 @@ In this article you learn how to:
 The MARS agent is used by Azure Backup to back up files, folders, and system state from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. You can run the agent as follows:
 
 - Run the agent directly on on-premises Windows machines so that they can back up directly to a backup Recovery Services vault in Azure.
-- Run the agent Azure VMs running Windows (side-by-side with the Azure VM backup extension) to back up specific files and folders on the VM.
+- Run the agent on Azure VMs running Windows (side-by-side with the Azure VM backup extension) to back up specific files and folders on the VM.
 - Run the agent on a Microsoft Azure Backup Server (MABS) or a System Center Data Protection - Manager (DPM) server. In this scenario, machines and workloads back up to MABS/DPM, and then MABS/DPM backs up to a vault in Azure using the MARS agent.
 What you can back up depends on where the agent is installed.
 

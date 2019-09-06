@@ -1,13 +1,10 @@
 ---
 title: Changes made to a MVC project when you connect to Azure AD
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
-services: active-directory
-ms.service: active-directory
-ms.subservice: develop
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual

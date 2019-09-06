@@ -3,7 +3,7 @@ title: Introduction to the built-in operational analytics in Azure Cosmos DB wit
 description: Learn how you can use the built-in support for Apache Spark in Azure Cosmos DB to run operational analytics and AI
 ms.service: cosmos-db
 ms.topic: overview 
-ms.date: 05/23/2019
+ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
 ---

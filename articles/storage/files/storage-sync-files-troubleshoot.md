@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
-services: storage
 author: jeffpatt24
 ms.service: storage
-ms.topic: article
-ms.date: 07/24/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -79,7 +78,7 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 
 ## Sync group management
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
-This issue occurs if the Azure file share is already in use by another cloud endpoint. 
+This error occurs if the Azure file share is already in use by another cloud endpoint. 
 
 If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
 
@@ -91,7 +90,7 @@ If you see this message and the Azure file share currently is not in use by a cl
 3. Right-click **SyncService**, and then select **Delete**.
 
 <a id="cloud-endpoint-authfailed"></a>**Cloud endpoint creation fails, with this error: "AuthorizationFailed"**  
-This issue occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
+This error occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
 
 To create a cloud endpoint, your user account must have the following Microsoft Authorization permissions:  
 * Read: Get role definition
@@ -112,11 +111,30 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**  
-This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
+<a id="-2134375898"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898 or 0x80c80226)**  
+This error occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
-<a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired" (Error code: -2134347757)**  
-This issue occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+<a id="-2147024894"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2147024894 or 0x80070002)**  
+This error occurs if the server endpoint path specified is not valid. Verify the server endpoint path specified is a locally attached NTFS volume. Note, Azure File Sync does not support mapped drives as a server endpoint path.
+
+<a id="-2134347507"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134347507 or 0x80c8710d)**  
+This error occurs because Azure File Sync does not support server endpoints on volumes which have a compressed System Volume Information folder. To resolve this issue, decompress the System Volume Information folder. If the System Volume Information folder is the only folder compressed on the volume, perform the following steps:
+
+1. Download [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) tool.
+2. Run the following command from an elevated command prompt to launch a command prompt running under the system account: **PsExec.exe -i -s -d cmd**
+3. From the command prompt running under the system account, type the following commands and hit enter:   
+	**cd /d "drive letter:\System Volume Information"**  
+	**compact /u /s**
+
+<a id="-2134376345"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134376345 or 0x80C80067)**  
+This error occurs if the server endpoints per server limit is reached. Azure File Sync currently supports up to 30 server endpoints per server. For more information, see 
+[Azure File Sync scale targets](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-sync-scale-targets).
+
+<a id="-2134376427"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134376427 or 0x80c80015)**  
+This error occurs if another server endpoint is already syncing the server endpoint path specified. Azure File Sync does not support multiple server endpoints syncing the same directory or volume.
+
+<a id="-2134347757"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired" (Error code: -2134347757 or 0x80c87013)**  
+This error occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**  
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
@@ -267,9 +285,10 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | The file is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file has a delete pending state. | No action required. File will be deleted once all open file handles are closed. |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | The file cannot be synced because the firewall and virtual network settings on the storage account are enabled and the server does not have access to the storage account. | Add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide. |
+| 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | The file cannot be synced because the security descriptor size exceeds the 64 KiB limit. | To resolve this issue, remove access control entries (ACE) on the file to reduce the security descriptor size. |
+| 0x8000ffff | -2147418113 | E_UNEXPECTED | The file cannot be synced due to an unexpected error. | If the error persists for several days, please open a support case. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | The file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file was changed during sync, so it needs to be synced again. | No action required. |
-
 
 #### Handling unsupported characters
 If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b or 0x80c80255), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported.
@@ -316,7 +335,7 @@ Sync sessions may fail for various reasons including the server being restarted 
 | **Error string** | ECS_E_USER_REQUEST_THROTTLED |
 | **Remediation required** | No |
 
-No action is required; the server will try again. If this error persists for longer than a couple hours, create a support request.
+No action is required; the server will try again. If this error persists for several hours, create a support request.
 
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
@@ -329,21 +348,32 @@ No action is required; the server will try again. If this error persists for lon
 
 No action is required. When a file or file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
 
+<a id="-2147216747"></a>**Sync failed because the sync database was unloaded.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80041295 |
+| **HRESULT (decimal)** | -2147216747 |
+| **Error string** | SYNC_E_METADATA_INVALID_OPERATION |
+| **Remediation required** | No |
+
+This error typically occurs when a backup application creates a VSS snapshot and the sync database is unloaded. If this error persists for several hours, create a support request.
+
 <a id="-2134364065"></a>**Sync can't access the Azure file share specified in the cloud endpoint.**  
 
 | | |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
-| **Error string** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
+| **Error string** | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED |
 | **Remediation required** | Yes |
 
 This error occurs because the Azure File Sync agent cannot access the Azure file share, which may be because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
-3. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
-4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
+2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
+3. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
+4. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
 
@@ -509,23 +539,62 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error can be caused by:
+This error typically occurs because the server time is incorrect. If the server is running in a virtual machine, verify the time on the host is correct.
 
-- Server time is incorrect
-- Server endpoint deletion failed
-- Certificate used for authentication is expired. 
-	To check if the certificate is expired, perform the following steps:  
-	1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
-	2. Check if the client authentication certificate is expired.
+<a id="-2134364040"></a>**Sync failed due to certificate expiration.**  
 
-If the server time is correct, perform the following steps to resolve the issue:
+| | |
+|-|-|
+| **HRESULT** | 0x80c83078 |
+| **HRESULT (decimal)** | -2134364040 |
+| **Error string** | ECS_E_AUTH_SRV_CERT_EXPIRED |
+| **Remediation required** | Yes |
+
+This error occurs because the certificate used for authentication is expired.
+
+To confirm the certificate is expired, perform the following steps:  
+1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
+2. Check if the client authentication certificate is expired.
+
+If the client authentication certificate is expired, perform the following steps to resolve the issue:
 
 1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell commands on the server:
+2. Run the following PowerShell command on the server:
 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
+
+<a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c80228 |
+| **HRESULT (decimal)** | -2134375896 |
+| **Error string** | ECS_E_AUTH_SRV_CERT_NOT_FOUND |
+| **Remediation required** | Yes |
+
+This error occurs because the certificate used for authentication is not found.
+
+To resolve this issue, perform the following steps:
+
+1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+2. Run the following PowerShell command on the server:
+
+    ```powershell
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+    ```
+
+<a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83079 |
+| **HRESULT (decimal)** | -2134364039 |
+| **Error string** | ECS_E_AUTH_IDENTITY_NOT_FOUND |
+| **Remediation required** | Yes |
+
+This error occurs because the server endpoint deletion failed and the endpoint is now in a partially deleted state. To resolve this issue, retry deleting the server endpoint.
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 
@@ -561,7 +630,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (decimal)** | -2134364145 |
+| **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
@@ -611,7 +680,18 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 | **Error string** | ECS_E_SERVICE_UNAVAILABLE |
 | **Remediation required** | No |
 
-This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
+This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service is available again.
+
+<a id="-2146233088"></a>**Sync failed due to an exception.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80131500 |
+| **HRESULT (decimal)** | -2146233088 |
+| **Error string** | COR_E_EXCEPTION |
+| **Remediation required** | No |
+
+This error occurs because sync failed due to an exception. If the error persists for several hours, please create a support request.
 
 <a id="-2134364045"></a>**Sync failed because the storage account has failed over to another region.**  
 
@@ -633,7 +713,7 @@ This error occurs because the storage account has failed over to another region.
 | **Error string** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Remediation required** | No |
 
-This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
+This error occurs because of an internal problem with the sync database. This error will auto-resolve when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
 <a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
 
@@ -680,6 +760,25 @@ To resolve this issue, perform the following steps:
 3. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: **cacls "drive letter:\system volume information" /T /C**
 4. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
 	- If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: **takeown /A /R /F "drive letter:\System Volume Information"**
+
+<a id="-2134375810"></a>**Sync failed because the Azure file share was deleted and recreated.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027e |
+| **HRESULT (decimal)** | -2134375810 |
+| **Error string** | ECS_E_SYNC_REPLICA_ROOT_CHANGED |
+| **Remediation required** | Yes |
+
+This error occurs because Azure File Sync does not support deleting and recreating an Azure file share in the same sync group. 
+
+To resolve this issue, delete and recreate the sync group by performing the following steps:
+
+1. Delete all server endpoints in the sync group.
+2. Delete the cloud endpoint. 
+3. Delete the sync group.
+4. If cloud tiering was enabled on a server endpoint, delete the orphaned tiered files on the server by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
+5. Recreate the sync group.
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  

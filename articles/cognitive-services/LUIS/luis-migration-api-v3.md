@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 07/22/2019
+ms.topic: conceptual
+ms.date: 07/30/2019
 ms.author: diberry
 ---
 
@@ -146,7 +146,9 @@ The top JSON properties for V3 are:
 }
 ```
 
-The `normalizedQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 The `intents` object is an unordered list. Do not assume the first child in the `intents` corresponds to the `topIntent`. Instead, use the `topIntent` value to find the score:
 
@@ -158,7 +160,7 @@ const score = intents[topIntentName];
 The response JSON schema changes allow for:
 
 * Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
-* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **named** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
+* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **name** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
 * Data types, if determined, are respected. Numerics are no longer returned as strings.
 * Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
 
@@ -412,7 +414,7 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

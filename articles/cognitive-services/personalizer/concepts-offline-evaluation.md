@@ -3,13 +3,13 @@ title: Offline Evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Create feedback loop in this C# quickstart with the Personalizer service.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
+ms.author: diberry
 ---
 
 # Offline evaluation

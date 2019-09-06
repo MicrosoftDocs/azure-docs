@@ -116,6 +116,8 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
+    - name: Create an ACR with an AKS cluster (preview)
+      href: cluster-container-registry-integration.md
     - name: Create virtual nodes
       items:
       - name: Use the Azure CLI
@@ -157,7 +159,7 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
-    - name: Use a Standard Load Balancer (preview)
+    - name: Use a Standard Load Balancer
       href: load-balancer-standard.md
     - name: Use a static IP address
       href: static-ip.md
@@ -304,6 +306,10 @@
         href: istio-install.md
       - name: Intelligent routing and canary releases
         href: istio-scenario-routing.md
+    - name: Use Hashicorp Consul Connect
+      items:
+      - name: Install and configure
+        href: consul-install.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true

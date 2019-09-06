@@ -24,7 +24,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 ## Supported VM sizes
 
-Azure Disk Encryption is available on virtual machines that meet these minimum memory requirements:
+Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/). Azure Disk Encryption is available on other virtual machines that meet these minimum memory requirements:
 
 | Virtual Machine | Minimum memory requirement |
 |--|--|
@@ -177,7 +177,7 @@ The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resour
 
 
 ## Prerequisite workflow for Key Vault
-If you're already familiar with the Key Vault and Azure AD prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For more information on using the prerequisites script, see the [Encrypt a VM Quickstart](quick-encrypt-vm-powershell.md) and the [Azure Disk Encryption Appendix](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+If you're already familiar with the Key Vault and Azure AD prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For more information on using the prerequisites script, see the [Encrypt a VM Quickstart](azure-disk-encryption-linux-powershell-quickstart.md) and the [Azure Disk Encryption Appendix](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. If needed, create a resource group.
 2. Create a key vault. 

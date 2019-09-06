@@ -1,13 +1,13 @@
 ---
 title: Azure Monitor logs data model for Azure Backup
 description: This article talks about Azure Monitor logs data model details for Azure Backup data.
-
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
+ms.author: dacurwin
 ---
 # Log Analytics data model for Azure Backup data
 

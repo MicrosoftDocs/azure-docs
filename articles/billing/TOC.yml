@@ -71,6 +71,8 @@
         href: billing-prepay-app-service-isolated-stamp.md
       - name: Azure software plans
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: Renew reservations
+        href: billing-reservation-renew.md
     - name: How discount is applied
       items:
       - name: Reserved VM Instances
@@ -177,12 +179,14 @@
   items:
   - name: No subscriptions found
     href: billing-no-subscriptions-found.md
+  - name: Payment issues
+    href: billing-troubleshoot-azure-payment-issues.md
   - name: Declined card
-    href: https://support.microsoft.com/en-us/help/4042960
+    href: billing-troubleshoot-declined-card.md
   - name: Sign up issues
-    href: https://support.microsoft.com/en-us/help/4042959
-  - name: Sign in issues
-    href: https://support.microsoft.com/en-us/help/4042961
+    href: billing-troubleshoot-azure-sign-up.md
+  - name: Subscription sign-in issues
+    href: billing-troubleshoot-sign-in-issue.md
   - name: Enterprise cost view disabled
     href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
   - name: Contact support

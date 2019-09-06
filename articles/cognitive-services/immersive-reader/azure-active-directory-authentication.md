@@ -1,14 +1,14 @@
 ---
 title: "Azure Active Directory (Azure AD) authentication"
 titleSuffix: Azure Cognitive Services
-description: Reference for the Immersive Reader SDK
+description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ---
@@ -25,7 +25,7 @@ In the following sections, you will use either the Azure Cloud Shell environment
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. Next, [create an Immersive Reader resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain. 
+2. Next, [create an Immersive Reader resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain.
 
    >[!NOTE]
    > The Subdomain name is used in Immersive Reader SDK when launching the Reader with the launchAsync function.
@@ -33,7 +33,7 @@ In the following sections, you will use either the Azure Cloud Shell environment
    -SkuName can be F0 (Free tier) or S0 (Standard tier, also free during public preview). The S0 tier has a higher call rate limit and no monthly quota on the number of calls.
 
    -Location can be any of the following: `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast`, `northeurope`, `westeurope`
-   
+
    -CustomSubdomainName needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
 
 
@@ -59,7 +59,7 @@ In the following sections, you will use either the Azure Cloud Shell environment
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## Assign a role to a service principal
 
@@ -79,7 +79,7 @@ Now that you have a custom subdomain associated with your resource, you need to 
    $aadApp
    ```
 
-   Here we are capturing the newly created Azure AD app object into an **$aadApp** variable for use in the next step.   
+   Here we are capturing the newly created Azure AD app object into an **$aadApp** variable for use in the next step.
 
 2. Next, you need to [create a service principal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the Azure AD application.
 
@@ -124,11 +124,13 @@ In this example, your password is used to authenticate the service principal to 
    ```
 
    >[!NOTE]
-   > The Immersive Reader SDK uses the AccessToken property of the token, e.g. $token.AccessToken. See the SDK [reference](reference.md) and code [samples](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples) for details.
+   > The Immersive Reader SDK uses the AccessToken property of the token, e.g. $token.AccessToken. See the SDK [reference](reference.md) and code [samples](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) for details.
 
 Alternatively, the service principal can be authenticated with a certificate. In addition to a service principal, user principals are also supported by having permissions delegated through another Azure AD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring tokens.
 
 ## Next steps
 
-* View the [tutorial](./tutorial.md) to see what else you can do with the Immersive Reader SDK
-* Explore the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+* View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
+* View the [Swift tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)

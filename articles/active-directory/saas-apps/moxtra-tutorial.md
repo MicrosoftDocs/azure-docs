@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with Moxtra, perform the following steps:
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.moxtra.com/service/#login`
 
-5. Moxtra application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Moxtra application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 

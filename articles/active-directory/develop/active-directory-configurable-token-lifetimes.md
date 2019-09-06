@@ -13,10 +13,10 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/04/2019
+ms.topic: conceptual
+ms.date: 08/22/2019
 ms.author: ryanwi
-ms.custom: aaddev, annaba
+ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 
 ms.collection: M365-identity-device-management
@@ -78,15 +78,15 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 ### Configurable token lifetime properties
 | Property | Policy property string | Affects | Default | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime<sup>4</sup> |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
+| Access Token Lifetime |AccessTokenLifetime<sup>2</sup> |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 | Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor<sup>2</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor<sup>3</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
+| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
-* <sup>4</sup>To make the Microsoft Teams Web client works, it is recommended to set AccessTokenLifetime to greater than 15 minutes for the Microsoft Teams.
+* <sup>2</sup>To make the Microsoft Teams Web client works, it is recommended to set AccessTokenLifetime to greater than 15 minutes for the Microsoft Teams.
 
 ### Exceptions
 | Property | Affects | Default |

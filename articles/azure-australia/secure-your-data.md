@@ -54,7 +54,7 @@ Azure implements network access control and segregation through layer 2 VLAN iso
 
 Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
 
-For more information on isolation in Microsoft Azure, see the [Isolation in the Azure Public Cloud](../security/azure-isolation.md).
+For more information on isolation in Microsoft Azure, see the [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md).
 
 ## Next steps
 

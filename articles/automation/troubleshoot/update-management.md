@@ -17,6 +17,42 @@ There is an agent troubleshooter for Hybrid Worker agent to determine the underl
 
 ## General
 
+### <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
+
+#### Issue
+
+You may receive the following error when working with solutions in your Automation account.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### Cause
+
+The Automation Resource Provider is not registered in the subscription.
+
+#### Resolution
+
+You can register the Automation Resource Providers by completing the following steps in the Azure portal:
+
+1. Click **All services** at the bottom Azure service list, then select **Subscriptions** in the _General_ service group.
+2. Select your subscription.
+3. Click **Resource Providers** under _Settings_.
+4. From the list of the Resource providers, verify for **Microsoft.Automation** resource provider is registered.
+5. If the provider is not listed, register the **Microsoft.Automation** provider with the steps listed under [](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+
+### <a name="mw-exceeded"></a>Scenario: The update management scheduled failed with the error MaintenanceWindowExceeded
+
+#### Issue
+
+The default maintenance window for updates, is 120 minutes. You can increase the maintenance window to a maximum of six (6) hours, or 360 minutes.
+
+#### Resolution
+
+Edit any failing scheduled update deployments, and increase the maintenance window.
+
+For more information on maintenance windows, see [Install Updates](../automation-update-management.md#install-updates).
+
 ### <a name="components-enabled-not-working"></a>Scenario: The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured
 
 #### Issue
@@ -71,6 +107,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="updates-nodeployment"></a>Scenario: Updates install without a deployment
+
+### Issue
+
+When you enroll a Windows machine in Update Management, you could see updates install without a deployment.
+
+### Cause
+
+On Windows, updates are installed automatically as soon as they are available. This can cause confusion if you did not schedule an update to be deployed to the machine.
+
+### Resolution
+
+The Windows registry key, `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` defaults to "4" - **auto download and install**.
+
+For Update Management clients, we recommend setting this key to "3" - **auto download but do not auto install**.
+
+For more information, see [Configuring Automatic Updates](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ### <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -236,6 +290,7 @@ Double-click on the exception displayed in red to see the entire exception messa
 |`0x8024001E`| The update operation did not complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
+|`0x80072EE2`|Network connectivity issue or issue talking to a configured WSUS server. Check WSUS settings and make sure it is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
 |Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
 
@@ -290,6 +345,51 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
+
+## Patches are not installed
+
+### Machines do not install updates
+
+* Try running updates directly on the machine. If the machine cannot update, consult the [list of potential errors in the troubleshooting guide](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* If updates run locally, try removing and reinstalling the agent on the machine by following the instructions at ["Remove a VM from Update Management"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+
+### I know updates are available, but they don't show as needed on my machines
+
+* This often happens if machines are configured to get updates from WSUS/SCCM, but WSUS/SCCM have not approved the updates.
+* You can check if machines are configured for WSUS/SCCM by [cross-referencing the "UseWUServer" registry key to the registry keys in the "Configuring Automatic Updates by Editing the Registry" section of this document](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+
+### **Updates show as installed, but I can't find them on my machine**
+
+* Updates are often superseded by other updates. For more information, see ["Update is superseded" in the Windows Update Troubleshooting guide](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+
+### **Installing updates by classification on Linux**
+
+* Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These [limitations are documented on the Update Management overview page](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+
+### **KB2267602 is consistently  missing**
+
+* KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It is updated daily.
+
+## <a name="other"></a>Scenario: My problem isn't listed above
+
+### Issue
+
+You have an issue that is not resolved by the other scenarios listed.
+
+### Cause
+
+Misconfigured or missing registry keys can cause issues with Update Management.
+
+### Resolution
+
+Delete the registry key `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` and restart the **HealthService**.
+
+You can also use the following PowerShell commands.
+
+```powershell
+Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
+Restart-Service healthservice
 ```
 
 ## Next steps

@@ -161,10 +161,6 @@ If you are done streaming events and want to clean up the resources provisioned 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
-The following code shows how to clean up your account of all Live Events:
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
-
 ## Watch the event
 
 To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator and use a player of your choice. You can use [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at https://ampdemo.azureedge.net. 

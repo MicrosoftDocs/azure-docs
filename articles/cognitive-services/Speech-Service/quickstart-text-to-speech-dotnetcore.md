@@ -16,7 +16,7 @@ ms.author: yinhew
 
 Quickstarts are also available for [speech-recognition](quickstart-csharp-dotnetcore-windows.md) and [speech-translation](quickstart-translate-speech-dotnetcore-windows.md).
 
-In this article, you create a C# console application for .NET Core on Windows by using the Cognitive Services [Speech SDK](speech-sdk.md). You synthesize speech from text in real time to your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this article, you create a C# console application for .NET Core on Windows by using the Cognitive Services [Speech SDK](speech-sdk.md). You synthesize speech from text in real time to your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later (any edition).
 
 > [!NOTE]
 > .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
@@ -28,7 +28,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 This quickstart requires:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project

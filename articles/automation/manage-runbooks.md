@@ -42,12 +42,13 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 You can create a new runbook in Azure Automation by importing a PowerShell script or PowerShell Workflow (.ps1 extension), an exported graphical runbook (.graphrunbook), or a Python 2 script (.py extension).  You must specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
 
 * A `.graphrunbook` file may only be imported into a new [graphical runbook](automation-runbook-types.md#graphical-runbooks), and graphical runbooks can only be created from a `.graphrunbook` file.
-* A `.ps1` file containing a PowerShell Workflow can only be imported into a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks).  If the file contains multiple PowerShell Workflows, then the import will fail. You must save each workflow to its own file and import each separately.
+* A `.ps1` file containing a PowerShell Workflow can only be imported into a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). If the file contains multiple PowerShell Workflows, then the import will fail. You must save each workflow to its own file and import each separately.
+* A `.ps1` file containing a PowerShell Workflow should not be imported into a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks), as it cannot be recognized by the PowerShell Script engine.
 * A `.ps1` file that doesn't contain a workflow can be imported into either a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks).  If it is imported into a PowerShell Workflow runbook, then it is converted to a workflow, and comments are included in the runbook specifying the changes that were made.
 
 ### To import a runbook from a file with the Azure portal
 
-You can use the following procedure to import a script file into Azure Automation.  
+You can use the following procedure to import a script file into Azure Automation.
 
 > [!NOTE]
 > Note that you can only import a .ps1 file into a PowerShell Workflow runbook using the portal.
@@ -57,7 +58,7 @@ You can use the following procedure to import a script file into Azure Automatio
 3. Click on the **Add a runbook** button and then **Import**.
 4. Click **Runbook file** to select the file to import
 5. If the **Name** field is enabled, then you have the option to change it.  The runbook name must start with a letter and can have letters, numbers, underscores, and dashes.
-6. The [runbook type](automation-runbook-types.md) is automatically selected, but you can change the type after taking the applicable restrictions into account. 
+6. The [runbook type](automation-runbook-types.md) is automatically selected, but you can change the type after taking the applicable restrictions into account.
 7. The new runbook appears in the list of runbooks for the Automation Account.
 8. You must [publish the runbook](#publish-a-runbook) before you can run it.
 
@@ -87,7 +88,7 @@ When you test a runbook, the [Draft version](#publish-a-runbook) is executed and
 
 Even though the draft version is being run, the runbook still executes normally and performs any actions against resources in the environment. For this reason, you should only test runbooks on non-production resources.
 
-The procedure to test each [type of runbook](automation-runbook-types.md) is the same, and there's no difference in testing between the textual editor and the graphical editor in the Azure portal.  
+The procedure to test each [type of runbook](automation-runbook-types.md) is the same, and there's no difference in testing between the textual editor and the graphical editor in the Azure portal.
 
 1. Open the Draft version of the runbook in either the [textual editor](automation-edit-textual-runbook.md) or [graphical editor](automation-graphical-authoring-intro.md).
 1. Click the **Test** button to open the Test page.

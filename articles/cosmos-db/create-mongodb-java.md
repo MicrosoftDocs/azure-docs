@@ -1,5 +1,5 @@
 ---
-title: Build a console app using Azure Cosmos DB's API for MongoDB and Java SDK
+title: 'Quickstart: Build a web app using the Azure API for Mongo DB and Java SDK - Azure Cosmos DB'
 description: Presents a Java code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 author: rimman
 ms.service: cosmos-db
@@ -8,9 +8,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
+ms.custom: seo-java-august2019
 
 ---
-# Quickstart: Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
+# Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -108,7 +109,7 @@ The following snippets are all taken from the Program.java file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. From the Account, select **Quick Start**, select Java, then copy the connection string to your clipboard
+1. From the Account, select **Quick Start**, select **Java**, then copy the connection string to your clipboard.
 
 2. Open the `Program.java` file, replace the argument to the MongoClientURI constructor with the connection string. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     

@@ -9,15 +9,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/29/2019
 ms.author: juliako
 ---
 
 # Embed Video Indexer widgets into your applications
 
-This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
+This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding three types of widgets into your application: **Cognitive Insights**, **Player**, and **Editor**. 
 
-Starting with version 2, the widget base URL includes the account's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
+Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## Widget types
 
@@ -27,9 +27,9 @@ A **Cognitive Insights** widget includes all visual insights that were extracted
 
 |Name|Definition|Description|
 |---|---|---|
-|widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The widgets URL param is not supported in version 2. |
-|locale|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
-|tab|The default selected tab|Controls the insights tab that is rendered by default. `tab=timeline` renders the insights with the timeline tab selected.|
+|`widgets`|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The widgets URL param is not supported in version 2. |
+|`locale`|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
+|`tab`|The default selected tab|Controls the insights tab that is rendered by default. `tab=timeline` renders the insights with the timeline tab selected.|
 
 ### Player widget
 
@@ -37,12 +37,24 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 
 |Name|Definition|Description|
 |---|---|---|
-|t|Seconds from the start|Makes the player start playing from the given time point.<br/>Example: `t=60`.|
-|captions|A language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: `captions=en-US`.|
-|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example: `showCaptions=true`.|
-|type||Activates an audio player skin (video part is removed).<br/>Example: `type=audio`.|
-|autoplay|A boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: `autoplay=false`.|
-|language|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
+|`t`|Seconds from the start|Makes the player start playing from the given time point.<br/>Example: `t=60`.|
+|`captions`|A language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: `captions=en-US`.|
+|`showCaptions`|A Boolean value|Makes the player load with the captions already enabled.<br/>Example: `showCaptions=true`.|
+|`type`||Activates an audio player skin (video part is removed).<br/>Example: `type=audio`.|
+|`autoplay`|A Boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: `autoplay=false`.|
+|`language`|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
+
+### Editor widget 
+
+The **Editor** widget enables you to create new projects and manage video's insights.
+
+|Name|Definition|Description|
+|---|---|---|
+|`accessToken`<sup>*</sup>|String|The `accessToken` parameter is required when using the editor widget.<br/>The access token  provides access to videos that are only within the account that is used to embed the widget. |
+|`language`|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
+|`locale`|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
+
+<sup>*</sup>The owner should be providing `accessToken` with caution. 
 
 ## Embedding public content
 
@@ -53,9 +65,9 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
 	After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
-	Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
+	Selecting a widget (**Cognitive Insights**, **Player**, or **Editor**), generates the embedded code for you to paste in your application.
  
-4. Choose the type of widget you want (**Cognitive Insights** or **Player**).
+4. Choose the type of widget you want (**Cognitive Insights**, **Player**, or **Editor**).
 5. Copy the embed code, and add to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
@@ -90,7 +102,7 @@ To get Video Indexer widgets to communicate with other components, the Video Ind
 
 If you choose to implement your own player code and do the integration with **Cognitive Insights** widgets, it is your responsibility to validate the origin of the message that comes from VideoIndexer.ai.
 
-### Embed both types of widgets in your application / blog (recommended) 
+### Embed widgets in your application / blog (recommended) 
 
 This section shows how to achieve interaction between two Video Indexer widgets so when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
@@ -209,7 +221,7 @@ For more information, see [this demo](https://codepen.io/videoindexer/pen/YEyPLd
 
 ## Adding subtitles
 
-If you embed Video Indexer insights with your own AMP player, you can use the **GetVttUrl** method to get closed captions (subtitles). You can also call a javascript method from the Video Indexer AMP plugin **getSubtitlesUrl** (as shown earlier). 
+If you embed Video Indexer insights with your own [Azure Media Player](https://aka.ms/azuremediaplayer), you can use the **GetVttUrl** method to get closed captions (subtitles). You can also call a javascript method from the Video Indexer AMP plugin **getSubtitlesUrl** (as shown earlier). 
 
 ## Customizing embeddable widgets
 

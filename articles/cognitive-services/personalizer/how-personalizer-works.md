@@ -2,13 +2,13 @@
 title: How Personalizer Works - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses machine learning to discover what action to use in a context. Each learning loop has a model that is trained exclusively on data that you have sent to it via Rank and Reward calls. Every learning loop is completely independent of each other.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
+ms.author: diberry
 ---
 
 # How Personalizer works
@@ -159,7 +159,6 @@ You can use recommendation engines with Personalizer:
 ## Adding content safeguards to your application
 
 If your application allows for large variances in content shown to users, and some of that content may be unsafe or inappropriate for some users, you should plan ahead to make sure that the right safeguards are in place to prevent your users from seeing unacceptable content. The best pattern to implement safeguards is:
-The best pattern to implement safeguards is:
     * Obtain the list of actions to rank.
     * Filter out the ones that are not viable for the audience.
     * Only rank these viable actions.

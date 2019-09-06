@@ -1,5 +1,5 @@
 ---
-title: How to use an existing model
+title: Use and deploy existing models
 titleSuffix: Azure Machine Learning service
 description: 'Learn how you can use Azure Machine Learning service with models that were trained outside the service. You can register models created outside Azure Machine Learning service, and then deploy them as a web service or Azure IoT Edge module.'
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 06/19/2019
 ---
 
-# How to use an existing model with Azure Machine Learning service
+# Use an existing model with Azure Machine Learning service
 
 Learn how to use an existing machine learning model with the Azure Machine Learning service.
 
@@ -27,14 +27,14 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see [Create a workspace](setup-create-workspace.md).
+* An Azure Machine Learning service workspace. For more information, see [Create a workspace](how-to-manage-workspace.md).
 
     > [!TIP]
     > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
     >
     > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
-* The Azure Machine Learning SDK. For more information, see the Python SDK section of [Create a workspace](setup-create-workspace.md#sdk).
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
@@ -71,23 +71,40 @@ For more information on model registration in general, see [Manage, deploy, and 
 
 ## Define inference configuration
 
-The inference configuration defines the environment used to run the deployed model. The inference configuration references the following files that are used to run the model when it's deployed:
+The inference configuration defines the environment used to run the deployed model. The inference configuration references the following entities, which are used to run the model when it's deployed:
 
-* The runtime. The only valid value for runtime currently is Python.
 * An entry script. This file (named `score.py`) loads the model when the deployed service starts. It is also responsible for receiving data, passing it to the model, and then returning a response.
-* A conda environment file. This file defines the Python packages needed to run the model and entry script. 
+* An Azure Machine Learning service [environment](how-to-use-environments.md). An environment defines the software dependencies needed to run the model and entry script.
 
-The following example shows a basic inference configuration using the Python SDK:
+The following example shows how to use the SDK to create an environment and then use it with an inference configuration:
 
 ```python
 from azureml.core.model import InferenceConfig
+from azureml.core import Environment
+from azureml.core.environment import CondaDependencies
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create the environment
+myenv = Environment(name="myenv")
+conda_dep = CondaDependencies()
+
+# Define the packages needed by the model and scripts
+conda_dep.add_conda_package("tensorflow")
+conda_dep.add_conda_package("numpy")
+conda_dep.add_conda_package("scikit-learn")
+conda_dep.add_pip_package("keras")
+
+# Adds dependencies to PythonSection of myenv
+myenv.python.conda_dependencies=conda_dep
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
 
-For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) reference.
+For more information, see the following articles:
+
++ [How to use environments](how-to-use-environments.md).
++ [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) reference.
+
 
 The CLI loads the inference configuration from a YAML file:
 
@@ -97,6 +114,20 @@ The CLI loads the inference configuration from a YAML file:
    "runtime": "python",
    "condaFile": "myenv.yml"
 }
+```
+
+With the CLI, the conda environment is defined in the `myenv.yml` file referenced by the inference configuration. The following YAML is the contents of this file:
+
+```yaml
+name: inference_environment
+dependencies:
+- python=3.6.2
+- tensorflow
+- numpy
+- scikit-learn
+- pip:
+    - azureml-defaults
+    - keras
 ```
 
 For more information on inference configuration, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
@@ -186,27 +217,9 @@ def predict(text, include_neutral=True):
 
 For more information on entry scripts, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
-### Conda environment
-
-The following YAML describes the conda environment needed to run the model and entry script:
-
-```yaml
-name: inference_environment
-dependencies:
-- python=3.6.2
-- tensorflow
-- numpy
-- scikit-learn
-- pip:
-    - azureml-defaults
-    - keras
-```
-
-For more information, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
-
 ## Define deployment
 
-The [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) package contains the classes used for deployment. The class you use determines where the model is deployed. For example, to deploy as a web service on Azure Kubernetes Service, use [AksWebService.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-) to create the deployment configuration.
+The [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) package contains the classes used for deployment. The class you use determines where the model is deployed. For example, to deploy as a web service on Azure Kubernetes Service, use [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-) to create the deployment configuration.
 
 The following Python code defines a deployment configuration for a local deployment. This configuration deploys the model as a web service to your local computer.
 

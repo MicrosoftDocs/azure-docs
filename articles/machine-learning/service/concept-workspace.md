@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/21/2019
+ms.date: 08/06/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning service.
 ---
 
@@ -27,7 +27,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 The diagram shows the following components of a workspace:
 
-+ A workspace can contain [Notebook VMs](quickstart-run-cloud-notebook.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
++ A workspace can contain [Notebook VMs](tutorial-1st-experiment-sdk-setup.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
@@ -62,6 +62,9 @@ Machine learning tasks read and/or write artifacts to your workspace.
 + View machine learning artifacts such as experiments, pipelines, models, deployments.
 + Track and monitor models.
 
+
+
+
 ## Workspace management
 
 You can also perform the following workspace management tasks:
@@ -73,7 +76,14 @@ You can also perform the following workspace management tasks:
 | Manage workspace access    | **&check;**   | |  **&check;**    |
 | Create a notebook VM | **&check;**   | |     |
 
-Get started with the service by [creating a workspace](setup-create-workspace.md).
+### <a name='create-workspace'></a> Create a workspace
+
+There are multiple ways to create a workspace.
+
+* Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
+* Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+* If you work in Visual Studio Code, use the [VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
 ## <a name="resources"></a> Associated resources
 
@@ -92,6 +102,6 @@ When you create a new workspace, it automatically creates several Azure resource
 To get started with Azure Machine Learning service, see:
 
 + [Azure Machine Learning service overview](overview-what-is-azure-ml.md)
-+ [Create a workspace](setup-create-workspace.md)
++ [Create a workspace](how-to-manage-workspace.md)
 + [Manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Train a model](tutorial-train-models-with-aml.md)

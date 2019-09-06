@@ -3,7 +3,7 @@ title: Microsoft identity platform iOS quickstart | Azure
 description: Learn how to sign-in users and query Microsoft Graph in an iOS application.
 services: active-directory
 documentationcenter: dev-center-name
-author: brandwe
+author: TylerMSFT
 manager: CelesteDG
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -14,9 +14,9 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/18/2019
-ms.author: brandwe
+ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS application.
 ms.collection: M365-identity-device-management
 ---

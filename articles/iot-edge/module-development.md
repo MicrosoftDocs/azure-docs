@@ -93,4 +93,4 @@ For all languages in the following table, IoT Edge supports development for AMD6
 
 [Use Visual Studio Code to develop modules for IoT Edge](how-to-vs-code-develop-module.md)
 
-[Understand and use Azure IoT Hub SDKs](/iot-hub/iot-hub-devguide-sdks.md)
+[Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md)

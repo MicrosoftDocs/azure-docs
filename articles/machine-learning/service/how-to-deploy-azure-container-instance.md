@@ -23,11 +23,11 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
+- An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -46,6 +46,9 @@ To deploy a model to Azure Container Instances, create a __deployment configurat
 ### Using the SDK
 
 ```python
+from azureml.core.webservice import AciWebservice, Webservice
+from azureml.core.model import Model
+
 deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
 service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

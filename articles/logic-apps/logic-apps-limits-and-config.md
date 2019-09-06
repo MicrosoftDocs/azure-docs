@@ -108,6 +108,8 @@ Here are the limits for a single logic app definition:
 
 ### Integration service environment (ISE)
 
+Here are the throughput limits for the Premium SKU:
+
 | Name | Limit | Notes |
 |------|-------|-------|
 | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
@@ -115,10 +117,12 @@ Here are the limits for a single logic app definition:
 | Maximum scale units that you can add | 10 | |
 ||||
 
-To go above these limits in normal processing, 
-or run load testing that might go above these limits, 
-[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
-for help with your requirements.
+To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+
+> [!NOTE]
+> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU 
+> doesn't have any service-level agreement (SLA) or capabilities for scaling up. 
+> Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
 <a name="request-limits"></a>
 
@@ -182,16 +186,16 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 Each Azure subscription has these integration account limits:
 
-* A single [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
 * Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 5 total integration accounts:
 
-  | ISE SKU | Limit |
-  |---------|-------|
-  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) only, no Free or Basic |
-  | **Developer** | 5 total - Free (limited to 1), Standard, or both, but no Basic |
+  | ISE SKU | Integration account limits |
+  |---------|----------------------------|
+  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
+  | **Developer** | 5 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -215,7 +219,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 | Maps | 25 | 500 | 1,000 |
 | Schemas | 25 | 500 | 1,000 |
 | Assemblies | 10 | 25 | 1,000 |
-| Certificates | 25 | 2 | 500 |
+| Certificates | 25 | 2 | 1,000 |
 | Batch configurations | 5 | 1 | 50 |
 ||||
 
@@ -268,25 +272,11 @@ take significant time to complete.
 
 ## Firewall configuration: IP addresses
 
-All logic apps in the same region use the same IP address ranges. 
-To support the calls that your logic apps directly make with 
-[HTTP](../connectors/connectors-native-http.md), 
-[HTTP + Swagger](../connectors/connectors-native-http-swagger.md), 
-and other HTTP requests, set up your firewalls with *all* the 
-[inbound](#inbound) *and* [outbound](#outbound) IP addresses 
-used by the Logic Apps service, based on the regions where your 
-logic apps exist. These addresses appear under the **Inbound** 
-and **Outbound** headings in this section, and are sorted by region.
+All logic apps in the same region use the same IP address ranges. To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewalls with *all* the [inbound](#inbound) *and* [outbound](#outbound) IP addresses used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region. 
 
-To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
-set up your firewall with *all* the [outbound](#outbound) IP addresses 
-used by these connectors, based on the regions where your logic apps exist. 
-These addresses appear under the **Outbound** heading in this section, 
-and are sorted by region.
+To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region. For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-For [Azure Government](../azure-government/documentation-government-overview.md) 
-and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), 
-reserved IP addresses for connectors aren't currently available.
+For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
 
 > [!IMPORTANT]
 >
@@ -295,16 +285,11 @@ reserved IP addresses for connectors aren't currently available.
 > include and match the IP addresses in these lists for the 
 > regions where your logic apps exist.
 
-Logic Apps doesn't support directly connecting to Azure storage 
-accounts through firewalls. To access these storage accounts, 
-use either option here:
+Logic Apps doesn't support directly connecting to Azure storage accounts through firewalls. To access these storage accounts, use either option here:
 
-* Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-which can connect to resources in an Azure virtual network.
+* Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in an Azure virtual network.
 
-* If you already use API Management, you can use 
-this service for this scenario. For more info, see 
-[Simple enterprise integration architecture](https://aka.ms/aisarch).
+* If you already use API Management, you can use this service for this scenario. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 <a name="inbound"></a>
 

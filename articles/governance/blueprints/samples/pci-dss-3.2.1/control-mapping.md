@@ -48,7 +48,7 @@ Fabric communication.
 - Function App should only be accessible over HTTPS
 - Web Application should only be accessible over HTTPS
 - API App should only be accessible over HTTPS
-- Monitor unencrypted SQL database in Azure Security Center
+- Transparent Data Encryption on SQL databases should be enabled
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
 - Only secure connections to your Redis Cache should be enabled
@@ -156,7 +156,7 @@ Diagnostic logs provide insight into operations that were performed within Azure
 logs rely on synchronized internal clocks to create a time-correlated record of events across
 resources.
 
-- Monitor unaudited SQL servers in Azure Security Center
+- Auditing should be enabled on advanced data security settings on SQL Server
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 - Deploy Auditing on SQL servers
@@ -184,7 +184,7 @@ articles to learn about the overview and how to deploy this sample:
 
 ## Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

@@ -13,7 +13,7 @@ ms.custom: mvc
 manager: carmonm
 ---
 
-# Configure a Linux virtual machine with Desired State Configuration
+# Configure a virtual machine with Desired State Configuration
 
 By enabling Desired State Configuration (DSC), you can manage and monitor the configurations of your Windows and Linux servers. Configurations that drift from the desired configuration can be identified or auto-corrected. This quickstart steps through onboarding a Linux VM and deploying a LAMP stack with DSC.
 

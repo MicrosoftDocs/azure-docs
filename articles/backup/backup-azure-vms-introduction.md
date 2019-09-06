@@ -2,15 +2,15 @@
 title: About Azure VM backup
 description: Learn about Azure VM backup, and note some best practices.
 
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 
-# About Azure VM backup
+# An overview of Azure VM backup
 
 This article describes how the [Azure Backup service](backup-introduction-to-azure-backup.md) backs up Azure virtual machines (VMs).
 
@@ -107,8 +107,8 @@ These common scenarios can affect the total backup time:
 When you're configuring VM backups, we suggest following these practices:
 
 - Modify the default schedule times that are set in a policy. For example, if the default time in the policy is 12:00 AM, increment the timing by several minutes so that resources are optimally used.
-- For backup of VMs that are using premium storage, we recommend running the latest version of Azure Backup ([Instant Restore](backup-instant-restore-capability.md)). If you're not running the latest version, Backup allocates around 50 percent of the total storage space. The Backup service requires this space to copy the snapshot to the same storage account and for transferring it to the vault.
 - If you're restoring VMs from a single vault, we highly recommend that you use different [general-purpose v2 storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) to ensure that the target storage account doesn’t get throttled. For example, each VM must have a different storage account. For example, if 10 VMs are restored, use 10 different storage accounts.
+- For backup of VMs that are using premium storage, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete
 - The restores from a general-purpose v1 storage layer (snapshot) will be completed in minutes because the snapshot is in the same storage account. Restores from the general-purpose v2 storage layer (vault) can take hours. In cases where the data is available in general-purpose v1 storage, we recommend that you use the [Instant Restore](backup-instant-restore-capability.md) feature for faster restores. (If the data must be restored from a vault, then it will take more time.)
 - The limit on the number of disks per storage account is relative to how heavily the disks are being accessed by applications that are running on an infrastructure as a service (IaaS) VM. As a general practice, if 5 to 10 disks or more are present on a single storage account, balance the load by moving some disks to separate storage accounts.
 
@@ -134,6 +134,50 @@ Data disk 1 | 4095 GB | 30 GB
 Data disk 2 | 4095 GB | 0 GB
 
 The actual size of the VM in this case is 17 GB + 30 GB + 0 GB = 47 GB. This protected-instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the VM grows, the protected-instance size used for billing changes to match.
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## Limited Public Preview: Backup of VM with disk sizes up to 30 TB
+
+Azure Backup now supports a limited public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TB in size. This preview provides production-level support for managed virtual machines.
+
+You can seamlessly enroll in the preview without any impact on your ongoing backups. After the subscription is enrolled in the preview, all the virtual machines with disk sizes up to 30 TB should be successfully backed up. To enroll in the preview:
+ 
+Execute the following cmdlets from an elevated PowerShell terminal:
+
+1. Sign in to your Azure account.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. Select the subscription that you want to register for the upgrade:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. Register this subscription in the preview program: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    Wait for 30 minutes for the subscription to be enrolled in the preview. 
+
+ 4. To check the status, run the following cmdlets:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. When the subscription shows as registered, run the following command:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> Encrypted VMs with disks larger than 4 TB aren't supported in this preview.
+
+
 
 ## Next steps
 

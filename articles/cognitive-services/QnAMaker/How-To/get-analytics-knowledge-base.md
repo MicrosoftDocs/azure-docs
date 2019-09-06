@@ -8,8 +8,8 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 
@@ -27,7 +27,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 3. Paste in the following query and run it.
 
-    ```query
+    ```kusto
     requests
     | where url endswith "generateAnswer"
     | project timestamp, id, name, resultCode, duration, performanceBucket
@@ -49,7 +49,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### Total 90-day traffic
 
-```query
+```kusto
     //Total Traffic
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -59,7 +59,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### Total question traffic in a given time period
 
-```query
+```kusto
     //Total Question Traffic in a given time period
     let startDate = todatetime('2018-02-18');
     let endDate = todatetime('2018-03-12');
@@ -72,7 +72,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### User traffic
 
-```query
+```kusto
     //User Traffic
     requests
     | where url endswith "generateAnswer"
@@ -87,7 +87,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 ### Latency distribution of questions
 
-```query
+```kusto
     //Latency distribution of questions
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
@@ -99,4 +99,4 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage keys](./key-management.md)
+> [Choose capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)

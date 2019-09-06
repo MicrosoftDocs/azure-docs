@@ -16,7 +16,7 @@ ms.author: erhopf
 
 Quickstarts are also available for [speech-to-text](quickstart-csharp-dotnet-windows.md) and [text-to-speech](quickstart-text-to-speech-dotnetcore.md).
 
-In this quickstart, you'll create a simple .NET Core application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+In this quickstart, you'll create a simple .NET Core application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).
 
@@ -25,7 +25,7 @@ For a complete list of languages available for speech translation, see [language
 This quickstart requires:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project

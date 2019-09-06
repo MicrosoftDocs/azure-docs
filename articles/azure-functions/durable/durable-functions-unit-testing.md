@@ -1,15 +1,12 @@
 ---
 title: Azure Durable Functions unit testing
 description: Learn how to unit test Durable Functions.
-services: functions
-author: kadimitr
-manager: jeconnoc
-keywords:
+author: ggailey777
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: kadimitr
+ms.author: glenga
 ---
 
 # Durable Functions unit testing
@@ -86,11 +83,11 @@ Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 re
         });
 ```
 
-`TraceWriter` is also mocked:
+`ILogger` is also mocked:
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
@@ -106,7 +103,7 @@ Now the `Run` method is called from the unit test:
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
  The last step is to compare the output with the expected value:

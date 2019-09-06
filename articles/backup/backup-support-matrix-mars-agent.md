@@ -1,12 +1,11 @@
 ---
-title: Support matrix for backup of machines running the Microsoft Azure Recovery Services (MARS) agent with Azure Backup
+title: Support matrix for the Microsoft Azure Recovery Services (MARS) agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
 ---
 
@@ -68,20 +67,22 @@ Network throttling | Not available for backed-up machines that run Windows Serve
 
 You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
-**Operating system** | **Files/folders** | **System state**
---- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Yes | No
-Windows 8.1 (Enterprise, Pro)| Yes |No
-Windows 8 (Enterprise, Pro) | Yes | No
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No
-Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes
-Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No
+**Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
+--- | --- | --- | ---
+Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
+Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
+Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Check the corresponding server version for software/module requirements
+Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> -	Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -	Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes | - .NET 3.5 , .Net 4.5 <br> -	Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | - .NET 3.5 , .Net 4.5 <br> - Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Virtual Server 2005 base +  KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
 
 ## Backup limits
 

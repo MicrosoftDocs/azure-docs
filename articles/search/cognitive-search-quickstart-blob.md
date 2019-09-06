@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Build an AI-enriched index in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Quickstart: Create an AI indexing pipeline using cognitive skills in Azure Search
 
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides the AI. This quickstart includes steps for adding these resources in-line, when specifying the pipeline. It's not necessary to set up accounts in advance.
 
-Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md) except for Azure Table Storage, which is not supported for AI indexing. This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
+Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md). This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
 
 ### Set up Azure Blob service and load sample data
 

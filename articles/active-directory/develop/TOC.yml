@@ -35,6 +35,8 @@
         href: quickstart-v2-aspnet-core-webapp.md
       - name: NodeJS
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+      - name: Java
+        href: quickstart-v2-java-webapp.md
     - name: Web APIs
       items:
       - name: ASP .NET
@@ -295,6 +297,8 @@
         href: v2-oauth2-device-code.md
       - name: OAuth 2.0 resource owner password credentials grant
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: ID tokens

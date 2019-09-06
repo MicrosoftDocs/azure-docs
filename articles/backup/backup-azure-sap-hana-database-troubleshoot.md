@@ -1,18 +1,18 @@
 ---
 title: Troubleshoot errors while backing up SAP HANA databases by using Azure Backup | Microsoft Docs
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
-
-author: pvrk
-manager: vijayts
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
-ms.author: pullabhk
+ms.date: 08/03/2019
+ms.author: dacurwin
 ---
 
 # Troubleshoot backup of SAP HANA databases on Azure
 
-This article provides troubleshooting information for backing up SAP HANA databases on Azure virtual machines.
+This article provides troubleshooting information for backing up SAP HANA databases on Azure virtual machines. The following section covers important conceptual data required to diagnose common error in SAP HANA backup.
 
 ## Prerequisites
 
@@ -51,6 +51,26 @@ After a database is chosen for backup, the Azure Backup service  configures back
 
 > [!NOTE]
 > Make sure these parameters are *not* present at HOST level. Host-level parameters will override these parameters and might cause unexpected behavior.
+
+## Restore checks
+
+### Single Container Database (SDC) restore
+
+Take care of inputs while restoring a single container database (SDC) for HANA to another SDC machine. The database name should be given with lowercase and with "sdc" appended in brackets. The HANA instance will be displayed in capitals.
+
+Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as **"h21(sdc)"**. If you attempt to restore this database to another target SDC, say H11, then following inputs need to be provided.
+
+![SDC restore inputs](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+
+Note the following
+- By default, the restored db name will be populated with the backup item name i.e., h21(sdc)
+- Selecting the target as H11 will NOT change the restored db name automatically. **It should be edited to h11(sdc)**. In case of SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
+- Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
+- Linux is case-sensitive and hence make sure to preserve the case.
+
+### Multiple Container Database (MDC) restore
+
+In multiple container databases for HANA, the standard configuration is SYSTEMDB + 1 or more Tenant DBs. Restoring an entire SAP HANA instance means to restore both SYSTEMDB and Tenant DBs. One restores SYSTEMDB first and then proceeds for Tenant DB. System DB essentially means to override the system information on the selected target. This also overrides the BackInt related information in the target instance. Therefore, after the system DB is restored to a target instance, one needs to run the pre-registration script again. Only then the subsequent tenant DB restores will succeed.
 
 ## Common user errors
 

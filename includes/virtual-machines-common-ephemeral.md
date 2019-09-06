@@ -39,7 +39,7 @@ Key differences between persistent and ephemeral OS disks:
 
 ## Size requirements
 
-You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) has a cache size of 86 GiB, which is not large enough. The Standard_DS2_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
+You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 
 Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](../articles/virtual-machines/linux/sizes.md) for details around which sizes support Premium storage.
 
@@ -171,7 +171,7 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
 
 
 ## Reimage a VM using REST
-Currently, the only method to reimage a Virtual Machine instance with ephemeral OS disk is through using REST API. For scale sets, reimaging is already available through Powershell, CLI, and the portal.
+You can reimage a Virtual Machine instance with ephemeral OS disk using REST API as described below and via Azure Portal by going to Overview pane of the VM. For scale sets, reimaging is already available through Powershell, CLI, and the portal.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

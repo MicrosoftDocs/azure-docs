@@ -2,12 +2,12 @@
 title: Use Availability Zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Preview - Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
@@ -19,7 +19,7 @@ To provide a higher level of availability to your applications, AKS clusters can
 This article shows you how to create an AKS cluster and distribute the node components across availability zones. This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
@@ -30,7 +30,7 @@ You need the Azure CLI version 2.0.66 or later installed and configured. Run `a
 
 ### Install aks-preview CLI extension
 
-To create AKS clusters that use availability zones, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To create AKS clusters that use availability zones, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -40,25 +40,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Register feature flags for your subscription
+### Register the AvailabilityZonePreview feature flag for your subscription
 
-To create an AKS cluster that availability zones, first enable some feature flags on your subscription. Clusters use a virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. The *standard* SKU of the Azure load balancer is also required to provide resiliency for the network components to route traffic into your cluster. Register the *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*, and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that availability zones, first enable the *AvailabilityZonePreview* feature flag on your subscription. Register the *AvailabilityZonePreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -86,7 +82,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones.
 * You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
 
-AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
+AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
@@ -120,7 +116,6 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
     --load-balancer-sku standard \

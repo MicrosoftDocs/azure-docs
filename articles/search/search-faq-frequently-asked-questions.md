@@ -2,7 +2,7 @@
 title: Frequently asked questions (FAQ) - Azure Search
 description: Get answers to common questions about Microsoft Azure Search Service, a cloud hosted search service on Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual

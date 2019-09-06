@@ -28,9 +28,9 @@ A technical profile enables these types of scenarios:
 - **Phone factor provider** - Multi-factor authentication.
 - [OAuth1](oauth1-technical-profile.md) - Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md) - Federation with any OAuth 2.0 protocol identity provider.
-- [OpenIdConnect](openid-connect-technical-profile.md) - Federation with any OpenId Connect protocol identity provider.
+- [OpenID Connect](openid-connect-technical-profile.md) - Federation with any OpenID Connect protocol identity provider.
 - [Claims transformation](claims-transformation-technical-profile.md) - Call output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
-- [Restful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
+- [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - **WsFed** - Federation with any WsFed protocol identity provider.

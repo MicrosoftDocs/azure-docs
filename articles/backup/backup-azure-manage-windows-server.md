@@ -2,12 +2,12 @@
 title: Manage Azure Recovery Services vaults and servers
 description: Manage jobs and alerts in an Azure Recovery Services vault.
 
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -170,7 +170,7 @@ The list of virtual machines has helpful data: the associated Resource Group, pr
 
 The **Backup Jobs** tile in the vault dashboard shows the number of jobs that are In Progress, or Failed in the last 24 hours. The tile provides a glimpse into the Backup Jobs menu.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 To see additional details about the jobs, click **In Progress** or **Failed** to open the Backup Jobs menu filtered for that state.
 
@@ -180,11 +180,11 @@ The **Backup Jobs** menu displays information about the Item type, Operation, St
 
 To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 The list of Backup jobs opens.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 The Backup Jobs menu shows the status for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. The filters are explained in the following sections.
 
@@ -192,11 +192,11 @@ To change the filters:
 
 1. In the vault Backup Jobs menu, click **Filter**.
 
-   ![Backup items from settings](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Back up items from settings](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     The Filter menu opens.
 
-   ![Backup items from settings](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Back up items from settings](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Choose the filter settings and click **Done**. The filtered list refreshes based on the new settings.
 

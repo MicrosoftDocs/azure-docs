@@ -116,7 +116,7 @@ This section provides you with information about common device identity manageme
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**.
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. If the device is not enrolled with Microsoft Intune the "Manage" option will be greyed out.
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 

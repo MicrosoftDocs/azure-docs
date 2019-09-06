@@ -16,7 +16,7 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
-    - name: SDK
+    - name: Client
       items:
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
@@ -60,6 +60,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2090370
         - name: Node.js
           href: https://go.microsoft.com/fwlink/?linkid=2090788
+    - name: Paper on SR-CNN in KDD 2019
+      href: https://arxiv.org/abs/1906.03821
 - name: Resources
   items:
     - name: Pricing

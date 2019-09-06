@@ -2,23 +2,23 @@
 title: Understand your Azure bill
 description: Learn how to read and understand your usage and bill for your Azure subscription.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
 ---
 
 # Understand your Microsoft Azure bill
 To understand your Azure bill, you compare your invoice with the detailed daily usage file and with cost management reports in the Azure portal.
 
-This article doesn't apply to Azure customers with an Enterprise Agreement (EA customers). If you're an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md).
-
-This article doesn't apply to Azure customers with a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you have a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-mca-understand-your-bill.md).
+This article doesn't apply to the following customers:
+- Azure customers with an Enterprise Agreement (EA customers). If you're an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md).
+- Azure customers with a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you have a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-mca-understand-your-bill.md).
 
 For an explanation of how billing works in the Azure Cloud Solution Provider (Azure CSP) program, including the billing cycle, pricing, and usage, see [Azure CSP Billing Overview](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -83,7 +83,7 @@ To learn more, see [Prevent unexpected costs with Azure billing and cost managem
 
 ## <a name="external"></a>External services billed separately
 
-External services, or marketplace charges, are for resources that have been created by third-party software vendors. Those resources are available for use from the Azure marketplace. For example, a Barracuda Firewall is an Azure marketplace resource offered by a third-party. All charges for the firewall and its corresponding meters appear as external service charges.
+External services or marketplace charges are for resources that have been created by third-party software vendors. Those resources are available for use from the Azure Marketplace. For example, a Barracuda Firewall is an Azure Marketplace resource offered by a third-party. All charges for the firewall and its corresponding meters appear as external service charges.
 
 External service charges are billed separately. The charges don't show up on your Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
@@ -125,7 +125,7 @@ To check the status of your payment, [create a support ticket](https://portal.az
   - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
   - [Total cost of ownership calculator](https://aka.ms/azure-tco-calculator)
   - [Detailed pricing information for each service](https://azure.microsoft.com/pricing/)
-- [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs).
+- [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs)
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

@@ -173,6 +173,9 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
+      - name: IoT Plug and Play
+        tocHref: /azure/iot-pnp/
+        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
@@ -643,6 +646,9 @@
     tocHref: /azure/security/
     topicHref: /azure/security/
     items:
+      - name: Fundamentals
+        tocHref: /azure/security/fundamentals/
+        topicHref: /azure/security/fundamentals/
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/ 

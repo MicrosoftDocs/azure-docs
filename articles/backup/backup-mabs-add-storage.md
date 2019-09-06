@@ -1,13 +1,13 @@
 ---
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
-
-author: rayne-wiselman
+ms.reviewer: adigan
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
+ms.author: dacurwin
 ---
 
 # Add storage to Azure Backup Server
@@ -76,7 +76,7 @@ Syntax:
 
 `Parameter Set: Volume`
 
-```
+```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.

@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about security best practices so I can integrate my application with Microsoft identity platform.
 ---
 

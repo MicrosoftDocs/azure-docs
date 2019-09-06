@@ -1,24 +1,24 @@
 ---
 title: 'Azure Backup: Manage Backup Jobs using REST API'
 description: manage backup and restore jobs of Azure Backup using REST API
-
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Azure VM backup; Azure VM restore;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ---
 
 # Track backup and restore jobs using REST API
 
-Azure Backup service triggers jobs which run in background in various scenarios such as triggering backup, restore operations, disabling backup. These jobs can be tracked using their IDs.
+Azure Backup service triggers jobs that run in background in various scenarios such as triggering backup, restore operations, disabling backup. These jobs can be tracked using their IDs.
 
 ## Fetch Job information from operations
 
-An operation such as triggering backup will always return a jobID. For eg: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is as follows:
+An operation such as triggering backup will always return a jobID. For example: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is as follows:
 
 ```http
 {
