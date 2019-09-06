@@ -187,24 +187,6 @@ In order to develop the web app bot code, download the code and use on your loca
 
     }
     ````
-
-## Create an environment file and add LUIS values
-
-The bot emulator needs access to your LUIS resource in order to provide detailed LUIS results.
-
-1. In the root of the project, create a file named `.env` and add the following environment variables:
-
-    ```console
-    LuisAppId= 
-    LuisAPIKey=
-    LuisAPIHostName=
-    ```
-
-1. From the Azure portal, for your bot resource, open the App Service's Configuration Settings for the application.
-1. Open **Advanced edit**, to see the value for each setting.
-
-    ![Open **Advanced edit**, to see the value for each setting.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
-
 <a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
 ## Use the bot emulator to test the bot
@@ -213,6 +195,7 @@ Ask bot a question for the Book Flight intent.
 
 1. Begin the Bot Emulator and select **Open Bot**.
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
+1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **.env** file in the root of the bot code you downloaded.
 
 1. In the bot emulator, enter `Book a flight from Seattle to Berlin tomorrow` and get the same response for the basic bot as you received in the **Test in Web Chat**.
 

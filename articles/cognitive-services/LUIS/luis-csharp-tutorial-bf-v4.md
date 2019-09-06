@@ -214,7 +214,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 ## Start the bot code in Visual Studio
 
-In Visual Studio, start the bot. A browser window opens with the web app bot's web site at `http://localhost:3978/`. A home page displays with information about your bot.
+In Visual Studio 2019, start the bot. A browser window opens with the web app bot's web site at `http://localhost:3978/`. A home page displays with information about your bot.
 
 ![A home page displays with information about your bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
@@ -224,50 +224,19 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
 1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **appsettings.json** file in the root of the bot code you downloaded.
 
-    Optionally, you can create a new bot configuration and copy the `appId` and `appPassword` from the **appsettings.json** file in the Visual Studio project for the bot. The name of the bot configuration file should be the same as the bot name. 
 
-    ```json
-    {
-        "name": "<bot name>",
-        "description": "<bot description>",
-        "services": [
-            {
-                "type": "endpoint",
-                "appId": "<appId from appsettings.json>",
-                "appPassword": "<appPassword from appsettings.json>",
-                "endpoint": "http://localhost:3978/api/messages",
-                "id": "<don't change this value>",
-                "name": "http://localhost:3978/api/messages"
-            }
-        ],
-        "padlock": "",
-        "version": "2.0",
-        "overrides": null,
-        "path": "<local path to .bot file>"
-    }
-    ```
+1. In the bot emulator, enter `Book a flight from Seattle to Berlin tomorrow` and get the same response for the basic bot as you received in the **Test in Web Chat**.
 
-1. In the bot emulator, enter `Hello` and get the same response for the basic bot as you received in the **Test in Web Chat**.
-
-    [![Basic bot response in emulator](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
-
-
-## Ask bot a question for the Book Flight intent
-
-1. In the bot emulator, book a flight by entering the following utterance: 
-
-    ```console
-    Book a flight from Paris to Berlin on March 22, 2020
-    ```
-
-    The bot emulator asks to confirm. 
+    [![Basic bot response in emulator](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Select **Yes**. The bot responds with a summary of its actions. 
 1. From the log of the bot emulator, select the line that includes `Luis Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
 
-    [![Basic bot response in emulator](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Basic bot response in emulator](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
+
 
 ## Next steps
 
