@@ -2,12 +2,12 @@
 title: 'Create an Azure Private Endpoint using Azure CLI| Microsoft Docs'
 description: Learn about Azure Private Endpoint
 services: virtual-network
-author: KumudD
+author: KumudD; malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
 ms.service: virtual-network
 ms.topic: article
 ms.date: 09/05/2019
-ms.author: kumud
+ms.author: kumud;malop
 
 ---
 # Create an Azure Private Endpoint using Azure CLI

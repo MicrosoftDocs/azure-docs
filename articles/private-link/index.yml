@@ -23,22 +23,36 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Private Link?
+          - text: What is a Private Link?
             url: privatelink-overview.md
 
   # Card (optional)
-  - title: Get started
+  - title: Create a private endpoint
     linkLists:
-      - linkListType: quickstart
+      - linkListType: concept
         links:
-          - text: Create Private Link - Portal
-            url: create-privatelink-portal.md
-          - text: Create Private Link - CLI
-            url: create-privatelink-cli.md
-          - text: Create Private Link - PowerShell
-            url: create-privatelink-powershell.md            
+          - text: What is a private endpoint?
+            url: private-endpoint-overview.md
+      - linkListType: get-started
+        links:
+          - text: Create a private endpoint - Portal
+            url: create-private-endpoint-portal.md
+          - text: Create a private endpoint - CLI
+            url: create-private-endpoint-cli.md
+          - text: Create a private endpoint - PowerShell
+            url: create-private-endpoint-powershell.md            
 
-
+  # Card (optional)
+  - title: Create a Private Link service
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create a private link service - Portal
+            url: create-privatelink-service.md
+          - text: Create a private link service - CLI
+            url: create-privatelink-service-cli.md
+          - text: Create a private link service - PowerShell
+            url: create-privatelink-service-powershell.md   
             
                 
 

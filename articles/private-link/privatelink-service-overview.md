@@ -2,13 +2,13 @@
 title: Azure Private Link
 description: Learn about Azure Private Link
 services: virtual-network
-author: KumudD
+author: KumudD, malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Private link so that I can securely connect to my Azure PaaS services within the virtual network.
 
 ms.service: virtual-network
 ms.topic: overview
 ms.date: 09/05/2019
-ms.author: kumud
+ms.author: kumud, malop
 
 ---
 # What is Azure Private Link? (Preview)
