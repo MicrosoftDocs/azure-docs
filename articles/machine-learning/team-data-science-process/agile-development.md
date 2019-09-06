@@ -92,7 +92,7 @@ Under the Feature, you can add User Stories to describe major steps needed to fi
 
 To add a new User Story to a Feature:
 
-1. In **Backlog** view, select the **+** to the left of the Feature, and then select **User Story** from the popup menu.  
+1. On the **Backlog** tab, select the **+** to the left of the Feature, and then select **User Story** from the popup menu.  
    
    ![Add a new User Story under the Feature](./media/agile-development/4-sprint-add-story.png)
    
@@ -118,7 +118,7 @@ After you create Features, User Stories, and Tasks, you can view them in the **B
 
 ## <a name='set-up-agile-dsp-6'></a>Set up and use an agile TDSP work template
 
-Data scientists may feel more comfortable using an agile template that replaces Features, User Stories, and Tasks with TDSP lifecycle stages and substages. In Azure Boards, you can create an Agile-derived template that uses  TDSP lifecycle stages to create and track work items. The following steps walk through setting up a data science-specific agile process template and creating data science work items based on the template.
+Data scientists may feel more comfortable using an agile template that replaces Features, User Stories, and Tasks with TDSP lifecycle stages and substages. In Azure Boards, you can create an agile-derived template that uses  TDSP lifecycle stages to create and track work items. The following steps walk through setting up a data science-specific agile process template and creating data science work items based on the template.
 
 ### Set up the agile data science process template
 
@@ -189,7 +189,7 @@ You can use the data science process template to create TDSP projects and track 
    
    ![Create data science project work item](./media/agile-development/17-dsworkitems0.png)
    
-1. Select the **+** next to the new project, and select the type of work item to create. 
+1. Select the **+** next to the new project, and then select the type of work item to create. 
    
    ![Select data science work item type](./media/agile-development/17-dsworkitems1.png)
    
