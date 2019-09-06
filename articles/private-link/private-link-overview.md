@@ -2,18 +2,18 @@
 title: Azure Private Link
 description: Learn about Azure Private Link
 services: virtual-network
-author: KumudD, malopMSFT
+author: KumudD;malopMSFT;sumeetmittal
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Private link so that I can securely connect to my Azure PaaS services within the virtual network.
 
 ms.service: virtual-network
 ms.topic: overview
 ms.date: 09/05/2019
-ms.author: kumud, malop
+ms.author: kumud; malop; sumi
 
 ---
 # What is Azure Private Link? (Preview)
 
-Azure Private Link provides private connectivity between applications running in different Virtual Networks and to Azure PaaS services (such as Storage, SQL, COSMOSDB etc.)  using the Microsoft network. Azure Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating the data exposure to public internet. Azure Private Link also extends this ability to customer owned services as well as shared market place services run by the partners. The setup and consumption experience using Private Link is consistent across Azure PaaS, customer owned services and shared partner services.  The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service.  Connection is established between provider and consumer based on an approval call flow and once established all data that flows between the service provider and service consumer is isolated from internet and stays on the Microsoft backend.  Both provider and consumer need to be on Azure to use Private Link. There is no need for any sort of gateways, NAT devices, ExpressRoute, or VPN connections, public IP addresses to communicate with the service.   
+Azure Private Link provides private connectivity between applications running in different Virtual Networks and to Azure PaaS services (such as Storage, SQL, Cosmos DB etc.)  using the Microsoft network. Azure Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating the data exposure to public internet. Azure Private Link also extends this ability to customer owned services as well as shared market place services run by the partners. The setup and consumption experience using Private Link is consistent across Azure PaaS, customer owned services and shared partner services.  The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service.  Connection is established between provider and consumer based on an approval call flow and once established all data that flows between the service provider and service consumer is isolated from internet and stays on the Microsoft backend.  Both provider and consumer need to be on Azure to use Private Link. There is no need for any sort of gateways, NAT devices, ExpressRoute, or VPN connections, public IP addresses to communicate with the service.   
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.

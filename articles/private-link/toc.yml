@@ -19,8 +19,6 @@
     href: private-endpoint-overview.md
 - name: How to
   items:
-  - name: Create your own Private Link service- Azure portal
-    href: create-private-link-service-portal.md
   - name: Create your own Private Link service - Azure CLI
     href: create-private-link-service-cli.md
   - name: Create your own Private Link service - Azure PowerShell

@@ -2,13 +2,13 @@
 title: Azure Private Endpoint
 description: Learn about Azure Private Endpoint
 services: virtual-network
-author: KumudD, malopMSFT
+author: KumudD;malopMSFT;sumeetmittal
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Private Endpoint so that I can securely connect to my Azure PaaS services within the virtual network.
 
 ms.service: virtual-network
 ms.topic: article
 ms.date: 09/05/2019
-ms.author: kumud, malop
+ms.author: kumud;malop;sumi
 
 ---
 # What is Azure Private Endpoint? (Preview)
