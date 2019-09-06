@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 09/06/2019
 ---
 
 # Mapping Data Flow Debug Mode
@@ -15,16 +15,17 @@ ms.date: 10/04/2018
 
 ## Overview
 
-Azure Data Factory Mapping Data Flow's debug mode can be switched on with the "Data Flow Debug" button at the top of the design surface. When designing data flows, turning on debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The Debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows.
+Azure Data Factory Mapping Data Flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn debug mode on, use the "Data Flow Debug" button at the top of the design surface.
 
-![Debug button](media/data-flow/debugbutton.png "Debug button")
+![Debug slider](media/data-flow/debugbutton.png "Debug slider")
+
+Once you turn the slider on, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with 8 cores of general compute with a 60 minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+
+![Debug IR selection](media/data-flow/debugbutton2.png "Debug IR selection")
 
 When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
-
-> [!NOTE]
-> While the debug mode light is green on the Data Factory toolbar, you'll be charged at the Data Flow debug rate of 8 cores/hr of general compute with a 60 minute time-to-live 
 
 ## Cluster status
 
