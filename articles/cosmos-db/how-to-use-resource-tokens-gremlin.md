@@ -14,7 +14,7 @@ This article explains how to use [Cosmos DB Resource Tokens](secure-access-to-da
 
 ## Create a resource token
 
-TinkerPop Gremlin SDK doesn't have an API to create resource tokens. Resource token is a Cosmos DB concept. To create resource tokens, please download [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access Graph database, then it needs 2 separate SDKs.
+TinkerPop Gremlin SDK doesn't have an API to create resource tokens. Resource token is a Cosmos DB concept. To create resource tokens, download [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access Graph database, then it needs 2 separate SDKs.
 
 Object model hierarchy above resource tokens:
 - **Cosmos DB Account** - top-level entity that has DNS associated with it, for example `contoso.gremlin.cosmos.azure.com`
@@ -92,7 +92,7 @@ A single Gremlin account can issue unlimited number of tokens, however only up t
 
 ## Permission
 
-Common error that applications encounter while using resource tokens is `"Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header."`. This error is returned when Gremlin traversal attempts to write an edge or a vertex but resource token grants `Read` permissions only. Inspect your traversal whether it contains any of the following steps: `.addV()`, `.addE()`, `.drop()`, or `.property()`.
+Common error applications come across while using resource tokens is `"Insufficient permissions provided in the authorization header for the corresponding request. Please retry with another authorization header."`. This error is returned when Gremlin traversal attempts to write an edge or a vertex but resource token grants `Read` permissions only. Inspect your traversal whether it contains any of the following steps: `.addV()`, `.addE()`, `.drop()`, or `.property()`.
 
 ## Next steps
 * [Role-based access control](role-based-access-control.md) in Azure Cosmos DB
