@@ -22,13 +22,14 @@ When deploying low-priority VMs, Azure will allocate the VMs if there is capacit
 For the preview, VMs will be evicted based on capacity and the max price you set. When creating low-priority virtual machines, the eviction policy is set to *Deallocate*. The *Deallocate* policy moves your evicted VMs to the stopped-deallocated state, allowing you to redeploy evicted VMs. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your vCPU quota and you will be charged for your underlying disks. 
 
 | Option | Outcome |
+|--------|---------|
 | Max price is set to >= the current price. | VM is deployed if capacity and quota are available. |
 | Max price is set to < the current price. | The VM is not deployed. You will get an error message that the max price needs to be >= current price. |
-| Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. 
+| Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
 | Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back ot being < the max price. | The VM will not be automatically re-started.|
-| If the max price is set to `-1` | The VM will not be evicted for reasons. The max price will be the current price, up to the price for  on-demand VMs. You will never charged above the on-demand price.| 
+| If the max price is set to `-1` | The VM will not be evicted for reasons. The max price will be the current price, up to the price for on-demand VMs. You will never charged above the on-demand price.| 
 
 
 
@@ -41,7 +42,7 @@ You can set a max price, in USD, using up to 5 decimal places. For example, the 
 
 ## Use the Azure CLI
 
-The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [getting started article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--Priority' parameter and set it to *Spot*:
+The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [getting started article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--Priority' parameter and set it to *Low*:
 
 ```azurecli
 az vm create \
@@ -50,17 +51,17 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --priority Spot
+    --priority Low
 ```
 
 ## Use Azure PowerShell
 
-The process to create a spot VM using Azure PowerShell is the same as creating other VMs, just add the '-Priority' parameter to the [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) portion of the script and set it to *Spot*:
+The process to create a low-priority VM using Azure PowerShell is the same as creating other VMs, just add the '-Priority' parameter to the [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) portion of the script and set it to *Low*:
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
 $location = "eastus"
-$vmName = "mySpotVM"
+$vmName = "myLowPriVM"
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 New-AzResourceGroup -Name $resourceGroup -Location $location
 $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
@@ -76,8 +77,8 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $l
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration and set this to be a spot VM
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Spot" | `
+# Create a virtual machine configuration and set this to be a low-priority VM
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Low" | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzVMNetworkInterface -Id $nic.Id
@@ -97,7 +98,7 @@ For template deployments, use`"apiVersion": "2019-03-01"`. Add the `priority`, `
                 }
 ```
 
-Here is a sample template with the added properties for a spot VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
+Here is a sample template with the added properties for a low-priority VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
 
 ```json
 {
@@ -106,26 +107,26 @@ Here is a sample template with the added properties for a spot VM. Replace the r
     "parameters": {
     },
     "variables": {
-        "vnetId": "/subscriptions/ec9fcd04-e188-48b9-abfc-abcd515f1836/resourceGroups/spotVM/providers/Microsoft.Network/virtualNetworks/spotVM",
+        "vnetId": "/subscriptions/ec9fcd04-e188-48b9-abfc-abcd515f1836/resourceGroups/lowpriVM/providers/Microsoft.Network/virtualNetworks/lowpriVM",
         "subnetName": "default",
-        "networkInterfaceName": "spotVMNIC",
-        "publicIpAddressName": "spotVM-ip",
+        "networkInterfaceName": "lowpriVMNIC",
+        "publicIpAddressName": "lowpriVM-ip",
         "publicIpAddressType": "Dynamic",
         "publicIpAddressSku": "Basic",
-        "virtualMachineName": "spotVM",
+        "virtualMachineName": "lowpriVM",
         "osDiskType": "Premium_LRS",
         "virtualMachineSize": "Standard_D2s_v3",
         "adminUsername": "azureuser",
         "adminPassword": "<password>",
-        "diagnosticsStorageAccountName": "diagstoragespot2019",
-        "diagnosticsStorageAccountId": "Microsoft.Storage/storageAccounts/diagstoragespot2019",
+        "diagnosticsStorageAccountName": "diagstoragelowpri2019",
+        "diagnosticsStorageAccountId": "Microsoft.Storage/storageAccounts/diagstoragelowpri2019",
         "diagnosticsStorageAccountType": "Standard_LRS",
         "diagnosticsStorageAccountKind": "Storage",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]"
     },
     "resources": [
         {
-            "name": "spotVM",
+            "name": "lowpriVM",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-10-01",
             "location": "eastus",
@@ -253,7 +254,7 @@ Here is a sample template with the added properties for a spot VM. Replace the r
 **A:** We recommend you use the On-demand VMs instead of low-priority VMs.
 
 **Q:** How is quota managed for low-priority VMs?
-**A:** Spot VMs and regular VMs share the same quota pool. 
+**A:** Low-priority VMs and regular VMs share the same quota pool. 
 
 **Q:** Can I request for additional quota for Low Priority?
 **A:** Yes, you will be able to submit the request to increase your quota for Low Priority VMs through the automation tool.
@@ -265,5 +266,5 @@ Here is a sample template with the added properties for a spot VM. Replace the r
 **A:** Not yet. We are working with AKS team to introduce low-priority VM option in AKS.
 
 **Q:** Where can I post questions?
-**A:** You can post and tag your question with `azurespot` at http://aka.ms/stackoverflow. 
+**A:** You can post and tag your question with `azurelowpri` at http://aka.ms/stackoverflow. 
 
