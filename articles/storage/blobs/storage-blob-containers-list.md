@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/10/2019
+ms.date: 09/04/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -36,9 +36,9 @@ In your code, check the value of the continuation token to determine whether it 
 
 To filter the list of containers, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
-### Return container metadata
+### Return metadata
 
-To return container metadata with the results, specify the **Metadata** value for the [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
+To return container metadata with the results, specify the **Metadata** value for the [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
 
 ## Example: List containers
 
