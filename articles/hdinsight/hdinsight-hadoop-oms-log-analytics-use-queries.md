@@ -77,15 +77,15 @@ Learn how to  look error messages during a specific time window. The steps here 
 
     - To see error messages from a specific worker node:
 
-        ![Search for specific errors output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Search for specific errors output")
+        ![Search for specific errors output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Search for specific errors output1")
 
     - To see an error occurred at a certain time:
 
-        ![Search for specific errors output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Search for specific errors output")
+        ![Search for specific errors output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Search for specific errors output2")
 
 6. To see the specific error. You can select **[+]show more** to look at the actual error message.
 
-    ![Search for specific errors output3](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output")
+    ![Search for specific errors output3](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output3")
 
 ## Create alerts for tracking events
 
@@ -101,7 +101,7 @@ The first step to create an alert is to arrive at a query based on which the ale
 
 4. Select **New Alert Rule** on the top of the page.
 
-    ![Enter query to create an alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert")
+    ![Enter query to create an alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert1")
 
 5. In the **Create rule** window, enter the query and other details to create an alert, and then select **Create alert rule**.
 

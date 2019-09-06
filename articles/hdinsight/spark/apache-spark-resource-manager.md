@@ -65,10 +65,11 @@ The three configuration parameters can be configured at the cluster level (for a
 ### Change the parameters using Ambari UI
 1. From the Ambari UI click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
 
-    ![Set parameters using Ambari custom](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
+    ![Set parameters using Ambari custom](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "Set parameters using Ambari custom")
 2. The default values are good to have four Spark applications run concurrently on the cluster. You can change these values from the user interface, as shown in the following screenshot:
 
-    ![Set parameters using Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
+    ![Set parameters using Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png "Set parameters using Ambari")
+
 3. Click **Save** to save the configuration changes. At the top of the page, you are prompted to restart all the affected services. Click **Restart**.
 
     ![Restart services](./media/apache-spark-resource-manager/restart-services.png)
@@ -118,13 +119,13 @@ Because of Spark dynamic allocation, the only resources that are consumed by thr
 1. From the Ambari UI, from the left pane, click **Spark**.
 2. In the next page, click **Spark Thrift Servers**.
 
-    ![Restart thrift server](./media/apache-spark-resource-manager/restart-thrift-server-1.png)
+    ![Restart thrift server1](./media/apache-spark-resource-manager/restart-thrift-server-1.png "Restart thrift server1")
 3. You should see the two headnodes on which the Spark Thrift Server is running. Click one of the headnodes.
 
-    ![Restart thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
+    ![Restart thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Restart thrift server2")
 4. The next page lists all the services running on that headnode. From the list click the drop-down button next to Spark Thrift Server, and then click **Stop**.
 
-    ![Restart thrift server3](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
+    ![Restart thrift server3](./media/apache-spark-resource-manager/restart-thrift-server-3.png "Restart thrift server3")
 5. Repeat these steps on the other headnode as well.
 
 ## Restart the Jupyter service

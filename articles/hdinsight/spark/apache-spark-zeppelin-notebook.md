@@ -125,11 +125,11 @@ In this article, you will see how to use the [spark-csv](https://search.maven.or
 
 2. Scroll to **livy**, then select **edit**.
 
-    ![Change interpreter settings](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Change interpreter settings")
+    ![Change interpreter settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Change interpreter settings1")
 
 3. Add a new key called `livy.spark.jars.packages`, and set its value in the format `group:id:version`. So, if you want to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package, you must set the value of the key to `com.databricks:spark-csv_2.10:1.4.0`.
 
-    ![Change interpreter settings](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Change interpreter settings")
+    ![Change interpreter settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Change interpreter settings2")
 
     Select **Save** and then restart the Livy interpreter.
 

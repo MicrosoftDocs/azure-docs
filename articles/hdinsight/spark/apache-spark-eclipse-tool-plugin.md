@@ -55,7 +55,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
    ![Select Subscriptions dialog box](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 1. On the **Azure Explorer** tab, expand **HDInsight** to see the HDInsight Spark clusters under your subscription.
    
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
+   ![HDInsight Spark clusters in Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
 1. You can further expand a cluster name node to see the resources (for example, storage accounts) associated with the cluster.
    
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
@@ -248,7 +248,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
    
 2. Click **Link this cluster** to link cluster.
    
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+    ![HDInsight Spark clusters in Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
 ### Link cluster from Spark Submission window
 

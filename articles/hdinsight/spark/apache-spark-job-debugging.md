@@ -49,11 +49,11 @@ In the Spark UI, you can drill down into the Spark jobs that are spawned by the 
     ![View Spark executors](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. Click the **Stages** tab to see the stages associated with the application.
    
-    ![View Spark stages](./media/apache-spark-job-debugging/view-spark-stages.png)
+    ![View Spark stages](./media/apache-spark-job-debugging/view-spark-stages.png "View Spark stages")
    
     Each stage can have multiple tasks for which you can view execution statistics, like shown below.
    
-    ![View Spark stages](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
+    ![View Spark stages details](./media/apache-spark-job-debugging/view-spark-stages-details.png "View Spark stages details") 
 4. From the stage details page, you can launch DAG Visualization. Expand the **DAG Visualization** link at the top of the page, as shown below.
    
     ![View Spark stages DAG visualization](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)

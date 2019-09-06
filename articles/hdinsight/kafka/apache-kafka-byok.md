@@ -49,11 +49,11 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         a. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Generate a new key in Azure Key Vault")
 
         b. Set **Options** to **Generate** and give the key a name.
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+        ![Generate key name](./media/apache-kafka-byok/kafka-create-a-key.png "Generate key name")
 
         c. Select the key you created from the list of keys.
 
