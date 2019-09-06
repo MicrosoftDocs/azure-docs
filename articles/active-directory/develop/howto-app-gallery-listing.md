@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/04/2019
+ms.date: 09/06/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
@@ -49,8 +49,8 @@ This article shows how to list an application in the Azure AD application galler
 
 - Need a permanent account for testing with atleast 2 users registered.
 
->[!NOTE]
->We are running with high number of SCIM connector requests, so we have stopped taking new requests on our portal. Please hold on your requests until further notice. We apologies for this delay and any inconvenience this may have caused.
+> [!NOTE]
+> We are running with high number of SCIM connector requests, so we have stopped taking new requests on our portal. Please hold on your requests until further notice. We apologize for this delay and any inconvenience this may have caused.
 
 ## Submit the request in the portal
 
