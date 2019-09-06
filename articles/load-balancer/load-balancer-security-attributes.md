@@ -21,9 +21,9 @@ This article documents the security controls built into Azure Load Balancer.
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | N/A | |
+| Server-side encryption at rest: Microsoft managed keys | N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
-| Encryption key handling (CMK, BYOK, etc.)| N/A | |
+| Server-side encryption at rest: customer managed keys (BYOK) | N/A | |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
 

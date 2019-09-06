@@ -20,9 +20,9 @@ This article documents the security controls built into Azure Backup.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes | Using storage service encryption for storage accounts. |
+| Server-side encryption at rest: Microsoft managed keys | Yes | Using storage service encryption for storage accounts. |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | Using HTTPS. |
-| Encryption key handling (CMK, BYOK, etc.)| No |  |
+| Server-side encryption at rest: customer managed keys (BYOK) | No |  |
 | Column level encryption (Azure Data Services)| No |  |
 | API calls encrypted| Yes |  |
 

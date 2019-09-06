@@ -22,9 +22,9 @@ This article documents the security controls built into Azure Event Hubs.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  Yes | |
+| Server-side encryption at rest: Microsoft managed keys |  Yes | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | |
-| Encryption key handling (CMK, BYOK, etc.)| No |  |
+| Server-side encryption at rest: customer managed keys (BYOK) | No |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes |  |
 

@@ -22,9 +22,9 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  N/A | Relay is a web socket and does not persist data. |
+| Server-side encryption at rest: Microsoft managed keys |  N/A | Relay is a web socket and does not persist data. |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |
-| Encryption key handling (CMK, BYOK, etc.)| No | Uses Microsoft TLS certs only.  |
+| Server-side encryption at rest: customer managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | HTTPS. |
 

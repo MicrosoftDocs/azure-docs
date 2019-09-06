@@ -6,7 +6,7 @@ author: msmbaldwin
 manager: barbkess
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
@@ -16,17 +16,17 @@ This article documents the security controls built into Azure Resource Manager.
 
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
-## Preventative
+## Data Protection
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes |  |
+| Server-side encryption at rest: Microsoft managed keys | Yes |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | HTTPS/TLS. |
-| Encryption key handling (CMK, BYOK, etc.)| N/A | Azure Resource Manager stores no customer content, only control data. |
+| Server-side encryption at rest: customer managed keys (BYOK) | N/A | Azure Resource Manager stores no customer content, only control data. |
 | Column level encryption (Azure Data Services)| Yes | |
 | API calls encrypted| Yes | |
 
-## Network segmentation
+## Network
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -35,26 +35,20 @@ This article documents the security controls built into Azure Resource Manager.
 | Network isolation and firewalling support| No |  |
 | Forced tunneling support| No |  |
 
-## Detection
+## Monitoring & Logging
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| No | |
+| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
+| Data plane logging and audit| N/A | |
 
-## Identity and access management
+## Identity
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | [Azure Active Directory](/azure/active-directory) based.|
 | Authorization| Yes | |
-
-
-## Audit trail
-
-| Security Attribute | Yes/No | Notes|
-|---|---|--|
-| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
-| Data plane logging and audit| N/A | |
 
 ## Configuration management
 

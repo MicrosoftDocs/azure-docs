@@ -21,9 +21,9 @@ This article documents the security controls built into Azure Key Vault.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes | All objects are encrypted. |
+| Server-side encryption at rest: Microsoft managed keys | Yes | All objects are encrypted. |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | All communication is via encrypted API calls |
-| Encryption key handling (CMK, BYOK, etc.)| Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. |
+| Server-side encryption at rest: customer managed keys (BYOK) | Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Using HTTPS. |
 
