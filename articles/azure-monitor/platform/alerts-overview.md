@@ -48,6 +48,11 @@ The key attributes of an alert rule are:
 **Alert Description** – A description for the alert rule configured by the user
 
 **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+   - Sev 0 = Critical
+   - Sev 1 = Error
+   - Sev 2 = Warning
+   - Sev 3 = Informational
+   - Sev 4 = Verbose 
 
 **Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
 
