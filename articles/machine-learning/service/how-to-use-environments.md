@@ -62,9 +62,12 @@ There are multiple ways to create an environment for your experiments.
 ### Use curated environment
 
 You can select one of the curated environments to start with. 
+
 * The __AzureML-Minimal__ environment contains a minimal set of packages to enable run tracking and asset uploading. You can use it as a starting point for your own environment.
 
 * The __AzureML-Tutorial__ environment contains common data science packages, such as Scikit-Learn, Pandas and Matplotlib, and larger set of azureml-sdk packages.
+
+Curated environments are backed by cached Docker images, reducing the run preparation cost.
 
 Use __Environment.get__ method to select one of the curated environments:
 
