@@ -13,20 +13,20 @@ You enter the AppSource listing information on the Marketplace listings page in 
 
 ## Manage languages
 
-You can select the languages in which your add-in will be available. Choose **Manage additional languages** and select the check box next to the languages you want. After you select your languages, you can provide AppSource listing information for each language.
+You can select the languages in which your solution will be available. Choose **Manage additional languages** and select the check box next to the languages you want. After you select your languages, you can provide AppSource listing information for each language.
 
-For details about offering add-ins in multiple languages, see [Prepare localized add-ins](prepare-localized-apps-and-add-ins.md).
+For details about offering solution in multiple languages, see [Prepare localized add-ins](prepare-localized-apps-and-add-ins.md).
 
 ## Create your listing
 
 Select a language to add the AppSource listing information for that language. Your listing includes the following information.
 
 ### Display name
-In the **Display name** field, specify the name of the add-in that will be displayed in AppSource. For details, see [Manage add-in names](manage-add-in-names.md).
+In the **Display name** field, specify the name of the solution that will be displayed in AppSource. For details, see [Manage names](manage-add-in-names.md).
 
 ### Short and long descriptions
 
-Both the short description and long description appear in the AppSource listing. The short description appears when a user browses or searches within AppSource or the in-product experience. The long description appears on the details page for your add-in.
+Both the short description and long description appear in the AppSource listing. The short description appears when a user browses or searches within AppSource or the in-product experience. The long description appears on the details page for your solution.
 
 **Guidelines for descriptions**
 
@@ -39,15 +39,15 @@ For additional guidance for descriptions, see [Write compelling descriptions](cr
 
 ### Search terms
 
-Add keywords related to your add-in that customers will use in search queries in AppSource. You can add up to three terms, and they can be words or short phrases, with a maximum of 40 characters each, for a total of 21 words across all seven entries.
+Add keywords related to your solution that customers will use in search queries in AppSource. You can add up to three terms, and they can be words or short phrases, with a maximum of 40 characters each, for a total of 21 words across all seven entries.
 
-As a best practice, choose search terms that are not part of your add-in name. Don't choose terms that aren't relevant to your add-in.
+As a best practice, choose search terms that are not part of your solution name. Don't choose terms that aren't relevant to your solution.
 
 ### Screenshots
 
 Your screenshots appear on the AppSource details page and can help draw in potential customers.
 
-You must provide at least one screenshot; we recommend that you provide at least four screenshots for each device family that your add-in supports. Each screenshot must be 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 50 MB. Screenshots must be .png files.
+You must provide at least one screenshot; we recommend that you provide at least four screenshots for each device family that your solution supports. Each screenshot must be 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 50 MB. Screenshots must be .png files.
 
 You can also provide a short caption of up to 200 characters that describes each screenshot.
 

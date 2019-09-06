@@ -1,10 +1,10 @@
 ---
-title: Define add-in properties
-description:
+title: Define your Office solution properties in Partner Center
+description: Define the categories and industries that apply to your solution and add links to support documents.
 localization_priority: Normal
 ---
 
-# Define add-in properties
+# Define your Office solution properties in Partner Center
 
 On the Properties page in [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview), define the categories and industries that apply to your solution and add links to support documents.
 
