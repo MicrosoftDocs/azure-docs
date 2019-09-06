@@ -93,15 +93,14 @@ The reverberation time of a given material in a room is inversely related to its
 
 ### For reference: Parts of the Materials tab
 ![The Acoustics Materials tab in Unity](media/materials-tab-detail.png)
-***MAKE SURE THESE MATCH THE TAB***
 1. The **Materials** tab button, which is used to bring up this page.
 1. A brief description of what you can do by using this page.
-1. When checked, only materials used by objects that marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
-1. Use these options to change the order of the drop-down menu that is shown when you click a drop-down menu in the Acoustics column below (#6). **Name** sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
-1. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
-1. The acoustic material that the scene material has been assigned to. Click a drop-down menu to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
-1. The acoustic absorption coefficient of the material selected in the previous column. A value of 0 means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom."
-1.  For a material assigned to "Custom," the slider is no longer disabled, and you can choose the absorption coefficient using the slider or by typing in a value.
+1. When this checkbox is selected, only materials used by objects that marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
+1. Use these options to change the order of the options when you click a drop-down menu in the Acoustics column (#6). Sort acoustic materials by **Name**. Or sort by **Absorptivity** from low to high.
+1. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** checkbox is selected (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Select a material here to select all objects in the scene that use that material.
+1. The acoustic material that the scene material has been assigned to. Select any item to change the acoustic material assigned to that scene material. To change the sorting order of these menus, use the **Sort Acoustics By:** options above (#4).
+1. The acoustic absorption coefficient of the material selected in the column to the left (#6). A value of 0 means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom."
+1.  For a material marked as "Custom" (in #7), the slider is no longer disabled. You can move the slider or type a value to assign the absorption coefficient.
 
 ## Calculate and review listener probe locations
 After you assign the materials, switch to the **Probes** tab. Select **Calculate** to place listener probe points for simulation.
@@ -109,43 +108,43 @@ After you assign the materials, switch to the **Probes** tab. Select **Calculate
 ### What the "Calculate..." button calculates
 The **Calculate...** button uses your selected acoustic scene geometry to prepare your scene for simulation:
 
-1. It takes the geometry from the scene meshes and calculates a voxel volume. The voxel volume is a 3-dimensional volume that encloses your entire scene, and is made up of small cubic "voxels". The size of the voxels is determined by the simulation frequency, which is set by the **Simulation Resolution** setting. Each voxel is marked as being either "open air" or containing scene geometry. If a voxel contains geometry then the voxel is tagged with the absorption coefficient of the material assigned to that geometry.
-2. It uses the navigation mesh(es) to place listener probe points. The algorithm balances the competing concerns of spatial coverage and simulation time and file size, while ensuring that narrow corridors and small spaces always have some amount of coverage. Typical probe point counts range from 100 for small scenes to a few thousand for large scenes.
+1. It takes the geometry from the scene meshes and calculates a voxel volume. The voxel volume is a three-dimensional volume of your entire scene that's comprised of small cubic "voxels." Voxel size is determined by the simulation frequency, which is controlled by the **Simulation Resolution** setting. Each voxel is marked as "open air" or containing scene geometry. If a voxel contains geometry, the voxel is tagged with the absorption coefficient of the material that's assigned to that geometry.
+2. It uses the navigation meshes to place listener probe points. The algorithm balances the competing concerns of spatial coverage and simulation time and file size. It aims to ensure that narrow corridors and small spaces always have some coverage. Typical probe point counts range from 100 for small scenes to a few thousand for large scenes.
 
 Depending on the size of your scene and the speed of your machine, these calculations can take several minutes.
 
 ### Review voxel and probe placement
-Preview both the voxel data and the probe point locations to ensure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry will usually be quickly visible in the preview. Voxel and probe placement can be enabled or disabled using the Gizmos menu:
+Preview both the voxel data and the probe point locations to make sure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry is usually quickly visible in the preview. Enable or disable Voxel and probe placement by using the Gizmos menu:
 
-![Screenshot of Gizmos menu in Unity](media/gizmos-menu.png)
+![Gizmos menu in Unity](media/gizmos-menu.png)
 
-Voxels containing acoustic geometry are shown as green cubes. Explore your scene and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
+Voxels that contain acoustic geometry are shown as green cubes. Explore your scene, and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
 
-If you compare the voxels created with coarse resolution vs fine resolution, you will see that the coarse voxels are twice as large.
+If you compare the voxels created with coarse resolution vervus fine resolution, you'll see that the coarse voxels are twice as large.
 
-![Screenshot of coarse voxels preview in Unity editor](media/voxel-cubes-preview.png)
+![Coarse voxels preview in Unity editor](media/voxel-cubes-preview.png)
 
-Simulation results are interpolated between listener probe point locations at runtime. Check there are probe points near any place the player is expected to travel in the scene.
+Simulation results are interpolated between listener probe point locations at runtime. Check that there are probe points near any places that the player is expected to travel to in the scene.
 
-![Screenshot of probes preview in Unity editor](media/probes-preview.png)
+![Probes preview in Unity editor](media/probes-preview.png)
 
 ### Take care with scene renames
-The scene name is used to connect the scene to files storing the probe point placement and voxelization. If the scene is renamed after probe points are calculated, the material assignment and placement data is lost and should be rerun.
+The scene name is used to connect the scene to files that store the probe point placement and voxelization. If the scene is renamed after probe points are calculated, the material assignment and placement data is lost and should be rerun.
 
 ### For reference: Parts of the Probes tab
-![Screenshot of Acoustics Probes tab in Unity](media/probes-tab-detail.png)
+![The Acoustics Probes tab in Unity](media/probes-tab-detail.png)
 
-1. The **Probes** tab button used to bring up this page
-2. A brief description of what you need to do using this page
-3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Bake Resolution](bake-resolution.md) below for details.
-4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is **Assets/AcousticsData**. An **Editor** subfolder will also be created under this location. For more information about data files, see [Data Files](#Data-Files) below.
-5. The data files for this scene will be named using the prefix provided here. The default is "Acoustics_[Scene Name]".
-6. After the probes have been calculated, the controls above will be disabled. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.
-7. Click the **Calculate...** button to voxelize the scene and calculate the probe point locations. This is done locally on your machine, and must be done prior to doing a bake.
+1. The **Probes** tab button brings up this page.
+2. A brief description of what you can do on this tab.
+3. Use these options to set coarse or fine simulation resolution. Coarse is faster but has certain tradeoffs. For details, see [Bake Resolution](bake-resolution.md).
+4. Use this field to specify where to put the acoustics data files. Click the "**...**" button to access a folder picker. The default location is **Assets/AcousticsData**. An **Editor** subfolder will also be created under this location. For more information about data files, see [Data Files](#Data-Files), below.
+5. The prefix that's specified here is used to name the  data files for this scene. The default is "Acoustics_*[Scene Name]*".
+6. After the probes are calculated, the controls that we just described are be disabled. Select  **Clear** button to erase the calculations and enable the controls so that you can recalculate with new settings.
+7. Select **Calculate** to voxelize the scene and calculate the probe point locations. This is done locally on your machine. It must be done prior to doing a bake.
 
-In this version of Project Acoustics, probes can't be placed manually and must be placed through the automated process provided in the **Probes** tab.
+In this version of Project Acoustics, probes can't be placed manually. They must be placed through the automated process on the **Probes** tab.
 
-See [Bake Resolution](bake-resolution.md) for more details on coarse vs fine resolution.
+See [Bake Resolution](bake-resolution.md) for more details on coarse versus fine resolution.
 
 ## Bake your scene using Azure Batch
 You can bake your scene with a compute cluster in the cloud using the Azure Batch service. The Project Acoustics Unity plugin connects directly to Azure Batch to instantiate, manage, and tear down an Azure Batch cluster for each bake. On the **Bake** tab, enter your Azure credentials, select a cluster machine type and size, and click **Bake**.
