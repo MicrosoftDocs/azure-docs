@@ -108,7 +108,7 @@ Insert the following two methods into the **MainActivity** class. Note that when
 
 Insert the following helper method into the **MainActivity** class. This method draws a rectangle around each detected face, using the rectangle coordinates of each **Face** instance.
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?name=snippet_drawrectangles)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_drawrectangles)]
 
 Finally, uncomment the call to the **detectAndFrame** method in **onActivityResult**.
 
