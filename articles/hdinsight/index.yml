@@ -32,10 +32,10 @@ landingContent:
             url: ./hdinsight-component-versioning.md
           - text: HDInsight supported node configurations
             url: ./hdinsight-supported-node-configuration.md
-      - linkListType: quickstart
+          - text: Compare storage options
+            url: ./hdinsight-hadoop-compare-storage-options.md
+      - linkListType: tutorial
         links:
-          - text: Create HDInsight clusters in the portal
-            url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
           - text: Setup HDInsight clusters
             url: ./hdinsight-hadoop-provision-linux-clusters.md
           - text: Create clusters with Data Lake Store Gen2
