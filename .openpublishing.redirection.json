@@ -4971,6 +4971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-redirect-overview.md",
+      "redirect_url": "/azure/application-gateway/redirect-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-create-gateway-arm-template.md",
       "redirect_url": "/azure/application-gateway/create-vmss-template",
       "redirect_document_id": false
