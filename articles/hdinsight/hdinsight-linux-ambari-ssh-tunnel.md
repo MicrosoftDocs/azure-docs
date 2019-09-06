@@ -11,7 +11,7 @@ ms.date: 05/28/2019
 ms.author: hrasheed
 ---
 
-# Use SSH Tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other web UIs
+# Use SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs
 
 HDInsight clusters provide access to the Apache Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Apache Oozie service cannot be accessed over the internet without an SSh tunnel.
 
