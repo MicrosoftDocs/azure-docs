@@ -38,7 +38,7 @@ In your title:
 
 You specify your add-in name in two places, so be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) element (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
 - The Seller Dashboard add-in submission form. This specifies the name that is displayed in AppSource and the in-product Store.
 
 <a name="bk_describe"> </a>
