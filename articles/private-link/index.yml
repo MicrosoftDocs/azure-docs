@@ -24,7 +24,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is a Private Link?
-            url: privatelink-overview.md
+            url: private-link-overview.md
 
   # Card (optional)
   - title: Create a private endpoint
@@ -48,11 +48,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Create a private link service - Portal
-            url: create-privatelink-service.md
+            url: create-private-link-service.md
           - text: Create a private link service - CLI
-            url: create-privatelink-service-cli.md
+            url: create-private-link-service-cli.md
           - text: Create a private link service - PowerShell
-            url: create-privatelink-service-powershell.md   
+            url: create-private-link-service-powershell.md   
             
                 
 
