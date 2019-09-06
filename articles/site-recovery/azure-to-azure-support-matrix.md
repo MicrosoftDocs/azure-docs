@@ -48,6 +48,7 @@ Australia	| Australia East, Australia Southeast, Australia Central, Australia Ce
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central 
 Germany	| Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
+Restricted Regions| Germany North: Reserved for Germany West Central customers requiring in-country disaster recovery, Switzerland West: Reserved for Switzerland North customers requiring in-country disaster recovery, France South: Reserved for France Central customers requiring in-country/region disaster recovery
 
 >[!NOTE]
 >
