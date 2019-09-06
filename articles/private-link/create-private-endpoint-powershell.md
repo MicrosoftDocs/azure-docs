@@ -218,4 +218,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps
-- Learn more about [Azure Private Link](privatelink-overview.md)
+- Learn more about [Azure Private Link](private-link-overview.md)

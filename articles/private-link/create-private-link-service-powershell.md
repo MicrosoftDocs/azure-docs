@@ -154,5 +154,5 @@ $pls = Get-AzPrivateLinkService `
 Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
  ``` 
 ## Next steps
-- Learn more about [Azure Private Link](privatelink-overview.md)
+- Learn more about [Azure Private Link](private-link-overview.md)
  

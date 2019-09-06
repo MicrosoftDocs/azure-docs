@@ -84,5 +84,5 @@ For FAQs, see Azure Private Link FAQs.
 For limits, see Azure Private Link limits.
 
 ## Next steps
-- [Create a Private Link service using Azure PowerShell](create-privatelink-powershell.md)
+- [Create a Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
  

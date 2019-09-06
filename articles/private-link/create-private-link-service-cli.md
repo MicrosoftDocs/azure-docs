@@ -16,5 +16,5 @@ A private endpoint is the fundamental building block for private link in Azure. 
 TBD
 
 ## Next steps
-- Learn more about [Azure Private Link](privatelink-overview.md)
+- Learn more about [Azure Private Link](private-link-overview.md)
  

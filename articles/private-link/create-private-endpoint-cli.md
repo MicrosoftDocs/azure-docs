@@ -47,4 +47,4 @@ In this section, you create a virtual network and a subnet. Next, you associate 
 
 
 ## Next steps
-- Learn more about [Azure Private Link](privatelink-overview.md)
+- Learn more about [Azure Private Link](private-link-overview.md)
