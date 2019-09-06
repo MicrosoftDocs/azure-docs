@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure Private Endpoint using Azure Portal| Microsoft Docs'
+title: 'Create an Azure Private Endpoint using Azure portal| Microsoft Docs'
 description: Learn about Azure Private Endpoint
 services: virtual-network
 author: KumudD
@@ -10,36 +10,39 @@ ms.date: 09/06/2019
 ms.author: kumud
 
 ---
-# Create Azure Private Endpoint using Azure Portal
+# Create Azure Private Endpoint using Azure portal
 A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using the Azure portal. Then, you can securely access the private link resource (the storage account) from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
 
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Create the virtual network
+## Create the 
+In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource.
 
-Create a virtual network and the subnet to host the VM.
+### Create the virtual network
+
+In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 1. In **Create virtual network**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter *myVNet*. |
+    | Name | Enter *MyVirtualNetwork*. |
     | Address space | Enter *10.1.0.0/16*. |
     | Subscription | Select your subscription.|
     | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
-    | Location | Select **East US**.|
+    | Location | Select **WestCentralUS**.|
     | Subnet - Name | Enter *mySubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
 1. Leave the rest as default and select **Create**.
 
 
-## Create virtual machine
+### Create virtual machine
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual Machine**.
 
@@ -52,7 +55,7 @@ Create a virtual network and the subnet to host the VM.
     | Resource group | Select **myResourceGroup**. You created this in the previous section.  |
     | **INSTANCE DETAILS** |  |
     | Virtual machine name | Enter *myVm*. |
-    | Region | Select **West US**. |
+    | Region | Select **WestCentralUS**. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
     | Image | Select **Windows Server 2019 Datacenter**. |
     | Size | Leave the default **Standard DS1 v2**. |
@@ -65,15 +68,15 @@ Create a virtual network and the subnet to host the VM.
     | **SAVE MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
 
-1. Select **Next : Disks**.
+1. Select **Next: Disks**.
 
-1. In **Create a virtual machine - Disks**, leave the defaults and select **Next : Networking**.
+1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
 
 1. In **Create a virtual machine - Networking**, select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Leave the default **myVNet**.  |
+    | Virtual network | Leave the default **MyVirtualNetwork**.  |
     | Address space | Leave the default **10.1.0.0/24**.|
     | Subnet | Leave the default **mySubnet (10.1.0.0/24)**.|
     | Public IP | Leave the default **(new) myVm-ip**. |
@@ -84,10 +87,10 @@ Create a virtual network and the subnet to host the VM.
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create a private storage account
-Create a private storage account in your virtual network as follows:
+## Create your private endpoint
+In this section, you will create a private storage account and add a private endpoint to it. 
 
-1. 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Storage** > **Storage acount**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Storage** > **Storage account**.
 
 1. In **Create storage account - Basics**, enter or select this information:
 
@@ -98,12 +101,12 @@ Create a private storage account in your virtual network as follows:
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
     | Storage account name  | Enter *myvmstorageaccount*. If this name is taken, create a unique name. |
-    | Region | Select **West US**. |
+    | Region | Select **WestCentralUS**. |
     | Performance| Leave the default **Standard**. |
     | Account kind | Leave the default **Storage (general purpose v2)**. |
     | Replication | Leave the default **Locally-redundant storage (LRS).**. |
   
-3. Select **Next : Networking**.
+3. Select **Next: Networking**.
 4. In **Create a storage account - Networking**, connectivity method, select **Private endpoint**.
 5. In **Create a storage account - Networking**, select **Add private endpoint**. 
 6. In **Create private endpoint**, enter or select this information:
@@ -113,9 +116,9 @@ Create a private storage account in your virtual network as follows:
     | **PROJECT DETAILS** | |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
-    |Location|Select **West US**.|
+    |Location|Select **WestCentralUS**.|
     |Name|Enter *myPrivateEndpoint*.  |
-    |target sub-resource|Leave the default **Blob primary**. |
+    |Storage sub-resource|Leave the default **Blob**. |
     | **NETWORKING** |  |
     | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
     | Subnet | Leave the default **default**. |
@@ -131,7 +134,7 @@ Create a private storage account in your virtual network as follows:
  
 ## Connect to a VM from the internet
 
-Connect to the VM *myVm1* from the internet as follows:
+Connect to the VM *myVm* from the internet as follows:
 
 1. In the portal's search bar, enter *myVm*.
 
@@ -139,7 +142,7 @@ Connect to the VM *myVm1* from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded *.rdp* file.
+1. Open the downloaded.rdp* file.
 
     1. If prompted, select **Connect**.
 
@@ -150,11 +153,14 @@ Connect to the VM *myVm1* from the internet as follows:
 
 1. Select **OK**.
 
-1. You may receive a certificate warning during the sign in process. If you receive a certificate warning, select **Yes** or **Continue**.
+1. You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
 ## Access storage account privately from the VM
+
+In this section, you will create a virtual network to host the Azure storage account and configure it with a private endpoint.
+
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 2. Enter `nslookup mystorageaccount.blob.core.windows.net`
@@ -179,7 +185,7 @@ Connect to the VM *myVm1* from the internet as follows:
 13. Close the remote desktop connection to *myVM*. 
 
 
-Additional options to access the Storage account:
+Additional options to access the Storage account: (*What is the purpose of this section? Can this section be removed?*)
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
  
 - The AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 

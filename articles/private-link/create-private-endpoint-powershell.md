@@ -13,7 +13,8 @@ ms.author: kumud
 # Create Azure Private Link using Azure PowerShell
 A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using Azure PowerShell. Then, you can securely access the private link resource (the storage account) from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using Azure PowerShell. Then, you can securely access the the storage account from the VM.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
