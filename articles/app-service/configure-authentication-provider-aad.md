@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: cephalin
 ms.custom: seodec18
+ms.custom: fasttrack-edit
 
 ---
 # Configure your App Service app to use Azure Active Directory sign-in
@@ -77,6 +78,9 @@ When creating an app registration manually, note three pieces of information tha
     |Issuer ID| Use `https://login.microsoftonline.com/<tenant-id>`, and replace *\<tenant-id>* with the **Directory (tenant) ID** of the app registration. |
     |Client Secret (Optional)| Use the client secret you generated in the app registration.|
     |Allowed Token Audiences| If this is a *back-end* app and you want to allow authentication tokens from a front-end app, add the **Application ID URI** of the *front end* here. |
+
+    > [!NOTE]
+    > The configured **Client ID** is *always* implicitly considered to be an allowed audience, regardless of how you configured the **Allowed Token Audiences**.
 1. Select **OK**, then select **Save**.
 
 You are now ready to use Azure Active Directory for authentication in your App Service app.
