@@ -264,15 +264,12 @@ myenv.docker.enabled = True
 
 Once built, the Docker image appears in the Azure Container Registry that's associated with the workspace, by default.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuuid*) part corresponds to a hash computed from the environment configuration. This allows the service to determine whether an image corresponding to the given environment already exists for reuse.
 
-Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions, and you can specify the GPU image by setting  `gpu_support=True`.
+Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. Azure Machine Learning service automatically detects which version to use.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
-
-# Specify GPU image
-myenv.docker.gpu_support=True
 ```
 
 > [!NOTE]
