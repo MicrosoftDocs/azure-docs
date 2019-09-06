@@ -31,9 +31,7 @@ productDirectory:
           text: What is Azure Blockchain Workbench?
         - url: https://docs.microsoft.com/azure/blockchain/workbench
           text: See more >
-
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Get started with Azure Blockchain Service
   items:
     - title: Deploy
@@ -63,9 +61,7 @@ conceptualContent:
         - url: ./service/configure-transaction-nodes.md
           itemType: how-to-guide
           text: Configure transaction nodes
-
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Get started with Azure Blockchain Workbench
   items:
     - title: Deploy
