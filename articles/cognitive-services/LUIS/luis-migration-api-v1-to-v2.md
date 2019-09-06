@@ -1,5 +1,5 @@
 ---
-title: v1 to v2 API Migration  
+title: v1 to v2 API Migration
 titleSuffix: Azure Cognitive Services
 description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ---

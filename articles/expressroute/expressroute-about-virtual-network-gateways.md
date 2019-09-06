@@ -6,15 +6,13 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/04/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
 ---
 # ExpressRoute virtual network gateway and FastPath
 To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains gateway types, gateway SKUs and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Gateway types
 
@@ -63,7 +61,8 @@ FastPath is available on [ExpressRoute Direct](expressroute-erdirect-about.md) o
 FastPath doesn't support the following features:
 * UDR on Gateway subnet: if you apply a UDR to the Gateway subnet of your virtual network the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
 * VNet Peering: if you have other virtual networks peered with the one that is connected to ExpressRoute the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
-
+* Basic Load Balander: if you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). 
+ 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 For additional technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for virtual network gateway configurations, see the following pages:
 

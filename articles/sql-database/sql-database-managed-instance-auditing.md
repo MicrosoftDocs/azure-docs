@@ -12,7 +12,6 @@ f1_keywords:
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/08/2019
 ---
 # Get started with Azure SQL Database managed instance auditing

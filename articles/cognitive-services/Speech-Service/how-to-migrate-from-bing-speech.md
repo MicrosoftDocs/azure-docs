@@ -1,7 +1,7 @@
 ---
-title: Migrate from Bing Speech to Azure Speech Services
+title: Migrate from Bing Speech to Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate from an existing Bing Speech subscription to the Azure Speech Services.
+description: Learn how to migrate from an existing Bing Speech subscription to the Speech Service from Azure Cognitive Services.
 services: cognitive-services
 author: wsturman
 manager: nitinme
@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
-ms.author: gracez
+ms.author: nitinme
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech Service, so that I can migrate my application to the Speech Service.
 ---
@@ -67,7 +67,7 @@ The Speech Services WebSockets protocols are also compatible with those used by 
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) requires changes to your application, because the API is different. The Speech SDK can make your code simpler, while also giving you access to new features.
 
-Currently, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development.
+Currently, the Speech SDK supports C# ([details here](https://aka.ms/csspeech)), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development.
 
 The Speech Services don't offer a global endpoint. Determine if your application functions efficiently when it uses a single regional endpoint for all of its traffic. If not, use geolocation to determine the most efficient endpoint. You need a separate Speech Services subscription in each region you use.
 

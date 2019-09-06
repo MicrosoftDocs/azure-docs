@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 04/17/2019
+ms.date: 09/04/2019
 ms.author: pafarley
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
@@ -39,11 +39,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You will need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Computer Vision service. 
 
-1. Follow the instructions in [Create an Azure Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) to create a Computer Vision resource.
+1. Follow the instructions in [Create an Azure Cognitive Services resource](../../cognitive-services-apis-create-account.md) to create a Computer Vision resource.
 
 1. Then go to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Azure portal page with the endpoint URL and access keys link outlined](../Images/copy-vision-endpoint.png)
+    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 
 1. In the next window, copy the value of **KEY 1** to the clipboard.
 

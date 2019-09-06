@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This guide shows you how to migrate your stored face data from one Face API subscription to another.
 services: cognitive-services
 author: lewlu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api

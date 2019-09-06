@@ -11,6 +11,7 @@ ms.subservice: entity-linking-intelligence
 ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
+ROBOTS: NOINDEX
 ---
 
 # What is the Entity Linking Intelligence Service API?

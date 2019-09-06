@@ -1,7 +1,6 @@
 ---
 title: Quickstart for managing Azure file shares with Azure portal
 description: Use this quickstart to learn to use the Azure portal to manage Azure Files.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart

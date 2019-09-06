@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -21,15 +21,59 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 ## Circuit metrics
 
-To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring**, you can view the **Metrics**. Select BitsInPerSecond or BitsOutPerSecond, and the Aggregation. Optionally, you can apply splitting, which will show the metrics per peering type.
+To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring**, you can view the **Metrics**. Select from the metrics listed below. The default aggregation will be applied. Optionally, you can apply splitting, which will show the metrics with different dimensions.
+
+### Metrics Available: 
+* **Availability** 
+    * Arp Availability
+      * Dimensions Available:
+        * Peer (Primary/Secondary ExpressRoute router)
+        * Peering Type (Private/Public/Microsoft)
+    * Bgp Availability
+      * Dimensions Available:
+        * Peer (Primary/Secondary ExpressRoute router)
+        * Peering Type (Private/Public/Microsoft)
+* **Traffic**
+    * BitsInPerSecond
+      * Dimensions Available:
+        * Peering Type (Private/Public/Microsoft)
+    * BitsOutPerSecond
+      * Dimensions Available:
+        * Peering Type (Private/Public/Microsoft)
+    * GlobalReachBitsInPerSecond
+      * Dimensions Available:
+        * Peered Circuit Skey (Service Key)
+    * GlobalReachBitsOutPerSecond
+      * Dimensions Available:
+        * Peered Circuit Skey (Service Key)
+
+>[!NOTE]
+>Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
+>
+
+## Bits In and Out - Metrics across all peerings
+
+You can view metrics across all peerings on a given ExpressRoute circuit.
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## Metrics per peering
+## Bits In and Out - Metrics per peering
 
 You can view metrics for private, public, and Microsoft peering in bits/second.
 
 ![metrics per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+
+## BGP Availability - Split by Peer  
+
+You can view near to real-time availability of BGP across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session up for private peering and the Second BGP session down for private peering. 
+
+![BGP availability per peer](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
+
+## ARP Availability - Split by Peering  
+
+You can view near to real-time availability of [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
+
+![ARP availability per peer](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
 ## ExpressRoute gateway connections in bits/seconds
 

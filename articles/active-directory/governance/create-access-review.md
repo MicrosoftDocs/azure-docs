@@ -2,8 +2,8 @@
 title: Create an access review of groups or applications - Azure Active Directory | Microsoft Docs
 description: Learn how to create an access review of group members or application access in Azure Active Directory access reviews. 
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -38,7 +38,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
 1. Click **New access review** to create a new access review.
 
-    ![Access review - Controls](./media/create-access-review/access-reviews.png)
+    ![Access reviews pane in Identity Governance](./media/create-access-review/access-reviews.png)
 
 1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
@@ -86,7 +86,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
 1. To specify what happens after a review completes, expand the **Upon completion settings** section.
 
-    ![Upon completion settings](./media/create-access-review/upon-completion-settings.png)
+    ![Create an access review - Upon completion settings](./media/create-access-review/upon-completion-settings.png)
 
 1. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
@@ -101,7 +101,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
 1. To specify additional settings, expand the **Advanced settings** section.
 
-    ![Advanced settings](./media/create-access-review/advanced-settings.png)
+    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings.png)
 
 1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
 
@@ -117,7 +117,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
 Once you have specified the settings for an access review, click **Start**. The access review will appear in your list with an indicator of its status.
 
-![Access reviews list](./media/create-access-review/access-reviews-list.png)
+![List of access reviews and their status](./media/create-access-review/access-reviews-list.png)
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 

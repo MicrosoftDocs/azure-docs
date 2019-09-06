@@ -11,7 +11,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-The code for all the functions in a specific function app is located in a root project folder that contains a host configuration file and one or more subfolders. Each subfolder contains the code for a separate function, as in the following representation:
+The code for all the functions in a specific function app is located in a root project folder that contains a host configuration file and one or more subfolders. Each subfolder contains the code for a separate function. The folder structure is shown in the following representation:
 
 ```
 FunctionApp
@@ -28,7 +28,7 @@ FunctionApp
 
 In version 2.x of the Functions runtime, all functions in the function app must share the same language stack.  
 
-The [host.json](../articles/azure-functions/functions-host-json.md) file, which contains some runtime-specific configurations, is in the root folder of the function app. A `bin` folder contains packages and other library files required by the function app. See the language-specific requirements for a function app project:
+The [host.json](../articles/azure-functions/functions-host-json.md) file contains runtime-specific configurations and is in the root folder of the function app. A *bin* folder contains packages and other library files that the function app requires. See the language-specific requirements for a function app project:
 
 * [C# class library (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
 * [C# script (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)

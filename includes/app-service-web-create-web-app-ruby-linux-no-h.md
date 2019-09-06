@@ -5,7 +5,7 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 03/09/2018
+ms.date: 07/10/2019
 ms.author: cephalin
 ms.custom: "include file"
 ---
@@ -16,9 +16,9 @@ In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp?view=
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "RUBY|2.3" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "RUBY|2.6.2" --deployment-local-git
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "RUBY|2.3" --deployment-local-git
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "RUBY|2.6.2" --deployment-local-git
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:

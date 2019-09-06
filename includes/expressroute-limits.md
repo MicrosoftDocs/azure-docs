@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 05/28/2019
+ ms.date: 07/25/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -36,4 +36,4 @@
 | 40 Gbps* |10 |100 |
 | 100 Gbps* |10 |100 |
 
-*ExpressRoute Direct Only
+**100 Gbps ExpressRoute Direct Only*

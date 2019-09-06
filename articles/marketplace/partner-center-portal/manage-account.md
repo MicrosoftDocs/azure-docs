@@ -1,12 +1,12 @@
 ---
 title: How to manage a Commercial Marketplace account in Partner Center 
 description: Learn how to manage a Commercial Marketplace account in Partner Center. 
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
-ms.topic: how-to
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 08/30/2019
 ---
 
 # How to manage your Commercial Marketplace account in Partner Center 
@@ -20,12 +20,12 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 - [Update contact information](#contact-info)
 - [Manage financial details (payout account, tax profile, payout hold status)](#financial-details)
 - [Set up Tracking GUIDs for monitoring customer usage](#tracking-guids)
-- [Manager users](#manage-users)
-- [Manager groups](#manage-groups)
-- [Manager Azure AD applications](#manage-azure-ad-applications)
+- [Manage users](#manage-users)
+- [Manage groups](#manage-groups)
+- [Manage Azure AD applications](#manage-azure-ad-applications)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
 - [Manage Azure AD tenants (work accounts)](#manage-tenants)
-- [Manager Partner Center Agreements](#agreements)
+- [Manage Partner Center Agreements](#agreements)
 
 
 ## Access your account settings
@@ -144,9 +144,9 @@ For more information, see the [Tracking Azure customer usage with GUIDs FAQ](htt
 
 Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
 
-## Manage Users
+## Manage users
 
-The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Note that in order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
+The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
 
 Once you are signed in with your work account (Azure AD tenant), you can:
 - [Add or remove users](#add-or-remove-users)
@@ -218,7 +218,7 @@ If one of your users needs to change their password, they can do so themselves i
 3.	A confirmation page will appear showing the login information for the user, including a temporary password. Be sure to print or copy this info and provide it to the user, as you won't be able to access the temporary password after you leave this page.
 
 
-## Manage Groups
+## Manage groups
 
 Groups allow you to control multiple user roles and permissions all together.
 
@@ -295,35 +295,24 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 4.	If you want to create more keys, select **Add another key**.
 
 
-### Define user roles and permissions
+## Define user roles and permissions
 
-Your company's users can be assigned the following roles and permissions in the Commercial Marketplace program on Partner Center. 
+Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center:
 
-Note
-Azure Active Directory (AAD) tenant roles include global admin, user admin, and CSP roles. Non-AAD roles are those roles that do not manage the tenant and they include MPN admin, business profile admin, referral admin, incentive admin, and incentive user.
+- **Manager**
+  - Can access all Microsoft account features except tax and payout settings
+  - Can manage users, roles, and work accounts (tenants)
+- **Developer**
+  - Can manage and publish offers
+  - Can view some publisher reports
 
+> [!NOTE]
+> For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
 
-|**Role**|**Permissions**|
-|----------------------------------|:---------------------------------|
-|Global admin|•	Can access all Microsoft account/services with full privileges
-|      |•	Create support tickets for the Partner Center
-||•	View agreements, price lists, and offers
-||•	View, create, and manage partner users|
-|Manager|•	Can access all Microsoft account features except tax and payout settings
-|      |•	Can manage users, roles, and work accounts (tenants)|
-|Developer|•	Can upload packages, submit apps and add-ons, and view the Usage report for telemetry details
-|      |•	Can't access financial info or account settings|
-|Business Contributor|•	Can access financial information and set pricing details
-|      |•	Can't create or submit new apps and add-ons|
-|Financial Contributor|•	Can view payout reports
-|      |•	Can't make changes to apps or settings|
-|Marketer|•	Can respond to customer reviews and non-financial reports
-|      |•	Can't make changes to apps or settings|
-
-For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV),Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
+For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
 
-## Manage Tenants
+## Manage tenants
 
 An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you. 
 
@@ -369,7 +358,6 @@ The **Agreements** section of Partner Center (under **Account Settings**) let's 
 
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
 
-For information about Cloud Solution Provider (CSP) agreements in Partner Center, visit [Microsoft Cloud Agreements by region and language](https://docs.microsoft.com/partner-center/agreements).
 
 ## Next steps
 

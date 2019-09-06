@@ -2,7 +2,8 @@
 title: Use Azure Kinect recorder with external synchronized units
 description: Using Azure Kinect recorder with external synchronized units
 author: joylital
-ms.author: jawirth, joylital
+ms.author: joylital
+ms.reviewer: jawirth
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
@@ -15,7 +16,7 @@ This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-r
 
 ## Prerequisites
 
-- [Set up multiple Azure Kinect DK units for external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md).
+- [Set up multiple Azure Kinect DK units for external synchronization](https://support.microsoft.com/help/4494429).
 
 ## External synchronization constraints
 
@@ -100,6 +101,8 @@ Always start subordinate devices first and the master last.
 
 You can use the [Azure Kinect viewer](azure-kinect-viewer.md) to play back recording.
 
+
+
 ## Tips
 
 - Use manual exposure for recording synchronized cameras. RGB camera auto-exposure may impact time-synchronization.
@@ -108,11 +111,11 @@ You can use the [Azure Kinect viewer](azure-kinect-viewer.md) to play back recor
 - Connecting multiple units to single PC can easily saturate USB bandwidth, consider using separate host PC per device. Pay attention to CPU/GPU compute as well.
 - Disable the microphone and IMU if they aren't needed to improve reliability.
 
-For any issues see [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md)
+For any issues see [Troubleshooting](troubleshooting.md)
 
-## Next steps
+## See also
 
-- [Set up external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-devices)
+- [Set up external sync](https://support.microsoft.com/help/4494429/sync-multiple-devices)
 - [Azure Kinect Recorder](azure-kinect-recorder.md) for recorder settings and additional information.
 - [Azure Kinect Viewer](azure-kinect-viewer.md) for playing recordings or setting RGB camera properties not available through recorder.
 - [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) for updating device firmware.

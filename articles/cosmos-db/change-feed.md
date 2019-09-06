@@ -5,13 +5,13 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
 ---
 # Change feed in Azure Cosmos DB - overview
 
-Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
+Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
 
 Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to trigger additional actions. Examples of additional actions include:
 
@@ -89,7 +89,7 @@ The following are some of the scenarios you can easily implement with change fee
 You can work with change feed using the following options:
 
 * [Using change feed with Azure Functions](change-feed-functions.md)
-* [Using change feed with change feed processor library](change-feed-processor.md) 
+* [Using change feed with change feed processor](change-feed-processor.md) 
 
 Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
 
@@ -103,7 +103,7 @@ Change feed is available for each logical partition key within the container, an
 
 * The change feed includes inserts and update operations made to items within the container. You can capture deletes by setting a "soft-delete" flag within your items (for example, documents) in place of deletes. Alternatively, you can set a finite expiration period for your items with the [TTL capability](time-to-live.md). For example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process the changes within a shorter time interval than the TTL expiration period. 
 
-* Each change to an item appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor library provides automatic checkpointing and "at least once" semantics. See [using change feed with change feed processor library](change-feed-processor.md).
+* Each change to an item appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. See [using change feed with change feed processor](change-feed-processor.md).
 
 * Only the most recent change for a given item is included in the change log. Intermediate changes may not be available.
 
@@ -121,4 +121,4 @@ You can now proceed to learn more about change feed in the following articles:
 
 * [Options to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
-* [Using change feed processor library](change-feed-processor.md)
+* [Using change feed processor](change-feed-processor.md)

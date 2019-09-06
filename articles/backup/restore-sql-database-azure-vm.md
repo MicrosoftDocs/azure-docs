@@ -1,13 +1,13 @@
 ---
 title: Use Azure Backup to restore backed-up SQL Server databases on an Azure VM | Microsoft Docs
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: raynew
+ms.author: dacurwin
 
 
 ---
@@ -152,7 +152,7 @@ If you've selected **Full & Differential** as the restore type, do the following
 
 ### Restore databases with large number of files
 
-If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Azure Backup stores the list of database files in a different pit component such that you will not be able to set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
+If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component such that you will not be able to set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
 

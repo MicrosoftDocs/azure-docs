@@ -129,7 +129,7 @@ Selecting any of these links opens a new tab in your browser, which displays the
 
 ### Ambari users, groups, and permissions
 
-Working with users, groups, and permissions are supported when using a [domain joined](./domain-joined/apache-domain-joined-introduction.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md).
+Working with users, groups, and permissions are supported when using a [domain joined](./domain-joined/hdinsight-security-overview.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.

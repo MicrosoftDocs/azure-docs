@@ -1,14 +1,13 @@
 ﻿---
-title: Common security attributes for Azure Backup
-description: A checklist of common security attributes for evaluating Azure Backup
-services: backup
-author: msmbaldwin
-manager: barbkess
+title: Security attributes for Azure Backup
+description: A checklist of security attributes for evaluating Azure Backup
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
-
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
+ms.author: dacurwin
 
 ---
 # Security attributes for Azure Backup
@@ -21,8 +20,8 @@ This article documents the security attributes built into Azure Backup.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Using storage service encryption for storage accounts. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| No | Using HTTPS. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes | Using storage service encryption for storage accounts. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | Using HTTPS. |
 | Encryption key handling (CMK, BYOK, etc.)| No |  |
 | Column level encryption (Azure Data Services)| No |  |
 | API calls encrypted| Yes |  |

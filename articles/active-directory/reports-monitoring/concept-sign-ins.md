@@ -3,7 +3,7 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
-ms.author: markvi
+ms.date: 08/13/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -51,9 +51,9 @@ The user sign-ins report provides answers to the following questions:
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take upto two hours for some sign-in records to show up in the portal.
+You can access the sign-ins report by selecting **Sign-ins** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take upto two hours for some sign-in records to show up in the portal.
 
-![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Sign-in activity")
 
 > [!IMPORTANT]
 > The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
@@ -62,7 +62,7 @@ A sign-ins log has a default list view that shows:
 
 - The sign-in date
 - The related user
-- The application the user has signed-in to
+- The application the user has signed in to
 - The sign-in status
 - The status of the risk detection
 - The status of the multi-factor authentication (MFA) requirement
@@ -85,18 +85,11 @@ Select an item in the list view to get more detailed information.
 > Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
 
-![Sign-in activity](./media/concept-sign-ins/ConditionalAccess.png "Sign-in activity")
 
 
 ## Filter sign-in activities
 
-To narrow down the reported data to a level that works for you, you can filter the sign-ins data using the following default fields:
-
-- User
-- Application
-- Sign-in status
-- Conditional Access
-- Date
+To narrow down the reported data to a level that works for you, you can filter the sign-ins data using date field as default filter. Additionally, Azure AD provides you with a broad range of additional filters you can set.
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
 
@@ -219,7 +212,7 @@ Your entry point to this data is the top 3 applications in your organization wit
 
 ![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
 
-The app usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+The app-usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
 
@@ -237,7 +230,7 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
 
-You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+You can also access the Office 365 activity logs programmatically by using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 

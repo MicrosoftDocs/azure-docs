@@ -149,7 +149,7 @@ Local forwarder may work with macOS, but it is currently not officially supporte
 ### Self-hosting
 Local forwarder is also distributed as a .NET Standard NuGet package, allowing you to host it inside your own .NET application.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

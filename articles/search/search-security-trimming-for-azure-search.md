@@ -7,7 +7,7 @@ services: search
 ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
-manager: jlembicz
+manager: nitinme
 ms.custom: seodec2018
 ---
 

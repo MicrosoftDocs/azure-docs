@@ -1,6 +1,6 @@
 ---
 title: Security attributes for Azure API Management
-description: A checklist of common security attributes for evaluating API Management
+description: A checklist of security attributes for evaluating API Management
 services: api-management
 author: msmbaldwin
 manager: barbkess
@@ -21,8 +21,8 @@ This article documents the security attributes built into API Management.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
 | Encryption key handling (CMK, BYOK, etc.)| No | All encryption keys are per service instance and are service managed. |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).

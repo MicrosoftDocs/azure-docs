@@ -15,9 +15,9 @@ ms.author: dapine
 # https://github.com/Azure/cognitiveservices-aci
 ---
 
-# Deploy and run container on Azure Container Instance (ACI)
+# Deploy and run container on Azure Container Instance
 
-With the following steps, scale Azure Cognitive Services applications in the cloud easily with Azure [Container Instance](https://docs.microsoft.com/azure/container-instances/) (ACI). This helps you focus on building your applications instead of managing the infrastructure.
+With the following steps, scale Azure Cognitive Services applications in the cloud easily with Azure [Container Instance](https://docs.microsoft.com/azure/container-instances/). This helps you focus on building your applications instead of managing the infrastructure.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ This solution works with any Cognitive Services container. The Cognitive Service
 
 All variables in angle brackets, `<>`, need to be replaced with your own values. This replacement includes the angle brackets.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## Use the Container Instance
 

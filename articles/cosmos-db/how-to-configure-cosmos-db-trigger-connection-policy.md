@@ -1,24 +1,24 @@
 ---
-title: Azure Cosmos DB Trigger connection policy
-description: Learn how to configure the connection policy used by Azure Cosmos DB Trigger
+title: Azure Functions trigger for Cosmos DB connection policy
+description: Learn how to configure the connection policy used by Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 06/05/2019
+ms.topic: conceptual
+ms.date: 07/17/2019
 ms.author: maquaran
 ---
 
-# How to configure the connection policy used by Azure Cosmos DB Trigger
+# How to configure the connection policy used by Azure Functions trigger for Cosmos DB
 
-This article describes how you can configure the connection policy when using the Azure Cosmos DB Trigger to connect to your Azure Cosmos account.
+This article describes how you can configure the connection policy when using the Azure Functions trigger for Cosmos DB to connect to your Azure Cosmos account.
 
 ## Why is the connection policy important?
 
-There are two connection modes - Direct mode and Gateway mode. To learn more about these connection modes, see the [performance tips](./performance-tips.md#networking) article. By default, **Gateway** is used to establish all connections on the Azure Cosmos DB Trigger. However, it might not be the best option for performance-driven scenarios.
+There are two connection modes - Direct mode and Gateway mode. To learn more about these connection modes, see the [performance tips](./performance-tips.md#networking) article. By default, **Gateway** is used to establish all connections on the Azure Functions trigger for Cosmos DB. However, it might not be the best option for performance-driven scenarios.
 
 ## Changing the connection mode and protocol
 
-There are two key configuration settings available to configure the client connection policy – the **connection mode** and the **connection protocol**. You can change the default connection mode and protocol used by the Azure Cosmos DB Trigger and all the [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb-v2.md#output)). To change the default settings, you need to locate the `host.json` file in your Azure Functions project or Azure Functions App and add the following [extra setting](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
+There are two key configuration settings available to configure the client connection policy – the **connection mode** and the **connection protocol**. You can change the default connection mode and protocol used by the Azure Functions trigger for Cosmos DB and all the [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb-v2.md#output)). To change the default settings, you need to locate the `host.json` file in your Azure Functions project or Azure Functions App and add the following [extra setting](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
 
 ```js
 {

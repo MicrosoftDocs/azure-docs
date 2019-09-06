@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
+ms.author: willzhan
+ms.reviewer: dwgeo
 
 ---
 # Offline Widevine streaming for Android  

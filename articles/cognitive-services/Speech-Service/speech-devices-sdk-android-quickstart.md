@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Android - Speech Services"
+title: "Quickstart: Run the Speech Devices SDK on Android - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with an Android Speech Devices SDK.
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 

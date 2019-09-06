@@ -6,9 +6,8 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
 ---
 
@@ -29,7 +28,11 @@ Each of these HTTP APIs is a webhook operation that is handled directly by the D
 
 The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)  class exposes a [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API that can be used to generate an HTTP response payload containing links to all the supported operations. Here is an example HTTP-trigger function that demonstrates how to use this API:
 
-### C#
+### Precompiled C#
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
+
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
@@ -40,12 +43,13 @@ The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 These example functions produce the following JSON response data. The data type of all fields is `string`.
 
 | Field                   |Description                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |The ID of the orchestration instance. |
-| **`statusQueryGetUri`** |The status URL of the orchestration instance. |
-| **`sendEventPostUri`**  |The "raise event" URL of the orchestration instance. |
-| **`terminatePostUri`**  |The "terminate" URL of the orchestration instance. |
-| **`rewindPostUri`**     |The "rewind" URL of the orchestration instance. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |The ID of the orchestration instance. |
+| **`statusQueryGetUri`**     |The status URL of the orchestration instance. |
+| **`sendEventPostUri`**      |The "raise event" URL of the orchestration instance. |
+| **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
+| **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
+| **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
 
 Here is an example response:
 
@@ -60,6 +64,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -542,11 +547,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API do not contain any content.
 
-## Rewind instance (preview)
+### Rewind instance (preview)
 
 Restores a failed orchestration instance into a running state by replaying the most recent failed operations.
 
-### Request
+#### Request
 
 For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
@@ -575,7 +580,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`instanceId`**  | URL             | The ID of the orchestration instance. |
 | **`reason`**      | Query string    | Optional. The reason for rewinding the orchestration instance. |
 
-### Response
+#### Response
 
 Several possible status code values can be returned.
 
@@ -590,6 +595,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 The responses for this API do not contain any content.
+
+### Signal entity (preview)
+
+Sends a one-way operation message to a [Durable Entity](durable-functions-types-features-overview.md#entity-functions). If the entity doesn't exist, it will be created automatically.
+
+#### Request
+
+The HTTP request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
+
+| Field             | Parameter type  | Description |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | The type of the entity. |
+| **`entityKey`**   | URL             | The unique name of the entity. |
+| **`op`**          | Query string    | Optional. The name of the user-defined operation to invoke. |
+| **`{content}`**   | Request content | The JSON-formatted event payload. |
+
+Here is an example request that sends a user-defined "Add" message to a `Counter` entity named `steps`. The content of the message is the value `5`. If the entity does not already exist, it will be created by this request:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### Response
+
+This operation has several possible responses:
+
+* **HTTP 202 (Accepted)**: The signal operation was accepted for asynchronous processing.
+* **HTTP 400 (Bad request)**: The request content was not of type `application/json`, was not valid JSON, or had an invalid `entityKey` value.
+* **HTTP 404 (Not Found)**: The specified `entityType` was not found.
+
+A successful HTTP request does not contain any content in the response. A failed HTTP request may contain JSON-formatted error information in the response content.
+
+### Query entity (preview)
+
+Gets the state of the specified entity.
+
+#### Request
+
+The HTTP request is formatted as follows (multiple lines are shown for clarity):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### Response
+
+This operation has two possible responses:
+
+* **HTTP 200 (OK)**: The specified entity exists.
+* **HTTP 404 (Not Found)**: The specified entity was not found.
+
+A successful response contains the JSON-serialized state of the entity as its content.
+
+#### Example
+The following is an example of an HTTP request that gets the state of an existing `Counter` entity named `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+If the `Counter` entity simply contained a number of steps saved in a `currentValue` field, the response content might look like the following (formatted for readability):
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## Next steps
 

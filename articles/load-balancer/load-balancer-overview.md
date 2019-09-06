@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
-ms.author: vidarmsft
+ms.author: alkohli
 
 ---
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple

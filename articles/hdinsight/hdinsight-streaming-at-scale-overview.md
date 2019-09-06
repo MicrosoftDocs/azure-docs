@@ -58,7 +58,7 @@ These three  parameters can be configured at the cluster level, for all applicat
 
 ## Next steps
 
-* [Get started with Apache Storm on HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
+* [Create and monitor an Apache Storm topology in Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Example topologies for Apache Storm on HDInsight](storm/apache-storm-example-topology.md)
 * [Introduction to Apache Spark on HDInsight](spark/apache-spark-overview.md)
 * [Start with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)

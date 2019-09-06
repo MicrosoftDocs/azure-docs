@@ -1,6 +1,6 @@
 ---
 title: How to page through Bing News Search results
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to page through the news articles that the Bing News Search API returns.
 services: cognitive-services
 author: swhite-msft

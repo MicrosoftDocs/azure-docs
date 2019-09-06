@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 ms.author: orspodek
 ---
 
@@ -57,7 +57,7 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - **As sink**, grant at least **Database ingestor** role to your database.
 
 >[!NOTE]
->When using ADF UI to author, the operations of listing databases on linked service or listing tables on dataset may require higher privileged permission granted for the service principal. Alternatively, you can choose to manually input database name and table name. Copy activity execution works as long as the service principal is granted with proper permission to read/write data.
+>When using ADF UI to author, your login user account is used to list Azure Data Explorer clusters, databases and tables. Manually input the name if you don’t have permission for such operation.
 
 The following properties are supported for Azure Data Explorer linked service:
 
@@ -111,12 +111,13 @@ The following properties are supported:
    "name": "AzureDataExplorerDataset",
     "properties": {
         "type": "AzureDataExplorerTable",
+        "typeProperties": {
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Data Explorer linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "table": "<table name>"
         }
     }
 }

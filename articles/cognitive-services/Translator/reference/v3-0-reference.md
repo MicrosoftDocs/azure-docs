@@ -1,6 +1,6 @@
 ---
 title: Translator Text API V3.0 Reference
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
 author: swmachan
@@ -27,10 +27,10 @@ Version 3 of the Translator Text API provides a modern JSON-based Web API. It im
 
 ## Base URLs
 
-Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 10 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** West US 2 and West Central US 
-* **Asia Pacific:** Southeast Asia and Korea South
+* **Americas:** East US, South Central US, West Central US, and West US 2 
+* **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
 * **Europe:** North Europe and West Europe
 
 Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.

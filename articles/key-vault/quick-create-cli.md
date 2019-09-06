@@ -2,15 +2,15 @@
 title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure CLI | Microsoft Docs
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/08/2019
-ms.author: barclayn
+ms.date: 09/03/2019
+ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI
@@ -29,7 +29,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Create a resource group
 
@@ -89,7 +89,9 @@ az group delete --name ContosoResourceGroup
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
+In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-> [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md)
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault?view=azure-cli-latest)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

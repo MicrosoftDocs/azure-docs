@@ -37,17 +37,17 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Click **Roles** or **Members**.
 
-    ![Azure AD roles](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD roles with Roles and Members menu options highlighted](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Click **Add member** to open Add managed members.
 
 1. Click **Select a role**, click a role you want to manage, and then click **Select**.
 
-    ![Select a role](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Select a role pane listing Azure AD roles](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Click **Select members**, select the users you want to assign to the role, and then click **Select**.
 
-    ![Select a role](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Select members pane where you can select a user](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. In Add managed members, click **OK** to add the user to the role.
 
@@ -55,7 +55,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
      When the role is assigned, the user you selected will appear in the members list as **Eligible** for the role.
 
-    ![User eligible for a role](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![Members of a role are listed along with their activation state](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. Now that the user is eligible for the role, let them know that they can activate it according to the instructions in [Activate my Azure AD roles in PIM](pim-how-to-activate-role.md).
 
@@ -71,17 +71,17 @@ By default, new users are only Eligible for an Azure AD admin role. Follow these
 
 1. Click **Members**.
 
-    ![List of members](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD roles - Members list showing role and activation state](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Click an **Eligible** role that you want to make permanent.
 
 1. Click **More** and then click **Make perm**.
 
-    ![Make role assignment permanent](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![Pane listing a user that is eligible for a role with the More menu options open](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     The role is now listed as **permanent**.
 
-    ![List of members with permanent change](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![Members list showing role and activation state that is now permanent](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## Remove a user from a role
 
@@ -95,17 +95,17 @@ Follow these steps to remove a specific user from an Azure AD admin role.
 
 1. Click **Members**.
 
-    ![List of members](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD roles - Members list showing role and activation stat](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Click a role assignment you want to remove.
 
 1. Click **More** and then click **Remove**.
 
-    ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![Pane listing a user that has a permanent role with the More menu options open](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. In the message that asks you to confirm, click **Yes**.
 
-    ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Message asking if you want to remove member from role](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     The role assignment is removed.
 
@@ -135,13 +135,13 @@ Follow these steps to assign the User Access Administrator role to the MS-PIM se
 
 1. In the **Select** list, find and select the **MS-PIM** service principal.
 
-   ![Add permissions for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![Add role assignment pane - Add permissions for MS-PIM service principal](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. Choose **Save** to assign the role.
 
    After a few moments, the MS-PIM service principal is assigned the User Access Administrator role at the subscription scope.
 
-   ![User Access Administrator role for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Access control (IAM) blade showing User Access Administrator role assignment for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## Next steps

@@ -1,15 +1,14 @@
 ---
-title: Common security attributes for Azure Service Bus Messaging
-description: A checklist of common security attributes for evaluating Azure Service Bus Messaging
+title: Security attributes for Azure Service Bus Messaging
+description: A checklist of security attributes for evaluating Azure Service Bus Messaging
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
+ms.author: aschhab
 
 ---
 # Security attributes for Azure Service Bus Messaging
@@ -22,8 +21,8 @@ This article documents the security attributes built into Azure Service Bus Mess
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Supports standard HTTPS/TLS mechanism. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Supports standard HTTPS/TLS mechanism. |
 | Encryption key handling (CMK, BYOK, etc.)| No |   |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -48,7 +47,7 @@ This article documents the security attributes built into Azure Service Bus Mess
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
-| Authorization| Yes | Supports authorization via [RBAC](service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
+| Authorization| Yes | Supports authorization via [RBAC](authenticate-application.md) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
 
 
 

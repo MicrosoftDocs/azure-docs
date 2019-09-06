@@ -140,8 +140,8 @@ Add the following configuration to enable the Diagnostics extension on a Windows
 //Start of section to add
 "resources": [
 {
-            "type": "extensions",
-            "name": "Microsoft.Insights.VMDiagnosticsSettings",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'), '/', 'Microsoft.Insights.VMDiagnosticsSettings')]",
             "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [

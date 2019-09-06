@@ -5,8 +5,8 @@ keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
@@ -226,6 +226,7 @@ The following tables show the minimum required permissions needed for onboarding
 |Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation account   |
 | Onboarding workspace check for VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| Register the Log Analytics provider |Microsoft.Insights/register/action | Subscription|
 
 <sup>1</sup> This permission is needed to onboard through the VM portal experience.
 
@@ -245,6 +246,7 @@ The following tables show the minimum required permissions needed for onboarding
 |Create/edit saved search     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Create/edit scope config     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
+| Register the Log Analytics provider |Microsoft.Insights/register/action | Subscription|
 |**Step 2   - Onboard Multiple VMs**     |         |         |
 |VMOnboarding blade - Create MMA extension     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
 |Create / edit saved search     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |

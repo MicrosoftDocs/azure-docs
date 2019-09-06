@@ -11,6 +11,7 @@ ms.reviewer: jmprieur, saeeda
 ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev 
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

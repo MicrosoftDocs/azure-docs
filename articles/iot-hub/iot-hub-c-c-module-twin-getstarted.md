@@ -10,7 +10,9 @@ ms.date: 06/25/2018
 ms.author: menchi
 ---
 
-# Get started with IoT Hub module identity and module twin using C backend and C device
+# Get started with IoT Hub module identity and module twin (C)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
@@ -24,13 +26,21 @@ At the end of this tutorial, you have two C apps:
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution backend, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
 * An active Azure account. (If you don't have an account, you can create an [Azure free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-* An IoT Hub.
+
 * The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## Get the IoT hub connection string
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## Create a device identity and a module identity in IoT Hub
 

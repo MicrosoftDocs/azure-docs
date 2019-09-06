@@ -5,7 +5,7 @@ services:
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
 ---
 
@@ -29,9 +29,7 @@ This tutorial includes these setup steps:
 Before you begin, make sure that the data center and rack you will use has these features:
 
 * An available 1U slot on the rack where you intend to mount the device.
-* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. 
-
-  For help planning and sizing the installation, read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) to learn about nameplate ratings and thermal output under common conditions.  
+* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. (Read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) for help planning and sizing the installation.)  
 
   > [!NOTE] 
   > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power cables](fxt-network-power.md#connect-power-cables) for details.  
@@ -151,8 +149,6 @@ Optional hard-mount screws are provided to secure the system to the rack for shi
 
 An optional cable management arm (CMA) is provided with the FXT Edge Filer. Printed instructions for installing it are provided in the package. 
 
-<!-- need current images in electronic form from Dell - these are scans -->
-
 1. Unpack and identify the components of the cable management arm kit:
    * CMA tray (1)
    * CMA (2)
@@ -163,7 +159,7 @@ An optional cable management arm (CMA) is provided with the FXT Edge Filer. Prin
    > [!TIP] 
    > To secure the CMA for shipment in the rack, loop the tie wraps around both baskets and tray and cinch them firmly. Securing the CMA in this manner will also secure your system in unstable environments.
 
-   ![Illustration of CMA parts](media/fxt-install/cma-parts-scan-400.png)
+   ![Illustration of CMA parts](media/fxt-install/cma-kit-400.png)
 
 2. Install the CMA tray.
 
@@ -173,7 +169,7 @@ An optional cable management arm (CMA) is provided with the FXT Edge Filer. Prin
    1. Push the tray forward until it clicks into place. (1)
    1. To remove the tray, squeeze the latch-release buttons toward the center and pull the tray out of the receiver brackets (2).
 
-   ![Illustration of CMA tray installation](media/fxt-install/cma-tray-scan-400.png)
+   ![Illustration of CMA tray installation](media/fxt-install/cma-tray-install-400.png)
 
 3. Install the CMA attachment brackets. 
 
@@ -183,7 +179,7 @@ An optional cable management arm (CMA) is provided with the FXT Edge Filer. Prin
    > * For convenience, mount the CMA on the side opposite the power supplies (side A). If it is mounted on side B, the CMA must be disconnected in order to remove the outer power supply. 
    > * Always remove the tray before removing the power supplies. 
 
-   ![Illustration of CMA bracket installation](media/fxt-install/cma-brackets-scan-400.png)
+   ![Illustration of CMA bracket installation](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Select the appropriate CMA attachment bracket for the side where you want to mount the CMA (side B or side A).
    1. Install the CMA attachment bracket with the corresponding side A or side B marking at the back of the slide rail.
@@ -195,11 +191,11 @@ An optional cable management arm (CMA) is provided with the FXT Edge Filer. Prin
    1. Fit the other latch on the end of the outermost bracket until the latch engages (2). 
    1. To remove the CMA, disengage both latches by pressing the CMA release buttons at the top of the inner and outer latch housings (3).
 
-   ![Illustration of main CMA installation](media/fxt-install/cma-install-scan-400.png)
+   ![Illustration of main CMA installation](media/fxt-install/cma-install-400.png)
 
    The CMA can be rotated away from the system for access and service. At the hinged end, lift the CMA away from the tray to unseat it (1). After it is unseated from the tray, swing the CMA away from the system (2).
 
-   ![Illustration of CMA rotated open for service](media/fxt-install/cma-open-scan-400.png)
+   ![Illustration of CMA rotated open for service](media/fxt-install/cma-swing-over-tray-400.png)
 
 ## Install the front bezel (optional)
 
@@ -217,7 +213,7 @@ To remove the front bezel:
 1. Press the release button at the left side and pull the left end of the bezel away from the chassis.
 1. Unhook the right end and remove the bezel.
    
-   ![Image showing the release button at the left of the bezel and how to remove it by pulling outward from the left side](media/fxt-install/remove-bezel-updated-600.png)
+   ![Image showing the release button at the left of the bezel and how to remove it by pulling outward from the left side](media/fxt-install/remove-bezel-edited-600.png)
 
 ## Next steps
 

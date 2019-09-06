@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
@@ -72,13 +70,11 @@ You use the name and key of your Azure storage account in this tutorial. Get the
 
 1. In the left pane, select **More services**, filter by using the **Storage** keyword, and then select **Storage accounts**.
 
-    ![Search for storage account](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Search for storage account](media/doc-common-process/search-storage-account.png)
 
 1. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account. 
 
 1. In the **Storage account** window, select **Access keys**.
-
-    ![Get storage account name and key](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial. 
 
@@ -103,7 +99,6 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
 1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
-    ![Container window](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### Windows PowerShell
 

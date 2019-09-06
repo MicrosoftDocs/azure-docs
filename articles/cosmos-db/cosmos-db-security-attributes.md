@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure Cosmos DB
 
-This article documents the common security attributes built into Azure Cosmos DB.
+This article documents the security attributes built into Azure Cosmos DB.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -22,26 +22,26 @@ This article documents the common security attributes built into Azure Cosmos DB
 
 | Security attribute | Yes/no | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Cosmos DB databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
-| Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
-| Encryption Key Handling (CMK, BYOK, etc.)| No |  |
-| Column Level Encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction.md). |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Cosmos databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
+| Encryption key handling (CMK, BYOK, etc.)| No |  |
+| Column level encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction.md). |
 | API calls encrypted| Yes | All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2 connections, but this is not yet enforced. If customers turn off lower level TLS on their end, they can ensure to connect to Cosmos DB.  |
 
 ## Network segmentation
 
 | Security attribute | Yes/no | Notes |
 |---|---|--|
-| Service Endpoint support| Yes |  |
-| vNET Injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](vnet-service-endpoint.md). |
+| Service endpoint support| Yes |  |
+| VNet injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](VNet-service-endpoint.md). |
 | Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](how-to-configure-firewall.md).|
-| Support for forced tunneling | Yes | Can be configured at the client side on the VNET where the virtual machines are located.   |
+| Forced tunneling support| Yes | Can be configured at the client side on the VNet where the virtual machines are located.   |
 
 ## Detection
 
 | Security attribute | Yes/no | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | All requests that are sent to Azure Cosmos DB are logged. [Azure Monitoring](../azure-monitor/overview.md), Azure Metrics, Azure Audit Logging are supported.  You can log information corresponding to data plane requests, query runtime statistics, query text, MongoDB requests. You can also setup alerts. |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | All requests that are sent to Azure Cosmos DB are logged. [Azure Monitoring](../azure-monitor/overview.md), Azure Metrics, Azure Audit Logging are supported.  You can log information corresponding to data plane requests, query runtime statistics, query text, MongoDB requests. You can also set up alerts. |
 
 ## Identity and access management
 
@@ -55,8 +55,8 @@ This article documents the common security attributes built into Azure Cosmos DB
 
 | Security attribute | Yes/no | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
-| Data plane Logging and Audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, indexing policies, and CRUD operations on documents. |
+| Control and management plane logging and audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
+| Data plane logging and audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, indexing policies, and CRUD operations on documents. |
 
 ## Configuration management
 

@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 Azure Active Directory B2C (Azure AD B2C) custom policies that use the Identity Experience Framework provide your organization with a centralized service. This service reduces the complexity of identity federation in a large community of interest. The complexity is reduced to a single trust relationship and a single metadata exchange.
 
-Azure AD B2C custom policies that use the Identity Experience Framework to enable you to answer the following questions:
+Azure AD B2C custom policies use the Identity Experience Framework to enable you to answer the following questions:
 
 - What are the legal, security, privacy, and data protection policies that must be adhered to?
 - Who are the contacts and what are the processes for becoming an accredited participant?

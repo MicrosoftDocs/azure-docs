@@ -1,9 +1,9 @@
 ---
 title: Update an existing Commercial Marketplace offer
 description: How to make updates to an existing Commercial Marketplace offer, including editing, deleting a draft, cancelling a publish request, stop selling an offer or plan, and syncing private audiences. 
-author: mattwojo 
+author: ChJenk 
 manager: evansma
-ms.author: mattwoj 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
 ms.date: 05/30/2019
@@ -11,7 +11,7 @@ ms.date: 05/30/2019
 
 # Update an existing offer in the Commercial Marketplace
 
-You can view your existing offers on the **Offers** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
+You can view your existing offers on the **Overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
 
 To update an existing offer that is currently live in the marketplace: 
 

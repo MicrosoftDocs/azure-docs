@@ -4,7 +4,7 @@ description: How to scale up or scale down a Linux virtual machine, by changing 
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 

@@ -7,7 +7,7 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: qianw211
+ms.author: pabutler
 ---
 
 # Publishing guide by offer type
@@ -29,7 +29,7 @@ Azure Marketplace offer types are listed in the table below.
 | **Offer type**    | **Description**  |
 | :------------------- | :-------------------|
 | [**Virtual machines**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
-| [**Solution templates**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Use the solution template offer type when your solution requires additional deployment and configuration automation beyond a simple VM. |
+| [**Solution templates**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Use the solution template (also known as Azure application) offer type when your solution requires additional deployment and configuration automation beyond a simple VM. Solution templates can employ many different kinds of Azure resources, including but not limited to VMs.  |
 | [**Managed applications**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Use the Azure app: managed app offer type when the following conditions are required: <br> <ul> <li> You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution. </li> <li>You or your customer require that the solution is managed by a partner. </li> <ul> |
 | [**SaaS applications**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Use the SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
 | [**Container offers**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Use the Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |

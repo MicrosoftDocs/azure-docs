@@ -4,8 +4,8 @@ description: Variable assets are values that are available to all runbooks and D
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm

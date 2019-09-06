@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
-manager: craigg
 ms.date: 09/19/2018
 ---
 # Cross-tenant analytics using extracted data - multi-tenant app

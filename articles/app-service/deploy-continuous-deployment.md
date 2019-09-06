@@ -10,155 +10,150 @@ ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
-ms.author: cephalin;dariagrigoriu
+ms.date: 08/23/2019
+ms.author: cephalin
+ms.reviewer: dariac
 ms.custom: seodec18
 
 ---
 # Continuous deployment to Azure App Service
-This article shows you how to configure continuous deployment for [Azure App Service](overview.md). App Service enables continuous deployment from BitBucket, GitHub, and [Azure DevOps Services](https://www.visualstudio.com/team-services/) by pulling in the most recent updates from your existing repository in one of these services.
 
-To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure portal (such as [GitLab](https://gitlab.com/)), see
-[Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+[Azure App Service](overview.md) enables continuous deployment from GitHub, BitBucket, and [Azure Repos](https://azure.microsoft.com/services/devops/repos/) repositories by pulling in the latest updates. This article shows you how to use the Azure portal to continuously deploy your app through the Kudu build service or [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/). 
+
+For more information on the source control services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], or [Create a new Git repo (Azure Repos)].
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Publish your prepared repository to one of the supported services. For more information on publishing your project to these services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Get started with Azure DevOps Services].
+## Authorize Azure App Service 
 
-## Deploy continuously from GitHub
+To use Azure Repos, make sure your Azure DevOps organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
 
-To enable continuous deployment with GitHub, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
+For Bitbucket or GitHub, authorize Azure App Service to connect to your repository. You only need to authorize with a source control service once. 
 
-In the left menu, click **Deployment Center** > **GitHub** > **Authorize**. Follow the authorization prompts. 
+1. Select **App Services** in the [Azure portal](https://portal.azure.com) left navigation, and then select the web app you want to deploy. 
+   
+1. On the app page, select **Deployment Center** in the left menu.
+   
+1. On the **Deployment Center** page, select **GitHub** or **Bitbucket**, and then select **Authorize**. 
+   
+   ![Select source control service, then select Authorize.](media/app-service-continuous-deployment/github-choose-source.png)
+   
+1. Sign in to the service if necessary, and follow the authorization prompts. 
 
-![](media/app-service-continuous-deployment/github-choose-source.png)
+## Enable continuous deployment 
 
-You only need to authorize with GitHub once. If you're already authorized, just click **Continue**. You can change the authorized GitHub account by clicking **Change account**.
+After you authorize a source control service, configure your app for continuous deployment through the built-in [Kudu App Service build server](#option-1-use-the-app-service-build-service), or through [Azure Pipelines](#option-2-use-azure-pipelines). 
 
-![](media/app-service-continuous-deployment/github-continue.png)
+### Option 1: Use the App Service build service
 
-In the **Build provider** page, choose the build provider and click > **Continue**.
+You can use the built-in Kudu App Service build server to continuously deploy from GitHub, Bitbucket, or Azure Repos. 
 
-### Option 1: use App Service Kudu build server
+1. Select **App Services** in the [Azure portal](https://portal.azure.com) left navigation, and then select the web app you want to deploy. 
+   
+1. On the app page, select **Deployment Center** in the left menu.
+   
+1. Select your authorized source control provider on the **Deployment Center** page, and select **Continue**. For GitHub or Bitbucket, you can also select **Change account** to change the authorized account. 
+   
+   > [!NOTE]
+   > To use Azure Repos, make sure your Azure DevOps Services organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+   
+1. For GitHub or Azure Repos, on the **Build provider** page, select **App Service build service**, and then select **Continue**. Bitbucket always uses the App Service build service.
+   
+   ![Select App Service build service, then select Continue.](media/app-service-continuous-deployment/choose-kudu.png)
+   
+1. On the **Configure** page:
+   
+   - For GitHub, drop down and select the **Organization**, **Repository**, and **Branch** you want to deploy continuously.
+     
+     > [!NOTE]
+     > If you don't see any repositories, you may need to authorize Azure App Service in GitHub. Browse to your GitHub repository and go to **Settings** > **Applications** > **Authorized OAuth Apps**. Select **Azure App Service**, and then select **Grant**.
+     
+   - For Bitbucket, select the Bitbucket **Team**, **Repository**, and **Branch** you want to deploy continuously.
+     
+   - For Azure Repos, select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously.
+     
+     > [!NOTE]
+     > If your Azure DevOps organization isn't listed, make sure it's linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)..
+     
+1. Select **Continue**.
+   
+   ![Fill in repository information, then select Continue.](media/app-service-continuous-deployment/configure-kudu.png)
+   
+1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.
+   
+   New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
+   
+   ![Track commits and deployments in Deployment Center](media/app-service-continuous-deployment/github-finished.png)
 
-In the **Configure** page, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
+### Option 2: Use Azure Pipelines 
 
-To deploy from a repository in a GitHub organization, browse to GitHub and go to **Settings** > **Applications** > **Authorized OAuth Apps**. Then click "Azure App Service".
+If your account has the necessary permissions, you can set up Azure Pipelines to continuously deploy from GitHub or Azure Repos repositories. For more information about deploying through Azure Pipelines, see [Deploy a web app to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
 
-![Settings > Applications > Authorized OAuth Apps > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+For Azure App Service to create continuous delivery Azure Pipelines in your Azure DevOps organization: 
 
-In the next page, grant App Service access to your organization's repositories by clicking the "Grant" button on the right-hand side.
+- Your Azure account must have permissions to write to Azure Active Directory and create a service. 
+  
+- Your Azure account must have the **Owner** role in your Azure subscription.
 
-![Click "Grant" to grant App Service access to the organization's repositories](media/app-service-continuous-deployment/grant-access.png)
+- You must be an administrator in the Azure DevOps project you want to use.
 
-Your organization should now show in the "Organization" list in the **Configure** page of the Deployment Center.
+To configure Azure Pipelines (Preview):
 
-### Option 2: use Azure Pipelines (preview)
-
-> [!NOTE]
-> For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
->
-
-In the **Configure** page, in the **Code** section, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
-
-In the **Configure** page, in the **Build** section, configure a new Azure DevOps Services organization or specify an existing organization. When finished, click **Continue**.
-
-> [!NOTE]
-> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-In the **Test** page, choose whether to enable load tests, then click **Continue**.
-
-Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), then click **Continue**.
-
-### Finish configuration
-
-In the **Summary** page, verify your options and click **Finish**.
-
-When configuration completes, new commits in the selected repository are deployed continuously into your App Service app.
-
-![](media/app-service-continuous-deployment/github-finished.png)
-
-## Deploy continuously from BitBucket
-
-To enable continuous deployment with BitBucket, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
-
-In the left menu, click **Deployment Center** > **BitBucket** > **Authorize**. Follow the authorization prompts. 
-
-![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
-
-You only need to authorize with BitBucket once. If you're already authorized, just click **Continue**. You can change the authorized BitBucket account by clicking **Change account**.
-
-![](media/app-service-continuous-deployment/bitbucket-continue.png)
-
-In the **Configure** page, select the repository and branch from which you want to deploy continuously. When finished, click **Continue**.
-
-In the **Summary** page, verify your options and click **Finish**.
-
-When configuration completes, new commits in the selected repository are deployed continuously into your App Service app.
-
-## Deploy continuously from Azure Repos (DevOps Services)
-
-To enable continuous deployment with from [Azure Repos](https://docs.microsoft.com/azure/devops/repos/index), navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
-
-In the left menu, click **Deployment Center** > **Azure Repos** > **Continue**. 
-
-![](media/app-service-continuous-deployment/vsts-choose-source.png)
-
-In the **Build provider** page, choose the build provider and click > **Continue**.
-
-> [!NOTE]
-> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-### Option 1: use App Service Kudu build server
-
-In the **Configure** page, select the Azure DevOps Services organization, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
-
-### Option 2: use Azure DevOps Services continuous delivery
-
-> [!NOTE]
-> For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
->
-
-In the **Configure** page, in the **Code** section, select the Azure DevOps Services organization, project, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
-
-In the **Configure** page, in the **Build** section, specify the language framework that Azure DevOps Services should use to run the build tasks for your selected repository. When finished, click **Continue**.
-
-In the **Test** page, choose whether to enable load tests, then click **Continue**.
-
-Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), then click **Continue**. DevOps does not allow continous delivery to the production slot. This is by design to prevent accidental deployments to production. You should set up continuous delivery to a staging slot, verify the changes there, and swap the slots when you are ready.
-
-### Finish configuration
-
-In the **Summary** page, verify your options and click **Finish**.
-
-When configuration completes, new commits in the selected repository are deployed continuously into your App Service app.
+1. Select **App Services** in the [Azure portal](https://portal.azure.com) left navigation, and then select the web app you want to deploy. 
+   
+1. On the app page, select **Deployment Center** in the left menu.
+   
+1. On the **Build provider** page, select **Azure Pipelines (Preview)**, and then select **Continue**. 
+   
+1. On the **Configure** page, in the **Code** section:
+   
+   - For GitHub, drop down and select the **Organization**, **Repository**, and **Branch** you want to deploy continuously.
+     
+     > [!NOTE]
+     > If you don't see any repositories, you may need to authorize Azure App Service in GitHub. Browse to your GitHub repository and go to **Settings** > **Applications** > **Authorized OAuth Apps**. Select **Azure App Service**, and then select **Grant**.
+     
+   - For Azure Repos, select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously, or configure a new Azure DevOps organization.
+     
+     > [!NOTE]
+     > If your existing Azure DevOps organization isn't listed, you may need to link it to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+     
+1. Select **Continue**.
+   
+1. For Azure Repos, in the **Build** section, specify the language framework that Azure Pipelines should use to run build tasks, and then select **Continue**.
+   
+1. On the **Test** page, choose whether to enable load tests, and then select **Continue**.
+   
+1. Depending on your App Service plan [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/), you may see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), and then select **Continue**.
+   
+   > [!NOTE]
+   > Azure Pipelines doesn't allow continuous delivery to the production slot. This restriction prevents accidental deployments to production. Set up continuous delivery to a staging slot, verify the changes there, and then swap the slots when you are ready.
+   
+1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.
+   
+   New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
+   
+   ![Track commits and deployments in Deployment Center](media/app-service-continuous-deployment/github-finished.png)
 
 ## Disable continuous deployment
 
-To disable continuous deployment, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
+To disable continuous deployment, select **Disconnect** at the top of your app's **Deployment Center** page.
 
-In the left menu, click **Deployment Center** > **GitHub** or **Azure DevOps Services** or **BitBucket** > **Disconnect**.
-
-![](media/app-service-continuous-deployment/disable.png)
+![Disable continuous deployment](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## Additional Resources
+## Use unsupported repos
 
-* [How to investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [How to use PowerShell for Azure]
-* [Git documentation]
+For Windows apps, you can manually configure continuous deployment from a cloud Git or Mecurial repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/). You do it by choosing the External box in the **Deployment Center** page. For more information, see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+
+## Additional resources
+
+* [Investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+* [Use Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Git documentation](https://git-scm.com/documentation)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
-* [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
-
-[Azure portal]: https://portal.azure.com
-[Azure DevOps portal]: https://azure.microsoft.com/services/devops/
-[Installing Git]: https://git-scm.com/book/en/Getting-Started-Installing-Git
-[How to use PowerShell for Azure]: /powershell/azureps-cmdlets-docs
-[Git Documentation]: https://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
-[Get started with Azure DevOps Services]: https://docs.microsoft.com/azure/devops/user-guide/devops-alm-overview
+[Create a new Git repo (Azure Repos)]: /azure/devops/repos/git/creatingrepo

@@ -6,9 +6,8 @@ author: jeffhollan
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports, so I can learn how to use this technology to solve my application development challenges.
 ---
@@ -23,7 +22,7 @@ This article gives you an overview of the types of functions you can use in a Du
 
 ## Types of durable functions
 
-You can use three durable function types in Azure Functions: activity, orchestrator, and client.
+You can use four durable function types in Azure Functions: activity, orchestrator, entity, and client.
 
 ### Activity functions
 
@@ -39,7 +38,7 @@ For more information and for examples, see [Activity functions](durable-function
 
 ### Orchestrator functions
 
-Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions patterns and technical concepts](durable-functions-concepts.md). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers). 
+Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions patterns and technical concepts](durable-functions-concepts.md). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers). Orchestrator functions can also interact with [entity functions](#entity-functions).
 
 An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 
@@ -47,11 +46,18 @@ An orchestrator is started by an [orchestrator client](#client-functions). You c
 
 For more information and for examples, see [Orchestration triggers](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Entity functions (preview)
+
+Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
+
+> [!NOTE]
+> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
+
+For more information about entity functions, see the [Entity Functions](durable-functions-preview.md#entity-functions) preview feature documentation.
+
 ### Client functions
 
-Client functions are the triggered functions that create new instances of an orchestration. Client functions are the entry point for creating an instance of a Durable Functions orchestration. You can trigger a client function from any source (HTTP, queue, event stream). You can write a client function in any language that the app supports. 
-
-Client functions also have an [orchestration client](durable-functions-bindings.md#orchestration-client) binding. A client function can use the orchestration client binding to create and manage durable orchestrations. 
+Client functions are triggered functions that create and manage instances of orchestrations and entities. They are effectively the entry point for interacting with Durable Functions. You can trigger a client function from any source (HTTP, queue, event stream, etc.). A client function uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to create and manage durable orchestrations and entities.
 
 The most basic example of a client function is an HTTP-triggered function that starts an orchestrator function, and then returns a check status response. For an example, see [HTTP API URL discovery](durable-functions-http-api.md#http-api-url-discovery).
 

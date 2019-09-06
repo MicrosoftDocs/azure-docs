@@ -11,6 +11,9 @@
   - name: Create a blueprint - Portal
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-portal.md
+  - name: Create a blueprint - PowerShell
+    displayName: publish, assign, track, unassign, delete
+    href: create-blueprint-powershell.md
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
@@ -27,6 +30,36 @@
   - name: Index
     displayName: list, examples
     href: ./samples/index.md
+  - name: Canada Federal PBMM
+    items:
+    - name: Control mapping
+      displayName: standards, canada, federal, pbmm
+      href: ./samples/canada-federal-pbmm/control-mapping.md
+  - name: CIS Microsoft Azure Foundations Benchmark
+    items:
+    - name: Overview
+      href: ./samples/cis-azure-1.1.0/index.md
+    - name: Recommendation mapping
+      href: ./samples/cis-azure-1.1.0/control-mapping.md
+  - name: IRS 1075
+    items:
+    - name: Overview
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/index.md
+    - name: Control mapping
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/control-mapping.md
+  - name: ISO 27001
+    items:
+    - name: Overview
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/index.md
+    - name: Control mapping
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/deploy.md
   - name: ISO 27001 - Shared Services
     items:
     - name: Overview
@@ -49,16 +82,55 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
-  - name: NIST SP 800-53 Rev 4
+  - name: NIST SP 800-53 Rev4
     items:
+    - name: Overview
+      displayName: standards, nist, 800-53, rev 4
+      href: ./samples/nist-sp-800-53-rev4/index.md
     - name: Control mapping
-      displayName: standards, nist, 800-53
+      displayName: standards, nist, 800-53, rev 4
       href: ./samples/nist-sp-800-53-rev4/control-mapping.md
-  - name: UK OFFICIAL
+    - name: Steps to deploy
+      displayName: standards, nist, 800-53, rev 4
+      href: ./samples/nist-sp-800-53-rev4/deploy.md
+  - name: PCI-DSS v3.2.1
     items:
+    - name: Overview
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/index.md
     - name: Control mapping
-      displayName: standards, uk official
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/deploy.md
+  - name: UK OFFICIAL and UK NHS
+    items:
+    - name: Overview
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/index.md
+    - name: Control mapping
+      displayName: standards, uk official, uk nhs
       href: ./samples/ukofficial/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/deploy.md
+  - name: CAF Foundation
+    items:
+    - name: Overview
+      displayName: caf, foundation
+      href: ./samples/caf-foundation/index.md
+    - name: Steps to deploy
+      displayName: caf, foundation, deploy
+      href: ./samples/caf-foundation/deploy.md
+  - name: CAF Migrate landing zone
+    items:
+    - name: Overview
+      displayName: caf, migrate, landing zone
+      href: ./samples/caf-migrate-landing-zone/index.md
+    - name: Steps to deploy
+      displayName: caf, migrate, landing zone, deploy
+      href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Concepts
   items:
   - name: Lifecycle of a blueprint
@@ -81,9 +153,15 @@
   - name: Manage assignments with PowerShell
     displayName: create, update, remove
     href: ./how-to/manage-assignments-ps.md
+  - name: Import and export with PowerShell
+    displayName: import, export, folders
+    href: ./how-to/import-export-ps.md
   - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Configure your environment for a Blueprint Operator
+    displayName: rbac, user-assigned, managed, identity, management group
+    href: ./how-to/configure-for-blueprint-operator.md
   - name: Manage Blueprints as Code (community)
     href: https://github.com/Azure/azure-blueprints/blob/master/README.md
 - name: Troubleshoot

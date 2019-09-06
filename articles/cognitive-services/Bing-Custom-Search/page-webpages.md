@@ -1,6 +1,6 @@
 ---
 title: Page through available webpages - Bing Custom Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Shows how to page through all of the webpages that Bing Custom Search can return.
 services: cognitive-services
 author: aahill

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Get started with Apache Hadoop and Apache Hive using the Azure portal - Azure HDInsight'
+title: 'Quickstart: Apache Hadoop and Apache Hive in HDInsight using the Azure portal'
 description: In this quickstart, you use the Azure portal to create an HDInsight Hadoop cluster
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 author: hrasheed-msft
@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
@@ -19,7 +19,7 @@ In this article, you learn how to create [Apache Hadoop](https://hadoop.apache.o
 
 In this quickstart, you use the Azure portal to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Resource Manager template](apache-hadoop-linux-tutorial-get-started.md).
 
-Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Apache Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
+Currently HDInsight comes with [seven different cluster types](../hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Apache Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -29,7 +29,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. Sign in to the [Azure  portal](https://portal.azure.com).
 
-1. From the Azure portal, navigate to **Create a resource** > **Analytics** > **HDInsight**.
+1. From the Azure portal, go to **Create a resource** > **Analytics** > **HDInsight**.
 
     ![Databricks on Azure portal](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight.png "Databricks on Azure portal")
 
@@ -42,7 +42,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Cluster type     | Skip this for now. You provide this input in the next step of this procedure.|
     |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
     |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
-    |Use cluster login password for SSH| Select this checkbox to use the same password for SSH user as the one you provided for the cluster login user.|
+    |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
     |Resource group     | Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. |
     |Location    | Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. |
 
@@ -65,7 +65,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |---------|---------|
     |Primary storage type    | For this article, select Azure storage to use Azure Storage Blob as the default storage account. You can also use Azure Data Lake Storage as the default storage. |
     |Selection method     |  For this article, select **My subscriptions** to use a storage account from your Azure subscription. To use storage account from other subscriptions, select **Access key** and then provide the access key for that account. |
-    |Select a Storage account   | Select **Select a Storage account** to select an existing storage account, or select **Create new**.|
+    |Select a Storage account   | Select **Select a Storage account** to select an existing storage account, or select **Create new**. If you create a new account, the name must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.|
 
     Accept all other default values and then select **Next** to advance to the summary page.
 
@@ -148,4 +148,4 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 In this quickstart, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Interactive Query on HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

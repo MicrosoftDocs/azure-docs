@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Create a Service Fabric cluster | Micros
 description: Azure PowerShell Script Sample - Create a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: 
 tags: azure-service-management
@@ -11,10 +11,9 @@ tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
 ---
 

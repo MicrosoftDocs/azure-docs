@@ -1,10 +1,9 @@
 ---
 title: Understanding Azure File Sync Cloud Tiering | Microsoft Docs
 description: Learn about Azure File Sync's feature Cloud Tiering
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files

@@ -1,14 +1,13 @@
 ---
 title: Reacting to Azure Blob storage events | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
-services: storage,event-grid 
-author: cbrooksmsft
-
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
 ms.date: 01/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
+ms.reviewer: cbrooks
 ---
 
 # Reacting to Blob storage events
@@ -25,9 +24,11 @@ If you want to try this out now, see any of these quickstart articles:
 
 |If you want to use this tool:    |See this article: |
 |--|-|
-|Azure Portal    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure CLI    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Powershell    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure portal    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure CLI    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+
+If your account has a hierarchical namespace, this tutorial will show you how to connect together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table](data-lake-storage-events.md).
 
 ## The event model
 
@@ -88,7 +89,7 @@ Applications that handle Blob storage events should follow a few recommended pra
 > * Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob. Valid values are either `BlockBlob` or `PageBlob`. 
 > * Use the url field with the `CloudBlockBlob` and `CloudAppendBlob` constructors to access the blob.
 > * Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
-> * If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, `PutBlockList` or `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events).
+> * If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, `PutBlockList` or `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
 ## Next steps

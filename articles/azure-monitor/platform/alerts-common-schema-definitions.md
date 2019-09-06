@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 
@@ -312,6 +312,102 @@ Any alert instance describes **the resource that was affected** and **the cause 
 }
 ```
 
+#### monitoringService = 'Activity Log - Policy'
+
+##### Sample values
+```json
+{
+  "alertContext": {
+    "authorization": {
+      "action": "Microsoft.Resources/checkPolicyCompliance/read",
+      "scope": "/subscriptions/<GUID>"
+    },
+    "channels": "Operation",
+    "claims": "{\"aud\":\"https://management.azure.com/\",\"iss\":\"https://sts.windows.net/<GUID>/\",\"iat\":\"1566711059\",\"nbf\":\"1566711059\",\"exp\":\"1566740159\",\"aio\":\"42FgYOhynHNw0scy3T/bL71+xLyqEwA=\",\"appid\":\"<GUID>\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/<GUID>/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"<GUID>\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"<GUID>\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"<GUID>\",\"uti\":\"Miy1GzoAG0Scu_l3m1aIAA\",\"ver\":\"1.0\"}",
+    "caller": "<GUID>",
+    "correlationId": "<GUID>",
+    "eventSource": "Policy",
+    "eventTimestamp": "2019-08-25T11:11:34.2269098+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Warning",
+    "operationName": "Microsoft.Authorization/policies/audit/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "isComplianceCheck": "True",
+      "resourceLocation": "eastus2",
+      "ancestors": "<GUID>",
+      "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/<GUID>/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/<GUID>/\",\"policyDefinitionReferenceId\":\"vulnerabilityAssessmentMonitoring\",\"policySetDefinitionName\":\"<GUID>\",\"policyDefinitionName\":\"<GUID>\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<GUID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<GUID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{}}]"
+    },
+    "status": "Succeeded",
+    "subStatus": "",
+    "submissionTimestamp": "2019-08-25T11:12:46.1557298+00:00"
+  }
+}
+```
+
+#### monitoringService = 'Activity Log - Autoscale'
+
+##### Sample values
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "claims": "{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn\":\"Microsoft.Insights/autoscaleSettings\"}",
+    "caller": "Microsoft.Insights/autoscaleSettings",
+    "correlationId": "<GUID>",
+    "eventSource": "Autoscale",
+    "eventTimestamp": "2019-08-21T16:17:47.1551167+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Insights/AutoscaleSettings/Scaleup/Action",
+    "operationId": "<GUID>",
+    "properties": {
+      "description": "The autoscale engine attempting to scale resource '/subscriptions/d<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS' from 9 instances count to 10 instances count.",
+      "resourceName": "/subscriptions/<GUID>/resourceGroups/voiceassistancedemo/providers/Microsoft.Compute/virtualMachineScaleSets/alexademo",
+      "oldInstancesCount": "9",
+      "newInstancesCount": "10",
+      "activeAutoscaleProfile": "{\r\n  \"Name\": \"Auto created scale condition\",\r\n  \"Capacity\": {\r\n    \"Minimum\": \"1\",\r\n    \"Maximum\": \"10\",\r\n    \"Default\": \"1\"\r\n  },\r\n  \"Rules\": [\r\n    {\r\n      \"MetricTrigger\": {\r\n        \"Name\": \"Percentage CPU\",\r\n        \"Namespace\": \"microsoft.compute/virtualmachinescalesets\",\r\n        \"Resource\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"ResourceLocation\": \"eastus\",\r\n        \"TimeGrain\": \"PT1M\",\r\n        \"Statistic\": \"Average\",\r\n        \"TimeWindow\": \"PT5M\",\r\n        \"TimeAggregation\": \"Average\",\r\n        \"Operator\": \"GreaterThan\",\r\n        \"Threshold\": 0.0,\r\n        \"Source\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"MetricType\": \"MDM\",\r\n        \"Dimensions\": [],\r\n        \"DividePerInstance\": false\r\n      },\r\n      \"ScaleAction\": {\r\n        \"Direction\": \"Increase\",\r\n        \"Type\": \"ChangeCount\",\r\n        \"Value\": \"1\",\r\n        \"Cooldown\": \"PT1M\"\r\n      }\r\n    }\r\n  ]\r\n}",
+      "lastScaleActionTime": "Wed, 21 Aug 2019 16:17:47 GMT"
+    },
+    "status": "Succeeded",
+    "submissionTimestamp": "2019-08-21T16:17:47.2410185+00:00"
+  }
+}
+```
+
+#### monitoringService = 'Activity Log - Security'
+
+##### Sample values
+```json
+{
+  "alertContext": {
+    "channels": "Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "Security",
+    "eventTimestamp": "2019-08-26T08:34:14+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Security/locations/alerts/activate/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "threatStatus": "Quarantined",
+      "category": "Virus",
+      "threatID": "2147519003",
+      "filePath": "C:\\AlertGeneration\\test.eicar",
+      "protectionType": "Windows Defender",
+      "actionTaken": "Blocked",
+      "resourceType": "Virtual Machine",
+      "severity": "Low",
+      "compromisedEntity": "testVM",
+      "remediationSteps": "[\"No user action is necessary\"]",
+      "attackedResourceType": "Virtual Machine"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-08-26T09:28:58.3019107+00:00"
+  }
+}
+```
+
 #### monitoringService = 'ServiceHealth'
 
 ##### Sample values
@@ -319,15 +415,15 @@ Any alert instance describes **the resource that was affected** and **the cause 
 {
   "alertContext": {
     "authorization": null,
-    "channels": "Admin",
+    "channels": 1,
     "claims": null,
     "caller": null,
     "correlationId": "f3cf2430-1ee3-4158-8e35-7a1d615acfc7",
-    "eventSource": "ServiceHealth",
+    "eventSource": 2,
     "eventTimestamp": "2019-06-24T11:31:19.0312699+00:00",
     "httpRequest": null,
     "eventDataId": "<GUID>",
-    "level": "Informational",
+    "level": 3,
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
@@ -351,7 +447,8 @@ Any alert instance describes **the resource that was affected** and **the cause 
     },
     "status": "Active",
     "subStatus": null,
-    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00"
+    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00",
+    "ResourceType": null
   }
 }
 ```

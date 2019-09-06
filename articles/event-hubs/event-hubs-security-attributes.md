@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure Event Hubs
-description: A checklist of common security attributes for evaluating Azure Event Hubs
+title: Security attributes for Azure Event Hubs
+description: A checklist of security attributes for evaluating Azure Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -12,9 +12,9 @@ ms.date: 05/22/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Event Hubs
+# Security attributes for Azure Event Hubs
 
-This article documents the common security attributes built into Azure Event Hubs.
+This article documents the security attributes built into Azure Event Hubs.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -22,8 +22,8 @@ This article documents the common security attributes built into Azure Event Hub
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes | |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  Yes | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | |
 | Encryption key handling (CMK, BYOK, etc.)| No |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes |  |
@@ -33,7 +33,7 @@ This article documents the common security attributes built into Azure Event Hub
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
-| vNET injection support| No | |
+| VNet injection support| No | |
 | Network isolation and firewalling support| Yes |  |
 | Forced tunneling support| No |  |
 

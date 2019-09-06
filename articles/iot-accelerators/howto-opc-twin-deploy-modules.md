@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
@@ -67,7 +67,7 @@ All modules are deployed using a deployment manifest.  An example manifest to de
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
-                "createOptions": "{\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"CapAdd\":[\"NET_ADMIN\"]}}"
+                "createOptions": "{\"NetworkingConfig\": {\"EndpointsConfig\": {\"host\": {}}}, \"HostConfig\": {\"NetworkMode\": \"host\" }}"
               }
             },
             "opcpublisher": {
@@ -122,16 +122,16 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 5. In the **Deployment modules** section of the page, select **Add** and **IoT Edge Module.**
 
-6. In the **IoT Edge Custom Module** dialog use `opctwin` as name for the module, then specify the container *image URI* as
+6. In the **IoT Edge Custom Module** dialog use `opctwin` as name for the module, then specify the container *Image URI* as
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
    ```
 
-   As *create options* use the following JSON:
+   As *Container Create Options*, use the following JSON:
 
    ```json
-   {"HostConfig":{"NetworkMode":"host","CapAdd":["NET_ADMIN"]}}
+   {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
    Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
@@ -144,7 +144,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
    mcr.microsoft.com/iotedge/opc-publisher:latest
    ```
 
-   As *create options* use the following JSON:
+   As *Container Create Options*, use the following JSON:
 
    ```json
    {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--to","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
@@ -157,8 +157,8 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
     ```json
     {
       "routes": {
-        "opctwinToIoTHub": "FROM /messages/modules/opctwin/outputs/* INTO $upstream",
-        "opcpublisherToIoTHub": "FROM /messages/modules/opcpublisher/outputs/* INTO $upstream"
+        "opctwinToIoTHub": "FROM /messages/modules/opctwin/* INTO $upstream",
+        "opcpublisherToIoTHub": "FROM /messages/modules/opcpublisher/* INTO $upstream"
       }
     }
     ```

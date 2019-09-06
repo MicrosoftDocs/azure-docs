@@ -48,6 +48,11 @@ The key attributes of an alert rule are:
 **Alert Description** – A description for the alert rule configured by the user
 
 **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+Sev 0 = Critical
+Sev 1 = Error
+Sev 2 = Warning
+Sev 3 = Informational
+Sev 4 = Verbose
 
 **Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
 
@@ -90,6 +95,9 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
 Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#manage-your-alert-instances-programmatically).
+
+> [!NOTE]
+   >  Only alerts generated in the last 30 days can be accessed on the UX or through the REST APIs.
 
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 
@@ -166,6 +174,10 @@ The Alert details page includes the following sections.
 | Summary | Displays the properties and other significant information about the alert. |
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
 | Diagnostics | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
+
+## Role-based access control (RBAC) for your alert instances
+
+The consumption and management of alert instances requires the user to have the built-in RBAC roles of either [monitoring contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) or [monitoring reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from subscription level to granular assignments at a resource level. For example, if a user only has 'monitoring contributor' access for virtual machine 'ContosoVM1', then he can consume and manage only alerts generated on 'ContosoVM1'.
 
 ## Manage your alert instances programmatically
 

@@ -68,12 +68,15 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 
 ## Prerequisites
 
-- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. Installation of the self-hosted integration runtime on a domain controller is not supported.
+- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 and Windows Server 2019. Installation of the self-hosted integration runtime on a domain controller is not supported.
 - .NET Framework 4.6.1 or later is required. If you're installing the self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 - The recommended configuration for the self-hosted integration runtime machine is at least 2 GHz, four cores, 8 GB of RAM, and an 80-GB disk.
 - If the host machine hibernates, the self-hosted integration runtime does not respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installation prompts a message.
 - You must be an administrator on the machine to install and configure the self-hosted integration runtime successfully.
 - Copy activity runs happen on a specific frequency. Resource usage (CPU, memory) on the machine follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
+- Tasks may fail if extracting data in Parquet, ORC, or Avro formats. The file creation runs on the self-hosted integration machine and requires the following pre-requisites to work as expected (see [Parquet format in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
+    - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) package (x64)
+    - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/), ensuring that the `JAVA_HOME` environment variable is set.
 
 ## Installation best practices
 You can install the self-hosted integration runtime by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.

@@ -6,10 +6,9 @@ metadata:
   title: Personalizer - Tutorials, Quickstarts, API Reference
   description: Learn how to use Personalizer service to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: personalizer 
   ms.topic: landing-page
   ms.date: 05/07/2019
   ms.author: nitinme

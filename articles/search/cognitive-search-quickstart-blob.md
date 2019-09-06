@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Build an AI-enriched index in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/09/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Quickstart: Create an AI indexing pipeline using cognitive skills in Azure Search
 
@@ -160,11 +160,13 @@ Another important concept is that skills operate over input fields. In the porta
 
 Finally, you learned that viewing results is achieved by querying the index. In the end, what Azure Search provides is a searchable index, which you can query using either the [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Search feature, you can certainly do so.
 
-## Clean up resources
+## Clean up
 
-If your exploration is concluded, the fastest way to clean up is by deleting the resource group containing the Azure Search service and Azure Blob service.  
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content you created for this exercise. In the portal, the resource group name is on the Overview page of each service.
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

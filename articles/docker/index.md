@@ -2,15 +2,14 @@
 title:  Docker on Azure
 description: Deploy and integrate Docker with Azure 
 services: multiple
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
 ms.service: multiple
-ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
-ms.author: carolz
+ms.author: gwallace
 ---
 <div class="content">
    <h1>Docker on Azure</h1>   

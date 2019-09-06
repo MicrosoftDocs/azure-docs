@@ -3,10 +3,8 @@ title: Checkpoints and replay in Durable Functions - Azure
 description: Learn how checkpointing and reply works in the Durable Functions extension for Azure Functions.
 services: functions
 author: ggailey777
-manager: jeconnoc
-keywords:
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -124,23 +122,18 @@ The replay behavior creates constraints on the type of code that can be written 
 
   If orchestrator code needs to get the current date/time, it should use the [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) or `currentUtcDateTime` (JavaScript) API, which is safe for replay.
 
-  If orchestrator code needs to generate a random GUID, it should use the [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) API, which is safe for replay, or delegate GUID generation to an activity function (JavaScript), as in this example:
+  If orchestrator code needs to generate a random GUID, it should use either the [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) or the `newGuid` (JavaScript) API,  which is safe for replay.
 
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  Non-deterministic operations must be done in activity functions. This includes any interaction with other input or output bindings. This ensures that any non-deterministic values will be generated once on the first execution and saved into the execution history. Subsequent executions will then use the saved value automatically.
+   Other than these special cases, non-deterministic operations must be done in activity functions. This includes any interaction with other input or output bindings. This ensures that any non-deterministic values will be generated once on the first execution and saved into the execution history. Subsequent executions will then use the saved value automatically.
 
 * Orchestrator code should be **non-blocking**. For example, that means no I/O and no calls to `Thread.Sleep` (.NET) or equivalent APIs.
 
   If an orchestrator needs to delay, it can use the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) or `createTimer` (JavaScript) API.
 
-* Orchestrator code must **never initiate any async operation** except by using the [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API or `context.df` object's API. For example, no `Task.Run`, `Task.Delay` or `HttpClient.SendAsync` in .NET, or `setTimeout()` and `setInterval()` in JavaScript. The Durable Task Framework executes orchestrator code on a single thread and cannot interact with any other threads that could be scheduled by other async APIs.
+* Orchestrator code must **never initiate any async operation** except by using the [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API or `context.df` object's API. For example, no `Task.Run`, `Task.Delay` or `HttpClient.SendAsync` in .NET, or `setTimeout()` and `setInterval()` in JavaScript. The Durable Task Framework executes orchestrator code on a single thread and cannot interact with any other threads that could be scheduled by other async APIs. Should this occur, `InvalidOperationException` Exception is thrown.
+
+> [!NOTE]
+> The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API performs async I/O, which is not allowed in an orchestrator function and can only be used in non-orchestrator functions.
 
 * **Infinite loops should be avoided** in orchestrator code. Because the Durable Task Framework saves execution history as the orchestration function progresses, an infinite loop could cause an orchestrator instance to run out of memory. For infinite loop scenarios, use APIs such as [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) or `continueAsNew` (JavaScript) to restart the function execution and discard previous execution history.
 
@@ -158,7 +151,7 @@ While these constraints may seem daunting at first, in practice they aren't hard
 
 Tasks that can be safely awaited in orchestrator functions are occasionally referred to as *durable tasks*. These are tasks that are created and managed by the Durable Task Framework. Examples are the tasks returned by `CallActivityAsync`, `WaitForExternalEvent`, and `CreateTimer`.
 
-These *durable tasks* are internally managed by using a list of `TaskCompletionSource` objects. During replay, these tasks get created as part of orchestrator code execution and are completed as the dispatcher enumerates the corresponding history events. This is all done synchronously using a single thread until all the history has been replayed. Any durable tasks, which are not completed by the end of history replay has appropriate actions carried out. For example, a message may be enqueued to call an activity function.
+These *durable tasks* are internally managed by using a list of `TaskCompletionSource` objects. During replay, these tasks get created as part of orchestrator code execution and are completed as the dispatcher enumerates the corresponding history events. This is all done synchronously using a single thread until all the history has been replayed. Any durable tasks that are not completed by the end of history replay have appropriate actions carried out. For example, a message may be enqueued to call an activity function.
 
 The execution behavior described here should help you understand why orchestrator function code must never `await` a non-durable task: the dispatcher thread cannot wait for it to complete and any callback by that task could potentially corrupt the tracking state of the orchestrator function. Some runtime checks are in place to try to prevent this.
 

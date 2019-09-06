@@ -9,7 +9,7 @@ author: roaror
 ms.author: roaror
 ---
 
-# Use Compass to connect to your Cosmos DB account
+# Use MongoDB Compass to connect to Azure Cosmos DB's API for MongoDB 
 
 This tutorial demonstrates how to use [MongoDB Compass](https://www.mongodb.com/products/compass) when storing and/or managing data in Cosmos DB. We use the Azure Cosmos DB's API for MongoDB for this walk-through. For those of you unfamiliar, Compass is a GUI for MongoDB. It is commonly used to visualize your data, run ad-hoc queries, along with managing your data. 
 

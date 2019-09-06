@@ -1,6 +1,6 @@
 ﻿---
-title: Common security attributes for Azure Storage
-description: A checklist of common security attributes for evaluating Azure Storage
+title: Security attributes for Azure Storage
+description: A checklist of security attributes for evaluating Azure Storage
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -21,8 +21,8 @@ This article documents the security attributes built into Azure Storage.
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes |  |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
 | Encryption key handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |

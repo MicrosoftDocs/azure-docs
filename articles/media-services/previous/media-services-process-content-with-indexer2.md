@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: adsolank;juliako;
-
+ms.author: juliako
+ms.reviewer: adsolank
 ---
 # Indexing Media Files with Azure Media Indexer 2 Preview
 ## Overview

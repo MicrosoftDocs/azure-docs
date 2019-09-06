@@ -1,20 +1,20 @@
 ---
-title: "Get started with Custom Speech - Speech Services"
-titlesuffix: Azure Cognitive Services
-description: Custom Speech is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
+title: "Get started with Custom Speech - Speech Service"
+titleSuffix: Azure Cognitive Services
+description: Custom Speech is a set of online tools that allow you to evaluate and improve our speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
 # What is Custom Speech?
 
-[Custom Speech](https://aka.ms/custom-speech) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
+[Custom Speech](https://aka.ms/customspeech) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 

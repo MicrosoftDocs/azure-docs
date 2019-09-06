@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
@@ -367,7 +366,7 @@ To use integrated Windows authentication, your domain’s Active Directory must 
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to Active Directory Integrated. The following C# code sample uses ADO .NET.
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -380,7 +379,7 @@ The connection string keyword ``Integrated Security=True`` is not supported for 
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password. The connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -400,7 +399,7 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 
 Sample connection string:
 
-```c#
+```csharp
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
 conn.AccessToken = "Your JWT token"
@@ -412,6 +411,9 @@ For more information, see [SQL Server Security Blog](https://blogs.msdn.microsof
 ### sqlcmd
 
 The following statements, connect using version 13.1 of sqlcmd, which is available from the [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+
+> [!NOTE]
+> `sqlcmd` with the `-G` command does not work with system identities, and requires a user principal login.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

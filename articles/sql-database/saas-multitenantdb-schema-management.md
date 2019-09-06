@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Manage schema in a SaaS application that uses sharded multi-tenant SQL databases

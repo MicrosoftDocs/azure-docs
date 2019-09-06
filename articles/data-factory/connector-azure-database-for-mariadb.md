@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -36,9 +36,9 @@ The following properties are supported for Azure Database for MariaDB linked ser
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **MariaDB** | Yes |
+| type | The type property must be set to: **AzureMariaDB** | Yes |
 | connectionString | A connection string to connect to Azure Database for MariaDB. You can find it from the Azure portal -> your Azure Database for MariaDB -> Connection strings -> ADO.NET one. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault and pull the `pwd` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -46,7 +46,7 @@ The following properties are supported for Azure Database for MariaDB linked ser
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -67,7 +67,7 @@ The following properties are supported for Azure Database for MariaDB linked ser
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
@@ -94,11 +94,11 @@ The following properties are supported for Azure Database for MariaDB linked ser
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Database for MariaDB dataset.
 
-To copy data from Azure Database for MariaDB, set the type property of the dataset to **MariaDBTable**. The following properties are supported:
+To copy data from Azure Database for MariaDB, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **MariaDBTable** | Yes |
+| type | The type property of the dataset must be set to: **AzureMariaDBTable** | Yes |
 | tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
@@ -107,12 +107,13 @@ To copy data from Azure Database for MariaDB, set the type property of the datas
 {
     "name": "AzureDatabaseForMariaDBDataset",
     "properties": {
-        "type": "MariaDBTable",
+        "type": "AzureMariaDBTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Database for MariaDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -123,11 +124,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Database for MariaDB as source
 
-To copy data from Azure Database for MariaDB, set the source type in the copy activity to **MariaDBSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Azure Database for MariaDB, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **MariaDBSource** | Yes |
+| type | The type property of the copy activity source must be set to: **AzureMariaDBSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
@@ -151,7 +152,7 @@ To copy data from Azure Database for MariaDB, set the source type in the copy ac
         ],
         "typeProperties": {
             "source": {
-                "type": "MariaDBSource",
+                "type": "AzureMariaDBSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {

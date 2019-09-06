@@ -4,7 +4,7 @@ description: Learn how to enable InfiniBand with SR-IOV.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -15,21 +15,19 @@ ms.date: 05/15/2019
 ms.author: amverma
 ---
 
-
 # Enable InfiniBand with SR-IOV
-
 
 The simplest and recommended way to configure your custom VM image with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
 Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. These steps are for RHEL/CentOS only. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work well. For Ubuntu, 
-
+To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. These steps are for RHEL/CentOS only. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work well.
 
 ## Manually install OFED
 
 Install the latest MLNX_OFED drivers for ConnectX-5 from [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 For RHEL/CentOS (example below for 7.6):
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++
@@ -40,6 +38,18 @@ sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-s
 ```
 
 For Windows, download and install the WinOF-2 drivers for ConnectX-5 from [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+
+## Enable IPoIB
+
+```bash
+sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
+sudo /etc/init.d/openibd restart
+if [ $? -eq 1 ]
+then
+  sudo modprobe -rv  ib_isert rpcrdma ib_srpt
+  sudo /etc/init.d/openibd restart
+fi
+```
 
 ## Assign an IP address
 

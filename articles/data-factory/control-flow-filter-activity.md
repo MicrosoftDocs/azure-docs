@@ -3,19 +3,16 @@ title: Filter activity in Azure Data Factory | Microsoft Docs
 description: The Filter activity filters the inputs. 
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: shlo
-
 ---
+
 # Filter activity in Azure Data Factory
 You can use a Filter activity in a pipeline to apply a filter expression to an input array. 
 

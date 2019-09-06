@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka - Azure HDInsight'
+title: 'Tutorial: Apache Storm to read, write with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -54,7 +54,7 @@ The following environment variables may be set when you install Java and the JDK
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
 >
-> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](hdinsight-extend-hadoop-virtual-network.md) document.
+> For more information on using HDInsight in a virtual network, see the [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md) document.
 
 ## Storm and Kafka
 
@@ -126,7 +126,7 @@ There are two topologies provided with this tutorial:
     >
     > The script action is located at [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) and is applied to the supervisor and nimbus nodes of the Storm cluster. For more information on using script actions, see the [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) document.
 
-The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
+The topologies are defined using [Flux](https://storm.apache.org/releases/current/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
 
 The following parameters are set at run time for these topologies:
 
@@ -140,7 +140,7 @@ The following parameters are set at run time for these topologies:
 
 * `${hdfs.write.dir}`: The directory that data is written to.
 
-For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+For more information on Flux topologies, see [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ### Kafka-writer
 
@@ -467,7 +467,9 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
     The value returned is similar to the following text:
 
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    ```output
+    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+     ```
 
     > [!IMPORTANT]  
     > While there may be more than two broker hosts for your cluster, you do not need to provide a full list of all hosts to clients. One or two is enough.

@@ -31,6 +31,8 @@
   items: 
    - name: Use Sensor SDK
      items:
+       - name: Azure Kinect Sensor SDK
+         href: about-sensor-sdk.md
        - name: Find then open device
          href: find-then-open-device.md
        - name: Retrieve images
@@ -61,8 +63,6 @@
      href: record-external-synchronized-units.md
 - name: Tools
   items:
-    - name: Azure Kinect Sensor SDK
-      href: about-sensor-sdk.md
     - name: Azure Kinect viewer
       href: azure-kinect-viewer.md
     - name: Azure Kinect recorder
@@ -89,5 +89,7 @@
   items:  
    - name: Sensor API
      href: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
+   - name: Body tracking API
+     href: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/index.html
    - name: Record file format
-     href: record-file-format.md
+     href: record-file-format.md 

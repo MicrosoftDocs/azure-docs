@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Cookies definitions for Azure Active Directory B2C

@@ -4,8 +4,8 @@ description: This article is intended to help you understand how to use the Azur
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
@@ -15,6 +15,10 @@ manager: carmonm
 You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a virtual machine from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
+
+> [!NOTE]
+> The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings do not affect the ability to manage virtual machines in a
+> separate region than your Automation account.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -48,7 +52,7 @@ The solution reports how up-to-date the computer is based on what source you're 
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers, or an [Azure query](#azure-machines) that dynamically selects Azure VMs based on specified criteria. These groups are different from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is only used to determine what machines get the management packs that enable the solution. 
+The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers, or an [Azure query](#azure-machines) that dynamically selects Azure VMs based on specified criteria. These groups are different from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is only used to determine what machines get the management packs that enable the solution.
 
 You also specify a schedule to approve and set a period of time during which updates can be installed. This period of time is called the maintenance window. Ten minutes of the maintenance window is reserved for reboots if a reboot is needed and you selected the appropriate reboot option. If patching takes longer than expected and there is less than ten minutes in the maintenance window, a reboot will not occur.
 
@@ -67,11 +71,15 @@ The following table shows a list of supported operating systems:
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later (Including Windows Server 2012 and 2016)    |.NET Framework 4.5.1 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)|.NET Framework 4.5.1 or later is required. ([Download .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box. For more information on classification-based patching on CentOS, see [Update classifications on Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
+
+> [!NOTE]
+> Azure virtual machine scale sets can be managed with Update Management. Update Management works on the instances themselves and not the base image. You'll need to schedule the updates in an incremental way, as to not update all VM instances at once.
+> VMSS Nodes can be added by following the steps under [Onbaord a non-Azure machine](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### Unsupported client types
 
@@ -81,12 +89,18 @@ The following table lists operating systems that aren't supported:
 |---------|---------|
 |Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.        |
 |Windows Server 2016 Nano Server     | Not supported.       |
+|Azure Kubernetes Service Nodes | Not supported. Use the patching process detailed in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### Client requirements
 
 #### Windows
 
 Windows agents must be configured to communicate with a WSUS server or they must have access to Microsoft Update. You can use Update Management with System Center Configuration Manager. To learn more about integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure virtual machine.
+
+> [!NOTE]
+> It is possible for a user to modify Group Policy so that machine reboots can only performed by the user, not by the system. Managed machines may get stuck, if Update Management does not have rights to reboot the machine without manual interaction from the user.
+>
+> For more information, see [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### Linux
 
@@ -119,7 +133,7 @@ If your System Center Operations Manager management group is connected to a Log 
 * Update Deployment MP
 
 > [!NOTE]
-> If you have an Operations Manager 1807 Management Group with agents configured at the Management Group level to be associated to a workspace, the current workaround to get them to show up is to override **IsAutoRegistrationEnabled** to **True** in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
+> If you have an Operations Manager 1807 or 2019 Management Group with agents configured at the Management Group level to be associated to a workspace, the current workaround to get them to show up is to override **IsAutoRegistrationEnabled** to **True** in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
 
 For more information about how solution management packs are updated, see [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
@@ -134,7 +148,7 @@ To begin patching systems, you need to enable the Update Management solution. Th
 * [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
 * [From your Automation account](automation-onboard-solutions-from-automation-account.md)
 * [With an Azure Automation runbook](automation-onboard-solutions.md)
-  
+
 ### Confirm that non-Azure machines are onboarded
 
 To confirm that directly connected machines are communicating with Azure Monitor logs, after a few minutes, you can run one the following log searches.
@@ -232,6 +246,15 @@ To create a new update deployment, select **Schedule update deployment**. The **
 
 Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
+### Maintenance Windows
+
+Maintenance windows control the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window.
+
+* Maintenance windows control how many updates are attempted to be installed.
+* Update Management does not stop installing new updates if the end of a maintenance window is approaching.
+* Update Management does not terminate in-progress updates if when the maintenance window is exceeded.
+* If the maintenance window is exceeded on Windows, it is often because of a service pack update taking a long time to install.
+
 ### <a name="multi-tenant"></a>Cross-tenant Update Deployments
 
 If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
@@ -276,7 +299,7 @@ The following tables list the update classifications in Update Management, with 
 |Tools     | A utility or feature that helps complete one or more tasks.        |
 |Updates     | An update to an application or file that currently is installed.        |
 
-### Linux
+### <a name="linux-2"></a>Linux
 
 |Classification  |Description  |
 |---------|---------|
@@ -343,9 +366,15 @@ The following addresses are required specifically for Update Management. Communi
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
+For Windows Machines, you must also allow traffic to any endpoints required by Windows Update.  You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS Key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+For Red Hat Linux Machines, please refer to [The IPs for the RHUI content delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux Distributions, refer to provider documentation.
+
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
 It's recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and reflects the currently deployed ranges and any upcoming changes to the IP ranges.
+
+Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that do not have internet access.
 
 ## Search logs
 

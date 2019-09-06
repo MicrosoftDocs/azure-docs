@@ -4,10 +4,9 @@ description: Learn to handle Azure Functions binding errors
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe

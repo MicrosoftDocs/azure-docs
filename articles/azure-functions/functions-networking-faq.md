@@ -7,7 +7,8 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
-ms.author: alkarche, glenga
+ms.author: alkarche
+ms.reviewer: glenga
 
 ---
 # Frequently asked questions about networking in Azure Functions
@@ -42,7 +43,7 @@ You can access resources in a virtual network from a running function by using v
 
 ## How do I access resources protected by service endpoints?
 
-By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-version-of-virtual-network-integration).
+By using virtual network integration you can access service-endpoint-secured resources from a running function. For more information, see [virtual network integration](functions-networking-options.md#virtual-network-integration).
 
 ## How can I trigger a function from a resource in a virtual network?
 

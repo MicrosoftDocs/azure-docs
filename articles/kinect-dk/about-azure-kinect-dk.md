@@ -102,7 +102,4 @@ The Azure Kinect DK integrates Microsoft's latest sensor technology into single 
 You now have an overview of Azure Kinect DK. The next step is to dive in and set it up!
 
 > [!div class="nextstepaction"]
->[Using Azure Kinect Sensor SDK](about-sensor-sdk.md)
-
-> [!div class="nextstepaction"]
->[Review the Azure Kinect DK Hardware Specification](hardware-specification.md)
+>[Quickstart: Set up Azure Kinect DK](set-up-azure-kinect-dk.md)

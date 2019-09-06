@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 09/04/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -80,7 +80,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 You can choose to use public or private IPv4 addresses for private peering. We provide end-to-end isolation of your traffic, so overlapping of addresses with other customers is not possible in case of private peering. These addresses are not advertised to Internet. 
 
 ### Microsoft peering
-The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Dynamics 365. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
+The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, Microsoft Teams and Dynamics 365. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the following registries:
 
@@ -206,7 +206,8 @@ All routes advertised from Microsoft will be tagged with the appropriate communi
 > 
 > 
 
-In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
+### Service to BGP community value
+In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value. You can run the 'Get-AzBgpServiceCommunity' cmdlet for a full list of the latest values.
 
 | **Service** | **BGP community value** |
 | --- | --- |

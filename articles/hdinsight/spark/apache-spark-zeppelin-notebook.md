@@ -135,7 +135,7 @@ In this article, you will see how to use the [spark-csv](https://search.maven.or
 
 4. If you want to understand how to arrive at the value of the key entered above, here's how.
    
-    a. Locate the package in the Maven Repository. For this tutorial, we used [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Locate the package in the Maven Repository. For this article, we used [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**.
    

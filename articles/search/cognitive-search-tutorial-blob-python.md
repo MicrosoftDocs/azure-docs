@@ -1,10 +1,11 @@
 ---
-title: 'Python Tutorial: Call Cognitive Services in an indexing pipeline - Azure Search'
+title: 'Python Tutorial: Call Cognitive Services in an AI enrichment pipeline - Azure Search'
 description: Step through an example of data extraction, natural language, and image AI processing in Azure Search using a Jupyter Python notebook. Extracted data is indexed and easily accessed by query.
-manager: cgronlun
+manager: nitinme
 author: LisaLeib
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
@@ -55,7 +56,7 @@ To interact with your Azure Search service, you will need the service URL and an
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -100,11 +101,11 @@ from pprint import pprint
 Next, define the names for the data source, index, indexer, and skillset. Run this script to set up the names for this tutorial.
 
 ```python
-#Define the names for the data source, skillset, index and indexer
-datasource_name="cogsrch-py-datasource"
-skillset_name="cogsrch-py-skillset"
-index_name="cogsrch-py-index"
-indexer_name="cogsrch-py-indexer"
+# Define the names for the data source, skillset, index and indexer
+datasource_name = "cogsrch-py-datasource"
+skillset_name = "cogsrch-py-skillset"
+index_name = "cogsrch-py-index"
+indexer_name = "cogsrch-py-indexer"
 ```
 
 > [!Tip]
@@ -113,10 +114,10 @@ indexer_name="cogsrch-py-indexer"
 In the following script, replace the placeholders for your search service (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run it to set up the search service endpoint.
 
 ```python
-#Setup the endpoint
+# Setup the endpoint
 endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
 headers = {'Content-Type': 'application/json',
-        'api-key': '<YOUR-ADMIN-API-KEY>' }
+           'api-key': '<YOUR-ADMIN-API-KEY>'}
 params = {
     'api-version': '2019-05-06'
 }
@@ -129,21 +130,22 @@ Now that your services and source files are prepared, start assembling the compo
 In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named `cogsrch-py-datasource`.
 
 ```python
-#Create a data source
+# Create a data source
 datasourceConnectionString = "<YOUR-BLOB-RESOURCE-CONNECTION-STRING>"
 datasource_payload = {
     "name": datasource_name,
     "description": "Demo files to demonstrate cognitive search capabilities.",
     "type": "azureblob",
     "credentials": {
-    "connectionString": datasourceConnectionString
-   },
+        "connectionString": datasourceConnectionString
+    },
     "container": {
-     "name": "basic-demo-data-pr"
-   }
+        "name": "basic-demo-data-pr"
+    }
 }
-r = requests.put( endpoint + "/datasources/" + datasource_name, data=json.dumps(datasource_payload), headers=headers, params=params )
-print (r.status_code)
+r = requests.put(endpoint + "/datasources/" + datasource_name,
+                 data=json.dumps(datasource_payload), headers=headers, params=params)
+print(r.status_code)
 ```
 
 The request should return a status code of 201 confirming success.
@@ -168,85 +170,86 @@ In this step, you will define a set of enrichment steps to apply to your data. Y
 Run the following script to create a skillset called `cogsrch-py-skillset`.
 
 ```python
-#Create a skillset
+# Create a skillset
 skillset_payload = {
-  "name": skillset_name,
-  "description":
-  "Extract entities, detect language and extract key-phrases",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
+    "name": skillset_name,
+    "description":
+    "Extract entities, detect language and extract key-phrases",
+    "skills":
+    [
         {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "languageCode",
-          "targetName": "languageCode"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages",
-      "maximumPageLength": 4000,
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
+            "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+            "categories": ["Organization"],
+            "defaultLanguageCode": "en",
+            "inputs": [
+                {
+                    "name": "text", "source": "/document/content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "organizations", "targetName": "organizations"
+                }
+            ]
         },
         {
-          "name": "languageCode",
-          "source": "/document/languageCode"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "textItems",
-          "targetName": "pages"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "context": "/document/pages/*",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/pages/*"
+            "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+            "inputs": [
+                {
+                    "name": "text", "source": "/document/content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "languageCode",
+                    "targetName": "languageCode"
+                }
+            ]
         },
         {
-          "name":"languageCode", "source": "/document/languageCode"
-        }
-      ],
-      "outputs": [
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "textSplitMode": "pages",
+            "maximumPageLength": 4000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/content"
+                },
+                {
+                    "name": "languageCode",
+                    "source": "/document/languageCode"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
         {
-          "name": "keyPhrases",
-          "targetName": "keyPhrases"
+            "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+            "context": "/document/pages/*",
+            "inputs": [
+                {
+                    "name": "text", "source": "/document/pages/*"
+                },
+                {
+                    "name": "languageCode", "source": "/document/languageCode"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "keyPhrases",
+                    "targetName": "keyPhrases"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 
-r = requests.put(endpoint + "/skillsets/" + skillset_name, data=json.dumps(skillset_payload), headers=headers, params=params)
+r = requests.put(endpoint + "/skillsets/" + skillset_name,
+                 data=json.dumps(skillset_payload), headers=headers, params=params)
 print(r.status_code)
 ```
 
@@ -277,53 +280,54 @@ This exercise uses the following fields and field types:
 Run this script to create the index named `cogsrch-py-index`.
 
 ```python
-#Create an index
+# Create an index
 index_payload = {
     "name": index_name,
     "fields": [
-      {
-        "name": "id",
-        "type": "Edm.String",
-        "key": "true",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false",
-        "sortable": "true"
-      },
-      {
-        "name": "content",
-        "type": "Edm.String",
-        "sortable": "false",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "languageCode",
-        "type": "Edm.String",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "keyPhrases",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "organizations",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "sortable": "false",
-        "filterable": "false",
-        "facetable": "false"
-      }
-   ]
+        {
+            "name": "id",
+            "type": "Edm.String",
+            "key": "true",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false",
+            "sortable": "true"
+        },
+        {
+            "name": "content",
+            "type": "Edm.String",
+            "sortable": "false",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false"
+        },
+        {
+            "name": "languageCode",
+            "type": "Edm.String",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false"
+        },
+        {
+            "name": "keyPhrases",
+            "type": "Collection(Edm.String)",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false"
+        },
+        {
+            "name": "organizations",
+            "type": "Collection(Edm.String)",
+            "searchable": "true",
+            "sortable": "false",
+            "filterable": "false",
+            "facetable": "false"
+        }
+    ]
 }
 
-r = requests.put(endpoint + "/indexes/" + index_name, data=json.dumps(index_payload), headers=headers, params=params)
+r = requests.put(endpoint + "/indexes/" + index_name,
+                 data=json.dumps(index_payload), headers=headers, params=params)
 print(r.status_code)
 ```
 
@@ -350,46 +354,47 @@ indexer_payload = {
     "dataSourceName": datasource_name,
     "targetIndexName": index_name,
     "skillsetName": skillset_name,
-    "fieldMappings" : [
+    "fieldMappings": [
+        {
+            "sourceFieldName": "metadata_storage_path",
+            "targetFieldName": "id",
+            "mappingFunction":
+            {"name": "base64Encode"}
+        },
+        {
+            "sourceFieldName": "content",
+            "targetFieldName": "content"
+        }
+    ],
+    "outputFieldMappings":
+    [
+        {
+            "sourceFieldName": "/document/organizations",
+            "targetFieldName": "organizations"
+        },
+        {
+            "sourceFieldName": "/document/pages/*/keyPhrases/*",
+            "targetFieldName": "keyPhrases"
+        },
+        {
+            "sourceFieldName": "/document/languageCode",
+            "targetFieldName": "languageCode"
+        }
+    ],
+    "parameters":
     {
-      "sourceFieldName" : "metadata_storage_path",
-      "targetFieldName" : "id",
-      "mappingFunction" :
-        { "name" : "base64Encode" }
-    },
-    {
-      "sourceFieldName" : "content",
-      "targetFieldName" : "content"
+        "maxFailedItems": -1,
+        "maxFailedItemsPerBatch": -1,
+        "configuration":
+        {
+            "dataToExtract": "contentAndMetadata",
+            "imageAction": "generateNormalizedImages"
+        }
     }
-  ],
-   "outputFieldMappings" :
-  [
-    {
-      "sourceFieldName" : "/document/organizations",
-      "targetFieldName" : "organizations"
-    },
-    {
-      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
-      "targetFieldName" : "keyPhrases"
-    },
-    {
-      "sourceFieldName": "/document/languageCode",
-      "targetFieldName": "languageCode"
-    }
-  ],
-   "parameters":
-  {
-    "maxFailedItems":-1,
-    "maxFailedItemsPerBatch":-1,
-    "configuration":
-    {
-      "dataToExtract": "contentAndMetadata",
-      "imageAction": "generateNormalizedImages"
-    }
-  }
 }
 
-r = requests.put(endpoint + "/indexers/" + indexer_name, data=json.dumps(indexer_payload), headers=headers, params=params)
+r = requests.put(endpoint + "/indexers/" + indexer_name,
+                 data=json.dumps(indexer_payload), headers=headers, params=params)
 print(r.status_code)
 ```
 
@@ -415,8 +420,9 @@ When content is extracted, you can set `imageAction` to extract text from images
 Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer  processing is complete, run the following script.
 
 ```python
-#Get indexer status
-r = requests.get(endpoint + "/indexers/" + indexer_name + "/status", headers=headers,params=params)
+# Get indexer status
+r = requests.get(endpoint + "/indexers/" + indexer_name +
+                 "/status", headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -435,8 +441,9 @@ After indexing is finished, run queries that return the contents of individual f
 As a verification step, query the index for all of the fields.
 
 ```python
-#Query the index for all fields
-r = requests.get(endpoint + "/indexes/" + index_name, headers=headers,params=params)
+# Query the index for all fields
+r = requests.get(endpoint + "/indexes/" + index_name,
+                 headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -449,8 +456,9 @@ The output is the index schema, with the name, type, and attributes of each fiel
 Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
 
 ```python
-#Query the index to return the contents of organizations
-r = requests.get(endpoint + "/indexes/" + index_name + "/docs?&search=*&$select=organizations", headers=headers, params=params)
+# Query the index to return the contents of organizations
+r = requests.get(endpoint + "/indexes/" + index_name +
+                 "/docs?&search=*&$select=organizations", headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -481,8 +489,9 @@ You can use the portal to delete indexes, indexers, and skillsets. When you dele
 You can also delete them using a script. The following script will delete the skillset we created. You can easily modify the request to delete the index, indexer, and data source.
 
 ```python
-#delete the skillset
-r = requests.delete(endpoint + "/skillsets/" + skillset_name, headers=headers, params=params)
+# delete the skillset
+r = requests.delete(endpoint + "/skillsets/" + skillset_name,
+                    headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -505,4 +514,4 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
 
 > [!div class="nextstepaction"]
-> [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
+> [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)

@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
 ---
-# Set up compute targets for model training 
+# Set up and use compute targets for model training 
 
 With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
@@ -41,34 +41,29 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. 
+All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md)
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
-### Manage environment and dependencies
+## What's an estimator?
 
-When you create a run configuration, you need to decide how to manage the environment and dependencies on the compute target. 
+To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class. This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
 
-#### System-managed environment
+For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
-Use a system-managed environment when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A system-managed environment is assumed by default and the most common choice. It is useful on remote compute targets, especially when you cannot configure that target. 
+For more information, see [Train ML Models with estimators](how-to-train-ml-models.md).
 
-All you need to do is specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) Then Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace with your list of package dependencies and sets up your Python environment when you submit your training experiment. 
+## What's an ML Pipeline?
 
-The initial setup of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the setup time happens only once.
-  
-The following code shows an example for a system-managed environment requiring scikit-learn:
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
+With ML pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on your expertise, machine learning, rather than on infrastructure and automation.
 
-#### User-managed environment
+ML pipelines are constructed from multiple **steps**, which are distinct computational units in the pipeline. Each step can run independently and use isolated compute resources. This allows multiple data scientists to work on the same pipeline at the same time without over-taxing compute resources, and also makes it easy to use different compute types/sizes for each step.
 
-For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the setup step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
+> [!TIP]
+> ML Pipelines can use run configuration or estimators when training models.
 
-The following code shows an example of configuring training runs for a user-managed environment:
+While ML pipelines can train models, they can also prepare data before training and deploy models after training. One of the primary use cases for pipelines is batch scoring. For more information, see [Pipelines: Optimize machine learning workflows](concept-ml-pipelines.md).
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
 ## Set up in Python
 
 Use the sections below to configure these compute targets:
@@ -245,19 +240,23 @@ The following code demonstrates how to attach Azure Batch as a compute target:
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -288,7 +287,7 @@ To see the compute targets for your workspace, use the following steps:
 1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. 
 1. Under __Applications__, select __Compute__.
 
-    ![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Create a compute target
 
@@ -307,8 +306,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form. Provide values for the required properties, especially **VM Family**, and the **maximum nodes** to use to spin up the compute.  
 
-    ![Fill out form](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Select __Create__.
 
 
@@ -319,8 +316,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 1. You then see the details for the compute target: 
 
     ![View the computer target details](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Attach compute targets
 
@@ -366,7 +361,7 @@ For more information, see [Resource management](reference-azure-machine-learning
 
 You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning service.
 
-## <a id="submit"></a>Submit training run
+## <a id="submit"></a>Submit training run using Azure Machine Learning SDK
 
 After you create a run configuration, you use it to run your experiment.  The code pattern to submit a training run is the same for all types of compute targets:
 
@@ -403,13 +398,100 @@ Switch the same experiment to run in a different compute target by using a diffe
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> This example defaults to only using one node of the compute target for training. To use more than one node, set the `node_count` of the run configuration to the desired number of nodes. For example, the following code sets the number of nodes used for training to four:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
-* Submit an experiment [using the CLI extension](reference-azure-machine-learning-cli.md#experiments).
+* Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
 
-## GitHub tracking and integration
+For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
+
+## Create run configuration and submit run using Azure Machine Learning CLI
+
+You can use [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md) to create run configurations and submit runs on different compute targets. The following examples assume that you have an existing Azure Machine Learning Workspace and you have logged in to Azure using `az login` CLI command. 
+
+### Create run configuration
+
+The simplest way to create run configuration is to navigate the folder that contains your machine learning Python scripts, and use CLI command
+
+```azurecli
+az ml folder attach
+```
+
+This command creates a subfolder `.azureml` that contains template run configuration files for different compute targets. You can copy and edit these files to customize your configuration, for example to add Python packages or change Docker settings.  
+
+### Structure of run configuration file
+
+The run configuration file is YAML formatted, with following sections
+ * The script to run and its arguments
+ * Compute target name, either "local" or name of a compute under the workspace.
+ * Parameters for executing the run: framework, communicator for distributed runs, maximum duration, and number of compute nodes.
+ * Environment section. See [Create and manage environments for training and deployment](how-to-use-environments.md) for details of the fields in this section.
+   * To specify Python packages to install for the run, create [conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually), and set __condaDependenciesFile__ field.
+ * Run history details to specify log file folder, and to enable or disable output collection and run history snapshots.
+ * Configuration details specific to the framework selected.
+ * Data reference and data store details.
+ * Configuration details specific for Machine Learning Compute for creating a new cluster.
+
+### Create an experiment
+
+First, create an experiment for your runs
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### Script run
+
+To submit a script run, execute a command
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### HyperDrive run
+
+You can use HyperDrive with Azure CLI to perform parameter tuning runs. First, create a HyperDrive configuration file in the following format. See [Tune hyperparameters for your model](how-to-tune-hyperparameters.md) article for details on hyperparameter tuning parameters.
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Add this file alongside the run configuration files. Then submit a HyperDrive run using:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Note the *arguments* section in runconfig and *parameter space* in HyperDrive config. They contain the command-line arguments to be passed to training script. The value in runconfig stays the same for each iteration, while the range in HyperDrive config is iterated over. Do not specify the same argument in both files.
+
+For more details on these ```az ml``` CLI commands and full set of arguments, see 
+[the reference documentation](reference-azure-machine-learning-cli.md).
+
+<a id="gitintegration"></a>
+
+## Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 

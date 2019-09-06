@@ -3,7 +3,7 @@ title: Find help and open a support ticket - Azure Active Directory | Microsoft 
 description: Instructions about how to get help and open a support ticket for Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: eross-msft
+author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
