@@ -63,7 +63,7 @@ There are four basic steps to use Key Vault to manage storage account keys:
 
 1. Get an existing storage account.
 1. Fetch an existing key vault.
-1. Add a Key Vault managed storage account to the vault. Set `key1` as the active key with a regeneration period of 180 days.
+1. Add a Key Vault managed storage account to the vault. Set `key1` as the active key with a regeneration period of 90 days.
 1. Use `key1` to set a storage context for the specified storage account.
 
 > [!NOTE]
