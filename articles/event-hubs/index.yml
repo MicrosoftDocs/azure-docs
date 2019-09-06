@@ -127,15 +127,6 @@ landingContent:
             url: event-hubs-capture-python.md
 
   # Card
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: how-to-guide      
-        links:
-          - text: Troubleshoot exceptions
-            url: event-hubs-messaging-exceptions.md
-
-
-  # Card
   - title: Process events
     linkLists:
       - linkListType: tutorial      
@@ -159,6 +150,8 @@ landingContent:
             url: event-hubs-diagnostic-logs.md
           - text: Automatically scale up throughput units
             url: event-hubs-auto-inflate.md
+          - text: Troubleshoot exceptions
+            url: event-hubs-messaging-exceptions.md            
 
   # Card
   - title: Secure
