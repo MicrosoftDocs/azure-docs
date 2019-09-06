@@ -82,14 +82,14 @@ Once a job is completed, the information about the job is persisted in the Spark
 
 1. To launch the Spark History Server, from the Overview blade, click **Spark history server** under **Cluster dashboards**.
    
-    ![Launch Spark History Server](./media/apache-spark-job-debugging/launch-spark-history-server.png)
+    ![Launch Spark History Server1](./media/apache-spark-job-debugging/launch-spark-history-server.png "Launch Spark History Server1")
    
    > [!TIP]  
    > Alternatively, you can also launch the Spark History Server UI from the Ambari UI. To launch the Ambari UI, from the Overview blade, click **Ambari home** under **Cluster dashboards**. From the Ambari UI, click **Spark**, click **Quick Links**, and then click **Spark History Server UI**.
 
 2. You see all the completed applications listed. Click an application ID to drill down into an application for more info.
    
-    ![Launch Spark History Server](./media/apache-spark-job-debugging/view-completed-applications.png)
+    ![Launch Spark History Server2](./media/apache-spark-job-debugging/view-completed-applications.png "Launch Spark History Server2")
 
 ## See also
 *  [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)

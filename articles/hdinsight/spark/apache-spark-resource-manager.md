@@ -65,7 +65,7 @@ The three configuration parameters can be configured at the cluster level (for a
 ### Change the parameters using Ambari UI
 1. From the Ambari UI click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
 
-    ![Set parameters using Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
+    ![Set parameters using Ambari custom](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. The default values are good to have four Spark applications run concurrently on the cluster. You can change these values from the user interface, as shown in the following screenshot:
 
     ![Set parameters using Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
@@ -100,10 +100,10 @@ Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.
 
 * Expand the **Advanced spark-thrift-sparkconf** category to update the parameters `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`, and `spark.executor.memory`.
 
-    ![Configure Spark thrift server](./media/apache-spark-resource-manager/spark-thrift-server-1.png)    
+    ![Configure Spark thrift server](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Configure Spark thrift server")
 * Expand the **Custom spark-thrift-sparkconf** category to update the parameter `spark.executor.cores`.
 
-    ![Configure Spark thrift server](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
+    ![Configure Spark thrift server parameter](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Configure Spark thrift server parameter")
 
 ### Change the driver memory of the Spark Thrift Server
 Spark Thrift Server driver memory is configured to 25% of the head node RAM size, provided the total RAM size of the head node is greater than 14 GB. You can use the Ambari UI to change the driver memory configuration, as shown in the following screenshot:
@@ -121,10 +121,10 @@ Because of Spark dynamic allocation, the only resources that are consumed by thr
     ![Restart thrift server](./media/apache-spark-resource-manager/restart-thrift-server-1.png)
 3. You should see the two headnodes on which the Spark Thrift Server is running. Click one of the headnodes.
 
-    ![Restart thrift server](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
+    ![Restart thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
 4. The next page lists all the services running on that headnode. From the list click the drop-down button next to Spark Thrift Server, and then click **Stop**.
 
-    ![Restart thrift server](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
+    ![Restart thrift server3](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
 5. Repeat these steps on the other headnode as well.
 
 ## Restart the Jupyter service

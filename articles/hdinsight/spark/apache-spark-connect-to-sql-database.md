@@ -143,11 +143,11 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
     a. Start SSMS and connect to the Azure SQL database by providing connection details as shown in the screenshot below.
 
-    ![Connect to SQL database using SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS")
+    ![Connect to SQL database using SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS1")
 
     b. From the Object Explorer, expand the Azure SQL database and the Table node to see the **dbo.hvactable** created.
 
-    ![Connect to SQL database using SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS")
+    ![Connect to SQL database using SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS2")
 
 1. Run a query in SSMS to see the columns in the table.
 

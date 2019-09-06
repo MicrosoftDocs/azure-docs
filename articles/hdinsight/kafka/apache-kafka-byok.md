@@ -75,11 +75,11 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         c. Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
+        ![Set Key Permissions for Azure Key Vault access policy1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Set Key Permissions for Azure Key Vault access policy1")
 
         d. Set **Secret Permissions** to **Get**, **Set**, and **Delete**.
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
+        ![Set Key Permissions for Azure Key Vault access policy2](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Set Key Permissions for Azure Key Vault access policy2")
 
         e. Click on **Save**. 
 
