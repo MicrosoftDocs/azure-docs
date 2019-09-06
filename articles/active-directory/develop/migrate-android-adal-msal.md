@@ -27,7 +27,7 @@ This article highlights changes you need to make to migrate an app that uses the
 
 ## Difference highlights
 
-The  works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform which was formerly known as the Azure Active Directory v2.0 endpoint.
+ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform which was formerly known as the Azure Active Directory v2.0 endpoint.
 
 The Microsoft identity platform differs from Azure Active Directory v1.0 in that it:
 
@@ -36,7 +36,7 @@ The Microsoft identity platform differs from Azure Active Directory v1.0 in that
   - Non-organizational identities such as Outlook.com, Xbox Live, and so on.
 
 - Is standards compatible with:
-  - oAuth v2.0
+  - OAuth v2.0
   - OpenID Connect (OIDC)
 
 The MSAL public API reflects introduces important usability changes, including:
@@ -59,6 +59,7 @@ The MSAL public API reflects introduces important usability changes, including:
   - Client ID, Redirect URI
   - Embedded vs Default Browser
   - Authorities
+  - HTTP settings such as read and connection timeout
 
 ## Your app registration and migration to MSAL
 
@@ -125,7 +126,7 @@ MSAL does not have a flag to enable or disable authority validation. Authority v
 > [!TIP]
 > If your are an Azure Business to Consumer (B2C) user, this means you no longer have to disable authority validation. Instead, include each of the your supported Azure AD B2C policies as authorities in your MSAL configuration.
 
-If you attempt to use an authority that isn't known to Microsoft and isn't included in your configuration, you will get an `UnknownAuthorityException`.
+If you attempt to use an authority that isn't known to Microsoft, and isn't included in your configuration, you will get an `UnknownAuthorityException`.
 
 ### Logging
 
@@ -153,7 +154,7 @@ If you have an app that accesses claims regarding an account from each of the te
 
 > NOTE: The claims at the root of the `IAccount` and `IMultiTenantAccount` always contains the claims from the home tenant. If you have not yet made a request for a token within the home tenant, this collection will be empty.
 
-## Changes to how you use existing objects
+## Other changes
 
 ### Use the new AuthenticationCallback
 
@@ -242,6 +243,22 @@ public void Log(
 public void Log()
 
 //New Log Levels:
-
-WARNING
+public enum LogLevel {
+        /**
+         * Error level logging.
+         */
+        ERROR,
+        /**
+         * Warning level logging.
+         */
+        WARNING,
+        /**
+         * Info level logging.
+         */
+        INFO,
+        /**
+         * Verbose level logging.
+         */
+        VERBOSE
+    }
 ```
