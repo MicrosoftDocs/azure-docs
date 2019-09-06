@@ -27,7 +27,7 @@ This article documents the security controls built into Azure App Service.
 | Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. | [Azure App Service Access Restrictions](app-service-ip-restrictions.md)
 | Forced tunneling support| Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. | [Configure your App Service Environment with forced tunneling](environment/forced-tunnel-support.md)
 
-## Monitoring & Logging
+## Monitoring & logging
 
 | Security control | Yes/No | Notes | Documentation
 |---|---|--|
