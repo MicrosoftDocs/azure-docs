@@ -6,14 +6,14 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: kumud
 
 ---
 # Create Azure Private Endpoint using Azure Portal
 A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on a virtual network, an Storage account with a private endpoint using the Azure portal. Then, you can access the VM to and securely access the private link resource. 
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using the Azure portal. Then, you can securely access the private link resource (the storage account) from the VM.
 
 
 ## Sign in to Azure
@@ -153,7 +153,6 @@ Connect to the VM *myVm1* from the internet as follows:
 1. You may receive a certificate warning during the sign in process. If you receive a certificate warning, select **Yes** or **Continue**.
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
-## Create a Private Endpoint
 
 ## Access storage account privately from the VM
 
