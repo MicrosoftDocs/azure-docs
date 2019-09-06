@@ -64,7 +64,7 @@ import org.json.JSONObject;
 
 Replace the **Main** class with the following code. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and change the `uriBase` string so that it contains the correct endpoint string. You may also wish to set the `imageWithFaces` value to a path that points to a different image file.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 The `faceAttributes` field is simply a list of certain types of attributes. It will specify which information to retrieve about the detected faces.
 

@@ -96,7 +96,7 @@ catch (HttpException $ex)
 
 You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Run the script
 

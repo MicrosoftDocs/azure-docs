@@ -38,7 +38,7 @@ Replace `<Subscription Key>` with your valid Face subscription key.
 
 The URL `https://<My Endpoint String>.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You may need to change the first part of this URL to match the endpoint that corresponds to your subscription key.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ### URL query string
 

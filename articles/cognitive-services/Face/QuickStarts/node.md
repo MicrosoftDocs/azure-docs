@@ -37,7 +37,7 @@ npm install request --save
 
 Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. You may wish to change the `imageUrl` field to point to your own input image.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
 'use strict';

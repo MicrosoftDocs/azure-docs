@@ -39,7 +39,7 @@ This guide uses a simple console app to run the face data migration. For a full 
 
 In the **Main** method in *Program.cs*, create two [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) instances for your source and target subscriptions. This example uses a Face subscription in the East Asia region as the source and a West US subscription as the target. This example demonstrates how to migrate data from one Azure region to another. 
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

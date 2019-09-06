@@ -50,7 +50,7 @@ using System.Text;
 
 Add the **Program** class containing the following fields. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains your resource endpoint string.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 namespace DetectFace

@@ -105,7 +105,7 @@ func main() {
 
 You'll need to update the `subscriptionKey` value with your subscription key, and change the `uriBase` string so that it contains the correct endpoint string.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 You may also wish to change the `imageUrl` field to point to your own input image. You also may wish to chang the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
 

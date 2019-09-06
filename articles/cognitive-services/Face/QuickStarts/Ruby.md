@@ -57,7 +57,7 @@ puts response.body
 
 You'll need to update the `request['Ocp-Apim-Subscription-Key']` value with your subscription key and change the `uri` string so that it contains the correct endpoint.
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 You may also wish to change the `imageUri` field to point to your own input image. You also may wish to change the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
 

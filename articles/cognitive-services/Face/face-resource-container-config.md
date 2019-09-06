@@ -136,7 +136,7 @@ Replace {_argument_name_} with your own values:
 |{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{ENDPOINT_URI} | The endpoint URL value.|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
 
-[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](face-how-to-install-containers.md#billing).
