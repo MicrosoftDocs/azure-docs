@@ -116,7 +116,7 @@ Organizations need to monitor activity from these accounts and trigger notificat
 
 ### Create an action group
 
-1. Select **create an action group**.
+1. Select **Create an action group**.
 
     ![create an action group for notification actions](./media/directory-emergency-access/action-group-image3.png)
 
@@ -125,14 +125,13 @@ Organizations need to monitor activity from these accounts and trigger notificat
 1. Under action type, select **Email/SMS/Push/Voice**.
 1. Enter an action name such as **Notify global admin**.
 1. Select the **Action Type** as **Email/SMS/Push/Voice**.
-1. Select the notification methods you want to configure and enter the required contact information. For example, you could email to a distribution list of Global Admins, Security Admins, and Privileged Role Admins.
-1. Select **Ok**.
-1. Add any additional Actions you want to trigger.
+1. Select **Edit details** to select the notification methods you want to configure and enter the required contact information, and then select **Ok** to save the details.
+1. Add any additional actions you want to trigger.
 1. Select **OK**.
 
 ## Validate accounts at regular intervals
 
-To train staff members to use emergency access accounts and validate the emergency access accounts, do the following minimum steps at regular intervals:
+When you train staff members to use emergency access accounts and validate the emergency access accounts, at minimum do the following steps at regular intervals:
 
 - Ensure that security-monitoring staff are aware that the account-check activity is ongoing.
 - Ensure that the emergency break glass process to use these accounts is documented and current.
