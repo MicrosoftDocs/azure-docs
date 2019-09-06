@@ -81,8 +81,8 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Create an alert rule
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the XXXX role.
-1. Select **All services**", enter "log analytics" and select **Log Analytics workspaces**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the Monitoring Contributor role in Azure Monitor.
+1. Select **All services**", enter "log analytics" in Search and then select **Log Analytics workspaces**.
 1. Select a workspace.
 1. In your workspace, select **Alerts** > **New alert rule**.
     1. Under **Resource**, verify that the subscription is the one with which you want to associate the alert rule.
