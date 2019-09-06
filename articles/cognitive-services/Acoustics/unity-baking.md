@@ -18,89 +18,93 @@ This tutorial describes acoustics baking with Project Acoustics in Unity.
 
 Software requirements:
 * [Unity 2018.2+](https://unity3d.com) for Windows or MacOS
-* [Project Acoustics plugin integrated in your Unity project](unity-integration.md) or the [Project Acoustics Unity sample content](unity-quickstart.md)
-* Optional: An [Azure Batch account](create-azure-account.md) to accelerate bakes using cloud computing
+* [Project Acoustics plug-in integrated in your Unity project](unity-integration.md) or the [Project Acoustics Unity sample content](unity-quickstart.md)
+* Optional: An [Azure Batch account](create-azure-account.md) to accelerate bakes by using cloud computing
 
 ## Open the Project Acoustics bake window
 Choose **Window > Acoustics** from the Unity menu:
 
-![Screenshot of Unity editor with Acoustics window menu option highlighted](media/window-acoustics.png)
+![Unity editor with Acoustics window menu option highlighted](media/window-acoustics.png)
 
 ## Create a navigation mesh
-Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use Unity's [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), or use another 3D modeling package to design your own mesh. 
+Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use Unity's [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), or use another 3D modeling package to design your own mesh.
 
 ## Mark acoustic scene objects
-Project Acoustics relies on two types of scene objects for simulation: the objects that will reflect and occlude sound in the simulation, and the player navigation mesh that constrains listener probe points in simulation. Both object types are marked using the **Objects** tab. 
+Project Acoustics relies on two types of scene objects for simulation: 
+- The objects that will reflect and occlude sound in the simulation
+- The player navigation mesh that constrains listener probe points in simulation
 
-Because marking objects simply adds the **AcousticsGeometry** or **AcousticsNavigation** components to the object, you can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects. Only Mesh Renderers and Terrains can be marked. All other object types will be ignored. The checkboxes will mark or unmark all of the affected objects.
+Both object types are marked by using the **Objects** tab.
+
+Because marking objects simply adds the *AcousticsGeometry* or *AcousticsNavigation* components to the object, you can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects. Only Mesh Renderers and Terrains can be marked. All other object types will be ignored. The checkboxes will mark or unmark all of the affected objects.
 
 ### Mark acoustic occlusion and reflection geometry
-Open the **Objects** tab of the **Acoustics** window. Mark any objects as **Acoustics Geometry** if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs, windows & window glass, rugs, and large furniture. You can use any arbitrary level of complexity for these objects. Because the scene is voxelized before simulation, highly detailed meshes, such as trees with many small leaves, aren't more costly to bake than simplified objects.
+Open the **Objects** tab of the **Acoustics** window. Mark any objects as **Acoustics Geometry** if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs, windows and window glass, rugs, and large furniture. You can use any arbitrary level of complexity for these objects. Because the scene is voxelized before simulation, highly detailed meshes, such as trees that many small leaves, aren't more costly to bake than simplified objects.
 
 Don't include things that shouldn't affect the acoustics, such as invisible collision meshes.
 
-An object's transform at the time of the probe calculation (via the **Probes** tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require redoing the probe calculation and rebaking the scene.
+An object's transform at the time of the probe calculation (via the **Probes** tab, see below) is fixed in the bake results. Moving any of the marked objects in the scene will require redoing the probe calculation and rebaking the scene.
 
 ### Mark the navigation mesh
-Navigation meshes created with Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the **Objects** tab.
+Navigation meshes that were created through Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the **Objects** tab.
 
 ### For reference: The Objects tab parts
 The parts of the tab page are:
 
-1. The tab selection buttons (**Objects** tab selected). Use these buttons to walk through the various steps of doing an acoustics bake, from left to right.
-2. A brief description of what you need to do using this page.
-3. Available filters for the hierarchy window. Use this to filter the hierarchy window to objects of the specified type so you can more easily mark them. If you have not yet marked anything for acoustics, selecting the last two options will show you nothing. However, they can be useful to find marked objects once you have done so.
-4. When no objects are selected, this section shows the status of all objects in the scene:
-    * Total - The total number of active, non-hidden objects in the scene.
-    * Ignored - The number of objects that are not Mesh Renderers or Terrains.
-    * Mesh - The number of Mesh Renderer objects in the scene
-    * Terrain - The number of Terrain objects in the scene
-    * Geometry - The number of Mesh or Terrain objects in the scene marked as "Acoustics Geometry"
-    * Navigation - The number of Mesh or Terrain objects in the scene marked as "Acoustics Navigation". This number doesn't include Unity's NavMesh.
-5. Shows the total number of 'mark-able' objects in the scene, which is only Mesh Renderers and Terrains. Shows checkboxes you can use to mark (add the appropriate component to) those objects as geometry or navigation for acoustics
-6. When nothing is selected, this note reminds you to select objects for marking if needed. You can also check one or both checkboxes to mark all the objects in the scene without selecting anything.
-7. When objects are selected, this section shows the status of only the selected objects.
-8. Shows the total number of 'mark-able' selected objects. Checking or unchecking the checkboxes will mark or unmark only the selected objects.
+1. The tab selection buttons (**Objects** tab selected). Use these buttons to walk through the various steps of an acoustics bake, from left to right.
+1. A brief description of what you can do by using this page.
+1. Available filters for the hierarchy window. Use these to filter the hierarchy window to objects of the specified type so that you can more easily mark them. If you have not yet marked anything for acoustics, selecting the last two options will show you nothing. However, they can be useful to find marked objects once you have done so.
+1. When no objects are selected, this section shows the status of all objects in the scene:
+    * Total: The total number of active, non-hidden objects in the scene.
+    * Ignored: The number of objects that are not Mesh Renderers or Terrains.
+    * Mesh: The number of Mesh Renderer objects in the scene.
+    * Terrain: The number of Terrain objects in the scene.
+    * Geometry: The number of Mesh or Terrain objects in the scene marked as "Acoustics Geometry".
+    * Navigation: The number of Mesh or Terrain objects in the scene marked as "Acoustics Navigation." This number doesn't include Unity's NavMesh.
+1. Shows the total number of "mark-able" objects in the scene, which are only Mesh Renderers and Terrains. It shows checkboxes that you can use to mark (add the appropriate component to) those objects as geometry or navigation for acoustics.
+1. When nothing is selected , this note reminds you to select objects for marking if needed. You can also select  one or both checkboxes to mark all the objects in the scene without selecting anything.
+1. When objects are selected (previous bullet), this section shows the status of only the selected objects.
+1. Shows the total number of "mark-able" selected objects. Selecting or clearing the checkboxes will mark or unmark only the selected objects.
 
-If you have nothing selected in your scene, the Objects tab will look like the following picture:
+If you have nothing selected in your scene, the **Objects** tab will look like the following picture:
 
-![Screenshot of Acoustics Objects tab with no selection](media/objects-tab-no-selection-detail.png)
+![Acoustics Objects tab with no selection](media/objects-tab-no-selection-detail.png)
 
 If you have something selected in your scene or hierarchy window, it will look like the following picture:
 
-![Screenshot of Acoustics Objects Tab with selection shown](media/objects-tab-selection-detail.png)
+![Acoustics Objects tab with selection shown](media/objects-tab-selection-detail.png)
 
-If some objects are marked and some aren't, the appropriate checkbox will show a "mixed" value:
+If some objects are marked and some aren't, the appropriate checkbox will show a "mixed" value, like the following picture:
 
-![Screenshot of Acoustics Objects tab with mixed selection icon highlighted](media/mixed-object-selection-detail.png)
+![Acoustics Objects tab with a mixed selection of icons highlighted](media/mixed-object-selection-detail.png)
 
-Clicking the checkbox will force all objects to be marked, and clicking again will unmark all the objects.
+Select the checkbox to mark all the items. Select it again to unmark all the objects.
 
 Objects can be marked for both geometry and navigation.
 
 ## Select acoustic materials
-Once your objects are marked, click the **Materials** button and assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system: for two objects to have separate acoustic materials, they must have separate visual materials.
+After your objects are marked, click the **Materials** button and assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system: For two objects to have separate acoustic materials, they must have separate visual materials.
 
-The acoustic materials control the amount of sound energy reflected back from each surface. The default acoustic material has absorption similar to concrete. Project Acoustics suggests materials based on the visual material name. You can assign the acoustic material 'Custom' to a material to enable an absorption coefficient slider.
+The acoustic materials control the amount of sound energy that's reflected back from each surface. The default acoustic material has absorption similar to concrete. Project Acoustics suggests materials based on the visual material name. You can assign the acoustic material *Custom* to a material to activate an absorption-coefficient slider.
 
-The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Materials with absorption coefficients outside this range are very absorbent.
+The reverberation time of a given material in a room is inversely related to its absorption coefficient. Most materials have absorption values in a range of 0.01 to 0.20. Materials that have absorption coefficients outside this range are very absorbent.
 
-![Graph showing negative correlation of reverberation time with absorption coefficient](media/reverb-time-graph.png)
+![Graph shows the negative correlation of reverberation time and absorption coefficient.](media/reverb-time-graph.png)
 
 ### For reference: Parts of the Materials tab
-![Screenshot of Acoustics Materials tab in Unity](media/materials-tab-detail.png)
-
-1. The **Materials** tab button, used to bring up this page.
-2. A brief description of what you need to do using this page.
-3. When checked, only materials used by objects marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
-4. Use these options to change the order of the dropdown menu that is shown when you click a dropdown in the Acoustics column below (#6). **Name** sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
-5. The list of materials used in the scene, sorted alphabetically. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
-6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
-7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom".
-8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value.
+![The Acoustics Materials tab in Unity](media/materials-tab-detail.png)
+***MAKE SURE THESE MATCH THE TAB***
+1. The **Materials** tab button, which is used to bring up this page.
+1. A brief description of what you can do by using this page.
+1. When checked, only materials used by objects that marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
+1. Use these options to change the order of the drop-down menu that is shown when you click a drop-down menu in the Acoustics column below (#6). **Name** sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
+1. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
+1. The acoustic material that the scene material has been assigned to. Click a drop-down menu to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
+1. The acoustic absorption coefficient of the material selected in the previous column. A value of 0 means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom."
+1.  For a material assigned to "Custom," the slider is no longer disabled, and you can choose the absorption coefficient using the slider or by typing in a value.
 
 ## Calculate and review listener probe locations
-After assigning the materials, switch to the **Probes** tab and click **Calculate** to place listener probe points for simulation.
+After you assign the materials, switch to the **Probes** tab. Select **Calculate** to place listener probe points for simulation.
 
 ### What the "Calculate..." button calculates
 The **Calculate...** button uses your selected acoustic scene geometry to prepare your scene for simulation:
