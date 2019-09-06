@@ -111,7 +111,11 @@
       - name: VM instance size flexibility
         href: reserved-vm-instance-size-flexibility.md
     - name: Low-priority VMs
-      href: low-priority-vms.md
+      items:
+      - name: Overview
+        href: low-priority-vms.md
+      - name: Error codes
+        href: error-codes-low-priority.md
     - name: Previous generations
       href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
