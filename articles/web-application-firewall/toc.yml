@@ -23,7 +23,10 @@
     items:
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
-- name: Samples  
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md  
 - name: Concepts
   items:
   - name: Application Gateway
