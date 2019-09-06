@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Computer Vision?
             url: Home.md
+      - linkListType: video
+        links:
+          - text: Infuse intelligence in your apps with Vision APIs
+            url: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
 
   - title: Recognize printed and handwritten text
     linkLists:
