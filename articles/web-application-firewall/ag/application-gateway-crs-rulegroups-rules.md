@@ -27,23 +27,43 @@ The WAF protects against the following web vulnerabilities:
 - Bots, crawlers, and scanners
 - Common application misconfigurations (for example, Apache and IIS)
 
+### OWASP CRS 3.1
+
+CRS 3.1 includes 12 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+
+|Rule group|Description|
+|---|---|
+|**[General](#general-31)**|General group|
+|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protect against protocol and encoding issues|
+|**[REQUEST-921-PROTOCOL-ATTACK](#crs921-31)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-31)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-31)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932-31)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933-31)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-31)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-31)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|Protect against session-fixation attacks|
+
 ### OWASP CRS 3.0
 
 CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 |Rule group|Description|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911)**|Lock-down methods (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](#crs913)**|Protect against port and environment scanners|
+|**[General](#general-30)**|General group|
+|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protect against protocol and encoding issues|
-|**[REQUEST-921-PROTOCOL-ATTACK](#crs921)**|Protect against header injection, request smuggling, and response splitting|
-|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930)**|Protect against file and path attacks|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931)**|Protect against remote file inclusion (RFI) attacks|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932)**|Protect again remote code execution attacks|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933)**|Protect against PHP-injection attacks|
-|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941)**|Protect against cross-site scripting attacks|
-|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942)**|Protect against SQL-injection attacks|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943)**|Protect against session-fixation attacks|
+|**[REQUEST-921-PROTOCOL-ATTACK](#crs921-30)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-30)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-30)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932-30)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933-30)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-30)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-30)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-30)**|Protect against session-fixation attacks|
 
 ### OWASP CRS 2.2.9
 
@@ -64,24 +84,262 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 The following rule groups and rules are available when using Application Gateway with web application firewall.
 
-# [OWASP 3.0](#tab/owasp3)
+# [OWASP 3.1](#tab/owasp31)
 
-## <a name="owasp30"></a> Rule sets
+## <a name="owasp31"></a> Rule sets
 
-### <a name="General"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-31"></a> <p x-ms-format-detection="none">General</p>
 
 |RuleId|Description|
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
 |RuleId|Description|
 |---|---|
 |911100|Method is not allowed by policy|
 
 
-### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+
+|RuleId|Description|
+|---|---|
+|913100|Found User-Agent associated with security scanner|
+|913101|Found User-Agent associated with scripting/generic HTTP client|
+|913102|Found User-Agent associated with web crawler/bot|
+|913110|Found request header associated with security scanner|
+|913120|Found request filename/argument associated with security scanner|
+
+
+### <a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+
+|RuleId|Description|
+|---|---|
+|920100|Invalid HTTP Request Line|
+|920120|Attempted multipart/form-data bypass|
+|920121|Attempted multipart/form-data bypass|
+|920130|Failed to parse request body.|
+|920140|Multipart request body failed strict validation|
+|920160|Content-Length HTTP header is not numeric.|
+|920170|GET or HEAD Request with Body Content.|
+|920171|GET or HEAD Request with Transfer-Encoding.|
+|920180|POST request missing Content-Length Header.|
+|920190|Range = Invalid Last Byte Value.|
+|920200|Range = Too many fields (6 or more)|
+|920201|Range = Too many fields for pdf request (35 or more)|
+|920202|Range = Too many fields for pdf request (6 or more)|
+|920210|Multiple/Conflicting Connection Header Data Found.|
+|920220|URL Encoding Abuse Attack Attempt|
+|920230|Multiple URL Encoding Detected|
+|920240|URL Encoding Abuse Attack Attempt|
+|920250|UTF8 Encoding Abuse Attack Attempt|
+|920260|Unicode Full/Half Width Abuse Attack Attempt|
+|920270|Invalid character in request (null character)|
+|920271|Invalid character in request (non printable characters)|
+|920272|Invalid character in request (outside of printable chars below ascii 127)|
+|920273|Invalid character in request (outside of very strict set)|
+|920274|Invalid character in request headers (outside of very strict set)|
+|920280|Request Missing a Host Header|
+|920290|Empty Host Header|
+|920300|Request Missing an Accept Header|
+|920310|Request Has an Empty Accept Header|
+|920311|Request Has an Empty Accept Header|
+|920320|Missing User Agent Header|
+|920330|Empty User Agent Header|
+|920340|Request Containing Content but Missing Content-Type header|
+|920341|Request containing content requires Content-Type header|
+|920350|Host header is a numeric IP address|
+|920360|Argument name too long|
+|920370|Argument value too long|
+|920380|Too many arguments in request|
+|920390|Total arguments size exceeded|
+|920400|Uploaded file size too large|
+|920410|Total uploaded files size too large|
+|920420|Request content type is not allowed by policy|
+|920430|HTTP protocol version is not allowed by policy|
+|920440|URL file extension is restricted by policy|
+|920450|HTTP header is restricted by policy (%@{MATCHED_VAR})|
+|920460|Abnormal Escape Characters|
+|920470|Illegal Content-Type header|
+|920480|Restrict charset parameter within the content-type header|
+
+### <a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+
+|RuleId|Description|
+|---|---|
+|921110|HTTP Request Smuggling Attack|
+|921120|HTTP Response Splitting Attack|
+|921130|HTTP Response Splitting Attack|
+|921140|HTTP Header Injection Attack via headers|
+|921150|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921151|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
+|921170|HTTP Parameter Pollution|
+|921180|HTTP Parameter Pollution (%{TX.1})|
+
+### <a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+
+|RuleId|Description|
+|---|---|
+|930100|Path Traversal Attack (/../)|
+|930110|Path Traversal Attack (/../)|
+|930120|OS File Access Attempt|
+|930130|Restricted File Access Attempt|
+
+### <a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+
+|RuleId|Description|
+|---|---|
+|931100|Possible Remote File Inclusion (RFI) Attack = URL Parameter using IP Address|
+|931110|Possible Remote File Inclusion (RFI) Attack = Common RFI Vulnerable Parameter Name used w/URL Payload|
+|931120|Possible Remote File Inclusion (RFI) Attack = URL Payload Used w/Trailing Question Mark Character (?)|
+|931130|Possible Remote File Inclusion (RFI) Attack = Off-Domain Reference/Link|
+
+### <a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+
+|RuleId|Description|
+|---|---|
+|932100|Remote Command Execution: Unix Command Injection|
+|932105|Remote Command Execution: Unix Command Injection|
+|932106|Remote Command Execution: Unix Command Injection|
+|932110|Remote Command Execution: Windows Command Injection|
+|932115|Remote Command Execution: Windows Command Injection|
+|932120|Remote Command Execution = Windows PowerShell Command Found|
+|932130|Remote Command Execution = Unix Shell Expression Found|
+|932140|Remote Command Execution = Windows FOR/IF Command Found|
+|932160|Remote Command Execution = Unix Shell Code Found|
+|932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
+|932171|Remote Command Execution = Shellshock (CVE-2014-6271)|
+|932180|Restricted File Upload Attempt|
+|932190|Remote Command Execution: Wildcard bypass technique attempt|
+
+### <a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+
+|RuleId|Description|
+|---|---|
+|933100|PHP Injection Attack = Opening/Closing Tag Found|
+|933110|PHP Injection Attack = PHP Script File Upload Found|
+|933111|PHP Injection Attack: PHP Script File Upload Found|
+|933120|PHP Injection Attack = Configuration Directive Found|
+|933130|PHP Injection Attack = Variables Found|
+|933131|PHP Injection Attack: Variables Found|
+|933140|PHP Injection Attack: I/O Stream Found|
+|933150|PHP Injection Attack = High-Risk PHP Function Name Found|
+|933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
+|933160|PHP Injection Attack = High-Risk PHP Function Call Found|
+|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
+|933170|PHP Injection Attack: Serialized Object Injection|
+|933180|PHP Injection Attack = Variable Function Call Found|
+|933190|PHP Injection Attack: PHP Closing Tag Found|
+
+### <a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+
+|RuleId|Description|
+|---|---|
+|941100|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection|
+|941110|XSS Filter - Category 1 = Script Tag Vector|
+|941130|XSS Filter - Category 3 = Attribute Vector|
+|941140|XSS Filter - Category 4 = Javascript URI Vector|
+|941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
+|941160|NoScript XSS InjectionChecker: HTML Injection|
+|941170|NoScript XSS InjectionChecker: Attribute Injection|
+|941180|Node-Validator Blacklist Keywords|
+|941190|XSS using style sheets|
+|941200|XSS using VML frames|
+|941210|XSS using obfuscated Javascript|
+|941220|XSS using obfuscated VB Script|
+|941230|XSS using 'embed' tag|
+|941240|XSS using 'import' or 'implementation' attribute|
+|941250|IE XSS Filters - Attack Detected|
+|941260|XSS using 'meta' tag|
+|941270|XSS using 'link' href|
+|941280|XSS using 'base' tag|
+|941290|XSS using 'applet' tag|
+|941300|XSS using 'object' tag|
+|941310|US-ASCII Malformed Encoding XSS Filter - Attack Detected.|
+|941320|Possible XSS Attack Detected - HTML Tag Handler|
+|941330|IE XSS Filters - Attack Detected.|
+|941340|IE XSS Filters - Attack Detected.|
+|941350|UTF-7 Encoding IE XSS - Attack Detected.|
+
+
+### <a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+
+|RuleId|Description|
+|---|---|
+|942100|SQL Injection Attack Detected via libinjection|
+|942110|SQL Injection Attack: Common Injection Testing Detected|
+|942130|SQL Injection Attack: SQL Tautology Detected.|
+|942140|SQL Injection Attack = Common DB Names Detected|
+|942150|SQL Injection Attack|
+|942160|Detects blind sqli tests using sleep() or benchmark().|
+|942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942180|Detects basic SQL authentication bypass attempts 1/3|
+|942190|Detects MSSQL code execution and information gathering attempts|
+|942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
+|942210|Detects chained SQL injection attempts 1/2|
+|942220|Looking for intiger overflow attacks, these are taken from skipfish, except 3.0.00738585072|
+|942230|Detects conditional SQL injection attempts|
+|942240|Detects MySQL charset switch and MSSQL DoS attempts|
+|942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
+|942251|Detects HAVING injections|
+|942260|Detects basic SQL authentication bypass attempts 2/3|
+|942270|Looking for basic sql injection. Common attack string for mysql oracle and others|
+|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942290|Finds basic MongoDB SQL injection attempts|
+|942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942310|Detects chained SQL injection attempts 2/2|
+|942320|Detects MySQL and PostgreSQL stored procedure/function injections|
+|942330|Detects classic SQL injection probings 1/2|
+|942340|Detects basic SQL authentication bypass attempts 3/3|
+|942350|Detects MySQL UDF injection and other data/structure manipulation attempts|
+|942360|Detects concatenated basic SQL injection and SQLLFI attempts|
+|942361|Detects basic SQL injection based on keyword alter or union|
+|942370|Detects classic SQL injection probings 2/2|
+|942380|SQL Injection Attack|
+|942390|SQL Injection Attack|
+|942400|SQL Injection Attack|
+|942410|SQL Injection Attack|
+|942420|Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (8)|
+|942421|Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (3)|
+|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942431|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (6)|
+|942432|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (2)|
+|942440|SQL Comment Sequence Detected.|
+|942450|SQL Hex Encoding Identified|
+|942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
+|942470|SQL Injection Attack|
+|942480|SQL Injection Attack|
+|942490|Detects classic SQL injection probings 3/3|
+
+### <a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+
+|RuleId|Description|
+|---|---|
+|943100|Possible Session Fixation Attack = Setting Cookie Values in HTML|
+|943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
+|943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
+
+# [OWASP 3.0](#tab/owasp30)
+
+## <a name="owasp30"></a> Rule sets
+
+### <a name="general-30"></a> <p x-ms-format-detection="none">General</p>
+
+|RuleId|Description|
+|---|---|
+|200004|Possible Multipart Unmatched Boundary.|
+
+### <a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+
+|RuleId|Description|
+|---|---|
+|911100|Method is not allowed by policy|
+
+
+### <a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
 |RuleId|Description|
 |---|---|
@@ -91,7 +349,7 @@ The following rule groups and rules are available when using Application Gateway
 |913101|Found User-Agent associated with scripting/generic HTTP client|
 |913102|Found User-Agent associated with web crawler/bot|
 
-### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |RuleId|Description|
 |---|---|
@@ -137,7 +395,7 @@ The following rule groups and rules are available when using Application Gateway
 |920274|Invalid character in request headers (outside of very strict set)|
 |920460|Abnormal escape characters|
 
-### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
 |RuleId|Description|
 |---|---|
@@ -152,7 +410,7 @@ The following rule groups and rules are available when using Application Gateway
 |921170|HTTP Parameter Pollution|
 |921180|HTTP Parameter Pollution (%@{TX.1})|
 
-### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
 |RuleId|Description|
 |---|---|
@@ -161,7 +419,7 @@ The following rule groups and rules are available when using Application Gateway
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
 |RuleId|Description|
 |---|---|
@@ -170,7 +428,7 @@ The following rule groups and rules are available when using Application Gateway
 |931120|Possible Remote File Inclusion (RFI) Attack = URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack = Off-Domain Reference/Link|
 
-### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
 |RuleId|Description|
 |---|---|
@@ -181,7 +439,7 @@ The following rule groups and rules are available when using Application Gateway
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
 |932171|Remote Command Execution = Shellshock (CVE-2014-6271)|
 
-### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |RuleId|Description|
 |---|---|
@@ -197,7 +455,7 @@ The following rule groups and rules are available when using Application Gateway
 |933161|PHP Injection Attack = Low-Value PHP Function Call Found|
 |933111|PHP Injection Attack = PHP Script File Upload Found|
 
-### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
 |RuleId|Description|
 |---|---|
@@ -224,7 +482,7 @@ The following rule groups and rules are available when using Application Gateway
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 |941320|Possible XSS Attack Detected - HTML Tag Handler|
 
-### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
 |RuleId|Description|
 |---|---|
@@ -255,7 +513,7 @@ The following rule groups and rules are available when using Application Gateway
 |942251|Detects HAVING injections|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
 
-### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
 |RuleId|Description|
 |---|---|
