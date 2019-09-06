@@ -83,7 +83,7 @@ landingContent:
             url: event-hubs-dotnet-framework-getstarted-send.md
 
   # Card
-  - title: Capture events sent to an event hub
+  - title: Capture events
     linkLists:
       - linkListType: overview      
         links:
@@ -99,7 +99,7 @@ landingContent:
             url: event-hubs-capture-python.md
 
   # Card
-  - title: Process events sent to an event hub
+  - title: Process events
     linkLists:
       - linkListType: tutorial      
         links:
