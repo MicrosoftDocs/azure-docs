@@ -1,13 +1,13 @@
 ---
 title: Apache Phoenix in HDInsight - Azure HDInsight 
-description: 
+description: Overview of Apache Phoenix
 author: ashishthaps
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 09/05/2019
 ms.author: ashishth
 
 ---
