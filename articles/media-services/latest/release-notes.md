@@ -33,7 +33,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## September 2019
 
-Media Services v3 is announcing the preview of 24 hour x 365 support of live encoding live events.
+Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear encoding of live events.
  
 ## August 2019
 
