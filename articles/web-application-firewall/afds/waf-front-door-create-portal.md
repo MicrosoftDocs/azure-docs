@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 08/21/2019
+ms.date: 09/07/2019
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a WAF policy
-> * Associate it with frontend host
+> * Associate it with a frontend host
 > * Configure WAF rules
 
 ## Prerequisites
