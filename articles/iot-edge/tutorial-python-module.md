@@ -15,6 +15,8 @@ ms.custom: "mvc, seodec18"
 
 # Tutorial: Develop and deploy a Python IoT Edge module for Linux devices
 
+**NOTE: The following guide is for the V1 Python SDK, which has since been deprecated. We are currently working to make this guide V2 compatible. Please watch this space for updates.**
+
 Use Visual Studio Code to develop C code and deploy it to a Linux device running Azure IoT Edge. 
 
 You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data on the IoT Edge device that you set up in the quickstart. In this tutorial, you learn how to:    
