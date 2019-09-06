@@ -130,7 +130,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Foodee  User Attributes](media/Foodee-provisioning-tutorial/userattribute.png)
 
-10. Under the **Mappings** section,select **Synchronize Azure Active Directory Groups to **Foodee**
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to **Foodee**
 
 	![Foodee  User Attributes](media/Foodee-provisioning-tutorial/groupmapping.png)
 
