@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/27/2019
 ms.author: thweiss
 ---
 
@@ -22,8 +22,9 @@ In some situations, you may want to override this automatic behavior to better s
 Azure Cosmos DB supports two indexing modes:
 
 - **Consistent**: If a container's indexing policy is set to Consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
-
 - **None**: If a container's indexing policy is set to None, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
+
+Additionally, you should set the **automatic** property in the indexing policy to **true**. Setting this property to true allows Azure Cosmos DB to automatically index documents as they are written.
 
 ## Including and excluding property paths
 
@@ -35,6 +36,7 @@ A custom indexing policy can specify property paths that are explicitly included
 
 Taking the same example again:
 
+```
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -46,21 +48,17 @@ Taking the same example again:
             { "city": "Athens" }
         ]
     }
+```
 
 - the `headquarters`'s `employees` path is `/headquarters/employees/?`
+
 - the `locations`' `country` path is `/locations/[]/country/?`
+
 - the path to anything under `headquarters` is `/headquarters/*`
 
-When a path is explicitly included in the indexing policy, it also has to define which index types should be applied to that path and for each index type, the data type this index applies to:
+For example, we could include the `/headquarters/employees/?` path. This path would ensure that we index the employees property but would not index additional nested JSON within this property.
 
-| Index type | Allowed target data types |
-| --- | --- |
-| Range | String or Number |
-| Spatial | Point, LineString or Polygon |
-
-For example, we could include the `/headquarters/employees/?` path and specify that a `Range` index should be applied on that path for both `String` and `Number` values.
-
-### Include/exclude strategy
+## Include/exclude strategy
 
 Any indexing policy has to include the root path `/*` as either an included or an excluded path.
 
@@ -71,18 +69,49 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
 
-See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
+When including and excluding paths, you may encounter the following attributes:
+
+- `kind` can be either `range` or `hash`. Range index functionality provides all of the functionality of a hash index, so we recommend using a range index.
+
+- `precision` is a number defined at the index level for included paths. A value of `-1` indicates maximum precision. We recommend always setting this value to `-1`.
+
+- `dataType` can be either `String` or `Number`. This indicates the types of JSON properties which will be indexed.
+
+When not specified, these properties will have the following default values:
+
+| **Property Name**     | **Default Value** |
+| ----------------------- | -------------------------------- |
+| `kind`   | `range` |
+| `precision`   | `-1`  |
+| `dataType`    | `String` and `Number` |
+
+See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
+
+## Spatial indexes
+
+When you define a spatial path in the indexing policy, you should define which index ```type``` should be applied to that path. Possible types for spatial indexes include:
+
+* Point
+
+* Polygon
+
+* LineString
+
+Azure Cosmos DB, by default, will not create any spatial indexes. If you would like to use spatial SQL built-in functions, you should create a spatial index on the required properties. See [this section](geospatial.md) for indexing policy examples for adding spatial indexes.
 
 ## Composite indexes
 
-Queries that `ORDER BY` two or more properties require a composite index. Currently, composite indexes are only utilized by Multi `ORDER BY` queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
+Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality or range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
 
 When defining a composite index, you specify:
 
 - Two or more property paths. The sequence in which property paths are defined matters.
+
 - The order (ascending or descending).
 
-The following considerations are used when using composite indexes:
+### ORDER BY queries on multiple properties:
+
+The following considerations are used when using composite indexes for queries with an ORDER BY clause with two or more properties:
 
 - If the composite index paths do not match the sequence of the properties in the ORDER BY clause, then the composite index can't support the query
 
@@ -90,18 +119,106 @@ The following considerations are used when using composite indexes:
 
 - The composite index also supports an ORDER BY clause with the opposite order on all paths.
 
-Consider the following example where a composite index is defined on properties a, b, and c:
+Consider the following example where a composite index is defined on properties name, age, and _ts:
 
-| **Composite Index**     | **Sample `ORDER BY` Query**      | **Supported by Index?** |
+| **Composite Index**     | **Sample `ORDER BY` Query**      | **Supported by Composite Index?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
-| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
-| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
-| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+| ```(name asc, age asc)```   | ```ORDER BY  name asc, age asc``` | ```Yes```            |
+| ```(name asc, age asc)```   | ```ORDER BY  age asc, name asc```   | ```No```             |
+| ```(name asc, age asc)```    | ```ORDER BY  name desc, age desc``` | ```Yes```            |
+| ```(name asc, age asc)```     | ```ORDER BY  name asc, age desc``` | ```No```             |
+| ```(name asc, age asc, timestamp asc)``` | ```ORDER BY  name asc, age asc, timestamp asc``` | ```Yes```            |
+| ```(name asc, age asc, timestamp asc)``` | ```ORDER BY  name asc, age asc``` | ```No```            |
 
 You should customize your indexing policy so you can serve all necessary `ORDER BY` queries.
+
+###Queries with filters on multiple properties
+
+If a query has filters on two or more properties, it may be helpful to create a composite index for these properties.
+
+For example, consider the following query which has an equality filter on two properties:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+```
+
+This query will be more efficient, taking less time and consuming fewer RU's, if it is able to leverage a composite index on (name asc, age asc).
+
+Queries with range filters can also be optimized with a composite index. However, the query can only have a single range filter. Range filters include `>`, `<`, `<=`, `>=`, and `!=`. The range filter should be defined last in the composite index.
+
+Consider the following query with both equality and range filters:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+```
+
+This query will be more efficient with a composite index on (name asc, age asc). However, the query would not utilize a composite index on (age asc, name asc) because the equality filters must be defined first in the composite index.
+
+The following considerations are used when using composite indexes for queries with filters on multiple properties
+
+- The properties in the query's filter should match those in composite index. If a property is in the composite index but is not included in the query as a filter, the query would not utilize the composite index
+- If a query has additional properties in the filter that were not defined in a composite index, then a combination of composite and range indexes will be used to evaluate the query. This will require fewer RU's the exclusively using range indexes
+- If a property has a range filter (`>`, `<`, `<=`, `>=`, or `!=`), then this property should be defined last in the composite index. If a query has more than one range filter, it will not utilize the composite index.
+- When creating a composite index to optimize queries with multiple filters, the `ORDER` of the composite index will affect the sort order in which query results are displayed. For example, setting `ORDER` to `ascending` will display the properties in ascending order, even if no `ORDER BY` clause is used in the query.
+- If you do not define a composite index on a query with filters on multiple properties, the query will still succeed. However, the RU cost of the query can be reduced with a composite index.
+
+Consider the following examples where a composite index is defined on properties name, age, and timestamp:
+
+| **Composite Index**     | **Sample Query**      | **Supported by Composite Index?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(name asc, age asc)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
+| ```(name asc, age asc)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name desc, age asc)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
+| ```(name asc, age asc)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
+| ```(name asc, age asc, timestamp asc)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
+| ```(name asc, age asc, timestamp asc)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+
+### Queries with a filter as well as an ORDER BY clause
+
+If a query filters on one or more properties and has different properties in the ORDER BY clause, it may be helpful to add the properties in the filter to the ORDER BY clause.
+
+For example, by adding the properties in the filter to the ORDER BY clause, the following query could be rewritten to leverage a composite index:
+
+Query using range index:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+```
+
+Query using composite index:
+
+```sql
+SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+```
+
+The same pattern and query optimizations can be generalized for queries with multiple equality filters:
+
+Query using range index:
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+```
+
+Query using composite index:
+
+```sql
+SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+```
+
+The following considerations are used when using composite indexes to optimize a query with a filter and ORDER BY clause:
+
+* If the query filters on properties, these should be included first in the ORDER BY clause.
+* If you do not define a composite index on a query with an equality filter on one property and a separate ORDER BY clause using different properties, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the properties in the ORDER BY clause have a high cardinality.
+* All considerations for creating composite indexes for `ORDER BY` queries with multiple properties as well as queries will filters on multiple properties still apply
+
+
+| **Composite Index**                      | **Sample `ORDER BY` Query**                                  | **Supported by Composite Index?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name asc, timestamp asc)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name asc, c.timestamp asc``` | ```Yes```                         |
+| ```(name asc, timestamp asc)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp asc, c.name asc``` | ```No```                             |
+| ```(name asc, timestamp asc)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp asc``` | ```No```                         |
+| ```(age asc, name asc, timestamp asc)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age asc, c.name asc,c.timestamp asc``` | ```Yes```         |
+| ```(age asc, name asc, timestamp asc)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp asc``` | ```No```                          |
 
 ## Modifying the indexing policy
 
@@ -124,14 +241,6 @@ For scenarios where no property path needs to be indexed, but TTL is required, y
 - an indexing mode set to Consistent, and
 - no included path, and
 - `/*` as the only excluded path.
-
-## Obsolete attributes
-
-When working with indexing policies, you may encounter the following attributes that are now obsolete:
-
-- `automatic` is a boolean defined at the root of an indexing policy. It is now ignored and can be set to `true`, when the tool you are using requires it.
-- `precision` is a number defined at the index level for included paths. It is now ignored and can be set to `-1`, when the tool you are using requires it.
-- `hash` is an index kind that is now replaced by the range kind.
 
 ## Next steps
 

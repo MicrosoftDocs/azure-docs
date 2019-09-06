@@ -4,7 +4,7 @@ description: Understand how indexing works in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/27/2019
 ms.author: thweiss
 ---
 
@@ -20,6 +20,7 @@ Every time an item is stored in a container, its content is projected as a JSON 
 
 As an example, consider this item:
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -31,6 +32,7 @@ As an example, consider this item:
             { "city": "Athens" }
         ]
     }
+```
 
 It would be represented by the following tree:
 
@@ -65,13 +67,13 @@ The **range** index kind is used for:
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
-    ```
+   ```
 
 - Range queries:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
-   ``` 
+   ```
   (works for `>`, `<`, `>=`, `<=`, `!=`)
 
 - `ORDER BY` queries:
@@ -108,9 +110,22 @@ The **composite** index kind is used for:
 
 - `ORDER BY` queries on multiple properties: 
 
-   ```sql
-   SELECT * FROM container c ORDER BY c.firstName, c.lastName
-   ```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Queries with a filter and `ORDER BY`. These queries can utilize a composite index if the filter property is added to the `ORDER BY` clause.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Queries with a filter on two or more properties where at least one property is an equality filter
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
+
 
 ## Querying with indexes
 
