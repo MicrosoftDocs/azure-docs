@@ -1,6 +1,6 @@
 ---
 title: Migrate an HBase cluster to a new version - Azure HDInsight 
-description: How to migrate HBase clusters to a new version.
+description: How to migrate Apache HBase clusters to a newer version in Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
