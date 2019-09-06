@@ -133,7 +133,7 @@ If your System Center Operations Manager management group is connected to a Log 
 * Update Deployment MP
 
 > [!NOTE]
-> If you have an Operations Manager 1807 Management Group with agents configured at the Management Group level to be associated to a workspace, the current workaround to get them to show up is to override **IsAutoRegistrationEnabled** to **True** in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
+> If you have an Operations Manager 1807 or 2019 Management Group with agents configured at the Management Group level to be associated to a workspace, the current workaround to get them to show up is to override **IsAutoRegistrationEnabled** to **True** in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
 
 For more information about how solution management packs are updated, see [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 

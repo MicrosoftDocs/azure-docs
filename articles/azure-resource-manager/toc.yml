@@ -4,6 +4,8 @@
   items:
   - name: What is Resource Manager?
     href: resource-group-overview.md
+  - name: Template overview
+    href: template-deployment-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -58,11 +60,6 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Template deployments
-    href: template-deployment-overview.md
-  - name: Template file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency
@@ -89,6 +86,12 @@
       href: resource-manager-tools-vs-code.md
     - name: Write template expressions
       href: template-expressions.md
+    - name: Parameters
+      href: template-parameters.md
+    - name: Variables
+      href: template-variables.md
+    - name: User-defined functions
+      href: template-user-defined-functions.md
     - name: Resources
       items:
       - name: Child resource name and type
@@ -101,6 +104,8 @@
         href: resource-location.md
       - name: Use template extensions
         href: resource-manager-use-extensions.md
+    - name: Outputs
+      href: template-outputs.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
@@ -248,6 +253,9 @@
     href: resource-manager-async-operations.md
 - name: Reference
   items:
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs,condition
+    href: resource-group-authoring-templates.md
   - name: Template reference
     href: /azure/templates/
   - name: Template functions

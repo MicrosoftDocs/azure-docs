@@ -5,15 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ---
 
 # Read replicas in Azure Database for MariaDB
 
 The read replica feature allows you to replicate data from an Azure Database for MariaDB server to a read-only server. You can replicate from the master server to up to five replicas. Replicas are updated asynchronously using the MariaDB engine's binary log (binlog) file position-based replication technology with global transaction ID (GTID). To learn more about binlog replication, see the [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/).
-
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Read replicas (same region and cross-region) are currently in public preview.
 
 Replicas are new servers that you manage similar to regular Azure Database for MariaDB servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
@@ -32,9 +29,6 @@ The read replica feature uses asynchronous replication. The feature isn't meant 
 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
-
-> [!IMPORTANT]
-> Cross-region replication is currently in public preview.
 
 You can have a master server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A master server can have a replica in its paired region or the universal replica regions.
 

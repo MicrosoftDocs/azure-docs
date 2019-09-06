@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/index.yml",
+      "redirect_url": "/azure/machine-learning/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-write-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
@@ -4473,6 +4478,11 @@
     {
       "source_path": "articles/app-service/containers/how-to-java-apm-monitoring.md",
       "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
+      "redirect_url": "/azure/app-service/containers/quickstart-docker",
       "redirect_document_id": false
     },
     {
@@ -16880,6 +16890,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/how-to-prepare-linux-for-migration.md",
+      "redirect_url": "tutorial-prepare-vmware",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/how-to-create-group-dependencies.md",
       "redirect_url": "how-to-create-a-group#refine-a-group-with-dependency-mapping",
       "redirect_document_id": false
@@ -19066,7 +19081,7 @@
     },
     {
       "source_path": "articles/active-directory/hybrid/whatis-hybrid-identity-health.md",
-      "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+      "redirect_url": "/azure/active-directory/hybrid/whatis-azure-ad-connect",
       "redirect_document_id": false
     },
     {
@@ -31650,6 +31665,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-java-v10.md",
+      "redirect_url": "https://github.com/azure/azure-storage-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/data-lake-storage/index.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
       "redirect_document_id": false
@@ -36505,19 +36525,29 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot0",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
       "redirect_document_id": true
-    },
+	},
+	{
+		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot0.md",
+		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+		"redirect_document_id": false
+	  },
+	  {
+		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot2.md",
+		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-storage.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-storage",
@@ -38953,6 +38983,16 @@
       "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
     },
+	{
+	  "source_path": "articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
+	  "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
+	  "redirect_document_id": false
+	},
+	{
+		"source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial.md",
+		"redirect_url": "/azure/cognitive-services/face/quickstarts/python-sdk#display-and-frame-faces",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
@@ -41377,6 +41417,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/analyze-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/ruby-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/analyze-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/generate-thumbnail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/ruby-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/generate-a-thumbnail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/extract-printed-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/ruby-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/extract-printed-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-domain.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/use-domain-model",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -41604,6 +41679,11 @@
 	    {
       "source_path": "articles/azure-monitor/app/sample-mscrm.md",
       "redirect_url": "/azure/azure-monitor/app/javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
+      "redirect_url": "/azure/sql-database/sql-database-instance-pools",
       "redirect_document_id": false
     }
   ]

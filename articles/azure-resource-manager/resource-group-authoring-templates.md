@@ -4,15 +4,15 @@ description: Describes the structure and properties of Azure Resource Manager te
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
 ---
 
 # Understand the structure and syntax of Azure Resource Manager templates
 
-This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment.
+This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure and syntax of the template. If you want an introduction to creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
+This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure of the template. If you want an introduction to creating a template, see [Azure Resource Manager templates](template-deployment-overview.md).
 
 ## Template format
 
@@ -46,11 +46,7 @@ Each element has properties you can set. This article describes the sections of 
 
 ## Parameters
 
-In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You don't have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
-
-You're limited to 256 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as shown in this article.
-
-### Available properties
+In the parameters section of the template, you specify which values you can input when deploying the resources. You're limited to 256 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties.
 
 The available properties for a parameter are:
 
@@ -73,7 +69,7 @@ The available properties for a parameter are:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| parameterName |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
+| parameter-name |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
 | type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
@@ -83,150 +79,9 @@ The available properties for a parameter are:
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
-### Define and use a parameter
-
-The following example shows a simple parameter definition. It defines the name of the parameter, and specifies that it takes a string value. The parameter only accepts values that make sense for its intended use. It specifies a default value when no value is provided during deployment. Finally, the parameter includes a description of its use.
-
-```json
-"parameters": {
-  "storageSKU": {
-    "type": "string",
-    "allowedValues": [
-      "Standard_LRS",
-      "Standard_ZRS",
-      "Standard_GRS",
-      "Standard_RAGRS",
-      "Premium_LRS"
-    ],
-    "defaultValue": "Standard_LRS",
-    "metadata": {
-      "description": "The type of replication to use for the storage account."
-    }
-  }   
-}
-```
-
-In the template, you reference the value for the parameter with the following syntax:
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "sku": {
-      "name": "[parameters('storageSKU')]"
-    },
-    ...
-  }
-]
-```
-
-### Template functions with parameters
-
-When specifying the default value for a parameter, you can use most template functions. You can use another parameter value to build a default value. The following template demonstrates the use of functions in the default value:
-
-```json
-"parameters": {
-  "siteName": {
-    "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
-    "metadata": {
-      "description": "The site name. To use the default value, do not specify a new value."
-    }
-  },
-  "hostingPlanName": {
-    "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
-    "metadata": {
-      "description": "The host name. To use the default value, do not specify a new value."
-    }
-  }
-}
-```
-
-You can't use the `reference` function in the parameters section. Parameters are evaluated before deployment so the `reference` function can't get the runtime state of a resource. 
-
-### Objects as parameters
-
-It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
-
-Define the parameter in your template and specify a JSON object instead of a single value during deployment. 
-
-```json
-"parameters": {
-  "VNetSettings": {
-    "type": "object",
-    "defaultValue": {
-      "name": "VNet1",
-      "location": "eastus",
-      "addressPrefixes": [
-        {
-          "name": "firstPrefix",
-          "addressPrefix": "10.0.0.0/22"
-        }
-      ],
-      "subnets": [
-        {
-          "name": "firstSubnet",
-          "addressPrefix": "10.0.0.0/24"
-        },
-        {
-          "name": "secondSubnet",
-          "addressPrefix": "10.0.1.0/24"
-        }
-      ]
-    }
-  }
-},
-```
-
-Then, reference the subproperties of the parameter by using the dot operator.
-
-```json
-"resources": [
-  {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Network/virtualNetworks",
-    "name": "[parameters('VNetSettings').name]",
-    "location": "[parameters('VNetSettings').location]",
-    "properties": {
-      "addressSpace":{
-        "addressPrefixes": [
-          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
-        ]
-      },
-      "subnets":[
-        {
-          "name":"[parameters('VNetSettings').subnets[0].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
-          }
-        },
-        {
-          "name":"[parameters('VNetSettings').subnets[1].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
-          }
-        }
-      ]
-    }
-  }
-]
-```
-
-### Parameter example templates
-
-These example templates demonstrate some scenarios for using parameters. Deploy them to test how parameters are handled in different scenarios.
-
-|Template  |Description  |
-|---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstrates how to use template functions when defining default values for parameters. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstrates using an object for a parameter. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
-
 ## Variables
 
 In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions.
-
-### Available definitions
 
 The following example shows the available options for defining a variable:
 
@@ -257,76 +112,6 @@ The following example shows the available options for defining a variable:
 
 For information about using `copy` to create several values for a variable, see [Variable iteration](resource-group-create-multiple.md#variable-iteration).
 
-### Define and use a variable
-
-The following example shows a variable definition. It creates a string value for a storage account name. It uses several template functions to get a parameter value, and concatenates it to a unique string.
-
-```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-},
-```
-
-You use the variable when defining the resource.
-
-```json
-"resources": [
-  {
-    "name": "[variables('storageName')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    ...
-```
-
-### Configuration variables
-
-You can use complex JSON types to define related values for an environment.
-
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-In parameters, you create a value that indicates which configuration values to use.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-You retrieve the current settings with:
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-### Variable example templates
-
-These example templates demonstrate some scenarios for using variables. Deploy them to test how variables are handled in different scenarios. 
-
-|Template  |Description  |
-|---------|---------|
-| [variable definitions](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstrates the different types of variables. The template doesn't deploy any resources. It constructs variable values and returns those values. |
-| [configuration variable](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstrates the use of a variable that defines configuration values. The template doesn't deploy any resources. It constructs variable values and returns those values. |
-| [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constructs an array in the correct format for assigning security rules to a network security group. |
-
-
 ## Functions
 
 Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expression that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
@@ -339,23 +124,21 @@ When defining a user function, there are some restrictions:
 * The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
 
-Your functions require a namespace value to avoid naming conflicts with template functions. The following example shows a function that returns a storage account name:
-
 ```json
 "functions": [
   {
-    "namespace": "contoso",
+    "namespace": "<namespace-for-functions>",
     "members": {
-      "uniqueName": {
+      "<function-name>": {
         "parameters": [
           {
-            "name": "namePrefix",
-            "type": "string"
+            "name": "<parameter-name>",
+            "type": "<type-of-parameter-value>"
           }
         ],
         "output": {
-          "type": "string",
-          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+          "type": "<type-of-output-value>",
+          "value": "<function-return-value>"
         }
       }
     }
@@ -363,29 +146,18 @@ Your functions require a namespace value to avoid naming conflicts with template
 ],
 ```
 
-You call the function with:
-
-```json
-"resources": [
-  {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "location": "South Central US",
-    "tags": {},
-    "properties": {}
-  }
-]
-```
+| Element name | Required | Description |
+|:--- |:--- |:--- |
+| namespace |Yes |Namespace for the custom functions. Use to avoid naming conflicts with template functions. |
+| function-name |Yes |Name of the custom function. When calling the function, combine the function name with the namespace. For example, to call a function named uniqueName in the namespace contoso, use `"[contoso.uniqueName()]"`. |
+| parameter-name |No |Name of the parameter to be used within the custom function. |
+| parameter-value |No |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
+| output-type |Yes |Type of the output value. Output values support the same types as function input parameters. |
+| output-value |Yes |Template language expression that is evaluated and returned from the function. |
 
 ## Resources
-In the resources section, you define the resources that are deployed or updated.
 
-### Available properties
+In the resources section, you define the resources that are deployed or updated.
 
 You define resources with the following structure:
 
@@ -445,11 +217,11 @@ You define resources with the following structure:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [Conditional deployment](conditional-resource-deployment.md). |
+| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](conditional-resource-deployment.md). |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. To determine available values, see [template reference](/azure/templates/). |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
-| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
-| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md) |
+| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
+| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md). |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](resource-group-authoring-templates.md#comments). |
 | copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
@@ -460,71 +232,15 @@ You define resources with the following structure:
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
 
-### Resource names
-
-Generally, you work with three types of resource names in Resource Manager:
-
-* Resource names that must be unique.
-* Resource names that aren't required to be unique, but you choose to provide a name that can help you identify the resource.
-* Resource names that can be generic.
-
-Provide a **unique resource name** for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
-
-* Azure Storage<sup>1</sup> 
-* Web Apps feature of Azure App Service
-* SQL Server
-* Azure Key Vault
-* Azure Cache for Redis
-* Azure Batch
-* Azure Traffic Manager
-* Azure Search
-* Azure HDInsight
-
-<sup>1</sup> Storage account names also must be lowercase, 24 characters or less, and not have any hyphens.
-
-When setting the name, you can either manually create a unique name or use the [uniqueString()](resource-group-template-functions-string.md#uniquestring) function to generate a name. You also might want to add a prefix or suffix to the **uniqueString** result. Modifying the unique name can help you more easily identify the resource type from the name. For example, you can generate a unique name for a storage account by using the following variable:
-
-```json
-"variables": {
-  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
-}
-```
-
-For some resource types, you might want to provide a **name for identification**, but the name doesn't have to be unique. For these resource types, provide a name that describes it use or characteristics.
-
-```json
-"parameters": {
-  "vmName": { 
-    "type": "string",
-    "defaultValue": "demoLinuxVM",
-    "metadata": {
-      "description": "The name of the VM to create."
-    }
-  }
-}
-```
-
-For resource types that you mostly access through a different resource, you can use a **generic name** that is hard-coded in the template. For example, you can set a standard, generic name for firewall rules on a SQL server:
-
-```json
-{
-  "type": "firewallrules",
-  "name": "AllowAllWindowsAzureIps",
-  ...
-}
-```
-
 ## Outputs
 
 In the Outputs section, you specify values that are returned from deployment. Typically, you return values from resources that were deployed.
-
-### Available properties
 
 The following example shows the structure of an output definition:
 
 ```json
 "outputs": {
-  "<outputName>" : {
+  "<output-name>" : {
     "condition": "<boolean-value-whether-to-output-value>",
     "type" : "<type-of-output-value>",
     "value": "<output-value-expression>"
@@ -534,72 +250,10 @@ The following example shows the structure of an output definition:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| outputName |Yes |Name of the output value. Must be a valid JavaScript identifier. |
+| output-name |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](resource-manager-keyvault-parameter.md). |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
-
-### Define and use output values
-
-The following example shows how to return the resource ID for a public IP address:
-
-```json
-"outputs": {
-  "resourceID": {
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
-}
-```
-
-The next example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
-
-```json
-"outputs": {
-  "resourceID": {
-    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
-}
-```
-
-For a simple example of conditional output, see [conditional output template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
-
-After the deployment, you can retrieve the value with script. For PowerShell, use:
-
-```powershell
-(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
-```
-
-For Azure CLI, use:
-
-```azurecli-interactive
-az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
-```
-
-You can retrieve the output value from a linked template by using the [reference](resource-group-template-functions-resource.md#reference) function. To get an output value from a linked template, retrieve the property value with syntax like: `"[reference('deploymentName').outputs.propertyName.value]"`.
-
-When getting an output property from a linked template, the property name can't include a dash.
-
-The following example shows how to set the IP address on a load balancer by retrieving a value from a linked template.
-
-```json
-"publicIPAddress": {
-  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-}
-```
-
-You can't use the `reference` function in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
-
-### Output example templates
-
-|Template  |Description  |
-|---------|---------|
-|[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Creates complex variables and outputs those values. Doesn't deploy any resources. |
-|[Public IP address](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Creates a public IP address and outputs the resource ID. |
-|[Load balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Links to the preceding template. Uses the resource ID in the output when creating the load balancer. |
-
 
 <a id="comments" />
 
@@ -698,9 +352,8 @@ In VS Code, you can set the language mode to JSON with comments. The inline comm
 
    ![Select language mode](./media/resource-group-authoring-templates/select-json-comments.png)
 
-[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
-
 ## Next steps
+
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).

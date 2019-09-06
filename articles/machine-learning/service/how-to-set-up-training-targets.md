@@ -398,11 +398,20 @@ Switch the same experiment to run in a different compute target by using a diffe
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> This example defaults to only using one node of the compute target for training. To use more than one node, set the `node_count` of the run configuration to the desired number of nodes. For example, the following code sets the number of nodes used for training to four:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
+
+For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
 
 ## Create run configuration and submit run using Azure Machine Learning CLI
 

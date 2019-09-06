@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -28,8 +28,6 @@ The read replica feature uses PostgreSQL asynchronous replication. The feature i
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-> [!IMPORTANT]
-> Cross-region replication is currently in public preview.
 
 You can have a master server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  A master server can have a replica in its paired region or the universal replica regions.
 
