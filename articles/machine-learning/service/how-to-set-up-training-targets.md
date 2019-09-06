@@ -398,11 +398,20 @@ Switch the same experiment to run in a different compute target by using a diffe
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> This example defaults to only using one node of the compute target for training. To use more than one node, set the `node_count` of the run configuration to the desired number of nodes. For example, the following code sets the number of nodes used for training to four:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
+
+For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
 
 ## Create run configuration and submit run using Azure Machine Learning CLI
 
@@ -417,6 +426,19 @@ az ml folder attach
 ```
 
 This command creates a subfolder `.azureml` that contains template run configuration files for different compute targets. You can copy and edit these files to customize your configuration, for example to add Python packages or change Docker settings.  
+
+### Structure of run configuration file
+
+The run configuration file is YAML formatted, with following sections
+ * The script to run and its arguments
+ * Compute target name, either "local" or name of a compute under the workspace.
+ * Parameters for executing the run: framework, communicator for distributed runs, maximum duration, and number of compute nodes.
+ * Environment section. See [Create and manage environments for training and deployment](how-to-use-environments.md) for details of the fields in this section.
+   * To specify Python packages to install for the run, create [conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually), and set __condaDependenciesFile__ field.
+ * Run history details to specify log file folder, and to enable or disable output collection and run history snapshots.
+ * Configuration details specific to the framework selected.
+ * Data reference and data store details.
+ * Configuration details specific for Machine Learning Compute for creating a new cluster.
 
 ### Create an experiment
 
