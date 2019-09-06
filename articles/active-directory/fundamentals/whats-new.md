@@ -183,7 +183,7 @@ New updates to the AzureAD and AzureAD Preview PowerShell modules are available:
 
 ---
 
-### Improvements to the UI of the dynamic group rule builder in the Azure Portal
+### Improvements to the UI of the dynamic group rule builder in the Azure portal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
