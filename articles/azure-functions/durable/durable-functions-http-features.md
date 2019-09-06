@@ -104,7 +104,7 @@ For more information on how to manage orchestrations and entities using client A
 
 ## Consuming HTTP APIs
 
-Orchestrator functions are not permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). Instead, orchestrator functions must invoke [activity functions](durable-functions-types-features-overview#activity-functions) that do the I/O on behalf of the orchestration. However, starting in Durable Functions 2.0, orchestrations are able to natively consume HTTP APIs using a built-in "call HTTP" action.
+Orchestrator functions are not permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). Instead, orchestrator functions must invoke [activity functions](durable-functions-types-features-overview.md#activity-functions) that do the I/O on behalf of the orchestration. However, starting in Durable Functions 2.0, orchestrations are able to natively consume HTTP APIs using a built-in "call HTTP" action.
 
 The following example code shows a C# orchestrator function making an outbound HTTP request using the `CallHttpAsync` API:
 

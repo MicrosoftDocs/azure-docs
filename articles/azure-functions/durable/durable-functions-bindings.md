@@ -371,12 +371,12 @@ Every entity function has a parameter type of `IDurableEntityContext`, which has
 * **EntityId**: Gets the id of the currently executing entity.
 * **OperationName**: gets the name of the current operation.
 * **IsNewlyConstructed**: returns `true` if the entity did not exist prior to the operation.
-* **GetState\<TState>()**: gets the current state of the entity.
-* **SetState(object)**: updates the state of the entity.
-* **GetInput\<TInput>()**: gets the input for the current operation.
-* **Return(object)**: returns a value to the orchestration that called the operation.
+* **GetState\<TState>()**: gets the current state of the entity. The `TState` parameter must be a primitive or JSON-serializeable type.
+* **SetState(object)**: updates the state of the entity. The `object` parameter must be a primitive or JSON-serializeable object.
+* **GetInput\<TInput>()**: gets the input for the current operation. The `TInput` type parameter must represent a primitive or JSON-serializeable type.
+* **Return(object)**: returns a value to the orchestration that called the operation. The `object` parameter must be a primitive or JSON-serializeable object.
 * **DestructOnExit()**: deletes the entity after finishing the current operation.
-* **SignalEntity(EntityId, string, object)**: sends a one-way message to an entity.
+* **SignalEntity(EntityId, string, object)**: sends a one-way message to an entity. The `object` parameter must be a primitive or JSON-serializeable object.
 
 When using the class-based entity programming mode, the `IDurableEntityContext` object can be referenced using the `Entity.Current` thread-static property.
 
@@ -442,7 +442,7 @@ The entity client binding enables you to asynchronously trigger [entity function
 If you're using Visual Studio, you can bind to the entity client by using the `DurableClientAttribute` .NET attribute.
 
 > [!NOTE]
-> The `[DurableClientAttribute]` is available starting in Durable Functions 2.0 and can also be used to bind to the [orchestration client](#orchestration-client).
+> The `[DurableClientAttribute]` can also be used to bind to the [orchestration client](#orchestration-client).
 
 If you're using scripting languages (e.g. *.csx* or *.js* files) for development, the entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
@@ -468,8 +468,8 @@ In .NET functions, you typically bind to `IDurableEntityClient`, which gives you
 
 * **ReadEntityStateAsync\<T>**: reads the state of an entity.
 * **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
-* **SignalEntityAsync\<T>**: same as `SignalEntityAsync` but uses a generated proxy object of type `T`.
-* **CreateEntityProxy\<T>**: dynamically generates a dynamic proxy of type `T` for making type-safe calls to entities.
+* **SignalEntityAsync\<TEntityInterface>**: same as `SignalEntityAsync` but uses a generated proxy object of type `TEntityInterface`.
+* **CreateEntityProxy\<TEntityInterface>**: dynamically generates a dynamic proxy of type `TEntityInterface` for making type-safe calls to entities.
 
 > [!NOTE]
 > It's important to understand that the previous "signal" operations are all asynchronous. It is not possible to invoke an entity function and get back a return value from a client. Similarly, the `SignalEntityAsync` may return before the entity starts executing the operation. Only orchestrator functions can invoke entity functions synchronously and process return values.
@@ -511,7 +511,7 @@ public class Counter : ICounter
 }
 ```
 
-Client code could then use `SignalEntityAsync<T>` and specify the `ICounter` interface as the type parameter to generate a type-safe proxy. This use of type-safe proxies is demonstrated in the following code sample:
+Client code could then use `SignalEntityAsync<TEntityInterface>` and specify the `ICounter` interface as the type parameter to generate a type-safe proxy. This use of type-safe proxies is demonstrated in the following code sample:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -529,7 +529,7 @@ In the previous example, the `proxy` parameter is a dynamically generated instan
 
 There are a few rules for defining entity interfaces:
 
-* The type parameter `T` in `SignalEntityAsync<T>` must be an interface.
+* The type parameter `TEntityInterface` in `SignalEntityAsync<TEntityInterface>` must be an interface.
 * Entity interfaces must only define methods.
 * Entity interface methods must not define more than one parameter.
 * Entity interface methods must return `void`, `Task`, or `Task<T>` where `T` is some return value.
@@ -538,7 +538,7 @@ There are a few rules for defining entity interfaces:
 If any of these rules are violated, an `InvalidOperationException` will be thrown at runtime. The exception message will explain which rule was broken.
 
 > [!NOTE]
-> Although entity interfaces are allowed to return `Task<T>`, the proxy implementation for non-orchestrator client functions will always return a `Task<T>` whose value is `default(T)`. All entity messaging is one-way, so entity function return values are only available to orchestrator functions.
+> The `SignalEntityAsync` APIs represent one-way operations. If an entity interfaces returns `Task<T>`, the value of the `T` parameter will always be null or `default`.
 
 <a name="host-json"></a>
 

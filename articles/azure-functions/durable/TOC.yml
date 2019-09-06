@@ -104,7 +104,7 @@
 - name: Reference
   items:
   - name: Host.json configuration
-    href: durable-functions-host-json.md
+    href: durable-functions-bindings.md#host-json
   - name: Bindings
     href: durable-functions-bindings.md
   - name: HTTP API

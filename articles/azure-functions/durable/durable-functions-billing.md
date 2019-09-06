@@ -19,7 +19,7 @@ ms.author: azfuncdf
 
 ## Orchestrator function replay billing
 
-[Orchestrator functions](durable-functions-orchestrations.md) will replay several times throughout the lifetime of the orchestration. Each replay is viewed by the Azure Functions runtime as a distinct function invocation. For this reason, in the Azure Functions consumption plan, you will be billed for each replay of the orchestrator function. There is no per-execution billing impact for non-Consumption plan types.
+[Orchestrator functions](durable-functions-orchestrations.md) will replay several times throughout the lifetime of the orchestration. Each replay is viewed by the Azure Functions runtime as a distinct function invocation. For this reason, in the Azure Functions consumption plan, you will be billed for each replay of the orchestrator function. Other plan types do not charge for orchestrator function replay.
 
 ## Awaiting and yielding in orchestrator functions
 
@@ -34,7 +34,7 @@ Orchestrator functions have the ability to make long-running HTTP calls to exter
 
 ## Azure storage transactions
 
-Durable Functions uses Azure Storage to persist state, send and receive messages, and manage partitions via blob leases. The Azure storage account used by Durable Functions is owned by you and any internal Azure Storage transaction costs are billed to your Azure subscription. For more information about the Azure Storage artifacts used by Durable Functions, see the [Task hubs](durable-functions-task-hubs.md) topic.
+Durable Functions uses Azure Storage by default to persist state, send and receive messages, and manage partitions via blob leases. The Azure storage account used by Durable Functions is owned by you and any internal Azure Storage transaction costs are billed to your Azure subscription. For more information about the Azure Storage artifacts used by Durable Functions, see the [Task hubs](durable-functions-task-hubs.md) topic.
 
 There are several factors which contribute to the actual Azure Storage costs that are incurred by your Durable Functions application.
 

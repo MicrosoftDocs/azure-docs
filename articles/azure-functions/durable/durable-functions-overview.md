@@ -320,7 +320,10 @@ To create the durable timer, call `context.CreateTimer` (.NET) or `context.df.cr
 An external client can deliver the event notification to a waiting orchestrator function by using either the [built-in HTTP APIs](durable-functions-http-api.md#raise-event) or by using the [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API from another function:
 
 ```csharp
-public static async Task Run(string instanceId, DurableOrchestrationClient client)
+[FunctionName("RaiseEventToOrchestration")]
+public static async Task Run(
+    [HttpTrigger] string instanceId,
+    [OrchestrationClient] DurableOrchestrationClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
@@ -444,7 +447,7 @@ For a more in-depth discussion of Durable Functions and the underlying technolog
 
 > [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204]
 
-Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. To learn more about Durable Functions, see [Durable Functions patterns and technical concepts](durable-functions-concepts.md). For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
+Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
 ## Next steps
 
