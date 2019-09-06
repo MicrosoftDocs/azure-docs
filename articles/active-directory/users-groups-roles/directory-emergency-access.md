@@ -64,10 +64,71 @@ Organizations need to ensure that the credentials for emergency access accounts 
 
 If using passwords, make sure the accounts have strong passwords that do not expire the password. Ideally, the passwords should be at least 16 characters long and randomly generated.
 
+## Monitor sign-in and audit log alerts
 
-## Monitor sign-in and audit logs
+Organizations need to monitor activity from these accounts and trigger notifications to other Administrators. When you monitor the activity on break glass accounts, you can verify these accounts are only used for testing or actual emergencies. Azure Log Analytics can monitor the sign-in logs and trigger email and SMS alerts to your admins whenever break glass accounts sign-in.
 
-Monitor the [Azure AD sign-in and audit logs](../reports-monitoring/concept-sign-ins.md) for any sign-ins and audit activity from the emergency access accounts. Normally, these accounts should not be signing in and should not be making changes, so use of them is likely to be anomalous and require security investigation.
+### Prerequisites
+
+1. [Send Azure AD sign-in logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) to Azure Monitor.
+
+### Obtain Object IDs of the break glass accounts
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the User administrator role.
+1. Select **Azure Active Directory** > **Users**.
+1. Search for the break glass account and select the user’s name.
+1. Copy and save the Object ID attribute so that you can use it later.
+1. Repeat previous steps for second break glass account.
+
+### Create an alert rule
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the XXXX role.
+1. Select **All services**", enter "log analytics" and select **Log Analytics workspaces**.
+1. Select a workspace.
+1. In your workspace, select **Alerts** > **New alert rule**.
+    1. Under **Resource**, verify that the subscription is the one with which you want to associate the alert rule.
+    1. Under **Condition**, select **Add**.
+    1. Select **Custom log search** under **Signal name**.
+    1. Under **Search query**, enter the following query, inserting the object IDs of the two break glass accounts.
+        > [!NOTE]
+        > For each additional break glass account you want to include, add another "or UserId == "ObjectGuid"" to the query.
+
+        ![Add the object IDs of the break glass accounts to an alert rule](./media/directory-emergency-access/query-image1.png)
+
+    1. Under **Alert logic**, enter the following:
+
+        - Based on: Number of results
+        - Operator: Greater than
+        - Threshold value: 0
+
+    1. Under **Evaluated based on**, select the **Period (in minutes)** for how long you want the query to run, and the **Frequency (in minutes)** for how often you want the query to run. The frequency should be less than or equal to the period.
+
+        ![alert logic](./media/directory-emergency-access/alert-image2.png)
+
+    1. Select **Done**. You may now view the estimated monthly cost of this alert.
+1. Select an action group of users to be notified by the alert. If you want to create one, see [Create an action group](#create-an-action-group).
+1. To customize the email notification sent to the members of the action group, select actions under **Customize Actions**.
+1. Under **Alert Details**, specify the alert rule name and add an optional description.
+1. Set the **Severity level** of the event. We recommend that you set it to **Critical(Sev 0)**.
+1. Under **Enable rule upon creation**, leave it set as **yes**.
+1. To turn off alerts for a while, select the **Suppress Alerts** check box and enter the wait duration before alerting again, and then select **Save**.
+1. Click **Create alert rule**.
+
+### Create an action group
+
+1. Select **create an action group**.
+
+    ![create an action group for notification actions](./media/directory-emergency-access/action-group-image3.png)
+
+1. Enter the action group name and a short name.
+1. Verify the subscription and resource group.
+1. Under action type, select **Email/SMS/Push/Voice**.
+1. Enter an action name such as **Notify global admin**.
+1. Select the **Action Type** as **Email/SMS/Push/Voice**.
+1. Select the notification methods you want to configure and enter the required contact information. For example, you could email to a distribution list of Global Admins, Security Admins, and Privileged Role Admins.
+1. Select **Ok**.
+1. Add any additional Actions you want to trigger.
+1. Select **OK**.
 
 ## Validate accounts at regular intervals
 
