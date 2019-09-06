@@ -108,7 +108,11 @@ Site Recovery IP address ranges are as follows:
    China North 2 | 40.73.35.193 | 40.73.33.230
    China East | 42.159.205.45 | 42.159.132.40
    China East 2 | 40.73.118.52| 40.73.100.125
-  
+   Germany North| 51.116.208.58| 51.116.58.128
+   Germany West Central | 51.116.156.176 | 51.116.154.192
+   Switzerland West | 51.107.231.223| 51.107.154.128
+   Switzerland North | 51.107.68.31| 51.107.58.128
+
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.

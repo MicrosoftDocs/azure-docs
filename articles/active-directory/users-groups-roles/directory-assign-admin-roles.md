@@ -82,7 +82,7 @@ Users with this role have all permissions in the Azure Information Protection se
 
 ### [B2C User Flow Administrator](#b2c-user-flow-administrator-permissions)
 
-Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
+Users with this role can create and manage B2C User Flows (also called "built-in" policies) in the Azure portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (also known as Custom) policies is also outside the scope of this role.
 
 ### [B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator-permissions)
 
@@ -188,10 +188,10 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 
 ### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
 
-This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service id, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
+This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
 
 * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (aka built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
+* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
@@ -228,7 +228,7 @@ Users with this role can change passwords, invalidate refresh tokens, manage ser
 > [!NOTE]
 > Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 >
-> This role was previously called "Password Administrator" in [Azure portal](https://portal.azure.com/). We have changed its name to "Helpdesk Administrator" to match its name in Azure AD PowerShell, Azure AD Graph API and Microsoft Graph API.
+> This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). We have changed its name to "Helpdesk Administrator" to match its name in Azure AD PowerShell, Azure AD Graph API and Microsoft Graph API.
 
 ### [Intune Administrator](#intune-service-administrator-permissions)
 
@@ -349,14 +349,14 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 
 ### [Service Support Administrator](#service-support-administrator-permissions)
 
-Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Service Support Administrator." It is "Service Administrator" in the [Azure portal](https://portal.azure.com), the [Microsoft 365 admin center](https://admin.microsoft.com), and the Intune portal.
 
 ### [SharePoint Administrator](#sharepoint-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).

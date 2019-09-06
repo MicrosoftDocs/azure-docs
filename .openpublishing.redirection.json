@@ -4481,6 +4481,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
+      "redirect_url": "/azure/app-service/containers/quickstart-docker",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
       "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
       "redirect_document_id": false
@@ -36520,19 +36525,29 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot0",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
       "redirect_document_id": true
-    },
+	},
+	{
+		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot0.md",
+		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+		"redirect_document_id": false
+	  },
+	  {
+		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot2.md",
+		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-storage.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-storage",
@@ -41664,6 +41679,11 @@
 	    {
       "source_path": "articles/azure-monitor/app/sample-mscrm.md",
       "redirect_url": "/azure/azure-monitor/app/javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
+      "redirect_url": "/azure/sql-database/sql-database-instance-pools",
       "redirect_document_id": false
     }
   ]
