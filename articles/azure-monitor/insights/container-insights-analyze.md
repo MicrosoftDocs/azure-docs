@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
 ---
 
@@ -113,18 +113,18 @@ Azure Monitor for containers also supports Azure Monitor [metrics explorer](../p
 
 In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
-|Namespace | Metric |
-|----------|--------|
+|Namespace | Metric | Description | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Aggregated measurement of CPU utilization across the cluster. It is a CPU core split into 1000 units (milli = 1000). Used to determine the usage of cores in a container where many applications might be using one core.| 
+| | cpuUsagePercentage | Aggregated average CPU utilization measured in percentage across the cluster.|
+| | memoryRssBytes | Container RSS memory used in bytes.| 
+| | memoryRssPercentage | Container RSS memory used in percent.|
+| | memoryWorkingSetBytes | Container working set memory used.| 
+| | memoryWorkingSetPercentage | Container working set memory used in percent. | 
+| | nodesCount | A node count from Kubernetes.|
 | insights.container/pods | |
-| | PodCount |
+| | PodCount | A pod count from Kubernetes.|
 
 You can [split](../platform/metrics-charts.md#apply-splitting-to-a-chart) a metric to view it by dimension and visualize how different segments of it compare to each other. For a node, you can segment the chart by the *host* dimension. From a pod, you can segment it by the following dimensions:
 
