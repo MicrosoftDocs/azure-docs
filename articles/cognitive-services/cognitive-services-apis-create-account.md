@@ -86,13 +86,13 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
 ## Get the keys for your resource
 
-After your resource is successfully deployed, click on **Go to resource** under **Next Steps**.
+1. After your resource is successfully deployed, click on **Go to resource** under **Next Steps**.
 
-![Search for Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
+    ![Search for Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-From the quickstart pane that opens, you can access your key and endpoint.
+2. From the quickstart pane that opens, you can access your key and endpoint.
 
-![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
