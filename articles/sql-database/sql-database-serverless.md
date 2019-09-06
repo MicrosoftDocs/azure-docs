@@ -110,6 +110,7 @@ The following features do not support autopausing.  That is, if any of the follo
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
 - The sync database used in SQL data sync.  Unlike sync databases, hub and member databases support autopausing.
+- The job database used in elastic jobs.
 
 Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
 
