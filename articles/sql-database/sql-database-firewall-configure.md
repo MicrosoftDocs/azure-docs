@@ -52,9 +52,6 @@ Connection attempts from the internet and Azure must pass through the firewall b
 
 We recommend that you use database-level IP firewall rules whenever possible. This practice enhances security and makes your database more portable. Use server-level IP firewall rules for administrators. Also use them when you have many databases that have the same access requirements, and you don't want to configure each database individually.
 
-> [!IMPORTANT]
-> SQL Database supports a maximum of 128 IP firewall rules.
-
 > [!NOTE]
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
 
