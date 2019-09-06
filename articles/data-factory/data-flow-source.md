@@ -10,8 +10,6 @@ ms.date: 09/06/2019
 
 # Source transformation for Mapping Data Flow 
 
-## Overview
-
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
