@@ -203,5 +203,5 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## See also
 
-[List Blobs](/rest/api/storageservices/list-blobs)
-[Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+- [List Blobs](/rest/api/storageservices/list-blobs)
+- [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
