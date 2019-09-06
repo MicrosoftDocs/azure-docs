@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Install and run Computer Vision containers
 
-There are two Docker containers available for Computer Vision. The **Recognize Text** and **Read** containers. The Recognize Text container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container however, also detects *handwritten and cursive text*, *small text*, *artistic font styles*, *oversized or missing capital letters at the beginning of word*, *subscript, superscript and even strikethrough* in blurry images. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
+There are two Docker containers available for Computer Vision. The **Recognize Text** and **Read** containers. The Recognize Text container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container however, also detects *handwritten text* in images and provides PDF/TIFF/multi-page support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
 
 > [!IMPORTANT]
 > The Recognize Text container is being deprecated in favor of the Read container. The Read container is a superset of its predecessor the Recognize Text container, and consumers should migrate to using the Read container. Both containers work only with English.
