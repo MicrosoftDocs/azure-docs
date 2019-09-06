@@ -1,11 +1,11 @@
 ---
 
 title: Manage emergency access administrator accounts - Azure Active Directory | Microsoft Docs
-description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) tenant. 
+description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
 ms.author: curtand
-ms.date: 03/19/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 # Manage emergency access accounts in Azure AD
 
-It is important that you prevent being inadvertently locked out of your Azure Active Directory (Azure AD) tenant because you can't sign in or activate an existing individual user's account as an administrator. You can mitigate the impact of inadvertent lack of administrative access by creating two or more *emergency access accounts* in your tenant.
+It is important that you prevent being accidentally locked out of your Azure Active Directory (Azure AD) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
 
-Emergency access accounts are highly privileged, and they are not assigned to specific individuals. Emergency access accounts are limited to emergency or 'break glass' scenarios where normal administrative accounts cannot be used. Organizations must maintain a goal of restricting the emergency account's usage to only the times when it is absolutely necessary.
+Emergency access accounts are highly privileged, and they are not assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used. We recommend that you maintain a goal of restricting emergency account use to only the times when it is absolutely necessary.
 
 This article provides guidelines for managing emergency access accounts in Azure AD.
 
-## When would you use an emergency access account?
+## Why use an emergency access account
 
 An organization might need to use an emergency access account in the following situations:
 
