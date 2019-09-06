@@ -12,7 +12,7 @@
 
 ## Error ConditionHeadersNotSupported from a Web Application using Azure Files from Browser
 
-When accessing content hosted in Azure Files through an application that makes use of conditional headers, such as a web browser, access fails, displaying a ConditionHeadersNotSupported error.
+The ConditionHeadersNotSupported error occurs when accessing content hosted in Azure Files through an application that makes use of conditional headers, such as a web browser, access fails. The error states that condition headers are not supported.
 
 ![Azure Files conditional headers error](media/storage-files-condition-headers/conditionalerror.png)
 
