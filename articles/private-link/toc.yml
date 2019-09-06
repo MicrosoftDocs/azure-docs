@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Private Link?
-    href: privatelink-overview.md
+    href: private-link-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -20,11 +20,11 @@
 - name: How to
   items:
   - name: Create your own Private Link service- Azure portal
-    href: create-privatelink-service-portal.md
+    href: create-private-link-service-portal.md
   - name: Create your own Private Link service - Azure CLI
-    href: create-privatelink-service-cli.md
+    href: create-private-link-service-cli.md
   - name: Create your own Private Link service - Azure PowerShell
-    href: create-privatelink-service-powershell.md
+    href: create-private-link-service-powershell.md
 
 - name: Reference
   items:

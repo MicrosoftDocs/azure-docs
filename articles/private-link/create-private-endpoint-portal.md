@@ -11,7 +11,9 @@ ms.author: kumud, malop
 
 ---
 # Create Azure Private Endpoint using Azure Portal
-A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. In this Quickstart, you will learn how to create a VM on a virtual network, an Storage account with a private endpoint using the Azure portal. Then, you can access the VM to and securely access the private link resource. 
+A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
+
+In this Quickstart, you will learn how to create a VM on a virtual network, an Storage account with a private endpoint using the Azure portal. Then, you can access the VM to and securely access the private link resource. 
 
 
 ## Sign in to Azure
