@@ -32,7 +32,7 @@ An organization might need to use an emergency access account in the following s
 - The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 - Unforeseen circumstances such as a natural disaster emergency, during which a mobile phone or other networks might be unavailable. 
 
-## Create two cloud-based emergency access accounts
+## Create emergency access accounts
 
 Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
 
@@ -42,7 +42,6 @@ When configuring these accounts, the following requirements must be met:
 - The authentication mechanism used for an emergency access account should be distinct from that used by your other administrative accounts, including other emergency access accounts.  For example, if your normal administrator sign-in is via on-premises MFA, then Azure MFA would be a different mechanism.  However if Azure MFA is your primary part of authentication for your administrative accounts, then consider a different approach for these, such as using Conditional Access with a third-party MFA provider.
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.  
 - You should make the Global Administrator role assignment permanent for your emergency access accounts. 
-
 
 ### Exclude at least one account from phone-based multi-factor authentication
 
@@ -54,19 +53,19 @@ However, at least one of your emergency access accounts should not have the same
 
 During an emergency, you do not want a policy to potentially block your access to fix an issue. At least one emergency access account should be excluded from all Conditional Access policies. If you have enabled a [baseline policy](../conditional-access/baseline-protection.md), you should exclude your emergency access accounts.
 
-## Additional guidance for hybrid customers
+## Federation guidance
 
 An additional option for organizations that use AD Domain Services and ADFS or similar identity provider to federate to Azure AD, is to configure an emergency access account whose MFA claim could be supplied by that identity provider.  For example, the emergency access account could be backed by a certificate and key pair such as one stored on a smartcard.  When that user is authenticated to AD, ADFS can supply a claim to Azure AD indicating that the user has met MFA requirements.  Even with this approach, organizations must still have cloud-based emergency access accounts in case federation cannot be established. 
 
-## Store devices and credentials in a safe location
+## Store account credentials safely
 
 Organizations need to ensure that the credentials for emergency access accounts are kept secure and known only to individuals who are authorized to use them. Some customers use a smartcard and others use passwords. A password for an emergency access account is usually separated into two or three parts, written on separate pieces of paper, and stored in secure, fireproof safes that are in secure, separate locations.
 
 If using passwords, make sure the accounts have strong passwords that do not expire the password. Ideally, the passwords should be at least 16 characters long and randomly generated.
 
-## Monitor sign-in and audit log alerts
+## Monitor sign-in and audit logs
 
-Organizations need to monitor activity from these accounts and trigger notifications to other Administrators. When you monitor the activity on break glass accounts, you can verify these accounts are only used for testing or actual emergencies. Azure Log Analytics can monitor the sign-in logs and trigger email and SMS alerts to your admins whenever break glass accounts sign-in.
+Organizations should monitor sign-in and audit log activity from the emergency accounts and trigger notifications to other administrators. When you monitor the activity on break glass accounts, you can verify these accounts are only used for testing or actual emergencies. You can use Azure Log Analytics to monitor the sign-in logs and trigger email and SMS alerts to your admins whenever break glass accounts sign in.
 
 ### Prerequisites
 
@@ -129,7 +128,7 @@ Organizations need to monitor activity from these accounts and trigger notificat
 1. Add any additional actions you want to trigger.
 1. Select **OK**.
 
-## Validate accounts at regular intervals
+## Validate accounts regularly
 
 When you train staff members to use emergency access accounts and validate the emergency access accounts, at minimum do the following steps at regular intervals:
 
