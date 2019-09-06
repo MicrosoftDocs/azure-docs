@@ -51,7 +51,7 @@ landingContent:
           - text: Route custom events to a web endpoint
             url: custom-event-quickstart-portal.md
           - text: Send events from a private container registry
-            url: ../container-registry/container-registry-event-grid-quickstart.md
+            url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
       - linkListType: tutorial
         links:
           - text: Email when VM changes
@@ -63,7 +63,7 @@ landingContent:
           - text: Email when IoT Hub device is added
             url: publish-iot-hub-events-to-logic-apps.md
           - text: Respond to Service Bus events
-            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md
+            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
           - text: Stream data from Event Hubs
             url: event-grid-event-hubs-integration.md
           - text: Route Media Services events
