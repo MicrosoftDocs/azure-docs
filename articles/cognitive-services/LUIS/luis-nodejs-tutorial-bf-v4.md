@@ -96,7 +96,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
     [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**.
+1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**. This provides the LUIS settings. 
 
 1. When the source code is zipped, a message will provide a link to download the code. Select the link. 
 
@@ -129,6 +129,13 @@ In order to develop the web app bot code, download the code and use on your loca
 
     ````javascript
     class MainDialog extends ComponentDialog {
+
+        constructor(luisRecognizer, bookingDialog) {
+            ...
+            this.luisRecognizer = luisRecognizer;
+            ...
+        }
+
 
         ...
 
@@ -180,22 +187,6 @@ In order to develop the web app bot code, download the code and use on your loca
 
     }
     ````
-
-
-## Install dependencies and start the bot code in Visual Studio
-
-1. In VSCode, from the integrated terminal, install dependencies with the command `npm install`.
-1. Also from the integrated terminal, start the bot with the command `npm start`. This begins a web app for your bot with an HTTP endpoint. The console provides the URL and port number to access the running website. You need the port number in the next section of this tutorial.
-
-    ```console
-    > core-bot@1.0.0 start C:\Users\diberry\repos\bots\2019-bot-nodejs-basic
-    > node ./index.js
-    
-    
-    restify listening to http://[::]:3978
-    
-    Get Bot Framework Emulator: https://aka.ms/botframework-emulator
-    ```
 
 ## Create an environment file and add LUIS values
 
