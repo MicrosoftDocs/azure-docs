@@ -333,7 +333,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or no-agent mode, and it can't be downgraded from lightweight mode to no-agent mode. 
 
-To change the manageability mode from full manageability, remove the SQL Server IaaS extension. Then, drop the Micorsoft.SqlVirtualMachine resource and re-register the SQL Server VM with the SQL VM resource provider.
+To change the manageability mode from full manageability, remove the SQL Server IaaS extension. Then, drop the Microsoft.SqlVirtualMachine resource and re-register the SQL Server VM with the SQL VM resource provider.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 
@@ -341,7 +341,7 @@ No. Registering with the SQL VM resource provider is not available in the Azure 
 
 **Can I register a VM with the SQL VM resource provider before SQL Server is installed?**
 
-No. A VM should have at least one SQL Server instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Micosoft.SqlVirtualMachine resource will be in a failed state.
+No. A VM should have at least one SQL Server instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
 
 **Can I register a VM with the SQL VM resource provider if there are multiple SQL Server instances?**
 
