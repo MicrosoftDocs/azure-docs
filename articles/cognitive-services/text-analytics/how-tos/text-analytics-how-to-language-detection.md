@@ -64,7 +64,7 @@ For more information on request definition, see [Call the Text Analytics API](te
 
 + Create a POST request. To review the API documentation for this request, see the [Language Detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-+ Set the HTTP endpoint for language detection. Use either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/languages` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`.
++ Set the HTTP endpoint for language detection. Use either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v2.1/languages` in the URL. For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`.
 
 + Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
