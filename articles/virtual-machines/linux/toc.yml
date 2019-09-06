@@ -72,8 +72,9 @@
     - name: Network performance
       href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM types and sizes
-    href: sizes.md
     items:
+    - name: Size families
+      href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -101,6 +102,16 @@
         href: n-series-driver-setup.md
     - name: High performance compute
       href: sizes-hpc.md
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: prepay-reserved-vm-instances.md
+      - name: What are Azure reservations?
+        href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+    - name: Low-priority VMs
+      href: low-priority-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
@@ -262,16 +273,6 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
-  - name: Manage costs
-    items:
-    - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md
-    - name: Prepay for Azure software plans
-      href: prepay-suse-software-charges.md
-    - name: What are Azure reservations?
-      href: ../../billing/billing-save-compute-costs-reservations.md
-    - name: VM instance size flexibility
-      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Shared image galleries 

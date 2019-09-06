@@ -5,30 +5,39 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/03/2019
+ ms.date: 09/06/2019
  ms.author: cynthn
  ms.custom: include file
 ---
 
 
-Using spot VMs allow you to take advantage of unused capacity, at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict spot VMs. Therefore, spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using low-priority VMs allows you to take advantage of unused capacity, at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available unused capacity can vary based on size, region, time of day, and more. When deploying spot VMs on scale sets, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A spot scale set is deployed in a single fault domain and offers no high availability guarantees.
+The amount of available unused capacity can vary based on size, region, time of day, and more. When deploying low-priority VMs on scale sets, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A low-priority scale set is deployed in a single fault domain and offers no high availability guarantees.
 
 ## Eviction Policy
 
-When deploying spot VMs, Azure will allocate the VMs if there is capacity available, but there are no SLA guarantees. At any point in time when Azure needs the capacity back, we will evict spot VMs with 30 seconds notice. 
+When deploying low-priority VMs, Azure will allocate the VMs if there is capacity available, but there are no SLA guarantees. At any point in time when Azure needs the capacity back, we will evict low-priority VMs with 30 seconds notice. 
 
-For the preview, VMs will be evicted based on capacity. When creating spot virtual machines, the eviction policy is set to *Deallocate*. The *Deallocate* policy moves your evicted VMs to the stopped-deallocated state, allowing you to redeploy evicted instances. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your vCPU quota and you will be charged for your underlying disks. 
+For the preview, VMs will be evicted based on capacity and the max price you set. When creating low-priority virtual machines, the eviction policy is set to *Deallocate*. The *Deallocate* policy moves your evicted VMs to the stopped-deallocated state, allowing you to redeploy evicted VMs. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your vCPU quota and you will be charged for your underlying disks. 
 
-You will be notified 30 seconds before the eviction policy deallocated the VM.
+| Option | Outcome |
+| Max price is set to >= the current price. | VM is deployed if capacity and quota are available. |
+| Max price is set to < the current price. | The VM is not deployed. You will get an error message that the max price needs to be >= current price. |
+| Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. 
+| Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
+| Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
+| After eviction the price for the VM goes back ot being < the max price. | The VM will not be automatically re-started.|
+| If the max price is set to `-1` | The VM will not be evicted for reasons. The max price will be the current price, up to the price for  on-demand VMs. You will never charged above the on-demand price.| 
+
+
 
 ## Pricing
 
-Pricing for spot VMs is variable based on region and SKU. For more information, see [spot VM pricing](). You set a max price, in USD, using up to 5 decimal places. For example, the value `0.00432`would be a max price of $0.00432 USD per hour.
+Pricing for low-priority VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/). 
 
-To find the variable pricing for a VM size, within a specific region, use.....
 
+You can set a max price, in USD, using up to 5 decimal places. For example, the value `0.00432`would be a max price of $0.00432 USD per hour. You can also set the max price to be `-1`, which means that VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
 
 ## Use the Azure CLI
 

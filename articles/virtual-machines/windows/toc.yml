@@ -65,8 +65,10 @@
     - name: Network performance
       href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: VM types and sizes
-    href: sizes.md
+    href: 
     items:
+    - name: Size families
+      href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -99,6 +101,16 @@
     - name: High performance compute
       displayName: H-series
       href: sizes-hpc.md   
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: prepay-reserved-vm-instances.md
+      - name: What are Azure reservations?
+        href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+    - name: Low-priority VMs
+      href: low-priority-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md  
       displayName: D-series Ds-series A-series Basic      
@@ -255,14 +267,6 @@
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
-  - name: Manage costs
-    items:
-    - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
-      href: ../../billing/billing-save-compute-costs-reservations.md
-    - name: VM instance size flexibility
-      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Shared images 

@@ -1,6 +1,6 @@
 ---
-title: Use spot VMs in Azure | Microsoft Docs
-description: Learn how to use spot VMs to save on costs
+title: Use low-priority VMs in Azure | Microsoft Docs
+description: Learn how to use low-priority VMs to save on costs
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -13,9 +13,9 @@ ms.author: cynthn
 ---
 
 
-# Preview: Use spot VMs in Azure
+# Preview: Use low-priority VMs in Azure
 
-[!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
+[!INCLUDE [common-low-priority-vms](../../../includes/virtual-machines-common-low-priority-vms.md)]  
 
 
 
