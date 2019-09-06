@@ -32,63 +32,49 @@ productDirectory:
         - url: https://docs.microsoft.com/azure/blockchain/workbench
           text: See more >
 conceptualContent:
-  title: Get started with Azure Blockchain Service
+  title: Get started
   items:
-    - title: Deploy
+    - title: Azure Blockchain Service
       links:
+        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+          itemType: video
+          text: Watch how to deploy and configure your network
         - url: ./service/create-member.md
           itemType: quickstart
           text: Deploy an Azure Blockchain Service blockchain member
-        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
-          itemType: video
-          text: Deploy and configure your network
-    - title: Develop
-      links:
-        - url: ./service/connect-metamask.md
-          itemType: quickstart
-          text: Use MetaMask to connect and deploy a smart contract
-        - url: ./service/send-transaction.md
-          itemType: tutorial
-          text: Use smart contracts on Azure Blockchain Service
         - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
           itemType: video
-          text: Write and test smart contracts with VS Code
-    - title: Manage
-      links:
-        - url: ./service/manage-consortium-powershell.md
-          itemType: how-to-guide
-          text: Manage consortium members
-        - url: ./service/configure-transaction-nodes.md
-          itemType: how-to-guide
-          text: Configure transaction nodes
-conceptualContent:
-  title: Get started with Azure Blockchain Workbench
-  items:
-    - title: Deploy
+          text: Watch how to write a smart contract with VS Code
+        - url: ./service/send-transaction.md
+          itemType: tutorial
+          text: Write a smart contract
+    - title: Azure Blockchain Workbench
       links:
         - url: ./workbench/deploy.md
           itemType: how-to-guide
           text: Deploy an Azure Blockchain Workbench
-    - title: Build
-      links:
-        - url: ./workbench/create-app.md
-          itemType: tutorial
-          text: Create a Blockchain Workbench application
         - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
           itemType: video
-          text: Build your first Azure Blockchain Workbench application
-    - title: Integrate
-      links:
+          text: Watch how to build your first application
+        - url: ./workbench/create-app.md
+          itemType: tutorial
+          text: Build a Blockchain Workbench application
         - url: ./workbench/integration-patterns.md
           itemType: concept
-          text: Smart contract integration patterns
-        - url: ./workbench/getdb-details.md
+          text: Integrate solutions with Blockchain Workbench
+    - title: Solution templates
+      links:
+        - url: ./templates/ethereum-poa-deployment.md
           itemType: how-to-guide
-          text: Connect to off-chain database
+          text: Deploy a multi-member consortium Proof-of-authority Ethereum network on Azure.
+        - url: ./templates/hyperledger-fabric-consortium-blockchain.md
+          itemType: how-to-guide
+          text: Deploy a Hyperledger Fabric consortium network on Azure.
+
 additionalContent:
   sections:
-    - title: Development tools, solution templates, and samples
-      summary: Blockchain app development tools, Azure Resource Management templates, and code samples.
+    - title: Development tools and samples
+      summary: Blockchain app development tools and code samples.
       items:
         - title: Azure Blockchain Development Kit for Ethereum
           summary: Develop, deploy debug and manage your Azure Blockchain Service solution.
@@ -99,9 +85,4 @@ additionalContent:
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain
-        - title: Ethereum Proof-of-Authority consortium solution template
-          summary: Deploy a multi-member consortium Proof-of-authority Ethereum network on Azure.
-          url: ./templates/ethereum-poa-deployment.md
-        - title: Hyperledger Fabric consortium solution template
-          summary: Deploy a Hyperledger Fabric consortium network on Azure.
-          url: ./templates/hyperledger-fabric-consortium-blockchain.md
+
