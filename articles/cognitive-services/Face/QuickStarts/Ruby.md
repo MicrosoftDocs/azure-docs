@@ -28,10 +28,8 @@ Create a new file, _faceDetection.rb_, and add the following code. This code cal
 ```ruby
 require 'net/http'
 
-# You must use the same location in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from  westus,
-# replace "westcentralus" in the URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect')
+# replace <My Endpoint String> in the URL below with the string from your endpoint.
+uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
 uri.query = URI.encode_www_form({
     # Request parameters
     'returnFaceId' => 'true',
@@ -57,7 +55,9 @@ end
 puts response.body
 ```
 
-You'll need to update the `request['Ocp-Apim-Subscription-Key']` value with your subscription key, and you may need to change the `uri` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). 
+You'll need to update the `request['Ocp-Apim-Subscription-Key']` value with your subscription key and change the `uri` string so that it contains the correct endpoint.
+
+[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
 
 You may also wish to change the `imageUri` field to point to your own input image. You also may wish to change the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
 

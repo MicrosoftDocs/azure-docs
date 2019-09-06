@@ -44,7 +44,7 @@ func main() {
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"
+      "https://<My Endpoint String>.com/face/v1.0/detect"
     const imageUrl =
       "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
 
@@ -103,7 +103,9 @@ func main() {
 }
 ```
 
-You'll need to update the `subscriptionKey` value with your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). 
+You'll need to update the `subscriptionKey` value with your subscription key, and change the `uriBase` string so that it contains the correct endpoint string.
+
+[!INCLUDE [subdomains-note](/includes/cognitive-services-custom-subdomains-note.md)]
 
 You may also wish to change the `imageUrl` field to point to your own input image. You also may wish to chang the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
 
