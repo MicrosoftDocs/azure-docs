@@ -26,11 +26,11 @@ Resource Manager templates provide several benefits. You can:
 
 * Manage your infrastructure through declarative templates rather than scripts.
 
-* Let Resource Manager orchestrate the deployment of interdependent resources so they created in the correct order.
+* Let Resource Manager orchestrate the deployment of interdependent resources so they are created in the correct order.
 
 ## Why templates are your best option
 
-When deploying to Azure, Resource Manager templates provide advantages over other infrastructure as code services. The advantages are:
+Azure Resource Manager templates are the recommended option for automating deployments to Azure. When comparing templates to other infrastructure as code services, consider the following advantages templates have over those service:
 
 * New Azure services and features are immediately available through templates. As soon as a resource provider introduces new resources, you can deploy those resources through templates. With other infrastructure as code services, you need to wait for third parties to implement interfaces for the new resources.
 
