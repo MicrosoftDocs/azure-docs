@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -94,14 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Alibaba Cloud Service (Role-based SSO) section textbox:
 
 	> [!Note]
-	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement
-
-1. Alibaba Cloud Service (Role-based SSO) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
-
-	![image](common/edit-attribute.png)
-
-	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
+	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -110,6 +103,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Alibaba Cloud Service (Role-based SSO)** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
 
 ### Create an Azure AD test user
 
