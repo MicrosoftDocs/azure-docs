@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure HDInsight documentation # < 60 chars
-summary: Azure HDInsight is a managed Apache Hadoop service which lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase and more in the cloud. # < 160 chars
+summary: Azure HDInsight is a managed Apache Hadoop service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more in the cloud. # < 160 chars
 
 metadata:
   title: Azure HDInsight # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure HDInsight is a managed Apache Hadoop cloud service which lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase and more. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure HDInsight is a managed Apache Hadoop cloud service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: hdinsight #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
