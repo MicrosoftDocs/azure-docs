@@ -152,6 +152,7 @@ You can use the **Current Status** section to monitor progress and follow links 
 
 ## Connector Limitations
 
+Visitly does not support hard deletes, everything is soft delete only.  
 
 ## Additional resources
 
