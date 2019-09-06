@@ -57,7 +57,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 Application Gateway supports three rule sets: CRS 3.1, CRS 3.0, and CRS 2.2.9. These rules protect your web applications from malicious activity.
 
-For more information, see [Web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+For more information, see [Web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ### WAF modes
 
