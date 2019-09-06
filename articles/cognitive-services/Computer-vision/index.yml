@@ -157,4 +157,17 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+  - title: Detect adult content
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Adult and racy content detection
+            url: concept-detecting-adult-content.md
+      - linkListType: quickstart
+        links:
+          - text: Using the Python SDK
+            url: quickstarts-sdk/python-sdk.md
+          - text: Using the Java SDK
+            url: quickstarts-sdk/java-sdk.md
+
 
