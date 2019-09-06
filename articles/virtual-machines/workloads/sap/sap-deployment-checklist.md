@@ -67,12 +67,12 @@ During this phase, you plan the migration of your SAP workload onto the Azure pl
 		- If you decide to use a combined HADR configuration by using [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview), familiarize yourself with the Azure regions where Availability Zones are available and with restrictions that can be introduced by increased network latencies between two Availability Zones.  
 3.	An inventory of all SAP interfaces (SAP and non-SAP).
 4.	Design of foundation services. This design should include the following items:
-	- Active Directory and DNS design.
-	- Network topology within Azure and assignment of different SAP systems.
-	- [Role-based access](https://docs.microsoft.com/azure/role-based-access-control/overview) structure for your teams that manage infrastructure and SAP applications in Azure.
-	- Resource group topology.
-	- [Tagging strategy](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing).
-	- Naming conventions for VMs and other infrastructure components and/or logical names.
+	- Active Directory and DNS design
+	- Network topology within Azure and assignment of different SAP systems
+	- [Role-based access](https://docs.microsoft.com/azure/role-based-access-control/overview) structure for your teams that manage infrastructure and SAP applications in Azure
+	- Resource group topology
+	- [Tagging strategy](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
+	- Naming conventions for VMs and other infrastructure components and/or logical names
 5.	Microsoft Premier Support contract. Identify your Microsoft Technical Account Manager (TAM). For SAP support requirements, see [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.	Define the number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) as needed.
 7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See this [SAP guide](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) about data management in SAP ERP systems. Some of the content does apply to NetWeaver and S/4HANA systems in general.
@@ -114,19 +114,19 @@ We recommend that you set up and validate a full HADR solution and security desi
    3. Networking
            1.  Test and evaluate your virtual network infrastructure and the distribution of your SAP applications across or within the different Azure virtual networks.
            1.  Evaluate the hub-and-spoke virtual network architecture approach or the microsegmentation approach within a single Azure virtual network. Base this evaluation on:
-                    1.  Costs of data exchange between [peered Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). For costs check [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
-                    2.  Advantage of fast disconnect of the peering between Azure virtual networks in comparison to change NSG to isolate a subnet within a virtual network for cases where applications or VMs hosted in a subnet of the virtual network became a security risk
-                    3.  Central logging and auditing of network traffic between on-premise, outside world, and the virtual datacenter you built up in Azure
-           2.  Evaluate and test data path between SAP application layer and SAP DBMS layer. 
-                    1.  Any placement of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of an SAP NetWeaver, Hybris, or S/4HANA based SAP systems is not supported at all
-                    2.  Placing SAP application layer and SAP DBMS in different Azure virtual networks that are not peered is not supported
-                    3.  [Azure ASG and NSG rules](https://docs.microsoft.com/azure/virtual-network/security-overview) are supported for defining routes between the SAP application layer and SAP DBMS layer
-           3.  Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used on the SAP application layer and the SAP DBMS layer. Keep in mind that different OS levels are needed to support Accelerated Networking in Azure:
-                    1.  Windows Server 2012 R2 or newer releases
-                    2.  SUSE Linux 12 SP3 or newer releases
-                    3.  RHEL 7.4 or newer releases
-                    4.  Oracle Linux 7.5. Using the RHCKL kernel, the release needs to be 3.10.0-862.13.1.el7. Using the Oracle UEK kernel release 5 is required
-            4.   Test and evaluate the network latency between SAP application layer VM and DBMS VM according to SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) and SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against network latency guidance of SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate and good range. Exceptions apply to traffic between VMs and HANA Large Instance units as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
+                    1.  Costs of data exchange between [peered Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). For information about costs, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+                    2.  Advantages of a fast disconnection of the peering between Azure virtual networks as opposed to changing the network security group to isolate a subnet within a virtual network. This is for cases when applications or VMs hosted in a subnet of the virtual network became a security risk.
+                    3.  Central logging and auditing of network traffic between on-premises, the outside world, and the virtual datacenter you built in Azure.
+           2.  Evaluate and test the data path between the SAP application layer and the SAP DBMS layer.
+                    1.  Placement of [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver, Hybris, or S/4HANA isn't supported.
+                    2.  Placement of the SAP application layer and SAP DBMS in different Azure virtual networks that aren't peered isn't supported.
+                    3.  You can use [Azure security group and network security group rules](https://docs.microsoft.com/azure/virtual-network/security-overview) to define routes between the SAP application layer and the SAP DBMS layer.
+           3.  Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer. Keep in mind that different OS levels are needed to support Accelerated Networking in Azure:
+                    - Windows Server 2012 R2 or later.
+                    - SUSE Linux 12 SP3 or later.
+                    - RHEL 7.4 or later.
+                    - Oracle Linux 7.5. If you're using the RHCKL kernel, release 3.10.0-862.13.1.el7 is required. If you're using the Oracle UEK kernel, release 5 is required.
+            4.   Test and evaluate the network latency between the SAP application layer VMs and DBMS VMs according to SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance).
             5.   Make sure that ILB deployments are set up to use Direct Server Return. This setting will reduce latency in cases where Azure ILBs are used for high availability configurations on the DBMS layer
             6.   If you are using Azure Load Balancer in conjunction with Linux guest operating systems, check that the Linux network parameter **net.ipv4.tcp_timestamps** is set to **0**. Against the recommendations in older versions of SAP note [#2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note meanwhile is updated to reflect the fact that the parameter needs to be set to 0 to work in conjunction with Azure Load Balancers.
             7.   Consider using [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) as described in the article [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md) to get the most optimal network latency.
