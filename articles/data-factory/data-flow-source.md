@@ -16,7 +16,7 @@ ms.date: 09/06/2019
 
 A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
 
-Every data flow requires at least one source transformation, but you can add as many sources as necessary to complete your data transformations. You can join those sources together with a join, lookup or an union transformation.
+Every data flow requires at least one source transformation, but you can add as many sources as necessary to complete your data transformations. You can join those sources together with a join, lookup, or a union transformation.
 
 Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
 
@@ -27,7 +27,7 @@ Mapping Data Flow follows an extract, load, transform (ELT) approach and works w
 * Azure Blob Storage
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Azure SQL Data Warehose
+* Azure SQL Data Warehouse
 * Azure SQL Database
 
 Azure Data Factory has access to over 80 native connectors. To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
@@ -61,7 +61,7 @@ If you're using a file-based dataset such as Azure Blob Storage or Azure Data La
 
 ![Source options](media/data-flow/sourceOPtions1.png "Source options")
 
-**Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is a very effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
+**Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
 
 From your source container, choose a series of files that match a pattern. Only container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
 
@@ -74,15 +74,15 @@ Wildcard examples:
 
 * ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
 * ```/data/sales/20??/**``` Gets all files in the 20th century
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a 2-digit number
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a two-digit number
 
-**Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (i.e. year=2019), then you can assign the top-level of that partition folder tree to a column name in your data flow data stream.
+**Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
 
 ![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
 
-Use the Partition Root Path setting to define what the top-level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
 
 ![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
 
@@ -106,12 +106,12 @@ And "to" as
 
 ```/backup/priorSales```
 
-In this case, all files which were sourced under /data/sales are moved to /backup/priorSales.
+In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
 
 > [!NOTE]
 > File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
 
-**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. Note that all date-times are in UTC. 
+**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
 
 ### Add dynamic content
 
@@ -125,11 +125,11 @@ If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific
 
 **Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. Note that **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
-**Isolation Level**: The default for SQL sources in ADF Mapping Data Flows is read incommitted. You can change the isolation level here to one of these values:
+**Isolation Level**: The default for SQL sources in Mapping Data Flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
 * Read Uncommitted
 * Repeatable Read
@@ -144,7 +144,7 @@ Like schemas in datasets, the projection in a source defines the data columns, t
 
 ![Settings on the Projection tab](media/data-flow/source3.png "Projection")
 
-If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to auto-detect the default data formats. 
+If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats. 
 
 You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
 
@@ -162,7 +162,7 @@ From your source table, select a column to partition on. Also set the number of 
 
 ### Use a query to partition data
 
-You can choose to partition the connections based on a query. Simply enter the contents of a WHERE predicate. For example, enter year > 1980.
+You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
 
 For more information on optimization within Mapping Data Flow, see [Optimize tab](concepts-data-flow-optimize-tab.md).
 
