@@ -16,7 +16,7 @@ ms.date: 09/09/2019
 
 # Tutorial: Create your first classification model with automated machine learning
 
-In this tutorial, you learn how to create your first automated machine learning experiment in Azure Machine Learning studio (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create your first automated machine learning experiment in Azure Machine Learning's new web experience (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-You create a workspace via the Azure portal which is for set and maintenance scenarios. 
+You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -46,9 +46,9 @@ You create a workspace via the Azure portal which is for set and maintenance sce
 
 ## Create and run the experiment
 
-The following experiment setup and run steps are completed in Azure Machine Learning studio, a consolidated web experience that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment set-up and run steps in the new web experience, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/workspaceportal/).
+1. Sign in to the [web experience](https://ml.azure.com/workspaceportal/).
 
 1. Select your subscription and the workspace you created. Then select **Get started**.
 
@@ -96,12 +96,12 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
         Select **Next**.
     
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. 
+
+    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
 
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-        Select **Done**, to complete the file upload and creation of the dataset for your experiment.
-
+        
 1. Select **Classification** as the prediction task.
 
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
