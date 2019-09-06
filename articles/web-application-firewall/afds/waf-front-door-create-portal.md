@@ -1,18 +1,25 @@
 ---
-title: 'Create a Web Application Firewall policy for Azure Front Door using the Azure portal'
+title: Tutorial: Create a Web Application Firewall policy for Azure Front Door using the Azure portal
 titlesuffix: Azure Web Application Firewall
-description: Learn how to create a Web Application Firewall (WAF) policy by using the Azure portal.
+description: In this tutorial, you learn how to create a Web Application Firewall (WAF) policy by using the Azure portal.
 author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: victorh
 ---
 
-# Create a WAF policy for Azure Front Door using the Azure portal
+# Tutorial: Create a WAF policy for Azure Front Door using the Azure portal
 
-This article describes how to create a basic Azure Web Application Firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
+This tutorial show you how to create a basic Azure Web Application Firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a WAF policy
+> * Associate it with frontend host
+> * Configure WAF rules
 
 ## Prerequisites
 
@@ -67,5 +74,6 @@ Azure-managed Default Rule Set is enabled by default. To disable an individual r
 
 ## Next steps
 
-- Learn about [Azure Web Application Firewall](../overview.md).
-- Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).
+> [!div class="nextstepaction"]
+> [Learn about Azure Web Application Firewall](../overview.md)
+> [Learn more about Azure Front Door](../../frontdoor/front-door-overview.md)
