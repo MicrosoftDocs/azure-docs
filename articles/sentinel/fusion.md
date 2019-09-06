@@ -1,6 +1,6 @@
 ---
 title: Advanced multistage attack detection in Sentinel
-description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multi-stage attack detection.
+description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
 services: sentinel
 documentationcenter: na
 author: cabailey
@@ -18,9 +18,9 @@ ms.author: cabailey
 ---
 # Advanced multistage attack detection in Azure Sentinel
 
-Based on fusion technology, advanced multi-stage attack detection in Azure Sentinel uses machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products, into high-fidelity and actionable incidents. Customized for each tenant, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
+Based on fusion technology, advanced multistage attack detection in Azure Sentinel uses machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products, into high-fidelity and actionable incidents. Customized for each tenant, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
 
-The incidents generated will always include two or more alerts, and be assigned high severity. For details about the alerts and the scenarios supported, see the [Scenarios supported for multi-stage attack detection](#scenarios-supported-for-multi-stage-attack-detection) section on this page.
+The incidents generated will always include two or more alerts, and be assigned high severity. For details about the alerts and the scenarios supported, see the [Scenarios supported for multistage attack detection](#scenarios-supported-for-multistage-attack-detection) section on this page.
 
 ## Configuration for advanced multistage attack detection
 
@@ -37,7 +37,7 @@ This technology is enabled by default in Azure Sentinel. To check the status, or
 5. On the **Rule creation wizard** blade, the change of status is automatically selected for you, so select **Next: Review**, and then **Save**. 
 
 
-Rule templates are not applicable for the the advanced multistage attack alert.
+Rule templates are not applicable for the advanced multistage attack alert.
 
 ## Scenarios supported for advanced multistage attack detection
 
@@ -286,7 +286,7 @@ This activity pattern is indicative of a potential ransomware attack.
 
 ## Next steps
 
-Now you've learned more about advanced multi-stage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](quickstart-get-visibility.md).
+Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](quickstart-get-visibility.md).
 
 If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
 
