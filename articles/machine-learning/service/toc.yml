@@ -1,12 +1,12 @@
 - name: Azure Machine Learning service Documentation
-  href: index.yml
+  href: ../index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Machine Learning service?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
-  - name: Architecture & terms 
+  - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
 
@@ -16,7 +16,7 @@
     items:
     - name: Create first ML experiment
       items:
-      - name: 1. Setup workspace & dev environment
+      - name: 1. Set up workspace & dev environment
         href: tutorial-1st-experiment-sdk-setup.md
       - name: 2. Train your first model
         href: tutorial-1st-experiment-sdk-train.md
@@ -29,18 +29,15 @@
         href: tutorial-deploy-models-with-aml.md
     - name: Regression (NYC Taxi data)
       items:
-      - name: 1. Prepare data for modeling
-        displayName: data prep
-        href: tutorial-data-prep.md
-      - name: 2. Auto-train an ML model
+      - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
   - name: Visual interface
     items:
-    - name: Train regression model
+    - name: 1. Train regression model
       displayName: studio
       href: ui-tutorial-automobile-price-train-score.md
-    - name: Deploy regression model
+    - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
   - name: Automated machine learning
@@ -77,9 +74,6 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
-  - name: Deep learning
-    displayName: deep learning vs machine learning, deep learning, vs, versus
-    href: concept-deep-learning-vs-machine-learning.md
   - name: Workspace
     href: concept-workspace.md
   - name: Compute target
@@ -115,13 +109,18 @@
       href: how-to-secure-web-service.md
     - name: Regenerate storage access keys
       href: how-to-change-storage-access-key.md
+  - name: Deep learning
+    displayName: deep learning vs machine learning, deep learning, vs, versus
+    href: concept-deep-learning-vs-machine-learning.md
 - name: How-to guides
   items:
-  - name: Manage workspaces
+  - name: Create & manage workspaces
     items:
-    - name: Use portal for workspaces
+    - name: Use Azure portal
       href: how-to-manage-workspace.md
-    - name: Use a Resource Manager template
+    - name: Use Azure CLI
+      href: how-to-manage-workspace-cli.md
+    - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
   - name: Set up development environment 
@@ -131,7 +130,7 @@
       href: how-to-configure-environment.md
     - name: Manage software environment
       displayName: pip, Conda
-      href: how-to-use-environments.md  
+      href: how-to-use-environments.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
       href: how-to-enable-logging.md
@@ -149,17 +148,6 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
-    - name: 'Prepare with azureml.dataprep'
-      items:
-      - name: Load data
-        displayName: data, etl, data prep, dataprep
-        href: how-to-load-data.md
-      - name: Transform data
-        displayName: data, etl, dataprep, data prep
-        href: how-to-transform-data.md
-      - name: Write data
-        displayName: data, etl, data prep, dataprep
-        href: how-to-write-data.md
   - name: Train models
     items:
     - name: Set up training environments
@@ -211,7 +199,7 @@
       displayName: time series
       href: how-to-auto-train-forecast.md
     - name: Understand charts and metrics
-      href: how-to-understand-automated-ml.md  
+      href: how-to-understand-automated-ml.md
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
@@ -231,7 +219,7 @@
     - name: Deploy to Notebook VMs
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
-      href: how-to-deploy-custom-docker-image.md      
+      href: how-to-deploy-custom-docker-image.md
     - name: Deploy existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
@@ -261,7 +249,7 @@
   - name: Create reusable workflows
     displayName: pipelines
     items:
-    - name: ML pipelines
+    - name: Create ML pipelines in Python
       href: how-to-create-your-first-pipeline.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
@@ -305,12 +293,18 @@
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
+      - name: Feature Hashing
+        href: ../algorithm-module-reference/feature-hashing.md
+      - name: Extract N-Gram Features from Text
+        href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
         href: ../algorithm-module-reference/add-columns.md
       - name: Add Rows
         href: ../algorithm-module-reference/add-rows.md
       - name: Remove Duplicate Rows
         href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Preprocess Text
+        href: ../algorithm-module-reference/preprocess-text.md
       - name: Join Data
         href: ../algorithm-module-reference/join-data.md
       - name: Split Data
@@ -351,6 +345,8 @@
         href: ../algorithm-module-reference/multiclass-neural-network.md
       - name: Multiclass Decision Forest
         href: ../algorithm-module-reference/multiclass-decision-forest.md
+      - name: Multiclass Boosted Decision Tree
+        href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
       - name: Two-Class Averaged Perceptron
         href: ../algorithm-module-reference/two-class-averaged-perceptron.md
       - name: Two-Class Decision Forest

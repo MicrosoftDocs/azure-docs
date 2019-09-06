@@ -84,6 +84,8 @@ We're ready to load data. In psql still, shell out to download the files:
 Next, load the data from the files into the distributed tables:
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy github_events from 'events.csv' WITH CSV
 \copy github_users from 'users.csv' WITH CSV
 ```

@@ -133,7 +133,7 @@ If your System Center Operations Manager management group is connected to a Log 
 * Update Deployment MP
 
 > [!NOTE]
-> If you have an Operations Manager 1807 Management Group with agents configured at the Management Group level to be associated to a workspace, the current workaround to get them to show up is to override **IsAutoRegistrationEnabled** to **True** in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
+> If you have an Operations Manager 1807 or 2019 Management Group with agents configured at the Management Group level to be associated to a workspace, the current workaround to get them to show up is to override **IsAutoRegistrationEnabled** to **True** in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
 
 For more information about how solution management packs are updated, see [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
@@ -373,6 +373,8 @@ For Red Hat Linux Machines, please refer to [The IPs for the RHUI content delive
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
 It's recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and reflects the currently deployed ranges and any upcoming changes to the IP ranges.
+
+Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that do not have internet access.
 
 ## Search logs
 

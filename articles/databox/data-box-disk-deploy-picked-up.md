@@ -7,11 +7,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high 
-ms.date: 08/23/2019
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="chromeless"
+
+## Return Azure Data Box Disk 
+
+::: zone-end
+
 ::: zone target="docs"
 
 # Tutorial: Return Azure Data Box Disk 
@@ -24,7 +31,6 @@ In this tutorial, you will learn how to:
 > * Ship Data Box Disk to Microsoft
 > * Pick up Data Box Disk in different regions
 
-
 ## Prerequisites
 
 Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
@@ -32,23 +38,22 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 ## Ship Data Box Disk back
 
+::: zone-end
+
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
 2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
     - Reuse the packaging from the initial shipment.  
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device.
+The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries in Asia.
 
-## Pick up in US, Canada
+### Pick up in US, Canada
 
 Take the following steps if returning the device in US or Canada.
 
 1. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
@@ -59,44 +64,32 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-
-## Pick up in Europe
+### Pick up in Europe
 
 Take the following steps if returning the device in Europe.
 
 1. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
-
-    ![DHL return shipment](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
-    
+4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.    
 3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
-
-      ![Schedule pickup](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
-
-## Pick up in Asia-Pacific
-
-This region includes instructions for pickup in Japan, Korea, Australia, and Singapore.
 
 ### Pick up in Australia
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
-1. Email `adbops@microsoft.com` to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
-2. The email subject should be - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
+1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
+3. Affix the label on the box. 
+4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-    - Order name
-    - Address
-    - Contact name
+### Pick up in Asia
 
-### Pick up in Japan
+The pickup instructions are different for Japan, Korea, and Singapore.
+
+#### Pick up in Japan
 
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
@@ -123,7 +116,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
-### Pick up in Korea
+#### Pick up in Korea
 
 1. Make sure to include the return consignment note.
 2. To request pickup when consignment note is present:
@@ -137,13 +130,10 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
     4. You receive a verbal confirmation if the request is made via telephone.
 
-### Pick up in Singapore
+#### Pick up in Singapore
 
 1. Print the shipping label and attach onto the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
-
-        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Affix the label on the device. Make sure that the label is visible.
 
 2. To request pickup:
@@ -153,6 +143,8 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
 3. Hand over to the courier. 
 
+
+::: zone target="docs"
 
 ## Next steps
 
@@ -170,24 +162,5 @@ Advance to the next how-to to learn how to verify data upload from Data Box Disk
 ::: zone-end
 
 
-::: zone target="chromeless"
-
-# Return the disk to Azure
-
-1. After the data validation is complete, unplug the disks. Remove the connecting cables.
-2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
-    - Reuse the packaging from the initial shipment.  
-    - We recommend that you pack disks using a well-secured bubbled wrap.
-    - Make sure the fit is snug to reduce any movements within the box.
-
-3. The next steps are determined by where you are returning the device.
-
-    - [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-    - [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
-    - [Schedule a pickup for countries in Australia-Pacific region](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific) such as Australia, Japan, Korea, and Singapore.
-
-After the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
-
-::: zone-end
 
 

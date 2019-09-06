@@ -207,6 +207,8 @@
               href: api-management-configuration-repository-git.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
+            - name: Migrate API Management instances
+              href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Integrate with Service Fabric
@@ -218,7 +220,7 @@
 - name: Reference
   items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/module/az.apimanagement/?view=azps-2.6.0
       - name: REST
         href: /rest/api/apimanagement/
       - name: REST (original)

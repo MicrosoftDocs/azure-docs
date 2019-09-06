@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -39,11 +39,9 @@ User accounts for applications must always be created through a sign-up user flo
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 
-We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
+We currently support several social identity providers including Amazon, Facebook, GitHub (preview), Google, LinkedIn, Microsoft Account (MSA), QQ (preview), Twitter, WeChat (preview), and Weibo (preview). We evaluate adding support for other popular social identity providers based on customer demand.
 
-Azure AD B2C has also added support for [custom policies](active-directory-b2c-overview-custom.md). These custom policies allow a developer to create their own policy with any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML.
-
-Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C also supports [custom policies](active-directory-b2c-overview-custom.md). Custom policies allow you to create your own policy for any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML. Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 
@@ -141,7 +139,7 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Select **View all applications**
 1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
 1. Under **Manage**, select **User settings**.
-1. Under **LinkedIn account connections**, select **No**, then select **Save**.
+1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.

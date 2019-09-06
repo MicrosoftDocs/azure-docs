@@ -9,7 +9,7 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/28/2019
 ms.author: aahi
 ---
 
@@ -92,6 +92,8 @@ import (
     "fmt"
     "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics"
     "github.com/Azure/go-autorest/autorest"
+    "log"
+    "os"    
 )
 ```
 
@@ -109,15 +111,21 @@ func BoolPointer(v bool) *bool {
 }
 ```
 
-In the main function of your project, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+In your application's `main` function, create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```golang
-// This sample assumes you have created an environment variable for your key
-subscriptionKey := os.Getenv("TEXT_ANALYTICS_SUBSCRIPTION_KEY")
-// replace this endpoint with the correct one for your Azure resource. 
-endpoint := "https://eastus.api.cognitive.microsoft.com"
+var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+if "" == os.Getenv(subscriptionKeyVar) {
+    log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
+}
+var subscriptionKey string = os.Getenv(subscriptionKeyVar)
+var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
+if "" == os.Getenv(endpointVar) {
+    log.Fatal("Please set/export the environment variable " + endpointVar + ".")
+}
+var endpoint string = os.Getenv(endpointVar)
 ```
 
 ## Object model 
@@ -170,22 +178,25 @@ func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
 In the same function, call the client's [Sentiment()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Sentiment) function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
 ```golang
-result, _ := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
+result, err := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
+if err != nil { log.Fatal(err) }
+
 batchResult := textanalytics.SentimentBatchResult{}
 jsonString, _ := json.Marshal(result.Value)
 json.Unmarshal(jsonString, &batchResult)
 
 // Printing sentiment results
 for _,document := range *batchResult.Documents {
-    fmt.Printf("Document ID: %s " , *document.ID)
+    fmt.Printf("Document ID: %s\n", *document.ID)
     fmt.Printf("Sentiment Score: %f\n",*document.Score)
 }
 
 // Printing document errors
-fmt.Println("Document Errors")
+fmt.Println("Document Errors:")
 for _,error := range *batchResult.Errors {
     fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
 }
+fmt.Println()
 ```
 
 In the main function of your project, call `SentimentAnalysis()`.
@@ -203,22 +214,23 @@ Create a new function called `LanguageDetection()` that takes the client created
 ```golang
 func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
 
-	ctx := context.Background()
-	inputDocuments := []textanalytics.LanguageInput {
-		textanalytics.LanguageInput {
-			ID:StringPointer("0"),
-			Text:StringPointer("This is a document written in English."),
-		},
-	}
+    ctx := context.Background()
+    inputDocuments := []textanalytics.LanguageInput {
+        textanalytics.LanguageInput {
+            ID:StringPointer("0"),
+            Text:StringPointer("This is a document written in English."),
+        },
+    }
 
-	batchInput := textanalytics.LanguageBatchInput{Documents:&inputDocuments}
+    batchInput := textanalytics.LanguageBatchInput{Documents:&inputDocuments}
 }
 ```
 
 In the same function, call the client's [DetectLanguage()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.DetectLanguage) and get the result. Then iterate through the results, and print each document's ID, and detected language.
 
 ```golang
-result, _ := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
+result, err := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
+if err != nil { log.Fatal(err) }
 
 // Printing language detection results
 for _,document := range *result.Documents {
@@ -231,10 +243,11 @@ for _,document := range *result.Documents {
 }
 
 // Printing document errors
-fmt.Println("Document Errors")
+fmt.Println("Document Errors:")
 for _,error := range *result.Errors {
     fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
 }
+fmt.Println()
 ```
 
 In the main function of your project, call `LanguageDetection()`.
@@ -250,48 +263,50 @@ Document ID: 0 Detected Languages with Score: English 1.000000
 Create a new function called `ExtractEntities()` that takes the client created earlier. Create a list of [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) objects, containing the documents you want to analyze. Each object will contain an `id`, `language`, and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value. 
 
 ```golang
-func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
+func ExtractEntities(textAnalyticsclient textanalytics.BaseClient) {
 
-	ctx := context.Background()
-	inputDocuments := []textanalytics.MultiLanguageInput {
-		textanalytics.MultiLanguageInput {
-			Language: StringPointer("en"),
-			ID:StringPointer("0"),
-			Text:StringPointer("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
-		}
-	}
+    ctx := context.Background()
+    inputDocuments := []textanalytics.MultiLanguageInput {
+        textanalytics.MultiLanguageInput {
+            Language: StringPointer("en"),
+            ID:StringPointer("0"),
+            Text:StringPointer("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
+        },
+    }
 
-	batchInput := textanalytics.MultiLanguageBatchInput{Documents:&inputDocuments}
+    batchInput := textanalytics.MultiLanguageBatchInput{Documents:&inputDocuments}
 }
 ```
 
 In the same function, call the client's [Entities()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Entities) and get the result. Then iterate through the results, and print each document's ID, and extracted entities score.
 
 ```golang
-    result, _ := textAnalyticsclient.Entities(ctx, BoolPointer(false), &batchInput)
+    result, err := textAnalyticsclient.Entities(ctx, BoolPointer(false), &batchInput)
+    if err != nil { log.Fatal(err) }
 
-	// Printing extracted entities results
-	for _,document := range *result.Documents {
-		fmt.Printf("Document ID: %s\n" , *document.ID)
-		fmt.Printf("\tExtracted Entities:\n")
-		for _,entity := range *document.Entities{
-			fmt.Printf("\t\tName: %s\tType: %s",*entity.Name, *entity.Type)
-			if entity.SubType != nil{
-				fmt.Printf("\tSub-Type: %s\n", *entity.SubType)
-			}
-			fmt.Println()
-			for _,match := range *entity.Matches{
-				fmt.Printf("\t\t\tOffset: %v\tLength: %v\tScore: %f\n", *match.Offset, *match.Length, *match.EntityTypeScore)
-			}
-		}
-		fmt.Println()
-	}
+    // Printing extracted entities results
+    for _,document := range *result.Documents {
+        fmt.Printf("Document ID: %s\n" , *document.ID)
+        fmt.Printf("\tExtracted Entities:\n")
+        for _,entity := range *document.Entities{
+            fmt.Printf("\t\tName: %s\tType: %s",*entity.Name, *entity.Type)
+            if entity.SubType != nil{
+                fmt.Printf("\tSub-Type: %s\n", *entity.SubType)
+            }
+            fmt.Println()
+            for _,match := range *entity.Matches{
+                fmt.Printf("\t\t\tOffset: %v\tLength: %v\tScore: %f\n", *match.Offset, *match.Length, *match.EntityTypeScore)
+            }
+        }
+        fmt.Println()
+    }
 
-	// Printing document errors
-	fmt.Println("Document Errors")
-	for _,error := range *result.Errors {
-		fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
-	}
+    // Printing document errors
+    fmt.Println("Document Errors:")
+    for _,error := range *result.Errors {
+        fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
+    }
+    fmt.Println()
 ```
 
 In the main function of your project, call `ExtractEntities()`.
@@ -325,39 +340,41 @@ Create a new function called `ExtractKeyPhrases()` that takes the client created
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 
-	ctx := context.Background()
-	inputDocuments := []textanalytics.MultiLanguageInput {
-		textanalytics.MultiLanguageInput {
-			Language: StringPointer("en"),
-			ID:StringPointer("0"),
-			Text:StringPointer("My cat might need to see a veterinarian."),
-		},
-	}
+    ctx := context.Background()
+    inputDocuments := []textanalytics.MultiLanguageInput {
+        textanalytics.MultiLanguageInput {
+            Language: StringPointer("en"),
+            ID:StringPointer("0"),
+            Text:StringPointer("My cat might need to see a veterinarian."),
+        },
+    }
 
-	batchInput := textanalytics.MultiLanguageBatchInput{Documents:&inputDocuments}
+    batchInput := textanalytics.MultiLanguageBatchInput{Documents:&inputDocuments}
 }
 ```
 
 In the same function, call the client's [KeyPhrases()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.KeyPhrases) and get the result. Then iterate through the results, and print each document's ID, and extracted key phrases.
 
 ```golang
-    result, _ := textAnalyticsclient.KeyPhrases(ctx, BoolPointer(false), &batchInput)
+    result, err := textAnalyticsclient.KeyPhrases(ctx, BoolPointer(false), &batchInput)
+    if err != nil { log.Fatal(err) }
 
-	// Printing extracted key phrases results
-	for _,document := range *result.Documents {
-		fmt.Printf("Document ID: %s\n" , *document.ID)
-		fmt.Printf("\tExtracted Key Phrases:\n")
-		for _,keyPhrase := range *document.KeyPhrases{
-			fmt.Printf("\t\t%s\n",keyPhrase)
-		}
-		fmt.Println()
-	}
+    // Printing extracted key phrases results
+    for _,document := range *result.Documents {
+        fmt.Printf("Document ID: %s\n" , *document.ID)
+        fmt.Printf("\tExtracted Key Phrases:\n")
+        for _,keyPhrase := range *document.KeyPhrases{
+            fmt.Printf("\t\t%s\n",keyPhrase)
+        }
+        fmt.Println()
+    }
 
-	// Printing document errors
-	fmt.Println("Document Errors")
-	for _,error := range *result.Errors {
-		fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
-	}
+    // Printing document errors
+    fmt.Println("Document Errors:")
+    for _,error := range *result.Errors {
+        fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
+    }
+    fmt.Println()
 ```
 
 In the main function of your project, call `ExtractKeyPhrases()`.

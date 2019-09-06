@@ -48,6 +48,11 @@ The key attributes of an alert rule are:
 **Alert Description** – A description for the alert rule configured by the user
 
 **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+Sev 0 = Critical
+Sev 1 = Error
+Sev 2 = Warning
+Sev 3 = Informational
+Sev 4 = Verbose
 
 **Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
 
@@ -90,6 +95,9 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
 Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#manage-your-alert-instances-programmatically).
+
+> [!NOTE]
+   >  Only alerts generated in the last 30 days can be accessed on the UX or through the REST APIs.
 
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 

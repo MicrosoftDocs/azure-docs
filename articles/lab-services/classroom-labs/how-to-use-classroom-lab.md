@@ -53,31 +53,28 @@ This article describes how to register to a classroom lab, view all the labs tha
     3. For **Linux** virtual machines, you can use **SSH** or **RDP** (if it's enabled) to connect to them. For more information, see [Enable remote desktop connection for Linux machines](how-to-enable-remote-desktop-linux.md). 
     1. If you are using a **Mac** to connect to the lab VM, follow instructions in the next section. 
 
-## Connect to a VM's UI using RDP on a Mac
-This section shows how a student can connect to a VM's user interface (UI) from a Mac by using RDP. Here are the quick steps followed by details: 
+## Connect to a VM using RDP on a Mac
+This section shows how a student can connect to a VM from a Mac by using RDP.
 
-1. Install Microsoft Remote Desktop on your Mac.
-2. Connect to a VM UI from your Mac using RDP. 
-
-### Install Microsoft Remote Desktop on a Mac
+### Step 1: Install Microsoft Remote Desktop on a Mac
 1. Open the App Store on your Mac, and search for **Microsoft Remote Desktop**.
 
     ![Microsoft Remote Desktop](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
 1. Install the latest version of Microsoft Remote Desktop. 
 
-### Access the VM's UI from your Mac using RDP
+### Step 2: Access the VM from your Mac using RDP
 1. Open the **RDP** file that's downloaded on your computer with **Microsoft Remote Desktop** installed. It should start connecting to the VM. 
 
-    ![Connect to VM UI](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. Select **Continue** if you receive the following error. 
+    ![Connect to VM](../media/how-to-use-classroom-lab/connect-linux-vm.png)
+1. Select **Continue** if you receive the following warning. 
 
-    ![Certificate Error](../media/how-to-use-classroom-lab/certificate-error.png)
-1. You should see the VM's UI. 
+    ![Certificate warning](../media/how-to-use-classroom-lab/certificate-error.png)
+1. You should see the VM. 
 
     > [!NOTE]
     > The following example is for a CentOS Linux VM. 
 
-    ![VM UI](../media/how-to-use-classroom-lab/vm-ui.png)
+    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
 
 ## Progress bar 
 The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies as per the following scenarios:

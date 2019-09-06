@@ -81,13 +81,16 @@ Create an AKS cluster using [az aks create][]. The following example creates a c
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
 ```
 
 After a few minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
+
+> [!NOTE]
+> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes.
 
 ## Install the Kubernetes CLI
 

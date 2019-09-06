@@ -240,7 +240,7 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
-| Brazil South | Sao Paolo State |
+| Brazil South | Sao Paulo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |

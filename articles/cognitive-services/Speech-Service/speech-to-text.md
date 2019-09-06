@@ -58,13 +58,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Customization
 
-In addition to the Universal model used by the Speech Services, you can create custom acoustic, language, and pronunciation models specific to your experience. Here's a list of customization options:
-
-| Model | Description |
-|-------|-------------|
-| [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or devices are used in a particular environment, like in a car or factory with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
-| [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of industry-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
-| [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
+In addition to the standard baseline model used by the Speech Services, you can customize models to your needs with available data, to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).

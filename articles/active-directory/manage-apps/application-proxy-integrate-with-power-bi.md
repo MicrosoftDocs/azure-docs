@@ -99,28 +99,27 @@ Now you're ready to configure Azure AD Application Proxy.
 
 To finish setting up your application, go to **the Users and groups** section and assign users to access this application.
 
-## Step 3: Grant Power BI Mobile access to Report Services
+## Step 3: Modify the Reply URI's for the application
 
-Before the Power BI mobile app can connect and access Report Services, you must register properly in Azure AD.  
+Before the Power BI mobile app can connect and access Report Services, you must configure the Application Registration that was automatically created for you in step 2. 
 
 1. On the Azure Active Directory **Overview** page, select **App registrations**.
 2. Under the **All applications** tab search for the application you created in step 2.
 3. Select the application, then select **Authentication**.
 4. Add the following Redirect URIs based on which platform you are using.
 
-   When registering the app for Power BI Mobile **iOS**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
+   When configuring the app for Power BI Mobile **iOS**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   When registering the app for Power BI Mobile **Android**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
+   When configuring the app for Power BI Mobile **Android**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
+   - `mspbi-adal://com.microsoft.powerbimobile`
 
    > [!IMPORTANT]
-   > The Redirect URIs must be added for the application to work correctly. If you are configuring this for both iOS and Android you only need to register a **single** application and add the Redirect URIs for both iOS and Android. If you require separate applications for each platform, you will need to include the Redirect URI: `mspbi-adal://com.microsoft.powerbimobile` for both apps.
-
-2. Now that you've registered your native application, you can give it access to other applications in your directory, in this case to access Report Services published through Application Proxy. Follow the steps in [Step 3: Grant access to your proxy application](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application).
+   > The Redirect URIs must be added for the application to work correctly. If you are configuring the app for both Power BI Mobile iOS and Android, add the following Redirect URI of type Public Client (Mobile & Desktop) to the list of Redirect URIs configured for iOS: `urn:ietf:wg:oauth:2.0:oob`.
 
 ## Step 4: Connect from the Power BI Mobile App
 

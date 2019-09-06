@@ -15,3 +15,13 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+- id: cogsvcs-text-analytics-features
+  title: Text Analytics features
+  prompt: Choose a Text Analytics feature offering
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: Key Phrase Extraction
+  - id: text-analytics-language-detection
+    title: Language Detection
+  - id: text-analytics-sentiment-analysis
+    title: Sentiment Analysis

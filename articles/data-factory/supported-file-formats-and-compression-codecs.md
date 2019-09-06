@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -32,7 +32,7 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 ## Text format
 
 >[!NOTE]
->Data Factory introduced new delimited text format datset, see [Delimited text format](format-delimited-text.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Data Factory introduced new delimited text format dataset, see [Delimited text format](format-delimited-text.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to read from a text file or write to a text file, set the `type` property in the `format` section of the dataset to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
 
@@ -410,7 +410,7 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 ## Parquet format
 
 >[!NOTE]
->Data Factory introduced new Parquet format datset, see [Parquet format](format-parquet.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Data Factory introduced new Parquet format dataset, see [Parquet format](format-parquet.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
@@ -517,6 +517,9 @@ For copy running on Self-hosted IR with ORC file serialization/deserialization, 
 | Char | Char(1) |
 
 ## AVRO format
+
+>[!NOTE]
+>Data Factory introduced new Avro format dataset, see [Avri format](format-avro.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 

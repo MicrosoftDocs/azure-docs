@@ -7,10 +7,10 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
+ms.date: 08/26/2019
 ---
 # Azure SQL Database serverless (preview)
 
@@ -130,7 +130,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
-|SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
+|SQL Server Management Studio (SSMS)|Using SSMS versions earlier than 18.1 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 18.1 or later.|
 
 Autoresuming is also triggered during the deployment of some service updates which require the database be online.
 

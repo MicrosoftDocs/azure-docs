@@ -135,6 +135,8 @@ which can also be shortened to:
 
 The following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
+Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+
 ```PowerShell
 # Sets the MFA requirement state
 function Set-MfaState {

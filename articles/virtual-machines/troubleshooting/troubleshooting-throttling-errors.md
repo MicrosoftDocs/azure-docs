@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018

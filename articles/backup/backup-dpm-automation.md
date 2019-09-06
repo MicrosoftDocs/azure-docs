@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/23/2017
+ms.date: 01/23/2017
 ms.author: dacurwin
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell

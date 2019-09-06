@@ -121,6 +121,8 @@
       href: search-howto-dotnet-sdk.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
         href: search-dotnet-sdk-migration-version-9.md
       - name: .NET SDK 5.0

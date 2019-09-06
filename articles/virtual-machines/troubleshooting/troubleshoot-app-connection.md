@@ -13,7 +13,7 @@ ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli

@@ -30,7 +30,7 @@ Application Insights can be used with any web pages - you just add a short piece
 > [!IMPORTANT]
 > You only need to use one of the methods below for adding the Application Insights JavaScript SDK to your application. If you use the NPM based setup, don't use the snippet based setup. The same goes for the reverse scenario when using the snippet based approach, don't also use the NPM based setup. 
 
-### NPM based setup 
+### NPM based setup
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -193,7 +193,7 @@ The minified callstack of your exception telemetry can be unminified in the Azur
 3. Drag and drop the source maps onto the call stack in the Azure portal
 ![](https://i.imgur.com/Efue9nU.gif)
 
-## Application Insights Web Basic
+### Application Insights Web Basic
 
 For a lightweight experience, you can instead install the basic version of Application Insights
 ```

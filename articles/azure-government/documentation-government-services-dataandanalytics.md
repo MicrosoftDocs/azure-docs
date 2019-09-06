@@ -1,6 +1,6 @@
 ---
 title: Azure Government Data + Analytics
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 author: jglixon
@@ -66,7 +66,7 @@ Power BI Embedded does not yet have Portal support in the Azure Government Porta
 
 ## Azure Analysis Services
 
-For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.md).
+For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.yml).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

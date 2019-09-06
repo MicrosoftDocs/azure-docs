@@ -6,7 +6,6 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -40,7 +39,9 @@ The parameters to [StartNewAsync](https://azure.github.io/azure-functions-durabl
 * **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
 * **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
 
-Here is a simple C# example:
+Here are some examples:
+
+### C#
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -589,6 +590,8 @@ To remove all the data associated with an orchestration, you can purge the insta
 
  The method has two overloads. The first one purges history by the ID of the orchestration instance:
 
+### C#
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -600,6 +603,8 @@ public static Task Run(
 ```
 
 The second example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
+
+### C#
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
