@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/05/2019
 ms.author: diberry
 ---
 
