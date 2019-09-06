@@ -15,7 +15,7 @@ ms.author: juliako
 
 # Animated character detection (preview)
 
-Video Indexer supports identification of characters in animated videos, via an orcastration of character detection, grouping and recognition models. The characters identified are available in the “Animated characters” section in the portal and in the JSON file.
+Azure Media Services Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). The identified characters are available in the "Animated characters" section in the [Video Indexer](https://vi.microsoft.com/) portal and in the JSON file.
 
 ```json
 "animatedCharacters": [
