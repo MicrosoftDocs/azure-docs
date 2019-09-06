@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server'
+title: 'Quickstart: RStudio Server to execute R against ML Services - Azure HDInsight'
 description: In the quickstart, you execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server.
 author: hrasheed-msft
 ms.reviewer: jasonh
