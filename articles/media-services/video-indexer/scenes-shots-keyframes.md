@@ -38,7 +38,7 @@ Keyframes are associated with shots in the output JSON.
 
 ## Editorial shot type detection
 
-The shot type associated with an individual shot in the insights JSON represents its editorial type. You may find these shot type characteristics useful when editing videos into clips, trailers, and more. These characteristics may also come in handy when searching for a specific style of keyframe for artistic purposes. The different types are determined based on analysis of the first keyframe of each shot. Shots are identified by the scale, size, and location of the faces appearing in their first keyframe. 
+The shot type associated with an individual shot in the insights JSON represents its editorial type. You may find these shot type characteristics useful when editing videos into clips, trailers, or when searching for a specific style of keyframe for artistic purposes. The different types are determined based on analysis of the first keyframe of each shot. Shots are identified by the scale, size, and location of the faces appearing in their first keyframe. 
 
 The shot size and scale are determined based on the distance between the camera and the faces appearing in the frame. Using these properties, Video Indexer detects the following shot types:
 
