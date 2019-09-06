@@ -61,7 +61,7 @@ landingContent:
             url: event-hubs-dedicated-cluster-create-portal.md
 
   # Card
-  - title: Send and receive events from an event hub
+  - title: Send and receive events
     linkLists:
       - linkListType: quickstart
         links:
