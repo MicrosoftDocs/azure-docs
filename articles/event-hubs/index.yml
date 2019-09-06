@@ -89,7 +89,7 @@ landingContent:
             url: event-hubs-kafka-connect-tutorial.md
           - text: Connect Akka streams to an event hub
             url: event-hubs-kafka-akka-streams-tutorial.md
-            
+
   # Card
   - title: Send and receive events
     linkLists:
@@ -105,8 +105,6 @@ landingContent:
             url: event-hubs-node-get-started-send.md            
           - text: Go
             url: event-hubs-go-get-started-send.md
-          - text: C (send only)
-            url: event-hubs-c-getstarted-send.md                        
           - text: Apache Storm (receive only)
             url: event-hubs-storm-getstarted-receive.md            
           - text: .NET Framework
@@ -123,9 +121,9 @@ landingContent:
         links:
           - text: Use Azure portal to enable capturing of events
             url: event-hubs-capture-enable-through-portal.md
-          - text: Use Resource Manager template to enable capturing of events
+          - text: Use Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-          - text: Enable capturing of events from a Python application
+          - text: Enable capturing from a Python application
             url: event-hubs-capture-python.md
 
   # Card
