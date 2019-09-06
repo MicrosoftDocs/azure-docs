@@ -39,17 +39,17 @@ landingContent:
             url: concept-recognizing-text.md
       - linkListType: quickstart
         links:
-          - text: .NET SDK
+          - text: Using the .NET SDK
             url: quickstarts-sdk/csharp-hand-text-sdk.md
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: REST API (C#)
+          - text: Using the REST API (C#)
             url: Quickstarts/csharp-hand-text.md
-          - text: REST API (Python)
+          - text: Using the REST API (Python)
             url: Quickstarts/python-hand-text.md
-          - text: REST API (Java)
+          - text: Using the REST API (Java)
             url: Quickstarts/java-hand-text.md
-          - text: REST API (JavaScript)
+          - text: Using the REST API (JavaScript)
             url: Quickstarts/javascript-hand-text.md
 
 
@@ -61,11 +61,11 @@ landingContent:
             url: concept-object-detection.md
       - linkListType: quickstart
         links:
-          - text: .NET SDK
+          - text: Using the .NET SDK
             url: quickstarts-sdk/csharp-analyze-sdk.md
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Java SDK
+          - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
 
   # Card 
@@ -77,11 +77,11 @@ landingContent:
             url: concept-tagging-images.md
       - linkListType: quickstart
         links:
-          - text: .NET SDK
+          - text: Using the .NET SDK
             url: quickstarts-sdk/csharp-analyze-sdk.md
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Java SDK
+          - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
 
   - title: Use containers
@@ -109,9 +109,9 @@ landingContent:
             url: concept-detecting-faces.md
       - linkListType: quickstart
         links:
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Java SDK
+          - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
   
   - title: Get image descriptions
@@ -122,9 +122,9 @@ landingContent:
             url: concept-describing-images.md
       - linkListType: quickstart
         links:
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Java SDK
+          - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
       - linkListType: tutorial
         links:
@@ -140,9 +140,9 @@ landingContent:
             url: concept-detecting-domain-content.md
       - linkListType: quickstart
         links:
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Java SDK
+          - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
 
   - title: Categorize images
@@ -153,8 +153,8 @@ landingContent:
             url: concept-categorizing-images.md
       - linkListType: quickstart
         links:
-          - text: Python SDK
+          - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Java SDK
+          - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
 
