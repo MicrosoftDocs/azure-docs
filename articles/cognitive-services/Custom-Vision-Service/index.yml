@@ -44,7 +44,7 @@ landingContent:
           - text: Using the Java SDK
             url: java-tutorial.md
           - text: Using the Node.js SDK
-            url: node.tutorial.md
+            url: node-tutorial.md
           - text: Using the Go SDK
             url: go-tutorial.md
       - linkListType: how-to-guide
@@ -64,7 +64,7 @@ landingContent:
           - text: Using the Java SDK
             url: java-tutorial-od.md
           - text: Using the Node.js SDK
-            url: node.tutorial-object-detection.md
+            url: node-tutorial-object-detection.md
           - text: Using the Go SDK
             url: go-tutorial-object-detection.md
       - linkListType: tutorial
@@ -83,7 +83,7 @@ landingContent:
           - text: Test your model
             url: test-your-model.md
           - text: Improve your model
-            url: getting-started-improve-your-classifier.md
+            url: getting-started-improving-your-classifier.md
 
   - title: Export models
     linkLists:
