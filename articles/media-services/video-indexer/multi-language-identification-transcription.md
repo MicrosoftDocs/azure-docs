@@ -34,11 +34,33 @@ When indexing or [reindexing](https://api-portal.videoindexer.ai/docs/services/o
 
 The model will retrieve all of the languages detected in the video in one list
 
-![Model output](./media/multi-language-identification-transcription/code1.png)
+```json
+"sourceLanguage": null,
+"sourceLanguages": [
+    "ja-JP",
+    "en-US"
+],
+```
 
 Additionally, each instance in the transcription section will include the language in which it was transcribed
 
-![Model output](./media/multi-language-identification-transcription/code1.png)
+```json
+{
+  "id": 136,
+  "text": "I remember well when my youth Minister took me to hear Doctor King I was a teenager.",
+  "confidence": 0.9343,
+  "speakerId": 1,
+  "language": "en-US",
+  "instances": [
+    {
+       "adjustedStart": "0:21:10.42",
+       "adjustedEnd": "0:21:17.48",
+       "start": "0:21:10.42",
+       "end": "0:21:17.48"
+    }
+  ]
+},
+```
 
 ### Portal experience
 

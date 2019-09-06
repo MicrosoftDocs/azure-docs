@@ -47,6 +47,7 @@ Azure Media Services Video Indexer supports detection, grouping, and recognition
 ```
 
 The animation recognition are based on integration with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) custom vision, meaning that in the beginning the characters are detected namelessly, and as you add names and train the model it will recognize the characters and names them respectively.
+
 This functionality is available both through the portal and through the API.
 
 ## Integration with custom vision
