@@ -36,6 +36,30 @@ Selects the frame(s) that best represent the shot. Keyframes are the representat
 
 Keyframes are associated with shots in the output JSON. 
 
+## Editorial shot type detection
+
+The shot type associated with an individual shot in the insights JSON represents its editorial type. You may find these shot type characteristics useful when editing videos into clips, trailers, and more. These characteristics may also come in handy when searching for a specific style of keyframe for artistic purposes. The different types are determined based on analysis of the first keyframe of each shot. Shots are identified by the scale, size, and location of the faces appearing in their first keyframe. 
+
+The shot size and scale are determined based on the distance between the camera and the faces appearing in the frame. Using these properties, Video Indexer detects the following shot types:
+
+* Wide: shows an entire person’s body.
+* Medium: shows a person's upper-body and face.
+* Close up: mainly shows a person’s face.
+* Extreme close-up: shows a person’s face filling the screen. 
+
+Shot types can also be determined by location of the subject characters with respect to the center of the frame. This property defines the following shot types in Video Indexer:
+
+* Left face: a person appears in the left side of the frame.
+* Center face: a person appears in the central region of the frame.
+* Right face: a person appears in the right side of the frame.
+* Outdoor: a person appears in an outdoor setting.
+* Indoor: a person appears in an indoor setting.
+
+Additional characteristics:
+
+* Two shots: shows two persons’ faces of medium size.
+* Multiple faces: more than two persons.
+
 ## Next steps
 
 [Examine the Video Indexer output produced by the API](video-indexer-output-json-v2.md#scenes)
