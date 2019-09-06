@@ -22,7 +22,7 @@ When the reserved capacity expires, SQL Data Warehouse instances continue to run
 
 For pricing information, see the [SQL Data Warehouse reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-You can buy Azure SQL Data Warehouse reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). To buy reserved capacity:
+You can buy Azure SQL Data Warehouse reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](billing-monthly-payments-reservations.md). To buy reserved capacity:
 
 - You must have the owner role for at least one enterprise or Pay-As-You-Go subscription.
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin.

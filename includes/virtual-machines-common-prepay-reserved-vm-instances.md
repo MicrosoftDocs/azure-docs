@@ -75,7 +75,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
 
 ## Buy a Reserved VM Instance
 
-You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](../billing/billing-monthly-payments-reservations.md).
 
 These requirements apply to buying a reserved VM instance:
 
