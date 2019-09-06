@@ -110,7 +110,7 @@ landingContent:
           - text: Create a web app to upload image data
             url: storage-upload-process-images.md
   # Card
-  - title: Grant permission
+  - title: Grant access to data
     linkLists:
       - linkListType: concept
         links:
