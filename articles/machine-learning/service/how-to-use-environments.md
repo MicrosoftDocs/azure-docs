@@ -41,7 +41,9 @@ The following illustrates that the same environment object can be used in both y
 
 ### Types of environments
 
-Environments can broadly be divided into two categories: **user-managed** and **system-managed**.
+Environments can broadly be divided into three categories: **curated**, **user-managed** and **system-managed**.
+
+Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They contain collections of Python packages and settings to help you get started different machine learning frameworks. 
 
 For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. 
 
@@ -52,9 +54,38 @@ System-managed environments are used when you want [Conda](https://conda.io/docs
 * The Azure Machine Learning SDK for Python [installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * An [Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
+
 ## Create an environment
 
 There are multiple ways to create an environment for your experiments.
+
+### Use curated environment
+
+You can select one of the curated environments to start with. 
+* The __AzureML-Minimal__ environment contains a minimal set of packages to enable run tracking and and asset uploading. You can use it as a starting point for your own environment.
+
+* The __AzureML-Tutorial__ environment contains common data science packages, such as Scikit-Learn, Pandas and Matplotlib, and larger set of azureml-sdk packages.
+
+Use __Environment.get__ method to select one of the curated environments:
+
+```python
+from azureml.core import Workspace, Environment
+
+ws = Workspace.from_config()
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+```
+
+You can list the curated environments and their packages using following code:
+```python
+envs = Environment.list(workspace=ws)
+
+for env in envs:
+    print("Name",env)
+    print("packages", envs[env].python.conda_dependencies.serialize_to_string())
+```
+
+> [!WARNING]
+>  Do not start your own environment name with _AzureML_ prefix. It is reserved for curated environments.
 
 ### Instantiate an environment object
 
@@ -263,10 +294,10 @@ myenv = Environment(name="myenv")
 runconfig = ScriptRunConfig(source_directory=".", script="train.py")
 
 # Attach compute target to run config
-runconfig.compute_target = "local"
+runconfig.run_config.target = "local"
 
 # Attach environment to run config
-runconfig.environment = myenv
+runconfig.run_config.environment = myenv
 
 # Submit run 
 run = exp.submit(runconfig)
