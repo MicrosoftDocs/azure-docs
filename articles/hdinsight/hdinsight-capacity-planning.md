@@ -1,6 +1,6 @@
 ---
 title: Cluster capacity planning in Azure HDInsight 
-description: 'How to specify an HDInsight cluster for capacity and performance.'
+description: Identify key questions for capacity and performance planning of an Azure HDInsight cluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
