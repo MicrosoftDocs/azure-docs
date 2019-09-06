@@ -3,7 +3,7 @@
 title: Azure Automation User Documentation
 metadata:
   document_id:
-  title: Azure Automation Documentation - Tutorials, API Reference
+  title: Azure Automation Documentation
   description: Learn how to use Azure automation
   services: automation
   author: bobbytreed
@@ -17,49 +17,97 @@ metadata:
 landingContent:
 
   # Card (optional)
-  - title: About Automation
+  - title: Get started with Azure Automation
     linkLists:
       - linkListType: overview
         links:
           - text: What is Automation?
             url: automation-intro.md
-          - text: Update Management Overview
-            url: automation-update-management.md
-          - text: Change Tracking Overview
-            url: change-tracking.md
-          - text: State Configuration overview
-            url: automation-dsc-overview.md
-
-  # Card (optional)
-  - title: Quickstarts
-    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create an Automation account
+            url: automation-quickstart-create-account.md
       - linkListType: quickstart
         links:
-        - text: Create an Automation account
-          url: automation-quickstart-create-account.md
-        - text: Create a Runbook
-          url: automation-quickstart-create-runbook.md
-        - text: Getting started with Azure Automation State Configuration
-          url: automation-dsc-getting-started.md
+          - text: Create a runbook
+            url: automation-quickstart-create-runbook.md
 
-  # Card
-  - title: Deploy Automation Solutions
+  - title: Manage Updates for VMs
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Update Management overview
+            url: automation-update-management.md
+      - linkListType: get-started
+        links:
+          - text: Manage updates for multiple VMs
+            url: manage-update-multi.md
+      - linkListType: deploy
+        links:
+          - text: Update, Inventory and Track Changes on Azure VMs
+            url: automation-onboard-solutions.md
+
+  - title: Configure your VMs with Desired State Configuration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: State Configuration overview
+            url: automation-dsc-overview.md
+      - linkListType: concept
+        links:
+          - text: PowerShell DSC
+            url: /powershell/dsc/overview/overview
+      - linkListType: quickstart
+        links:
+          - text: Create a DSC Configuration from Group Policy
+            url: /powershell/dsc/quickstarts/gpo-quickstart
+      - linkListType: tutorial
+        links:
+          - text: Configure Servers and manage drift with State Configuration
+            url: tutorial-configure-servers-desired-state.md
+
+  - title: Work with Hybrid Environments
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Hybrid Runbook Worker Overview
+           url: automation-hybrid-runbook-worker.md
       - linkListType: deploy
         links:
           - text: Deploy Windows Hybrid Runbook Worker
             url: automation-windows-hrw-install.md
-          - text: Manage updates for multiple VMs
-            url: manage-update-multi.md
+          - text: Deploy Linux Hybrid Runbook Worker
+            url: automation-linux-hrw-install.md
+          - text: Start runbooks on a Hybrid Runbook Worker
+            url: automation-hrw-run-runbooks.md
+
+  - title: Work with Hybrid Environments
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Hybrid Runbook Worker Overview
+           url: automation-hybrid-runbook-worker.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Windows Hybrid Runbook Worker
+            url: automation-windows-hrw-install.md
+          - text: Deploy Linux Hybrid Runbook Worker
+            url: automation-linux-hrw-install.md
+          - text: Start runbooks on a Hybrid Runbook Worker
+            url: automation-hrw-run-runbooks.md
 
   # Card
-  - title: Onboard VMs
+  - title: Cross Service Automation
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Send an email from a Runbook using SendGrid
+            url: automation-send-email.md
       - linkListType: get-started
         links:
-          - text: Onboard multiple VMs from the portal
-            url: automation-onboard-solutions-from-browse.md
-          - text: Onboard from an Azure VM
-            url: automation-onboard-solutions-from-vm.md
-          - text: Onboard from Automation account
-            url: automation-onboard-solutions-from-automation-account.md
+          - text: Start a runbook from Azure alerts
+            url: automation-create-alert-triggered-runbook.md
+      - linkListType: deploy
+        links:
+          - text: Deploy an ARM template in an Azure Automation PowerShell runbook
+            url: automation-deploy-template-runbook.md
