@@ -176,7 +176,7 @@ To stop protection and delete the backup data:
 
 - If you are using SQL in Azure VMs backup and enabled auto-protection for SQL instances, first disable the auto-protection.
 
-        ```PowerShell
+    ```PowerShell
         Disable-AzRecoveryServicesBackupAutoProtection 
            [-InputItem] <ProtectableItemBase> 
            [-BackupManagementType] <BackupManagementType> 
@@ -189,7 +189,7 @@ To stop protection and delete the backup data:
            [<CommonParameters>] 
     ```
 
-    [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) on how to disable protection for an Azure Backup-protected item 
+  [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) on how to disable protection for an Azure Backup-protected item 
 
 - Stop protection and delete data for all backup-protected items in cloud (ex. laaS VM, Azure File Share etc.):
 
@@ -214,8 +214,8 @@ To stop protection and delete the backup data:
 
     Post which the following prompt would appear:
      
-          *Microsoft Azure Backup Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
-                [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
+    *Microsoft Azure Backup Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
 
 
 - For on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manager), use the following command to delete the backed up data in Azure.
@@ -226,9 +226,9 @@ To stop protection and delete the backup data:
 
     Post which the following prompt would appear: 
          
-        *Microsoft Azure Backup 
-            Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
-            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
+   *Microsoft Azure Backup 
+   Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
+   [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
 
 After deleting the backed up data, un-register any on-premises containers and management servers. 
 
