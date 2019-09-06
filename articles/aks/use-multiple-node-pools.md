@@ -165,14 +165,18 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## Upgrade a node pool
  
 > [!NOTE]
-> Upgrade and scale operations on a cluster or node pool are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool which are explained [below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+There are two (2) behaviors for how node pools react to control plane upgrades.
+1. A cluster with a single node pool will keep the pool in sync with the control plane automatically. An upgrade made with [az aks upgrade][az-aks-upgrade] will upgrade both the cluster control plane and the single node pool.
+2. A cluster with multiple node pools will not keep all pools in sync with the control plane automatically. It is common to test new Kubernetes versions by isolating to one node pool, so upgrade operations require explicitly naming which node pool should be upgraded when multiple node pools are present. An upgrade to an individual node pool must be done with [az aks nodepool upgrade][az-aks-nodepool-upgrade] in this scenario.
+
+When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This set the Kubernetes version for both the control plane and the default node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool which are explained [below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
-Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
