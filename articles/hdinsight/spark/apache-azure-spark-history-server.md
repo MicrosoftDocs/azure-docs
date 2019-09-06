@@ -295,7 +295,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 **To use the bash file from Azure portal**
 
-1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+1. Launch [Azure portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
     + **Script type**: select **Custom**.
