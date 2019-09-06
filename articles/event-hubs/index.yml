@@ -102,15 +102,13 @@ landingContent:
           - text: Python
             url: event-hubs-python-get-started-send.md
           - text: Node.js
-            url: event-hubs-node-get-started-send.md            
-          - text: Go
-            url: event-hubs-go-get-started-send.md
+            url: event-hubs-node-get-started-send.md
+          - text: Apache Kafka
+            url: event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs
           - text: Apache Storm (receive only)
             url: event-hubs-storm-getstarted-receive.md            
-          - text: C (send only)
-            url: event-hubs-c-getstarted-send.md            
-          - text: .NET Framework
-            url: event-hubs-dotnet-framework-getstarted-send.md
+          - text: Go
+            url: event-hubs-go-get-started-send.md
 
   # Card
   - title: Capture events
