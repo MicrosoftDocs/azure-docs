@@ -114,8 +114,8 @@
       items:
       - name: Overview
         href: low-priority-vms.md
-      - name: Error codes
-        href: error-codes-low-priority.md
+      - name: Error codes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../error-codes-low-priority.md
     - name: Previous generations
       href: sizes-previous-gen.md
     - name: Azure compute units (ACU)

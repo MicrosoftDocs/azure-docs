@@ -114,7 +114,7 @@
       - name: Overview
         href: low-priority-vms.md
       - name: Error codes
-        href: error-codes-low-priority.md
+        href: ../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Previous generations
       href: sizes-previous-gen.md  
       displayName: D-series Ds-series A-series Basic      
