@@ -70,7 +70,7 @@ After your project and project code repository are created, you can add a Featur
 
 1. From your project page, select **Boards** > **Backlogs** in the left navigation. 
    
-1. On the **Backlog** page, if the work item type in the top bar is **Stories**, drop down and select **Features**. Then select **New Work Item.**
+1. On the **Backlog** tab, if the work item type in the top bar is **Stories**, drop down and select **Features**. Then select **New Work Item.**
    
    ![Select New Work Item](./media/agile-development/2-sprint-team-overview.png)
    
@@ -108,13 +108,15 @@ To add a new User Story to a Feature:
 
 Tasks are specific detailed steps that are needed to complete each User Story. After all Tasks of a User Story are completed, the User Story should be completed too. 
 
-To add a Task to a User Story, select the **+** next to the User Story item, and then fill in the detailed information in the Task.
+To add a Task to a User Story, select the **+** next to the User Story item, and select **Task**. Fill in the title and other information in the Task.
 
 ![Add a Task to a User Story](./media/agile-development/7-sprint-add-task.png)
 
 After you create Features, User Stories, and Tasks, you can view them in the **Backlogs** or **Boards** views to track their status.
 
 ![Backlogs view](./media/agile-development/8-sprint-backlog-view.png)
+
+![Boards view](./media/agile-development/8a-sprint-board-view.png)
 
 ## <a name='set-up-agile-dsp-6'></a>Use an agile TDSP work template
 
@@ -140,7 +142,7 @@ Data scientists may feel more comfortable using an agile template that replaces 
    
    ![Disable work item types](./media/agile-development/12-disable.png)
    
-1. Select the **Backlog levels** tab. Under **Portfolios backlogs**, select the **...** next to **Epic (disabled)**, and then select **Edit/Rename**. 
+1. In **All processes**, select the **Backlog levels** tab. Under **Portfolios backlogs**, select the **...** next to **Epic (disabled)**, and then select **Edit/Rename**. 
    
 1. In the **Edit backlog level** dialog box:
    1. Under **Name**, replace **Epic** with *TDSP Projects*. 
@@ -183,7 +185,7 @@ You can use the data science process template to create TDSP projects and track 
    
    ![Select TDSP Projects check box](./media/agile-development/16-enabledsprojects1.png)
    
-1. To create data science-specific work items, select **TDSP Projects** in the top bar, and then select **New work item**. 
+1. To create a data science-specific TDSP Project, select **TDSP Projects** in the top bar, and then select **New work item**. 
    
 1. In the popup, give the TDSP Project work item a name, and select **Add to top**.
    
@@ -197,7 +199,7 @@ You can use the data science process template to create TDSP projects and track 
    
 1. Continue to select the **+** symbols next to work items to add new TDSP Stages, Substages, and Tasks. 
    
-Here is an example of how the data science project work items should appear in Backlog view:
+Here is an example of how the data science project work items should appear in **Backlogs** view:
 
 ![18](./media/agile-development/18-workitems1.png)
 
