@@ -93,7 +93,7 @@ Use the following steps to configure Azure Active Directory for Dynamics 365 for
 
     ![Add permissions](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. After completing steps 1-13 on the Azure portal, navigate to your Dynamics 365 for Customer Engagement instance by navigating to the URL (such as https://tenant.crm.dynamics.com).
+14. After completing steps 1-13 on the Azure portal, navigate to your Dynamics 365 for Customer Engagement instance by navigating to the URL (such as `https://tenant.crm.dynamics.com`).
 15. Access Settings by selecting the gear icon, and **Advanced Settings** on the top navigation bar.
 16. Once on Settings page, access the Setting menu from the top navigation bar and select **Security**.
 17. Once on the Security page, select **Users**.  On the Users page, select the "Enabled Users" dropdown to switch over to **Application Users**.

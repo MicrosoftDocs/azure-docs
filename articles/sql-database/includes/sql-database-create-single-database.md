@@ -18,8 +18,8 @@ In this step, you will create an Azure SQL Database single database.
 
 Create your resource group and single database using the Azure portal.
 
-1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
-2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting **Show details** on the **Databases** tile.
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+2. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting **Show details** on the **Databases** tile.
 3. Select **Create**:
 
    ![Create single database](../media/sql-database-get-started-portal/create-single-database.png)
@@ -38,7 +38,7 @@ Create your resource group and single database using the Azure portal.
        - **Server name**: Type `mysqlserver`; along with some numbers for uniqueness.
        - **Server admin login**: Type `azureuser`.
        - **Password**: Type a complex password that meets password requirements.
-       - **Location**: Choose a location from the drop-down, such as `West US 2`.
+       - **Location**: Choose a location from the drop-down, such as `West US`.
 
          ![New server](../media/sql-database-get-started-portal/new-server.png)
 
@@ -81,7 +81,7 @@ Create your resource group and single database using PowerShell.
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"

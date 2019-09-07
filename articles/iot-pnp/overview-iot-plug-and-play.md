@@ -13,7 +13,7 @@ manager: philmea
 # As a device builder, I need to know what is PnP and how to certify devices, so I can understand how they can help me build and market my IoT devices.
 ---
 
-# What is Azure IoT Plug and Play Preview?
+# What is IoT Plug and Play Preview?
 
 IoT Plug and Play Preview enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play is a _device capability model_ schema that describes device capabilities. This schema is a JSON document that's structured as a set of interfaces that include definitions of:
 

@@ -30,7 +30,7 @@ ITSMC supports connections with the following ITSM tools:
 -	Provance
 -	Cherwell
 
-With ITSMC, you can
+With ITSMC, you can:
 
 -  Create work items in ITSM tool, based on your Azure alerts (metric alerts, Activity Log alerts and Log Analytics alerts).
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
@@ -99,7 +99,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
-   > 
+   >
    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
 
    ![Connection refresh](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -137,7 +137,7 @@ Use the following procedure:
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 
 > [!NOTE]
-> 
+>
 > For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
 
 
@@ -170,7 +170,7 @@ Incidents and change requests are synced from your ITSM product to your Log Anal
 The following information shows examples of data gathered by ITSMC:
 
 > [!NOTE]
-> 
+>
 > Depending on the work item type imported into Log Analytics, **ServiceDesk_CL** contains the following fields:
 
 **Work item:** **Incidents**  

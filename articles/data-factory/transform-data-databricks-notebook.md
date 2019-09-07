@@ -3,16 +3,17 @@ title: Transform data with Databricks Notebook - Azure | Microsoft Docs
 description: Learn how to process or transform data by running a Databricks notebook.
 services: data-factory
 documentationcenter: ''
-ms.assetid: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+author: nabhishek
+ms.author: abnarain
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
 ---
+
 # Transform data by running a Databricks notebook
 
 The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
@@ -106,6 +107,19 @@ In the above Databricks activity definition, you specify these library types: *j
 ```
 
 For more details, see the [Databricks documentation](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) for library types.
+
+## Passing parameters between notebooks and Data Factory
+
+You can pass data factory parameters to notebooks using *baseParameters* property in databricks activity. 
+
+In certain cases you might require to pass back certain values from notebook back to data factory, which can be used for control flow (conditional checks) in data factory or be consumed by downstream activities (size limit is 2MB). 
+
+1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) and corresponding "returnValue" will be returned to data factory.
+
+2. You can consume the output in data factory by using expression such as `'@activity('databricks notebook activity name').output.runOutput'`. 
+
+   > [!IMPORTANT]
+   > If you are passing JSON object you can retrieve values by appending property names. Example: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## How to upload a library in Databricks
 

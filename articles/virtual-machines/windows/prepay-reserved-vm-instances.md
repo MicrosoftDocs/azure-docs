@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: yashar
 manager: yashar
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

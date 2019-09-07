@@ -66,6 +66,10 @@ At the end of August 2019, in Azure Monitor:
 > [!IMPORTANT]
 > Microsoft Azure Monitor has rolled out in phases [tool to voluntarily migrate](alerts-using-migration-tool.md) their classic alert rules on to the new platform soon. And run it by force for all classic alert rules that still exist and can be migrated, starting September 2019. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts in Application Insights](#unified-metrics-and-alerts-in-application-insights) or [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), post-migration of the classic alert rules. For more information, see [prepare for classic alert rule migration](alerts-prepare-migration.md)
 
+This article will be continually updated with links & details regarding the new Azure monitoring & alerting functionality, as well as the availability of tools to assist users in adopting the new Azure Monitor platform.
+
+## Pricing for Migrated Alert Rules
+
 We are rolling out a migration tool to help you migrate your Azure Monitor [classic alerts](../../azure-monitor/platform/alerts-classic.overview.md) to the new alerts experience. The migrated alert rules and corresponding migrated action groups (email, webhook, or LogicApp) will remain free of charge. The functionality you had with classic alerts including the ability to edit the threshold, aggregation type, and the aggregation granularity will continue to be available for free with your migrated alert rule. However, if you edit the migrated alert rule to use any of the new alert platform features, notifications or action types, a corresponding charge will apply. For more information on the pricing for alert rules and notifications, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 The following are examples of cases where you will incur a charge for your alert rule:
@@ -76,9 +80,6 @@ The following are examples of cases where you will incur a charge for your alert
 - Any custom metrics stored beyond free units included in Azure Monitor
 - Any migrated alert rules that are edited to use newer metric alert features like frequency, multiple resources/dimensions, [Dynamic Thresholds](alerts-dynamic-thresholds.md), changing resource/signal, and so on.
 - Any migrated action groups that are edited to use newer notifications, or action types like SMS, Voice Call and/or ITSM integration.
-
-This article will be continually updated with links & details regarding the new Azure monitoring & alerting functionality, as well as the availability of tools to assist users in adopting the new Azure Monitor platform.
-
 
 ## Next steps
 

@@ -44,6 +44,6 @@ Perform the following steps to delete your Azure AD Domain Services managed doma
 
     ![Delete domain confirmation](./media/getting-started/domain-services-delete-domain-confirm.png)
 
-The managed domain is deleted in about 15-20 minutes.
+It can take 15-20 minutes or more to delete the managed domain.
 
 Consider [sharing feedback](contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.

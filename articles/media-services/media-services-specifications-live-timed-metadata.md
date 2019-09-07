@@ -209,7 +209,7 @@ Note that only one "EventType" per "EventStream" is supported at this time. Only
 ### Built-in supported Scheme ID URIs
 | Scheme ID URI                 |  Description                                             |
 |-------------------------------|----------------------------------------------------------|
-| https://aomedia.org/emsg/ID3   | Describes how [ID3v2] metadata can be carried as timed metadata in a CMAF-compatible [MPEGCMAF] fragmented MP4. For more information see the [Timed Metadata in the Common Media Application Format (CMAF)](https://aomediacodec.github.io/av1-id3/) |
+| https:\//aomedia.org/emsg/ID3   | Describes how [ID3v2] metadata can be carried as timed metadata in a CMAF-compatible [MPEGCMAF] fragmented MP4. For more information see the [Timed Metadata in the Common Media Application Format (CMAF)](https://aomediacodec.github.io/av1-id3/) |
 
 ### Event processing and manifest signaling
 

@@ -1,74 +1,108 @@
 ---
-title: Go-To-Market Services - your marketplace benefits | Azure
+title: Go-To-Market Services - your commercial marketplace benefits | Azure
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
-
 ms.topic: article
-ms.date: 01/12/2019
-ms.author: ellacroi
+ms.date: 09/04/2019
+ms.author: v-qiwe
 
 ---
 
-# Your Marketplace benefits
+# Your commercial marketplace benefits
 
-As part of your publishing journey, you need to create technical and marketing assets for your offer. As a result, there are technical and marketing benefits that Azure Marketplace and AppSource publishers can use in order to improve customer engagement with your offer. You may find the technical resources below useful.
+You’ve published to marketplace, now you want to see your offer be successful. We provide you the benefits – sales, technical, and marketing - you need to accelerate your offer’s growth.
 
-## Technical resources provided by Microsoft
+When you go live with your offer, the Marketplace Rewards team will reach out to begin working with you on your eligible benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
-While you are creating your offer, you can take advantage of a number of Microsoft resources, such as consulting with a technical expert, or getting support for testing a marketplace-specific solution.
+## Marketplace Rewards
 
-Technical resources can be used at any time.  The table below lists the benefits:
+Marketplace Rewards is designed to support you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the marketplace, you unlock new benefits designed to help you convert customers and close deals. 
 
-![](./media/marketplace-publishers-guide/technical-benefit-table.png)
+The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft’s field, and through Microsoft’s channel by leveraging the commercial marketplace as your platform. 
 
-## How to access Microsoft resources
+Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
-The Go-to-Market benefits are accessible to partners who have recently published an offer. 
+You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility. 
 
-1. Onboarding: [Register](https://azuremarketplace.microsoft.com/sell) to get access to the Cloud Partner Portal and onboarding support resources.
-2. Microsoft Marketplaces Consultation: Take advantage of this [FREE consultation](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) to help plan the architecture of your app in marketplace.
-3. Marketplace Forums: Ask your questions directly to Microsoft employees and other marketplace partners in the [Marketplace forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
-4. Technical Support: Use the Help menu in [Cloud Partner Portal](https://cloudpartner.azure.com/) to get help on your marketplace-related support questions. 
-5. AAD Integration and Development and Testing sponsorship: you will be opted in when you go live with a transactable (deployable and billable offer). See the next section for how to get started with go-to-market benefits.
+For Transact partners, as you grow your billed sales through the marketplace platform, you unlock greater benefits per tier. 
 
-## Go-to-market (GTM) benefits in the Marketplace
+The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform. 
 
-New listings in both Azure Marketplace and AppSource are eligible to receive free marketplace GTM benefits through our Microsoft GTM Services team. This team will help you optimize your listings and increase awareness for your solutions in the Microsoft marketplace.
+You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
 
-| Storefront | Additional available benefits |
-|:--- |:--- |
-| AppSource |  Microsoft Gold partners <br> Transact offers – Marketplace rewards <br> Trial Apps |
-| The Azure Marketplace | Transact offers  – Marketplace rewards <br> Trial offers |
+Detailed descriptions of all program benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
-Your GTM support includes templates, web content, training, and tools to promote your business.
+Your steps to get started are easy:
 
-To access these benefits, you will need to:
+1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
+2. The team reaches out to the “owner” or “primary contact” per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
 
-1. Publish an offer in either Azure Marketplace or AppSource.
-2. Ensure you have entered a marketing contact in the **contact information** portion of your offer. This should be a dedicated marketing resource, as opposed to a catch-all alias. (i.e, avoid using “support\@”, “info\@”, “marketing\@”, etc.)
+>[!Note]
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
 
-Based on your solution status, offer being List, Trial, or Transact – Marketplace rewards, you will receive either an email with self-help resources, or an invitation to a consultation call with a dedicated Engagement Manager. You do not need to do anything to initiate the call—the Marketplace Onboarding Team will reach out to you based on the information you provide in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
-The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status (List, Trial, or Transact - marketplace rewards), chosen marketplace, and Microsoft Partner Competency achievement.
+## List, trial, and consulting benefits
+
+If you publish a trial or consulting proof of concept, implementation, or workshop, you will be assigned an engagement manager for three months, who will help guide you in a successful go-to-market plan. You can repeat this three-month engagement each time you publish a new offer, to help get each of your new offers started with success.
 
 The table below summarize the eligibility requirements for list and trial offers:
 
-![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Go-To-Market benefits](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-\* Requires silver or gold competency. <br>
-\*\* Requires gold competency. <br>
-\*\*\* Requires gold competency and Co-sell Ready in Partner Listings. <br>
-^ Transact only, applicable to Azure Marketplace.
+Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
-## Marketplace rewards for transact partners
+## Marketplace Rewards for transact partners
 
-The full list of benefits for marketplace rewards can be viewed in the [program summary slides](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+When you go live with your transactable offer in either Azure Marketplace or Microsoft AppSource, you are able to access additional benefits as you grow your billed sales transactions through the commercial marketplace. 
+
+These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
+
+All partners who have a live offer get to work with a dedicated engagement manager to choose the highest-value activities for your portfolio of marketplace offers. This engagement is evergreen per offer, meaning you can choose your activities and the timing of these activities to align to the timing of your company's broader marketing and sales strategies. 
+
+![Marketing benefits](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+![Sales benefits](./media/marketplace-publishers-guide/sales-benefit.png)
+
+![Technical benefits](./media/marketplace-publishers-guide/technical-benefit.png)
+
+Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
+
+In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
+
+## Marketplace Rewards requirements and restrictions
+
+### Publisher Agreement
+
+All the activities described on this page are covered by the [marketplace publisher agreement](https://docs.microsoft.com/legal/marketplace/terms) and are pursuant to the Commercial Benefits Program Addendum.
+
+### Cancellation policy
+
+[List and Trial](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) publishers can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time. 
+
+Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
+
+* engage in illegal activity using their marketplace listing.
+* are de-listed from the commercial marketplace. 
+* use their offer to show marketing or other content that violates copyright or trademark laws.
+* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or bitcoin mining. 
+
+### Offer Availability
+
+This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
+
+Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
 
 ## Next steps
 
-Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
+If you created your offer in Cloud Partner Portal, sign in to create or configure your offer.
+
+If you created your offer in Partner Center, sign in to create or configure your offer.
+
+Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+
+Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) and learn about relevant topics or join the discussion.
 
 ---

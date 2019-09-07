@@ -18,7 +18,7 @@ ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019
 
 ---
-# Quickstart: Deploy a Java reliable services application to Service Fabric
+# Quickstart:  Deploy a Java app to Azure Service Fabric on Linux
 
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers.
 

@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -13,9 +13,9 @@ manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
-# Quickstart: Use Truffle to connect to an Azure Blockchain Service network
+# Quickstart: Use Truffle to connect to a transaction node
 
-Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service node.
+Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service transaction node.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

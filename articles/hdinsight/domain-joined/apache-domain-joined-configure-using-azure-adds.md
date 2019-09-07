@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package configuration using Azure Active Directory Domain Services - Azure HDInsight
+title: Enterprise Security Package with Azure Active Directory in HDInsight
 description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
 ---
+
 # Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services
 
 Enterprise Security Package (ESP) clusters provide multi-user access on Azure HDInsight clusters. HDInsight clusters with ESP are connected to a domain so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs.
@@ -16,7 +17,7 @@ Enterprise Security Package (ESP) clusters provide multi-user access on Azure HD
 In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP is generally available in HDInsight 3.6 and 4.0 for cluster types: Apache Spark, Interactive, Apache Hadoop and HBase. ESP for Apache Kafka cluster type is in preview.
+> ESP is generally available in HDInsight 3.6 and 4.0 for cluster types: Apache Spark, Interactive, Hadoop and HBase. ESP for Apache Kafka cluster type is in preview with best effort support only. ESP clusters created before ESP GA date (October 1, 2018) are not supported.
 
 ## Enable Azure AD-DS
 

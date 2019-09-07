@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ---
 
@@ -148,4 +148,12 @@ Whenever a configuration change is applied, Azure Firewall attempts to update al
 
 ## Is there a character limit for a firewall name?
 
-Yes. There is a 50 character limit for a firewall name. 
+Yes. There is a 50 character limit for a firewall name.
+
+## Why does Azure Firewall need a /26 subnet size?
+
+Azure Firewall must provision more virtual machine instances as it scales. A /26 address space ensures that the firewall has enough IP addresses available to accommodate the scaling.
+
+## Does the firewall subnet size need to change as the service scales?
+
+No. Azure Firewall does not need a subnet bigger than /26.
