@@ -65,6 +65,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-core**
     + Early failure of some hyperparameter space definition errors directly in the sdk instead of server side.
 
+### Azure Machine Learning Data Prep SDK v1.1.14
++ **Bug fixes and improvements**
+  + Enabled writing to ADLS/ADLSGen2 using raw path and credentials.
+  + Fixed a bug that caused `include_path=True` to not work for `read_parquet`.
+  + Fixed `to_pandas_dataframe()` failure caused by exception "Invalid property value: hostSecret".
+  + Fixed a bug where files could not be read on DBFS in Spark mode.
   
 ## 2019-08-19
 

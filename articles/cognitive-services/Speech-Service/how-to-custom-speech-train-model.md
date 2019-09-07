@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
@@ -32,13 +32,14 @@ If you're encountering recognition issues with your model, using human-labeled t
 
 The first step to train a model is to upload training data. Use [Prepare and test your data](how-to-custom-speech-test-data.md) for step-by-step instructions to prepare human-labeled transcriptions and related text (utterances and pronunciations). After you've uploaded training data, follow these instructions to start training your model:
 
-1. Navigate to **Speech-to-text > Custom Speech > Training**.
-2. Click **Train model**.
-3. Next, give your training a **Name** and **Description**.
-4. From the **Scenario and Baseline model** drop-down menu, select the scenario that best fits your domain. If you're unsure of which scenario to choose, select **General**. The baseline model is the starting point for training. If you don't have a preference, you can use the latest.
-5. From the **Select training data** page, choose one or multiple audio + human-labeled transcription datasets that you'd like to use for training.
-6. Once the training is complete, you can choose to perform accuracy testing on the newly trained model. This step is optional.
-7. Select **Create** to build your custom model.
+1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+2. Navigate to **Speech-to-text > Custom Speech > Training**.
+3. Click **Train model**.
+4. Next, give your training a **Name** and **Description**.
+5. From the **Scenario and Baseline model** drop-down menu, select the scenario that best fits your domain. If you're unsure of which scenario to choose, select **General**. The baseline model is the starting point for training. If you don't have a preference, you can use the latest.
+6. From the **Select training data** page, choose one or multiple audio + human-labeled transcription datasets that you'd like to use for training.
+7. Once the training is complete, you can choose to perform accuracy testing on the newly trained model. This step is optional.
+8. Select **Create** to build your custom model.
 
 The Training table displays a new entry that corresponds to this newly created model. The table also displays the status:  Processing, Succeeded, Failed.
 
