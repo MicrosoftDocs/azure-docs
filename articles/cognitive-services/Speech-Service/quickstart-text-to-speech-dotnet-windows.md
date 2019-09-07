@@ -18,9 +18,7 @@ Quickstarts are also available for [speech recognition](quickstart-csharp-dotnet
 
 Use this guide to create a text-to-speech console application using the .NET framework for Windows and the Speech SDK. When finished, you can synthesize speech from text, and hear the speech on your speaker in real time.
 
-For a quick demonstration (without building the Visual Studio project yourself as shown below):
-
-Get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from GitHub.
+For a quick demonstration (without building the Visual Studio project yourself, as described in this article), get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from GitHub.
 
 ## Prerequisites
 
@@ -38,11 +36,11 @@ To complete this project, you'll need:
 
 1. Open `Program.cs` and replace the automatically generated code with this sample:
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. Find the string `YourSubscriptionKey`, and replace it with your Speech Services subscription key.
 
-1. Locate and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find the string `YourServiceRegion`, and replace it with the [region](regions.md) associated with your subscription. For example, if you're using the free trial subscription, the region is `westus`.
 
 1. From the menu bar, choose **File** > **Save All**.
 
@@ -54,7 +52,7 @@ To complete this project, you'll need:
 
 1. Type an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
 
-   ![Console output after successful speech synthesis](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
+   ![Speech synthesis user interface](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 
 ## Next steps
 

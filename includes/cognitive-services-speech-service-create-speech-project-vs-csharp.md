@@ -34,7 +34,7 @@ To start, create the project in Visual Studio, and make sure that Visual Studio 
 
 The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), so you can reference it in the code.
 
-1. In the Solution Explorer, right-click `helloworld`, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
+1. In the Solution Explorer, right-click the `helloworld` project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
 
    ![NuGet Package Manager](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
