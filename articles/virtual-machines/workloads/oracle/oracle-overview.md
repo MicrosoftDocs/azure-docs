@@ -43,7 +43,7 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 ## High availability and disaster recovery options
 
-* Configure Oracle Data Guard, Active Data Guard, Sharding or Golden Gate on Azure infrastructure in conjunction with [Availability Zones](../../../availability-zones/az-overview.md) for high availability.
+* Configure [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard with FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) or [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html) on Azure infrastructure in conjunction with [Availability Zones](../../../availability-zones/az-overview.md) for high availability in-region. You may also setup these configurations across multiple regions for added availability and disaster recovery.
 
 * Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your on-premises or physical servers. 
 
