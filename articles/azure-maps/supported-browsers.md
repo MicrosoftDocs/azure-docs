@@ -17,7 +17,7 @@ The Azure Maps Web SDK provides a helper function called [atlas.isSupported](htt
 ```JavaScript
 if (!atlas.isSupported()) {
     alert('Your browser is not supported by Azure Maps');
-} else if(!atlas.isSupported(true)) {
+} else if (!atlas.isSupported(true)) {
     alert('Your browser is supported by Azure Maps, but may have major performance caveats.');
 } else {
     // Your browser is supported. Add your map code here.

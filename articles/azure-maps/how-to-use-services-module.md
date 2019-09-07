@@ -100,7 +100,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
           } else {
             resolve(token);
           }
-       });
+        });
       })
     }
 
@@ -123,29 +123,30 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
-    searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa').then(response => {
-      var html = [];
+    searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa')
+      .then(response => {
+        var html = [];
 
-      // Display the total results.
-      html.push('Total results: ', response.summary.numResults, '<br/><br/>');
+        // Display the total results.
+        html.push('Total results: ', response.summary.numResults, '<br/><br/>');
 
-      // Create a table of the results.
-      html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
+        // Create a table of the results.
+        html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
 
-      for(var i=0;i<response.results.length;i++){
-        html.push('<tr><td>', (i+1), '.</td><td>', 
-          response.results[i].address.freeformAddress, 
-          '</td><td>', 
-          response.results[i].position.lat,
-          '</td><td>', 
-          response.results[i].position.lon,
-          '</td></tr>');
-      }
+        for(var i=0;i<response.results.length;i++){
+          html.push('<tr><td>', (i+1), '.</td><td>', 
+            response.results[i].address.freeformAddress, 
+            '</td><td>', 
+            response.results[i].position.lat,
+            '</td><td>', 
+            response.results[i].position.lon,
+            '</td></tr>');
+        }
 
-      html.push('</table>');
+        html.push('</table>');
 
-      // Add the resulting HTML to the body of the page.
-      document.body.innerHTML = html.join('');
+        // Add the resulting HTML to the body of the page.
+        document.body.innerHTML = html.join('');
     });
     ```
 
