@@ -103,7 +103,7 @@ The following steps show how to prepare the internal load balancer for the move 
    
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
+   * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
 
            ```json
             "resources": [
