@@ -4971,6 +4971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-redirect-overview.md",
+      "redirect_url": "/azure/application-gateway/redirect-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-create-gateway-arm-template.md",
       "redirect_url": "/azure/application-gateway/create-vmss-template",
       "redirect_document_id": false
@@ -36525,19 +36530,29 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot0",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
       "redirect_document_id": true
-    },
+	},
+	{
+		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot0.md",
+		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+		"redirect_document_id": false
+	  },
+	  {
+		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot2.md",
+		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+		"redirect_document_id": false
+	  },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-storage.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-storage",
