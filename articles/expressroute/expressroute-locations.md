@@ -193,7 +193,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
 | **T-Systems** |Supported |Not Supported |Berlin |
 
-## Connectivity Through Exchange Providers
+## Connectivity through Exchange providers
 
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
@@ -211,14 +211,14 @@ If your connectivity provider is not listed in previous sections, you can still 
 * Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
-## Connectivity Through Satellite Operators
+## Connectivity through satellite operators
 If you are remote and don't have fiber connectivity or you want to explore other connectivity options you can check the following satellite operators. 
 
 * Intelsat
 * SES
 * Viasat
 
-## Connectivity Through Additional Service Providers
+## Connectivity through additional service providers
 
 | **Connectivity provider** | **Exchange** | **Locations** |
 | --- | --- | --- |
@@ -280,7 +280,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montreal, Toronto |
 
-## Connectivity Through Datacenter Providers
+## Connectivity through datacenter providers
 
 | **Provider** | **Exchange** |
 | --- | --- |
@@ -297,7 +297,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
-## Connectivity Through National Research and Education Networks (NREN)
+## Connectivity through National Research and Education Networks (NREN)
 
 | **Provider**|
 | --- |
