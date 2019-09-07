@@ -12,9 +12,9 @@ ms.date: 09/06/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ---
-# Create a CI/CD pipeline for AI apps using Azure Pipelines, Docker, and Kubernetes
+# Create CI/CD pipelines for AI apps using Azure Pipelines, Docker, and Kubernetes
 
-An Artificial Intelligence (AI) application is application code embedded with a pretrained machine learning (ML) model. There are always two streams of work for an AI application: Data scientists build machine learning models, and app developers build the app and expose it to end users to consume. This article describes how to implement a continuous integration and continuous delivery (CI/CD) build and release pipeline for an AI app. The sample app and tutorial use a simple Python Flask web application, and fetch a pretrained model from a private Azure blob storage account. You could also use an AWS S3 account.
+An Artificial Intelligence (AI) application is application code embedded with a pretrained machine learning (ML) model. There are always two streams of work for an AI application: Data scientists build machine learning models, and app developers build the app and expose it to end users to consume. This article describes how to implement a continuous integration and continuous delivery (CI/CD) pipeline for AI applications that embeds the ML model into the app source code. The sample app and tutorial use a simple Python Flask web application, and fetch a pretrained model from a private Azure blob storage account. You could also use an AWS S3 storage account.
 
 > [!NOTE]
 > The following process is one of several ways to do CI/CD. There are alternatives to this tooling and the other prerequisites.
@@ -34,7 +34,7 @@ To use the downloaded source code and tutorial, you need the following prerequis
 
 ## CI/CD pipeline overview
 
-The build pipeline kicks off for each new commit and runs the test suite. If the test passes, the pipeline packages and securely stores the latest build in a Docker container in ACR. The pipeline securely pulls the latest ML model from a blob storage account and packages it with the app code as a single container. This decoupling of the app code and ML model ensures that the production app is always running the latest code with the latest ML model. The release pipeline deploys the container using AKS. 
+The build pipeline kicks off for each new commit. The pipeline securely pulls the latest ML model from a blob storage account and runs the test suite on the app. If the test passes, the pipeline packages and securely stores the build in a Docker container in ACR. This coupling of the app code and ML model ensures that the production app is always running the latest code with the latest ML model. The release pipeline deploys the container using AKS. 
 
 ## CI/CD pipeline steps
 
