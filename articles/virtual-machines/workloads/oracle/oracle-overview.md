@@ -29,7 +29,7 @@ Run Oracle databases on Azure infrastructure using Oracle Database on Oracle Lin
 
 * Oracle Database 12.1, 12.2, and 18.3 Standard Edition 
 
-You can also choose to setup Oracle Database on a non-Oracle Linux image found in the marketplace, base a solution on a custom image you create from scratch in Azure or upload a custom image from your on-premises environment.
+You can also choose to setup Oracle Database on a non-Oracle Linux image available in Azure, base a solution on a custom image you create from scratch in Azure or upload a custom image from your on-premises environment.
 
 Optionally configure with multiple attached disks and improve database performance by installing Oracle Automated Storage Management (ASM).
 
