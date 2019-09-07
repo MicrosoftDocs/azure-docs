@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
 
 ---
@@ -156,7 +156,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Supported |Amsterdam2, London, Singapore |
 | **Vodafone Idea** | Supported | Supported | Mumbai, Mumbai2 |
-| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC |
+| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC, Washington DC2 |
 
  **+** denotes coming soon
 
@@ -210,6 +210,13 @@ If your connectivity provider is not listed in previous sections, you can still 
   * Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
 * Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
+
+## Connectivity Through Satellite Operators
+If you are remote and don't have fiber connectivity or you want to explore other connectivity options you can check the following satellite operators. 
+
+* Intelsat
+* SES
+* Viasat
 
 ## Connectivity Through Additional Service Providers
 
