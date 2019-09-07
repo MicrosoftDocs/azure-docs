@@ -87,7 +87,7 @@ The following steps show how to prepare the internal load balancer for the move 
                     "addressPrefixes": [
                         "10.1.0.0/16"
                     ]
-                }
+                   }
             }
             }
 
@@ -103,10 +103,10 @@ The following steps show how to prepare the internal load balancer for the move 
    
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-   * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
-    
-    ```json
-                "resources": [
+    * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
+
+            ```json
+            "resources": [
                             {
                                 "type": "Microsoft.Network/virtualNetworks",
                                 "apiVersion": "2019-06-01",
@@ -120,11 +120,12 @@ The following steps show how to prepare the internal load balancer for the move 
                                             "10.0.0.0/16"
                                         ]
                                     },
-    ```
+            ```
+
 
     * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
     
-    ```json
+            ```json
                  "subnets": [
                         {
                             "name": "subnet-1",
@@ -150,12 +151,12 @@ The following steps show how to prepare the internal load balancer for the move 
                             }
                         }
                     ],
-    ```
+            ```
+           
+            In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
 
-    In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
-                
-    ```json
-                 "type": "Microsoft.Network/virtualNetworks/subnets",
+            ```json
+             "type": "Microsoft.Network/virtualNetworks/subnets",
                                 "apiVersion": "2019-06-01",
                                 "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
                                 "dependsOn": [
@@ -186,7 +187,8 @@ The following steps show how to prepare the internal load balancer for the move 
                                 }
                             }
                         ]
-    ```
+            ```
+
 13. Save the **template.json** file.
 
 14. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and internal load balancer virtual network into the target region:
@@ -240,36 +242,35 @@ The following steps show how to prepare the internal load balancer for the move 
 14. In the **parameters.json** file, paste the **Resource ID** in place of the **null** value in the second **value** property, ensure you enclose the path in quotes:
 
     ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "loadBalancers_myLoadBalancer_name": {
-            "value": "myLoadBalancer"
-        },
-        "virtualNetworks_myVNET2_externalid": {
-            "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-MOVE/providers/Microsoft.Network/virtualNetworks/myVNET"
-        }
-      }
-     }
+             {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "loadBalancers_myLoadBalancer_name": {
+                    "value": "myLoadBalancer"
+                },
+                "virtualNetworks_myVNET2_externalid": {
+                    "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-MOVE/providers/Microsoft.Network/virtualNetworks/myVNET"
+                }
+              }
+             }
    
-
     ```
 
 16. Save the **parameters.json** file.
 17. To edit the target region where the internal load balancer configuration will be moved, open the **template.json** file:
 
     ```json
-    "resources": [
-        {
-            "type": "Microsoft.Network/loadBalancers",
-            "apiVersion": "2019-06-01",
-            "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
-            "location": "TARGET REGION",
-            "sku": {
-                "name": "Basic",
-                "tier": "Regional"
-            }
+          "resources": [
+            {
+                "type": "Microsoft.Network/loadBalancers",
+                "apiVersion": "2019-06-01",
+                "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
+                "location": "TARGET REGION",
+                "sku": {
+                    "name": "Basic",
+                    "tier": "Regional"
+                }
     ```
 
 18. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
@@ -282,75 +283,75 @@ The following steps show how to prepare the internal load balancer for the move 
 19. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
     * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
 
-        ```json
-        "resources": [
-        {
-            "type": "Microsoft.Network/loadBalancers",
-            "apiVersion": "2019-06-01",
-            "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
-            "location": "TARGET REGION",
-            "sku": {
-                "name": "Basic",
-                "tier": "Regional"
-            },
-        ```
-      For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+            ```json
+             "resources": [
+            {
+                "type": "Microsoft.Network/loadBalancers",
+                "apiVersion": "2019-06-01",
+                "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
+                "location": "TARGET REGION",
+                "sku": {
+                    "name": "Basic",
+                    "tier": "Regional"
+                }
+            ```
+           For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
 
-        ```json
-        "loadBalancingRules": [
-                    {
-                        "name": "MyLoadBalancerRule",
-                        "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
-                        "properties": {
-                            "provisioningState": "Succeeded",
-                            "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
-                            },
-                            "frontendPort": 80,
-                            "backendPort": 80,
-                            "enableFloatingIP": false,
-                            "idleTimeoutInMinutes": 4,
-                            "protocol": "Tcp",
-                            "enableTcpReset": false,
-                            "loadDistribution": "Default",
-                            "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/backendAddressPools/myBackendPool')]"
-                            },
-                            "probe": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/probes/MyHealthProbe')]"
+            ```json
+            "loadBalancingRules": [
+                        {
+                            "name": "MyLoadBalancerRule",
+                            "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "frontendIPConfiguration": {
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
+                                },
+                                "frontendPort": 80,
+                                "backendPort": 80,
+                                "enableFloatingIP": false,
+                                "idleTimeoutInMinutes": 4,
+                                "protocol": "Tcp",
+                                "enableTcpReset": false,
+                                "loadDistribution": "Default",
+                                "backendAddressPool": {
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/backendAddressPools/myBackendPool')]"
+                                },
+                                "probe": {
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/probes/MyHealthProbe')]"
+                                }
                             }
                         }
-                    }
-            ]
+                ]
 
-        ```
-       For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+            ```
+           For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
     * **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **template.json** file:
 
-        ```json
-        "probes": [
-                    {
-                        "name": "MyHealthProbe",
-                        "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
-                        "properties": {
-                            "provisioningState": "Succeeded",
-                            "protocol": "Tcp",
-                            "port": 80,
-                            "intervalInSeconds": 15,
-                            "numberOfProbes": 2
+            ```json
+            "probes": [
+                        {
+                            "name": "MyHealthProbe",
+                            "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "protocol": "Tcp",
+                                "port": 80,
+                                "intervalInSeconds": 15,
+                                "numberOfProbes": 2
+                            }
                         }
-                    }
-                ]
-        ```
-       For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+                    ]
+            ```
+           For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
     * **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **template.json** file:
 
-        ```json
-        "inboundNatRules": [
+            ```json
+             "inboundNatRules": [
                     {
                         "name": "MyInboundNATRule",
                         "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
@@ -368,32 +369,32 @@ The following steps show how to prepare the internal load balancer for the move 
                         }
                     }
                 ]
-        ```
-        To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
+            ```
+           To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
 
-        ```json
-        {
-            "type": "Microsoft.Network/loadBalancers/inboundNatRules",
-            "apiVersion": "2019-06-01",
-            "name": "[concat(parameters('loadBalancers_myLoadBalancer_name'), '/MyInboundNATRule')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name'))]"
-            ],
-            "properties": {
-                "provisioningState": "Succeeded",
-                "frontendIPConfiguration": {
-                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
-                },
-                "frontendPort": 3389,
-                "backendPort": 3389,
-                "enableFloatingIP": false,
-                "idleTimeoutInMinutes": 4,
-                "protocol": "Tcp",
-                "enableTcpReset": false
+            ```json
+            {
+                "type": "Microsoft.Network/loadBalancers/inboundNatRules",
+                "apiVersion": "2019-06-01",
+                "name": "[concat(parameters('loadBalancers_myLoadBalancer_name'), '/MyInboundNATRule')]",
+                "dependsOn": [
+                    "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name'))]"
+                ],
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
+                    },
+                    "frontendPort": 3389,
+                    "backendPort": 3389,
+                    "enableFloatingIP": false,
+                    "idleTimeoutInMinutes": 4,
+                    "protocol": "Tcp",
+                    "enableTcpReset": false
+                }
             }
-        }
-        ```
-        For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+            ```
+           For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
     
 20. Save the **template.json** file.
