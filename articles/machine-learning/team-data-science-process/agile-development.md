@@ -35,7 +35,7 @@ In the TDSP sprint planning framework, there are four frequently used *work item
 
 Here are the definitions for the work item types:
 
-- **Feature**: A feature corresponds to a project engagement. Different engagements with a client are different features, and it's best to consider different phases of a project as different features. If you choose a schema such as *\<ClientName>-\<EngagementName>* to name your features, you can easily recognize the context of the project and engagement from the names themselves.
+- **Feature**: A Feature corresponds to a project engagement. Different engagements with a client are different Features, and it's best to consider different phases of a project as different Features. If you choose a schema such as *\<ClientName>-\<EngagementName>* to name your Features, you can easily recognize the context of the project and engagement from the names themselves.
   
 - **User Story**: User Stories are work items needed to complete a Feature end-to-end. Examples of User Stories include:
   - Get data 
@@ -49,7 +49,7 @@ Here are the definitions for the work item types:
   - Get SQL Server credentials
   - Upload data to SQL Data Warehouse
   
-- **Bug**: Bugs are fixes for existing code or documents that are done when completing a Task. If Bugs are caused by missing stages or tasks, they can escalate to being User Stories or Tasks. 
+- **Bug**: Bugs are fixes for existing code or documents that are done when completing a Task. If Bugs are caused by missing work items, they can escalate to being User Stories or Tasks. 
 
 Data scientists may feel more comfortable using an agile template that replaces Features, User Stories, and Tasks with TDSP lifecycle stages and substages. To create an agile-derived template that specifically aligns with the TDSP lifecycle stages, see [Set up an agile TDSP work template](#set-up-agile-dsp-6).
 
@@ -70,7 +70,7 @@ Add a Feature to represent the work for your project.
 
 1. From your project page, select **Boards** in the left navigation. 
    
-1. On the **Work items** page, select the dropdown arrow next to **New Work Item**, and select **Feature** from the dropdown. 
+1. On the **Work items** page, select the dropdown arrow next to **New Work Item**, and select **Feature**. 
    
    ![Select Feature from New Work Item](./media/agile-development/2-sprint-team-overview.png)
    
@@ -82,7 +82,7 @@ Add a Feature to represent the work for your project.
    
    You can also link the Feature to the project's Azure Repos repository by selecting **Add link** under the **Development** section. 
    
-   After you have finished editing the feature, select **Save & Close**.
+   After you have finished editing the Feature, select **Save & Close**.
    
    ![Add link to Azure Repo and select Save & Close](./media/agile-development/3a-add-link-repo.png)
 
@@ -124,7 +124,7 @@ Data scientists may feel more comfortable using an agile template that replaces 
 
 1. From your Azure DevOps organization main page, select **Organization settings** from the left navigation. 
    
-1. In the **Organization Settings** left navigation, select **Boards** > **Process**. 
+1. In the **Organization Settings** left navigation, under **Boards**, select **Process**. 
    
 1. In the **All processes** pane, select the **...** next to **Agile**, and then select **Create inherited process**.
    
