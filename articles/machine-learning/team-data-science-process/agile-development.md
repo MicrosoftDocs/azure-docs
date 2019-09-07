@@ -49,42 +49,42 @@ Here are the definitions for the work item types:
   - Get SQL Server credentials
   - Upload data to SQL Data Warehouse
   
-- **Bug**: Bugs are fixes for existing code or documents that are done when completing a Task. If Bugs are caused by missing work items, they can escalate to being User Stories or Tasks. 
+- **Bug**: Bugs are issues in existing code or documents that must be fixed to complete a Task. If Bugs are caused by missing work items, they can escalate to be User Stories or Tasks. 
 
-Data scientists may feel more comfortable using an agile template that replaces Features, User Stories, and Tasks with TDSP lifecycle stages and substages. To create an agile-derived template that specifically aligns with the TDSP lifecycle stages, see [Set up an agile TDSP work template](#set-up-agile-dsp-6).
+Data scientists may feel more comfortable using an agile template that replaces Features, User Stories, and Tasks with TDSP lifecycle stages and substages. To create an agile-derived template that specifically aligns with the TDSP lifecycle stages, see [Use an agile TDSP work template](#set-up-agile-dsp-6).
 
 > [!NOTE]
 > TDSP borrows the concepts of Features, User Stories, Tasks, and Bugs from software code management (SCM). The TDSP concepts might differ slightly from their conventional SCM definitions.
 
-## <a name='SprintPlanning-2'></a>Sprint planning
+## <a name='SprintPlanning-2'></a>Plan sprints
 
-Many data scientists are engaged with multiple projects, which can proceed at different paces and take months to complete. Sprint planning is useful for project prioritization, and resource planning and allocation. In Azure Boards, you can easily create, manage, and track work items for your project, and conduct sprint planning to ensure that your projects are moving forward as expected. 
+Many data scientists are engaged with multiple projects, which can take months to complete and proceed at different paces. Sprint planning is useful for project prioritization, and resource planning and allocation. In Azure Boards, you can easily create, manage, and track work items for your projects, and conduct sprint planning to ensure projects are moving forward as expected.
 
 For more information about sprint planning, see [Scrum sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
 
 For more information about sprint planning in Azure Boards, see [Assign backlog items to a sprint](/azure/devops/boards/sprints/assign-work-sprint). 
 
-## <a name='AddFeature-3'></a>Add a Feature to a project 
+## <a name='AddFeature-3'></a>Add a Feature to the backlog 
 
-Add a Feature to represent the work for your project.
+After your project and project code repository are created, you can add a Feature to the backlog to represent the work for your project.
 
-1. From your project page, select **Boards** in the left navigation. 
+1. From your project page, select **Boards** > **Backlogs** in the left navigation. 
    
-1. On the **Work items** page, select the dropdown arrow next to **New Work Item**, and select **Feature**. 
+1. On the **Backlog** page, if the work item type in the top bar is **Stories**, drop down and select **Features**. Then select **New Work Item.**
    
-   ![Select Feature from New Work Item](./media/agile-development/2-sprint-team-overview.png)
+   ![Select New Work Item](./media/agile-development/2-sprint-team-overview.png)
    
-1. Enter a title for the Feature, usually your project name, and then select **Save**. 
+1. Enter a title for the Feature, usually your project name, and then select **Add to top**. 
    
-   ![Enter a title and select Save](./media/agile-development/3-sprint-team-add-work.png)
+   ![Enter a title and select Add to top](./media/agile-development/3-sprint-team-add-work.png)
    
-1. In the new Feature, fill in descriptions, assign a team member, and set planning parameters. 
+1. From the **Backlog** list, select the new Feature, fill in descriptions, assign a team member, and set planning parameters. 
    
    You can also link the Feature to the project's Azure Repos repository by selecting **Add link** under the **Development** section. 
    
-   After you have finished editing the Feature, select **Save & Close**.
+   After you finish editing the Feature, select **Save & Close**.
    
-   ![Add link to Azure Repo and select Save & Close](./media/agile-development/3a-add-link-repo.png)
+   ![Edit Feature and select Save & Close](./media/agile-development/3a-add-link-repo.png)
 
 ## <a name='AddStoryunderfeature-4'></a>Add a User Story to the Feature 
 
@@ -92,7 +92,7 @@ Under the Feature, you can add User Stories to describe major steps needed to fi
 
 To add a new User Story to a Feature:
 
-1. On the **Backlog** tab, select the **+** to the left of the Feature, and then select **User Story** from the popup menu.  
+1. On the **Backlog** tab, select the **+** to the left of the Feature to add the User Story. 
    
    ![Add a new User Story under the Feature](./media/agile-development/4-sprint-add-story.png)
    
@@ -116,11 +116,11 @@ After you create Features, User Stories, and Tasks, you can view them in the **B
 
 ![Backlogs view](./media/agile-development/8-sprint-backlog-view.png)
 
-## <a name='set-up-agile-dsp-6'></a>Set up and use an agile TDSP work template
+## <a name='set-up-agile-dsp-6'></a>Use an agile TDSP work template
 
 Data scientists may feel more comfortable using an agile template that replaces Features, User Stories, and Tasks with TDSP lifecycle stages and substages. In Azure Boards, you can create an agile-derived template that uses  TDSP lifecycle stages to create and track work items. The following steps walk through setting up a data science-specific agile process template and creating data science work items based on the template.
 
-### Set up the agile data science process template
+### Set up an Agile Data Science Process template
 
 1. From your Azure DevOps organization main page, select **Organization settings** from the left navigation. 
    
@@ -165,7 +165,7 @@ After you complete the steps, the backlog levels should look like this:
    
  ![TDSP template backlog levels](./media/agile-development/14-template.png)  
 
-### Create Data Science work items
+### Create Agile Data Science Process work items
 
 You can use the data science process template to create TDSP projects and track work items that correspond to TDSP lifecycle stages.
 
@@ -189,11 +189,11 @@ You can use the data science process template to create TDSP projects and track 
    
    ![Create data science project work item](./media/agile-development/17-dsworkitems0.png)
    
-1. Select the **+** next to the new project, and then select the type of work item to create. 
+1. To add a work item under the TDSP Project, select the **+** next to the project, and then select the type of work item to create. 
    
    ![Select data science work item type](./media/agile-development/17-dsworkitems1.png)
    
-1. Fill in the details in the new work item.
+1. Fill in the details in the new work item, and select **Save & Close**.
    
 1. Continue to select the **+** symbols next to work items to add new TDSP Stages, Substages, and Tasks. 
    
