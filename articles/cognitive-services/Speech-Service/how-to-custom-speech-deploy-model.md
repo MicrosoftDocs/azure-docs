@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
 # Deploy a custom model
 
-After you've uploaded and inspected data, evaluated accuracy, and trained a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. In this document, you'll learn how to create and deploy an endpoint using the Custom Speech portal.
+After you've uploaded and inspected data, evaluated accuracy, and trained a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. In this document, you'll learn how to create and deploy an endpoint using the [Custom Speech portal](https://speech.microsoft.com/customspeech).
 
 ## Create a custom endpoint
 
-To create a new custom endpoint, select **Deployment** from the Custom Speech menu at the top of the page. If this is your first run, you'll notice that there are no endpoints listed in the table. After you've created an endpoint, you'll use this page to track each deployed endpoint.
+To create a new custom endpoint, sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech) and select **Deployment** from the Custom Speech menu at the top of the page. If this is your first run, you'll notice that there are no endpoints listed in the table. After you've created an endpoint, you'll use this page to track each deployed endpoint.
 
 Next, select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom model that you'd like to associate with this endpoint. From this page, you can also enable logging. Logging allows you to monitor endpoint traffic. If disabled, traffic won't be stored.
 
