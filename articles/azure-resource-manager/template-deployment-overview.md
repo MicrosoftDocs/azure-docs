@@ -4,7 +4,7 @@ description: Describes how to use Azure Resource Manager templates for deploymen
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: tomfitz
 
 ---
@@ -12,13 +12,13 @@ ms.author: tomfitz
 
 With the move to the cloud, many teams have adopted agile development methods. These teams iterate quickly. They need to repeatedly and reliably deploy their solutions to the cloud. The division between operations and development has disappeared as teams need to manage infrastructure and source code in a single process.
 
-One solution to these challenges is to automate deployment and use the practice of infrastructure as code. You use code to define what needs to be deployed, and manage that code through the same process as source code. You store the infrastructure as code in a source repository and version it.
+One solution to these challenges is to automate deployment and use the practice of infrastructure as code. In code, you define what needs to be deployed, and manage that code through the same process as your application code. You store the infrastructure code in a source repository and version it.
 
-Azure Resource Manager enables you to implement infrastructure as code through Resource Manager templates. The template is a JavaScript Object Notation (JSON) file that contains the infrastructure and configuration for your Azure solution. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
+Azure Resource Manager templates enable you to implement infrastructure as code for your Azure solutions. The template is a JavaScript Object Notation (JSON) file that contains the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
 ## Benefits of Resource Manager templates
 
-Resource Manager templates provide several benefits. You can:
+Resource Manager templates are the recommended way to automate deployments to Azure. Templates provide several benefits. You can:
 
 * Deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
 
@@ -26,13 +26,13 @@ Resource Manager templates provide several benefits. You can:
 
 * Manage your infrastructure through declarative templates rather than scripts.
 
-* Let Resource Manager orchestrate the deployment of interdependent resources so they are created in the correct order.
-
-## Why templates are your best option
-
-Azure Resource Manager templates are the recommended option for automating deployments to Azure. When comparing templates to other infrastructure as code services, consider the following advantages templates have over those service:
+When comparing Resource Manager templates to other infrastructure as code services, consider the following advantages templates have over those services:
 
 * New Azure services and features are immediately available through templates. As soon as a resource provider introduces new resources, you can deploy those resources through templates. With other infrastructure as code services, you need to wait for third parties to implement interfaces for the new resources.
+
+* Template deployments are handled through a single submission of the template, rather than through multiple imperative commands. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. It parses the template and determines the correct order for deployment based on references between resources. You focus on setting the property values for each resource.
+
+   ![Template deployment comparison](./media/template-deployment-overview/template-processing.png)
 
 * Template deployments are tracked in the Azure portal. You can review the deployment history and get information about the template deployment. You can see the template that was deployed, the parameter values passed in, and any output values. Other infrastructure as code services aren't tracked through the portal.
 
@@ -40,7 +40,9 @@ Azure Resource Manager templates are the recommended option for automating deplo
 
 * Template deployments undergo pre-flight validation. Resource Manager checks the template before starting the deployment to make sure the deployment will succeed. Your deployment is less likely to stop in a half-finished state.
 
+* If you're using [Azure policies](../governance/policy/overview.md), policy remediation is done on non-compliant resources when deployed through templates.
 
+* Microsoft provides deployment [Blueprints](../governance/blueprints/overview.md) to meet regulatory and compliance standards. These blueprints include pre-built templates for various architectures.
 
 ## Template file
 
@@ -58,15 +60,11 @@ The template has the following sections:
 
 * [Outputs](template-outputs.md) - Return values from the deployed resources.
 
-## Dependencies
+## Template features
 
-Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
-
-## Conditional deployment
+Resource Manager analyzes dependencies to ensure resources are created in the correct order. Most dependencies are determined implicitly. However, you can explicitly set a dependency to make sure one resource is deployed before another resource. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 
 You can add a resource to your template and optionally deploy it. Typically, you pass in a parameter value that indicates whether the resource needs to be deployed. For more information, see [Conditional deployment in Resource Manager templates](conditional-resource-deployment.md).
-
-## Create multiple instances
 
 Rather than repeating blocks of JSON many times in your template, you can use a copy element to specify more than one instance of a variable, property, or resource. For more information, see [Resource, property, or variable iteration in Azure Resource Manager templates](resource-group-create-multiple.md).
 
@@ -78,7 +76,7 @@ When you create a solution from the portal, the solution automatically includes 
 
 ## Template deployment process
 
-When you deploy a template, Resource Manager parses the template and converts its syntax into REST API operations. For example, when Resource Manager receives a template with the following resource definition:
+When you deploy a template, Resource Manager converts the template into REST API operations. For example, when Resource Manager receives a template with the following resource definition:
 
 ```json
 "resources": [
