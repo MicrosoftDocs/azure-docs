@@ -208,40 +208,7 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. When you're done, remember to save your Visual Studio solution.
 
-After you set the **Integration Account** property, the Azure Resource Manager template for your logic app includes a parameter for the selected integration account:
-
-```json
-{
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "1.0.0.0",
-   "parameters": {
-      "logicAppName": {
-         "type": "string",
-         "minLength": 1,
-         "maxLength": 80,
-         "metadata": {
-            "description": "Name of the Logic App."
-      }
-      },
-      "logicAppLocation": {
-         "type": "string",
-         "defaultValue": "[resourceGroup().location]",
-         "metadata": {
-            "description": "Location of the Logic App."
-         }
-      },
-      <connection-parameter-declarations>
-      "LogicAppIntegrationAccount": {
-         "type": "string",
-         "minLength": 1,
-         "defaultValue": "/subscriptions/XXXXXX-XXXXX-XXXXXXX/resourcegroups/ContosoResourceGroup/providers/Microsoft.Logic/integrationAccounts/Contoso-Integration-Account"
-       }
-   },
-   "variables": {},
-   "resources": [ { <Azure-resource-definitions> } ],
-   "outputs": {}
-}
-```
+When you set the **Integration Account** property in Visual Studio and save your logic app as an Azure Resource Manager template, that template also includes a parameter declaration for the selected integration account. For more information about template parameters and logic apps, see [Overview: Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
 
 <a name="refresh"></a>
 
