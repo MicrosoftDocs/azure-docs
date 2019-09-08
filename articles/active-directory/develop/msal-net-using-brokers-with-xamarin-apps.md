@@ -28,7 +28,7 @@ On Android and iOS, brokers like Microsoft Authenticator or Microsoft Intune com
 - Device identification. By accessing the device certificate, which was created on the device when it was workplace joined.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
-To enable one of these features, application developers need to use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Developers will also need to follow the steps below for [iOS](#brokered-authentication-for-ios) or [Android](#brokered-authentication-for-Android) applications.
+To enable one of these features, application developers need to use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Developers will also need to follow the steps below for [iOS](#brokered-authentication-for-ios) or [Android](#brokered-authentication-for-android) applications.
 
 ## Brokered Authentication for iOS
 
