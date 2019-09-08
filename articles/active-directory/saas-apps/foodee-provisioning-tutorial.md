@@ -92,9 +92,9 @@ To configure Foodee  for automatic user provisioning with Azure AD, you need to 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Foodee  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Foodee, following the instructions provided in the [Foodee Single sign-on tutorial](Foodee-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Foodee, following the instructions provided in the [Foodee Single sign-on tutorial](Foodee-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
-### To configure automatic user provisioning for Foodee  in Azure AD:
+### To configure automatic user provisioning for Foodee in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
