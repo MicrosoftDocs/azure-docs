@@ -41,10 +41,9 @@ Depending on a type of your Video Indexer account, you might need to perform dif
 
 The identified characters are available in the "Animated characters" section in the [Video Indexer](https://vi.microsoft.com/) portal.
 
-
 ## Use the animated character detection with portal 
 
-There are the steps you need to take to start using the animated character detection model:
+This section describes the steps you need to take to start using the animated character detection model.
 
 ### Connect your Custom vision account (paid accounts only)
 
@@ -67,14 +66,15 @@ If you don’t have a Custom Vision account already, please create one. For more
 ### Index a video with an animated model
 
 1. Click on the **Upload** button from the top menu.
-2. Choose a video to upload (from a file or a URL).
-3. Click on **Advanced options**.
-4. Under **People / Animated characters** choose **Animation models**.
-5. If you have one model it will be chosen automatically, and if you have multiple models you can choose the relevant one out of the dropdown menu.
-6. Click on upload.
-7. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pain.
+1. Choose a video to upload (from a file or a URL).
+1. Click on **Advanced options**.
+1. Under **People / Animated characters** choose **Animation models**.
+1. If you have one model it will be chosen automatically, and if you have multiple models you can choose the relevant one out of the dropdown menu.
+1. Click on upload.
+1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pain.
 
-> [!NOTE] Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
+> [!NOTE] 
+Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
 
 ### Customize the animated characters models
 

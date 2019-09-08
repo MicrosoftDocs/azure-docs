@@ -49,8 +49,6 @@
     href: scenes-shots-keyframes.md
   - name: Identify and transcribe multi-language content
     href: multi-language-identification-transcription.md
-  - name: Identify animated characters
-    href: animated-characters-recognition.md
   - name: View and edit Video Indexer insights
     href: video-indexer-view-edit.md
   - name: Use editor to create projects
@@ -61,6 +59,8 @@
     href: video-indexer-disaster-recovery.md        
   - name: Customize content models
     items:
+    - name: Animated characters
+      href: animated-characters-recognition.md
     - name: Person
       items: 
       - name: using Video Indexer website
