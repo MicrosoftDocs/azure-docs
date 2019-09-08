@@ -338,5 +338,5 @@ GROUP BY c_customer_id
          ,d_year
 
 ```
-Check the original query's estimated execution plan again.  The number of shuffles changes from 18 to # and the number of joins changes from 17 to #. Hover over the join operator icons in the plan, the Output List shows the new materialized views are used for producing the data, not the base tables.
+Check the original query's estimated execution plan again.  The number of shuffles changes from 18 to # and the number of joins changes from 17 to #. Hover over the join operator icons in the plan, the Output List shows the data is produced from the materialized views instead of base tables.  By getting data from materialized views, the query execution has fewer expensive operations and finishes much faster with no code change.  
  
