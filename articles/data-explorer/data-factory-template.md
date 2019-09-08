@@ -17,7 +17,7 @@ ms.date: 09/08/2019
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Azure Data Factory is a fully managed cloud-based data integration service. You can use the Azure Data Factory service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions. 
 
 [Azure Data Factory Templates](/azure/data-factory/solution-templates-introduction) are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory and reduce development time for building data integration projects. 
-The **Bulk copy from database to Azure Data Explorer** template is created using **Lookup** and **ForEach** activities. Advantages of the template include faster copying of data because of partitioning and usage of various pipelines. You can use the template to create many pipelines per database or table. 
+The **Bulk copy from database to Azure Data Explorer** template is created using **Lookup** and **ForEach** activities. You can use the template to create many pipelines per database or table for faster copying of data. 
 
 > [!IMPORTANT]
 > * Use the **Bulk copy from database to Azure Data Explorer** template to copy large amounts of data from databases such as SQL server and Google BigQuery to Azure Data Explorer. 
@@ -52,7 +52,7 @@ Example of SQL Server source table format:
 
 If your **ControlTableDataset** is in a different format, create a comparable **ControlTableDataset** for your format.
 
-## Use template for Azure Data Explorer to copy data
+## Use bulk copy from database to Azure Data Explorer template
 
 1. In the **Let's get started** page, select the **Create pipeline from template** tile, or select the pencil icon (**Author** tab) on the right > **+** > **Pipeline from template** to open the template gallery.
 
@@ -65,18 +65,18 @@ If your **ControlTableDataset** is in a different format, create a comparable **
 1.  In the **Bulk Copy from Database to Azure Data Explorer** window, select existing datasets from drop-down. 
 
     * **ControlTableDataset** - linked service to control table that indicates what data is copied from source to destination and where it will be placed in the destination. 
-    * **SourceDataset** – Linked service to source database 
+    * **SourceDataset** – Linked service to source database. 
     * **AzureDataExplorerTable** - Azure Data Explorer Table. If the dataset doesn't exist, [create the Azure Data Explorer linked service](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) to add the dataset.
-    * Select **Use this template**
+    * Select **Use this template**.
 
     ![configure bulk copy Azure Data Explorer template](media/data-factory-template/configure-bulk-copy-adx-template.png)
 
-1. Select an area in the canvas, outside the activities, to access the template pipeline. Select **Parameters** to enter the parameters for the table including **Name** (control table name) and **Default value** column names.
+1. Select an area in the canvas, outside the activities, to access the template pipeline. Select **Parameters** to enter the parameters for the table including **Name** (control table name) and **Default value** (column names).
 
     ![Pipeline parameters](media/data-factory-template/pipeline-parameters.png)
 
 1.	Select Lookup activity, **GetPartitionList**, to view default settings. The query is automatically created.
-1.	Select Command activity, **ForEachPartition** > **Settings**
+1.	Select Command activity **ForEachPartition**, select **Settings**
     * **Batch count**: Select number from 1-50. This selection determines the number of pipelines that run in parallel until the **ControlTableDataset** number of rows is reached. 
     * DO NOT select the **Sequential** checkbox so the pipeline batches run in parallel.
 
