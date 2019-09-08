@@ -27,7 +27,7 @@ landingContent:
             url: overview.md
           - text: What is Azure Monitor?
             url: overview.md
-      - linkListType: conceptual
+      - linkListType: concept
         links:
           - text: Data Sources 
             url: platform/data-sources.md
@@ -38,47 +38,17 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: linkListType
+      - linkListType: get-started
         links:
           - text: linktext1
             url: file1.md
           - text: linktext2
             url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-
-  # Card
-  - title: cardtitle3
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+      - linkListType: video
         links:
           - text: linktext1
             url: file1.md
           - text: linktext2
             url: file2.md
 
-  # Card
-  - title: cardtitle4
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+  
