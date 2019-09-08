@@ -1494,6 +1494,8 @@
         href: druva-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
+      - name: Elium
+        href: elium-provisioning-tutorial.md
       - name: Figma
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
@@ -1502,6 +1504,8 @@
         href: fuze-provisioning-tutorial.md
       - name: Flock
         href: flock-provisioning-tutorial.md
+      - name: Foodee
+        href: foodee-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1510,6 +1514,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
+      - name: iPass SmartConnect
+        href: ipass-smartconnect-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
@@ -1576,6 +1582,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
+      - name: Visitly
+        href: visitly-provisioning-tutorial.md
       - name: Workday
         href: workday-inbound-tutorial.md
       - name: Workteam

@@ -27,9 +27,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Experiment with Python notebooks
+          - text: Experiment in Python notebooks
             url: service/tutorial-1st-experiment-sdk-setup.md
-          - text: Experiment through drag & drop
+          - text: Experiment using drag & drop
             url: service/ui-tutorial-automobile-price-train-score.md
           - text: Automate your first experiment
             url: service/tutorial-first-experiment-automated-ml.md
@@ -41,13 +41,13 @@ landingContent:
             url: service/concept-azure-machine-learning-architecture.md
       - linkListType: how-to-guide
         links:
-          - text: Set up development environments
+          - text: Set up your environment
             url: service/how-to-configure-environment.md
           - text: Set up training compute targets
             url: service/how-to-set-up-training-targets.md
             
   # PYTHON
-  - title: Experiment with Python SDK
+  - title: 'Experiment: Python SDK'
     linkLists:
       - linkListType: tutorial
         links:
@@ -69,21 +69,21 @@ landingContent:
             url: service/how-to-train-keras.md
 
   # VISUAL INTERFACE
-  - title: Experiment in visual interface
+  - title: 'Experiment: visual interface'
     linkLists:
       - linkListType: tutorial
         links:
           - text: Use automated ML to predict subscriptions
             url: service/tutorial-first-experiment-automated-ml.md
-          - text: Predict automobile prices with linear regression
+          - text: Use linear regression to predict prices
             url: service/ui-tutorial-automobile-price-train-score.md
       - linkListType: how-to-guide
         links:
-          - text: 'Predict credit risk'
+          - text: Predict credit risk
             url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
-          - text: 'Predict delays'
+          - text: Predict delays
             url: service/ui-sample-classification-predict-flight-delay.md
-          - text: 'Predict churn'
+          - text: Predict churn
             url: service/ui-sample-classification-predict-churn.md     
 
   # MLOps

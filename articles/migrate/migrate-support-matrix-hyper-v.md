@@ -77,7 +77,7 @@ For assessment, Azure Migrate runs a lightweight appliance to discover Hyper-V V
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Appliance deployment**   |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/> The Hyper-V host must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, and 1 external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
+| **Appliance deployment**   |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/> The Hyper-V host must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
 | **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
 | **Hyper-V hosts**          | An appliance can connect to up to 300 Hyper-V hosts.
 | **Discovery**              | A single appliance can discover up to 5000 VMs.

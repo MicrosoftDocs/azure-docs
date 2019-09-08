@@ -9,7 +9,7 @@ ms.date: 3/28/2019
 ms.author: victorh
 
 ---
-# Back-end health, diagnostic logs, and metrics for Application Gateway
+# Back-end health and diagnostic logs for Application Gateway
 
 By using Azure Application Gateway, you can monitor resources in the following ways:
 
@@ -17,7 +17,7 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-* [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
+* [Metrics](application-gateway-metrics.md): Application Gateway has several metrics which help you verify that your system is performing as expected.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -167,7 +167,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
-|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overriden, this name will reflect that.|
+|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
 |originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 ```json
 {
@@ -354,67 +354,6 @@ You can also connect to your storage account and retrieve the JSON log entries f
 #### Analyzing Access logs through GoAccess
 
 We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
-
-## Metrics
-
-Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, the following metrics are available:
-
-- **Current Connections**
-- **Failed Requests**
-- **Healthy Host Count**
-
-   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
-
-
-- **Response Status**
-
-   The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
-
-- **Throughput**
-- **Total Requests**
-- **Unhealthy Host count**
-
-   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
-
-Browse to an application gateway, under **Monitoring** select **Metrics**. To view the available values, select the **METRIC** drop-down list.
-
-In the following image, you see an example with three metrics displayed for the last 30 minutes:
-
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
-
-### Alert rules
-
-You can start alert rules based on metrics for a resource. For example, an alert can call a webhook or email an administrator if the throughput of the application gateway is above, below, or at a threshold for a specified period.
-
-The following example walks you through creating an alert rule that sends an email to an administrator after throughput breaches a threshold:
-
-1. select **Add metric alert** to open the **Add rule** page. You can also reach this page from the metrics page.
-
-   !["Add metric alert" button][6]
-
-2. On the **Add rule** page, fill out the name, condition, and notify sections, and select **OK**.
-
-   * In the **Condition** selector, select one of the four values: **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
-
-   * In the **Period** selector, select a period from five minutes to six hours.
-
-   * If you select **Email owners, contributors, and readers**, the email can be dynamic based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
-
-   ![Add rule page][7]
-
-If the threshold is breached, an email that's similar to the one in the following image arrives:
-
-![Email for breached threshold][8]
-
-A list of alerts appears after you create a metric alert. It provides an overview of all the alert rules.
-
-![List of alerts and rules][9]
-
-To learn more about alert notifications, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 
 ## Next steps
 
