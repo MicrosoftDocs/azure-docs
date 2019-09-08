@@ -286,7 +286,7 @@ The amount of compute billed is the maximum of CPU used and memory used each sec
 - **Amount billed**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
 - **Billing frequency**: Per second
 
-The vCore unit price in the cost per vCore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
+The vCore unit price is the cost per vCore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
 
 The amount of compute billed is exposed by the following metric:
 
