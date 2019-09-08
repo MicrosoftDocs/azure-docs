@@ -77,13 +77,13 @@ Complex analytical queries typically use more computational resources due to exp
 
 Here are general guidance on using materialized views to improve query performance:
 
-**Understand your workload**
+**Design for your workload**
 
 - Before you begin to create materialized views, it is important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and size of resulting data.  
 
 - Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by query optimizer.  Since these recommendations are query-specific, a view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the performance of the workload.
 
-**Be aware of the tradeoff between having many materialized views and incurred cost** 
+**Be aware of the tradeoff between faster queries and cost incurred from materialized views** 
 
 - For each materialized view, there is a cost for storage and view maintenance by tuple mover. Users should evaluate whether the incurred cost can be offset by having many materialized views in a database.  You can run this query for all materialized view in a user database: 
 
@@ -93,9 +93,11 @@ FROM sys.views V
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 ```
 
+Consider these options to minimize the number of materialized views without query performance degradation:  
+
 - Identify common data sets frequently used by the complex queries in your workload.  Create materialized views to store this data as building blocks for optimizer to build execution plans. 
 
-- Consider dropping the materialized views that have low usage or are no longer needed.  A disabled materialized view is not maintained but it still incurs storage cost.  
+- Drop the materialized views that have low usage or are no longer needed.  A disabled materialized view is not maintained but it still incurs storage cost.  
 
 - Combine materialized views that use the same or similar base tables if query performance is not degraded. Combing materialized views could result in a larger view in size than the sum of separate views but the cost in view maintenance should be reduced.  For example:
 
