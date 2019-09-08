@@ -17,20 +17,25 @@ ms.author: juliako
 
 Video Indexer supports automatic language identification and transcription in multi-language content. This process involves automatically identifying the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. 
 
-## Choosing multilingual identification on indexing
-
-### Using the API
-
-When indexing or [reindexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
-
-### Using the Azure portal
+## Choosing multilingual identification on indexing with portal
 
 1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
 1. Go to the **Library** page and hover over the name of the video that you want to reindex. 
 1. On the right-bottom corner, click the **Re-index video** button. 
 1. In the **Re-index video** dialog, choose **multi-language detection**  from the **Video source language** drop-down box.
 
-## Model output
+* When a video was indexed as multi-language, the insight page will include that option, and an additional insight type will appear, enabling the user to view which segment is transcribed in which language "Spoken language".
+* Translation to all languages is fully available from the multi-language transcript.
+* All other insights will appear in the master language detected – that is the language that appeared most in the audio.
+* Closed captioning on the player is available in multi-language as well.
+
+![Portal experience](./media/multi-language-identification-transcription/portal-experience.png)
+
+## Choosing multilingual identification on indexing with API
+
+When indexing or [reindexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `multi-language detection` option in the `sourceLanguage` parameter.
+
+### Model output
 
 The model will retrieve all of the languages detected in the video in one list
 
@@ -61,15 +66,6 @@ Additionally, each instance in the transcription section will include the langua
   ]
 },
 ```
-
-### Portal experience
-
-* When a video was indexed as multi-language, the insight page will include that option, and an additional insight type will appear, enabling the user to view which segment is transcribed in which language "Spoken language".
-* Translation to all languages is fully available from the multi-language transcript.
-* All other insights will appear in the master language detected – that is the language that appeared most in the audio.
-* Closed captioning on the player is available in multi-language as well.
-
-![Portal experience](./media/multi-language-identification-transcription/portal-experience.png)
 
 ## Guidelines and limitations
 
