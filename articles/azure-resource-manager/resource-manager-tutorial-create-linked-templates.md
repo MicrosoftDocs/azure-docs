@@ -283,7 +283,7 @@ Recall from [Tutorial: Create Azure Resource Manager templates with dependent re
 
 Because the storage account is defined in the linked template now, you must update the following two elements of the `Microsoft.Compute/virtualMachines` resource.
 
-* Reconfigure the `dependOn` element. The storage account definition is moved to the linked template.
+* Reconfigure the `dependsOn` element. The storage account definition is moved to the linked template.
 * Reconfigure the `properties/diagnosticsProfile/bootDiagnostics/storageUri` element. In [Create the linked template](#create-the-linked-template), you added an output value:
 
     ```json
