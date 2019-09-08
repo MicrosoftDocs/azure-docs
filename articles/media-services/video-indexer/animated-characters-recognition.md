@@ -54,7 +54,9 @@ If you don’t have a Custom Vision account already, please create one. For more
 ### Create an animated characters model
 
 1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
-1. Click on the “Content model customization” button on the top menu.
+1. Click on the content model customization button on the top-right corner of the page.
+
+    ![Content model customization](./media/customize-face-model/content-model-customization.png)
 1. Go to the **Animated characters** tab in the model customization section.
 1. Click on **Add model**. 
 1. Name you model and click enter to save the name.

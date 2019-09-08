@@ -79,7 +79,7 @@ Additionally, each instance in the transcription section will include the langua
 * The model is designed to recognize a spontaneous conversational speech with reasonable audio acoustics (not voice commands, singing, etc.).
 * Project creation and editing is currently not available for multi-language videos.
 
-Custom language models are not available when using multi-language detection
+Custom language models are not available when using multi-language detection.
 
 ## Next steps
 
