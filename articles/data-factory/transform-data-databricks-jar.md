@@ -61,6 +61,9 @@ definition:
 |parameters|Parameters that will be passed to the main method.  This is an array of strings.|No|
 |libraries|A list of libraries to be installed on the cluster that will execute the job. It can be an array of <string, object>|Yes (at least one containing the mainClassName method)|
 
+> [!NOTE]
+> **Known Issue** - When using the same [Interactive cluster](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) for running concurrent Databricks Jar activities (without cluster restart), there is a known issue in Databricks regarding parameters of the 1st activity being used by following activities as well. Hence resulting to incorrect parameters being passed to the subsequent jobs. To mitigate this use a [Job cluster](compute-linked-services.md#example---using-new-job-cluster-in-databricks) instead. 
+
 ## Supported libraries for databricks activities
 
 In the above Databricks activity definition you specify these library types: *jar*, *egg*, *maven*, *pypi*, *cran*.
