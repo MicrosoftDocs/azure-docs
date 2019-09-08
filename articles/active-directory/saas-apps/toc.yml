@@ -1576,6 +1576,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
+      - name: Visitly
+        href: visitly-provisioning-tutorial.md
       - name: Workday
         href: workday-inbound-tutorial.md
       - name: Workteam
