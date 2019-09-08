@@ -23,8 +23,8 @@ ms.author: Zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in Wrike and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Wrike.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/user-provisioning).
-
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+>
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A Wrike tenant](https://www.wrike.com/price/).
 * A user account in Wrike with Admin permissions.
 
-Assign Users to Wrike
+## Assign users to Wrike
 Azure Active Directory uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Wrike. Once decided, you can assign these users and/or groups to Wrike by following the instructions here:
@@ -52,11 +52,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Wrike for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Wrike.
 
-1. Sign in to your [Wrike Admin Console](https://www.Wrike.com/login/). Navigate to your Tenant ID> Select **APPS & Integrations**.
+1. Sign in to your [Wrike Admin Console](https://www.Wrike.com/login/). Navigate to your Tenant ID. Select **APPS & Integrations**.
 
 	![Wrike Admin Console](media/Wrike-provisioning-tutorial/admin.png)
 
-2.  Navigate to **Azure AD** > **Click** on it.
+2.  Navigate to **Azure AD**. Select it.
 
 	![Wrike Admin Console](media/Wrike-provisioning-tutorial/Capture01.png)
 
@@ -105,7 +105,7 @@ Before configuring Wrike for automatic user provisioning with Azure AD, you need
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Wrike based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Wrike , following the instructions provided in the [Wrike Single sign-on tutorial](wrike-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Wrike , following the instructions provided in the [Wrike Single sign-on tutorial](wrike-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 ### To configure automatic user provisioning for Wrike in Azure AD:
 
