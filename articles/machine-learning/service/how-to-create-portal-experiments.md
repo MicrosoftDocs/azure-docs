@@ -1,7 +1,7 @@
 ---
 title: Use automated ML to build and deploy machine learning models
 titleSuffix: Azure Machine Learning service
-description: Create, manage and deploy automated machine learning experiments in the Azure Machine Learning studio
+description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's new workspace landing page.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,9 @@ ms.date: 09/09/2019
 
 ---
 
-# Create, explore and deploy automated machine learning experiments with Azure Machine Learning studio (Preview)
+# Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)
 
- In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning studio without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+ In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's new workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -28,7 +28,7 @@ ms.date: 09/09/2019
 
 ## Get started
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/workspaceportal/). 
+1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
 1. Select your subscription and workspace. 
 
@@ -61,7 +61,7 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
     >[!NOTE]
     > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
 
-1. Select a dataset from your storage container, or create one by uploading a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
+1. Select a dataset from your storage container, or create one by uploading a file from your local computer to the container. Public preview only supports local file uploads and Azure blob storage accounts.
 
     >[!Important]
     > Requirements for training data:
