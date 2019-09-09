@@ -32,7 +32,7 @@ az mysql server update --name mydemoserver --resource-group myresourcegroup --au
 Enable server auto-grow storage while creating a new server with the following command:
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 ## Next steps
