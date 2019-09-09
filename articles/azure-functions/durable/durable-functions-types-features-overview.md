@@ -16,13 +16,7 @@ ms.author: azfuncdf
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use Durable Functions for stateful orchestration of function execution. A durable function app is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
 
-There are currently four durable function types in Azure Functions: activity, orchestrator, entity, and client.
-
-*Orchestrator functions* are used primarily to reliably schedule the execution of other functions within a function app. An orchestrator function is initially triggered by a *client function*. When running, orchestrator functions can invoke *activity functions*, *entity functions*, or other orchestrator functions. Client functions can also query, terminate, or raise events to running orchestrations or entity functions.
-
-![An image that shows the types of durable functions][1]
-
-The rest of this section goes into more details about the types of functions involved in an orchestration.
+There are currently four durable function types in Azure Functions: activity, orchestrator, entity, and client. The rest of this section goes into more details about the types of functions involved in an orchestration.
 
 ## Orchestrator functions
 
@@ -38,6 +32,9 @@ For more detailed information on orchestrator functions and their features, see 
 Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create an orchestrator function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be a separate activity function. These activity functions may be executed serially in a specific order, may be executed in parallel, or a combination of both.
 
 Unlike orchestrator functions, activity functions aren't restricted in the type of work you can do in them. Activity functions are freqently used to make network calls or perform CPU intensive operations. An activity functions can also return data back to the orchestration that invoked it. The Durable Task Framework guarantees that each called activity function will be executed *at least once* during an orchestration's execution.
+
+> [!NOTE]
+> Because activity functions only guarantee *at least once* execution, we recommend you make your activity function logic *idempotent* whenever possible.
 
 Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
 
@@ -68,6 +65,3 @@ To get started, create your first durable function in [C#](durable-functions-cre
 
 > [!div class="nextstepaction"]
 > [Read more about Durable Functions orchestrations](durable-functions-orchestrations.md)
-
-<!-- Media references -->
-[1]: media/durable-functions-types-features-overview/durable-concepts.png

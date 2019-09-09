@@ -28,9 +28,6 @@ The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/ap
 
 This async operation completes when the orchestration process is successfully scheduled. The orchestration process should start within 30 seconds. If it takes longer, you'll see a `TimeoutException`.
 
-> [!WARNING]
-> When developing locally in JavaScript, set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>` (for example, `localhost:7071`) to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 ### .NET
 
 The parameters to [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) are as follows:

@@ -33,6 +33,13 @@ Like Azure Functions, there are templates to help you develop Durable Functions 
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following sections describe typical application patterns that can benefit from Durable Functions:
 
+* [Function chaining](#chaining)
+* [Fan-out/fan-in](#fan-in-out)
+* [Async HTTP APIs](#async-http)
+* [Monitoring](#monitoring)
+* [Human interaction](#human)
+* [Aggregator](#aggregator)
+
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
 In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
@@ -142,6 +149,9 @@ module.exports = df.orchestrator(function*(context) {
 The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. The .NET `Task.WhenAll` API or JavaScript `context.df.Task.all` API is called, to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
 
 The automatic checkpointing that happens at the `await` or `yield` call on `Task.WhenAll` or `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+> [!NOTE]
+> In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would re-run from the beginning after the process recovers.
 
 ### <a name="async-http"></a>Pattern #3: Async HTTP APIs
 
@@ -340,6 +350,10 @@ module.exports = async function (context) {
 };
 ```
 
+```bash
+curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
+```
+
 ### <a name="aggregator"></a>Pattern #6: Aggregator (preview)
 
 The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated may come from multiple sources, may be delivered in batches, or may be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients may need to query the aggregated data.
@@ -374,7 +388,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-Durable Entities can also be modeled as .NET classes. This model can be useful if the list of operations becomes large and if it is mostly static. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+Durable Entities can also be modeled as .NET classes. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
 
 ```csharp
 public class Counter
@@ -394,7 +408,7 @@ public class Counter
 }
 ```
 
-Clients can enqueue *operations* for (also known as "signaling") an entity function using the [orchestration client binding](durable-functions-bindings.md#orchestration-client).
+Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -411,7 +425,7 @@ public static async Task Run(
 }
 ```
 
-Dynamically generated proxies are also available for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using methods on the `orchestrationClient` binding.
+Dynamically generated proxies are also available for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
 
 > [!NOTE]
 > Entity functions are currently only available in .NET as part of the [Durable Functions 2.0 preview](durable-functions-preview.md).
@@ -443,9 +457,9 @@ The following video highlights the benefits of Durable Functions:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
-For a more in-depth discussion of Durable Functions and the underlying technology, see the following video:
+For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
 
-> [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204]
+> [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

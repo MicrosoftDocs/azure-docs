@@ -16,7 +16,7 @@ Durable Functions has several features that make it easy to incorporate durable 
 
 ## Exposing HTTP APIs
 
-Orchestrations and entities can be invoked and managed using HTTP requests. You have a couple options for exposing your orchestrations as HTTP APIs:
+Orchestrations and entities can be invoked and managed using HTTP requests. The Durable Functions extension exposes built-in HTTP APIs and also provides APIs for interacting with orchestrations and entities from within HTTP-triggered functions.
 
 ### Built-in HTTP APIs
 
@@ -134,8 +134,8 @@ public static async Task CheckSiteAvailable(
 
 The "call HTTP" action enables you to the following things in your orchestrator functions:
 
-* Call HTTP APIs directly from orchestration functions (with some limitations mentioned later)
-* Implement automatic client-side HTTP 202 status polling
+* Call HTTP APIs directly from orchestration functions (with some limitations mentioned later).
+* Automatic support client-side HTTP 202 status polling patterns.
 * Use [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to make authorized HTTP calls to other Azure endpoints.
 
 The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. It's possible for you to implement all these features yourself using activity functions. In many cases, activity functions may give you more flexibility.
@@ -187,38 +187,6 @@ At runtime, the configured token source automatically returns an OAuth 2.0 acces
 A more complete example can be found in the [precompiled C# "RestartVMs" samples](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
 
 Managed identities are not limited to Azure resource management. Managed identities can be used to access any API that accepts Azure AD bearer tokens, including first-party Azure services or third-party web applications. The third-party web app could even be another function app. For a list of first-party Azure services that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
-
-### Extensibility (.NET only)
-
-You can use [Azure Functions .NET dependency injection](../functions-dotnet-dependency-injection.md) to customize the behavior of the HTTP client used by orchestrator functions. This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
-
-The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
-
-```csharp
-public class Startup : FunctionsStartup
-{
-    public override void Configure(IFunctionsHostBuilder builder)
-    {
-        // Register own factory
-        builder.Services.AddSingleton<
-            IDurableHttpMessageHandlerFactory,
-            MyDurableHttpMessageHandlerFactory>();
-    }
-}
-
-public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
-{
-    public HttpMessageHandler CreateHttpMessageHandler()
-    {
-        // Disable SSL certificate validation (not recommended in production!)
-        return new HttpClientHandler
-        {
-            ServerCertificateCustomValidationCallback =
-                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
-        };
-    }
-}
-```
 
 ### Limitations
 
