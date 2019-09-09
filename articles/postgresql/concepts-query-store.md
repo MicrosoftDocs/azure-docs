@@ -9,7 +9,7 @@ ms.date: 08/21/2019
 ---
 # Monitor performance with the Query Store
 
-**Applies to:** Azure Database for PostgreSQL - Single Server 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 

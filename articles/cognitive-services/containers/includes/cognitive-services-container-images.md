@@ -1,10 +1,22 @@
+---
+title: Container repositories and images
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+description: Two tables representing the container registries, repositories and image names for all Cognitive Service offerings.
+ms.service: cognitive-services
+ms.topic: include 
+ms.date: 09/06/2019
+ms.author: dapine
+---
+
 ### Container repositories and images
 
 The tables below are a comprehensive listing of the available container images offered by Azure Cognitive Services.
 
-#### Public (container registry: `mcr.microsoft.com`)
+#### Public "Ungated" (container registry: `mcr.microsoft.com`)
 
-The Microsoft Container Registry hosts all of the general availability (GA) containers for Cognitive Services.
+The Microsoft Container Registry hosts all of the publicly available "ungated" containers for Cognitive Services.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
@@ -13,9 +25,9 @@ The Microsoft Container Registry hosts all of the general availability (GA) cont
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### Public Preview (container registry: `containerpreview.azurecr.io`)
+#### Public "Gated" Preview (container registry: `containerpreview.azurecr.io`)
 
-The Container Preview registry hosts all of the "public preview" containers for Cognitive Services that have not yet been progressed to general availability (GA). These containers require a formal request for access in order to consume them.
+The Container Preview registry hosts all of the publicly available "gated" containers for Cognitive Services. These containers require a formal request for access in order to consume them.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
