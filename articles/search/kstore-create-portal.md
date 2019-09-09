@@ -38,12 +38,11 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 1. [Download the hotel review saved to CSV file (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data originates from Kaggle.com and contains customer feedback about hotels.
 1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account.
 1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) To do this, in the left navigation bar for your storage account, click **Blobs**, and then click **+ Container** on the command bar.
-    ![Click upload on the command bar](media/kstore-create-portal/upload-command-bar.png "Upload the .csv file")
 1. For the new container **Name**, enter `hotel-reviews`.
 1. Select any **Public Access Level**. We used the default.
 1. Click **OK** to create the Azure Blob container.
 1. Open the new `hotels-review` container, click **Upload**, and  select the **HotelReviews-Free.csv** file you downloaded in the first step. 
-1. Click **Upload** to import the CSV file into Azure Blob Storage. The new container will appear
+1. Click **Upload** to import the CSV file into Azure Blob Storage. The new container will appear.
     ![Create the Azure Blob container](media/kstore-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
 
 ### Get the Azure Storage account connection string
