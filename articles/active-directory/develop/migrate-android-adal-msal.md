@@ -2,8 +2,7 @@
 title: ADAL to MSAL Migration Guide | Azure
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) app to the Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: tylermsft
 manager: CelesteDG
 editor: ''
 
@@ -11,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: Android
 ms.workload: identity
 ms.date: 09/6/2019
 ms.author: twhitney
