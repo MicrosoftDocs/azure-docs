@@ -327,8 +327,6 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 > [!IMPORTANT]
 > You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
-> [!IMPORTANT]
-> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
 
 ## Deploy Data Factory entities
 
@@ -451,7 +449,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     > [!IMPORTANT]
     > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc.). Click **Refresh** on the toolbar to refresh the list when the time reaches the next hour.
 
-5. Click the link in the **Actions** columns.
+5. Click the **View Activity Runs** link in the **Actions** column.
 
     ![Pipeline actions link](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
