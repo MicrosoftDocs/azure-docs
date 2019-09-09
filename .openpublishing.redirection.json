@@ -4976,6 +4976,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
+      "redirect_url": "/azure/application-gateway/create-url-route-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-url-route-overview.md",
+      "redirect_url": "/azure/application-gateway/url-route-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-redirect-overview.md",
       "redirect_url": "/azure/application-gateway/redirect-overview",
       "redirect_document_id": false
