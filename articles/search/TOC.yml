@@ -241,13 +241,13 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: Create a knowledge store (Portal)
+    - name: Create a knowledge store in Azure portal
       href: kstore-create-portal.md
     - name: Create using REST and Postman
       href: knowledge-store-howto.md
-    - name: Connect using Storage Explorer
+    - name: View with Storage Explorer
       href: kstore-view-storage-explorer.md
-    - name: Connect using Power BI
+    - name: Connect with Power BI
       href: kstore-connect-powerbi.md
   - name: Query data
     items:

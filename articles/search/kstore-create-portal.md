@@ -137,7 +137,7 @@ Now that you have enriched your data using cognitive services and projected the 
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](kstore-connect-storage-explorer.md)
+> [View in Storage Explorer](kstore-connect-storage-explorer.md)
 
 To learn how to connect this knowledge store to Power BI, see the following walkthrough.
 

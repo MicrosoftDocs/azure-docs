@@ -1,6 +1,6 @@
 ---
-title: 'Connect to a knowledge store with Storage Explorer'
-description: 
+title: 'View a knowledge store with Storage Explorer'
+description: View in Storage Explorer for analysis and exploration.  
 
 author: lisaleib
 services: search

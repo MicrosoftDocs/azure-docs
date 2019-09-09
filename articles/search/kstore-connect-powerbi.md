@@ -16,7 +16,7 @@ ms.author: v-lilei
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Power Query in the Power BI Desktop app. Tp create the knowledge store sample used in this walkthrough see [How to create a knowledge store](kstore-create-portal).
+In this article, you'll learn how to connect and explore a knowledge store using Power Query in the Power BI Desktop app. Tp create the knowledge store sample used in this walkthrough see [How to create a knowledge store](kstore-create-portal.md).
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](kstore-connect-storage-explorer.md)
+> [View in Storage Explorer](kstore-connect-storage-explorer.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
