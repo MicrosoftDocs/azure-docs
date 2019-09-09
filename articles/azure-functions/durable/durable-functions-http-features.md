@@ -25,7 +25,7 @@ The Durable Functions extension automatically adds a set of HTTP APIs to the Azu
 
 The following built-in HTTP APIs are supported.
 
-* [Start new orchestration](durable-functions-http-api#start-orchestration)
+* [Start new orchestration](durable-functions-http-api.md#start-orchestration)
 * [Query orchestration instance](durable-functions-http-api.md#get-instance-status)
 * [Terminate orchestration instance](durable-functions-http-api.md#terminate-instance)
 * [Send an external event to an orchestration](durable-functions-http-api.md#raise-event)
@@ -191,7 +191,7 @@ Managed identities are not limited to Azure resource management. Managed identit
 
 ### Extensibility (.NET only)
 
-You can use [Azure Functions .NET dependency injection](../functions-dotnet-dependency-injection) to customize the behavior of the HTTP client used by orchestrator functions. This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
+You can use [Azure Functions .NET dependency injection](../functions-dotnet-dependency-injection.md) to customize the behavior of the HTTP client used by orchestrator functions. This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
 
 The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
 
