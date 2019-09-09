@@ -15,7 +15,7 @@ ms.author: aschhab
 
 This article documents the security controls built into Azure Service Bus Messaging.
 
-[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## Network
 

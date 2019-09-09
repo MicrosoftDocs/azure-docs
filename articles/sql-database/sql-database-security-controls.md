@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 This article documents the security controls that are built into Azure SQL Database.
 
-[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
 

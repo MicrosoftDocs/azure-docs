@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 This article documents the security controls built into Azure ExpressRoute.
 
-[!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## Network
 

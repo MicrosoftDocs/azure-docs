@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 This article documents the security attributes built into Windows Virtual Machines.
 
-[!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
+[!INCLUDE [Security attributes header](../../../includes/security-controls-header.md)]
 
 ## Network
 
