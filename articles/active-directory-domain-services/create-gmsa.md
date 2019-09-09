@@ -46,14 +46,15 @@ For more information, see [group managed service accounts (gMSA) overview][gmsa-
 As Azure AD DS managed domains are locked down and managed by Microsoft, there are some considerations when using service accounts:
 
 * Create service accounts in custom organizational units (OU) on the managed domain.
-    * You can't create a service account in the built-in *AADDC Users* or *AADDC Computers* OUs. Instead, [create a custom OU][create-custom-ou] in the Azure AD DS managed domain and then create service accounts in that custom OU.
+    * You can't create a service account in the built-in *AADDC Users* or *AADDC Computers* OUs.
+    * Instead, [create a custom OU][create-custom-ou] in the Azure AD DS managed domain and then create service accounts in that custom OU.
 * The Key Distribution Services (KDS) root key is pre-created.
-    * The KDS root key is pre-created on an Azure AD DS managed domain. There's nothing for you to configure.
-    * You don't have privileges to create or view the  KDS root key.
+    * The KDS root key is used to generate and retrieve passwords for gMSAs. In Azure AD DS, the KDS root is created for you; there's nothing for you to configure.
+    * You don't have privileges to create another, or view the default, KDS root key.
 
 ## Create a gMSA
 
-As you can't create a service account in the built-in *AADDC Users* or *AADDC Computers* OUs, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Azure AD DS][create-custom-ou]. The following example creates a custom OU named *myNewOU* on the Azure AD DS managed domain named *contoso.com*. Use your own OU and managed domain name:
+First, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Azure AD DS][create-custom-ou]. The following example creates a custom OU named *myNewOU* in the Azure AD DS managed domain named *contoso.com*. Use your own OU and managed domain name:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
@@ -62,14 +63,13 @@ New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
 Now create a gMSA using the [New-ADServiceAccount][New-ADServiceAccount] cmdlet. The following example parameters are defined:
 
 * **-Name** is set to *WebFarmSvc*
-* **-Path** parameter specifies the custom OU to create the gMSA in.
-* DNS entries and service principal names are set for *WebFarmSvc.contoso.com*.
+* **-Path** parameter specifies the custom OU for the gMSA created in the previous step.
+* DNS entries and service principal names are set for *WebFarmSvc.contoso.com*
 * Principals in *CONTOSO-SERVER$* are then allowed to retrieve the password use the identity.
 
 Specify your own names and domain names.
 
 ```powershell
-# Create a service account 'WebFarmSvc' within the custom OU.
 New-ADServiceAccount -Name WebFarmSvc `
     -DNSHostName WebFarmSvc.contoso.com `
     -Path "OU=MYNEWOU,DC=contoso,DC=com" `
