@@ -28,7 +28,7 @@ Learn more about:
 * Create an automated machine learning experiment, either with the SDK, in the Azure portal or in your workspace landing page (preview).
 
     * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
-    * Use the [Azure portal or your workspace landing page(preview)](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
+    * Use the [Azure portal or your workspace landing page (preview)](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
 
 ## View the run
 
