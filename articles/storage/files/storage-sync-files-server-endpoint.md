@@ -52,8 +52,13 @@ This can be done with the PowerShell cmdlet as shown below:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
+Specifying `-Order CloudTieringPolicy` will recall the most recently modified files first.
+Other optional but useful parameters to consider are:
+* `-ThreadCount` determines the how many files can be recalled in parallel.
+* `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
+* `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
 > [!Warning]  
 > If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
