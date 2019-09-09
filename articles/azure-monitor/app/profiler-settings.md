@@ -101,15 +101,6 @@ If your web app already has incoming traffic or if you just want to manually gen
 
 After Profiler finishes running, follow the instructions on notification to go to Performance pane and view traces.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-## App Service Environment
-Depending on how your Azure App Service Environment is configured, the call to check on the agent status might be blocked. The pane might display a message that the agent isn't running even when it is running. To make sure that it is, check the webjob on your application. If all the app settings values are correct and the Application Insights site extension is installed on your application, Profiler is running. If your application is receiving enough traffic, recent profiling sessions should be displayed in a list.
-
->>>>>>> Trigger updates
-=======
->>>>>>> Updates
 ## Next steps
 [Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
