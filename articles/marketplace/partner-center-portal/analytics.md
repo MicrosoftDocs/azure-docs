@@ -1,7 +1,7 @@
 ---
 title: Analytics for the Commercial Marketplace in Partner Center
 description: Learn how to access analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
-author: mattwojo 
+author: v-chjen 
 manager: evansma
 ms.author: shthota
 ms.service: marketplace 
@@ -21,6 +21,7 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 |[Orders](#orders-dashboard)|Information about your orders in a graphical and downloadable format|
 |[Customers](#customer-dashboard)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
 |[Downloads](#downloads-dashboard)|A list of your download requests over the last 30 days|
+|[Ratings and reviews](#ratings-and-reviews)| Information about reviews customers leave for the offers they've acquired.
 
 ## Summary dashboard
 
@@ -280,3 +281,38 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Provider Name| Customer| The name of the provider involved in the relationship between Microsoft and end customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP.|
 | SKU| Order| SKU name as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer.||
 | Trial End Date| Order| The date the trial period for this order will end or has ended.||
+
+## Ratings and reviews
+
+As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They can submit new ratings or reviews, and update or delete ratings or reviews that they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
+
+> [!NOTE]
+> Customers can make changes only to the ratings and reviews they own.
+
+The **Ratings & review dashboard** displays the trends and insights of customer activities. It provides graphical representations of:
+
+- Ratings & reviews  
+- Review comments
+
+### Marketplace storefront tabs
+
+Publishers can view their offer metrics separately in the AppSource & Azure Marketplace tabs. To view specific offer metrics, select **Offer** from the dropdown:
+
+![Partner Center analyze offer dropdown](./media/analyze-offer-dropdown.png)
+
+### Ratings and reviews summary
+
+The ratings & reviews summary section displays the metrics below for a selected date range:
+
+- **Average rating:** Weighted average star rating of all the ratings submitted by customers for the selected offer.
+- **Rating breakdown:** Breakdown of star rating by the count of customers who submitted ratings. The bar chart is stacked with actual and revised ratings (updated rating count).
+- **Total ratings:** Overall count of ratings submitted. This count also includes ratings with and without reviews.
+- **Ratings with reviews:** Count of reviews submitted.
+
+![Partner Center analyze ratings and reviews summary](./media/analyze-ratings-summary.png)
+
+### Review comments
+
+Reviews are displayed in chronological order for when they were posted. The default view displays all reviews. You can filter through the reviews by star rating using the **Filter** in the dropdown menu. You can also search for keywords that appear in the review.  
+
+![Partner Center analyze review comments](./media/analyze-reviews.png)
