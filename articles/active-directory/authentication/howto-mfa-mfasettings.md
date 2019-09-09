@@ -311,7 +311,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable named locations by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
@@ -321,7 +321,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
