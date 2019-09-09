@@ -858,7 +858,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/cognitive-services-container-support/">
-                                                <img src="media/index/virtual-containers.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
@@ -2774,7 +2774,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/virtual-containers.svg" alt="" />
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3045,7 +3045,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/virtual-containers.svg" alt="" />
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
