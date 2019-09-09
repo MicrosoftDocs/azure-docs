@@ -19,9 +19,9 @@ ms.author: chmutali
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Provisioning Agent: Version release history
-This article lists the versions and features of Azure Active Directory (Azure AD) Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. Provisioning Agents are updated automatically when a new version is released. 
+This article lists the versions and features of Azure AD Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. Provisioning Agents are updated automatically when a new version is released. 
 
-We recommend making sure that auto-updates are enabled for your agents to ensure that you have the latest features and bug fixes. Microsoft provides direct support for the latest connector version and one version before.
+We recommend enabling auto update for your agents to ensure that you have the latest features and bug fixes. Microsoft provides direct support for the latest agent version and one version before.
 
 ## 1.1.67.0
 
@@ -37,7 +37,7 @@ September 9, 2019: Released for auto update
 ### Fixed issues
 
 * Fixed a bug where-in the agent went into an unresponsive state if there were issues with AD connection failures
-* Fixed a bug related to handling of binary data present in AD attributes like userCertificate, jpegPhoto, etc.
+* Fixed a bug that caused issues when binary data was read from Active Directory
 * Fixed a bug where-in the agent failed to renew trust with the cloud Hybrid Identity Service
 
 ## 1.1.30.0
