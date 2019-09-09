@@ -47,11 +47,11 @@ To get started deploying Virtual Machine Scale Sets in Visual Studio, you need t
 
 1. In **Configure your new project**, enter a name and select **Create**.
 
-    ![Name and create your project](media\virtual-machine-scale-sets-vs-create\configure-azure-resource-group.png)
+    ![Name and create your project](media/virtual-machine-scale-sets-vs-create/configure-azure-resource-group.png)
 
 1. From the list of templates, choose either the **Linux Virtual Machine Scale Set** or **Windows Virtual Machine Scale Set** template. Select **OK**.
 
-   ![Select a virtual machine template](media\virtual-machine-scale-sets-vs-create\select-vm-template.png)
+   ![Select a virtual machine template](media/virtual-machine-scale-sets-vs-create/select-vm-template.png)
 
 After you create your project, **Solution Explorer** contains a PowerShell deployment script, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
 
@@ -63,7 +63,7 @@ The load balancer lets you connect to the virtual machine instances with SSH (Li
 
  A good way to edit your templates with Visual Studio is to use the **JSON Outline**. You can organize the parameters, variables, and resources. With an understanding of the schema, Visual Studio can point out errors in your template before you deploy it.
 
-![JSON Explorer](media\virtual-machine-scale-sets-vs-create\json-explorer.png)
+![JSON Explorer](media/virtual-machine-scale-sets-vs-create/json-explorer.png)
 
 ## Deploy the project
 
@@ -71,27 +71,27 @@ Deploy the Azure Resource Manager Template to create the Virtual Machine Scale S
 
 1. In **Solution Explorer**, right-click the project and choose **Deploy** > **New**.
 
-    ![Deploy your project](media\virtual-machine-scale-sets-vs-create\deploy-new-project.png)
+    ![Deploy your project](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
 1. In **Deploy to Resource Group**, choose which subscription to use and select a resource group. You can create a resource group, if necessary.
 
 1. Next, select **Edit Parameters** to enter parameters that are passed to your template.
 
-   ![Enter subscription and resource group](media\virtual-machine-scale-sets-vs-create\deploy-to-resource-group.png)
+   ![Enter subscription and resource group](media/virtual-machine-scale-sets-vs-create/deploy-to-resource-group.png)
 
 1. Provide the username and password for the operating system. These values are required to create the deployment. If you don't have PowerShell Tools for Visual Studio installed, select **Save passwords** to avoid a hidden PowerShell command prompt or use [Key Vault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/). Select **Save** to continue.
 
-    ![Edit deployment parameters](media\virtual-machine-scale-sets-vs-create\edit-deployment-parameters.png)
+    ![Edit deployment parameters](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
 
 1. In **Deploy to Resource Group**, select **Deploy**. The action runs the **Deploy-AzureResourceGroup.ps1** script. The **Output** window shows the deployment progress.
 
-   ![Output shows results](media\virtual-machine-scale-sets-vs-create\deployment-output.png)
+   ![Output shows results](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
 ## Exploring your Virtual Machine Scale Set
 
 Select **View** > **Cloud Explorer** to view the new Virtual Machine Scale Set. Use **Refresh All**, if necessary.
 
-![Cloud Explorer](media\virtual-machine-scale-sets-vs-create\cloud-explorer.png)
+![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 
 **Cloud Explorer** lets you manage Azure resources in Visual Studio while developing applications. You can also view your Virtual Machine Scale Set in the [Azure portal](https://portal.azure.com) and [Azure Resource Explorer](https://resources.azure.com/).
 
