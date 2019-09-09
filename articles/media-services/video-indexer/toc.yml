@@ -27,6 +27,8 @@
     items:
     - name: Overview
       href: customize-content-models-overview.md  
+    - name: Animated characters
+      href: animated-characters-recognition.md
     - name: Brands
       href: customize-brands-model-overview.md
     - name: Language
