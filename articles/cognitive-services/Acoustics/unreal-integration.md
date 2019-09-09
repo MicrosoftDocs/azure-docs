@@ -1,7 +1,7 @@
 ---
-title: Project Acoustics Unreal and Wwise Integration
+title: Project Acoustics Unreal and Wwise integration
 titlesuffix: Azure Cognitive Services
-description: This how-to describes integration of the Project Acoustics Unreal and Wwise plugins into your project.
+description: This article describes integration of the Project Acoustics Unreal and Wwise plugins into your project.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -14,59 +14,62 @@ ms.author: noelc
 ROBOTS: NOINDEX
 ---
 
-# Project Acoustics Unreal and Wwise Integration
-This how-to provides detailed integration steps of the Project Acoustics plugin package into your existing Unreal and Wwise game project. 
+# Project Acoustics Unreal and Wwise integration
+This article describes how to integrate the Project Acoustics plug-in package into your existing Unreal and Wwise game project.
 
 Software requirements:
 * [Unreal Engine](https://www.unrealengine.com/) 4.20+
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Wwise plugin for Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
-  * If you're using a direct integration of the Wwise SDK instead of using the Wwise Unreal plugins, consult the Project Acoustics Unreal plugin and adjust Wwise API calls.
+  
+  If you're using a direct integration of the Wwise SDK instead of using the Wwise Unreal plugins, consult the Project Acoustics Unreal plugin and adjust Wwise API calls.
 
-If you'd like to use Project Acoustics with an audio engine other than Wwise, make an enhancement request on the [Project Acoustics discussion forum](https://github.com/microsoft/ProjectAcoustics/issues). You can use the Project Acoustics Unreal plugin to query acoustics data and then make API calls to your engine.
+If you want to use Project Acoustics with an audio engine other than Wwise, make an enhancement request on the [Project Acoustics discussion forum](https://github.com/microsoft/ProjectAcoustics/issues). You can use the Project Acoustics Unreal plugin to query acoustics data and then make API calls to your engine.
 
 ## Download Project Acoustics
-If you haven't already, download the [Project Acoustics Unreal & Wwise plugin package](https://www.microsoft.com/download/details.aspx?id=58090)). 
+If you haven't already, download the [Project Acoustics Unreal and Wwise plug-in package](https://www.microsoft.com/download/details.aspx?id=58090)).
 
-We've included an Unreal Engine plugin and a Wwise mixer plugin in the package. The Unreal plugin provides editor and runtime integration. During gameplay, the Project Acoustics Unreal plugin computes parameters such as occlusion for each game object each frame. These parameters are translated to Wwise API calls.
+We've included an Unreal Engine plug-in and a Wwise mixer plug-in in the package. The Unreal plug-in provides editor and runtime integration. During gameplay, the Project Acoustics Unreal plug-in computes parameters such as occlusion for each game object each frame. These parameters are translated to Wwise API calls.
 
 ## Review integration steps
 
-There are these main steps to install the package and deploy it in your game.
-1. Install the Project Acoustics Wwise mixer plugin
-2. (Re)deploy Wwise to your game. This step propagates the mixer plugin into your game project.
-3. Add the Project Acoustics Unreal plugin to your game
-4. Extend Wwise's Unreal plugin functionality
-5. Build game and check Python is enabled
-6. Set up your Wwise project to use Project Acoustics
-7. Audio setup in Unreal
+These are these main steps to install the package and deploy it in your game:
+1. Install the Project Acoustics Wwise mixer plug-in.
+2. Deploy Wwise to your game. This step propagates the mixer plug-in into your game project.
+3. Add the Project Acoustics Unreal plugin to your game.
+4. Extend Wwise's Unreal plugin functionality.
+5. Build game and check that Python is enabled.
+6. Set up your Wwise project to use Project Acoustics.
+7. Do Audio setup in Unreal.
 
-## 1. Install the Project Acoustics mixer plugin
-* Open Wwise Launcher, then in the **Plugins** tab, under **Install New Plugins**, select **Add From Directory**. 
+## 1. Install the Project Acoustics mixer plug-in
+1. Open Wwise Launcher. Then on the **Plugins** tab, under **Install New Plugins**, select **Add From Directory**.
 
-    ![Screenshot of installing a plugin in Wwise Launcher](media/wwise-install-new-plugin.png)
+    ![Installing a plugin in Wwise Launcher](media/wwise-install-new-plugin.png)
 
-* Choose the `AcousticsWwisePlugin\ProjectAcoustics` directory that was included in the package you downloaded. It contains the Wwise mixer plugin bundle.
+1. Select the `AcousticsWwisePlugin\ProjectAcoustics` directory that was included in the package that you downloaded. It contains the Wwise mixer plug-in bundle.
 
-* Wwise will install the plugin. Project Acoustics should now show up in the installed plugins list in Wwise.  
+   Wwise will install the plug-in. Project Acoustics should now show up in the installed plugins list in Wwise.  
 ![Screenshot of Wwise installed plugins list after Project Acoustics installation](media/unreal-integration-post-mixer-plugin-install.png)
 
-## 2. (Re)deploy Wwise into your game
-Re-deploy Wwise to your game even if you've already integrated Wwise. This picks up the Project Acoustics Wwise plugin.
+## 2. Dedeploy Wwise into your game
+Re-deploy Wwise to your game even if you've already integrated Wwise. This step picks up the Project Acoustics Wwise plug-in.
 
-* **Engine plugin:** If you have Wwise installed as a game plugin in an Unreal C++ project, skip this step. If it's installed instead as an engine plugin, for instance because your Unreal project is Blueprint only, Wwise deployment with our mixer plugin is more complex. Create a dummy, empty Unreal C++ project, close it if Unreal editor opens, and follow the remaining procedure to deploy Wwise into this dummy project. Then copy out the deployed Wwise plugin.
+* **Engine plugin:** If you have Wwise installed as a game plug-in in an Unreal C++ project, skip this step. If it's installed instead as an engine plugin, for instance because your Unreal project is Blueprint only, Wwise deployment with our mixer plug-in is more complex. Create a dummy empty Unreal C++ project, close the Unreal editor if it opens, and follow the remaining procedure to deploy Wwise into the dummy project. Then copy out the deployed Wwise plug-in.
  
-* From Wwise Launcher, click the **Unreal Engine** tab, then click the hamburger menu next to **Recent Unreal Engine Projects** and select **Browse for project**. Open your game's Unreal project `.uproject` file.
+1. From Wwise Launcher, select the **Unreal Engine** tab, and then click the "hamburger" menu icon next to **Recent Unreal Engine Projects** and select **Browse for project**. Open your game's Unreal project *.uproject* file.
 
-    ![Screenshot of Wwise Launcher's Unreal tab](media/wwise-unreal-tab.png)
+    ![The Wwise Launcher Unreal tab](media/wwise-unreal-tab.png)
 
-* Then click **Integrate Wwise in Project** or **Modify Wwise in Project**. This step (re)integrates Wwise binaries into your project, now including the Project Acoustics mixer plugin.
+1. Then click **Integrate Wwise in Project** or **Modify Wwise in Project**. This step (re)integrates Wwise binaries into your project, now including the Project Acoustics mixer plugin.
 
 * **Engine plugin:** If you're using Wwise as an engine plugin and created the dummy project as above, copy the folder Wwise deployed: `[DummyUProject]\Plugins\Wwise` and paste it over `[UESource]\Engine\Plugins\Wwise`. `[DummyUProject]` is the empty Unreal C++ project path, and `[UESource]` is where you have the Unreal Engine sources installed. Once you're done copying, you can delete the dummy project.
 
-## 3. Add the Project Acoustics Unreal plugin to your game
+## 3. Add the Project Acoustics Unreal plug-in to your game
  
-* Copy the `Unreal\ProjectAcoustics` folder in the plugin package and create a new folder `[UProjectDir]\Plugins\ProjectAcoustics`, where `UProjectDir` is your game's project folder containing the `.uproject` file.
+* Copy the `Unreal\ProjectAcoustics` folder in the plug-in package, and create a new folder *[UProjectDir]\Plugins\ProjectAcoustics*, where *[UProjectDir]* is your game's project folder that contains the *.uproject* file.
+
+
   * **Engine plugin**: If you're using Wwise as an engine plugin, you should use Project Acoustics as an Unreal engine plugin as well. Instead of the above destination directory, use: `[UESource]\Engine\Plugins\ProjectAcoustics`.
 
 * Confirm you see a `Wwise` folder alongside the `ProjectAcoustics` folder. It contains the Wwise plugin along with binaries for the mixer plugin that you (re-) deployed in Step 2 above.
@@ -83,9 +86,9 @@ Re-deploy Wwise to your game even if you've already integrated Wwise. This picks
 
 * If you compile with Visual Studio 2019, to work around a linking error with Wwise, manually edit the default `VSVersion` value in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` to `vc150`:
 
-    ![Screenshot of code editor showing VSVersion changed to vc150](media/vsversion-comment.png)
+    ![The code editor showing "VSVersion" changed to "vc150"](media/vsversion-comment.png)
 
-## 5. Build game and check Python is enabled
+## 5. Build the game and check that Python is enabled
 
 * Compile your game and ensure that it builds correctly. Otherwise, check the previous steps carefully before proceeding. 
 * Open your project in Unreal Editor. 
@@ -102,7 +105,7 @@ Re-deploy Wwise to your game even if you've already integrated Wwise. This picks
 
 An example Wwise project is included with the samples download. We recommend looking at it alongside these instructions. The screenshots below are taken from this project.
 
-### Bus Setup
+### Bus setup
 * The Project Acoustics Unreal plugin will look for the associated mixer plugin on a bus with this ***exact*** name: `Project Acoustics Bus`. Create a new audio bus with this name. The mixer plugin can work in various configurations, but for now we assume it will be used to do only reverb processing. This bus will carry the mixed reverb signal for all sources that use Acoustics. It can mix upstream into any bus mixing structure, an example is shown below, taken from our Wwise sample project included in the sample download.
 
     ![Screenshot of Wwise busses showing Project Acoustics Bus](media/acoustics-bus.png)
