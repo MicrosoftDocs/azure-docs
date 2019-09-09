@@ -32,17 +32,15 @@ You will not be able to add or delete the account in CPP.
 
 Click on the banner to initiate your account migration process. You are expected to enter the following items:
 
-### Work email address
+1. Work email address: <br> <br> In most cases, sign in with the email address that you use to sign into CPP. In certain cases, a different email address must be used:
 
-In most cases, sign in with the email address that you use to sign into CPP. In certain cases, a different email address must be used:
+    * Microsoft account: If the CPP account is a Microsoft account, then you need to enter a valid work email address associated with the tenant, for whom the MPN ID is registered.
 
-* Microsoft account: If the CPP account is a Microsoft account, then you need to enter a valid work email address associated with the tenant, for whom the MPN ID is registered.
+    * Tenant mismatch: If your work email address does not belong to the tenant that is associated with the Microsoft Partner Network ID present on your CPP account, then you’ll see an error. To move past this error, enter an email address associated with the tenant. An error message will provide the name of the tenant.
 
-* Tenant mismatch: If your work email address does not belong to the tenant that is associated with the Microsoft Partner Network ID present on your CPP account, then you’ll see an error. To move past this error, enter an email address associated with the tenant. An error message will provide the name of the tenant.
+2. Sign up for Microsoft Partner Network program
 
-### Sign up for Microsoft Partner Network program
-
-In the event that your CPP account does not have a Microsoft Partner Network ID, or has one that is invalid, you will have to sign up for the Microsoft Partner Network program as part of the activation process.
+    In the event that your CPP account does not have a Microsoft Partner Network ID, or has one that is invalid, you will have to sign up for the Microsoft Partner Network program as part of the activation process.
 
 ## After account migration is complete
 
