@@ -62,8 +62,8 @@
     items: 
       - name: Security overview
         href: overview-security.md
-      - name: Common security attributes
-        href: key-vault-security-attributes.md
+      - name: Built-in security controls
+        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault

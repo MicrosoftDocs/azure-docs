@@ -164,7 +164,7 @@
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
   - name: Security attributes
-    href: virtual-machine-scale-sets-security-attributes.md
+    href: virtual-machine-scale-sets-security-controls.md
 - name: How To
   items:
   - name: Plan and design

@@ -331,7 +331,7 @@
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
     - name: Security attributes
-      href: sql-database-security-attributes.md
+      href: sql-database-security-controls.md
     - name: Feature restrictions
       href: sql-database-feature-restrictions.md
   - name: Scalability

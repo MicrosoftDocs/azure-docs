@@ -90,7 +90,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security attributes
-            url: vpn-gateway-security-attributes.md
+            url: vpn-gateway-security-controls.md
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts
