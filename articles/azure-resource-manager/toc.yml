@@ -4,6 +4,8 @@
   items:
   - name: What is Resource Manager?
     href: resource-group-overview.md
+  - name: Template overview
+    href: template-deployment-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -58,8 +60,6 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Template deployments
-    href: template-deployment-overview.md
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency

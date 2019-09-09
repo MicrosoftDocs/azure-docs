@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/06/2019
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -29,7 +29,9 @@ The read replica feature uses MySQL asynchronous replication. The feature isn't 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a master server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A master server can have a replica in its paired region or the universal replica regions.
+You can have a master server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
+
+[ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
