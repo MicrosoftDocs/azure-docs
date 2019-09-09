@@ -90,8 +90,6 @@
       href: create-certificate.md
     - name: Monitor and manage certificate creation
       href: create-certificate-scenarios.md
-  - name: Azure Common Security Attributes
-    href: key-vault-security-attributes.md  
 - name: How-to guides
   items:
   - name: Azure Key Vault logging
