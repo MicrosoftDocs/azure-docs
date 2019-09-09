@@ -147,7 +147,7 @@ You reference the properties of the object by using the dot operator.
 
 ## Example templates
 
-The following examples demonstrate scenarios for using **parameters**.
+The following examples demonstrate scenarios for using parameters.
 
 |Template  |Description  |
 |---------|---------|
@@ -157,5 +157,6 @@ The following examples demonstrate scenarios for using **parameters**.
 
 ## Next steps
 
-* To see the available properties for parameters, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about the available properties for parameters, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](resource-manager-parameter-files.md).
+* For recommendations about creating parameters, see [Best practices - parameters](template-best-practices.md#parameters).
