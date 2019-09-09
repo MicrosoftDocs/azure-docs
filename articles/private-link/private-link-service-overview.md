@@ -1,88 +1,71 @@
 ---
-title: Azure Private Link
-description: Learn about Azure Private Link
+title: Azure Private Link Service
+description: Learn about Azure Private Link Services
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Private link so that I can securely connect to my Azure PaaS services within the virtual network.
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the  Azure Private Service concepts so that I can securely deliver them to my customers.
 
 ms.service: virtual-network
-ms.topic: overview
-ms.date: 09/05/2019
+ms.topic: article
+ms.date: 09/06/2019
 ms.author: kumud
 
 ---
-# What is Azure Private Link? (Preview)
+# What is a Private Link Service? (Preview)
 
-Azure Private Link provides private connectivity between applications running in different Virtual Networks and to Azure PaaS services (such as Storage, SQL, Cosmos DB etc.)  using the Microsoft network. Azure Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating the data exposure to public internet. Azure Private Link also extends this ability to customer owned services as well as shared market place services run by the partners. The setup and consumption experience using Private Link is consistent across Azure PaaS, customer owned services and shared partner services.  The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service.  Connection is established between provider and consumer based on an approval call flow and once established all data that flows between the service provider and service consumer is isolated from internet and stays on the Microsoft backend.  Both provider and consumer need to be on Azure to use Private Link. There is no need for any sort of gateways, NAT devices, ExpressRoute, or VPN connections, public IP addresses to communicate with the service.   
+Using Private Link technology, you can create your own Private Link Service in your VNet. You can deliver this service privately to your customers by mapping it to Private Endpoint inside customer's VNet. This article explains private link service concepts, to help you use them effectively. 
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-![Azure Private Link Overview](./media/private-link-overview/private-link-overview.png)
-
-## Why use Private Link?
-Prior to using Azure Private Link,  Azure Shared PaaS was accessed over either 1) Public endpoints (internet routable public IPs exposed by service) or 2) VNet Service Endpoints. In both cases, Azure customers have to configure their Network Security Groups to allow access to internet routable service public IPs to access the Service. Accessing Service over Public IPs poses a security risk. Moreover, there is a risk of Data exfiltration with both above access methods.  
+## Concepts
  
-Similarly, Shared Services offered by Microsoft Partners and customer's own services residing in one VNet were accessed over either 1) Public endpoints or 2) VNet Peering. In first method, Network Security group needs to allow access to Internet routable address space that poses security risk. In second method, VNet peering imposes restrictions in terms of non-overlapping IP address space requirements.  
+- **Standard Load Balancer**: Private Link Service can be created only using Standard Load Balancer. There is no support for Private Link Service on Basic Load Balancer SKU.  
  
-Azure Private Link addresses above issues and allows setting up TCP connectivity between applications running in different Virtual Networks and to Azure PaaS services in a simple, secure, and scalable manner. 
-
-## Key benefits
-Azure Private Link provides following benefits:  
-- **Privately access services on Azure platform**: With Azure Private Link, you can connect your VNets to services delivered on Azure platform  in a secure and scalable manner. Service Providers can render their services privately in Consumer’s VNets and service consumers can consume services privately in their VNets on Azure Platform. 
+- **Load Balancer Frontend IP Configurations**: Private Link Service is tied to frontend IP of an Standard Load Balancer. At the time of Private Link Service creation, you can choose the standard load balancer and associated frontend IP configuration where you want to run your service. All traffic destined for Service will reach the frontend of SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running. Note that load balancer frontend IP configurations are different than NAT IP configurations.   
  
-- **Works with on-premises and peered networks**: With Azure Private Link, customer can access private endpoints over private peering/VPN tunnels (from on-prem) and also from peered virtual networks. Traffic from private endpoint to service will be route optimized and will be carried over Microsoft backbone. There is no need to set up public peering or traverse internet to reach the service. This ability provides flexibility for customers to migrate their workloads to cloud.  
+- **NAT IP**: NAT stands for Network Address Translation. At the time of Private Link Service creation, you are asked to provide a NAT IP. This NAT IP can be chosen from any subnet in service provider's virtual network.   Private Link Service perform destination side NAT-ing on the private link traffic. This ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space. On the destination side (service provider side), NAT IP will show up as Source IP for all packets received by your service and destination IP for all packets send by your service. NAT-ing also helps service providers to scale. Service Providers can assign up to 8 NAT IPs per private link service. With each NAT IP you can assign more ports for your TCP connections and scale out.  
  
-- **Data Exfil protection**: With Azure Private Link, you get implicit Data Exfil protection when connecting to Azure PaaS. Individual Azure PaaS resources are mapped to the private endpoints instead of Azure Service. Hence a malicious insider can only access the mapped account and no other account thus eliminating the data exfil threat. 
+- **FQDN**: FQDN stands for Fully Qualified Domain Name. Service Provider can share service’s FQDNs at the time of creation. These will be propagated to consumers at time of connection. Consumers can use these FQDNs to configure their DNS to resolve to private endpoint on their side. Note that Alias is used for connection request, not FQDN. FQDNs are for DNS configurations.   
  
-- **Meet compliance needs**: With Azure Private Link, customer information is shared with services on Azure Platform over a secured Microsoft backbone and doesn’t traverse the internet. It helps with information not getting compromised and maintain compliance with regulation authorities such as HIPAA or PCI.  
+- **Alias**: "Alias" is a globally unique name for your Service. It helps you mask the PII information for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to you service.  
+Alias is composed of 3 parts: *Prefix*.*GUID*.*Suffix* 
+- Prefix is the Service Name. You can pick you own prefix. Note that once *Alias* is created, you can't change it, so select your prefix appropriately.  
+- GUID will be provided by platform. Will make name globally unique. 
+- Suffix will be appended by Azure: *region*.azure.privatelinkservice. 
+- Complete alias will be as follows:
+    - *Prefix*. {GUID}.*region*.azure.privatelinkservice 
  
-- **Global reach**: With Azure Private Link, you can connect privately to service running in other regions that is, consumer VNet and Service can be in different regions. Azure private link is global in nature and there are no regional restrictions.      
+- **Visibility**:  Visibility lets you control how you expose your service. We offer you few different options to let you control the exposure of you service from being completely private (only visible to you) to being completely public (visible to everyone). Note that only consumers that can discover the service through Azure clients can request the connection. Visibility is an array and you can choose from following options:  
+    - Visibility: Role Base Access Control Only 
+        - Intake parameter: {} 
+        - Your service is not discoverable from consumer side 
+        - Only discoverable to customers with RBAC permissions 
+    - Visibility: Anyone with Alias 
+        - Intake parameter: {*} 
+        - Discoverable to all Azure customers. All Azure subscriptions can discover your service  
+        - Customers will need your alias for discovering your service. You need to share the alias offline.  
+    - Visibility: Restricted by subscriptions  
+        - Intake parameter:  {sub1, sub2, sub3}  
+        - Discoverable to customer with RBAC permissions and to user subscriptions in your selected list 
+        - Costumers not in visibility list will not discover the service even with alias unless added to visibility list 
  
-- **Extend to your own services**: With Azure Private Link, you can leverage the same experience and functionality to render your own service privately in your customer VNets or your own VNets on Azure platform. Azure private link works across AD tenants and works on provider consumer model with approval call flow. Moreover, there is no requirement of non-overlapping address space as in VNet Peering.
-
-### What is Private Link service?
-Private Link Service is a virtual networking resource, modeled as Network Interface card, in Service Provider's Virtual Network. This resource is applicable mainly in Microsoft partner Service and Customer own service scenarios. Service Provider needs to create this resource to let consumers consume the service privately over Azure Private Link.  The resource is tied to front-end IP configuration of a Standard Load Balancer. Private Link Service serves as a front end for the Service Provider's applications that are running behind the standard load balancer. Service consumers connect to private link service over Azure Private Link through private endpoints in consumer's virtual networks.
-
-## What is Private Endpoint?
-Private Endpoint is a virtual networking resource, modeled as Network Interface card, in Service consumer's Virtual Network. Private Endpoints  get assigned a private IP from customer's VNet. Private Endpoint enables Azure customers to privately connect to supported Azure services through Azure Private Link. These services can include Azure PaaS, Microsoft Partner Services and customer owned Services. Supported Azure Services are mapped inside the customer's VNet as Private Endpoint. Private Endpoint is the entry point for service traffic over Private Link from Azure VNet resources. The traffic never leaves Microsoft Backbone. These are highly available instances and don’t impose any bandwidth restrictions on the Service traffic.
+- **Auto-Approval**: Auto-Approval is an ability for Service Providers to pre-approve set of subscriptions for automated access to their service. Customers will need to share their subscriptions offline for Service providers to add to auto-approval array. Auto-approval is a subset of visibility array.  Visibility controls the exposure settings whereas auto-approval controls the approval settings for your service. If a customer requests a connection from a subscription in auto-approval array, the connection will be automatically approved and connection will be established. Service provider don’t need to manually approve the request. On the other hand, if a customer requests a connection from a subscription in visibility array and not in auto-approval array, the request will reach service provider but service provider has to manually approve the connections.    
+    - Auto Approval 
+        - Intake parameters {sub1; sub2; sub3} 
+        - Pre-approved subscriptions that can connect to Private Link Service. 
  
-![Azure Private Link Overview](./media/private-link-overview/private-link-overview.png)
-
-
-## Availability 
- The following table lists the services/regions that the Azure Private Link service is available:
-
-
-|Scenario  |Supported services   |Availability regions |Time of availability   |
-|---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link Services behind Standard Load Balancer |Azure Public Cloud Regions  |  Preview  |
-|Private Link for Azure PaaS Services   | Azure Storage        |  Azure Public Cloud Regions       | Preview         |
-|  |  Azure SQL DB         | Azure Public Cloud Regions         |   Preview      |
-|  |    Azure Cosmos DB     |  Azure Public Cloud Regions        | Preview        |
-Private Link for Management Plane traffic     |  Azure Kubernetes Service (AKS)       |   Azure Public Cloud Regions       |         |
-
-For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network). 
-
-## Logging and monitoring
-
-Azure Private Link is fully integrated with Azure Monitor.  All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. You can access following info on Azure Monitor: 
-- **Private Endpoint**: Data processed by Private Endpoint  (IN/OUT)
+- **Private Endpoint Connections**: Private Endpoints connecting to Private link service show up as Private Endpoint connections on the Private link service. Multiple private endpoints can connect to same Private Link Service and Service provider can control state for individual private endpoints. 
  
-- **Private Link Service:
-    - Data processed by Private Link Service (IN/OUT)
-    - NAT port availability  
- 
-##Pricing   
-For pricing details, see Azure Private Link Pricing 
- 
-## FAQs  
-For FAQs, see Azure Private Link FAQs.
- 
-## Limits  
-For limits, see Azure Private Link limits.
-
+- **Call flow states and operations** 
+    - **States**:  
+        - *Pending* - Service consumer requested to connect to Private Link Service. Waiting for service provider decision.  
+        - *Approved* - Service Provider approved the service consumer's request. Connection is established.   
+        - *Rejected* - Service Provider has rejected the service consumer's request/connection.  
+    - **Operations**: 
+        - *Create/Update* – Create/Update a Private Link Service. 
+        - *Delete* - Delete a Private Link Service. 
 ## Next steps
 - [Create a Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
  

@@ -44,13 +44,26 @@ landingContent:
   # Card (optional)
   - title: Create a Private Link service
     linkLists:
+      - linkListType: concept
+        links:
+          - text: What is a private link service?
+            url: private-link-service-overview.md
+      
       - linkListType: get-started
         links:
-          - text: Create a private link service - CLI
-            url: create-private-link-service-cli.md
           - text: Create a private link service - PowerShell
             url: create-private-link-service-powershell.md   
-            
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network
+          - text: Azure PowerShell
+            url: /powershell/module/az.network
+          - text: REST
+            url: /rest/api/virtualnetwork/privatelinkservices           
                 
 
 

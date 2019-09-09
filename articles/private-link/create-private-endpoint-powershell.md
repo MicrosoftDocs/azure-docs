@@ -6,7 +6,7 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: kumud
 
 ---
@@ -25,7 +25,7 @@ Before you can create your private link, you must create a resource group host t
 
 New-AzResourceGroup `
   -ResourceGroupName myResourceGroup `
-  -Location westus
+  -Location westcentralus
 ```
 
 ## Create a virtual network
@@ -39,8 +39,8 @@ Create a virtual network for your Private Endpoint with [New-AzVirtualNetwork](/
 
 $virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
-  -Location WestUS `
-  -Name myPEVnet`
+  -Location westcentralus `
+  -Name myVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
@@ -71,10 +71,10 @@ Create a VM in the virtual network with [New-AzVM](/powershell/module/az.compute
 ```azurepowershell-interactive
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myPEVM" `
-    -Location "West US" `
-    -VirtualNetworkName "myPEVNet" `
-    -SubnetName "PESubnet" `
+    -Name "myVm" `
+    -Location "westcentralus" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
     -PublicIpAddressName "myPublicIpAddress" `
     -OpenPorts 80,3389 `

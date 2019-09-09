@@ -128,7 +128,7 @@ In this section, you will create a private storage account and add a private end
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 9. When you see the Validation passed message, select **Create**. 
-10. Browse to the storage account resource that was just created.
+10. Browse to the storage account resource that was just created.S
 11. Select **Keys** from the left content menu.
 12. Select **Copy** on the connection string for key1.
  
