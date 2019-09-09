@@ -223,8 +223,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 - The authority passed in the `PublicClientApplicationBuilder` needs to be:
   - tenant-ed (of the form `https://login.microsoftonline.com/{tenant}/` where `tenant` is either the guid representing the tenant ID or a domain associated with the tenant.
   - for any work and school accounts (`https://login.microsoftonline.com/organizations/`)
-
-  > Microsoft personal accounts are not supported (you cannot use /common or /consumers tenants)
+  - Microsoft personal accounts are not supported (you cannot use /common or /consumers tenants)
 
 - Because Integrated Windows Authentication is a silent flow:
   - the user of your application must have previously consented to use the application

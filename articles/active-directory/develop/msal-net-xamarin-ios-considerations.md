@@ -115,7 +115,7 @@ Your application can use Microsoft Authenticator (a broker) to enable:
 - Device identification. By accessing the device certificate, which was created on the device when it was workplace joined. Your application will be ready if the tenant admins enable conditional access related to the devices.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
-For details on how to enable the broker, see [Use Microsoft Authenticator or Microsoft Intune company portal on Xamarin iOS and Android applications](msal-net-using-brokers-with-xamarin-apps.md)
+For details on how to enable the broker, see [Use Microsoft Authenticator or Microsoft Intune company portal on Xamarin iOS and Android applications](msal-net-use-brokers-with-xamarin-apps.md)
 
 ### Sample illustrating Xamarin iOS specific properties
 

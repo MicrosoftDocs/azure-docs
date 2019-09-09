@@ -232,7 +232,7 @@ example:
 
 </table>
 
-For more information about registering the redirectUri in the portal, see [Leveraging the broker in Xamarin.iOS applications](msal-net-using-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app) for more details.
+For more information about registering the redirectUri in the portal, see [Leveraging the broker in Xamarin.iOS applications](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app) for more details.
 
 ## Next steps
 

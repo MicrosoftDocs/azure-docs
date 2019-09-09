@@ -155,21 +155,24 @@ This Redirect URI needs to be registered on the app registration portal (https:/
 The portal has a new experience app registration portal to help you compute the brokered reply URI from the bundle ID:
 
 1. In the app registration, choose **Authentication** and select **Try-out the new experience**.
-   ![Try out the new app registration experience](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![Try out the new app registration experience](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
 2. Select **Add platform**.
-   ![Add a platform](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Add a platform](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
 3. When the list of platforms is supported, select **iOS**.
-   ![Configure iOS](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![Configure iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
 4. Enter your bundle ID as requested, and then press **Register**.
-   ![Enter Bundle ID](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Enter Bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. The redirect URI is computed for you.
-   ![Copy redirect URI](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 ## Brokered Authentication for Android
 
 The broker support isn't available for Android
 
+## Next steps
+
+[Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md)
