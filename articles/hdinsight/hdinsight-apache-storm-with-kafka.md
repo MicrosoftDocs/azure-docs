@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka - Azure HDInsight'
+title: 'Tutorial: Apache Storm to read, write with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -467,9 +467,9 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
     The value returned is similar to the following text:
 
-        ```output
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        ```
+    ```output
+    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+     ```
 
     > [!IMPORTANT]  
     > While there may be more than two broker hosts for your cluster, you do not need to provide a full list of all hosts to clients. One or two is enough.
