@@ -78,7 +78,8 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 
 #### Step 2: Download your web server or project
 
-- [Download the Code Sample](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### Step 3: Configure your project
 
