@@ -23,7 +23,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 |Area|Limit|
 |--|:--|
 | [App name][luis-get-started-create-app] | *Default character max |
-| Applications| 500 applications per Azure resource |
+| Applications| 500 applications per Azure authoring resource |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
 | External entities | no limits |
@@ -63,8 +63,7 @@ Language Understand has separate keys, one type for authoring, and one type for 
 
 The authoring key has different limits for authoring and endpoint. The LUIS service endpoint key is only valid for endpoint queries.
 
-* 500 applications per Azure resource 
-* 100 versions per application
+* 500 applications per Azure authoring resource 
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
