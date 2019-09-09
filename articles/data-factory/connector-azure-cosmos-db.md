@@ -253,6 +253,9 @@ The following properties are supported in the Copy Activity **source** section:
     }
 ]
 ```
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Import or export JSON documents
 

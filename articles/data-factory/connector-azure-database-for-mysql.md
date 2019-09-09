@@ -226,6 +226,10 @@ Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default 
 ]
 ```
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 ## Data type mapping for Azure Database for MySQL
 
 When copying data from Azure Database for MySQL, the following mappings are used from MySQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
