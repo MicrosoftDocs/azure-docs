@@ -97,6 +97,11 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
+To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
+
+> [!div class="nextstepaction"]
+> [Connect to Power BI](kstore-connect-storage-explorer.md)
+
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
 > [!div class="nextstepaction"]

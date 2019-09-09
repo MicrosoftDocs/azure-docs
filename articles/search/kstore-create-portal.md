@@ -132,9 +132,16 @@ In this wizard step, you will configure an indexer that will pull together the d
 
 ## Next steps
 
-To learn how to connect the knowledge store you created to Power BI, see the following walkthrough.
+Now that you have enriched your data using cognitive services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
+
+To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](knowledge-store-connect-to-powerbi.md)
+> [Connect to Power BI](kstore-connect-storage-explorer.md)
+
+To learn how to connect this knowledge store to Power BI, see the following walkthrough.
+
+> [!div class="nextstepaction"]
+> [Connect to Power BI](kstore-connect-powerbi.md)
 
 If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer. Deleting the indexer resets the free daily transaction counter back to zero.

@@ -16,7 +16,7 @@ ms.author: v-lilei
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure Portal. To create the knowledge store sample used in this walkthrough see [How to create a knowledge store](knowledge-store-howto-create).
+In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure Portal. To create the knowledge store sample used in this walkthrough, see [How to create a knowledge store](knowledge-store-howto-create).
 
 ## Prerequisites
 
@@ -36,8 +36,6 @@ To change the data type for any table value, click **Edit**.
 
 To run queries, click **Query** on the command bar and enter your conditions.  
 
-
-
 ## Clean up
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
@@ -47,6 +45,11 @@ You can find and manage resources in the portal, using the **All resources** or 
 If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 ## Next steps
+
+To learn how to connect this knowledge store to Power BI, see the following walkthrough.
+
+> [!div class="nextstepaction"]
+> [Connect to Power BI](kstore-connect-powerbi.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
