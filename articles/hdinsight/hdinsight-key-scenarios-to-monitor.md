@@ -10,7 +10,7 @@ ms.date: 05/29/2019
 ms.author: hrasheed
 ---
 
-# Monitor cluster performance
+# Monitor cluster performance in Azure HDInsight
 
 Monitoring the health and performance of an HDInsight cluster is essential for maintaining optimal performance and resource utilization. Monitoring can also help you detect and address cluster configuration errors and user code issues.
 

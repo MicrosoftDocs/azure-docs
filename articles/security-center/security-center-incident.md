@@ -37,7 +37,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
     ![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert. The remediation suggested by Security Center vary according to the security alert. 
+1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert.
 
    > [!NOTE]
    > The same alert can exist as part of an incident, as well as to be visible as a standalone alert.
