@@ -3,7 +3,7 @@ title: How to request real-time data in Azure Maps | Microsoft Docs
 description: Request real-time data using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 06/05/2019
+ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -33,7 +33,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 In order to request real-time arrivals data for a particular public transit stop, you will need to make a request to the [Real-time Arrivals API](https://aka.ms/AzureMapsMobilityRealTimeArrivals) of the Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService). You will need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our How-to guide to [request public transit routes](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
 
-Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area, and use the stop ID "2060603", which is a bus stop at "Ne 24th St & 162nd Ave Ne, Bellevue WA". To request next five real-time arrivals data for all next live arrivals at this stop, complete the following steps:
+Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–Bellevue, WA" area, and use the stop ID "522---2060603", which is a bus stop at "Ne 24th St & 162nd Ave Ne, Bellevue WA". To request next five real-time arrivals data for all next live arrivals at this stop, complete the following steps:
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button.
 
@@ -44,7 +44,7 @@ Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–B
 3. Select the GET HTTP method on the builder tab and enter the following URL to create a GET request.
 
     ```HTTP
-    https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=2060603&transitType=bus
+    https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
 4. After a successful request, you will receive the following response.  Notice that parameter 'scheduleType' defines whether the estimated arrival time is based on real-time or static data.
@@ -53,56 +53,58 @@ Let's use "522" as our metro ID, which is the metro ID for "Seattle–Tacoma–B
     {
         "results": [
             {
-                "arrivalMinutes": 4,
+                "arrivalMinutes": 8,
                 "scheduleType": "realTime",
-                "patternId": 3860436,
+                "patternId": "522---4143196",
                 "line": {
-                    "lineId": 2756599,
-                    "lineGroupId": 666063,
-                    "direction": "forward",
-                    "agencyId": 5872,
+                    "lineId": "522---3760143",
+                    "lineGroupId": "522---666077",
+                    "direction": "backward",
+                    "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
-                    "lineNumber": "226",
-                    "lineDestination": "Bellevue Transit Center Crossroads",
+                    "lineNumber": "249",
+                    "lineDestination": "South Bellevue S Kirkland P&R",
                     "transitType": "Bus"
                 },
                 "stop": {
-                    "stopId": 2060603,
+                    "stopId": "522---2060603",
                     "stopKey": "71300",
                     "stopName": "NE 24th St & 162nd Ave NE",
+                    "stopCode": "71300",
                     "position": {
                         "latitude": 47.631504,
                         "longitude": -122.125275
                     },
                     "mainTransitType": "Bus",
-                    "mainAgencyId": 5872,
+                    "mainAgencyId": "522---5872",
                     "mainAgencyName": "Metro Transit"
                 }
             },
             {
-                "arrivalMinutes": 30,
-                "scheduleType": "scheduledTime",
-                "patternId": 3860436,
+                "arrivalMinutes": 25,
+                "scheduleType": "realTime",
+                "patternId": "522---3510227",
                 "line": {
-                    "lineId": 2756599,
-                    "lineGroupId": 666063,
+                    "lineId": "522---2756599",
+                    "lineGroupId": "522---666063",
                     "direction": "forward",
-                    "agencyId": 5872,
+                    "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
                     "lineNumber": "226",
                     "lineDestination": "Bellevue Transit Center Crossroads",
                     "transitType": "Bus"
                 },
                 "stop": {
-                    "stopId": 2060603,
+                    "stopId": "522---2060603",
                     "stopKey": "71300",
                     "stopName": "NE 24th St & 162nd Ave NE",
+                    "stopCode": "71300",
                     "position": {
                         "latitude": 47.631504,
                         "longitude": -122.125275
                     },
                     "mainTransitType": "Bus",
-                    "mainAgencyId": 5872,
+                    "mainAgencyId": "522---5872",
                     "mainAgencyName": "Metro Transit"
                 }
             }
@@ -140,10 +142,10 @@ To get **dockID**, follow the steps below to make a request to the Get Nearby Tr
                 "type": "bikeDock",
                 "objectDetails": {
                     "availableVehicles": 0,
-                    "vacantLocations": 30,
-                    "lastUpdated": "2019-05-21T20:06:59-04:00",
+                    "vacantLocations": 31,
+                    "lastUpdated": "2019-09-07T00:55:19Z",
                     "operatorInfo": {
-                        "id": "80",
+                        "id": "121---80",
                         "name": "Citi Bike"
                     }
                 },
@@ -183,15 +185,15 @@ Follow the steps below to make a request to the Get Transit Dock Info API to get
 
     ```JSON
     {
-        "availableVehicles": 1,
-        "vacantLocations": 29,
+        "availableVehicles": 0,
+        "vacantLocations": 31,
         "position": {
             "latitude": 40.767128,
             "longitude": -73.962246
         },
-        "lastUpdated": "2019-05-21T20:26:47-04:00",
+        "lastUpdated": "2019-09-07T00:55:19Z",
         "operatorInfo": {
-            "id": "80",
+            "id": "121---80",
             "name": "Citi Bike"
         }
     }
