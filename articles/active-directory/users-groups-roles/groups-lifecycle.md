@@ -67,7 +67,9 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 > [!NOTE]
 > When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration unless the owner renews it. The first renewal notification email is sent out within a day.
+>
 > When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
+>
 > Expiration notices for groups used in Teams appear in the Teams Owners feed.
 
 ## Email notifications
