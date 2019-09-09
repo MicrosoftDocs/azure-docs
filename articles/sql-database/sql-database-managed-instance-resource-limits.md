@@ -48,18 +48,20 @@ Managed instance has two service tiers: General Purpose and Business Critical. T
 | Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
 | Max memory | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. |
 | Max instance reserved storage size | - 2 TB for 4 vCores (Gen5 only)<br/>- 8 TB for other sizes | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
-| Max database size | Determined by the max storage size per instance | Determined by the max storage size per instance |
+| Max database size | 8 TB | 4 TB |
 | Max number of databases per instance | 100 | 100 |
 | Max number of database files per instance | Up to 280 | 32,767 files per database |
 | Max file size | 8 TB | 4 TB |
-| Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
+| Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit | 3 MB/s per vCore<br/>Max 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore)<br/>Add more vCores to get more TempDB space. | Limited by the max instance storage size. TempDB log file size is currently limited to 24GB/vCore. |
 | In-memory OLTP | Not supported | Available |
 | Max sessions | 30000 | 30000 |
-| Readable replicas | 0 | 1 |
+| Readable replicas | 0 | 1 (included in price) |
+| Pricing/billing | vCore, reserved storage  <br/> IOPS not charged, Backup storage is not yet charged. | vCore, reserved storage  <br/> IOPS not charged, Backup storage is not yet charged. | 
+| Discount models | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions) | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)|
 
 > [!NOTE]
 > - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
@@ -91,7 +93,7 @@ Supported subscription types can contain a limited number of resources per regio
 > [!Note]
 > These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more managed instances in the current region. As an alternative, you can create new managed instances in another Azure region without sending support requests.
 
-The following table shows the default regional limits for supported subscriptions:
+The following table shows the **default regional limits** for supported subscription types (default limits can be extended using support request described below):
 
 |Subscription type| Max number of managed instance subnets | Max number of vCore units* |
 | :---| :--- | :--- |
