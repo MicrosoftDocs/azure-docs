@@ -34,7 +34,7 @@ Azure Data Factory offers a serverless architecture that allows parallelism at v
 
 The preceding diagram can be interpreted as follows:
 
-- A single-copy activity can take advantage of scalable compute resources. When you use Azure Integration Runtime, you can specify [up to 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) for each copy activity in a serverless manner. With self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), and a single-copy activity distributes its partition across all nodes. 
+- A single-copy activity can take advantage of scalable compute resources. When you use Azure Integration Runtime, you can specify [up to 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) for each copy activity in a serverless manner. With a self-hosted integration runtime (self-hosted IR), you can manually scale up the machine or scale out to multiple machines ([up to four nodes](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), and a single-copy activity distributes its partition across all nodes. 
 
 - A single-copy activity reads from and writes to the data store by using multiple threads. 
 
@@ -68,7 +68,7 @@ The preceding diagram can be interpreted as follows:
 
 - In this architecture, you transfer data securely by using HTTPS over the public internet.
 
-- To achieve this architecture, you need to install Azure Data Factory self-hosted integration runtime on a Windows machine behind a corporate firewall. Make sure that this runtime can directly access the Netezza server. To fully utilize your network and data stores bandwidth to copy data, you can manually scale up your machine or scale out to multiple machines.
+- To achieve this architecture, you need to install Azure Data Factory Integration Runtime (Self-hosted) on a Windows machine behind a corporate firewall. Make sure that this integration runtime can directly access the Netezza server. To fully utilize your network and data stores bandwidth to copy data, you can manually scale up your machine or scale out to multiple machines.
 
 - By using this architecture, you can migrate both initial snapshot data and delta data.
 
@@ -80,7 +80,7 @@ The preceding diagram can be interpreted as follows:
 
 - In this architecture, you migrate data over a private peering link via Azure Express Route, and data never traverses over the public internet. 
 
-- To achieve this architecture, you need to install Azure Data Factory self-hosted integration runtime on a Windows virtual machine (VM) within your Azure virtual network. To fully utilize your network and data stores bandwidth to copy data, you can manually scale up your VM or scale out to multiple VMs.
+- To achieve this architecture, you need to install Azure Data Factory Integration Runtime (Self-hosted) on a Windows virtual machine (VM) within your Azure virtual network. To fully utilize your network and data stores bandwidth to copy data, you can manually scale up your VM or scale out to multiple VMs.
 
 - By using this architecture, you can migrate both initial snapshot data and delta data.
 
@@ -116,7 +116,7 @@ For small tables (that is, tables with a volume of less than 100 GB or that can 
 
 Within each copy job, to run parallel queries and copy data by partitions, you can also reach some level of parallelism by using the [`parallelCopies` property setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with either of the following data partition options:
 
-- For greater efficiency, we encourage you to start from a data slice.  Make sure that the value in the `parallelCopies` setting is less than the total number of data-slice partitions in your table on the Netezza server.  
+- For help achieve greater efficiency, we encourage you to start from a data slice.  Make sure that the value in the `parallelCopies` setting is less than the total number of data-slice partitions in your table on the Netezza server.  
 
 - If the volume of each data-slice partition is still large (for example, 10 GB or greater), we encourage you to switch to a dynamic range partition. This option gives you greater flexibility to define the number of partitions and the volume of each partition by partition column, upper bound and lower bound.
 
@@ -134,7 +134,7 @@ Each table can use a different watermark column to identify its new or updated r
 
 ### Configure a self-hosted integration runtime
 
-If you're migrating data from the Netezza server to Azure, whether the server is on-premises behind your corporation firewall or within a virtual network environment, you need to install a self-hosted integration runtime (IR) on a Windows machine or VM, which is the engine that's used to move data. As you're installing the IR, we recommend the following approach:
+If you're migrating data from the Netezza server to Azure, whether the server is on-premises behind your corporation firewall or within a virtual network environment, you need to install a self-hosted IR on a Windows machine or VM, which is the engine that's used to move data. As you're installing the self-hosted IR, we recommend the following approach:
 
 - For each Windows machine or VM, start with a configuration of 32 vCPU and 128-GB memory. You can keep monitoring CPU and memory utilization of the IR machine during the data migration to see whether you need to further scale up the machine for better performance or scale down the machine to save cost.
 
@@ -148,7 +148,7 @@ To copy a table, start with a single-copy activity with a single, self-hosted IR
 
 If it can't be loaded to Azure within two hours, and the capacity of the self-hosted IR node and the data store are not fully utilized, gradually increase the number of concurrent copy activities until you reach the limit of your network or the bandwidth limit of the data stores. 
 
-Keep monitoring the CPU and memory utilization on the self-hosted IR machine, and be ready to scale up the machine or scale it out to multiple machines when you see that the CPU and memory are fully utilized. 
+Keep monitoring the CPU and memory utilization on the self-hosted IR machine, and be ready to scale up the machine or scale out to multiple machines when you see that the CPU and memory are fully utilized. 
 
 When you encounter throttling errors, as reported by Azure Data Factory copy activity, either reduce the concurrency or `parallelCopies` setting in Azure Data Factory, or consider increasing the bandwidth or I/O operations per second (IOPS) limits of the network and data stores. 
 
@@ -178,7 +178,7 @@ Based on the preceding assumptions, here's the estimated price:
 ![The pricing table](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
 
 > [!NOTE]
-> The pricing shown in the preceding table is hypothetical. Your actual pricing depends on the actual throughput in your environment. The price for the  Windows machine (with self-hosted integration runtime installed) is not included. 
+> The pricing shown in the preceding table is hypothetical. Your actual pricing depends on the actual throughput in your environment. The price for the  Windows machine (with the self-hosted IR installed) is not included. 
 
 ### Additional references
 
