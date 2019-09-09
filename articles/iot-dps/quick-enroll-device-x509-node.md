@@ -140,6 +140,8 @@ If you plan to explore the Node.js service samples, do not clean up the resource
  
 ## Next steps
 In this Quickstart, you created a group enrollment for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+
+Also, see the Node.js device provisioning sample at: https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
