@@ -58,6 +58,10 @@ landingContent:
             url: /azure/virtual-machines/windows/tutorial-custom-images
           - text: Manage VMs with virtual networks
             url: /azure/virtual-machines/windows/tutorial-virtual-network
+
+  # Card
+  - title: Self-paced training
+    linkLists:
       - linkListType: learn
         links:
           - text:  Create a Windows virtual machine in Azure
