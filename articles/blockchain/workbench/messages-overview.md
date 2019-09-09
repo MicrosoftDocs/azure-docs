@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Workbench Preview messages integration overview
+title: Azure Blockchain Workbench messages integration overview
 description: Overview of using messages in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 
@@ -12,9 +12,9 @@ ms.reviewer: brendal
 manager: femila
 ---
 
-# Azure Blockchain Workbench Preview messaging integration
+# Azure Blockchain Workbench messaging integration
 
-In addition to providing a REST API, Azure Blockchain Workbench Preview also provides messaging-based integration. Workbench publishes ledger-centric events via Azure Event Grid, enabling downstream consumers to ingest data or take action based on these events. For those clients that require reliable messaging, Azure Blockchain Workbench delivers messages to an Azure Service Bus endpoint as well.
+In addition to providing a REST API, Azure Blockchain Workbench also provides messaging-based integration. Workbench publishes ledger-centric events via Azure Event Grid, enabling downstream consumers to ingest data or take action based on these events. For those clients that require reliable messaging, Azure Blockchain Workbench delivers messages to an Azure Service Bus endpoint as well.
 
 ## Input APIs
 

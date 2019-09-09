@@ -1,6 +1,6 @@
 ---
-title: Manage Users in Azure Blockchain Workbench Preview
-description: How to manage users in Azure Blockchain Workbench Preview.
+title: Manage Users in Azure Blockchain Workbench
+description: How to manage users in Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
@@ -12,9 +12,9 @@ ms.reviewer: zeyadr
 manager: femila
 #customer intent: As an administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
 ---
-# Manage Users in Azure Blockchain Workbench Preview
+# Manage Users in Azure Blockchain Workbench
 
-Azure Blockchain Workbench Preview includes user management for people and organizations that are part of your consortium.
+Azure Blockchain Workbench includes user management for people and organizations that are part of your consortium.
 
 ## Prerequisites
 

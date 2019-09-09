@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Workbench Preview configuration reference
+title: Azure Blockchain Workbench configuration reference
 description: Azure Blockchain Workbench Preview application configuration overview.
 services: azure-blockchain
 keywords: 
@@ -11,9 +11,9 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ---
-# Azure Blockchain Workbench Preview configuration reference
+# Azure Blockchain Workbench configuration reference
 
-Azure Blockchain Workbench Preview applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
+Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
 
 Configuration metadata specifies the following information for each blockchain application:
 
