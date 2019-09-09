@@ -155,7 +155,7 @@ SELECT c_customer_id customer_id
        ,sum(isnull(ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt+ss_ext_sales_price, 0)/2) year_total
        ,'s' sale_type
 FROM customer
-     ,store_sales_partitioned
+     ,store_sales 
      ,date_dim
 WHERE c_customer_sk = ss_customer_sk
    AND ss_sold_date_sk = d_date_sk
@@ -179,7 +179,7 @@ SELECT c_customer_id customer_id
        ,sum(isnull(cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt+cs_ext_sales_price, 0)/2) year_total
        ,'c' sale_type
 FROM customer
-     ,catalog_sales_partitioned
+     ,catalog_sales 
      ,date_dim
 WHERE c_customer_sk = cs_bill_customer_sk
    AND cs_sold_date_sk = d_date_sk
@@ -203,7 +203,7 @@ SELECT c_customer_id customer_id
        ,sum(isnull(ws_ext_list_price-ws_ext_wholesale_cost-ws_ext_discount_amt+ws_ext_sales_price, 0)/2) year_total
        ,'w' sale_type
 FROM customer
-     ,web_sales_partitioned
+     ,web_sales 
      ,date_dim
 WHERE c_customer_sk = ws_bill_customer_sk
    AND ws_sold_date_sk = d_date_sk
@@ -258,7 +258,7 @@ ORDER BY t_s_secyear.customer_id
 OPTION ( LABEL = 'Query04-af359846-253-3');
 ```
 
-Check the estimated execution plan for this query.  There are 18 shuffles and 17 joins operations that take more time to execution.  Now create one materialized view for each sub-SELECT statement.   
+Check the query's estimated execution plan.  There are 18 shuffles and 17 joins operations which take more time to execute. Now let's create one materialized view for each of the three sub-SELECT statements.   
 
 ```sql
 CREATE materialized view nbViewSS WITH (DISTRIBUTION=HASH(customer_id)) AS
@@ -285,7 +285,7 @@ GROUP BY c_customer_id
          ,c_login
          ,c_email_address
          ,d_year
-
+GO
 CREATE materialized view nbViewCS WITH (DISTRIBUTION=HASH(customer_id)) AS
 SELECT c_customer_id customer_id
        ,c_first_name customer_first_name
@@ -311,7 +311,7 @@ GROUP BY c_customer_id
          ,c_email_address
          ,d_year
 
-
+GO
 CREATE materialized view nbViewWS WITH (DISTRIBUTION=HASH(customer_id)) AS
 SELECT c_customer_id customer_id
        ,c_first_name customer_first_name
@@ -338,5 +338,9 @@ GROUP BY c_customer_id
          ,d_year
 
 ```
-Check the original query's estimated execution plan again.  The number of shuffles changes from 18 to # and the number of joins changes from 17 to #. Hover over the join operator icons in the plan, the Output List shows the data is produced from the materialized views instead of base tables.  By getting data from materialized views, the query execution has fewer expensive operations and finishes much faster with no code change.  
+Check the execution plan of the original query again.  Now the number of joins changes from 17 to 5 and there's no shuffle anymore.  Click the Filter operation icon in the plan, its Output List shows the data is read from the materialized views instead of base tables.  
+
+ ![Plan_Output_List_with_Materialized_Views](media/Output_List_MVs.png)
+
+With materialized views, the same query runs much faster without any code change.  
  
