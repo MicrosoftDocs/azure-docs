@@ -113,7 +113,7 @@ The following screenshot shows a successful configuration in the Azure portal:
 
 The managed identity you created can be chosen in from the user-assigned managed identity dropdown when creating a new cluster.
 
-![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 ## Next steps
 
