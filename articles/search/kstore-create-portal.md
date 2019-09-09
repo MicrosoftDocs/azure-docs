@@ -19,7 +19,7 @@ ms.author: v-lilei
 
 Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
 
-In this article, you will use the Import Data wizard on the Azure Portal to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blog Storage and the results are saved as a knowledge store in Azure Table Storage.
+In this article, you will use the Import Data wizard on the Azure portal to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blog Storage and the results are saved as a knowledge store in Azure Table Storage.
 
 After you create the knowledge store, you can learn how to access this knowledge store using Storage Explorer or Power BI.
 
@@ -137,7 +137,7 @@ Now that you have enriched your data using cognitive services and projected the 
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [View in Storage Explorer](kstore-connect-storage-explorer.md)
+> [View in Storage Explorer](kstore-view-storage-explorer.md)
 
 To learn how to connect this knowledge store to Power BI, see the following walkthrough.
 

@@ -100,7 +100,7 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [View in Storage Explorer](kstore-connect-storage-explorer.md)
+> [View in Storage Explorer](kstore-view-storage-explorer.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
