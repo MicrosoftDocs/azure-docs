@@ -34,6 +34,7 @@ The Microsoft identity platform differs from Azure Active Directory v1.0 in that
 - Supports both:
   - Organizational Identity (Azure Active Directory)
   - Non-organizational identities such as Outlook.com, Xbox Live, and so on.
+  - (B2C Only) Federated login with Google, Facebook, Twitter, and Amazon.
 
 - Is standards compatible with:
   - OAuth v2.0
