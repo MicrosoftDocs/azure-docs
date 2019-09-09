@@ -61,7 +61,7 @@ Language Understand has separate keys, one type for authoring, and one type for 
 
 <a name="key-limits"></a>
 
-## Resource Key limits
+## Resource key limits
 
 The resource keys have different limits for authoring and endpoint. The LUIS prediction query endpoint key is only valid for endpoint queries. 
 
@@ -73,8 +73,8 @@ The resource keys have different limits for authoring and endpoint. The LUIS pre
 |F0 - Free tier |1 million/month, 5/second|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |S0 - Basic tier|-|50/second|Querying your LUIS endpoint|
 |S0 - Standard tier|-|50/second|Querying your LUIS endpoint|
-|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|no charge|Adding sentiment information including key phrase data extraction |
-|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
+|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|Adding sentiment information including key phrase data extraction is provided without requiring another Azure resource. |
+|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 thousand endpoint requests per unit cost|Convert spoken utterance to text utterance and return LUIS results|
 
 [Learn more about pricing.][pricing]
 
