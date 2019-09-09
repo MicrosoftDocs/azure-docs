@@ -52,6 +52,7 @@ To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monito
 4. Select **Turn on diagnostics**.
 
 5. Enable the desired logs to be collected.
+
     | Log Name | Description |
     |-------|------------|
     | DeviceOperations | Logs related to device connection events |
