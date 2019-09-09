@@ -28,7 +28,7 @@ This article provides the following information for data engineers and developer
 
 ## Performance
 
-Azure Data Factory offers a serverless architecture that allows parallelism at various levels. If you're a developer, this means you can build pipelines to fully utilize both network and database bandwidth to maximize data movement throughput for your environment.
+Azure Data Factory offers a serverless architecture that allows parallelism at various levels. If you're a developer, this means you can build pipelines to fully use both network and database bandwidth to maximize data movement throughput for your environment.
 
 ![Performance diagram](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
 
@@ -68,7 +68,7 @@ The preceding diagram can be interpreted as follows:
 
 - In this architecture, you transfer data securely by using HTTPS over the public internet.
 
-- To achieve this architecture, you need to install Azure Data Factory Integration Runtime (Self-hosted) on a Windows machine behind a corporate firewall. Make sure that this integration runtime can directly access the Netezza server. To fully utilize your network and data stores bandwidth to copy data, you can manually scale up your machine or scale out to multiple machines.
+- To achieve this architecture, you need to install Azure Data Factory Integration Runtime (Self-hosted) on a Windows machine behind a corporate firewall. Make sure that this integration runtime can directly access the Netezza server. To fully use your network and data stores bandwidth to copy data, you can manually scale up your machine or scale out to multiple machines.
 
 - By using this architecture, you can migrate both initial snapshot data and delta data.
 
@@ -80,7 +80,7 @@ The preceding diagram can be interpreted as follows:
 
 - In this architecture, you migrate data over a private peering link via Azure Express Route, and data never traverses over the public internet. 
 
-- To achieve this architecture, you need to install Azure Data Factory Integration Runtime (Self-hosted) on a Windows virtual machine (VM) within your Azure virtual network. To fully utilize your network and data stores bandwidth to copy data, you can manually scale up your VM or scale out to multiple VMs.
+- To achieve this architecture, you need to install Azure Data Factory Integration Runtime (Self-hosted) on a Windows virtual machine (VM) within your Azure virtual network. To fully use your network and data stores bandwidth to copy data, you can manually scale up your VM or scale out to multiple VMs.
 
 - By using this architecture, you can migrate both initial snapshot data and delta data.
 
@@ -112,7 +112,7 @@ The preceding diagram can be interpreted as follows:
 
 ### Migrate initial snapshot data 
 
-For small tables (that is, tables with a volume of less than 100 GB or that can be migrated to Azure within two hours), you can make each copy job load data per table. For better throughput, you can run multiple Azure Data Factory copy jobs to load separate tables concurrently. 
+For small tables (that is, tables with a volume of less than 100 GB or that can be migrated to Azure within two hours), you can make each copy job load data per table. For greater throughput, you can run multiple Azure Data Factory copy jobs to load separate tables concurrently. 
 
 Within each copy job, to run parallel queries and copy data by partitions, you can also reach some level of parallelism by using the [`parallelCopies` property setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with either of the following data partition options:
 
@@ -136,7 +136,7 @@ Each table can use a different watermark column to identify its new or updated r
 
 If you're migrating data from the Netezza server to Azure, whether the server is on-premises behind your corporation firewall or within a virtual network environment, you need to install a self-hosted IR on a Windows machine or VM, which is the engine that's used to move data. As you're installing the self-hosted IR, we recommend the following approach:
 
-- For each Windows machine or VM, start with a configuration of 32 vCPU and 128-GB memory. You can keep monitoring CPU and memory utilization of the IR machine during the data migration to see whether you need to further scale up the machine for better performance or scale down the machine to save cost.
+- For each Windows machine or VM, start with a configuration of 32 vCPU and 128-GB memory. You can keep monitoring the CPU and memory usage of the IR machine during the data migration to see whether you need to further scale up the machine for better performance or scale down the machine to save cost.
 
 - You can also scale out by associating up to four nodes with a single self-hosted IR. A single copy job that's running against a self-hosted IR automatically applies all VM nodes to copy the data in parallel. For high availability, start with four VM nodes to avoid a single point of failure during the data migration.
 
@@ -144,11 +144,11 @@ If you're migrating data from the Netezza server to Azure, whether the server is
 
 As a best practice, conduct a performance proof of concept (POC) with a representative sample dataset, so that you can determine an appropriate partition size for each copy activity. We suggest that you load each partition to Azure within two hours.  
 
-To copy a table, start with a single-copy activity with a single, self-hosted IR machine. Gradually increase the `parallelCopies` setting based on the number of data-slice partitions in your table. See whether the entire table can be loaded to Azure within two hours, according to the throughput you see from the copy job. 
+To copy a table, start with a single-copy activity with a single, self-hosted IR machine. Gradually increase the `parallelCopies` setting based on the number of data-slice partitions in your table. See whether the entire table can be loaded to Azure within two hours, according to the throughput that results from the copy job. 
 
-If it can't be loaded to Azure within two hours, and the capacity of the self-hosted IR node and the data store are not fully utilized, gradually increase the number of concurrent copy activities until you reach the limit of your network or the bandwidth limit of the data stores. 
+If it can't be loaded to Azure within two hours, and the capacity of the self-hosted IR node and the data store are not fully used, gradually increase the number of concurrent copy activities until you reach the limit of your network or the bandwidth limit of the data stores. 
 
-Keep monitoring the CPU and memory utilization on the self-hosted IR machine, and be ready to scale up the machine or scale out to multiple machines when you see that the CPU and memory are fully utilized. 
+Keep monitoring the CPU and memory usage on the self-hosted IR machine, and be ready to scale up the machine or scale out to multiple machines when you see that the CPU and memory are fully used. 
 
 When you encounter throttling errors, as reported by Azure Data Factory copy activity, either reduce the concurrency or `parallelCopies` setting in Azure Data Factory, or consider increasing the bandwidth or I/O operations per second (IOPS) limits of the network and data stores. 
 
@@ -165,9 +165,9 @@ Let's assume that the following statements are true:
 
 - We're migrating data by using first-solution architecture (the Netezza server is on-premises, behind the firewall).
 
-- The 50 TB volume is divided into 500 partitions, and each copy activity moves one partition.
+- The 50-TB volume is divided into 500 partitions, and each copy activity moves one partition.
 
-- Each copy activity is configured with one self-hosted IR against four machines and achieves 20-megabytes-per-second (MBps) throughput. (Within copy activity, `parallelCopies` is set to 4, and each thread to load data from the table achieves 5-MBps throughput).
+- Each copy activity is configured with one self-hosted IR against four machines and achieves a throughput of 20 megabytes per second (MBps). (Within copy activity, `parallelCopies` is set to 4, and each thread to load data from the table achieves a 5-MBps throughput.)
 
 - The ForEach concurrency is set to 3, and the aggregate throughput is 60 MBps.
 
