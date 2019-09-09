@@ -19,7 +19,7 @@ This guide is meant to complement [Use Enterprise Security Package in HDInsight]
 
 Before using this process in your own environment, setup Active Directory and Domain Name Services (DNS). Also, enable Azure Active Directory and sync on-premises user accounts to Azure Active Directory.
 
-![architecture diagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
+![architecture diagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
 
 ## Create on-premises environment
 
@@ -270,7 +270,7 @@ Verify that the certificate is installed in the computer\'s Personal store. Comp
 1. Add the Certificates snap-in that manages certificates on the local computer.
 1. Expand **Certificates (Local Computer)**, expand **Personal**, and then expand **Certificates**. A new certificate should exist in the Personal store. This certificate is issued to the fully qualified host name.
 
-    ![verify certificate creation](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
+    ![verify certificate creation](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image102.png)
 
 1. In the right pane, right-click the certificate that you created in the previous step, point to **All Tasks**, and then click **Export**.
 
