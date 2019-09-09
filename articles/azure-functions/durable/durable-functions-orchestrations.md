@@ -7,7 +7,7 @@ manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.topic: overview
-ms.date: 08/12/2019
+ms.date: 09/08/2019
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
@@ -21,7 +21,7 @@ Durable Functions is an extension of [Azure Functions](../functions-overview.md)
 * Orchestrator functions are durable and reliable. Execution progress is automatically checkpointed when the function "awaits" or "yields". Local state is never lost when the process recycles or the VM reboots.
 * Orchestrator functions can be long-running. The total lifespan of an *orchestration instance* can be seconds, days, months, or never-ending.
 
-This article gives you an overview of orchestrator functions and how they can help you solve various app development challenges. If you are not already familiar with the types of functions available in a Durable Functions app, please read the [Durable Function types](durable-functions-types-features-overview.md) topic first.
+This article gives you an overview of orchestrator functions and how they can help you solve various app development challenges. If you are not already familiar with the types of functions available in a Durable Functions app, read the [Durable Function types](durable-functions-types-features-overview.md) article first.
 
 ## Orchestration identity
 
@@ -55,7 +55,7 @@ When an orchestration function is given more work to do (for example, a response
 
 ## Orchestration history
 
-The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have the an activity-chaining orchestrator function, like the following C# orchestrator function:
+The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have an activity-chaining orchestrator function, like the following C# orchestrator function:
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +73,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-If you are coding in JavaScript, your activity-chaining orchestrator function might look like the following:
+If you're coding in JavaScript, your activity-chaining orchestrator function might look like the following example code:
 
 ```javascript
 const df = require("durable-functions");
@@ -89,7 +89,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-At each `await` (C#) or `yield` (JavaScript) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (e.g. Azure Table storage). This state is what is referred to as the *orchestration history*.
+At each `await` (C#) or `yield` (JavaScript) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (typically Azure Table storage). This state is what is referred to as the *orchestration history*.
 
 ### History table
 
@@ -104,7 +104,7 @@ Once the checkpoint is complete, the orchestrator function is free to be removed
 > [!NOTE]
 > Azure Storage does not provide any transactional guarantees between saving data into table storage and queues. To handle failures, the Durable Functions storage provider uses *eventual consistency* patterns. These patterns ensure that no data is lost if there is a crash or loss of connectivity in the middle of a checkpoint.
 
-Upon completion, the history of the function shown earlier looks something like the following in Azure Table Storage (abbreviated for illustration purposes):
+Upon completion, the history of the function shown earlier looks something like the following table in Azure Table Storage (abbreviated for illustration purposes):
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | Result                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
@@ -147,7 +147,7 @@ A few notes on the column values:
 > [!WARNING]
 > While it's useful as a debugging tool, don't take any dependency on this table. It may change as the Durable Functions extension evolves.
 
-Every time the function resumes from an `await` (C#) or `yield` (JavaScript), the Durable Task Framework reruns the orchestrator function from scratch. On each rerun it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await` (C#) or `yield` (JavaScript). This process continues until the entire history has been replayed, at which point all the local variables in the orchestrator function are restored to their previous values.
+Every time the function resumes from an `await` (C#) or `yield` (JavaScript), the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await` (C#) or `yield` (JavaScript). This process continues until the entire history has been replayed. Once the current history has been replayed, the local variables will have been restored to their previous values.
 
 ## Features and patterns
 
@@ -155,21 +155,21 @@ The next sections describe the features and patterns of orchestrator functions.
 
 ### Sub-orchestrations
 
-Orchestrator functions can call activity functions, but they can also call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or, you can run multiple instances of an orchestrator function in parallel.
+Orchestrator functions can call activity functions, but also other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or, you can run multiple instances of an orchestrator function in parallel.
 
-For more information and for examples, see the [Sub-orchestrations](durable-functions-sub-orchestrations.md) topic.
+For more information and for examples, see the [Sub-orchestrations](durable-functions-sub-orchestrations.md) article.
 
 ### Durable timers
 
 Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#) or `setTimeout()` and `setInterval()` (JavaScript).
 
-For more information and for examples, see the [Durable timers](durable-functions-timers.md) topic.
+For more information and for examples, see the [Durable timers](durable-functions-timers.md) article.
 
 ### External events
 
 Orchestrator functions can wait for external events to update an orchestration instance. This Durable Functions feature often is useful for handling a human interaction or other external callbacks.
 
-For more information and for examples, see the [External events](durable-functions-external-events.md) topic.
+For more information and for examples, see the [External events](durable-functions-external-events.md) article.
 
 ### Error handling
 
@@ -180,11 +180,11 @@ Orchestrator functions can also add retry policies to the activity or sub-orches
 > [!NOTE]
 > If there is an unhandled exception in an orchestrator function, the orchestration instance will complete in a `Failed` state. An orchestration instance cannot be retried once it has failed.
 
-For more information and for examples, see the [Error handling](durable-functions-error-handling.md) topic.
+For more information and for examples, see the [Error handling](durable-functions-error-handling.md) article.
 
 ### Critical sections
 
-Orchestration instances are single-threaded so it is not necessary to worry about race conditions *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* using a `LockAsync` method in .NET.
+Orchestration instances are single-threaded so it isn't necessary to worry about race conditions *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* using a `LockAsync` method in .NET.
 
 The following sample code shows an orchestrator function that defines a critical section. It enters the critical section using the `LockAsync` method. This method requires passing one or more references to a [Durable Entity](durable-functions-entities.md), which durably manages the lock state. Only a single instance of this orchestration can execute the code in the critical section at a time.
 
@@ -210,7 +210,7 @@ The critical section feature is also useful for coordinating changes to durable 
 
 ### Calling HTTP endpoints
 
-Orchestrator functions are not permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code which needs to do I/O in an activity function. Orchestrations which interact with external systems frequently leverage activity functions to make HTTP calls and return the result to the orchestration.
+Orchestrator functions aren't permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code that needs to do I/O in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the result to the orchestration.
 
 To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method in .NET to invoke HTTP APIs directly. In addition to supporting basic request/response patterns, `CallHttpAsync` supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -232,14 +232,14 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-For more information and for detailed examples, see the [HTTP features](durable-functions-http-features.md) topic.
+For more information and for detailed examples, see the [HTTP features](durable-functions-http-features.md) article.
 
 > [!NOTE]
 > Calling HTTP endpoints directly from orchestrator functions is available in Durable Functions 2.0 and above. Currently, only .NET orchestrations implement this feature.
 
 ### Passing multiple parameters
 
-It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects in .NET.
+It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects in .NET.
 
 The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 

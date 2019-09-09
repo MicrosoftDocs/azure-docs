@@ -15,7 +15,7 @@ ms.author: azfuncdf
 
 The [Durable Functions](durable-functions-overview.md) extension introduces two new trigger bindings that control the execution of orchestrator and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
 
-## Orchestration triggers
+## Orchestration trigger
 
 The orchestration trigger enables you to author [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). This trigger supports starting new orchestrator function instances and resuming existing orchestrator function instances that are "awaiting" a task.
 
@@ -60,7 +60,7 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 
 ### Trigger sample
 
-The following is an example of what the simplest "Hello World" orchestrator function might look like:
+The following example code shows what the simplest "Hello World" orchestrator function might look like:
 
 #### C#
 
@@ -117,7 +117,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-## Activity triggers
+## Activity trigger
 
 The activity trigger enables you to author functions that are called by orchestrator functions, known as [activity functions](durable-functions-types-features-overview.md#activity-functions).
 
@@ -134,7 +134,7 @@ If you're using VS Code or the Azure portal for development, the activity trigge
 }
 ```
 
-* `activity` is the name of the activity. This is the value that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
+* `activity` is the name of the activity. This value is the name that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
 
 Internally this trigger binding polls a queue in the default storage account for the function app. This queue is an internal implementation detail of the extension, which is why it is not explicitly configured in the binding properties.
 
@@ -160,7 +160,7 @@ The activity trigger binding supports both inputs and outputs, just like the orc
 
 ### Trigger sample
 
-The following is an example of what a simple "Hello World" activity function might look like:
+The following example code shows what a simple "Hello World" activity function might look like:
 
 #### C#
 
@@ -231,7 +231,7 @@ module.exports = async function (context) {
 
 ## Orchestration client
 
-The orchestration client binding enables you to write functions which interact with orchestrator functions. These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions). For example, you can act on orchestration instances in the following ways:
+The orchestration client binding enables you to write functions that interact with orchestrator functions. These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions). For example, you can act on orchestration instances in the following ways:
 
 * Start them.
 * Query their status.
@@ -241,7 +241,7 @@ The orchestration client binding enables you to write functions which interact w
 
 If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute for Durable Functions 1.0. Starting in the Durable Functions 2.0 preview, you can bind to the orchestration client by using the `DurableClientAttribute` .NET attribute.
 
-If you're using scripting languages (e.g. *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+If you're using scripting languages (for example, *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -271,7 +271,7 @@ In .NET functions, you typically bind to `DurableOrchestrationClient`, which giv
 
 Alternatively, .NET functions can bind to `IAsyncCollector<T>` where `T` is [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) or `JObject`.
 
-See the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API documentation for additional details on these operations.
+For more information on these operations, see the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API documentation.
 
 ### Client sample (Visual Studio development)
 
@@ -368,7 +368,7 @@ Every entity function has a parameter type of `IDurableEntityContext`, which has
 
 * **EntityName**: Gets the name of the currently executing entity.
 * **EntityKey**: Gets the key of the currently executing entity.
-* **EntityId**: Gets the id of the currently executing entity.
+* **EntityId**: Gets the ID of the currently executing entity.
 * **OperationName**: gets the name of the current operation.
 * **IsNewlyConstructed**: returns `true` if the entity did not exist prior to the operation.
 * **GetState\<TState>()**: gets the current state of the entity. The `TState` parameter must be a primitive or JSON-serializeable type.
@@ -433,7 +433,7 @@ public class Counter
 > [!NOTE]
 > The function entry point method with the `[FunctionName]` attribute *must* be declared `static` when using entity classes. Non-static entry point methods may result in multiple object initialization and potentially other undefined behaviors.
 
-Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. See the [Durable Entities](durable-functions-entities.md) topic for more information.
+Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see the [Durable Entities](durable-functions-entities.md) article.
 
 ## Entity client
 
@@ -444,7 +444,7 @@ If you're using Visual Studio, you can bind to the entity client by using the `D
 > [!NOTE]
 > The `[DurableClientAttribute]` can also be used to bind to the [orchestration client](#orchestration-client).
 
-If you're using scripting languages (e.g. *.csx* or *.js* files) for development, the entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+If you're using scripting languages (for example, *.csx* or *.js* files) for development, the entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -533,7 +533,7 @@ There are a few rules for defining entity interfaces:
 * Entity interfaces must only define methods.
 * Entity interface methods must not define more than one parameter.
 * Entity interface methods must return `void`, `Task`, or `Task<T>` where `T` is some return value.
-* Entity interfaces must have exactly one concrete implementation class within the same assembly (i.e. the entity class).
+* Entity interfaces must have exactly one concrete implementation class within the same assembly (that is, the entity class).
 
 If any of these rules are violated, an `InvalidOperationException` will be thrown at runtime. The exception message will explain which rule was broken.
 

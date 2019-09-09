@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # Entity functions (preview)
 
-Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
+Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions don't have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
 > [!NOTE]
 > Entity functions and related functionality is only available in Durable Functions 2.0 and above. Entity functions are currently in public preview.
@@ -30,7 +30,7 @@ For example, a *counter* entity function might be used for keeping score in an o
 
 ## Programing models
 
-Durable entities support two different programming models. The first model is a dynamic "functional" model where the entity is defined by a single function. The second model is an object-oriented model where the entity is defined by a class and methods. These models, as well as the programming models for interacting with entities, are described in the subsequent sections.
+Durable entities support two different programming models. The first model is a dynamic "functional" model where the entity is defined by a single function. The second model is an object-oriented model where the entity is defined by a class and methods. These models and the programming models for interacting with entities are described in the next sections.
 
 ### Defining entities
 
@@ -60,7 +60,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-This model works best for simple entity implementations, or implementations that have a dynamic set of operations. However, there is also a class-based programming model that is useful for entities that are static but have more complex implementations. The following example is an equivalent implementation of the `Counter` entity using classes and methods.
+This model works best for simple entity implementations, or implementations that have a dynamic set of operations. However, you can also use a class-based programming model that is useful for entities that are static but have more complex implementations. The following example is an equivalent implementation of the `Counter` entity using classes and methods.
 
 ```csharp
 public class Counter
@@ -92,7 +92,7 @@ The class-based model is similar to the programming model popularized by [Orlean
 
 ### Accessing entities from clients
 
-Durable entities can be invoked or queried from ordinary functions (also known as *client functions*) by using the [entity client output binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function *signaling* an entity using this binding.
+Durable entities can be invoked or queried from ordinary functions - also known as *client functions* - by using the [entity client output binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function *signaling* an entity using this binding.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -110,7 +110,7 @@ public static Task Run(
 > [!NOTE]
 > .NET functions support both loosely typed and type-safe methods for signaling entities. See the [entity client binding](durable-functions-bindings.md#entity-client-usage) reference documentation for details.
 
-The term *signal* is used to indicate that the entity API invocation is one-way and asynchronous. It is not possible for a *client function* to know when the entity has processed the operation, nor is it possible for an entity function return a value to a client function. One-way queue-based messaging was an intentional design choice for Durable Entities to prioritize durability over performance. This is one of the tradeoffs of that design choice. Currently only orchestrations are capable of handling return values from entities, as described in the next section.
+The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a *client function* to know when the entity has processed the operation, nor is it possible for an entity function return a value to a client function. One-way queue-based messaging was an intentional design choice for Durable Entities to prioritize durability over performance. This design choice is one of the tradeoffs of Durable Entities compared to other, similar technologies. Currently only orchestrations are capable of handling return values from entities, as described in the next section.
 
 Client functions can also query the state of entities, as shown in the following example:
 
@@ -130,7 +130,7 @@ Entity state queries are sent to the Durable tracking store and return the entit
 
 ### Accessing entities from orchestrations
 
-Orchestrator functions can access entities using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-triggers). Orchestrator functions can choose between one-way communication (fire and forget, also referred to as *signaling*) and two-way communication (request and response, also referred to as *calling*). The following example code shows an orchestrator function *calling* and *signaling* a *Counter* entity.
+Orchestrator functions can access entities using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). Orchestrator functions can choose between one-way communication (fire and forget, also referred to as *signaling*) and two-way communication (request and response, also referred to as *calling*). The following example code shows an orchestrator function *calling* and *signaling* a *Counter* entity.
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -237,11 +237,11 @@ For more information on bindings in Azure Functions, see the [Azure Functions Tr
 
 ## Entity coordination
 
-There may be times when you need to coordinate operations across multiple entities. For example, in a banking application, you may have entities representing individual bank accounts. When transfering funds from one account to another, you must ensure that the _source_ account has sufficient funds, and that updates to both the _source_ and _destination_ ccounts are done in a transactionally consistent way.
+There may be times when you need to coordinate operations across multiple entities. For example, in a banking application, you may have entities representing individual bank accounts. When transferring funds from one account to another, you must ensure that the _source_ account has sufficient funds, and that updates to both the _source_ and _destination_ accounts are done in a transactionally consistent way.
 
 ### Transfer Funds example in C#
 
-The following is an example of transferring funds between two _account_ entities using an orchestrator function. Coordinating entity updates requires using the `LockAsync` method to create a _critical section_ in the orchestration:
+The following example code transfers funds between two _account_ entities using an orchestrator function. Coordinating entity updates requires using the `LockAsync` method to create a _critical section_ in the orchestration:
 
 > [!NOTE]
 > For simplicity, this example reuses the `Counter` entity defined previously. However, in a real application, it would be better to instead define a more detailed `BankAccount` entity.
@@ -288,13 +288,13 @@ public static async Task<bool> TransferFundsAsync(
 
 In .NET, `LockAsync` returns an `IDisposable` that ends the critical section when disposed. This `IDisposable` result can be used together with a `using` block to get a syntactic representation of the critical section.
 
-In the preceding example, an orchestrator function transfered funds from a _source_ entity to a _destination_ entity. The `LockAsync` method locked both the _source_ and _destination_ account entities. This ensured that no other client could query or modify the state of either account until the orchestration logic exited the _critical section_ at the end of the `using` statement. This effectively prevented the possibility of overdrafting from the _source_ account.
+In the preceding example, an orchestrator function transferred funds from a _source_ entity to a _destination_ entity. The `LockAsync` method locked both the _source_ and _destination_ account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic exited the _critical section_ at the end of the `using` statement. This effectively prevented the possibility of overdrafting from the _source_ account.
 
 ### Critical section behavior
 
 The `LockAsync` method creates a _critical section_ in an orchestration. These _critical sections_ prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `LockAsync` API sends "lock" operations to the entities and returns when it receives a "lock acquired" response message from each of these same entities. Both *lock* and *unlock* are built-in operations supported by all entities.
 
-No operations are allowed on an entity while it is in a locked state, except those initiated by the holder of the lock. This helps ensure that only one orchestration instance can lock an entity at a time. If a caller tries to invoke an operation on an entity while it is locked by an orchestration, that operation will be placed in a *pending operation queue*. No pending operations will be processed until after the holding orchestration releases its lock.
+No operations from other clients are allowed on an entity while it is in a locked state. This behavior ensures that only one orchestration instance can lock an entity at a time. If a caller tries to invoke an operation on an entity while it is locked by an orchestration, that operation will be placed in a *pending operation queue*. No pending operations will be processed until after the holding orchestration releases its lock.
 
 > [!NOTE] 
 > This is slightly different from synchronization primitives used in most programming languages, such as the `lock` statement in C#. For example, in C#, the `lock` statement must be used by all threads to ensure proper synchonization across multiple threads. Entities, however, do not require all callers to explicitly _lock_ an entity. If any caller locks an entity, all other operations on that entity will be blocked and queued behind that lock.
@@ -313,7 +313,7 @@ We impose several restrictions on how critical sections can be used. These restr
 
 ## Comparison with virtual actors
 
-The design of Durable Entities is inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then some of the concepts behind durable entities should be familiar to you. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/) in many ways:
+Many of the Durable Entities features are inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then you may recognize many of the concepts described in this article. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/) in many ways:
 
 * Durable entities are addressable via an *entity ID*.
 * Durable entity operations execute serially, one at a time, to prevent race conditions.

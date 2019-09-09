@@ -7,7 +7,7 @@ manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/07/2019
 ms.author: azfuncdf
 ---
 
@@ -112,6 +112,9 @@ module.exports = df.orchestrator(function*(context) {
     // ...
 });
 ```
+
+> [!NOTE]
+> Sub-orchestrations must be defined in the same function app as the parent orchestration. If you need to call and wait for orchestrations in another function app, consider using the built-in support for HTTP APIs and the HTTP 202 polling consumer pattern. For more information, see the [HTTP Features](durable-functions-http-features.md) topic.
 
 ## Next steps
 
