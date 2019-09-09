@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -24,6 +24,8 @@ If you're new to Resource Manager templates, learn about [template deployments](
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
 
 ## Set up Azure Monitor as a data sink 
