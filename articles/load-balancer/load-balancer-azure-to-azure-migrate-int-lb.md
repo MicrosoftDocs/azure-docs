@@ -104,27 +104,26 @@ The following steps show how to prepare the internal load balancer for the move 
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the template.json file:
-
-            ```json
-             "resources": [
-                            {
-                            "type": "Microsoft.Network/virtualNetworks",
-                            "apiVersion": "2019-06-01",
-                            "name": "[parameters('virtualNetworks_myVNET1_name')]",
+            
+           ```json
+            
+            "resources": [
+                          {
+                          "type": "Microsoft.Network/virtualNetworks",
+                          "apiVersion": "2019-06-01",
+                          "name": "[parameters('virtualNetworks_myVNET1_name')]",
                             "location": "TARGET REGION",
                             "properties": {
-                                "provisioningState": "Succeeded",
-                                "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
-                                "addressSpace": {
-                                  "addressPrefixes": [
-                                  "10.0.0.0/16"
-                                ]
+                               "provisioningState": "Succeeded",
+                               "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
+                               "addressSpace": {
+                                 "addressPrefixes": [
+                                 "10.0.0.0/16"
+                                 ]
                            },
                           [
-            ```
-
-           
-
+            
+           ```
     * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
     
             ```json
