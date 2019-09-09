@@ -241,10 +241,14 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: Connect using Power BI
-      href: knowledge-store-connect-powerbi.md
+    - name: Create a knowledge store (Portal)
+      href: kstore-create-portal.md
     - name: Create using REST and Postman
       href: knowledge-store-howto.md
+    - name: Connect using Storage Explorer
+      href: kstore-view-storage-explorer.md
+    - name: Connect using Power BI
+      href: kstore-connect-powerbi.md
   - name: Query data
     items:
     - name: Create a basic query
