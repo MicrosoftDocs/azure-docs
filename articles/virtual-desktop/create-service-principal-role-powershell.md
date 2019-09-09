@@ -33,9 +33,9 @@ Before you can create service principals and role assignments, you need to do th
     Install-Module AzureAD
     ```
 
-2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
+2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
 
-3. Follow all instructions in this article in the same PowerShell session. It might not work if you close the window and return to it later.
+3. Follow all instructions in this article in the same PowerShell session. The process might not work if you interrupt your PowerShell session by closing the window and reopening it later.
 
 ## Create a service principal in Azure Active Directory
 
