@@ -50,9 +50,41 @@ Clients can connect to  the Private endpoint from the same Vnet, peered Vnet in 
  ![Diagram of connectivity options][1]
 
 ### Connect – From Azure VM in same Virtual Network(VNET) 
-For this scenario let us assume you have created an Azure Virtual Machine (VM) running Windows Server 2016. 
+For this scenario let us assume you have created an Azure Virtual Machine (VM) running Windows Server 2016.
 
- Start a Remote Desktop (RDP) session following steps given here https://docs.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine. You can then do some basic connectivity checks to ensure that VM is connecting to SQL Database via the private endpoint.
+Start a Remote Desktop (RDP) session following steps given here https://docs.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine. You can then do some basic connectivity checks to ensure that VM is connecting to SQL Database via the Private endpoint connection(PEC)
+
+### Check Connectivity - Telnet
+Telnet Client is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
+
+Run the telnet command with the private endpoint as follows
+````
+>telnet 10.1.1.5 1433
+````
+When telnet connects successfully, you will see a blank screen at the command window like this 
+
+ ![Diagram of telnet][2]
+
+### Check Connectivity – Psping
+[Psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) can be used as follows to check that the Private endpoint connection(PEC) is listening for connections on port 1433 
+
+Run psping as follows by providing the FQDn for your SQL Database server and port 1433
+````
+>psping.exe mysqldbsrvr.database.windows.net:1433
+
+PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
+Copyright (C) 2012-2016 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+TCP connect to 10.6.1.4:1433:
+5 iterations (warmup 1) ping test:
+Connecting to 10.6.1.4:1433 (warmup): from 10.6.0.4:49953: 2.83ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49954: 1.26ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49955: 1.98ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49956: 1.43ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49958: 2.28ms
+````
+The output show that Psping could ping the private IP address associated with the PEC
 
 ### Check Connectivity – Nmap 
 Nmap("Network Mapper") is a free and open-source tool used for network discovery and security auditing. It is available for download at https://nmap.org/. In this case, you can use it to ensure that the private endpoint is listening for connections on port 1433.
@@ -69,16 +101,6 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 The result shows that one IP address is up; which corresponds to the IP address for the private endpoint.
 
-### Check Connectivity - Telnet
-Telnet Client is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
-
-Run the telnet command with the private endpoint as follows
-````
->telnet 10.1.1.5 1433
-````
-When telnet connects successfully, you will see a blank screen at the command window like this 
-
- ![Diagram of telnet][2]
 
 ### Check Connectivity – SQL Server Management Studio (SSMS)
 Finally you can use [SSMS to connect to SQL Database](sql-database-connect-query-ssms.md) and then verify that you are connecting from the private IP address of the Azure Vm by running the following query 
