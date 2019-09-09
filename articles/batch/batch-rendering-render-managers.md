@@ -23,7 +23,9 @@ The following render managers are supported:
 
 ## Using Azure with PipelineFX Qube
 
-Scripts and instructions to enable Azure Batch pool VMs to be used as Qube workers are in [the GitHub repository](https://github.com/Azure/azure-qube).
+Azure Render Hub supports popular render managers including Deadline.  For instructions on deploying and using Render Hub see [the GitHub repository](https://github.com/Azure/azure-render-hub).
+
+Scripts and instructions to enable Azure Batch pool VMs to be used as Qube workers are also available in [the GitHub repository](https://github.com/Azure/azure-qube).
 
 ## Using Azure with Royal Render
 
@@ -33,7 +35,7 @@ For an example of a Royal Render customer using the Azure integration, see the [
 
 ## Using Azure with Thinkbox Deadline
 
-Scripts and instructions to enable Azure Batch pool VMs to be used as Deadline slaves are in [the GitHub repository](https://github.com/Azure/azure-deadline).
+Azure Render Hub supports popular render managers including Deadline.  For instructions on deploying and using Render Hub see [the GitHub repository](https://github.com/Azure/azure-render-hub).
 
 ## Next steps
 
