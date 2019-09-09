@@ -17,17 +17,7 @@ This article documents the security controls built into Azure Load Balancer.
 
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
-## Preventative
-
-| Security attribute | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | N/A | |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
-| Server-side encryption at rest: customer managed keys (BYOK) | N/A | |
-| Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
-
-## Network segmentation
+## Network
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -36,26 +26,30 @@ This article documents the security controls built into Azure Load Balancer.
 | Network Isolation and Firewalling support| N/A |  |
 | Forced tunneling support| N/A | |
 
-## Detection
+## Monitoring & logging
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
+| Control and management plane logging and audit| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
+| Data plane logging and audit | N/A |  |
 
-## Identity and access management
+## Identity
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| N/A |  |
 | Authorization| N/A |  |
 
+## Data protection
 
-## Audit trail
-
-| Security attribute | Yes/No | Notes|
+| Security attribute | Yes/No | Notes |
 |---|---|--|
-| Control and management plane logging and audit| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
-| Data plane logging and audit | N/A |  |
+| Server-side encryption at rest: Microsoft managed keys | N/A | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
+| Server-side encryption at rest: customer managed keys (BYOK) | N/A | |
+| Column level encryption (Azure Data Services)| N/A | |
+| API calls encrypted| Yes | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
 ## Configuration management
 

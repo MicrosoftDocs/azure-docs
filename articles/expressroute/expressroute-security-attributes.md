@@ -18,17 +18,7 @@ This article documents the security controls built into Azure ExpressRoute.
 
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
-## Preventative
-
-| Security Attribute | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft managed keys |  N/A | ExpressRoute does not store customer data. |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | |
-| Server-side encryption at rest: customer managed keys (BYOK) | N/A |  |
-| Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
-
-## Network segmentation
+## Network
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -37,26 +27,31 @@ This article documents the security controls built into Azure ExpressRoute.
 | Network isolation and firewalling support| Yes | Each customer is contained in its own routing domain and tunneled to its own VNet |
 | Forced tunneling support| N/A | Via Border Gateway Protocol (BGP). |
 
-## Detection
+## Monitoring & logging
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [ExpressRoute monitoring, metrics, and alerts](expressroute-monitoring-metrics-alerts.md).|
+| Control and management plane logging and audit| Yes |  |
+| Data plane logging and audit| No |   |
 
-## Identity and access management
+## Identity
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Service account for Gateway for Microsoft (GWM) (controller); Just in Time (JIT) access for Dev and OP. |
 | Authorization|  Yes |Service account for Gateway for Microsoft (GWM) (controller); Just in Time (JIT) access for Dev and OP. |
 
+## Data protection
 
-## Audit trail
-
-| Security Attribute | Yes/No | Notes| 
+| Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Control and management plane logging and audit| Yes |  |
-| Data plane logging and audit| No |   |
+| Server-side encryption at rest: Microsoft managed keys |  N/A | ExpressRoute does not store customer data. |
+| Server-side encryption at rest: customer managed keys (BYOK) | N/A |  |
+| Column level encryption (Azure Data Services)| N/A | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | |
+| API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
+
 
 ## Configuration management
 

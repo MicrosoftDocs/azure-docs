@@ -18,7 +18,7 @@ This article documents the security attributes built into Linux Virtual Machines
 
 [!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 
-## Preventative
+## Data protection
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -28,7 +28,7 @@ This article documents the security attributes built into Linux Virtual Machines
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Via HTTPS and SSL. |
 
-## Network segmentation
+## Network
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -37,13 +37,13 @@ This article documents the security attributes built into Linux Virtual Machines
 | Network Isolation and Firewalling support| Yes |  |
 | Forced tunneling support| Yes | See [Configure forced tunneling using the Azure Resource Manager deployment model](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
-## Detection
+## Monitoring & logging
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Monitor and update a Linux virtual machine in Azure](/azure/virtual-machines/linux/tutorial-monitoring) and [Monitor and update a Windows virtual machine in Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 
-## Identity and access management
+## Identity
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|

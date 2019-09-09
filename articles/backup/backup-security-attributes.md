@@ -16,17 +16,7 @@ This article documents the security controls built into Azure Backup.
 
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
-## Preventative
-
-| Security Attribute | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes | Using storage service encryption for storage accounts. |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | Using HTTPS. |
-| Server-side encryption at rest: customer managed keys (BYOK) | No |  |
-| Column level encryption (Azure Data Services)| No |  |
-| API calls encrypted| Yes |  |
-
-## Network segmentation
+## Network
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -35,26 +25,30 @@ This article documents the security controls built into Azure Backup.
 | Network isolation and firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling is not supported for workloads running inside VMs. |
 | Forced tunneling support| No |  |
 
-## Detection
+## Monitoring & logging
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via diagnostic logs. See [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
+| Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |
+| Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |
 
-## Identity and access management
+## Identity
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |
 | Authorization| Yes | Customer created and built-in RBAC roles are used. See [Use Role-Based Access Control to manage Azure Backup recovery points](/azure/backup/backup-rbac-rs-vault) for more information. |
 
+## Data protection
 
-## Audit trail
-
-| Security Attribute | Yes/No | Notes|
+| Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |
-| Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |
+| Server-side encryption at rest: Microsoft managed keys | Yes | Using storage service encryption for storage accounts. |
+| Server-side encryption at rest: customer managed keys (BYOK) | No |  |
+| Column level encryption (Azure Data Services)| No |  |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | Using HTTPS. |
+| API calls encrypted| Yes |  |
 
 ## Configuration management
 

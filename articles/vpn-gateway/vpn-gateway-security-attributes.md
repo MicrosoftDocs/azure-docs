@@ -18,7 +18,7 @@ This article documents the security controls built into Azure VPN Gateway.
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
 
-## Preventative
+## Data protection
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -28,7 +28,7 @@ This article documents the security controls built into Azure VPN Gateway.
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS  |
 
-## Network segmentation
+## Network
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -37,13 +37,13 @@ This article documents the security controls built into Azure VPN Gateway.
 | Network Isolation and Firewalling support| Yes | VPN gateways are dedicated VM instances for each customer Virtual Network  |
 | Forced tunneling support| Yes |  |
 
-## Detection
+## Monitoring & logging
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor Diagnostics Logs/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor Metrics/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 
-## Identity and access management
+## Identity
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|

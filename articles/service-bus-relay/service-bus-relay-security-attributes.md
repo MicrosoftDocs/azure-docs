@@ -18,17 +18,7 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
-## Preventative
-
-| Security Attribute | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft managed keys |  N/A | Relay is a web socket and does not persist data. |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |
-| Server-side encryption at rest: customer managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
-| Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | HTTPS. |
-
-## Network segmentation
+## Network
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -36,26 +26,31 @@ This article documents the security controls built into Azure Service Bus Relay.
 | Network isolation and firewalling support| No |  |
 | Forced tunneling support| N/A | Relay is the TLS tunnel  |
 
-## Detection
+## Monitoring & logging
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
+| Control and management plane logging and audit| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Data plane logging and audit| Yes | Connection success / failure and errors and logged.  |
 
-## Identity and access management
+## Identity
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Via SAS. |
 | Authorization|  Yes | Via SAS. |
 
+## Data protection
 
-## Audit trail
-
-| Security Attribute | Yes/No | Notes|
+| Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Control and management plane logging and audit| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml). |
-| Data plane logging and audit| Yes | Connection success / failure and errors and logged.  |
+| Server-side encryption at rest: Microsoft managed keys |  N/A | Relay is a web socket and does not persist data. |
+| Server-side encryption at rest: customer managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
+| Column level encryption (Azure Data Services)| N/A | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |
+| API calls encrypted| Yes | HTTPS. |
+
 
 ## Configuration management
 

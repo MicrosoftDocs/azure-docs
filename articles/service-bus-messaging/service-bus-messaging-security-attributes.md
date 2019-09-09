@@ -17,17 +17,7 @@ This article documents the security controls built into Azure Service Bus Messag
 
 [!INCLUDE [Security controls Header](../../includes/security-attributes-header.md)]
 
-## Preventative
-
-| Security Attribute | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft managed keys |  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Supports standard HTTPS/TLS mechanism. |
-| Server-side encryption at rest: customer managed keys (BYOK) | No |   |
-| Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
-
-## Network segmentation
+## Network
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -36,27 +26,30 @@ This article documents the security controls built into Azure Service Bus Messag
 | Network isolation and firewalling support| Yes (Premium tier only) |  |
 | Forced tunneling support| No |  |
 
-## Detection
+## Monitoring & logging
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |
+| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](service-bus-diagnostic-logs.md).  |
+| Data plane logging and audit| No |  |
 
-## Identity and access management
+## Identity
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
 | Authorization| Yes | Supports authorization via [RBAC](authenticate-application.md) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
 
+## Data protection
 
-
-## Audit trail
-
-| Security Attribute | Yes/No | Notes|
+| Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](service-bus-diagnostic-logs.md).  |
-| Data plane logging and audit| No |  |
+| Server-side encryption at rest: Microsoft managed keys |  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
+| Server-side encryption at rest: customer managed keys (BYOK) | No |   |
+| Column level encryption (Azure Data Services)| N/A | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Supports standard HTTPS/TLS mechanism. |
+| API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
 
 ## Configuration management
 

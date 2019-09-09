@@ -19,17 +19,7 @@ This article documents the security controls that are built into Azure SQL Datab
 
 SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
 
-## Preventative
-
-| Security attribute | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes | Called "encryption-in-use," as described in the article [Always Encrypted](sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md).|
-| Encryption in transit:<ul><li>Azure ExpressRoute encryption</li><li>Encryption in a virtual network</li><li>Encryption between virtual networks</ul>| Yes | Using HTTPS. |
-| Encryption-key handling, such as CMK or BYOK| Yes | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/index.yml). |
-| Column-level encryption provided by Azure data services| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
-| Encrypted API calls| Yes | Using HTTPS/SSL. |
-
-## Network segmentation
+## Network
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -38,25 +28,30 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 | Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](sql-database-managed-instance.md) only. |
 | Forced tunneling support| Yes | [Managed instance](sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
 
-## Detection
+## Monitoring & logging
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support, such as Log Analytics or Application Insights| Yes | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL auditing](sql-database-auditing.md). |
+| Control-plane and management-plane logging and audit| Yes | Yes for some events only |
+| Data-plane logging and audit | Yes | Via [SQL audit](sql-database-auditing.md) |
 
-## Identity and access management
+## Identity
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Azure Active Directory (Azure AD) |
 | Authorization| Yes | None |
 
-## Audit trail
+## Data protection
 
-| Security attribute | Yes/No | Notes|
+| Security attribute | Yes/No | Notes |
 |---|---|--|
-| Control-plane and management-plane logging and audit| Yes | Yes for some events only |
-| Data-plane logging and audit | Yes | Via [SQL audit](sql-database-auditing.md) |
+| Server-side encryption at rest: Microsoft managed keys | Yes | Called "encryption-in-use," as described in the article [Always Encrypted](sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md).|
+| Encryption in transit:<ul><li>Azure ExpressRoute encryption</li><li>Encryption in a virtual network</li><li>Encryption between virtual networks</ul>| Yes | Using HTTPS. |
+| Encryption-key handling, such as CMK or BYOK| Yes | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/index.yml). |
+| Column-level encryption provided by Azure data services| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
+| Encrypted API calls| Yes | Using HTTPS/SSL. |
 
 ## Configuration management
 
