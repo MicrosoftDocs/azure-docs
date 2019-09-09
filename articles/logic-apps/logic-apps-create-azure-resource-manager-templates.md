@@ -78,7 +78,7 @@ When you run the `Get-LogicAppTemplate` command with this tool, the command firs
 
 ### Generate template with PowerShell
 
-To generate your template after installing the LogicAppTemplate module and Azure CLI, run this PowerShell command:
+To generate your template after installing the LogicAppTemplate module and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), run this PowerShell command:
 
 ```text
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
