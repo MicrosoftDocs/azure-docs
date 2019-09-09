@@ -195,7 +195,7 @@ Additional options to access the Storage account: (*What is the purpose of this 
 When you're done using the private endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
 2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
 
 ## Next steps
 In this Quickstart, you created a VM on a virtual network and storage account and a private endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about private endpoint settings, see Manage private endpoints.
