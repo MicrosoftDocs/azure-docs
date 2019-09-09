@@ -73,18 +73,18 @@ Here are the three credentials you should write down and the cmdlets you need to
 
 ## Create a role assignment in Windows Virtual Desktop Preview
 
-Next, you need to create a Remote Desktop Services (RDS) role assignment so the service principal can sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create RDS role assignments.
+Next, you need to create a role assignment so the service principal can sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create role assignments.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
-Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your RDS tenants.
+Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your tenants.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-When you find the tenant name for the tenant you want to create an RDS role assignment for, use that name in the following cmdlet:
+When you find the tenant name for the tenant you want to create a role assignment for, use that name in the following cmdlet:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
