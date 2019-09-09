@@ -27,8 +27,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Create the 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource.
+## Create a VM
+In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource (a SQL server in Azure in this example).
 
 ### Create the virtual network
 

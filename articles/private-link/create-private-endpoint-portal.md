@@ -6,7 +6,7 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: kumud
 
 ---
@@ -20,8 +20,8 @@ In this Quickstart, you will learn how to create a VM on an Azure virtual networ
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Create the 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource.
+## Create a VM
+In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource (an Azure storage account in this example).
 
 ### Create the virtual network
 
