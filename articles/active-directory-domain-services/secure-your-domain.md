@@ -85,3 +85,5 @@ To learn more about the synchronization process, see [How objects and credential
 <!-- EXTERNAL LINKS -->
 [Get-AzResource]: /powershell/module/az.resources/Get-AzResource
 [Set-AzResource]: /powershell/module/Az.Resources/Set-AzResource
+[Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
+[Connect-AzureAD]: /powershell/module/AzureAD/Connect-AzureAD
