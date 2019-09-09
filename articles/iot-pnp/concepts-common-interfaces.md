@@ -3,7 +3,7 @@ title: Common interfaces - IoT Plug and Play Preview | Microsoft Docs
 description: Description of common interfaces for IoT Plug and Play developers
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/16/2019
+ms.date: 09/08/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,7 +11,7 @@ services: iot-pnp
 
 # IoT Plug and Play Preview common interfaces
 
-All IoT Plug and Play devices are expected to implement some common interfaces. Common interfaces benefit IoT solutions because they provide consistent functionality. [Certification](tutorial-build-device-certification.md) requires your device to implement several common interfaces. You can retrieve common interface definitions from the global model repository.
+All IoT Plug and Play devices are expected to implement some common interfaces. Common interfaces benefit IoT solutions because they provide consistent functionality. [Certification](tutorial-build-device-certification.md) requires your device to implement several common interfaces. You can retrieve common interface definitions from the public model repository.
 
 ## Summary of common interfaces
 
@@ -30,23 +30,23 @@ All IoT Plug and Play devices are expected to implement some common interfaces. 
 
 ### CLI
 
-You can use the [Azure IoT extension for Azure CLI](howto-install-pnp-cli.md) to retrieve the common interfaces from the global model repository.
+You can use the Azure IoT extension for Azure CLI to retrieve the common interfaces from the public model repository.
 
 ```cmd/sh
-az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp interface show --interface {InterfaceID}
 ```
 
 ```cmd/sh
-az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp capability-model show --model {ModelID}
 ```
 
 ### VS Code
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **IoT Plug and Play: Open Model Repository** command. Choose **Global Model Repository**. The global model repository opens in VS Code.
+1. Enter **Plug and Play** and then select the **IoT Plug and Play: Open Model Repository** command. Choose **Public repository**. The public model repository opens in VS Code.
 
-1. In the global model repository, enter the interface name in the search field.
+1. In the public model repository, enter the interface name in the search field.
 
 1. To create a local copy of the interface, select it in the search results, and then select **Download**.
 
