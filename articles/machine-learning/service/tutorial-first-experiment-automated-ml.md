@@ -68,11 +68,11 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
     1. Configure your compute context for this experiment.
         
-            Field | Value
-            ----|---
-            Compute name |  Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
-            Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
-            Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6.
+        Field | Value
+        ----|---
+        Compute name |  Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
+        Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
+        Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6.
  
     1. To create your new compute, select **Create**. This takes a couple minutes to complete. 
 
