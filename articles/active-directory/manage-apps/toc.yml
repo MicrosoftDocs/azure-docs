@@ -342,6 +342,10 @@
       items:
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
+    - name: Azure AD Connect Provisioning Agent
+      items:
+       - name: Provisioning Agent version history
+         href: provisioning-agent-release-version-history.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy version history
