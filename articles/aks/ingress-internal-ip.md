@@ -42,6 +42,16 @@ controller:
     annotations:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
+To host the load balancer in different subnet with in the same vnet, add subnet name under annotations
+
+```yaml
+controller:
+  service:
+    loadBalancerIP: 10.240.0.42
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+      service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "lbsubnet"
+```
 
 Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
