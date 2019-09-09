@@ -23,9 +23,9 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Preview: Dedicated hosts
+          - text: Dedicated hosts preview
             url: dedicated-hosts.md
-          - text: Preview: Proximity placement groups
+          - text: Proximity placement groups preview
             url: proximity-placement-groups.md
           - text: Ephemeral disks
             url: ephemeral-os-disks.md
