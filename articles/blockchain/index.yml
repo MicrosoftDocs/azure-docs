@@ -47,7 +47,7 @@ conceptualContent:
           text: Watch how to write a smart contract with VS Code
         - url: ./service/send-transaction.md
           itemType: tutorial
-          text: Write a smart contract
+          text: Follow a tutorial and write a smart contract
     - title: Azure Blockchain Workbench
       links:
         - url: ./workbench/deploy.md
@@ -58,10 +58,10 @@ conceptualContent:
           text: Watch how to build your first application
         - url: ./workbench/create-app.md
           itemType: tutorial
-          text: Build a Blockchain Workbench application
+          text: Follow a tutorial and build a Blockchain Workbench application
         - url: ./workbench/integration-patterns.md
           itemType: concept
-          text: Integrate solutions with Blockchain Workbench
+          text: Learn how to integrate solutions with Blockchain Workbench
     - title: Solution templates
       links:
         - url: ./templates/ethereum-poa-deployment.md
