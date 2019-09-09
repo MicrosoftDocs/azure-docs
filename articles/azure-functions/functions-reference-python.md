@@ -89,6 +89,7 @@ The folder structure for a Python Functions project looks like the following exa
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
