@@ -21,6 +21,10 @@ The following render managers are supported:
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
+## Azure Render Hub
+
+Azure Render Hub simplifies the creation and management of Azure render farms.  Render Hub has native support for PipelineFx Qube and Deadline 10.  For more information and detailed instructions see [the GitHub repository](https://github.com/Azure/azure-render-hub).
+
 ## Using Azure with PipelineFX Qube
 
 Azure Render Hub supports popular render managers including Deadline.  For instructions on deploying and using Render Hub see [the GitHub repository](https://github.com/Azure/azure-render-hub).
