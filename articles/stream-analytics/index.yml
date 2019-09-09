@@ -72,7 +72,7 @@ landingContent:
         links:
           - text: Create a job with Visual Studio
             url: stream-analytics-quick-create-vs.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Install Stream Analytics tools for Visual Studio
             url: stream-analytics-tools-for-visual-studio.md
@@ -94,7 +94,7 @@ landingContent:
         links:
           - text: Write a C# UDF for an IoT Edge job
             url: stream-analytics-edge-csharp-udf.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Develop an Iot Edge job
             url: stream-analytics-tools-for-visual-studio-edge-jobs.md
@@ -103,7 +103,7 @@ landingContent:
   # Card
   - title: Troubleshoot and monitor Stream Analytics jobs
     linkLists:
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Debug your job using the job diagram
             url: stream-analytics-job-diagram-with-metrics.md
@@ -126,7 +126,7 @@ landingContent:
             url: stream-analytics-tools-visual-studio-cicd-vsts.md
           - text: linktext2
             url: file2.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Automate with .NET SDK
             url: stream-analytics-dotnet-management-sdk.md
@@ -161,7 +161,7 @@ landingContent:
             url: stream-analytics-stream-analytics-query-patterns.md
           - text: Parse JSON and AVRO data
             url: stream-analytics-parsing-json.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Geospatial scenarios
             url: geospatial-scenarios.md
@@ -179,7 +179,7 @@ landingContent:
             url: stream-analytics-define-inputs.md
           - text: Reference inputs
             url: stream-analytics-use-reference-data.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Troubleshoot problems with inputs
             url: stream-analytics-troubleshoot-input.md
@@ -205,7 +205,7 @@ landingContent:
         links:
           - text: Trigger an Azure Function from your job
             url: stream-analytics-with-azure-functions.md
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Troubleshoot output connections
             url: stream-analytics-troubleshoot-output.md
