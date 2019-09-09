@@ -148,7 +148,7 @@ The table below provides details on support for these on-premises AD UPNs in Win
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | Not supported | |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps
