@@ -211,11 +211,11 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 
 1. On the **Network** screen complete, select the network (**HDIFabrikam-VNET**) and the subnet (**AADDS-subnet**) that you created with the previous powershell script. Or you can use the **Create new** option to create a virtual network now.
 
-    ![select network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
+    ![select network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
 1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this article. Click **OK**.
 
-    ![view administrator group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
+    ![view administrator group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 
 1. On the **Synchronization** screen, enable complete synchronization by selecting **All** and then click **OK**.
 
@@ -312,7 +312,7 @@ click **Next**.
 
 1. `HDIFabrikamManagedIdentity` is the user-assigned managed identity, the HDInsight Domain Services Contributor role is enabled to the managed identity that will enable this Identity to read, create, modify, and delete domain services operations.
 
-    ![create user assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image117.png)
+    ![create user assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
 ## Creating Enterprise Security Package enabled HDInsight cluster
 
@@ -365,7 +365,7 @@ This step requires the following pre-requisites:
 1. Click **Roles** from the cluster dashboard.
 1. On the **Roles** page, enter the group **hdiusergroup** to assign it to the **Cluster Administrator** role under **Assign roles to these**.
 
-    ![assign cluster administrator role to hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image137.jpg)
+    ![assign cluster administrator role to hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
 1. Open your SSH client and login to the cluster using the **hdiuser** that you created previously in the on-premises Active Directory.
 
