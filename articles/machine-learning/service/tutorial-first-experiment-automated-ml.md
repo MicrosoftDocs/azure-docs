@@ -42,13 +42,14 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-7. Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
+>[!IMPORTANT] 
+> Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
 ## Create and run the experiment
 
 You complete the following experiment set-up and run steps in the new workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-1. Sign in to the [web experience](https://ml.azure.com/workspaceportal/).
+1. Sign in to the [workspace landing page](https://ml.azure.com/workspaceportal/).
 
 1. Select your subscription and the workspace you created.
 
@@ -65,17 +66,17 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Select **Create a new compute**. 
 
-        1. Configure your compute context for this experiment.
+    1. Configure your compute context for this experiment.
 
-        Field| Value
-        ---|---
-        Compute name| Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
-        Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
-        Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6. 
+     Field| Value
+    ---|---
+    Compute name| Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
+    Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
+    Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6. 
 
-        1. To create your new compute, select **Create**. This takes a couple minutes to complete. 
+    1. To create your new compute, select **Create**. This takes a couple minutes to complete. 
 
-        1. When creation is complete, select your new compute from the drop-down list, and then select **Next**.
+    1. When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
     >[!NOTE]
     >For this tutorial,  you'll use the default storage account and container created with your new compute. They automatically populate in the form.
@@ -142,7 +143,7 @@ As the experiment progresses, the screen updates the **Iteration chart** and **I
 
 ## Deploy the model
 
-By using automated machine learning in your workspace landing page, you can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
+By using automated machine learning in the workspace landing page, you can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
 
@@ -183,7 +184,7 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 ## Next steps
 
-In this automated machine learning tutorial, you used your workspace landing page to create and deploy a classification model. See these articles for more information and next steps:
+In this automated machine learning tutorial, you used the workspace landing page to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md)
