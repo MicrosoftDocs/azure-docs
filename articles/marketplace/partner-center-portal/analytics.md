@@ -1,12 +1,12 @@
 ---
 title: Analytics for the Commercial Marketplace in Partner Center
 description: Learn how to access analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
-author: v-chjen 
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 09/09/2019
 ---
 
 # Analytics for the Commercial Marketplace in Partner Center
@@ -21,7 +21,7 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 |[Orders](#orders-dashboard)|Information about your orders in a graphical and downloadable format|
 |[Customers](#customer-dashboard)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
 |[Downloads](#downloads-dashboard)|A list of your download requests over the last 30 days|
-|[Ratings and reviews](#ratings-and-reviews)| Information about reviews customers leave for the offers they've acquired.
+|[Ratings and reviews](#ratings-and-reviews)| Information about ratings and reviews your customers leave for the offers they've acquired.
 
 ## Summary dashboard
 
@@ -52,11 +52,11 @@ The **Totals** section displays a count of all orders created, or customers acqu
 
 ### Customers by geography
 
-The **Customers by geography** heatmap displays a customer count on a world map. 
+The **Customers by geography** heatmap displays a customer count on a world map.
 
-- You can move the map to view the exact location. 
-- You can zoom into a specific location. 
-- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location. 
+- You can move the map to view the exact location.
+- You can zoom into a specific location.
+- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location.
 - You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 - A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
 
@@ -118,7 +118,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 The **Active orders by offers** donut graph organizes all of your active orders according to their offer names.
 
-- The top 4 offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- The top four offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
 - You can select specific offers in the legend to display only those offers in the graph. 
 - Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - **Orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
@@ -284,7 +284,7 @@ You will receive a pop-up notification and email containing a link to the **Down
 
 ## Ratings and reviews
 
-As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They can submit new ratings or reviews, and update or delete ratings or reviews that they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
+As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They're able to submit new ratings or reviews, and update or delete ratings or reviews they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
 
 > [!NOTE]
 > Customers can make changes only to the ratings and reviews they own.
