@@ -147,6 +147,8 @@
       href: concepts-data-flow-overview.md
     - name: Debug mode
       href: concepts-data-flow-debug-mode.md
+    - name: JSON handling
+      href: concepts-data-flow-json.md
     - name: Schema drift
       href: concepts-data-flow-schema-drift.md
     - name: Inspect pane
@@ -195,6 +197,8 @@
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
+    - name: Avro format
+      href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB SQL API
@@ -600,6 +604,14 @@
       href: data-migration-guidance-overview.md
     - name: Migrate data from AWS S3 to Azure
       href: data-migration-guidance-s3-azure-storage.md
+    - name: Migrate data from on-premises Hadoop cluster to Azure
+      href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premises Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
+  - name: Transformation using Mapping Data Flow
+    items:
+    - name: Process fixed-width text files
+      href: how-to-fixed-width.md
 - name: Reference
   items:
   - name: .NET

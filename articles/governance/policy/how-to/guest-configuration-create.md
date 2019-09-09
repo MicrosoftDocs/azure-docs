@@ -463,6 +463,16 @@ Policy. See the [Apply tag and its default value](../samples/apply-tag-default-v
 Once this tag is in place, the policy definition generated using the `New-GuestConfigurationPolicy`
 cmdlet enables the requirement through the Guest Configuration extension.
 
+## [PREVIEW] Troubleshooting Guest Configuration policy assignments
+
+A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration assignments.
+The tool is in preview and has been published to the PowerShell Gallery as module name
+[Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
+
+For more information about the cmdlets in this tool, use the Get-Help command in PowerShell to show
+the built-in guidance.  As the tool is getting frequent updates, that is the best way to get most
+recent information.
+
 ## Next steps
 
 - Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).

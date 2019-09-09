@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -231,7 +231,9 @@ To copy data from or to Azure SQL Data Warehouse, the following properties are s
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes                         |
-| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | No for source, Yes for sink |
+| schema | Name of the schema. |No for source, Yes for sink  |
+| table | Name of the table/view. |No for source, Yes for sink  |
+| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -247,7 +249,8 @@ To copy data from or to Azure SQL Data Warehouse, the following properties are s
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -376,6 +379,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No                                            |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No                                            |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
+| disableMetricsCollection | Data Factory collects metrics such as SQL Data Warehouse DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 #### SQL Data Warehouse sink example
 

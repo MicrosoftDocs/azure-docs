@@ -1,7 +1,7 @@
 ---
-title: Subscription keys - LUIS
+title: How to use authoring and runtime keys - LUIS
 titleSuffix: Azure Cognitive Services
-description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
+description: When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intend to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,128 +9,101 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
-# Using subscription keys with your LUIS app
+# Using authoring and runtime resource keys
 
-When you first use Language Understanding (LUIS), you do not need to create subscription keys. You are given 1000 endpoint queries to begin with. 
-
-For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
-
+Authoring and runtime resources provide authentication to your LUIS app and prediction endpoint.
 
 <a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
-## Create prediction endpoint runtime resource in the Azure portal
+When you sign in to the LUIS portal, you can choose to continue with:
 
-You create the [prediction endpoint resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
+* a free [trial key](#trial-key) - providing authoring and a few prediction endpoint queries.
+* a new Azure LUIS authoring resource - create a new resource. This is not the same as a prediction endpoint resource. 
 
-You can create a Language Understanding resource or a Cognitive Services resource. If you are creating a Language Understanding resource, a good practice is to postpend the resource type to the resource name. 
 
-<a name="programmatic-key" ></a>
-<a name="authoring-key" ></a>
-<a name="endpoint-key" ></a>
-<a name="use-endpoint-key-in-query" ></a>
-<a name="api-usage-of-ocp-apim-subscription-key" ></a>
-<a name="key-limits" ></a>
-<a name="key-limit-errors" ></a>
-<a name="key-concepts"></a>
-<a name="authoring-key"></a>
-<a name="create-and-use-an-endpoint-key"></a>
-<a name="assign-endpoint-key"></a>
-<a name="assign-resource"></a>
+<a name="starter-key"></a>
 
-### Using resource from LUIS portal
+## Sign in to LUIS portal and begin authoring
 
-If you are using the resource from the LUIS portal, you do not need to know your key and location. Instead you need to know your resource tenant, subscription, and resource name.
+1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
+1. Begin your LUIS app by choosing which type of LUIS authoring key you would like to use: free trial key, or new Azure LUIS authoring key. 
 
-Once you [assign](#assign-resource-key-to-luis-app-in-luis-portal) your resource to your LUIS app in the LUIS portal, the key and location are provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page.
- 
-### Using resource from REST API or SDK
+    ![Choose a type of Language Understanding authoring resource](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-If you are using the resource from the REST API(s) or SDK, you need to know your key and location. This information is provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page as well as in the Azure portal, on the resource's Overview and Keys pages.
+1. When you are done with your resource selection process, [create a new app](luis-how-to-start-new-app.md#create-new-app-in-luis). 
 
-## Assign resource key to LUIS app in LUIS Portal
+## Trial key
 
-Every time you create a new resource for LUIS, you need to [assign the resource to the LUIS app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
+The trial (starter) key is provided for you. It is used as your authentication key to query the prediction endpoint runtime, up to 1000 queries a month. 
 
-<!-- content moved to luis-reference-regions.md, need replacement links-->
-<a name="regions-and-keys"></a>
-<a name="publishing-to-europe"></a>
-<a name="publishing-to-australia"></a>
+It is visible on both the **User Settings** page and the **Manage -> Azure resources** pages in the LUIS portal. 
 
-### Unassign resource
-When you unassign the endpoint key, it is not deleted from Azure. It is only unlinked from LUIS. 
+When you are ready to publish your prediction endpoint, create and assign authoring and prediction runtime keys, to replace the starter key functionality. 
 
-When an endpoint key is unassigned, or not assigned to the app, any request to the endpoint URL returns an error: `401 This application cannot be accessed with the current subscription`. 
+## Create resources in the Azure portal
 
-### Include all predicted intent scores
-The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
+1. Sign in to the [Azure portal](https://azure.microsoft.com/free/). 
+1. Select **+ Create a resource**.
+1. In the search box, enter `Language understanding`.
+1. Select **Create** to begin the creation process. 
+1. Create **Both** to create an authoring and a prediction endpoint runtime key. 
+1. Enter the information required to create the resource then select **Create** to finish the process.
 
-This setting allows your chatbot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chatbot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
+    ![Create the language understanding resource](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-The intents and their scores are also included the endpoint logs. You can [export](luis-how-to-start-new-app.md#export-app) those logs and analyze the scores. 
+    |Name|Purpose|
+    |--|--|
+    |Resource name| A custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.|
+    |Subscription name| the subscription that will be billed for the resource.|
+    |Resource group| A custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management in the same region.|
+    |Authoring location|The region associated with your model.|
+    |Authoring pricing tier|The pricing tier determines the maximum transaction per second and month.|
+    |Runtime location|The region associated with your published prediction endpoint runtime.|
+    |Runtime pricing tier|The pricing tier determines the maximum transaction per second and month.|
 
-```JSON
-{
-  "query": "book a flight to Cairo",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.5223427
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.5223427
-    },
-    {
-      "intent": "BookFlight",
-      "score": 0.372391433
-    }
-  ],
-  "entities": []
-}
-```
+    Once both resources are created, assign the resources in the LUIS portal.
 
-### Enable Bing spell checker 
-In the **Endpoint url settings**, the **Bing spell checker** toggle allows LUIS to correct misspelled words before prediction. Create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
+## Assign an authoring resource in the LUIS portal for all apps
 
-Add the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
+You can assign an authoring resource for a single app or for all apps in LUIS. The following procedure assigns all apps to a single authoring resource.
 
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
-  "entities": []
-}
-```
+1. Sign in to the [LUIS portal](https://www.luis.ai).
+1. At the top navigation bar, to the far right, select your user account, then select **Settings**.
+1. On the **User Settings** page, select **Add authoring resource** then select an existing authoring resource. Select **Save**. 
 
-### Publishing regions
+## Assign a resource to an app
 
-Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). Publishing regions are different from authoring regions. Create an app in the authoring region corresponding to the publishing region you want for the query endpoint.
+You can assign a single resource, authoring or prediction endpoint runtime, to an app with the following procedure.
 
-## Assign resource without LUIS portal
+1. Sign in to the [LUIS portal](https://www.luis.ai), then select an app from the **My apps** list.
+1. Navigate to the **Manage -> Azure resources** page.
 
-For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS resource to a LUIS app. In order to do that, you need to perform the following steps:
+    ![Select the Manage -> Azure resources in the LUIS portal to assign a resource to the app.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+
+1. Select the Prediction or Authoring resource tab then select the **Add prediction resource** or **Add authoring resource** button. 
+1. Select the fields in the form to find the correct resource, then select **Save**.  
+
+### Assign runtime resource without using LUIS portal
+
+For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS runtime resource to a LUIS app. In order to do that, you need to perform the following steps:
 
 1. Get an Azure Resource Manager token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an Azure Resource Manager token.
 
     ![Request Azure Resource Manager token and receive Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
+1. Use the token to request the LUIS runtime resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to. 
 
     This POST API requires the following settings:
 
     |Header|Value|
     |--|--|
     |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
-    |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+    |`Ocp-Apim-Subscription-Key`|Your authoring key.|
 
     This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
 
@@ -141,12 +114,34 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     |Type|Setting|Value|
     |--|--|--|
     |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
-    |Header|`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+    |Header|`Ocp-Apim-Subscription-Key`|Your authoring key.|
     |Header|`Content-type`|`application/json`|
     |Querystring|`appid`|The LUIS app ID. 
     |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     When this API is successful, it returns a 201 - created status. 
+
+## Unassign resource
+
+1. Sign in to the [LUIS portal](https://www.luis.ai), then select an app from the **My apps** list.
+1. Navigate to the **Manage -> Azure resources** page.
+1. Select the Prediction or Authoring resource tab then select the **Unassign resource** button for the resource. 
+
+When you unassign a resource, it is not deleted from Azure. It is only unlinked from LUIS. 
+
+## Reset authoring key
+
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource. 
+
+**For apps that have not migrated yet**: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
+
+## Regenerate Azure key
+
+Regenerate the Azure keys from the Azure portal, on the **Keys** page.
+
+## Delete account
+
+See [Data storage and removal](luis-concept-data-storage.md#accounts) for information about what data is deleted when you delete your account.
 
 ## Change pricing tier
 
@@ -158,39 +153,16 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 1.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
-1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
+1. Remember to [assign this endpoint key](#assign-a-resource-to-an-app) on the **Publish** page and use it in all endpoint queries. 
 
-## Fix HTTP status code 403 and 429
+## Viewing Azure resource metrics
 
-You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier.
-
-### When you receive an HTTP 403 error status code
-
-When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
-
-To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
-
-Solutions for this error include:
-
-* In the [Azure portal](https://portal.azure.com), on your Language Understanding resource, on the **Resource Management -> Pricing tier**, change your pricing tier to a higher TPS tier. You don't need to do anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
-*  If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
-
-### When you receive an HTTP 429 error status code
-
-This status code is returned when your transactions per second exceeds your pricing tier.  
-
-Solutions include:
-
-* You can [increase your pricing tier](#change-pricing-tier), if you are not at the highest tier.
-* If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
-* You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code. 
-
-## Viewing summary usage
+### Viewing Azure resource summary usage
 You can view LUIS usage information in Azure. The **Overview** page shows recent summary information including calls and errors. If you make a LUIS endpoint request, then immediately watch the **Overview page**, allow up to five minutes for the usage to show up.
 
 ![Viewing summary usage](./media/luis-usage-tiers/overview.png)
 
-## Customizing usage charts
+### Customizing Azure resource usage charts
 Metrics provides a more detailed view into the data.
 
 ![Default metrics](./media/luis-usage-tiers/metrics-default.png)
@@ -199,7 +171,7 @@ You can configure your metrics charts for time period and metric type.
 
 ![Custom metrics](./media/luis-usage-tiers/metrics-custom.png)
 
-## Total transactions threshold alert
+### Total transactions threshold alert
 If you would like to know when you have reached a certain transaction threshold, for example 10,000 transactions, you can create an alert. 
 
 ![Default alerts](./media/luis-usage-tiers/alert-default.png)
@@ -208,4 +180,7 @@ Add a metric alert for the **total calls** metric for a certain time period. Add
 
 ## Next steps
 
-Learn how to use [versions](luis-how-to-manage-versions.md) to manage changes to your LUIS app.
+* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
+* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
+* Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
+* Migrate to the new [authoring resource](luis-migration-authoring.md) 
