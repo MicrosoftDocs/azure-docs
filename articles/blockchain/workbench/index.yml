@@ -18,7 +18,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Blockchain Workbench Preview?
+          - text: What is Azure Blockchain Workbench?
             url: overview.md
       - linkListType: concept
         links:
