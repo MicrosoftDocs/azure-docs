@@ -1,7 +1,7 @@
 ---
 title: Create your first automated machine learning experiment
 titleSuffix: Azure Machine Learning service
-description: Learn how to train and deploy a classification model with automated machine learning in the Azure Machine Learning studio.
+description: Learn how to train and deploy a classification model with automated machine learning in the new Azure Machine Learning web experience.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.date: 09/09/2019
 
 # Tutorial: Create your first classification model with automated machine learning
 
-In this tutorial, you learn how to create your first automated machine learning experiment in Azure Machine Learning's new web experience (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create your first automated machine learning experiment in Azure Machine Learning's new workspace landing page (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -42,34 +42,40 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-1. Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
+7. Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
 ## Create and run the experiment
 
-You complete the following experiment set-up and run steps in the new web experience, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment set-up and run steps in the new workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
 1. Sign in to the [web experience](https://ml.azure.com/workspaceportal/).
 
-1. Select your subscription and the workspace you created. Then select **Get started**.
+1. Select your subscription and the workspace you created.
+
+1. Select **Get started**.
 
 1.  Select **Automated ML** under the **Authoring** section, on the left side pane.
 You'll see the **Getting started** screen, since this is your first experiment with Automated Machine Learning.
 
     ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
-1. Select **Create experiment**. Then enter **my-1st-automl-experiment** as the experiment name.
+1. Select **Create experiment**. 
 
-1. Select **Create a new compute** and configure your compute context for this experiment.
+1. Enter **my-1st-automl-experiment** as the experiment name.
 
-    Field| Value
-    ---|---
-    Compute name| Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
-    Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
-    Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6. 
+1. Select **Create a new compute**. 
 
-    To create your new compute, select **Create**. This takes a couple minutes to complete. 
+        1. Configure your compute context for this experiment.
 
-    When creation is complete, select your new compute from the drop-down list, and then select **Next**.
+        Field| Value
+        ---|---
+        Compute name| Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
+        Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
+        Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6. 
+
+        1. To create your new compute, select **Create**. This takes a couple minutes to complete. 
+
+        1. When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
     >[!NOTE]
     >For this tutorial,  you'll use the default storage account and container created with your new compute. They automatically populate in the form.
@@ -136,7 +142,7 @@ As the experiment progresses, the screen updates the **Iteration chart** and **I
 
 ## Deploy the model
 
-By using automated machine learning in the Azure Machine Learning studio, you can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
+By using automated machine learning in your workspace landing page, you can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
 
@@ -165,7 +171,7 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 Delete just the deployment instance from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
-1. Go to the [Azure portal](https://portal.azure.com//). Navigate to the **Assets** pane on the left and select **Deployments**. 
+1. Go to the [Azure portal](https://portal.azure.com//). Navigate to your workspace and  on the left under the **Assets** pane, select **Deployments**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
@@ -177,7 +183,7 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 ## Next steps
 
-In this automated machine learning tutorial, you used the Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
+In this automated machine learning tutorial, you used your workspace landing page to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md)
@@ -188,4 +194,4 @@ In this automated machine learning tutorial, you used the Azure Machine Learning
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
-> Please cite the following work: <br> [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014.
+> [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014.
