@@ -1,9 +1,8 @@
 ---
 title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
+manager: gwallace
 keywords:
 ms.service: azure-functions
 ms.topic: conceptual

@@ -1,7 +1,6 @@
 ---
 title: Durable functions billing - Azure Functions
 description: Learn about the internal behaviors of Durable functions and how they impact billing for Azure Functions.
-services: functions
 author: cgillum
 manager: jeconnoc
 keywords:
@@ -23,14 +22,14 @@ ms.author: azfuncdf
 
 ## Awaiting and yielding in orchestrator functions
 
-When an orchestrator function waits for an asynchronous action to complete using the `await` keyword in C# or `yield` in JavaScript, the Azure Functions runtime considers that particular execution complete. The billing for the orchestrator function stops at that point and does not resume until the next orchestrator function replay. You will not be billed for any time spent `await`ing or `yield`ing in an orchestrator function.
+When an orchestrator function waits for an asynchronous action to complete using `await` (C#) or `yield` (JavaScript), the runtime considers that particular execution complete. The billing for the orchestrator function stops at that point and doesn't resume until the next orchestrator function replay. You aren't billed for any time spent awaiting or yielding in an orchestrator function.
 
 > [!NOTE]
-> In some Serverless literature, functions calling other functions is considered an anti-pattern. The primary reason is because of a problem known as "double billing". If a function calls another function directly, two functions are executing at the same time. The callee is actively executing code while the caller is waiting for a response. In particular, you must pay for the time the caller spends waiting for the caller to execute. Orchestrator functions do not suffer from "double billing" because the orchestrator function's billing stops while it waits for the result of an activity function (or sub-orchestration).
+> Functions calling other functions is considered by some to be an anti-pattern. This is because of a problem known as _double billing_. When a function calls another function directly, both execute at the same time. The callee is actively executing code while the caller is waiting for a response. In this case, you must pay for the time the caller spends waiting for the callee to execute. Orchestrator functions don't suffer from this double billing because the orchestrator function's billing stops while it waits for the result of an activity function (or sub-orchestration).
 
 ## Durable HTTP polling
 
-Orchestrator functions have the ability to make long-running HTTP calls to external endpoints as described in the [HTTP features](durable-functions-http-features.md) topic. The `CallHttpAsync` method in C# and the `callHttp` method in JavaScript may internally poll an HTTP endpoint when following the [asynchronous 202 pattern](durable-functions-http-features.md#http-202-handling). There is currently no direct billing for the internal HTTP polling operations. However, the internal polling may cause the orchestrator function to periodically replay, and you will be billed standard charges for these internal function replays.
+Orchestrator functions have the ability to make long-running HTTP calls to external endpoints as described in the [HTTP features](durable-functions-http-features.md) topic. The `CallHttpAsync` method (C#) and the `callHttp` method (JavaScript) may internally poll an HTTP endpoint when following the [asynchronous 202 pattern](durable-functions-http-features.md#http-202-handling). There isn't currently direct billing for the internal HTTP polling operations. However, the internal polling may cause the orchestrator function to periodically replay, and you'll be billed standard charges for these internal function replays.
 
 ## Azure storage transactions
 

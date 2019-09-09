@@ -1,12 +1,11 @@
 ---
 title: Durable orchestrator code constaints - Azure Functions
 description: Orchestration function replay and code constraints for Azure Durable Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
+manager: gwallace
 keywords:
 ms.service: azure-functions
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/18/2019
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to learn what coding restrictions exist for durable orchestrations and why so that I can avoid introducing bugs in my application logic.
