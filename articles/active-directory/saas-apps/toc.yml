@@ -1576,6 +1576,8 @@
         href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
+      - name: Signagelive
+        href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
@@ -1596,6 +1598,8 @@
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
+      - name: Wrike
+        href: wrike-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler
