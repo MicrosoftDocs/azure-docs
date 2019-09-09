@@ -123,9 +123,9 @@ The following steps show how to prepare the internal load balancer for the move 
                            },
                           [
     ```
-    * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
+* **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
     
-            ```json
+    ```json
                  "subnets": [
                         {
                             "name": "subnet-1",
@@ -151,11 +151,10 @@ The following steps show how to prepare the internal load balancer for the move 
                             }
                         }
                     ],
-            ```
-           
-            In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+    ```
+    In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
 
-            ```json
+    ```json
              "type": "Microsoft.Network/virtualNetworks/subnets",
                                 "apiVersion": "2019-06-01",
                                 "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
@@ -187,7 +186,7 @@ The following steps show how to prepare the internal load balancer for the move 
                                 }
                             }
                         ]
-            ```
+    ```
 
 13. Save the **template.json** file.
 
