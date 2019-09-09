@@ -131,12 +131,27 @@ landingContent:
         links:
           - text: Compare data transfer solutions
             url: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Use Azure Data Box for offline transfer
+            url: ../../databox/data-box-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - linkListType: how-to-guide
         links:
           - text: Transfer with AzCopy
             url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Transfer with Azure Data Factory
             url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  #Card
+  - title: Performance and scalability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Scalability and performance
+            url: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Performance and scalability checklist
+            url: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - linkListType: tutorial
+        links:
+          - text: Optimize for performance and scalability
+            url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   # Card
   - title: Back up and archive data
     linkLists:
