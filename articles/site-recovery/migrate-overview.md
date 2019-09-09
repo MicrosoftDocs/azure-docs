@@ -1,12 +1,12 @@
 ---
-title: About migration of on-premises machines and Azure VMs Azure Site Recovery | Microsoft Docs
+title: About migration of on-premises machines and Azure VMs Azure Site Recovery 
 description: This article describes how to migrate on-premises and Azure IaaS VMs to Azure using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 
 ---
@@ -20,6 +20,8 @@ Here's what you can migrate using Site Recovery:
 - **Migrate within Azure**: Migrate Azure VMs between Azure regions. 
 - **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
 
+> [!NOTE]
+> You can now migrate from on-premises to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-overview.md).
 
 ## What do we mean by migration?
 

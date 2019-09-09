@@ -8,9 +8,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-
 ---
-# Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop in HDInsight
+
+# Use C# user-defined functions with Apache Hive and Apache Pig on Apache Hadoop in HDInsight
 
 Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig on HDInsight.
 

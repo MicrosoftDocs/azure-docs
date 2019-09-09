@@ -38,7 +38,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
 
      - Click the **Data** menu, click **Get Data** from the **Get & Transform Data** ribbon, click **From Azure**, and then click **From Azure HDInsight(HDFS)**.
 
-       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI.PowerQuery.SelectHdiSource.2016](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
    - Excel 2013/2010
 
