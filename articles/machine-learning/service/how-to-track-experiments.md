@@ -15,14 +15,14 @@ ms.date: 07/11/2019
 ms.custom: seodec18
 ---
 
-# Log metrics during training runs
+# Track machine learning training metrics with Azure Machine Learning
 
-Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging to your training script, submit an experiment run, monitor the run, and view the results of a run in Azure Machine Learning service.
+Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning service.
 
 > [!NOTE]
-> Azure Machine Learning service may also log information from other sources during training, such as AutoML or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+> Azure Machine Learning service may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
-## List of training metrics 
+## Available metrics to track
 
 The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -39,7 +39,7 @@ The following metrics can be added to a run while training an experiment. To vie
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
 
-## Start logging metrics
+## Choose a logging option
 
 If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
