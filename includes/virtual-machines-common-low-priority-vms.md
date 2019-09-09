@@ -29,7 +29,7 @@ For the preview, VMs will be evicted based on capacity and the max price you set
 | Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM youself, and it will be charged at the current price. |
-| If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for on-demand VMs. You will never charged above the on-demand price.| 
+| If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for on-demand VMs. You will never be charged above the on-demand price.| 
 
 
 
@@ -241,26 +241,17 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 **Q:** Once created, is a low-priority VM the same as regular on-demand VM?
 **A:** Yes.
 
-**Q:** Can I convert existing scale sets to low-priority scale sets?
-**A:** No, setting the low-priority flag is only supported at creation time.
-
-**Q:** Can I create a scale set with both regular VMs and low-priority VMs?
-**A:** No, a scale set cannot support more than one priority type.
-
-**Q:** What to do when you get evicted and you need capacity?
-**A:** We recommend you use On-demand VMs instead of low-priority VMs if you need capacity right away.
-
-**Q:** What to do in case you cannot lose infrastructure or if you don’t have resilient workload?
-**A:** We recommend you use the On-demand VMs instead of low-priority VMs.
+**Q:** What to do when you get evicted, but still need capacity?
+**A:** We recommend you use on-demand VMs instead of low-priority VMs if you need capacity right away.
 
 **Q:** How is quota managed for low-priority VMs?
 **A:** Low-priority VMs and regular VMs share the same quota pool. 
 
-**Q:** Can I request for additional quota for Low Priority?
-**A:** Yes, you will be able to submit the request to increase your quota for Low Priority VMs through the automation tool.
+**Q:** Can I request for additional quota for low-priority?
+**A:** Yes, you will be able to submit the request to increase your quota for low priority VMs through the automation tool.
 
 **Q:** Can I use low-priority VMs with Batch?
-**A:** Yes, you will be able to use low-priority as part of Batch. Learn more about our low-priority offering on Batch .
+**A:** Yes, you will be able to use low-priority as part of Batch. Learn more about our low-priority offering on Batch.
 
 **Q:** Can I use low-priority VMs with AKS?
 **A:** Not yet. We are working with AKS team to introduce low-priority VM option in AKS.
