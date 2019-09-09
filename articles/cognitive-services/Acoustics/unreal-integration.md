@@ -90,20 +90,24 @@ Re-deploy Wwise to your game even if you've already integrated Wwise. This step 
 
 ## 5. Build the game and check that Python is enabled
 
-* Compile your game and ensure that it builds correctly. Otherwise, check the previous steps carefully before proceeding. 
-* Open your project in Unreal Editor. 
-* **Engine plugin:** If using ProjectAcoustics as engine plugin, also ensure that it's enabled, listed under "built-in" plugins.
-* You should see a new mode, which indicates Project Acoustics has been integrated.
+1. Compile your game and make sure that it builds correctly. If it doesn't, check the previous steps carefully before you proceed. 
 
-    ![Screenshot of Unreal showing Acoustics Mode Full](media/acoustics-mode-full.png)
+1.  Open your project in Unreal Editor.
 
-* Confirm you have the Python plugin for Unreal enabled. This is required for the editor integration to function correctly.
+    > [!NOTE]
+    > **Engine plugin:** If using ProjectAcoustics as engine plugin, also ensure that it's enabled, listed under "built-in" plugins. 
+
+    You should see a new mode, which indicates Project Acoustics has been integrated.
+
+    ![Acoustics Mode Full in Unreal](media/acoustics-mode-full.png)
+
+1.  Confirm you have the Python plugin for Unreal enabled. This is required for the editor integration to function correctly.
 
     ![Screenshot of enabling Python extensions in Unreal editor](media/ensure-python.png)
 
 ## 6. Wwise project setup
 
-An example Wwise project is included with the samples download. We recommend looking at it alongside these instructions. The screenshots below are taken from this project.
+An example Wwise project is included with the samples download. We recommend that you view it alongside these instructions. The screenshots later in this article are from this example project.
 
 ### Bus setup
 * The Project Acoustics Unreal plugin will look for the associated mixer plugin on a bus with this ***exact*** name: `Project Acoustics Bus`. Create a new audio bus with this name. The mixer plugin can work in various configurations, but for now we assume it will be used to do only reverb processing. This bus will carry the mixed reverb signal for all sources that use Acoustics. It can mix upstream into any bus mixing structure, an example is shown below, taken from our Wwise sample project included in the sample download.
