@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/9/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -68,11 +68,11 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
 |Language Understanding Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
-|Language Understanding [Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
-|Language Understanding [Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
-|Cognitive Service [Subscription][pricing] - S0 - Standard tier|invalid|50/second|Querying your LUIS endpoint|
-|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
-|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
+|Language Understanding [Subscription][pricing] - F0 - Free tier |1 million/month, 5/second|10 thousand/month, 5/second|Querying your LUIS endpoint|
+|Language Understanding [Subscription][pricing] - S0 - Basic tier|-|50/second|Querying your LUIS endpoint|
+|Cognitive Service [Subscription][pricing] - S0 - Standard tier|-|50/second|Querying your LUIS endpoint|
+|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|no charge|Adding sentiment information including key phrase data extraction |
+|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
 
 ## Keyboard controls
 
