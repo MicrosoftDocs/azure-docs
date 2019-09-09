@@ -34,7 +34,7 @@ To use the downloaded source code and tutorial, you need the following prerequis
 
 ## CI/CD pipeline summary
 
-Each new Git commit kicks off the Build pipeline. The build securely pulls the latest ML model from a blob storage account, and packages it as part of the application. This decoupling of the application development and data science workstreams ensures that the production app is always running the latest code with the latest ML model. If the app passes testing, the pipeline packages and securely stores the build image in a Docker container in ACR. The release pipeline then deploys the container using AKS. 
+Each new Git commit kicks off the Build pipeline. The build securely pulls the latest ML model from a blob storage account, and packages it with the app code in a single container. This decoupling of the application development and data science workstreams ensures that the production app is always running the latest code with the latest ML model. If the app passes testing, the pipeline securely stores the build image in a Docker container in ACR. The release pipeline then deploys the container using AKS. 
 
 ## CI/CD pipeline steps
 
