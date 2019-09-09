@@ -87,7 +87,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 1. Click **Add** to complete creation of your network rule collection.
 
-   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create and configure a route table
 
