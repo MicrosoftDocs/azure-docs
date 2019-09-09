@@ -86,7 +86,7 @@ The root user is disabled by default. Single-user mode in RHEL requires the root
 1. Sign in to the Red Hat system via SSH.
 1. Switch to root.
 1. Enable the password for the root user by doing the following:
-    * Run `passwd root` (set a strong root password)
+    * Run `passwd root` (set a strong root password).
 1. Ensure that the root user can sign in only via ttyS0 by doing the following:  
     a. Run `edit /etc/ssh/sshd_config`, and ensure that PermitRootLogIn is set to `no`.  
     b. Run `edit /etc/securetty file` to allow sign-in only via ttyS0.
@@ -96,7 +96,7 @@ Now, if the system boots into single-user mode, you can sign in with the root pa
 Alternatively, for RHEL 7.4+ or 6.9+, to enable single-user mode in the GRUB prompts, see [Booting into single-user mode](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single).
 
 ### Manually enter single-user mode in RHEL
-If you have set up GRUB and root access by using the preceding instructions, you can enter single-user mode by doing the following:
+If you've set up GRUB and root access by using the preceding instructions, you can enter single-user mode by doing the following:
 
 1. To enter GRUB, press Esc as you restart the VM.
 1. In GRUB, press E to edit the OS that you want to boot into. The OS is usually listed on the first line.
@@ -127,11 +127,11 @@ If you didn't enable the root user by following the earlier instructions, you ca
     This action interrupts the boot process before control is passed from `initramfs` to `systemd`, as described in the [Red Hat documentation](https://aka.ms/rhel7rootpassword).
 1. Press Ctrl+X to exit and reboot with the applied settings.
 
-   After you've reboot, you're dropped into emergency mode with a read-only file system. 
+   After you've rebooted, you're dropped into emergency mode with a read-only file system. 
    
 1. In the shell, enter `mount -o remount,rw /sysroot` to remount the root file system with read/write permissions.
 1. After you boot into single-user mode, enter `chroot /sysroot` to switch into the `sysroot` jail.
-1. You are now at root. You can reset your root password by entering `passwd` and then use the preceding instructions to enter single-user mode. 
+1. You're now at root. You can reset your root password by entering `passwd` and then use the preceding instructions to enter single-user mode. 
 1. After you're done, enter `reboot -f` to reboot.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
@@ -193,7 +193,7 @@ If CoreOS can't boot normally, it drops you into single-user mode automatically.
 
 1. In GRUB, press E to edit your boot entry.
 
-1. Look for the line that starts with *linux$*. There should be two instances of the line, each encapsulated in a different if/else clause.
+1. Look for the line that starts with *linux$*. There should be two instances of the line, each encapsulated in a different *if...else* clause.
 1. Append *coreos.autologin=ttyS0* to the end of each *linux$* line.
 1. Press Ctrl+X to reboot with these settings and enter single-user mode.
 
@@ -208,7 +208,7 @@ GRUB access in SLES requires a bootloader configuration via YaST. To create the 
 1. Go to **Kernel Parameters**, and then select the **Use serial console** check box.
 1. Add `serial --unit=0 --speed=9600 --parity=no` to the **Console** arguments.
 1. Press F10 to save your settings and exit.
-1. To enter GRUB, reboot your VM and press any key during the boot sequence to keep the GRUB pane displayed.
+1. To enter GRUB, reboot your VM, and press any key during the boot sequence to keep the GRUB pane displayed.
 
     The default timeout for GRUB is **1s**. You can modify this setting by changing the `GRUB_TIMEOUT` variable in the */etc/default/grub* file.
 
