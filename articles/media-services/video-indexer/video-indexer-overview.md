@@ -1,6 +1,6 @@
 ---
 title: What is Azure Media Services Video Indexer?
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This topic gives an overview of the Azure Media Services Video Indexer service.
 services: media-services
 author: Juliako
@@ -37,6 +37,7 @@ Azure Media Services Video Indexer is a cloud application built on Azure Media A
 ## Audio insights
 
 - **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese. If the language cannot be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
+- **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 - **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Brazilian Portuguese, Hindi, and Korean.
 - **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 - **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
@@ -48,7 +49,6 @@ Azure Media Services Video Indexer is a cloud application built on Azure Media A
 - **Audio effects**: Identifies audio effects such as hand claps, speech, and silence.
 - **Emotion detection**: Identifies emotions based on speech (what is being said) and voice tonality (how it is being said).  The emotion could be: joy, sadness, anger, or fear.
 - **Translation**: Creates translations of the audio transcript to 54 different languages.
-- **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 
 ## Audio and video insights (multi channels)
 

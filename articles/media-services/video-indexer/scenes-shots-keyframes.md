@@ -1,6 +1,6 @@
 ---
-title: Video Indexer scenes, shots, and keyframes - Azure
-titlesuffix: Azure Media Services
+title: Video Indexer scenes, shots, and keyframes 
+titleSuffix: Azure Media Services
 description: This topic gives an overview of the Video Indexer scenes, shots, and keyframes.
 services: media-services
 author: Juliako

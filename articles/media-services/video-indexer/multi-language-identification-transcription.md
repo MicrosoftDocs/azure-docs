@@ -1,6 +1,6 @@
 ---
-title: Automatically identify and transcribe multi-language content with Video Indexer - Azure
-titlesuffix: Azure Media Services
+title: Automatically identify and transcribe multi-language content with Video Indexer
+titleSuffix: Azure Media Services
 description: This topic demonstrates how to automatically identify and transcribe multi-language content with Video Indexer.
 services: media-services
 author: Juliako
@@ -19,10 +19,12 @@ Video Indexer supports automatic language identification and transcription in mu
 
 ## Choosing multilingual identification on indexing with portal
 
+You can choose **multi-language detection** when uploading and indexing your video. Alternatively, you can choose **multi-language detection**  when re-indexing your video. The following steps describe how to reindex:
+
 1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
 1. Go to the **Library** page and hover over the name of the video that you want to reindex. 
 1. On the right-bottom corner, click the **Re-index video** button. 
-1. In the **Re-index video** dialog, choose **multi-language detection**  from the **Video source language** drop-down box.
+1. In the **Re-index video** dialog, choose **multi-language detection** from the **Video source language** drop-down box.
 
 * When a video was indexed as multi-language, the insight page will include that option, and an additional insight type will appear, enabling the user to view which segment is transcribed in which language "Spoken language".
 * Translation to all languages is fully available from the multi-language transcript.
@@ -42,7 +44,7 @@ The model will retrieve all of the languages detected in the video in one list
 ```json
 "sourceLanguage": null,
 "sourceLanguages": [
-    "ja-JP",
+    "es-ES",
     "en-US"
 ],
 ```
@@ -78,8 +80,11 @@ Additionally, each instance in the transcription section will include the langua
 * Speech of non-native speakers may affect the model performance (for example, when speakers use their native tongue and they switch to another language).
 * The model is designed to recognize a spontaneous conversational speech with reasonable audio acoustics (not voice commands, singing, etc.).
 * Project creation and editing is currently not available for multi-language videos.
+* Custom language models are not available when using multi-language detection.
+* Adding keywords is not supported.
+* "update transcript" API is not supported.
+* When exporting closed caption files the language indication will not appear.
 
-Custom language models are not available when using multi-language detection.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Animated character detection with Video Indexer - Azure
-titlesuffix: Azure Media Services
+title: Animated character detection with Video Indexer
+titleSuffix: Azure Media Services
 description:  
 services: media-services
 author: Juliako
@@ -20,6 +20,12 @@ Azure Media Services Video Indexer supports detection, grouping, and recognition
 After uploading an animated video with a specific animation model, Video Indexer extracts keyframes, detects animated characters in these frames, groups similar character, and chooses the best sample. Then, it sends the grouped characters to Custom Vision that identifies characters based on the models it was trained on. 
 
 Before you start training your model, the characters are detected namelessly. As you add names and train the model the Video Indexer will recognize the characters and name them accordingly.
+
+## Flow diagram
+
+The following diagram demonstrates the flow of the animated character detection process.
+
+![Flow diagram](./media/animated-characters-recognition/flow.png)
 
 ## Accounts
 
@@ -43,8 +49,7 @@ This section describes the steps you need to take to start using the animated ch
 
 ### Connect your Custom Vision account (paid accounts only)
 
-If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
-If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
 
 ### Create an animated characters model
 
@@ -53,11 +58,11 @@ If you don’t have a Custom Vision account already, please create one. For more
 
     ![Content model customization](./media/animated-characters-recognition/content-model-customization.png)
 1. Go to the **Animated characters** tab in the model customization section.
-1. Click on **Add model**. 
+1. Click on **Add model**.
 1. Name you model and click enter to save the name.
 
 > [!NOTE]
-> The best practice it to have one custom vision model for each animated series. 
+> The best practice is to have one custom vision model for each animated series. 
 
 ### Index a video with an animated model
 
@@ -67,10 +72,10 @@ If you don’t have a Custom Vision account already, please create one. For more
 1. Under **People / Animated characters** choose **Animation models**.
 1. If you have one model it will be chosen automatically, and if you have multiple models you can choose the relevant one out of the dropdown menu.
 1. Click on upload.
-1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pain.
+1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pane.
 
 > [!NOTE] 
-Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
+> Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
 
 ### Customize the animated characters models
 
@@ -78,7 +83,7 @@ Before tagging and training the model, all animated characters will be named “
 
     1. Tag the detected character by editing its name. Once a character is trained into the model it will be recognized it the next video indexed with that model. 
     1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
-    1. In the **Insights** pain, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
+    1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
     1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer.
     1. After you finished editing all names you want, you need to train the model.
 
@@ -99,10 +104,12 @@ Before tagging and training the model, all animated characters will be named “
 
     1. Click on the **Content model customization** button on the top menu and go to the **Animated characters** tab.
     1. Click on the ellipsis icon to the right of the model you wish to delete and then on the delete button.
-
-* Trial account: the model will be deleted from Customs vision as well. 
-Note: in a trial account, you only have one model you can use. After you delete it, you can’t train other models.
-* Paid account: the model will be disconnected from Video Indexer and you will not be able to reconnect it.
+    
+    * Paid account: the model will be disconnected from Video Indexer and you will not be able to reconnect it.
+    * Trial account: the model will be deleted from Customs vision as well. 
+    
+        > [!NOTE]
+        > In a trial account, you only have one model you can use. After you delete it, you can’t train other models.
 
 ## Use the animated character detection with API 
 
@@ -110,7 +117,7 @@ Note: in a trial account, you only have one model you can use. After you delete 
 
     If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
     If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
-    
+
     [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Create an animated characters model.
 
@@ -118,7 +125,7 @@ Note: in a trial account, you only have one model you can use. After you delete 
 1. Index or re-index a video.
 
     Use the [re-indexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) API. 
-1. Customizing the animated characters models.
+1. Customize the animated characters models.
 
     Use the [train animation model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) API.
 
@@ -160,3 +167,7 @@ See the animated characters in the generated JSON file.
 * Currently, the "animation identification" capability is not supported in East-Asia region.
 * Characters that appear to be small or far in the video may not be identified properly if the video's quality is poor.
 * The recommendation is to use a model per set of animated characters (for example per an animated series).
+
+## Next steps
+
+[Video Indexer overview](video-indexer-overview.md)
