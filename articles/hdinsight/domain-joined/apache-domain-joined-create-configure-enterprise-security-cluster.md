@@ -69,13 +69,13 @@ Overview: In this section, you will create the users that will have access to th
 
     1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**.
 
-        ![Create first admin user](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image020.png)
+        ![Create first admin user](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
     1. In the popup that appears, enter the desired password for the new account. Check the box that says **Password never expires**. HDIClick **OK**.
     1. Click **Finish** to create the new account.
     1. Create another user `HDIAdmin`.
 
-        ![Create second Admin User](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image024.png)
+        ![Create second Admin User](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
 1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **Group**. Create `HDIUserGroup` as a new Group.
 
@@ -164,7 +164,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 1. On the Ready to configure screen, click **Install**.
     ![install](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image064.png)
 1. When the **Configuration complete** screen is displayed, click **Exit**.
-    ![configuration complete](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image078.png)
+    ![configuration complete](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to Azure Active Directory.
     1. Sign in to the Azure portal.
@@ -354,7 +354,7 @@ This step requires the following pre-requisites:
 
         1. Click **Cluster access group** and then select **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
 
-            ![select cluster access group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image129.jpg)
+            ![select cluster access group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
     1. Complete the other steps of the cluster configuration and verify the details on the **Cluster summary**. Click **Create**.
 
