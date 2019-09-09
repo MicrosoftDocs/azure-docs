@@ -3039,6 +3039,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/virtual-containers.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services cotainers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
