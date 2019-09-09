@@ -90,7 +90,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    
     You see an output similar to the following:
 
-    ![Provide a name for the notebook](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "Provide a name for the notebook")
+    ![schema output](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "schema output")
 
 1. You can also perform operations like, retrieve the top 10 rows.
 
@@ -143,11 +143,11 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
     a. Start SSMS and connect to the Azure SQL database by providing connection details as shown in the screenshot below.
 
-    ![Connect to SQL database using SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS")
+    ![Connect to SQL database using SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS1")
 
     b. From the Object Explorer, expand the Azure SQL database and the Table node to see the **dbo.hvactable** created.
 
-    ![Connect to SQL database using SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS")
+    ![Connect to SQL database using SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS2")
 
 1. Run a query in SSMS to see the columns in the table.
 

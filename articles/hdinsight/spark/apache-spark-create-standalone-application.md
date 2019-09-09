@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a Scala Maven application for Spark in Azure HDInsight using IntelliJ'
+title: 'Tutorial: Scala Maven application for Spark with IntelliJ - Azure HDInsight'
 description: Tutorial - Create a Spark application written in Scala with Apache Maven as the build system and an existing Maven archetype for Scala provided by IntelliJ IDEA.
 author: hrasheed-msft
 ms.author: hrasheed

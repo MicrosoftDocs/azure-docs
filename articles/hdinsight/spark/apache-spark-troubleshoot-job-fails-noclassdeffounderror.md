@@ -1,5 +1,5 @@
 ---
-title: Apache Spark streaming job that reads data from an Apache Kafka cluster fails with a NoClassDefFoundError in Azure HDInsight
+title: NoClassDefFoundError - Apache Spark with Apache Kafka data in Azure HDInsight
 description: Apache Spark streaming job that reads data from an Apache Kafka cluster fails with a NoClassDefFoundError in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
