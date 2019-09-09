@@ -40,7 +40,7 @@ can't use Resource Manager templates to create management groups.
 
 1. Fill in the management group ID field.
 
-   - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group. The [root management group](index.md#root-management-group-for-each-directory) is automatically created with an ID that is the Azure Active Directory ID. For all other management groups, assign a unique ID.
+   - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group. The [root management group](overview.md#root-management-group-for-each-directory) is automatically created with an ID that is the Azure Active Directory ID. For all other management groups, assign a unique ID.
    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
 
    ![Options pane for creating a new management group](./media/create_context_menu.png)  
