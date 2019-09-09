@@ -33,11 +33,7 @@ Before you can create service principals and role assignments, you need to do th
     Install-Module AzureAD
     ```
 
-2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
-
-    ```powershell
-    $myTenantName = "<my-tenant-name>"
-    ```
+2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
 
 3. Follow all instructions in this article in the same PowerShell session. It might not work if you close the window and return to it later.
 
