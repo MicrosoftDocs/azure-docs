@@ -180,11 +180,6 @@ In this section, you create a Python console app that connects to your hub as yo
             print("Twin patch received:")
             print(patch)
 
-    def send_reported_state_callback(status_code, user_context):
-        print ( "" )
-        print ( "Confirmation for reported state called with:" )
-        print ( "    status_code: %d" % status_code )
-
     def iothub_client_init():
         client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
         return client
@@ -201,6 +196,7 @@ In this section, you create a Python console app that connects to your hub as yo
             print ( "Sending data as reported property..." )
             reported_patch = {"connectivity": "cellular"}
             client.patch_twin_reported_properties(reported_patch)
+            print ( "Reported properties updated" )
 
             while True:
                 time.sleep(1000000)
