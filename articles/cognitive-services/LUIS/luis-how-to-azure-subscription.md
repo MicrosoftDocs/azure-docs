@@ -213,6 +213,6 @@ Add a metric alert for the **total calls** metric for a certain time period. Add
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
+* Understand the concepts including the [authoring resource](luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md) 
