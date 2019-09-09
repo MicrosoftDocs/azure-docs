@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/08/2019
 ms.author: diberry
 ---
 
@@ -86,7 +86,7 @@ You may choose to export an app you are a collaborator on, then import the app b
 
 ### After the app is migrated
 
-After the migration process, you need to be added to the Azure authoring resource by the app owner.  
+After the migration process, if you need access to the original app, you need to be added to the Azure authoring resource as a collaborator by the app owner.  
 
 ## Next steps
 
