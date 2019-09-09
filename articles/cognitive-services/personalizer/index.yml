@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Personalizer Documentation
+title: Personalizer documentation
 summary: Learn how to use Personalizer to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
 
 metadata:
@@ -11,7 +11,8 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: personalizer
   services: cognitive-services
-  title: Personalizer Documentation
+  title: Personalizer documentation
+  titleSuffix: Azure Cognitive Services
   description:  Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
