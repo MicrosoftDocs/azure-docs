@@ -164,7 +164,7 @@ During the public preview, the ability to publish custom metrics is available on
 
 |Azure region |Regional endpoint prefix|
 |---|---|
-| US and Canada | |
+| **US and Canada** | |
 |West Central US | https:\//westcentralus.monitoring.azure.com/ |
 |West US 2       | https:\//westus2.monitoring.azure.com/ |
 |North Central US | https:\//northcentralus.monitoring.azure.com
@@ -172,18 +172,18 @@ During the public preview, the ability to publish custom metrics is available on
 |Central US      | https:\//centralus.monitoring.azure.com |
 |Canada Central | https:\//canadacentral.monitoring.azure.comc
 |East US| https:\//eastus.monitoring.azure.com/ |
-| Europe | |
+| **Europe** | |
 |North Europe    | https:\//northeurope.monitoring.azure.com/ |
 |West Europe     | https:\//westeurope.monitoring.azure.com/ |
 |UK South | https:\//uksouth.monitoring.azure.com
 |France Central | https:\//francecentral.monitoring.azure.com |
-| Africa | |
+| **Africa** | |
 |South Africa North | https:\//southafricanorth.monitoring.azure.com
-| Asia | |
+| **Asia** | |
 |Central India | https:\//centralindia.monitoring.azure.com
 |Australia East | https:\//australiaeast.monitoring.azure.com
 |Japan East | https:\//japaneast.monitoring.azure.com
-|Southeast Asia  | https:\//southeastasia.monitoring.azure.com/ |
+|Southeast Asia  | https:\//southeastasia.monitoring.azure.com |
 |East Asia | https:\//eastasia.monitoring.azure.com
 |Korea Central   | https:\//koreacentral.monitoring.azure.com
 
