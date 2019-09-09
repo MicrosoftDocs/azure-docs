@@ -1502,12 +1502,18 @@
         href: federated-directory-provisioning-tutorial.md
       - name: Fuze
         href: fuze-provisioning-tutorial.md
+      - name: Flock
+        href: flock-provisioning-tutorial.md
+      - name: Foodee
+        href: foodee-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Insight4GRC
+        href: insight4grc-provisioning-tutorial.md
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
       - name: Jive
