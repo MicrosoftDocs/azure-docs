@@ -290,7 +290,7 @@ click **Next**.
     1. Browse for the .pfx certificate file that you exported on your computer.
     1. Enter the certificate password.
 
-    ![enable secure ldap](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image113.png)
+    ![Enable secure LDAP](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image113.png)
 
 1. Now that you enabled Secure LDAP, make sure it is reachable by enabling port 636.
     1. Click the network security group **AADDS-HDIFabrikam.com-NSG** in the **HDIFabrikam-CentralUS** resource group.
