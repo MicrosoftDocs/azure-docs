@@ -1,5 +1,5 @@
 ---
-title: Use automated ML to build and deploy machine learning models
+title: Use Azure's automated ML interface to train & deploy models
 titleSuffix: Azure Machine Learning service
 description: Create, manage and deploy automated machine learning experiments in the Azure portal
 services: machine-learning
