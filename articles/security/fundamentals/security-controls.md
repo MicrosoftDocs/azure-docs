@@ -32,7 +32,7 @@ In each category, we show "Yes" or "No" to indicate whether an attribute is used
 
 ## [API Management](../../api-management/api-management-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -84,7 +84,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure App Service](../../app-service/app-service-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes | Documentation
 |---|---|--|
@@ -128,7 +128,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Resource Manager](../../azure-resource-manager/azure-resource-manager-security-controls.md)
 
-## Data Protection
+### Data Protection
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -171,7 +171,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Backup](../../backup/backup-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -213,7 +213,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Cosmos DB](../../cosmos-db/cosmos-db-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/no | Notes |
 |---|---|--|
@@ -262,7 +262,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -305,7 +305,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -349,7 +349,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Key Vault](../../key-vault/key-vault-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -392,7 +392,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Load Balancer](../../load-balancer/load-balancer-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -435,7 +435,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Service Bus Messaging](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -478,7 +478,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Service Bus Relay](../../service-bus-relay/service-bus-relay-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -521,7 +521,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -616,7 +616,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## [Azure Storage](../../storage/common/storage-security-controls.md)
 
-## Data protection
+### Data protection
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -658,7 +658,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -702,7 +702,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## [Linux Virtual Machines](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -746,7 +746,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## [Windows Virtual Machines](../../virtual-machines/windows/virtual-machines-windows-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -792,7 +792,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-security-controls.md)
 
-## Network
+### Network
 
 | Security control | Yes/No | Notes |
 |---|---|--|
