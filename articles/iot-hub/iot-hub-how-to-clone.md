@@ -109,35 +109,37 @@ You could export the hub and its routing rules, and then set up the separate res
 
 The devices for the IoT Hub must be exported from the old hub and reimported to the new hub. To do this, you can use the Import/Export sample app to export the data and then reimport it to the new hub. 
 
-    1. Download the c# samples: [azure-iot-samples-csharp]  **this is not live yet**
+1. Download the c# samples: [azure-iot-samples-csharp]  **this is not live yet**
 
-    1. Go to the iot-hub>Samples>device  and double-click on IoTHubDeviceSamples.sln to open it.
+1. Go to the iot-hub>Samples>device  and double-click on IoTHubDeviceSamples.sln to open it.
 
-    1. Right-click on the ImportExportDevices project and select **Set as Startup project**.
+1. Right-click on the ImportExportDevices project and select **Set as Startup project**.
  
-    1. Get the connection string from the original IoT Hub and put it in ProcessImpExpCommands.cs where it says {connection string to your IoT hub}.
+1. Get the connection string from the original IoT Hub and put it in ProcessImpExpCommands.cs where it says {connection string to your IoT hub}.
 
-    1. Get the connection string from the storage account to be used for the import/export procedures and put it in ProcessImpExpCommands.cs where it says {your storage account connection string}.
+1. Get the connection string from the storage account to be used for the import/export procedures and put it in ProcessImpExpCommands.cs where it says {your storage account connection string}.
     
-    1. Go to the Main method in the Program.cs file and change the call to IotHubDevices.AddDevicesToHub to set the  number of devices you want to add. You may want to start with a smaller number of devices, such as 1000, to test the import/export. 
+1. Go to the Main method in the Program.cs file and change the call to IotHubDevices.AddDevicesToHub to set the  number of devices you want to add. You may want to start with a smaller number of devices, such as 1000, to test the import/export. 
     
-    1. Program.cs contains code to run multiple methods.
+1. Program.cs contains code to run multiple methods.
 
-      - **AddDevicesToHub** -- this adds new devices with random keys (helpful for testing).
+   - **AddDevicesToHub** -- this adds new devices with random keys (helpful for testing).
     
-      - **AddDevicesFromDeviceList** -- this imports the devices from the *devices.txt* file stored in blob storage in to the IoT hub.
+   - **AddDevicesFromDeviceList** -- this imports the devices from the *devices.txt* file stored in blob storage in to the IoT hub.
     
-      - **ExportDevicesToBlobStorage** -- this exports the devices registered with the IoT Hub to a file called *devices.txt* in blob storage. 
+   - **ExportDevicesToBlobStorage** -- this exports the devices registered with the IoT Hub to a file called *devices.txt* in blob storage. 
 
-      - **ReadAndDisplayExportedDeviceList** -- this reads the devices registered with the IoT Hub and writes the to blob storage and displays the list of devices on the console.
+   - **ReadAndDisplayExportedDeviceList** -- this reads the devices registered with the IoT Hub and writes the to blob storage and displays the list of devices on the console.
     
-      - **DeleteAllDevicesFromHub** -- this deletes all of the devices registered for an IoT hub, so use it with care.
+   - **DeleteAllDevicesFromHub** -- this deletes all of the devices registered for an IoT hub, so use it with care.
 
-    1. Be sure all of the method calls are commented out except for **AddDevicesFromDeviceList**. 
+1. Be sure all of the method calls are commented out except for **AddDevicesFromDeviceList**. 
 
-    1. Run the samples application.
+1. Run the samples application.
 
-    1. Now if you go to the new hub using the [Azure portal](https://portal.azure.com) and select your hub, then select **IoT Devices**, you see the devices you just imported. You can also view the properties for the clone. 
+1. Now if you go to the new hub using the [Azure portal](https://portal.azure.com) and select your hub, then select **IoT Devices**, you see the devices you just imported. You can also view the properties for the clone. 
+
+Now you know how to clone an IoT Hub to a different region.
 
 ## Next steps
 
@@ -146,5 +148,3 @@ The devices for the IoT Hub must be exported from the old hub and reimported to 
 * [IoT Hub routing](tutorial-routing.md)
 
 * [IoT Hub device management overview](iot-hub-device-management-overview.md)
-
-
