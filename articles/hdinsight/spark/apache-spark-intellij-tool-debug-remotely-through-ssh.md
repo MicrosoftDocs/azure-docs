@@ -112,7 +112,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
 1. Click the **Disconnect** button that the submission logs not appear in the left panel. However, it is still running on the backend.
 
-   ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
+   ![Remote run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
 
 
