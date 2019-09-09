@@ -44,7 +44,7 @@ The MSAL public API reflects introduces important usability changes, including:
 
 - New model for accessing tokens:
   - ADAL provides access to tokens via the `AuthenticationContext`, which represents the server. MSAL provides access to tokens via the `PublicClientApplication`, which represents the client. Client developers don't need to create a new `PublicClientApplication` instance for every Authority they need to interact with. Only one `PublicClientApplication` configuration should ever be required.
-  - Support for requesting access tokens using scopes rather than resource identifiers.
+  - Support for requesting access tokens using scopes in addition to resource identifiers.
   - Support for incremental consent. Developers can request scopes, including those not included during app registration.
   - Authority Validation -> Known Authorities
 - Token API changes:
