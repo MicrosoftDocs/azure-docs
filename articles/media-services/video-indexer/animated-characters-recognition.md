@@ -37,15 +37,11 @@ Depending on a type of your Video Indexer account, different feature sets are av
 |Training the model|Video Indexer trains the model for new characters additional examples of existing characters.|The account owner trains the model when they are ready to make changes.|
 |Advanced options in Custom Vision|No access to the Custom Vision portal.|You can adjust the models yourself in the Custom Vision portal.|
 
-## View animated characters in portal
-
-The identified characters are available in the "Animated characters" section in the [Video Indexer](https://vi.microsoft.com/) portal.
-
 ## Use the animated character detection with portal 
 
 This section describes the steps you need to take to start using the animated character detection model.
 
-### Connect your Custom vision account (paid accounts only)
+### Connect your Custom Vision account (paid accounts only)
 
 If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
 If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
@@ -81,7 +77,7 @@ Before tagging and training the model, all animated characters will be named “
 1. Tag and train the model.
 
     1. Tag the detected character by editing its name. Once a character is trained into the model it will be recognized it the next video indexed with that model. 
-    1. To tag an animated character in your video, go to the Insights tab and click on the **Edit** button on the top-right corner of the window.
+    1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
     1. In the **Insights** pain, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
     1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer.
     1. After you finished editing all names you want, you need to train the model.
@@ -93,7 +89,7 @@ Before tagging and training the model, all animated characters will be named “
 
 1. Delete an animated character.
 
-    1. To delete an animated character in your video insights, go to the Insights tab and click on the **Edit** button on the top-right corner of the window.
+    1. To delete an animated character in your video insights, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
     1. Choose the animated character and then click on the **Delete** button under their name.
 
     > [!NOTE]
