@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/9/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -23,6 +23,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 |Area|Limit|
 |--|:--|
 | [App name][luis-get-started-create-app] | *Default character max |
+| Applications| 500 applications per Azure authoring resource |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
 | External entities | no limits |
@@ -38,7 +39,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application - there is no limit on the number of utterances per intent|
-| [Versions](luis-concept-version.md)| no limit |
+| [Versions](luis-concept-version.md)| 100 versions per application |
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
 
 *Default character max is 50 characters. 
@@ -62,6 +63,7 @@ Language Understand has separate keys, one type for authoring, and one type for 
 
 The authoring key has different limits for authoring and endpoint. The LUIS service endpoint key is only valid for endpoint queries.
 
+* 500 applications per Azure authoring resource 
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
