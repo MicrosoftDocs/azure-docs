@@ -858,7 +858,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/cognitive-services-container-support/">
-                                                <img src="media/index/virtual-containters.svg" alt="" />
+                                                <img src="media/index/virtual-containers.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
