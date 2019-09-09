@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -25,6 +25,10 @@ This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machi
 > * Run a onetime failover to Azure
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+
+> [!NOTE]
+    > You can now use the Azure Migrate service to migrate AWS instances to Azure. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## Prerequisites
 - Ensure that the VMs that you want to migrate are running a supported OS version. Supported versions include: 
