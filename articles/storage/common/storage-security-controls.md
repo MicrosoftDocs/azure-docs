@@ -19,7 +19,7 @@ This article documents the security controls built into Azure Storage.
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes |  |
 | Server-side encryption at rest: customer managed keys (BYOK) | Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
@@ -29,7 +29,7 @@ This article documents the security controls built into Azure Storage.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
 | VNet injection support| N/A |  |
@@ -38,7 +38,7 @@ This article documents the security controls built into Azure Storage.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Azure Monitor Metrics available now, Logs starting preview |
 | Control and management plane logging and audit | Yes | Azure Resource Manager Activity Log |
@@ -46,13 +46,13 @@ This article documents the security controls built into Azure Storage.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Azure Active Directory, Shared key, Shared access token. |
 | Authorization| Yes | Support Authorization via RBAC, POSIX ACLs, and SAS Tokens |
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |

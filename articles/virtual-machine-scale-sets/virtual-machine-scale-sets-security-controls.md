@@ -20,7 +20,7 @@ This article documents the security controls built into Azure Virtual Machine Sc
 
 ## Network
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes | |
 | VNet injection support| Yes | . |
@@ -29,7 +29,7 @@ This article documents the security controls built into Azure Virtual Machine Sc
 
 ## Monitoring & logging
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Monitor and update a Linux virtual machine in Azure](/azure/virtual-machines/linux/tutorial-monitoring) and [Monitor and update a Windows virtual machine in Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 | Control and management plane logging and audit| Yes |  |
@@ -37,14 +37,14 @@ This article documents the security controls built into Azure Virtual Machine Sc
 
 ## Identity
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes |  |
 | Authorization| Yes |  |
 
 ## Data protection
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | See [How to encrypt a Linux virtual machine in Azure](/azure/virtual-machines/linux/encrypt-disks) and [Encrypt virtual disks on a Windows VM](/azure/virtual-machines/windows/encrypt-disks). |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
@@ -54,7 +54,7 @@ This article documents the security controls built into Azure Virtual Machine Sc
 
 ## Configuration management
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes |  | 
 

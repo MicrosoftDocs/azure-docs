@@ -20,7 +20,7 @@ This article documents the security controls built into Azure Event Hubs.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
 | VNet injection support| No | |
@@ -29,7 +29,7 @@ This article documents the security controls built into Azure Event Hubs.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
 | Control and management plane logging and audit| Yes |  |
@@ -37,14 +37,14 @@ This article documents the security controls built into Azure Event Hubs.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | |
 | Authorization|  Yes | |
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys |  Yes | |
 | Server-side encryption at rest: customer managed keys (BYOK) | No |  |
@@ -54,6 +54,6 @@ This article documents the security controls built into Azure Event Hubs.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | |

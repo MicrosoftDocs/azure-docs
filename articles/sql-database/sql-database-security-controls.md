@@ -21,7 +21,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## Network
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
 | Azure Virtual Network injection support| Yes | Applies to [managed instance](sql-database-managed-instance.md) only. |
@@ -30,7 +30,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## Monitoring & logging
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support, such as Log Analytics or Application Insights| Yes | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL auditing](sql-database-auditing.md). |
 | Control-plane and management-plane logging and audit| Yes | Yes for some events only |
@@ -38,14 +38,14 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## Identity
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Azure Active Directory (Azure AD) |
 | Authorization| Yes | None |
 
 ## Data protection
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | Called "encryption-in-use," as described in the article [Always Encrypted](sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md).|
 | Encryption in transit:<ul><li>Azure ExpressRoute encryption</li><li>Encryption in a virtual network</li><li>Encryption between virtual networks</ul>| Yes | Using HTTPS. |
@@ -55,13 +55,13 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 ## Configuration management
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration-management support, such as versioning of configuration| No  | None |
 
 ## Additional security controls for SQL Database
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md). |
 | Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md). |

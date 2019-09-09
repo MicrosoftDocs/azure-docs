@@ -145,7 +145,7 @@
     href: backup-recovery.md
   - name: Infrastructure guidelines
     href: infrastructure-example.md
-  - name: Security attributes
+  - name: Built-in security controls
     href: virtual-machines-linux-security-controls.md
 - name: How-to guides
   items:

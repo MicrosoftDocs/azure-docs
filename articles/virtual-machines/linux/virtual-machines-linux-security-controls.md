@@ -1,6 +1,6 @@
 ---
-title: Security attributes for Azure Linux Virtual Machines - Linux
-description: A checklist of security attributes for evaluating Azure Linux Virtual Machines
+title: Security controls for Azure Linux Virtual Machines - Linux
+description: A checklist of security controls for evaluating Azure Linux Virtual Machines
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Linux Virtual Machines
+# Security controls for Linux Virtual Machines
 
-This article documents the security attributes built into Linux Virtual Machines.
+This article documents the security controls built into Linux Virtual Machines.
 
-[!INCLUDE [Security attributes header](../../../includes/security-controls-header.md)]
+[!INCLUDE [Security controls header](../../../includes/security-controls-header.md)]
 
 ## Network
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes | |
 | VNet injection support| Yes | . |
@@ -29,7 +29,7 @@ This article documents the security attributes built into Linux Virtual Machines
 
 ## Monitoring & logging
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Monitor and update a Linux virtual machine in Azure](/azure/virtual-machines/linux/tutorial-monitoring) and [Monitor and update a Windows virtual machine in Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 | Control and management plane logging and audit| Yes |  |
@@ -37,14 +37,14 @@ This article documents the security attributes built into Linux Virtual Machines
 
 ## Identity
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes |  |
 | Authorization| Yes |  |
 
 ## Data protection
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | See [How to encrypt a Linux virtual machine in Azure](/azure/virtual-machines/linux/encrypt-disks) and [Encrypt virtual disks on a Windows VM](/azure/virtual-machines/windows/encrypt-disks). |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
@@ -54,7 +54,7 @@ This article documents the security attributes built into Linux Virtual Machines
 
 ## Configuration management
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes |  | 
 

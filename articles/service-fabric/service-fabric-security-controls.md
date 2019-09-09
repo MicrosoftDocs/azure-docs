@@ -21,7 +21,7 @@ This article documents the security controls built into Azure Service Fabric.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
 | VNet injection support| Yes |  |
@@ -30,7 +30,7 @@ This article documents the security controls built into Azure Service Fabric.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Using Azure monitoring support and third-party support. |
 | Control and management plane logging and audit| Yes | All control plane operations run through processes for auditing and approvals. |
@@ -38,14 +38,14 @@ This article documents the security controls built into Azure Service Fabric.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |
 | Authorization| Yes | Identity and access management (IAM) for calls via SFRP. Calls directly to cluster end point supports two roles: User and Admin. The customer can map the APIs to either role. |
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
 | Server-side encryption at rest: customer managed keys (BYOK) | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
@@ -55,6 +55,6 @@ This article documents the security controls built into Azure Service Fabric.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | |

@@ -19,7 +19,7 @@ This article documents the security controls built into API Management.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| No | |
 | VNet injection support| Yes | |
@@ -28,7 +28,7 @@ This article documents the security controls built into API Management.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
 | Control and management plane logging and audit| Yes | [Azure Monitor activity logs](../azure-monitor/platform/activity-logs-overview.md) |
@@ -36,14 +36,14 @@ This article documents the security controls built into API Management.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | |
 | Authorization| Yes | |
 
 ## Data Protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
@@ -54,7 +54,7 @@ This article documents the security controls built into API Management.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Using the [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |
 

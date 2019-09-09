@@ -19,7 +19,7 @@ This article documents the security controls built into Azure Key Vault.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes | Using Virtual Network (VNet) service endpoints. |
 | VNet injection support| No |  |
@@ -28,7 +28,7 @@ This article documents the security controls built into Azure Key Vault.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Using Log Analytics. |
 | Control/Management plane Logging and Audit| Yes | Using Log Analytics. |
@@ -36,14 +36,14 @@ This article documents the security controls built into Azure Key Vault.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |
 | Authorization| Yes | Using Key Vault Access Policy. |
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | All objects are encrypted. |
 | Server-side encryption at rest: customer managed keys (BYOK) | Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. |
@@ -53,7 +53,7 @@ This article documents the security controls built into Azure Key Vault.
 
 ## Access controls
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Control/Management plane access controls | Yes | Azure Resource Manager Role-Based Access Control (RBAC) |
 | Data plane access controls (At every service level) | Yes | Key Vault Access Policy |

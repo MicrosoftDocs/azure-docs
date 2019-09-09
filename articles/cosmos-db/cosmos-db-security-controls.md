@@ -20,7 +20,7 @@ This article documents the security controls built into Azure Cosmos DB.
 
 ## Network
 
-| Security attribute | Yes/no | Notes |
+| Security control | Yes/no | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
 | VNet injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](VNet-service-endpoint.md). |
@@ -29,7 +29,7 @@ This article documents the security controls built into Azure Cosmos DB.
 
 ## Monitoring & logging
 
-| Security attribute | Yes/no | Notes|
+| Security control | Yes/no | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | All requests that are sent to Azure Cosmos DB are logged. [Azure Monitoring](../azure-monitor/overview.md), Azure Metrics, Azure Audit Logging are supported.  You can log information corresponding to data plane requests, query runtime statistics, query text, MongoDB requests. You can also set up alerts. |
 | Control and management plane logging and audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
@@ -37,14 +37,14 @@ This article documents the security controls built into Azure Cosmos DB.
 
 ## Identity
 
-| Security attribute | Yes/no | Notes|
+| Security control | Yes/no | Notes|
 |---|---|--|
 | Authentication| Yes | Yes at the Database Account Level; at the data plane level, Cosmos DB uses resource tokens and key access. |
 | Authorization| Yes | Supported at the Azure Cosmos account with Master keys (primary and secondary) and Resource tokens. You can get read/write or read only access to data with master keys. Resource tokens allow limited time access to resources such as documents and containers. |
 
 ## Data protection
 
-| Security attribute | Yes/no | Notes |
+| Security control | Yes/no | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | All Cosmos databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
 | Server-side encryption at rest: customer managed keys (BYOK) | No |  |
@@ -54,12 +54,12 @@ This article documents the security controls built into Azure Cosmos DB.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| No  | | 
 
 ## Additional security controls for Cosmos DB
 
-| Security attribute | Yes/no | Notes|
+| Security control | Yes/no | Notes|
 |---|---|--|
 | Cross Origin Resource Sharing (CORS) | Yes | See [Configure Cross-Origin Resource Sharing (CORS)](how-to-configure-cross-origin-resource-sharing.md). |

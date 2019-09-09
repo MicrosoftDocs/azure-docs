@@ -18,7 +18,7 @@ This article documents the security controls built into Azure Backup.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| No |  |
 | VNet injection support| No |  |
@@ -27,7 +27,7 @@ This article documents the security controls built into Azure Backup.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via diagnostic logs. See [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
 | Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |
@@ -35,14 +35,14 @@ This article documents the security controls built into Azure Backup.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |
 | Authorization| Yes | Customer created and built-in RBAC roles are used. See [Use Role-Based Access Control to manage Azure Backup recovery points](/azure/backup/backup-rbac-rs-vault) for more information. |
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes | Using storage service encryption for storage accounts. |
 | Server-side encryption at rest: customer managed keys (BYOK) | No |  |
@@ -52,6 +52,6 @@ This article documents the security controls built into Azure Backup.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes|  |

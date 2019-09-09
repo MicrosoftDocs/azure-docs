@@ -163,7 +163,7 @@
       maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
-  - name: Security attributes
+  - name: Security controls
     href: virtual-machine-scale-sets-security-controls.md
 - name: How To
   items:

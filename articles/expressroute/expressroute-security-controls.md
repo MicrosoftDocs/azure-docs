@@ -20,7 +20,7 @@ This article documents the security controls built into Azure ExpressRoute.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| N/A |  |
 | VNet injection support| N/A | |
@@ -29,7 +29,7 @@ This article documents the security controls built into Azure ExpressRoute.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [ExpressRoute monitoring, metrics, and alerts](expressroute-monitoring-metrics-alerts.md).|
 | Control and management plane logging and audit| Yes |  |
@@ -37,14 +37,14 @@ This article documents the security controls built into Azure ExpressRoute.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Service account for Gateway for Microsoft (GWM) (controller); Just in Time (JIT) access for Dev and OP. |
 | Authorization|  Yes |Service account for Gateway for Microsoft (GWM) (controller); Just in Time (JIT) access for Dev and OP. |
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys |  N/A | ExpressRoute does not store customer data. |
 | Server-side encryption at rest: customer managed keys (BYOK) | N/A |  |
@@ -55,6 +55,6 @@ This article documents the security controls built into Azure ExpressRoute.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Via the Network Resource Provider (NRP). |

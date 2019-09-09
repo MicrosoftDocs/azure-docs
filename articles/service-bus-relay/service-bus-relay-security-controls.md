@@ -20,7 +20,7 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| No |  |
 | Network isolation and firewalling support| No |  |
@@ -28,7 +28,7 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 ## Monitoring & logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
 | Control and management plane logging and audit| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml). |
@@ -36,14 +36,14 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Via SAS. |
 | Authorization|  Yes | Via SAS. |
 
 ## Data protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys |  N/A | Relay is a web socket and does not persist data. |
 | Server-side encryption at rest: customer managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
@@ -54,6 +54,6 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|

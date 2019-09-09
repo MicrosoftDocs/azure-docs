@@ -19,7 +19,7 @@ This article documents the security controls built into Azure Load Balancer.
 
 ## Network
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| N/A | |
 | VNet injection support| N/A | . |
@@ -28,7 +28,7 @@ This article documents the security controls built into Azure Load Balancer.
 
 ## Monitoring & logging
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
 | Control and management plane logging and audit| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
@@ -36,14 +36,14 @@ This article documents the security controls built into Azure Load Balancer.
 
 ## Identity
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| N/A |  |
 | Authorization| N/A |  |
 
 ## Data protection
 
-| Security attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
@@ -53,6 +53,6 @@ This article documents the security controls built into Azure Load Balancer.
 
 ## Configuration management
 
-| Security attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| N/A |  | 

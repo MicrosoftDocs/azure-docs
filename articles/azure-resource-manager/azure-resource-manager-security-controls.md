@@ -18,7 +18,7 @@ This article documents the security controls built into Azure Resource Manager.
 
 ## Data Protection
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft managed keys | Yes |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | HTTPS/TLS. |
@@ -28,7 +28,7 @@ This article documents the security controls built into Azure Resource Manager.
 
 ## Network
 
-| Security Attribute | Yes/No | Notes |
+| Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| No | |
 | VNet injection support| Yes | |
@@ -37,7 +37,7 @@ This article documents the security controls built into Azure Resource Manager.
 
 ## Monitoring & Logging
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| No | |
 | Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
@@ -45,13 +45,13 @@ This article documents the security controls built into Azure Resource Manager.
 
 ## Identity
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | [Azure Active Directory](/azure/active-directory) based.|
 | Authorization| Yes | |
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes |  |
