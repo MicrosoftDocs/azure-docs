@@ -12,8 +12,6 @@ ms.author: robinsh
 
 # Upload files from your device to the cloud with IoT Hub (Python)
 
-**NOTE: This guide uses the deprecated V1 Python SDK, as the File Upload feature has not yet been implemented in the new V2 SDK.**
-
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
 This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
@@ -32,6 +30,9 @@ At the end of this tutorial you run the Python console app:
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+> [!NOTE]
+> This guide uses the deprecated V1 Python SDK, as the File Upload feature has not yet been implemented in the new V2 SDK.
 
 ## Prerequisites
 
