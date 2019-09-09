@@ -770,8 +770,6 @@
           href: log-query/get-started-portal.md
         - name: Log queries tutorial
           href: log-query/get-started-queries.md
-        - name: Simple Logs experience
-          href: log-query/simple-logs.md
       - name: Log data
         items:
         - name: Log data structure
