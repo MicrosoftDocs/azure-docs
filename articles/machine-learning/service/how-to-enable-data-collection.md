@@ -105,7 +105,7 @@ To enable it, you need to:
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-1. Go to  [Azure Portal](https://portal.azure.com).
+1. Go to  [Azure portal](https://portal.azure.com).
 
 1. Open your workspace.
 
@@ -170,7 +170,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data through Power BI
 
-1. Download and Open [PowerBi Desktop](https://www.powerbi.com)
+1. Download and Open [Power BI Desktop](https://www.powerbi.com)
 
 1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
