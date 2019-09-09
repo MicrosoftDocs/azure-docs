@@ -20,7 +20,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-09-09
 
-### New web experience for Azure Machine Learning workspaces
+### New web experience for Azure Machine Learning workspaces (preview)
 The new web experience enables data scientists and data engineers to complete their end-to-end machine learning lifecycle from prepping and visualizing data to training and deploying models in a single location. 
 
 Using this new Azure Machine Learning interface, you can now:
@@ -33,9 +33,18 @@ Using this new Azure Machine Learning interface, you can now:
 + View recent resources from a dashboard
 More features are coming soon.
 
+As of 9.9, you can access the web interface with the following browsers: Chrome, Firefox, Safari, and Microsoft Edge Preview.
+
+Known issues:
+
+1. Refresh your browser if you see “Something went wrong! Error loading chunk files” when deployment is in progress.  
+1.	Can’t delete or rename file in Notebooks and Files. During Public Preview you can use Jupyter UI or Terminal in Notebook VM to perform update file operations. Because it is a mounted network file system all changes you make on Notebook VM are immediately reflected in the Notebook Workspace. 
+1.  To SSH into the Notebook VM, 
+    a. Find the SSH keys  that were created during VM setup. Or, find the keys in  the Azure ML Azure portal > open Compute tab > locate Notebook VM in the list > open it’s properties : copy the keys from the dialog.
+    b. Import those public and private SSH keys to your local machine.
+    c. Use them to SSH into the Notebook VM. 
+
 ![Azure Machine Learning workspace UI](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
-
-
 
 ## 2019-09-03
 ### Azure Machine Learning SDK for Python v1.0.60
