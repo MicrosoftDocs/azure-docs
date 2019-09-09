@@ -98,9 +98,11 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
-| *.opinsights.azure.com	| HTTPS:443	| Recommended for correct metrics and monitoring using Azure Monitor. |
-| *.oms.opinsights.azure.com | HTTPS:443 | This address is used by omsagent, which is to monitor VM status |
+| dc.services.visualstudio.com | HTTPS:443	| This is for correct metrics and monitoring telemetry using Azure Monitor. |
+| *.ods.opinsights.azure.com	| HTTPS:443	| This is used by Azure Monitor for ingesting log analytics data. |
+| *.oms.opinsights.azure.com | HTTPS:443 | This address is used by omsagent, which is used to authenticate the log analytics service. |
+|*.microsoftonline.com | HTTPS:443 | This is used for authenticating and sending metrics to Azure Monitor. |
+|*.monitoring.azure.com | HTTPS:443 | This is used to send metrics data to Azure Monitor. |
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in private preview) enabled
 
