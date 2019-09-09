@@ -109,6 +109,8 @@
         href: apptio-tutorial.md
       - name: Aravo
         href: aravo-tutorial.md
+      - name: ARC Facilities
+        href: arc-facilities-tutorial.md
       - name: Arc Publishing - SSO
         href: arc-tutorial.md
       - name: ArcGIS Enterprise

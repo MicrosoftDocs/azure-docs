@@ -140,12 +140,12 @@ Use the `azds space list` command to list all the dev spaces and confirm *dev/az
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 Use the `azds list-uris` to display the URLs for the sample application in the currently selected space that is *dev/azureuser2*.
@@ -195,6 +195,9 @@ This command builds and runs the *bikesharingweb* service in the *dev/azureuser2
 Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by opening the public URL displayed in the output of the `azds up` command. Select *Aurelia Briggs (customer)* as the user. Verify you see the updated text in the upper right corner. You may need to refresh the page or clear your browser's cache if you do not immediately see this change.
 
 ![Azure Dev Spaces Bike Sharing sample application updated](media/quickstart-team-development/bikeshare-update.png)
+
+> [!NOTE]
+> When you navigate to your service while running `azds up`, the HTTP request traces are also displayed in the output of the `azds up` command. These traces can help you troubleshoot and debug your service. You can disable these traces using `--disable-http-traces` when running `azds up`.
 
 ## Verify other Dev Spaces are unchanged
 
