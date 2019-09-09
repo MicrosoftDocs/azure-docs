@@ -27,7 +27,7 @@ This article describes the different authorization agents that the Microsoft Aut
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults.
 
-When using MSAL in your Android application, you can choose between using a browser, or the Android WebView control, to launch the interactive sign-in experience.
+When using MSAL in your Android application, you can choose between using a browser, or the Android WebView, to launch the interactive sign-in experience.
 
 ![login_ux_msal](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -35,9 +35,9 @@ When using MSAL in your Android application, you can choose between using a brow
 
 By default, applications use a browser/custom tabs strategy. Because MSAL can persist a cookie in the browser, the user doesn't have to enter their credentials as often. Which enables other native android, or web, apps to participate in Single Sign-On (SSO).
 
-If the application uses a `WebView` strategy without integrating Authenticator or Company Portal support into their app, users can have a SSO experience from a single application but not across the device or between native apps and web apps.
+If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users can have a SSO experience from a single application but not across the device or between native apps and web apps.
 
-If the application uses MSAL with Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign in with one of the apps.
+If the application uses MSAL with Microsoft Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign in with one of the apps.
 
 ## WebView
 
@@ -53,7 +53,7 @@ Additionally, the `WebView` affords apps more sign in look and feel customizatio
 
 ## Default browser plus Chrome custom tabs
 
-By default, MSAL uses the browser and a [Chrome custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` by using the following JSON configuration:
+By default, MSAL uses the browser and a [custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` by using the following JSON configuration:
 
 ```json
 "authorization_user_agent" : "BROWSER"
