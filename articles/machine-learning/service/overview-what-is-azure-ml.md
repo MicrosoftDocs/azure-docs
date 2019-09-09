@@ -27,7 +27,7 @@ Azure Machine Learning service provides a cloud-based environment you can use to
 
 Explore and prepare data, train and test models, and deploy them using rich tools such as:
 + A [visual interface](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
-+ [Jupyter notebooks](https://jupyter.org)  in which you use the [SDKs](https://docs.microsoft.com/azure/machine-learning/service/#reference) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
++ [Jupyter notebooks](https://jupyter.org)  in which you use the [SDKs](https://docs.microsoft.com/azure/machine-learning) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 
 
