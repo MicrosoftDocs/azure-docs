@@ -13,7 +13,7 @@ manager: femila
 #customer intent: As a developer, I want to use a blockchain application I created in Azure Blockchain Workbench.
 ---
 
-# Tutorial: Using applications in Azure Blockchain Workbench Preview
+# Tutorial: Using applications in Azure Blockchain Workbench
 
 You can use Blockchain Workbench to create and take actions on contracts. You can also view contract details such as status and transaction history.
 
