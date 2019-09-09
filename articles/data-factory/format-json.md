@@ -76,8 +76,15 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type property of the copy activity source must be set to **JSONSink**. | Yes      |
-| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
+| formatSettings | A group of properties. Refer to **JSON write settings** table below. | No       |
 | storeSettings | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
+
+Supported **JSON write settings** under `formatSettings`:
+
+| Property      | Description                                                  | Required                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | The type of formatSettings must be set to **JsonWriteSetting**. | Yes                                                   |
+| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 
 ### JSON file patterns
 
