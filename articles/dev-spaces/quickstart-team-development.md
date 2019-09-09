@@ -33,7 +33,7 @@ You must create an AKS cluster in a [supported region][supported-regions]. The b
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 The *MyAKS* cluster is also created with one node, using the *Standard_DS2_v2* size, and with RBAC disabled.

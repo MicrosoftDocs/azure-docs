@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/06/2019
 ms.author: diberry
 ---
 
@@ -38,7 +38,7 @@ The owner can't choose a subset of apps to migrate and the process isn't reversi
 The migration is not: 
 
 * A process that collects collaborators and automatically moves or adds to the Azure authoring resource. You, as the app owner, need to complete this step. This step requires permissions to the appropriate resource.
-* A process to create and assign a prediction runtime resource. If you need a prediction runtime resource, that is [a separate process](/luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) and is unchanged. 
+* A process to create and assign a prediction runtime resource. If you need a prediction runtime resource, that is [a separate process](luis-how-to-azure-subscription.md##create-resources-in-the-azure-portal) and is unchanged. 
 
 ## How are the apps migrating?
 
