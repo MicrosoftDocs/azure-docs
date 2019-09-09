@@ -118,6 +118,8 @@
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
       href: how-to-unprovision-devices.md    
+    - name: Troubleshooting
+      href: how-to-troubleshoot-dps.md   
   - name: Manage Device Provisioning Service
     items:
     - name: Configure Device Provisioning Service using Azure CLI
