@@ -49,7 +49,7 @@ To get started deploying Virtual Machine Scale Sets in Visual Studio, you need t
 
     ![Name and create your project](media\virtual-machine-scale-sets-vs-create\configure-azure-resource-group.png)
 
-1. From the list of templates, choose either the **Linux Virtual Machine Scale Set** or **Windows Virtual Machine Scale Set** template, and select **OK**.
+1. From the list of templates, choose either the **Linux Virtual Machine Scale Set** or **Windows Virtual Machine Scale Set** template. Select **OK**.
 
    ![Select a virtual machine template](media\virtual-machine-scale-sets-vs-create\select-vm-template.png)
 
@@ -59,9 +59,9 @@ After you create your project, **Solution Explorer** contains a PowerShell deplo
 
 Now you can edit the template to customize it for your application's needs. You could add virtual machine extension properties or edit load-balancing rules. By default, the Virtual Machine Scale Set templates are configured to deploy the **AzureDiagnostics** extension, which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules.
 
-The load balancer lets you connect to the virtual machine instances with SSH (Linux) or RDP (Windows). The front-end port range starts at 50000. For Linux, this fact means that if you SSH to port 50000, you're routed to port 22 of the first virtual machine in the Scale Set. Connecting to port 50001 is routed to port 22 of the second virtual machine and so on.
+The load balancer lets you connect to the virtual machine instances with SSH (Linux) or RDP (Windows). The front-end port range starts at 50000. For Linux, if you SSH to port 50000, load balancing routes you to port 22 of the first virtual machine in the Scale Set. Connecting to port 50001 is routed to port 22 of the second virtual machine and so on.
 
- A good way to edit your templates with Visual Studio is to use the JSON Outline to organize the parameters, variables, and resources. With an understanding of the schema, Visual Studio can point out errors in your template before you deploy it.
+ A good way to edit your templates with Visual Studio is to use the **JSON Outline**. You can organize the parameters, variables, and resources. With an understanding of the schema, Visual Studio can point out errors in your template before you deploy it.
 
 ![JSON Explorer](media\virtual-machine-scale-sets-vs-create\json-explorer.png)
 
@@ -69,7 +69,7 @@ The load balancer lets you connect to the virtual machine instances with SSH (Li
 
 Deploy the Azure Resource Manager Template to create the Virtual Machine Scale Set resource:
 
-1. in Solution Explorer, right-click the project and choose **Deploy** > **New**.
+1. In **Solution Explorer**, right-click the project and choose **Deploy** > **New**.
 
     ![Deploy your project](media\virtual-machine-scale-sets-vs-create\deploy-new-project.png)
 
@@ -83,7 +83,7 @@ Deploy the Azure Resource Manager Template to create the Virtual Machine Scale S
 
     ![Edit deployment parameters](media\virtual-machine-scale-sets-vs-create\edit-deployment-parameters.png)
 
-1. In Deploy to Resource Group, select **Deploy**. The action is executing the **Deploy-AzureResourceGroup.ps1** script. The **Output** window shows the deployment progress.
+1. In **Deploy to Resource Group**, select **Deploy**. The action runs the **Deploy-AzureResourceGroup.ps1** script. The **Output** window shows the deployment progress.
 
    ![Output shows results](media\virtual-machine-scale-sets-vs-create\deployment-output.png)
 
