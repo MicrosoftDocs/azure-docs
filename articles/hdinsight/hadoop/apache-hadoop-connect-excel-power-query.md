@@ -16,7 +16,7 @@ One key feature of the Microsoft big-data solution is the integration of Microso
 ### Prerequisites
 Before you begin this article, you must have the following items:
 
-* **An HDInsight cluster**. To configure one, see [Get started with Azure HDInsight](./apache-hadoop-linux-tutorial-get-started).
+* **An HDInsight cluster**. To configure one, see [Get started with Azure HDInsight](./apache-hadoop-linux-tutorial-get-started.md).
 * **A workstation** that is running Windows 7, Windows Server 2008 R2, or a later operating system.
 * **Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, or Office 2010 Professional Plus**.
 
