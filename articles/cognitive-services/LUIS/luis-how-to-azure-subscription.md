@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ---
 
@@ -67,6 +67,38 @@ When you are ready to publish your prediction endpoint, create and assign author
     |Runtime pricing tier|The pricing tier determines the maximum transaction per second and month.|
 
     Once both resources are created, assign the resources in the LUIS portal.
+
+## Create resources in Azure CLI
+
+Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually. 
+
+Resource `kind`:
+
+* Authoring: `LUIS.Authoring`
+* Prediction: `LUIS` 
+
+1. Sign in to the Azure CLI:
+
+    ```console
+    az login
+    ```
+
+    This opens a browser to allow you to select the correct account and provide authentication.
+
+1. Create a **LUIS authoring resource**, of kind `LUIS.Authoring`, named `my-luis-authoring-resource` in the _existing_ resource group named `my-resource-group` for the `westus` region. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. Create a **LUIS prediction endpoint resource**, of kind `LUIS`, named `my-luis-prediction-resource` in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want a higher throughput than the free tier, change `F0` to `S0`. Learn more about [pricing tiers and throughput](luis-boundaries.md#key-limits).
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > This keys are **not** used by the LUIS portal until they are assigned in the LUIS portal on the **Manage -> Azure resources**.
 
 ## Assign an authoring resource in the LUIS portal for all apps
 
