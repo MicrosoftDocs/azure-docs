@@ -6,18 +6,29 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/09/2019
 ---
 
 # Account migration from Cloud Partner Portal to Partner Center
 
-When your offers are migrated from Cloud Partner Portal (CPP) to Partner Center (PC), they get locked for editing in CPP. At this point, your account settings need to be migrated over to Partner Center. Both your account settings, as well as your offers, can be managed in Partner Center.
+If you have an existing CPP account, your account settings need to be migrated to Partner Center.
 
 ## Account migration process
 
-When offers are migrated over from CPP, your account is configured for migration. 
- 
-If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You are asked to move your account settings over to Partner Center. 
+If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You are asked to move your account settings over to Partner Center.  You may belong to one of the following two cases:
+
+1. Your account has already been migrated behind scenes.
+1. You need to migrate your account to Partner Center.
+
+### Your account has been migrated to Partner Center
+
+For all accounts that are migrated and activated from CPP to Partner Center, account management will happen in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
+
+If you're already migrated, user management updates will not be saved from CPP to PC. For all accounts already migrated over to Partner Center, user addition and deletion in CPP will be blocked. 
+
+You will not be able to add or delete the account in CPP.
+
+### You have not yet migrated your account to Partner Center
 
 Click on the banner to initiate your account migration process. You are expected to enter the following items:
 
@@ -39,29 +50,7 @@ Migration needs to happen only once for a given account. Once a given partner ha
 
 1. You will see the Partner Settings page in Microsoft Partner Network, where you can now manage account settings. 
 2. A yellow banner on your Publisher Profile page in CPP will be shown to users who have the Owner role, asking them to manage their account settings in Partner Center.
-3. The account settings page in CPP is converted to read-only mode.
-
-## Move Dynamics 365-based solutions to Partner Center
-
-If you have created Dynamics 365 for Customer Engagement or Dynamics 365 for Finance and Operations solutions in the One Commercial Partner GTM portal, **these solutions should now be managed in Partner Center**.
-
-**If you did not move your solutions by August 31, 2019**, complete the below steps as soon as possible. Until you do so:
-- ISVs won’t have access to marketing benefits
-- Co-sell prioritized will lose their status
-- Those requiring Cloud Embed will be out of compliance after October 15, 2019
-
-> [!NOTE]
-> If your MPN membership account was originally created in Partner Membership Center (PMC), sign in to [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) to confirm that your account has been migrated before completing the steps below. If you see a profile screen with your MPN ID, you're ready to proceed. If not, you must start your account migration by following the prompts in the [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). If you need help with this, visit [support](https://partner.microsoft.com/support?issueid=100-0077).
-
-1. Go to the [Commercial Marketplace overview page in Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). If you see "Commercial Marketplace" in the left navigation pane, you are enrolled and should proceed to the next step. If not, [enroll in the commercial marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) now.
-2. Confirm your offers are in AppSource by [searching for your offers](https://appsource.microsoft.com/). If your offers are already in AppSource, proceed to the next step. For any offer not in AppSource, create a [new Dynamics 365 for Customer Engagement offer](create-new-customer-engagement-offer.md) or a [new Dynamics 365 for Operations offer](create-new-operations-offer.md).
-3. Verify your enrollment in the Business Applications ISV Connect Program:
-  
-   * On the [Agreements](https://partner.microsoft.com/dashboard/account/agreements) page in Partner Center, make sure you’ve accepted the **Business Applications ISV Addendum** to enroll in the program.
-   * On the [Account settings](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) page, provide your billing information.
-
-4. Submit each new and existing offer for certification, even if your offers were previously certified. If eligible, you may request to participate in the premium tier during this process. If your offer was previously certified, **you must complete app recertification by October 15, 2019.** Certification or recertification will require that your app support the latest version of our Business Applications Platform.
-5. Go to the [One Commercial Partner GTM portal](https://msgtm.azurewebsites.net/en-US/Profile/SignIn) and add your AppSource listing URL in the Marketplace Links section. If you need help with this step, email us at cosell@microsoft.com.
+3. The account settings page in CPP is converted to read-only mode. If you try to add users in CPP, the yellow banner will appear.  The **Delete** button will also be disabled.
 
 ## Next steps
 
