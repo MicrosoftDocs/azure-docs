@@ -25,6 +25,7 @@ The new web experience enables data scientists and data engineers to complete th
 
 ![Azure Machine Learning workspace UI](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
 
+**Key features**
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
 + Run automated ML experiments
@@ -37,11 +38,13 @@ Using this new Azure Machine Learning interface, you can now:
 
 As of 9.9, you can access the web interface with the following browsers: Chrome, Firefox, Safari, and Microsoft Edge Preview.
 
-Known issues:
+**Known issues:**
 
 1. Refresh your browser if you see “Something went wrong! Error loading chunk files” when deployment is in progress.  
+
 1. Can’t delete or rename file in Notebooks and Files. During Public Preview you can use Jupyter UI or Terminal in Notebook VM to perform update file operations. Because it is a mounted network file system all changes you make on Notebook VM are immediately reflected in the Notebook Workspace. 
-1. To SSH into the Notebook VM,
+
+1. To SSH into the Notebook VM:
    1. Find the SSH keys  that were created during VM setup. Or, find the keys in  the Azure ML Azure portal > open Compute tab > locate Notebook VM in the list > open it’s properties : copy the keys from the dialog.
    1. Import those public and private SSH keys to your local machine.
    1. Use them to SSH into the Notebook VM. 
