@@ -1,5 +1,5 @@
 ---
-title: Azure WCF Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
+title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
 services: service-bus-relay
 documentationcenter: .net
@@ -23,7 +23,7 @@ This article shows how to build a hybrid cloud application with Microsoft Azure 
 
 * How to create or adapt an existing web service for consumption by a
   web solution.
-* How to use the Azure WCF Relay service to share data between
+* How to use the Azure Windows Communication Foundation (WCF) Relay service to share data between
   an Azure application and a web service hosted elsewhere.
 
 You take the following steps in this tutorial:
@@ -48,12 +48,11 @@ To complete this tutorial, you need the following prerequisites:
 
 ## How Azure Relay helps with hybrid solutions
 
-Business solutions are typically composed of a combination of custom code written to tackle new and unique business requirements and existing functionality provided by solutions and systems that are already in place.
+Business solutions are typically composed of a combination of custom code and existing functionality. Custom code tackles new and unique business requirements. Existing functionality is provided by solutions and systems that are already in place.
 
-Solution architects are starting to use the cloud for easier handling of scale requirements and lower operational costs. In doing so, they find that existing service assets they'd like to leverage as building blocks for their solutions are inside the corporate firewall and out of easy reach for access by the cloud solution. Many internal services are not built or hosted in a way that they can be easily exposed at the corporate network edge.
+Solution architects are starting to use the cloud for easier handling of scale requirements and lower operational costs. In doing so, they find that existing service assets they'd like to use as building blocks for their solutions are inside the corporate firewall and out of easy reach for access by the cloud solution. Many internal services aren't built or hosted in a way that they can be easily exposed at the corporate network edge.
 
-[Azure Relay](https://azure.microsoft.com/services/service-bus/) is designed for the use-case of taking existing
-Windows Communication Foundation (WCF) web services and making those services securely accessible to solutions that reside outside the corporate perimeter without requiring intrusive changes to the corporate network infrastructure. Such relay services are still hosted inside their existing environment, but they delegate listening for incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) authentication.
+[Azure Relay](https://azure.microsoft.com/services/service-bus/) is designed for the use-case of taking existing WCF web services and making those services securely accessible to solutions that are outside the corporate perimeter without requiring intrusive changes to the corporate network infrastructure. Such relay services are still hosted inside their existing environment, but they delegate listening for incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) authentication.
 
 ## Review the scenario
 
@@ -61,16 +60,16 @@ In this tutorial, you create an ASP.NET website that enables you to see a list o
 
 ![Scenario][0]
 
-The tutorial assumes that you have product information in an existing on-premises system, and uses Azure Relay to reach into that system. This is simulated by a web service that runs in a simple console application and is backed by an in-memory set of products. You will be able to run this console application on your own computer and deploy the web role into Azure. By doing so, you will see how the web role running in the Azure datacenter will indeed call into your computer, even though your computer will almost certainly reside behind at least one firewall and a network address translation (NAT) layer.
+The tutorial assumes that you have product information in an existing on-premises system, and uses Azure Relay to reach into that system. This situation is simulated by a web service that runs in a simple console application and is backed by an in-memory set of products. You can run this console application on your own computer and deploy the web role into Azure. By doing so, you'll see how the web role running in the Azure datacenter calls into your computer. This call happens even though your computer will almost certainly be behind at least one firewall and a network address translation (NAT) layer.
 
 ## Set up the development environment
 
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-1. In the **.NET** column, choose the version of [Visual Studio](https://www.visualstudio.com) you are using. This tutorial uses Visual Studio 2019.
-1. When prompted to run or save the installer, click **Run**.
-1. In the **Web Platform Installer**, select **Install** and proceed with the installation.
+1. In the **.NET** column, choose the version of [Visual Studio](https://www.visualstudio.com) you're using. This tutorial uses Visual Studio 2019.
+1. When prompted to run or save the installer, Select **Run**.
+1. In the **Web Platform Installer**, select **Install** and continue with the installation.
 
 Once the installation is complete, you have everything necessary to start to develop the app. The SDK includes tools that let you easily develop Azure applications in Visual Studio.
 
@@ -218,7 +217,7 @@ First, you build a simulated on-premises product catalog system.  This project i
     </system.serviceModel>
     ```
 
-    The error caused by `transportClientEndpointBehavior` is just a warning and is not a blocking issue for this example.
+    The error caused by `transportClientEndpointBehavior` is just a warning and isn't a blocking issue for this example.
 
 1. Still in `App.config`, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
 
@@ -246,12 +245,12 @@ In this section, you build a simple ASP.NET application that displays data retri
 
    ![Select ASP .NET Web Application][16]
 
-1. In **Change Authentication**, choose **No Authentication** then select **OK**. For this tutorial, you're deploying an app that does not need a user login.
+1. In **Change Authentication**, choose **No Authentication** then select **OK**. For this tutorial, you're deploying an app that doesn't need a user to sign in.
 
     ![Specify authentication][18]
 
 1. Back in **Create a new ASP.NET Web Application**, select **Create** to create the MVC app.
-1. Configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and proceed to the next step.
+1. Configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
 1. In **Solution Explorer**, right-click **Models** and then select **Add** > **Class**.
 1. Name the class *Product.cs*, then select **Add**.
 
@@ -356,15 +355,15 @@ Your application should appear, running in a browser.
 
 The next step is to hook up the on-premises products server with the ASP.NET application.
 
-1. If it is not already open, in Visual Studio reopen the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
+1. If it isn't already open, in Visual Studio reopen the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 1. Similar to the step in the [Create an On-Premises Server](#create-an-on-premises-server) section, add the NuGet package to the project references. In **Solution Explorer**, right-click the **ProductsPortal** project, then select **Manage NuGet Packages**.
 1. Search for **WindowsAzure.ServiceBus** and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
 1. In **Solution Explorer**, right-click the **ProductsPortal** project, then select **Add** > **Existing Item**.
-1. Navigate to the `ProductsContract.cs` file from the **ProductsServer** console project. Click to highlight `ProductsContract.cs`. Click the down arrow next to **Add**, then click **Add as Link**.
+1. Navigate to the `ProductsContract.cs` file from the **ProductsServer** console project. Highlight `ProductsContract.cs`. Select the down arrow next to **Add**, then choose **Add as Link**.
 
    ![Add as a link][24]
 
-1. Now open the `HomeController.cs` file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This enables the client to call the on-premises service, returning the result of the call.
+1. Now open the `HomeController.cs` file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This code enables the client to call the on-premises service, returning the result of the call.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -406,24 +405,24 @@ The next step is to hook up the on-premises products server with the ASP.NET app
    }
    ```
 
-1. In Solution Explorer, right-click the **ProductsPortal** solution. Make sure to right-click the solution, not the project. Select **Add** > **Existing Project**.
+1. In **Solution Explorer**, right-click the **ProductsPortal** solution. Make sure to right-click the solution, not the project. Select **Add** > **Existing Project**.
 1. Navigate to the **ProductsServer** project, then double-click the **ProductsServer.csproj** solution file to add it.
-1. **ProductsServer** must be running in order to display the data on **ProductsPortal**. In **Solution Explorer**, right-click the **ProductsPortal** solution and select **Properties**. **Property Pages** is displayed.
-1. Select **Startup Project**. To the right, select **Multiple startup projects**. Ensure that **ProductsServer** and **ProductsPortal** appear, in that order, with **Start** set as the action for both.
+1. **ProductsServer** must be running to display the data on **ProductsPortal**. In **Solution Explorer**, right-click the **ProductsPortal** solution and select **Properties** to display **Property Pages**.
+1. Select **Common Properties** > **Startup Project** and choose **Multiple startup projects**. Ensure that **ProductsServer** and **ProductsPortal** appear, in that order, and that the **Action** for both is **Start**.
 
       ![Multiple startup projects][25]
 
-11. Still in the **Properties** dialog box, click **Project Dependencies** on the left side.
-12. In the **Projects** list, click **ProductsServer**. Ensure that **ProductsPortal** is not selected.
-13. In the **Projects** list, click **ProductsPortal**. Ensure that **ProductsServer** is selected.
+1. Select **Common Properties** > **Project Dependencies** on the left side.
+1. For **Projects**, choose **ProductsServer**. Ensure that **ProductsPortal** isn't selected.
+1. For **Projects**, choose **ProductsPortal**. Ensure that **ProductsServer** is selected.
 
     ![Project dependencies][26]
 
-14. Click **OK** in the **Property Pages** dialog box.
+1. Select **OK** to save your changes.
 
 ## Run the project locally
 
-To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you see that the product inventory lists data retrieved from the product service on-premises system.
+To test the application locally, in Visual Studio press **F5**. The on-premises server, **ProductsServer**, should start first, then the **ProductsPortal** application should start in a browser window. This time, you see that the product inventory lists data retrieved from the product service on-premises system.
 
 ![Web application][10]
 
@@ -433,58 +432,59 @@ Close both applications before proceeding to the next step.
 
 ## Deploy the ProductsPortal project to an Azure web app
 
-The next step is to republish the Azure Web app **ProductsPortal** frontend. Do the following:
+The next step is to republish the Azure Web app **ProductsPortal** front end:
 
-1. In Solution Explorer, right-click the **ProductsPortal** project, and click **Publish**. Then, click **Publish** on the **Publish** page.
+1. In **Solution Explorer**, right-click the **ProductsPortal** project, and select **Publish**. On the **Publish** page, select **Publish**.
 
    > [!NOTE]
    > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
    >
    >
 
-2. Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
+1. Copy the URL of the deployed web app. You'll need the URL later. You can also obtain this URL from the **Azure App Service Activity** window in Visual Studio:
 
    ![URL of the deployed app][9]
 
-3. Close the browser window to stop the running application.
+1. Close the browser window to stop the running application.
 
 ### Set ProductsPortal as web app
 
 Before running the application in the cloud, you must ensure that **ProductsPortal** is launched from within Visual Studio as a web app.
 
-1. In Visual Studio, right-click the **ProductsPortal** project and then click **Properties**.
-2. In the left-hand column, click **Web**.
-3. In the **Start Action** section, click the **Start URL** button, and in the text box enter the URL for your previously deployed web app; for example, `http://productsportal1234567890.azurewebsites.net/`.
+1. In Visual Studio, right-click the **ProductsPortal** project and select **Properties**.
+1. Select **Web**. Under **Start Action**, choose **Start URL**. Enter the URL for your previously deployed web app, in this example, `https://productsportal20190906122808.azurewebsites.net/`.
 
     ![Start URL][27]
 
-4. From the **File** menu in Visual Studio, click **Save All**.
-5. From the Build menu in Visual Studio, click **Rebuild Solution**.
+1. Select **File** > **Save All**.
+1. Select **Build** > **Rebuild Solution**.
 
 ## Run the application
 
-1. Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screenshot: Notice again that the product inventory lists data retrieved from the product service on-premises system, and displays that data in the web app. Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app.
+Press **F5** to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown here:
 
    ![Run the web app on Azure][1]
+
+The product inventory lists data retrieved from the product service on-premises system, and displays that data in the web app. Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app.
 
    > [!IMPORTANT]
    > The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
    >
    >
 
-   ![Output from server][37]
-2. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
+1. In the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
     ![Updated output][38]
 
 ## Next steps
-Advance to the following tutorial: 
+
+Advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Expose an on-premises WCF service to a WCF client outside your network](service-bus-relay-tutorial.md)
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
-[1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
+[1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/run-web-app.png
 [NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/configure-productsserver.png
@@ -493,14 +493,14 @@ Advance to the following tutorial:
 [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/choose-web-application-template.png
 [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/add-class-productsportal.png
 [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/change-authentication.png
-[9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
-[10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
+[9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/web-publish-activity.png
+[10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/run-web-app-locally.png
 
 [21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png
 [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/add-existing-item-link.png
 [25]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png
 [26]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png
-[27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-8.png
+[27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/launch-app-as-web-app.png
 
 [36]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
 [37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
