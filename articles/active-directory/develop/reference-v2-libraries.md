@@ -79,7 +79,7 @@ In term of supported operating systems vs languages, the mapping is the followin
 |-------------|------------|------------|------------|------------|------------|
 | JavaScript  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | C# | ASP.NET, ASP.NET Core, MSAL.Net (.NET FW,  Core, UWP)| ASP.NET Core, MSAL.Net (.NET Core) | ASP.NET Core, MSAL.Net (macOS) | MSAL.Net (Xamarin.iOS) | MSAL.Net (Xamarin.Android)|
-| Swift <br> Objective-C |            |            | [MSAL iOS & macOS](overview.md) | [MSAL iOS & macOS](overview.md) |            |
+| Swift <br> Objective-C |            |            | [MSAL iOS & macOS](msal-overview.md) | [MSAL iOS & macOS](overview.md) |            |
 | Java       | msal4j       | msal4j       | msal4j  |    | MSAL.Android |
 | Python     | MSAL Python | MSAL Python | MSAL Python |
 |  Node.JS     | Passport.node | Passport.node | Passport.node |
