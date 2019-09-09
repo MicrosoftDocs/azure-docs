@@ -16,7 +16,7 @@ ms.author: v-lilei
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Storage Exploer in the Azure Portal. To create the knowledge store sample used in this walkthrough see [How to create a knowledge store](knowledge-store-howto-create).
+In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure Portal. To create the knowledge store sample used in this walkthrough see [How to create a knowledge store](knowledge-store-howto-create).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 1. In the Azure Portal, open the storage account that you used to create the knowledge store.
 
-1. In the the storage account's left navigation pane, click **Storage Explorer**.
+1. In the storage account's left navigation pane, click **Storage Explorer**.
 
 1. Expand the **TABLES** list to show a list of Azure table projections that were created when you ran the **Import Data** wizard on your hotel reviews sample data.
 
