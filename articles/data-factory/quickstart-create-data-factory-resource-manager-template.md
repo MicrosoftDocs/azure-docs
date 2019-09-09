@@ -54,11 +54,6 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (C
         },
         "dataFactoryLocation":{  
             "type":"string",
-            "allowedValues":[  
-                "East US",
-                "East US 2",
-                "West Europe"
-            ],
             "defaultValue":"East US",
             "metadata":{  
                 "description":"Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
@@ -87,10 +82,6 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (C
             "metadata": {
                 "description": "End time for the trigger."
             }
-        }, 
-        "ArmtemplateStorageLinkedService_connectionString":{  
-            "type":"secureString",
-            "metadata":"Secure string for 'connectionString' of 'ArmtemplateStorageLinkedService'"
         }
     },      
     "variables":{  
@@ -317,9 +308,6 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
         },
         "triggerEndTime":{  
             "value":"2019-09-08T14:00:00"
-        },
-        "ArmtemplateStorageLinkedService_connectionString":{  
-            "value":""
         }
     }
 }
@@ -339,7 +327,6 @@ New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutori
 You see output similar to the following sample:
 
 ```console
-
 DeploymentName          : MyARMDeployment
 ResourceGroupName       : ADFTutorialResourceGroup
 ProvisioningState       : Succeeded
@@ -347,15 +334,14 @@ Timestamp               : 9/8/2019 10:52:29 AM
 Mode                    : Incremental
 TemplateLink            : 
 Parameters              : 
-                          Name                                                Type                       Value     
-                          ==================================================  =========================  ==========
-                          dataFactoryName                                     String                     ADFQuickstartsDataFactory0905
-                          dataFactoryLocation                                 String                     East US   
-                          storageAccountName                                  String                     adfdocupdate
-                          storageAccountKey                                   SecureString                         
-                          triggerStartTime                                    String                     9/8/2019 11:00:00 AM
-                          triggerEndTime                                      String                     9/8/2019 2:00:00 PM
-                          armtemplateStorageLinkedService_connectionString    SecureString                         
+                          Name                   Type                       Value     
+                          =====================  =========================  ==========
+                          dataFactoryName        String                     <data factory name>
+                          dataFactoryLocation    String                     East US   
+                          storageAccountName     String                     <storage account name>
+                          storageAccountKey      SecureString                         
+                          triggerStartTime       String                     9/8/2019 11:00:00 AM
+                          triggerEndTime         String                     9/8/2019 2:00:00 PM
                           
 Outputs                 : 
 DeploymentDebugLogLevel : 
