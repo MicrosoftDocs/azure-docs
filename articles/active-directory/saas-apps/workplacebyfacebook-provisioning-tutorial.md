@@ -95,7 +95,7 @@ For more information on how to configure automatic provisioning, see [https://de
 You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Workplace by Facebook.
 
 > [!NOTE]
-> Work to ensure that the Azure Active Directory application in Workplace By Facebook will be completed before the December 16, 2019 deadline. We are working closely with the Worplace by Facebook team to ensure that the approval is processed as soon as possible. 
+> We are working closely with the Workplace by Facebook team to ensure that the Azure AD application is approved and meets their new guidelines. This work will be completed before December 16, 2019.   
 
 ## Additional resources
 
