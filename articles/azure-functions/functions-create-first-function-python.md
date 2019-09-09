@@ -1,8 +1,6 @@
 ---
 title: Create an HTTP triggered function in Azure
 description: Learn how to create your first Python function in Azure using the Azure Functions Core Tools and the Azure CLI.
-services: functions 
-keywords: 
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
@@ -10,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
-manager: jeconnoc
+manager: gwallace
 ---
 
 # Create an HTTP triggered function in Azure
@@ -23,7 +21,7 @@ This article is the first of two quickstarts for Azure Functions. After you comp
 
 Before you start, you must have the following:
 
-+ Install [Python 3.6](https://www.python.org/downloads/).
++ Install [Python 3.6.x](https://www.python.org/downloads/).
 
 + Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1575 or a later version.
 
@@ -35,7 +33,7 @@ Before you start, you must have the following:
 
 ## Create and activate a virtual environment (optional)
 
-To locally develop and test Python functions, it is recommended to use a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`.
+To locally develop and test Python functions, it is recommended to use a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`. To install venv, follow command : sudo apt-get install python3-venv
 
 ### Bash:
 
@@ -99,7 +97,7 @@ A subfolder named _HttpTrigger_ is created, which contains the following files:
 
 The following command starts the function app, which runs locally using the same Azure Functions runtime that is in Azure.
 
-```bash
+```console
 func host start
 ```
 
@@ -129,7 +127,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
@@ -163,7 +161,33 @@ This command will also provision an associated Azure Application Insights instan
 
 You're now ready to publish your local functions project to the function app in Azure.
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+## Deploy the function app project to Azure
+
+After the function app is created in Azure, you can use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In these examples, replace `<APP_NAME>` with the name of your app from the previous step.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
+The `--build remote` option builds your Python project remotely in Azure from the files in the deployment package. 
+
+You'll see output similar to the following, which has been truncated for readability:
+
+```output
+Getting site publishing info...
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+```
+
+Copy the `Invoke url` value for your `HttpTrigger`, which you can now use to test your function in Azure. The URL contains a `code` query string value that is your function key. This key makes it difficult for others to call your HTTP trigger endpoint in Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

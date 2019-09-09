@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high 
-ms.date: 08/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -65,20 +65,40 @@ Verify that your data is in the storage account(s) before you delete it from the
       ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
   - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
+  
+::: zone-end
 
-To verify that the data has uploaded into Azure, perform the following steps:
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+After the data is uploaded to Azure, verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
+
+- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+
+    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+
+- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
+
+::: zone-end
+
+To verify that the data has uploaded into Azure, take the following steps:
 
 1. Go to the storage account associated with your disk order.
 2. Go to **Blob service > Browse blobs**. The list of containers is presented. Corresponding to the subfolder that you created under *BlockBlob* and *PageBlob* folders, containers with the same name are created in your storage account.
     If the folder names do not conform to Azure naming conventions, then the data upload to Azure will fail.
 
-4. To verify that the entire dataset has loaded, use Microsoft Azure Storage Explorer. Attach the storage account corresponding to the disk rental order and then look at the list of blob containers. Select a container, click **…More** and then click **Folder statistics**. In the **Activities** pane, the statistics for that folder including the number of blobs and the total blob size is displayed. The total blob size in bytes should match the size of the dataset.
+3. To verify that the entire dataset has loaded, use Microsoft Azure Storage Explorer. Attach the storage account corresponding to the Data Box Disk order and then look at the list of blob containers. Select a container, click **…More** and then click **Folder statistics**. In the **Activities** pane, the statistics for that folder including the number of blobs and the total blob size is displayed. The total blob size in bytes should match the size of the dataset.
 
     ![Folder statistics in Storage Explorer](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 
 ## Erasure of data from Data Box Disk
 
 After the copy is complete and you have verified that data is in the Azure storage account, disks are securely erased as per the NIST standard.
+
+::: zone target="docs"
 
 ## Next steps
 
@@ -96,22 +116,6 @@ Advance to the next how-to to learn how to manage Data Box Disk via the Azure po
 
 ::: zone-end
 
-::: zone target="chromeless"
 
-# Verify data upload to Azure
-
-After the data is uploaded to Azure, verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
-
-- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
-
-    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
-
-    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
-
-    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
-
-- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
-
-::: zone-end
 
 
