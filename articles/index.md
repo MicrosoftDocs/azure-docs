@@ -2779,7 +2779,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
-                                                    <p>Use Azure Cognitive Services cotainers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3050,7 +3050,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
-                                                    <p>Use Azure Cognitive Services cotainers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
                                                 </div>
                                             </div>
                                         </div>
