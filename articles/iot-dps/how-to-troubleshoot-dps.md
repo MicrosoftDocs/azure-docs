@@ -2,13 +2,13 @@
 title: Diagnose and troubleshoot disconnects with Azure IoT Hub DPS
 description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub DPS
 author: xujing-ms
-manager: briz
+manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-# As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
+# As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
 ---
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
@@ -22,9 +22,10 @@ the following procedure describes how to view and set up alert on IoT Hub Device
 
 2. Browse to your IoT Hub Device Provisioning Service.
 
-3. Select **Metrics**
+3. Select **Metrics**.
 
-4. Select the desired metric. Currently there are three metrics for DPS
+4. Select the desired metric. 
+   <br>Currently there are three metrics for DPS:</br>
 
     | Metric Name | Description |
     |-------|------------|
@@ -76,9 +77,3 @@ Use this table to understand and resolve common errors.
 | 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|
-
-
-
-## Next steps
-
-* To learn more about Azure IoT SDK and managing retries, see [How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
