@@ -149,7 +149,7 @@ Restoring a deleted database can only be done with PowerShell. The database can 
 To restore a deleted database using PowerShell, update the parameters with your values and run the following command:
 
 ```powershell-interactive
-$subscriptionId = "<Subscription ID"
+$subscriptionId = "<Subscription ID>"
 Get-AzSubscription -SubscriptionId $subscriptionId
 Select-AzSubscription -SubscriptionId $subscriptionId
 
@@ -180,7 +180,7 @@ $location = "West Europe"
 $restoredDBName = "WorldWideImportersPITR"
 $resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$managedInstanceName/databases/$restoredDBName"
 
-New-AzResource -Location $location -Properties $properties 
+New-AzResource -Location $location -Properties $properties `
         -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
 ```
 
