@@ -120,7 +120,7 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview. We provide translations for 36 languages, and you can override any string to suit your needs.
 
-### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from login.microsoftonline.com to login.contoso.com?
+### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
 Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab in the Azure portal does not accomplish this goal. However, with b2clogin.com, we offer a [neutral top level domain](b2clogin.md) and thus the external appearance can be implemented without the mention of Microsoft.
 
