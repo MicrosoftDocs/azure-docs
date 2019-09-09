@@ -150,7 +150,7 @@ New file shares start with the full number of credits in its burst bucket. Burst
 
 ## File share redundancy
 
-Azure Files standard shares supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
+Azure Files standard shares supports four data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
 
 Azure Files premium shares only support locally redundant storage (LRS).
 
@@ -201,14 +201,17 @@ This section only applies to the standard file shares. All premium file shares a
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region |Supported redundancy |Supports existing storage accounts |Portal support*   |
+|Region |Supported redundancy |Supports existing storage accounts |Portal support* |
 |-------|---------|---------|---------|
-|Australia East  |LRS     |No    |Yes|
-|France Central  |LRS     |No    |Not yet|
-|France South    |LRS     |No    |Not yet|
-|SouthEast Asia  |LRS, ZRS|No    |Yes|
-|West Europe     |LRS, ZRS|No    |Yes|
-|West US 2       |LRS, ZRS|No    |Yes|
+|Australia East |LRS     |No    |Yes|
+|Australia Southeast|LRS     |No    |Not yet|
+|Central India  |LRS     |No    |Not yet|
+|France Central  |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
+|South India    |LRS     |No    |Not yet|
+|Southeast Asia |LRS, ZRS|No    |Yes|
+|West Central US|LRS     |No    |Not yet|
+|West Europe    |LRS, ZRS|No    |Yes|
+|West US 2      |LRS, ZRS|No    |Yes|
 
 *For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Alternatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
 
