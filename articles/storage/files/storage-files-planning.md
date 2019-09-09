@@ -150,7 +150,7 @@ New file shares start with the full number of credits in its burst bucket. Burst
 
 ## File share redundancy
 
-Azure Files standard shares supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
+Azure Files standard shares supports four data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
 
 Azure Files premium shares only support locally redundant storage (LRS).
 
