@@ -10806,11 +10806,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/dotnet/index.md",
-      "redirect_url": "https://docs.microsoft.com/dotnet/azure",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/functions/functions-best-practices.md",
       "redirect_url": "/azure/azure-functions/functions-best-practices",
       "redirect_document_id": false
