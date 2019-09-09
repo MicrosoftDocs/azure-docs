@@ -23,7 +23,7 @@ Before you start training your model, the characters are detected namelessly. As
 
 ## Accounts
 
-Depending on a type of your Video Indexer account, you might need to perform different actions. For information on how to connect your account to Azure, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
+Depending on a type of your Video Indexer account, different feature sets are available. For information on how to connect your account to Azure, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
 
 * Trial account: Video Indexer uses an internal Custom Vision account to create model and connect it to your Video Indexer account. 
 * Paid account: you connect your Custom Vision account to your Video Indexer account (if you don’t already have one, you need to create an account first).
