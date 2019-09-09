@@ -33,7 +33,7 @@ When using MSAL in your Android application, you can choose between using a brow
 
 ## Single sign-in implications
 
-By default, applications use a browser/custom tabs strategy. Because MSAL can persist a cookie in the browser, the user doesn't have to enter their credentials as often. Which enables other native android, or web, apps to participate in Single Sign-On (SSO).
+By default, applications integrated with MSAL use the system browser's Custom Tabs to authorize. Unlike WebViews, Custom Tabs share a cookie jar with the default system browser enabling fewer sign-ins with web or other native apps that have integrated with Custom Tabs.
 
 If the application uses a `WebView` strategy without integrating Authenticator or Company Portal support into their app, users can have a SSO experience from a single application but not across the device or between native apps and web apps.
 
