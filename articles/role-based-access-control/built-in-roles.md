@@ -32,7 +32,7 @@ The following table provides a brief description of each built-in role. Click th
 | Built-in role | Description |
 | --- | --- |
 | [Owner](#owner) | Lets you manage everything, including access to resources. |
-| [Contributor](#contributor) | Lets you manage everything except access to resources. |
+| [Contributor](#contributor) | Lets you manage everything except granting access to resources. |
 | [Reader](#reader) | Lets you view everything, but not make any changes. |
 | [AcrDelete](#acrdelete) | acr delete |
 | [AcrImageSigner](#acrimagesigner) | acr image signer |
