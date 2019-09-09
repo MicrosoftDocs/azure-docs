@@ -23,7 +23,7 @@ This article includes instructions on how to:
 - Add *work items* to sprints.
 - Create and use an *agile-derived work item template* that specifically aligns with TDSP lifecycle stages.
 
-The following instructions outline the steps needed to set up a TDSP team environment using Azure Boards and Azure Repos in Azure DevOps. The instructions use Azure DevOps because that is how to implement TDSP at Microsoft. If your group uses a different code hosting platform, the team lead tasks generally don't change, but the way to complete the tasks is different. For example, linking a work item with a Git branch might not be as easy with GitHub as it is with Azure Repos.
+The following instructions outline the steps needed to set up a TDSP team environment using Azure Boards and Azure Repos in Azure DevOps. The instructions use Azure DevOps because that is how to implement TDSP at Microsoft. If your group uses a different code hosting platform, the team lead tasks generally don't change, but the way to complete the tasks is different. For example, linking a work item with a Git branch might not be the same with GitHub as it is with Azure Repos.
 
 The following figure illustrates a typical sprint planning, coding, and source-control workflow for a data science project:
 
@@ -78,9 +78,9 @@ After your project and project code repository are created, you can add a Featur
    
    ![Enter a title and select Add to top](./media/agile-development/3-sprint-team-add-work.png)
    
-1. From the **Backlog** list, select the new Feature, fill in descriptions, assign a team member, and set planning parameters. 
+1. From the **Backlog** list, select and open the new Feature. Fill in the description, assign a team member, and set planning parameters. 
    
-   You can also link the Feature to the project's Azure Repos repository by selecting **Add link** under the **Development** section. 
+   You can also link the Feature to the project's Azure Repos code repository by selecting **Add link** under the **Development** section. 
    
    After you finish editing the Feature, select **Save & Close**.
    
@@ -92,13 +92,13 @@ Under the Feature, you can add User Stories to describe major steps needed to fi
 
 To add a new User Story to a Feature:
 
-1. On the **Backlog** tab, select the **+** to the left of the Feature to add the User Story. 
+1. On the **Backlog** tab, select the **+** to the left of the Feature. 
    
    ![Add a new User Story under the Feature](./media/agile-development/4-sprint-add-story.png)
    
 1. Give the User Story a title, and edit details such as assignment, status, description, comments, planning, and priority. 
    
-   You can also link the User Story to a branch of the project's Azure Repos repository by selecting **Add link** under the **Development** section. Select the repository and branch you want to link the work item to, and then select **OK**.
+   You can also link the User Story to a branch of the project's Azure Repos code repository by selecting **Add link** under the **Development** section. Select the repository and branch you want to link the work item to, and then select **OK**.
    
    ![Add link](./media/agile-development/5-sprint-edit-story.png)
    
@@ -154,10 +154,10 @@ Data scientists may feel more comfortable using an agile template that replaces 
    
 1. Follow the same steps to rename **Features** to *TDSP Stages*, and add the following new work item types:
    
-   - Business Understanding
-   - Data Acquisition
-   - Modeling
-   - Deployment
+   - *Business Understanding*
+   - *Data Acquisition*
+   - *Modeling*
+   - *Deployment*
    
 1. Under **Requirement backlog**, rename **Stories** to *TDSP Substages*, add the new work item type *TDSP Substage*, and set the default work item type to **TDSP Substage**.
    
