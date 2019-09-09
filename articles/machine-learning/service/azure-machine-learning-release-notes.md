@@ -23,6 +23,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### New web experience for Azure Machine Learning workspaces (preview)
 The new web experience enables data scientists and data engineers to complete their end-to-end machine learning lifecycle from prepping and visualizing data to training and deploying models in a single location. 
 
+![Azure Machine Learning workspace UI](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
 + Run automated ML experiments
@@ -44,7 +46,7 @@ Known issues:
     b. Import those public and private SSH keys to your local machine.
     c. Use them to SSH into the Notebook VM. 
 
-![Azure Machine Learning workspace UI](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+
 
 ## 2019-09-03
 ### Azure Machine Learning SDK for Python v1.0.60
