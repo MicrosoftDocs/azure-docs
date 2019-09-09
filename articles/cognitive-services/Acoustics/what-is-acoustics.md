@@ -16,16 +16,19 @@ ROBOTS: NOINDEX
 ---
 
 # What is Project Acoustics?
-Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like diffraction, portaling and reverb effects in complex scenes without requiring manual zone markup. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals.
+Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like occlusion, obstruction, portaling and reverberation effects in complex scenes without requiring manual zone markup or CPU intensive raytracing. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals for the acoustics of your virtual world.
 
 ![Screenshot from Gears of War 4 showing acoustics voxels](media/gears-with-voxels.jpg)
 
 ## Using wave physics for interactive acoustics
-Ray-based acoustics methods can check for occlusion using a single source-to-listener ray cast, or drive reverb by estimating local scene volume with a few rays. But these techniques can be unreliable because a pebble occludes as much as a boulder. Rays don't account for the way sound bends around objects, a phenomenon known as diffraction. Project Acoustics' simulation captures these effects using a wave-based simulation. The result is more predictable and reliable.
+Ray-based acoustics methods can check for occlusion using a single source-to-listener ray cast, or drive reverb by estimating local scene volume with a few rays. But these techniques can be unreliable because a pebble occludes as much as a boulder. Rays don't account for the way sound bends around objects, a phenomenon known as diffraction. Project Acoustics' simulation captures these effects using a wave-based simulation. The acoustics are more predictable, accurate and seamless.
 
-Project Acoustics' key innovation is to couple acoustic simulation with traditional sound design concepts. It translates simulation results into traditional audio DSP parameters for occlusion, portaling and reverb. The designer uses controls over this translation process. For more details on the core technologies behind Project Acoustics, visit the [research project page](https://www.microsoft.com/en-us/research/project/project-triton/).
+Project Acoustics' key innovation is to couple real sound wave based acoustic simulation with traditional sound design concepts. It translates simulation results into traditional audio DSP parameters for occlusion, portaling and reverb. The designer uses controls over this translation process. For more details on the core technologies behind Project Acoustics, visit the [research project page](https://www.microsoft.com/en-us/research/project/project-triton/).
 
 ![Animation showing a horizontal 2D slice of wave propagation through a scene](media/wave-simulation.gif)
+
+## Video Presentation from GDC 2019 (~30 min)
+[![Project Acoustics Video](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Click to play video")
 
 ## Setup
 [Project Acoustics Unity integration](unity-integration.md) is drag-and-drop and includes a Unity audio engine plugin. Augment the Unity audio source controls by attaching a Project Acoustics C# controls component to each audio object.

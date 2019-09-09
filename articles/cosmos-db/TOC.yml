@@ -455,6 +455,10 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -465,6 +469,8 @@
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
+        - name: Use resource tokens
+          href: how-to-use-resource-tokens-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data

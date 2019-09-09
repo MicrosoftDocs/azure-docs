@@ -96,6 +96,8 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 
 Here is a precompiled C# example of how to write a function which uses an [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) to work with a task hub that is configured as an App Setting:
 
+### C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -114,8 +116,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-And below is the required configuration for JavaScript. The task hub property in the `function.json` file is set via App Setting:
+### JavaScript
 
+The task hub property in the `function.json` file is set via App Setting:
 ```json
 {
     "name": "input",
