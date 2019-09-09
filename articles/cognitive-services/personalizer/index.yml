@@ -49,7 +49,7 @@ landingContent:
           - text: Using Python
             url: python-quickstart-commandline-feedback-loop.md
           - text: Node.js
-            url: quickstart-command-line-feedback-loop-nodejs-sdk
+            url: quickstart-command-line-feedback-loop-nodejs-sdk.md
       - linkListType: how-to-guide
         links: 
           - text: How to create and configure Personalizer
