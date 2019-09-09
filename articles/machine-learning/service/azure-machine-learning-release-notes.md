@@ -21,6 +21,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2019-09-09
 
 ### New web experience for Azure Machine Learning workspaces
+The new web experience enables data scientists and data engineers to complete their end-to-end machine learning lifecycle from prepping and visualizing data to training and deploying models in a single location. 
 
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
