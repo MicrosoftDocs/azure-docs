@@ -1,6 +1,6 @@
 ---
-title: Using Microsoft Authenticator or Microsoft Intune company portal on Xamarin iOS and Android applications | Azure
-description: Learn how to migrate Xamarin iOS applications using Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
+title: Use Microsoft Authenticator or Microsoft Intune company portal on Xamarin iOS and Android applications | Azure
+description: Learn how to migrate Xamarin iOS applications can use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Using Microsoft Authenticator or Microsoft Intune company portal on Xamarin applications
+# Use Microsoft Authenticator or Microsoft Intune company portal on Xamarin applications
 
 On Android and iOS, brokers like Microsoft Authenticator or Microsoft Intune company portal enable (Android only):
 
@@ -30,7 +30,7 @@ On Android and iOS, brokers like Microsoft Authenticator or Microsoft Intune com
 
 To enable one of these features, application developers need to use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Developers will also need to follow the steps below for [iOS](#brokered-authentication-for-ios) or [Android](#brokered-authentication-for-android) applications.
 
-## Brokered Authentication for iOS
+## Brokered authentication for iOS
 
 Follow the steps below to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
 
@@ -96,7 +96,7 @@ result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 ```
 
-### Step 4: Register a URL Scheme
+### Step 4: Register a URL scheme
 MSAL.NET uses URLs to invoke the broker and then return the broker response back to your app. To finish the round trip, you need to register a URL scheme for your app in the `Info.plist` file.
 
 The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by your `CFBundleURLName`.
@@ -106,7 +106,8 @@ The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by yo
 **For example:**
 `msauth.com.yourcompany.xforms`
 
-**Note** This will become part of the RedirectUri used for uniquely identifying your app when receiving the response from the broker.
+> ![NOTE]
+> This will become part of the RedirectUri used for uniquely identifying your app when receiving the response from the broker.
 
 ```XML
  <key>CFBundleURLTypes</key>
@@ -153,21 +154,22 @@ This Redirect URI needs to be registered on the app registration portal (https:/
 
 The portal has a new experience app registration portal to help you compute the brokered reply URI from the bundle ID:
 
-1. In the app registration, choose **Authentication** and selection **Try-out the new experience**
-   ![image](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. In the app registration, choose **Authentication** and select **Try-out the new experience**.
+   ![Try out the new app registration experience](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Select **Add platform**
-   ![image](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+2. Select **Add platform**.
+   ![Add a platform](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. When the list of platforms is supported, select **iOS**
-   ![image](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+3. When the list of platforms is supported, select **iOS**.
+   ![Configure iOS](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Enter your bundle ID as requested, and then press **Register**
-   ![image](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+4. Enter your bundle ID as requested, and then press **Register**.
+   ![Enter Bundle ID](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. The redirect URI is computed for you.
-   ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![Copy redirect URI](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 ## Brokered Authentication for Android
 
-The broker support isn't yet available for Android
+The broker support isn't available for Android
+

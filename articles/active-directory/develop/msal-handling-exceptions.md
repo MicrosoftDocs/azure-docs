@@ -52,7 +52,7 @@ Most of the time when `AcquireTokenSilent` fails, it is because the token cache 
 
 The interaction aims at having the user do an action. Some of those conditions are easy for users to resolve (for example, accept Terms of Use with a single click), and some can't be resolved with the current configuration (for example, the machine in question needs to connect to a specific corporate network). Some help the user setting-up Multi-factor authentication, or install Microsoft Authenticator on their device.
 
-### `MsalUiRequiredException` Classification
+### `MsalUiRequiredException` classification enumeration
 
 MSAL exposes a `Classification` field, which you can read to provide a better user experience, for example to tell the user that their password expired or that they'll need to provide consent to use some resources. The supported values are part of the `UiRequiredExceptionClassification` enum:
 
@@ -67,7 +67,7 @@ MSAL exposes a `Classification` field, which you can read to provide a better us
 | AcquireTokenSilentFailed | MSAL SDK doesn't have enough information to fetch a token from the cache. This can be because no tokens are in the cache or an account wasn't found. The error message has more details.  | Call AcquireTokenInteractively(). |
 | None    | No further details are provided. Condition may be resolved by user interaction during the interactive authentication flow. | Call AcquireTokenInteractively(). |
 
-## Code Example
+## Code example
 
 ```csharp
 AuthenticationResult res;

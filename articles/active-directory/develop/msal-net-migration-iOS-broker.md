@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Migrating iOS applications using Microsoft Authenticator from ADAL.NET to MSAL.NET
 
-You've been using ADAL.NET and the iOS broker, and it's time to migrate to MSAL.NET [Microsoft authentication library](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview),which, supports the broker on iOS from release 4.3 onwards. 
+You've been using ADAL.NET and the iOS broker, and it's time to migrate to MSAL.NET [Microsoft authentication library](msal-overview.md),which, supports the broker on iOS from release 4.3 onwards. 
 
 Where to start? This article will help you migrate your Xamarin iOS app from ADAL to MSAL.
 
@@ -33,16 +33,16 @@ This document assumes that you already have a Xamarin iOS app that is integrated
 
 ### What are brokers?
 
-Brokers are applications, provided by Microsoft, on Android and iOS ([Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) on iOS and Android, Intune Company Portal on Android). 
+Brokers are applications, provided by Microsoft, on Android and iOS ([Microsoft Authenticator](https://www.microsoft.com/account/authenticator) on iOS and Android, Intune Company Portal on Android). 
 
 They enable:
 
 - Single-Sign-On,
-- Device identification, which is required by some [conditional access policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) (See [Device management](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditions#device-platforms))
-- Application identification verification, also required in some enterprise scenarios (See for instance [Intune mobile application management, or MAM](https://docs.microsoft.com/en-us/intune/mam-faq))
+- Device identification, which is required by some [conditional access policies](../conditional-access/overview.md) (See [Device management](../conditional-access/conditions.md#device-platforms))
+- Application identification verification, also required in some enterprise scenarios (See for instance [Intune mobile application management, or MAM](https://docs.microsoft.com/intune/mam-faq))
 
 ## Migrate from ADAL to MSAL
-### **Step 1: Enable the Broker**
+### **Step 1: Enable the broker**
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
@@ -144,7 +144,7 @@ Both ADAL and MSAL will call the broker, and broker will, in turn, call back to 
 
 :heavy_check_mark:**There are no changes here between ADAL.NET and MSAL.NET**
 
-### **Step 4: Register a URL Scheme**
+### **Step 4: Register a URL scheme**
 ADAL.NET and MSAL.NET use URLs to invoke the broker and return the broker response back to the app. Register the URL scheme in the `Info.plist` file for your app as follows:
 
 <table>
@@ -233,3 +233,7 @@ example:
 </table>
 
 For more information about registering the redirectUri in the portal, see [Leveraging the broker in Xamarin.iOS applications](msal-net-using-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app) for more details.
+
+## Next steps
+
+Learn about [Xamarin iOS-specific considerations with MSAL.NET](msal-net-xamarin-ios-considerations.md). 
