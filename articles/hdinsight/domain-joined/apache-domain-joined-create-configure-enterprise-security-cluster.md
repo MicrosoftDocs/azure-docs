@@ -9,6 +9,7 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
 ---
+
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
 The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations, which adhere to strict corporate security policies, to process sensitive data securely.
@@ -81,7 +82,7 @@ Overview: In this section, you will create the users that will have access to th
 
     ![Create new Active Directory Group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-group.png)
 
-    ![create new group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image028.png)
+    ![create new group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
 1. Add the **HDIUser** created in the previous step to the **HDIUserGroup** as a member.
 
@@ -127,7 +128,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
     1. Click on the **Groups** section, search for **AAD DC Administrators**, and click **Select**.
 
-        ![Groups](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image038.png)
+        ![Groups](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
 
     1. Click on the **Directory role** section and select **Global administrator** in the right side. Click **Ok**.
 
@@ -146,7 +147,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 1. Install Microsoft Azure Active Directory connect on the Domain Controller.
     1. Open the executable that you downloaded in the previous step and agree to the license terms. Click **Continue**.
 
-        ![Azure AD Connect](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image052.png)
+        ![Azure AD Connect](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0052.png)
 
     1. Click **Use express settings** and complete the installation.
 
@@ -158,7 +159,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
     ![Connect to Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image058.png)
 1. On the **Connect to Active Directory Domain Services** screen, enter the username and password for an enterprise admin account. Click **Next**. This is the username `HDIFabrikam\HDIFabrikamAdmin` and its matching password that you created earlier.
 
-   ![Connect to Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image060.png)
+   ![Connect to Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. On the **Azure AD sign-in configuration** page, click **Next**.
     ![Azure AD sign-in configuration](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image062.png)
 1. On the Ready to configure screen, click **Install**.
@@ -182,7 +183,7 @@ Create an user-assigned managed identity that will be used to configure Azure Ac
 1. Select **Central US** under **Location**.
 1. Click **Create**.
 
-![create a new user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image082.png)
+![create a new user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
 ### Enable Azure Active Directory Domain Services
 
@@ -223,7 +224,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 
 1. On the **Summary** screen, verify the details for the Azure AD-DS and click **Ok**.
 
-    ![verify details](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image092.png)
+    ![verify details](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png)
 
 1. After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs).
 
@@ -270,7 +271,7 @@ Verify that the certificate is installed in the computer\'s Personal store. Comp
 1. Add the Certificates snap-in that manages certificates on the local computer.
 1. Expand **Certificates (Local Computer)**, expand **Personal**, and then expand **Certificates**. A new certificate should exist in the Personal store. This certificate is issued to the fully qualified host name.
 
-    ![verify certificate creation](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image102.png)
+    ![verify certificate creation](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
 1. In the right pane, right-click the certificate that you created in the previous step, point to **All Tasks**, and then click **Export**.
 
@@ -342,7 +343,7 @@ This step requires the following pre-requisites:
     1. Select **Custom** and enter `10.0.0.4` and `10.0.0.5`.
     1. Click **Save**.
 
-        ![save custom dns settings](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image123.png)
+        ![save custom dns settings](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. Create a new ESP-enabled HDInsight Spark cluster.
     1. Click **Custom (size, settings, apps)**.
