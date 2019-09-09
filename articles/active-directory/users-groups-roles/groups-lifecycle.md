@@ -32,7 +32,7 @@ Once you set a group to expire:
 Currently only one expiration policy can be configured for Office 365 groups on a tenant.
 
 > [!NOTE]
-> Configuring and using the expiration policy for Office 365 groups requires you to possess Azure AD Premium licenses for the members of all groups to which the expiration policy is applied.
+> Configuring and using the expiration policy for Office 365 groups requires you to possess but not necessarily assign Azure AD Premium licenses for the members of all groups to which the expiration policy is applied.
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -66,8 +66,9 @@ For more information on permissions to restore a deleted group, see [Restore a d
   - Save your settings when you're done by selecting **Save**.
 
 > [!NOTE]
-> When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration. The first renewal notification email is sent out within a day. For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration policy, Group A has 30 days before it's deleted, unless the owner renews it.
+> When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration unless the owner renews it. The first renewal notification email is sent out within a day.
 > When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
+> Expiration notices for groups used in Teams appear in the Teams Owners feed.
 
 ## Email notifications
 
