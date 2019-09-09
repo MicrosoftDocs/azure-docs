@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/29/2019
 ms.author: dapine
 ---
 # Install and run Form Recognizer containers
@@ -52,28 +52,25 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 core, 4-GB memory | 4 core, 8-GB memory |
+| Form Recognizer | 2 core, 4-GB memory | 4 core, 8-GB memory |
+| Recognize Text | 1 core, 8-GB memory | 2 cores, 8-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!Note]
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-## Get the container image with the docker pull command
+## Get the container images with the docker pull command
 
-Container images for Form Recognizer are available in the following repository:
+Container images for both the **Form Recognizer** and **Recognize Text** offerings are available in the following container registry:
 
-| Container | Repository |
+| Container | Fully qualified image name |
 |-----------|------------|
-| cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-If you intend to use the `cognitive-services-recognize-text` [container](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), instead of the Form Recognizer service, make sure you use the `docker pull` command with the correct container name: 
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
+You will need both containers, please note that the **Recognizer Text** container is [detailed outside of this article.](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -85,6 +82,15 @@ To get the Form Recognizer container, use the following command:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
+```
+### Docker pull for the Recognize Text container
+
+#### Recognize Text
+
+To get the Recognize Text container, use the following command:
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 ## How to use the container

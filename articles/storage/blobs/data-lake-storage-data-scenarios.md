@@ -33,10 +33,10 @@ Here's a list of tools that you can use to create a container for your files.
 
 |Tool | Guidance |
 |---|--|
-|Azure Storage Explorer | [Create a container by using Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure Storage Explorer | [Create a container by using Storage Explorer](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [Create a Blob container or File Share by using AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Hadoop container (HDFS) Command Line Interface (CLI) with HDInsight |[Create a container by using HDFS with HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Code in an Azure Databricks Notebook|[Create a storage account container (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Create a container and mount it (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|Hadoop container (HDFS) Command Line Interface (CLI) with HDInsight |[Create a container by using HDFS with HDInsight](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
+|Code in an Azure Databricks Notebook|[Create a storage account container (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [Create a container and mount it (Python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
 
 It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data anyway, then you can create your clusters first, and use the HDFS CLI to your create file systems.  
 

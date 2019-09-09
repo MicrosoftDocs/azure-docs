@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: barclayn
 
 ---
@@ -250,14 +250,16 @@ Support for server encryption is currently provided through the SQL feature call
 
 Client-side encryption of Azure SQL Database data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
-#### Encryption Model and Key Management
+#### Encryption Model and key management table
 
-| **Server-Side Using Service-Managed Key** |**Server-Side Using Customer-Managed Key**| **Client-Side Using Client-Managed** | **AI and Machine Learning**   |
-|--------------------|-------------------|----------------------|--------------------|
+|                                  |                    | **Encryption Model and Key Management** |                    |
+|----------------------------------|--------------------|-----------------------------------------|--------------------|
+|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed**      |
+| **AI and Machine Learning**      |                    |                    |                    |
 | Azure Search                     | Yes                | -                  | -                  |
 | Azure Machine Learning Service   | Yes                | -                  | -                  |
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
-| Power BI                         | Yes                | Preview, RSA 2048-bit | -               |
+| Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | -                  | -                  |
 | Event Hubs                       | Yes                | -                  | -                  |
@@ -278,7 +280,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure SQL Database               | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | -                  | -                  |
-| Azure SQL Database for PostgreSQL | Yes                | -                  | -                 |
+| Azure SQL Database for PostgreSQL | Yes                | -                  | -                  |
 | Azure SQL Data Warehouse         | Yes                | Yes, RSA 2048-bit  | Yes                |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Table Storage                    | Yes                | -                  | Yes                |

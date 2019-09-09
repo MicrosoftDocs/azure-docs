@@ -7,11 +7,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="docs"
+
 # Tutorial: Cable and connect to your Azure Data Box
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# Cable and connect to your device
+
+::: zone-end
+
+::: zone target="docs"
 
 This tutorial describes how to cable, connect, and turn on your Azure Data Box.
 
@@ -60,6 +74,38 @@ Perform the following steps to cable your device.
 
     ![Data Box power button](media/data-box-deploy-set-up/data-box-powered-door-open.png)
 
+::: zone-end
+
+::: zone target="chromeless"
+
+After you have received the device, you need to cable and connect to your device. 
+
+## Cable your device
+
+1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.
+2. Before you cable your device, ensure that you have the following cables:
+    
+    - (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
+    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
+    - Two 10 GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
+    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
+
+3. Remove and place the device on a flat surface. 
+	
+4. Cable the device as shown below.  
+
+    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
+
+    1. Connect the power cable to the device.
+    2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
+    3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
+    4. Turn on the device. The power button is on the front panel of the device.
+
+::: zone-end
+
+::: zone target="docs"
+
+
 ## Connect to your device
 
 Perform the following steps to set up your device using the local web UI and the portal UI.
@@ -88,6 +134,22 @@ Once the data network interfaces are configured, you can also use the IP address
 
 After the device setup is complete, you can connect to the device shares and copy the data from your computer to the device. 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## Connect your device
+
+1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com).
+2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device. 
+3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
+4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
+
+::: zone-end
+
+
+::: zone target="docs"
+
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
@@ -100,4 +162,6 @@ Advance to the next tutorial to learn how to copy data on your Data Box.
 
 > [!div class="nextstepaction"]
 > [Copy your data to Azure Data Box](./data-box-deploy-copy-data.md)
+
+::: zone-end
 

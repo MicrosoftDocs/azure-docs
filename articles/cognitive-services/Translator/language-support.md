@@ -232,6 +232,7 @@ The following languages are available for customization to or from English using
 | Lithuanian      | `lt`          |
 |Malagasy|	`mg`	|
 | Norwegian      | `nb`          |
+| Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese      | `pt`          |
 | Romanian      | `ro`          |

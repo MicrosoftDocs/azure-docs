@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
 ---
+
 # Authorize users for Apache Ambari Views
 
 [Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
@@ -94,7 +95,7 @@ To manage roles, go to the **Ambari management page**, then select the **Roles**
 
 To see the list of permissions given to each role, click on the blue question mark next to the **Roles** table header on the Roles page.
 
-![Roles menu link](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![Roles menu link permissions](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "Roles menu link permissions")
 
 On this page, there are two different views you can use to manage roles for users and groups: Block and List.
 

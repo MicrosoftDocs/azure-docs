@@ -1,5 +1,5 @@
 ---
-title: Cluster setup for Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase, or R Server - Azure HDInsight
+title: Cluster setup for Apache Hadoop, Spark, Kafka, HBase, or R Server - Azure
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 author: hrasheed-msft
@@ -78,7 +78,7 @@ HDInsight cluster names have the following restrictions:
 - Allowed characters: a-z, 0-9, A-Z 
 - Max length: 59
 - Reserved names: apps
-- Must be unique
+- The cluster naming scope is for all Azure, across all subscriptions. So the cluster name must be unique worldwide.
 - First 6 characters must be unique within a VNET
 
 ## Cluster login and SSH username

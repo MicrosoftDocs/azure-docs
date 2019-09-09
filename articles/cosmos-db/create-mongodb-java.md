@@ -11,7 +11,7 @@ ms.author: rimman
 ms.custom: seo-java-august2019
 
 ---
-# Quickstart: Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
+# Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
