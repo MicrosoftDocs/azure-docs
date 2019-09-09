@@ -44,7 +44,7 @@ September 9, 2019: Released for auto update
 
 ### Release status
 
-Jan 23, 2018: Released for download
+Jan 23, 2019: Released for download
 
 ### New features and improvements
 
