@@ -54,43 +54,42 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 					"items": "@pipeline().parameters.inputs"
 				}
 			},
-			  {
-                "name": "MyForEach",
-                "type": "ForEach",
-                "dependsOn": [
-                    {
-                        "activity": "MyFilterActivity",
-                        "dependencyConditions": [
-                            "Succeeded"
-                        ]
-                    }
-                ],
-                "userProperties": [],
-                "typeProperties": {
-                    "items": {
-                        "value": "@activity('MyFilterActivity').output.value",
-                        "type": "Expression"
-                    },
-                    "isSequential": "false",
-                    "batchCount": 1,
-                    "activities": [
-                        {
-                            "name": "Set Variable1",
-                            "type": "SetVariable",
-                            "dependsOn": [],
-                            "userProperties": [],
-                            "typeProperties": {
-                                "variableName": "test",
-                                "value": {
-                                    "value": "@string(item())",
-                                    "type": "Expression"
-                                }
-                            }
-                        }
-                    ]
-                }
-            }
-        ],
+			{
+			"name": "MyForEach",
+			"type": "ForEach",
+			"dependsOn": [
+				{
+					"activity": "MyFilterActivity",
+					"dependencyConditions": [
+						"Succeeded"
+					]
+				}
+			],
+			"userProperties": [],
+			"typeProperties": {
+				"items": {
+					"value": "@activity('MyFilterActivity').output.value",
+					"type": "Expression"
+				},
+				"isSequential": "false",
+				"batchCount": 1,
+				"activities": [
+					{
+						"name": "Set Variable1",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "test",
+							"value": {
+								"value": "@string(item())",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		}],
 		"parameters": {
 			"inputs": {
 				"type": "Array",
