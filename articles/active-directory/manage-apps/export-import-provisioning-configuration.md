@@ -1,5 +1,5 @@
 ---
-title: 'Exporting and importing provisioning configuration using Graph API | Microsoft Docs'
+title: 'Export or import your provisioning configuration by using Graph API | Microsoft Docs'
 description: Learn how to export and import provisioning configuration using Graph API.
 services: active-directory
 author: cmmdesai
@@ -18,7 +18,7 @@ ms.author: chmutali
 
 ms.collection: M365-identity-device-management
 ---
-# Exporting and importing provisioning configuration with Graph APIs
+# Export or import your provisioning configuration by using Graph API
 
 You can use Microsoft Graph API and Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
 
