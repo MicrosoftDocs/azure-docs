@@ -20,7 +20,7 @@ The SDK V3 includes several breaking changes in the public APIs. The main steps 
 1. Customizations that were using `WithProcessorOptions` should be using `WithLeaseConfiguration` and `WithPollInterval` for intervals, `WithStartTime` [for start time](how-to-configure-change-feed-start-time.md), and `WithMaxItems` to define the maximum item count.
 1. If specifying `ChangeFeedProcessorOptions.LeasePrefix`, use that same value as the `processorName` on `GetChangeFeedProcessorBuilder`, or use `string.Empty` otherwise.
 1. The changes are no longer delivered as a `IReadOnlyList<Document>`, instead, it's a `IReadOnlyCollection<T>` where `T` is a type you need to define, there is no base item class anymore.
-1. To handle the changes, you no longer need an Observer implementation, [just a delegate](change-feed-processor.md#implementing-the-change-feed-processor). This delegate can be a simple static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
+1. To handle the changes, you no longer need an Observer implementation, [just a delegate](change-feed-processor.md#implementing-the-change-feed-processor). The delegate can be a static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
 
 For example, if the original code is building the change feed processor like this:
 
@@ -36,9 +36,11 @@ And the delegate, can be simply a static method:
 
 ## State and lease container
 
-The change feed processor uses a [lease container](change-feed-processor.md#components-of-the-change-feed-processor) to store state, and this is also valid for the library. 
+The change feed processor uses a [lease container](change-feed-processor.md#components-of-the-change-feed-processor) to store state, like the library, but the schemas are different.
 
-The state created by the library (the lease documents) has a different schema than the SDK V3 but it will be **migrated automatically** upon the first execution of the migrated application code. This means that you can safely stop the application using the old code, migrate the code to the new version, start the migrated application, and any changes that happened while the application was stopped, will be picked up and processed by the new version.
+The SDK V3 change feed processor will detect any old library state and migrate it to the new schema automatically upon the first execution of the migrated application code. 
+
+You can safely stop the application using the old code, migrate the code to the new version, start the migrated application, and any changes that happened while the application was stopped, will be picked up and processed by the new version.
 
 > [!NOTE]
 > Migrations from applications using the library to the SDK V3 are one-way, since the state (leases) will be migrated to the new schema that is not backward compatible.
