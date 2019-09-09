@@ -451,15 +451,17 @@ Below is an example of a proxy-resources annotation that is to be applied to you
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
 
-## Error "unauthorized: authentication required" trying to use a Docker image from a private registry.
+## Error "unauthorized: authentication required" when trying to use a Docker image from a private registry
 
 ### Reason
 
-You have the option of specifying an array of imagePullSecrets to authenticate images from a private container registry. To use a private image you need to first create a Kubernetes secret (https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) in the namespace you wish to use the image. Then provide the secret as an imagePullSecret in the azds.yaml. Please note, imagePullSecrets specified in the azds.yaml will override imagePullSecrets specified in the values.yaml file.
+You are using a Docker image from a private registry that requires authentication. You can allow Dev Spaces to authenticate and pull images from this private registry using [imagePullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets).
 
 ### Try
 
-Below is an example of a specifying imagePullSecrets in the azds.yaml file.
+To use imagePullSecrets, [create a Kubernetes secret](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) in the namespace where you are using the image. Then provide the secret as an imagePullSecret in `azds.yaml`.
+
+Below is an example of a specifying imagePullSecrets in `azds.yaml`.
 
 ```
 kind: helm-release
@@ -479,6 +481,9 @@ install:
     # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
     #
     # This uses credentials from secret "myRegistryKeySecretName".
-    # imagePullSecrets: 
-        - name: myRegistryKeySecretName 
- ```
+    imagePullSecrets:
+      - name: myRegistryKeySecretName
+```
+
+> [!IMPORTANT]
+> Setting imagePullSecrets in `azds.yaml` will override imagePullSecrets specified in the `values.yaml`.
