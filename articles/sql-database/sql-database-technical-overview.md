@@ -25,7 +25,7 @@ SQL Database enables you to easily define and scale performance within two diffe
 > [!NOTE]
 > For relevant terms and their definitions, see the [SQL Database terms glossary](sql-database-glossary-terms.md).
 
-Azure SQL Database provides the following deployment options for an Azure SQL database:
+Azure SQL Database provides the following deployment options for a SQL database:
 
 ![Diagram of deployment options](./media/sql-database-technical-overview/deployment-options.png)
 
@@ -86,7 +86,7 @@ Azure SQL Database provides advanced monitoring and troubleshooting features tha
 Azure provides the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with performance ratings, that enable you to monitor the status of thousands of databases. Using these tools, you can quickly assess the impact of scaling up or down, based on your current or projected performance needs. Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price.
-- **Azure Event Hub**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
+- **Azure Event Hubs**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
 - **Azure Monitor logs**: For a built-in monitoring solution with reporting, alerting, and mitigating capabilities.
 
     ![Diagram of Azure monitoring architecture](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -95,7 +95,7 @@ Azure provides the [built-in performance monitoring](sql-database-performance.md
 
 In a traditional SQL Server environment, you would generally have at least two machines locally set up. These machines would have exact, synchronously maintained, copies of the data to protect against a failure of a single machine or component. This provides high availability, but doesn't protect against a natural disaster destroying your datacenter.
 
-Disaster recovery assumes that a catastrophic event is geographically localized enough to have another machine or set of machines with a copy of your data far away. In SQL Server, you could use Always On Availability Groups running in async mode to get this capability. Generally, people don't want to wait for replication to happen that far away before committing a transaction, so there is potential for data loss when you do unplanned failovers.
+Disaster recovery assumes that a catastrophic event is geographically localized enough to have another machine or set of machines with a copy of your data far away. In SQL Server, you can use Always On Availability Groups running in async mode to get this capability. Generally, people don't want to wait for replication to happen that far away before committing a transaction, so there is potential for data loss when you do unplanned failovers.
 
 Databases in the premium and business critical service tiers already [do something very similar](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage by using a [different but equivalent mechanism](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). There is logic that protects against a single machine failure. The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
 
@@ -105,11 +105,11 @@ In fact, the 99.99 percent availability service level agreement [(SLA)](https://
 
 - [Automatic backups](sql-database-automated-backups.md):
 
-  SQL Database automatically performs full, differential, and transaction log backups of Azure SQL databases to enable you to restore to any point in time. For single databases and pooled databases, you can configure SQL Database to store full database backups to Azure Storage for long-term backup retention. For managed instances, you can also perform copy-only backups for long-term backup retention.
+  SQL Database automatically performs full, differential, and transaction log backups of SQL databases to enable you to restore to any point in time. For single databases and pooled databases, you can configure SQL Database to store full database backups to Azure Storage for long-term backup retention. For managed instances, you can also perform copy-only backups for long-term backup retention.
 
 - [Point-in-time restores](sql-database-recovery-using-backups.md):
 
-  All SQL Database deployment options support recovery to any point in time within the automatic backup retention period for any Azure SQL database.
+  All SQL Database deployment options support recovery to any point in time within the automatic backup retention period for any SQL database.
 - [Active geo-replication](sql-database-active-geo-replication.md):
 
   The single database and pooled databases options allow you to configure up to four readable secondary databases in either the same or globally distributed Azure datacenters. For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale. This removes bottlenecks on the primary that are due to read workloads. For managed instances, use auto-failover groups.
@@ -152,7 +152,7 @@ SQL Database provides a range of [built-in security and compliance features](sql
 
 ### Advance threat protection
 
-Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
+Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
 - [Data discovery and classification](sql-database-data-discovery-and-classification.md):
 
@@ -166,7 +166,7 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 
 ### Auditing for compliance and security
 
-[Auditing](sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+[Auditing](sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations.
 
 ### Data encryption
 
@@ -188,7 +188,7 @@ SQL Database makes building and maintaining applications easier and more product
   A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.
 - [SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt):
 
-  A free, downloadable client application for developing SQL Server relational databases, Azure SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
+  A free, downloadable client application for developing SQL Server relational databases, SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
 - [Visual Studio Code](https://code.visualstudio.com/docs):
 
   A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.
