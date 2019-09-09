@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
@@ -28,7 +28,7 @@ Now that you have built you client application object, you'll use it to acquire 
 
 ## ASP.NET Core
 
-The controller methods are protected by an `[Authorize]` attribute that forces users from being authenticated to use the Web App. Here is the code that calls Microsoft Graph.
+The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the Web App. Here is the code that calls Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -66,7 +66,7 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-To understand more thoroughly the code required for this scenario, see the phase 2 [2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial.
+To understand more thoroughly the code required for this scenario, see the phase 2 ([2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial.
 
 There are many additional complexities, such as:
 
