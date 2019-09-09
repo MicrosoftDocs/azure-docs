@@ -17,9 +17,9 @@ ms.author: v-lilei
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for subsequent analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
+Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
 
-In this article, you will use the Import Data wizard on the Azure Portal to ingest, index and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blog Storage and the results are saved as a knowledge store in Azure Table Storage.
+In this article, you will use the Import Data wizard on the Azure Portal to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blog Storage and the results are saved as a knowledge store in Azure Table Storage.
 
 After you create the knowledge store, you can learn how to access this knowledge store using Storage Explorer or Power BI.
 
@@ -77,7 +77,7 @@ In this wizard step, you will create a data source from the Azure Blob with your
 
 ## Add Cognitive Search (Import data wizard)
 
-In this wizard step, you will create a skillset with cognitive skill enrichments. This skills we use in this sample will extract key phrases and detect the language and sentiment. These enrichments will be "projected" into a knowledge store as Azure tables.
+In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. These enrichments will be "projected" into a knowledge store as Azure tables.
 
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
 1. Expand **Add Enrichments**.
@@ -93,7 +93,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 
 1. Expand **Save enrichments to knowledge store**
 1. Enter the **Storage account Connection String** that you saved in a previous step.
-1. Select the these **Azure table projections**:
+1. Select these **Azure table projections**:
     + **Documents**
     + **Pages**
     + **Key phrases**
@@ -124,7 +124,7 @@ In this wizard step, you will configure an indexer that will pull together the d
 
 1. For **Name**, enter `hotel-reviews-idxr`.
 1. For **Schedule**, keep the default **Once**.
-1. Click **Submit** to run the indexer to initiates the pipeline that you defined. Data extraction, indexing, application of cognitive skills all happen in this step.
+1. Click **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
 
 ### Monitor the Notifications queue for status
 
@@ -132,9 +132,9 @@ In this wizard step, you will configure an indexer that will pull together the d
 
 ## Next steps
 
-To learn how to connect the knowledge store you just created to Power BI, see the following walkthrough.
+To learn how to connect the knowledge store you created to Power BI, see the following walkthrough.
 
 > [!div class="nextstepaction"]
 > [Connect to Power BI](knowledge-store-connect-to-powerbi.md)
 
-If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer that you just created. Deleting the indexer resets the free daily transaction counter back to zero.
+If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer. Deleting the indexer resets the free daily transaction counter back to zero.

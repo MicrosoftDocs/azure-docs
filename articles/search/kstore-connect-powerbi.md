@@ -11,7 +11,7 @@ ms.date: 09/03/2019
 ms.author: v-lilei
  
 ---
-# Connect a knowledge store to Power Bi
+# Connect a knowledge store to Power BI
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
@@ -36,7 +36,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 1. If prompted, enter the storage account key.
 
-1. Select the Document, KeyPhrases and Pages tables. These are Azure table projections of the hotel reviews sample data, enriched by the cognitive services you selected when you ran the Import Data wizard.
+1. Select the Document, KeyPhrases, and Pages tables. These are Azure table projections of the hotel reviews sample data, enriched by the cognitive services you selected when you ran the Import Data wizard.
 
 1. Click **Load**.
 
@@ -48,7 +48,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
      ![Edit tables](media/kstore-connect-powerbi/powerbi-edit-table.png "Edit tables")
 
-1. Click the icon with opposing arrows at the upper right side of the table to expand the. When the list of columns appears select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
+1. Click the icon with opposing arrows at the upper right side of the table to expand the *Content*. When the list of columns appears, select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
 
     ![Edit tables](media/kstore-connect-powerbi/powerbi-expand-content-table.png "Expand content")
 
