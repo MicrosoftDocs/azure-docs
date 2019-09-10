@@ -8,7 +8,7 @@
   items:
   - name: Create a private endpoint - Azure portal
     href: create-private-endpoint-portal.md
-  - name: Create a private eEndpoint - Azure CLI
+  - name: Create a private endpoint - Azure CLI
     href: create-private-endpoint-cli.md
   - name: Create a private endpoint - Azure PowerShell
     href: create-private-endpoint-powershell.md
