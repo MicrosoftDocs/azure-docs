@@ -25,9 +25,9 @@ This property is used for optimistic concurrency control. If application needs t
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').create()).V('1').has('_etag', '"00000100-0000-0800-0000-5d03edac0000"').property('test', '1')
 ```
 
-### Time-to-live
+### Time-to-live (TTL)
 
-If collection has document expiration enabled and documents have ```ttl``` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. ```ProjectionStrategy``` is not necessary to enable TTL exposure.
+If collection has document expiration enabled and documents have ```ttl``` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. ```ProjectionStrategy``` isn't necessary to enable time-to-live property exposure.
 
 Vertex created with the traversal below will be automatically deleted in **123 seconds**.
 

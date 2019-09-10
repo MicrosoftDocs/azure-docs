@@ -26,13 +26,13 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
 
-* ***Sorting by array properties*** ```.order().by(<array property>)``` is not supported. Sorting is supported only by primitive types.
+* ***Sorting by array properties*** ```.order().by(<array property>)``` isn't supported. Sorting is supported only by primitive types.
 
 * ***Non-primitive JSON types*** aren't supported. Use ```string```, ```number``` or ```true```/```false``` types. ```null``` values aren't supported. 
 
-* ***GraphSONv3*** serializer is not available today but will become available in near future.
+* ***GraphSONv3*** serializer isn't available today but will become available in near future.
 
-* ***Transactions*** aren't supported due to distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
+* ***Transactions*** aren't supported because of distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
 
 ## Next steps
 * Visit [Cosmos DB user voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) page to share feedback and help team focus on features that are important to you.
