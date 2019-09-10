@@ -148,25 +148,25 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Subscription Name | SubscriptionName |  SubscriptionName |
-| Date | BillingCycle |  Date  (Date String only. No time stamp) |
+| Date | BillingCycle |  Date  (Date String only. No time stamp)
 | Month | Month |  Month |
-|   | Day | Day |  Day |
-|   | Year | Year |  Year |
-|   | Meter ID | MeterResourceId |  MeterId |
-|   | Publisher Name | PublisherFriendlyName |  PublisherName |
-|   | Offer Name | OfferFriendlyName |  OfferName |
-|   | Plan Name | PlanFriendlyName |  PlanName |
-|   | Consumed Quantity | BilledQty |  ConsumedQuantity |
-|   | ResourceRate | ResourceRate | ResourceRate |
-|   | ExtendedCost | ExtendedCost | ExtendedCost |
-|   | Unit of Measure | UnitOfMeasure | UnitOfMeasure |
-|   | Instance ID | InstanceId | InstanceId |
-|   | Additional Info | AdditionalInfo | AdditionalInfo |
-|   | Tags | Tags | Tags |
-|   | Order Number | OrderNumber | OrderNumber |
-|   | Department Name | DepartmentNames | DepartmentName |
-|   | Cost Center | CostCenters |  CostCenter |
-|   | Resource Group | ResourceGroup |  ResourceGroup |
+| Day | Day |  Day |
+| Year | Year |  Year |
+| Meter ID | MeterResourceId |  MeterId |
+| Publisher Name | PublisherFriendlyName |  PublisherName |
+| Offer Name | OfferFriendlyName |  OfferName |
+| Plan Name | PlanFriendlyName |  PlanName |
+| Consumed Quantity | BilledQty |  ConsumedQuantity |
+| ResourceRate | ResourceRate | ResourceRate |
+| ExtendedCost | ExtendedCost | ExtendedCost |
+| Unit of Measure | UnitOfMeasure | UnitOfMeasure |
+| Instance ID | InstanceId | InstanceId |
+| Additional Info | AdditionalInfo | AdditionalInfo |
+| Tags | Tags | Tags |
+| Order Number | OrderNumber | OrderNumber |
+| Department Name | DepartmentNames | DepartmentName |
+| Cost Center | CostCenters |  CostCenter |
+| Resource Group | ResourceGroup |  ResourceGroup |
 
 #### Price Sheet
 
@@ -176,7 +176,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Unit of Measure | UnitOfMeasure |   |
 | Overage Part Number | ConsumptionPartNumber |   |
 | Overage Unit Price | ConsumptionPrice |   |
-| Currency Code | CurrencyCode |   |
+| Currency Code | CurrencyCode |     |
 
 ### Common API issues
 

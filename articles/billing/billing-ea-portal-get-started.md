@@ -320,7 +320,7 @@ Enterprise Administrators use the Monthly Report Download page to download sever
 - Marketplace Charges
 - Price Sheet
 
-# To download reports:
+To download reports:
 
 
 1. In the Azure EA portal, click **Reports**.

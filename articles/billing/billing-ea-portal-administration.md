@@ -88,7 +88,7 @@ Other points to keep in mind before an account transfer:
 - Any remaining monetary commitment balance in the source agreement is lost, including future terms.
 
 
-## Transfer an enterprise enrollment to a new enrollment
+## Transfer enterprise enrollment to a new one
 
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 
