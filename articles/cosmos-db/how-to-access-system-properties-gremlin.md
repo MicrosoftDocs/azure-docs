@@ -19,7 +19,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').creat
 
 ### E-Tag
 
-This property is used for optimistic concurrency control. If application needs to separate read and write into separate traversals, it can use eTag property to avoid data loss in concurrent writes.
+This property is used for optimistic concurrency control. If application needs to break operation into a few separate traversals, it can use eTag property to avoid data loss in concurrent writes.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').create()).V('1').has('_etag', '"00000100-0000-0800-0000-5d03edac0000"').property('test', '1')
