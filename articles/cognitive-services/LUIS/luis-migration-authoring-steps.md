@@ -98,7 +98,7 @@ Learn [how to add contributors](luis-how-to-collaborate.md).
 
 ## Troubleshooting errors with the migration process
 
-If you receive a `MissingSubscriptionRegistration` error in the LUIS portal during the migration process, create a Cognitive Service resource in the [Azure portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Learn more about [causes of this error](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
+If you receive a `MissingSubscriptionRegistration` error in the LUIS portal with a red notification bar during the migration process, create a Cognitive Service resource in the [Azure portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Learn more about [causes of this error](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## Next steps
 
