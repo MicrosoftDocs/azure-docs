@@ -24,7 +24,6 @@ This article shows you how to access the repository from the following environme
 - [Azure Machine Learning Notebook VM](#notebookvm)
 - [Bring your own notebook server](#byo)
 - [Data Science Virtual Machine](#dsvm)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
@@ -50,13 +49,6 @@ These instructions install the base SDK packages necessary for the quickstart an
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-<a name="aznb"></a>
-## Get samples on Azure Notebooks
-
-On [Azure Notebooks](https://notebooks.azure.com/), the SDK and notebook server are installed and configured for you. Azure Notebooks provides a fully-managed, lightweight notebook environment for you to explore.
-
-To access the sample repository on Azure Notebooks, navigate to your Azure Machine Learning workspace through the [Azure portal](https://portal.azure.com). From the  **Overview** section, select **Get Started in Azure Notebooks**.
 
 ## Next steps
 
