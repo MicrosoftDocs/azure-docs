@@ -54,6 +54,24 @@ landingContent:
         links:
           - text: Azure Resource Manager template
             url: /azure/templates/microsoft.databricks/workspaces
+  - title: Integrate Databricks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Run a notebook from Azure Data Factory
+            url: ../data-factory/transform-data-using-databricks-notebook.md
+          - text: Do sentiment analysis using Cognitive Services
+            url: databricks-sentiment-analysis-cognitive-services.md
+          - text: Use the Cosmos DB service endpoint
+            url: service-endpoint-cosmosdb.md
+          - text: Access storage using Azure Key Vault
+            url: store-secrets-azure-key-vault.md
+          - text: Perform ETL operations with Azure Data Lake Storage Gen2 and SQL Data Warehouse
+            url: databricks-extract-load-sql-data-warehouse.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to Excel, R, and Python
+            url: connect-databricks-excel-python-r.md
   - title: Use a virtual network
     linkLists:
       - linkListType: quickstart
@@ -76,25 +94,7 @@ landingContent:
             url: databricks-stream-from-eventhubs.md
           - text: Stream data from HDInsight Kafka
             url: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
-  - title: Integrate Databricks
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Run a notebook from Azure Data Factory
-            url: ../data-factory/transform-data-using-databricks-notebook.md
-          - text: Do sentiment analysis using Cognitive Services
-            url: databricks-sentiment-analysis-cognitive-services.md
-          - text: Use the Cosmos DB service endpoint
-            url: service-endpoint-cosmosdb.md
-          - text: Access storage using Azure Key Vault
-            url: store-secrets-azure-key-vault.md
-          - text: Perform ETL operations with Azure Data Lake Storage Gen2 and SQL Data Warehouse
-            url: databricks-extract-load-sql-data-warehouse.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to Excel, R, and Python
-            url: connect-databricks-excel-python-r.md
-  - title: Guides for Developers
+  - title: Guides for developers
     linkLists:
       - linkListType: reference
         links:
