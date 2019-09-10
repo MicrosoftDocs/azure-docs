@@ -20,24 +20,24 @@ ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Positive Modulus of pair of numbers.
-* ``abs(-20) -> 20``
-* ``abs(10) -> 10``
+* ``abs(-20) -> 20``  
+* ``abs(10) -> 10``  
 ___
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a cosine inverse value
-* ``acos(1) -> 0.0``
+* ``acos(1) -> 0.0``  
 ___
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Adds a pair of strings or numbers. Adds a date to a number of days. Appends one array of similar type to another. Same as the + operator
-* ``add(10, 20) -> 30``
-* ``10 + 20 -> 30``
-* ``add('ice', 'cream') -> 'icecream'``
-* ``'ice' + 'cream' + ' cone' -> 'icecream cone'``
-* ``add(toDate('2012-12-12'), 3) -> 2012-12-15 (date value)``
-* ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``
-* ``[10, 20] + [30, 40] => [10, 20, 30, 40]``
+* ``add(10, 20) -> 30``  
+* ``10 + 20 -> 30``  
+* ``add('ice', 'cream') -> 'icecream'``  
+* ``'ice' + 'cream' + ' cone' -> 'icecream cone'``  
+* ``add(toDate('2012-12-12'), 3) -> 2012-12-15 (date value)``  
+* ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``  
+* ``[10, 20] + [30, 40] => [10, 20, 30, 40]``  
 ___
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
