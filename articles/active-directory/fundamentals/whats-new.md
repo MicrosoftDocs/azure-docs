@@ -49,6 +49,23 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 
 ---
 
+### Enhanced search, filtering, and sorting for groups is available in the Azure AD portal (Public Preview)
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+We're pleased to announce public preview availability of the enhanced groups-related experiences in the Azure AD portal. These enhancements help you better manage groups and member lists, by providing:
+
+- Advanced search capabilities, such as substring search on groups lists.
+- Advanced filtering and sorting options on member and owner lists.
+- New search capabilities for member and owner lists.
+- More accurate group counts for large groups.
+
+For more information, see [Manage groups in the Azure portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
+
+---
+
 ### New custom roles are available for app registration management (Public Preview)
 
 **Type:** New feature  
@@ -166,7 +183,7 @@ New updates to the AzureAD and AzureAD Preview PowerShell modules are available:
 
 ---
 
-### Improvements to the UI of the dynamic group rule builder in the Azure Portal
+### Improvements to the UI of the dynamic group rule builder in the Azure portal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
