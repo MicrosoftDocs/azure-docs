@@ -449,7 +449,7 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
 * The storage logs are available at `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Script action logs](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
     Under this directory, the logs are organized separately for **headnode**, **worker node**, and **zookeeper node**. See the following examples:
 
