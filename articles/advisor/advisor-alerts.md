@@ -2,13 +2,13 @@
 title: Create Azure Advisor alerts for new recommendations | Microsoft Docs
 description: Create Azure Advisor alerts for new recommendation
 services: advisor
-author: saket-ms
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2019
-ms.author: saket-ms
+ms.author: sagupt
 ---
 
 # Create activity log alerts for new recommendations 
