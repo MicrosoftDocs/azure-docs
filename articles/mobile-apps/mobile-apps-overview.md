@@ -24,9 +24,33 @@ Building a mobile app development strategy to drive new business opportunities o
 - evolve the app as their business evolves.
 - let developers focus on building high quality apps while focusing to reduce the time to market. 
 
-This documentation series explains **how to build a best in class, secure, reliable, scalable, cloud based mobile applications using Microsoft services**. The series is divided into the following topics:
+This documentation series explains **how to build a best in class, secure, reliable, scalable, cloud based mobile applications using Microsoft services**.
 
 ## Intended Audience
 
 This documentation series will be useful for developers who are new or expert in building mobile applications and are looking to learn about the cloud services that will help make them more successful in app development. They will find here a concise overview of the all the Microsoft services, tools, and technologies they need to know. Each topic links to other resources for more in-depth information. Each part of the series can be read independently, so you can pick and choose topics that you're interested in.
 
+The series is divided into the following topics:
+- Stages in mobile application development
+    - [Choose the front-end development platform](front-end-development-platform.md)
+    - Plan and design with back-end services
+        - [Authentication](authentication.md)
+        - [Data Storage](data-storage.md)
+        - [Serverless Compute](azure-funcitons.md)
+        - File Storage
+        - Mobile App Backend
+        - Secure and Manage apps 
+    - [Code Hosting Services](code-hosting-services.md)
+    - DevOps    
+        - [Continuous Build & Integration](continuous-integration.md)
+        - [Test on real devices](test.md)
+        - [Continuous Delivery](continuous-delivery.md)
+    - [Analyze usage and user behavior](analytics.md)
+    - [Monitor health of your application](diagnostics.md)
+    - [Engage with your users](push-notifications.md)
+- Additional services
+    - [Cognitive Services](cognitive-services.md)
+    - [Azure Maps](azure-maps.md)
+    - [Aure CDN for Asset Hosting](azure-cdn.md)
+      
+     

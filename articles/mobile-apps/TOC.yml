@@ -26,23 +26,23 @@
         href: 
       - name: Secure and Manage apps 
         href: 
-  - name: Code Hosting Services
-    href: code-hosting-services.md
-  - name: DevOps
-    - name: What is DevOps?
-      href: devops.md
-    - name: Continuous Build & Integration
-      href: continuous-integration.md
-    - name: Test on real devices
-      href: test.md
-    - name: Continuous Delivery
-      href: continuous-delivery.md
-  - name: Analyze Usage and User Behavior 
-    href: analytics.md
-  - name: Monitor Health of your Application 
-    href: diagnostics.md
-  - name: Engage with your App Users 
-    href: push-notifications.md
+    - name: Code Hosting Services
+      href: code-hosting-services.md
+    - name: DevOps
+      - name: What is DevOps?
+        href: devops.md
+      - name: Continuous Build & Integration
+        href: continuous-integration.md
+      - name: Test on real devices
+        href: test.md
+      - name: Continuous Delivery
+        href: continuous-delivery.md
+    - name: Analyze Usage and User Behavior 
+      href: analytics.md
+    - name: Monitor Health of your Application 
+      href: diagnostics.md
+    - name: Engage with your App Users 
+      href: push-notifications.md
   - name: Additional Services
     items:
     - name: Cognitive Services 
