@@ -41648,7 +41648,7 @@
 	},
 	{
 		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
-		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
 		"redirect_document_id": false
 	  },
     {
