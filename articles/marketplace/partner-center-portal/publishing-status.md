@@ -94,6 +94,9 @@ This report contains descriptions of any policies that failed, along with review
 
 During the **Preview creation** step, we create a version of your offer accessible to only the audience that you specified in the Preview section of your offer.
 
+>[!Note]
+> Do not use this step to give people outside your organization visibility into an offer. Use the Private Offer toggle instead. At this point, your offering has not been fully tested and validated, and is not ready for outside distribution.
+
 ## Publisher approval
 
 In this step, you will be emailed with a request for you to review and approve your offer preview prior to the final publishing step.
