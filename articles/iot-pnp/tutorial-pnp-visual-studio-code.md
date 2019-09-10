@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). Use the following steps to install it in VS Code:
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack. Use the following steps to install the extension pack in VS Code:
 
     1. In VS Code, select the **Extensions** tab.
     1. Search for **Azure IoT Tools**.

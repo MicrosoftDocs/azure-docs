@@ -27,7 +27,7 @@ To complete this quickstart, you need to install the following software on your 
 
 ### Install Azure IoT Tools
 
-Use the following steps to install the [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools):
+Use the following steps to install the [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack:
 
 1. In VS Code, select the **Extensions** tab.
 1. Search for **Azure IoT Tools**.

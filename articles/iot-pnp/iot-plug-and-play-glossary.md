@@ -43,7 +43,7 @@ The Azure IoT certification service runs a set of certification tests when you s
 
 ## Azure IoT Tools extension
 
-Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For develop IoT Plug and Play device, it provides:
+Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For IoT Plug and Play device development, it helps you to:
 
 - Author [device capability models](#device-capability-model) and [interfaces](#interface).
 - Publish to [model repositories](#model-repository).
@@ -195,4 +195,4 @@ Telemetry fields defined in an [interface](#interface) represent measurements. T
 
 ## Visual Studio code
 
-Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) enable you to customize it to support a wide range of development scenarios.
+Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as those in the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pack, enable you to customize the editor to support a wide range of development scenarios.
