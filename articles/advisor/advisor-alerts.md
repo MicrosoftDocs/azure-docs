@@ -19,54 +19,55 @@ This article shows you how to set up an alert for new recommendations from Azure
 
 Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on. You can also determine the types of recommendations by using these properties:
 
-1. Category
-2. Impact level
-3. Recommendation type
+* Category
+* Impact level
+* Recommendation type
 
 You can also configure the action that will take place when an alert is triggered by:  
-1. Selecting an existing action group
-2. Creating a new action group
+* Selecting an existing action group
+* Creating a new action group
 
-To learn more about action groups, see [Create and manage action groups]( https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) 
-NOTE: Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md) 
+
+>>NOTE: Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
 
 ## Creating a recommendation alert from the Azure portal
-1. In the **portal**, select **Azure Advisor** [Click here for a full screen image](./media/Advisor%20Alert/create1.png)
+1. In the **portal**, select **Azure Advisor**.
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create1.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create1.png)
 
-2. In the **Monitoring** section of the left menu, select **Alerts**  [Click here for a full screen image](./media/Advisor%20Alert/create2.png)
+2. In the **Monitoring** section of the left menu, select **Alerts**. 
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create2.png)
+    ![Azure Advisor alert](./media/advisor-alerts/create2.png)
 
-3. Select **New Advisor Alert** [Click here for a full screen image](./media/Advisor%20Alert/create3.png)
+3. Select **New Advisor Alert** [Click here for a full screen image](./media/advisor-alert/create3.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create3.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create3.png)
 
-4. In the **Scope** section, select the subscription and optionally the resource group that you want to be alerted on. [Click here for a full screen image](./media/Advisor%20Alert/create4.png)
+4. In the **Scope** section, select the subscription and optionally the resource group that you want to be alerted on. [Click here for a full screen image](./media/advisor-alerts/create4.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create4.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create4.png)
 
 5. In the condition section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select “Category and impact level”. If you want to alert for all recommendations of a certain type, select “Recommendation type”. [Click here for a full screen image](./media/Advisor%20Alert/create5.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create5.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create5.png)
 
 6. Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. [Click here for a full screen image](./media/Advisor%20Alert/create6.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create6.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create6.png)
 
 7. In the action groups section, select “Add existing” to use an action group you already created or select “Create new” to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). [Click here for a full screen image](./media/Advisor%20Alert/create7.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create7.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create7.png)
 
 8. In the Alert details section, give your alert a name and short description. If you want your alert to be enabled, leave **Enable rule upon creation** selection set to “Yes”. Then select the resource group to save your alert to. This will not impact the targeting scope of the recommendation. [Click here for a full screen image](./media/Advisor%20Alert/create8.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create8.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
 
 
-## Creating a recommendation alert and a new action group using an Azure Resource Manager template
+## Create a recommendation alert and a new action group using an Azure Resource Manager template
 
-```code
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -163,7 +164,7 @@ NOTE: Advisor alerts are currently only available for High Availability, Perform
 
 
 # Configure recommendation alerts to use a webhook
-This article shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 
+This section shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 
 
 You can set up alerts to be notified when you have a new Advisor recommendation on one of your resources. These alerts can notify you through email or text message, but they can also be used to integrate with your existing systems through a webhook. 
 
@@ -173,7 +174,7 @@ If you want to integrate Advisor alerts into your own systems using a webhook, y
 
 When you set up your action group for this alert, you select if you would like to use the common alert schema. If you select the common alert schema, your payload will look like: 
 
-```code
+```json
 {  
    "schemaId":"azureMonitorCommonAlertSchema",
    "data":{  
@@ -222,7 +223,7 @@ When you set up your action group for this alert, you select if you would like t
 
 If you do not use the Common schema, your payload will look like: 
 
-```code
+```json
 {  
    "schemaId":"Microsoft.Insights/activityLogs",
    "data":{  
@@ -269,25 +270,25 @@ In either schema, you can identify Advisor recommendation events by looking for 
 
 Some of the other important fields that you may want to use are: 
 
-1. **alertTargetIDs** (common schema) or **resourceId** (legacy schema)
-2. **recommendationType**
-3. **recommendationName**
-4. **recommendationCategory**
-5. **recommendationImpact**
-6. **recommendationResourceLink**
+* **alertTargetIDs** (common schema) or **resourceId** (legacy schema)
+* **recommendationType**
+* **recommendationName**
+* **recommendationCategory**
+* **recommendationImpact**
+* **recommendationResourceLink**
 
 
 # Manage your alerts 
 
 From Azure Advisor, you can edit, delete, or disable and enable your recommendations alerts. 
 
-1. In the **portal**, select **Azure Advisor** [Click here for a full screen image](./media/Advisor%20Alert/create1.png)
+1. In the **portal**, select **Azure Advisor**
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create1.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create1.png)
 
 2. In the **Monitoring** section of the left menu, select **Alerts** [Click here for a full screen image](./media/Advisor%20Alert/create2.png)
 
-![Azure Advisor Banner](./media/Advisor%20Alert/create2.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create2.png)
 
 3. To edit an alert, click on the Alert name to open the alert and edit the fields you want to edit 
 
