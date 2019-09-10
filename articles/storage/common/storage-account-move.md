@@ -44,29 +44,37 @@ The following steps show how to prepare the storage account for the move using a
 2. Locate the resource group that contains the source storage account, and then click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Download** in the **Export template** blade.
-5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.  
-
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
    This zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-### Modify the template
+### Modify the storage account template 
 
-2. To edit the parameter of the storage account name, open the **parameters.json** file and edit the **value** property:
+Azure requires that each Azure service has a unique name. The deployment could fail if you entered a storage account name that already exists. To avoid this issue, you modify the template to use a template function call `uniquestring()` to generate a unique storage account name.
+
+1. In the Azure portal, select **Create a resource**.
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+3. Select **Template deployment**.
+
+    ![Azure Resource Manager templates library](./media/storage-account-move/azure-resource-manager-template-library.png)
+
+4. Select **Create**.
+5. Select **Build your own template in the editor**.
+6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
+ 
+7. In the **parameters.json** file, set the default value of the storage account name in the .json file to a name of your choice for the target storage account. This example sets the default value of the storage account name to `mytargetaccount`.
     
     ```json
-    {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccounts_mysourceaccount_name": {
-               "value": null
-           }
-       }
-    }
-    ```
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_mysourceaccount_name": {
+            "defaultValue": "mytargetaccount",
+            "type": "String"
+        }
+    },
+    ``` 
 
-3. Change the **null** value in the .json file to a name of your choice for the target storage account. Save the parameters.json file. Ensure you enclose the name in quotes.
-
-4. To edit the target region where the storage account will be moved, open the **template.json** file:
+4. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
 
        ```json
        "resources": [
@@ -78,8 +86,7 @@ The following steps show how to prepare the storage account for the move using a
             }
          ]          
        ```
-  
-4. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+    To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -88,40 +95,35 @@ The following steps show how to prepare the storage account for the move using a
 5. Lifecycle management policies do not automatically export with this template. If your storage account has lifecycle management policies, you'll have to add them to this template manually. To do that, select > **Blob service** > **LifeCycle Management**, and then choose **Code View**. Copy and paste the code in that view into the **properties** section of the template json file and enclose that block with a policy block. This example adds a lifecycle management policy to the template:
 
     ```json
-            "type": "Microsoft.Storage/storageAccounts/blobServices",
-            "apiVersion": "2019-04-01",
-            "name": "[concat(parameters('storageAccounts_mysourceaccount_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_mysourceaccount_name'))]"
-            ],
-            "properties": {
-                "policy": 
-                    {
-                        "rules": [
-                            {
-                                "enabled": true,
-                                "name": "myrule",
-                                "type": "Lifecycle",
-                                "definition": {
-                                    "actions": {
-                                        "baseBlob": {
-                                            "tierToCool": {
-                                                "daysAfterModificationGreaterThan": 200
-                                            },
-                                            "delete": {
-                                                "daysAfterModificationGreaterThan": 300
-                                            }
-                                        }
-                                    },
-                                    "filters": {
-                                        "blobTypes": [
-                                            "blockBlob"
-                                        ]
-                                    }
+    "properties": {
+        "policy": {
+            "rules": [ 
+                {
+                    "enabled": true,
+                    "name": "myrule",
+                    "type": "Lifecycle",
+                    "definition": {
+                        "actions": {
+                            "baseBlob": {
+                                "tierToCool": {
+                                    "daysAfterModificationGreaterThan": 200
+                                },
+                                "delete": {
+                                    "daysAfterModificationGreaterThan": 300
                                 }
                             }
-                        ]
-                    },
+                        },
+                        "filters": {
+                            "blobTypes": [
+                                "blockBlob"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
     ```
 To learn more, see [Azure Resource Manager template with lifecycle management policy](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-resource-manager-template-with-lifecycle-management-policy).
 
@@ -137,11 +139,13 @@ To learn more, see [Azure Resource Manager template with lifecycle management po
     ```
 ### Add back settings that don't export with the template
 
-Add static website - that creates a container for web files and the new address. Then point CDNs or custom domains to the new URL.
-Add RBAC roles. RBAC role assignments are specific to an account.
-Create new event subscription. A subscription is between an account and endpoint.
-CDNs. Just change the origin of the CDN to point to the new account.
-Remove alerts or redirect them to the new storage account (if possible)
+These settings don't export to a template, so you'll have to add them to your new account.
+
+- Static websites. See [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md).
+- Event subscriptions. See [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md).
+- Alerts. See [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md).
+
+If you set up a Content Delivery Network (CDN) in the source account, just change the origin of your existing CDN to the static website or blob URL in your new account. See [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md).
 
 ### Move data to the new storage account
 
