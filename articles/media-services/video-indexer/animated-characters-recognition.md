@@ -1,7 +1,7 @@
 ---
 title: Animated character detection with Video Indexer
 titleSuffix: Azure Media Services
-description:  
+description: This topic demonstrates how to use animated character detection with Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
