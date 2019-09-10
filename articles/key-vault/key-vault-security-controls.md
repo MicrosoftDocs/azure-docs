@@ -3,7 +3,7 @@ title: Security controls for Azure Key Vault
 description: A checklist of security controls for evaluating Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 
 ms.service: key-vault
 ms.topic: conceptual
