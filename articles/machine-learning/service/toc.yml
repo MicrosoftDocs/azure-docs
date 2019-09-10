@@ -192,7 +192,7 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Use automated ML (Azure portal)
+    - name: Use automated ML (workspace landing page)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
