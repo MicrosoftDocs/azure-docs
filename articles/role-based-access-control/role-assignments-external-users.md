@@ -37,7 +37,7 @@ Native members of a directory (member users) have different permissions than use
 
 ## Add a guest user to the directory
 
-1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Enable B2B external collaboration and manage who can invite guests](../azure/active-directory/b2b/delegate-invitations.md).
+1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Enable B2B external collaboration and manage who can invite guests](../active-directory/b2b/delegate-invitations.md).
 
 1. In the Azure portal, click **Azure Active Directory** > **Users** > **New guest user**.
 
@@ -55,9 +55,9 @@ The guest users will need to complete the consent experience.
 
 For more information about the redemption process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/b2b/redemption-experience.md).
 
-## Grant access to the guest user
+## Grant access to a guest user
 
-In RBAC, to grant access, you assign a role. To grant access to the guest user, you follow [same steps](role-assignments-portal.md#add-a-role-assignment) as you would for a user, group, service principal, or managed identity. Follow these steps to grant access to the guest user at different scopes.
+In RBAC, to grant access, you assign a role. To grant access to a guest user, you follow [same steps](role-assignments-portal.md#add-a-role-assignment) as you would for a member user, group, service principal, or managed identity. Follow these steps to grant access to a guest user at different scopes.
 
 1. In the Azure portal, click **All services**.
 
@@ -105,7 +105,7 @@ If a guest user has been granted access in a directory, but they do not see the 
 
 ### Guest user does not see resources in the Azure portal
 
-If a guest user has been granted access in a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Directory + Subscription**. In the **Directory + Subscription** pane, click the appropriate directory.
+If a guest user has been granted access in a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Directory + subscription**, and then click the appropriate directory.
 
 ![Directories + Subscriptions pane in Azure portal](./media/role-assignments-external-users/directory-subscription.png)
 
