@@ -38,13 +38,14 @@ To create a DSVM instance:
    * Verify that all the information you entered is correct. 
    * Select **Create**.
 
+
 > [!NOTE]
-> * You do not pay licensing fees for the software that comes pre-loaded on the virtual machine. You only pay the compute cost for the server size that you chose in the **Size** step.
+> * You do not pay licensing fees for the software that comes pre-loaded on the virtual machine. You do pay the compute cost for the server size that you chose in the **Size** step.
 > * Provisioning takes 10 to 20 minutes. You can view the status of your VM on the Azure portal.
 
 ## Access the DSVM
 
-After the VM is created and provisioned, you can access it through a remote desktop connection. Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
+After the VM is created and provisioned, follow the steps listed [here](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) to access it through a remote desktop connection. Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
 
 You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through **Start** menu tiles and desktop icons.
 
