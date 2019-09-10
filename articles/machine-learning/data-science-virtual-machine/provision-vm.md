@@ -29,8 +29,8 @@ To create a DSVM instance:
       * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed.
       * **Resource Group**: Create a new group or use an existing one.
       * **Virtual machine name**: Enter the name of the DSVM.
-      * **Location**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about the locations of specific datacenters [here](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
-      * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about choosing a VM size [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+      * **Location**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
+      * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about [Windows VM sizes in Azure](../../virtual-machines/windows/sizes.md).
       * **Username**: Enter the username you will use to log into your virtual machine.
       * **Password**: Enter the password you will use to log into your virtual machine.    
 1. Select **Review + create**.
@@ -45,11 +45,11 @@ To create a DSVM instance:
 
 ## Access the DSVM
 
-After the VM is created and provisioned, follow the steps listed [here](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) to access it through a remote desktop connection. Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
+After the VM is created and provisioned, follow the steps listed [here](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md) to access it through a remote desktop connection. Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
 
 You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through **Start** menu tiles and desktop icons.
 
-You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
 
 <a name="tools"></a>
 
