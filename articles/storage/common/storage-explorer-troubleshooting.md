@@ -210,6 +210,54 @@ If you receive this error message, it's possible that you don't have the needed 
 
 If you do see the account keys, file an issue on GitHub so we can help you resolve the issue.
 
+## Error occurred while adding new connection: TypeError: Cannot read property 'version' of undefined
+
+If you receive this error message when trying to add a custom connection, it's possible that the connection data stored in the local credential is corrupted.
+To work around this issue, you can try deleting your corrupted local connections and then re-adding them.
+
+You need to locate the corrupted connections first.
+
+1. Start Storage Explorer, in the top menu, go to Help → Toggle Developer Tools.
+2. In the opened window, go to Application tab → Local Storage (left hand side) → file://
+3. Depending on what type of connections you are having issue with, look for its key and copy its value to a text editor. The value is an array of your custom connection names.
+    * storage accounts
+        * `StorageExplorer_CustomConnections_Accounts_v1`
+    * blob containers
+        * `StorageExplorer_CustomConnections_Blobs_v1`
+        * `StorageExplorer_CustomConnections_Blobs_v2`
+    * queues
+        * `StorageExplorer_CustomConnections_Queues_v1`
+    * tables
+        * `StorageExplorer_CustomConnections_Tables_v1`
+4. Set the value in the Developer Tools to be [].
+5. From the text editor, re-add each connection name back to the Developer Tools and check whether the connection is still working.
+6. If a connection is not working, remove its value from the Developer Tools and record it so you can add it back later.
+
+After going through all your connections, you should have a list of connection names that are corrupted. You need to clear their corrupted data and add them back through normal steps using Storage Explorer.
+
+Windows:
+1. In start menu, search for 'Credential Manager' and open it.
+2. In the opened window, go to 'Windows Credentials'.
+3. Under 'Generic Credentials' look for entries with key `<connection_type_key>/<corrupted_connection_name>` (e.g. `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+4. Remove these entries and add the connections back.
+
+MacOS:
+
+1. Go to Spotlight (Command-Space bar) and search Keychain Access.
+2. Look for entries with name `<connection_type_key>/<corrupted_connection_name>` (e.g. `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Delete these entries and add the connections back.
+
+Linux:
+
+Linux doesn't necessarily have a GUI tool for managing local credentials. You may need to install a GUI tool to perform the following steps.
+
+1. install seahorse, an open source GUI tool for managing linux local credentials.
+2. Run seahorse and go to Passwords → Login page.
+3. Look for entries starting with `<connection_type_key>/<corrupted_connection_name>` (e.g. `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+4. Delete these entries and add the connections back.
+
+If you are still encountering the error after performing these steps or you have any findings about why this happens, please open an issue on our Github page.
+
 ## Issues with SAS URL
 
 If you're connecting to a service using a SAS URL and experiencing this error:
