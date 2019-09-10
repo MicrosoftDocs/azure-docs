@@ -238,7 +238,7 @@ For more information, see [Kubernetes namespaces][kubernetes-namespaces].
 
 ## Next steps
 
-This article covers some of the core Kubernetes components and how they apply to AKS clusters. For additional information on core Kubernetes and AKS concepts, see the following articles:
+This article covers some of the core Kubernetes components and how they apply to AKS clusters. Also, read [17 Kubernetes topics] article which reviews all essential concepts for mastering Kubernetes. For additional information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS access and identity][aks-concepts-identity]
 - [Kubernetes / AKS security][aks-concepts-security]
@@ -254,6 +254,7 @@ This article covers some of the core Kubernetes components and how they apply to
 [kubernetes-statefulsets]: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
 [kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 [kubernetes-namespaces]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+[17 Kubernetes topics]: https://myhsts.org/tutorial-review-of-17-essential-topics-for-mastering-kubernetes.php
 [helm]: https://helm.sh/
 [azure-cloud-shell]: https://shell.azure.com
 
