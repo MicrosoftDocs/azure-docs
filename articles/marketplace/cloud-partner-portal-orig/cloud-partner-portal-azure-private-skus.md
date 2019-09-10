@@ -105,19 +105,20 @@ upon saving the offer.
 Managing private audiences
 -------------------------
 
-You can add or remove subscriptions to an existing private offer using the Cloud Partner Portal API without having to republish the offer. Depending on the number of audience members to update you can either:
+**In order to update the audience without re-publishing the entire offer you make the audience changes you want (using either the UI or the API) and then initiate the "Sync Private Audiences" action.**
 
-1. Manage 10 or fewer audience members directly from the Cloud Partner Portal UI,
-2. Manage up to 20,000 audience members by uploading a `.csv` file to the Cloud Partner Portal, *or*
-3. Manage any number of audience members directly through the Cloud Partner Portal API, as described below.
+If your audience is 10 or fewer subscriptions, you can manage it entirely using the CPP UI.
+
+If your audience is more than 10 subscriptions, you can manage it using a CSV file that you can either upload to the CPP UI or using the API.
+
+If you are using the API and don't want to maintain a CSV file, you can manage the audience directly using API per the instructions below.
 
 > [!NOTE]
 > Use the Azure subscription ID (Plans and SKUs) or Tenant ID (Plans only) to add an audience to your private offer.
 
 ###  Managing subscriptions with the API
 
-In general, you simply need to retrieve your offer, update the `restrictedAudience` object, then submit those changes back to your offer in order to add or remove audience members.
-
+You can use the API to either upload a CSV or manage your audience directly (without using a CSV). In general, you simply need to retrieve your offer, update the `restrictedAudience` object, then submit those changes back to your offer in order to add or remove audience members.
 
 Here's how to programmatically update your audience list:
 
