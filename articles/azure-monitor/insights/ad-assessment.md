@@ -112,9 +112,14 @@ View the summarized compliance assessments for your infrastructure and then dril
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 1. On the **Overview** page, click the **Active Directory Health Check** tile.
-1. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-1. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-1. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+
+2. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+
+3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.
+
+    ![image of Health Check recommendations](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+
+4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
 
@@ -130,15 +135,20 @@ Use the following query to list recommendations that have failed for computers i
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Here's a screenshot showing the log query:<br><br> ![failed recommendations](media/ad-assessment/ad-failed-recommendations.png)
+Here's a screenshot showing the log query:<
+
+![failed recommendations](media/ad-assessment/ad-failed-recommendations.png)
 
 Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 
 ### To create and use an IgnoreRecommendations.txt text file
 
 1. Create a file named IgnoreRecommendations.txt.
+
 2. Paste or type each RecommendationId for each recommendation that you want Azure Monitor to ignore on a separate line and then save and close the file.
+
 3. Put the file in the following folder on each computer where you want Azure Monitor to ignore recommendations.
+
    * On computers with the Microsoft Monitoring Agent (connected directly or through Operations Manager) - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * On the Operations Manager 2012 R2 management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * On the Operations Manager 2016 management server - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
