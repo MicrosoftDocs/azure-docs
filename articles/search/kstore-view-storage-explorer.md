@@ -32,16 +32,15 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 Select any table to view the enriched data, including key phrases sentiment scores, latitude and longitude location data and more.
 
-
-    ![View tables in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
+   ![View tables in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
 
 To change the data type for any table value, click **Edit**. 
 
-    ![Edit table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
+   ![Edit table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
 
 To run queries, click **Query** on the command bar and enter your conditions.  
 
-    ![Query table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-query-table.png "Query table in Storage Explorer")
+   ![Query table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-query-table.png "Query table in Storage Explorer")
 
 ## Clean up
 
