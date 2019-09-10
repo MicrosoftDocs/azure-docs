@@ -1,5 +1,5 @@
 ---
-title: Prepay for Azure SQL Database vCores to save money | Microsoft Docs
+title: Save costs for Azure SQL Database vCores  | Microsoft Docs
 description: Learn how to buy Azure SQL Database reserved capacity to save on your compute costs.
 services: sql-database
 ms.service: sql-database
@@ -10,16 +10,16 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ---
-# Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
+# Save costs for SQL Database compute resources with Azure SQL Database reserved capacity
 
-Save money with Azure SQL Database by prepaying for compute resources compared to pay-as-you-go prices. With Azure SQL Database reserved capacity, you make an upfront commitment on SQL Database for a period of one or three years to get a significant discount on the compute costs. To purchase SQL Database reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
+Save money with Azure SQL Database by committing to a reservation for compute resources compared to pay-as-you-go prices. With Azure SQL Database reserved capacity, you make a commitment for SQL Database use for a period of one or three years to get a significant discount on the compute costs. To purchase SQL Database reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 
 
-You do not need to assign the reservation to specific SQL Database instances (single databases, elastic pools, or managed instances). Matching SQL Database instances, that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you are pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the SQL Database compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the SQL Database instance. At the end of the reservation term, the billing benefit expires and the SQL Databases are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [SQL Database reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+You do not need to assign the reservation to specific SQL Database instances (single databases, elastic pools, or managed instances). Matching SQL Database instances, that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you are commit to usage for the compute costs for a period of one or three years. As soon as you buy a reservation, the SQL Database compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the SQL Database instance. At the end of the reservation term, the billing benefit expires and the SQL Databases are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [SQL Database reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-You can buy Azure SQL Database reserved capacity in the [Azure portal](https://portal.azure.com). To buy SQL Database reserved capacity:
+You can buy Azure SQL Database reserved capacity in the [Azure portal](https://portal.azure.com). Pay for the reservation [up front or with monthly payments](../billing/billing-monthly-payments-reservations.md). To buy SQL Database reserved capacity:
 
 - You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
