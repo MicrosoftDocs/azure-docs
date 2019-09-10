@@ -120,7 +120,7 @@ Use *Web3* to connect to the transaction node.
 
 In this quickstart, you created a Truffle project to connect to your Azure Blockchain Service default transaction node.
 
-Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to execute a smart contract function via a transaction on a consortium blockchain network.
+Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use smart contracts on Azure Blockchain Service](send-transaction.md)
+> [Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service](send-transaction.md)

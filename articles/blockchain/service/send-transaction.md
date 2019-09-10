@@ -5,7 +5,7 @@ services: azure-blockchain
 
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -13,14 +13,13 @@ ms.reviewer: chrisseg
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute smart contract functions on a consortium blockchain network.
 ---
 
-# Tutorial: Use smart contracts on Azure Blockchain Service
+# Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service
 
-In this tutorial, you'll use the Azure Blockchain Development Kit for Ethereum to create and deploy a smart contract then execute a smart contract function via a transaction on a consortium blockchain network.
+In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use Truffle to execute a smart contract function via a transaction.
 
 You use Azure Blockchain Development Kit for Ethereum to:
 
 > [!div class="checklist"]
-> * Connect to Azure Blockchain Service consortium blockchain member
 > * Create a smart contract
 > * Deploy a smart contract
 > * Execute a smart contract function via a transaction
@@ -30,52 +29,11 @@ You use Azure Blockchain Development Kit for Ethereum to:
 
 ## Prerequisites
 
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js](https://nodejs.org)
-* [Git](https://git-scm.com)
-* [Python](https://www.python.org/downloads/release/python-2715/). Add python.exe to your path. Python in your path is required for Azure Blockchain Development Kit.
-* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
-
-### Verify Azure Blockchain Development Kit environment
-
-Azure Blockchain Development Kit verifies your development environment prerequisites have been met. To verify your development environment:
-
-From the VS Code command palette, choose **Azure Blockchain: Show Welcome Page**.
-
-Azure Blockchain Development Kit runs a validation script that takes about a minute to complete. You can view the output by selecting **Terminal > New Terminal**. In the terminal menu bar, select the **Output** tab and **Azure Blockchain** in the dropdown. Successful validation looks like the following image:
-
-![Valid dev environment](./media/send-transaction/valid-environment.png)
-
- If you are missing a required tool, a new tab named **Azure Blockchain Development Kit - Preview** lists the required apps to install and links to download the tools.
-
-![Dev kit required apps](./media/send-transaction/required-apps.png)
-
-## Connect to consortium member
-
-You can connect to consortium members using the Azure Blockchain Development Kit VS Code extension. Once connected to a consortium, you can compile, build, and deploy smart contracts to an Azure Blockchain Service consortium member.
-
-If you don't have access to an Azure Blockchain Service consortium member, complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
-
-1. In the Visual Studio Code (VS Code) explorer pane, expand the **Azure Blockchain** extension.
-1. Select **Connect to Consortium**.
-
-   ![Connect to consortium](./media/send-transaction/connect-consortium.png)
-
-    If prompted for Azure authentication, follow the prompts to authenticate using a browser.
-1. Choose **Connect to Azure Blockchain Service consortium** in the command palette dropdown.
-1. Choose the subscription and resource group associated with your Azure Blockchain Service consortium member.
-1. Choose your consortium from the list.
-
-The consortium and blockchain members are listed in the Visual Studio explorer side bar.
-
-![Consortium displayed in explorer](./media/send-transaction/consortium-node.png)
+* Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
 
 ## Create a smart contract
 
-The Azure Blockchain Development Kit for Ethereum uses project templates and Truffle tools to help scaffold, build, and deploy contracts.
+The Azure Blockchain Development Kit for Ethereum uses project templates and Truffle tools to help scaffold, build, and deploy contracts. Before you begin, complete the prerequisite [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you through the installation and configuration of the Azure Blockchain Development Kit for Ethereum.
 
 1. From the VS Code command palette, choose **Azure Blockchain: New Solidity Project**.
 1. Choose **Create basic project**.

@@ -140,7 +140,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
 ## Next steps
 
-In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to deploy and send a transaction using Truffle.
+In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Send a transaction](send-transaction.md)
+> [Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service](send-transaction.md)
