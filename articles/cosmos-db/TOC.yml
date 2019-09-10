@@ -274,8 +274,8 @@
           href: role-based-access-control.md  
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
-        - name: Security attributes
-          href: cosmos-db-security-attributes.md
+        - name: Built-in security controls
+          href: cosmos-db-security-controls.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
@@ -471,6 +471,8 @@
           href: graph-execution-profile.md
         - name: Use resource tokens
           href: how-to-use-resource-tokens-gremlin.md
+        - name: Use regional endpoints
+          href: how-to-use-regional-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data

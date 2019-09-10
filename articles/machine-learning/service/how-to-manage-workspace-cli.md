@@ -1,5 +1,5 @@
 ---
-title: Use the Azure CLI to create a workspace
+title: Create workspaces with Azure CLI
 titleSuffix: Azure Machine Learning service
 description: Learn how to use the Azure CLI to create a new Azure Machine Learning service workspace.
 services: machine-learning
@@ -12,7 +12,7 @@ author: Blackmist
 ms.date: 08/30/2019
 ---
 
-# Use an Azure Resource Manager template to create a workspace for Azure Machine Learning service
+# Create a workspace for Azure Machine Learning service with Azure CLI
 
 In this article, you learn how to create an Azure Machine Learning service workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning service resources.
 
