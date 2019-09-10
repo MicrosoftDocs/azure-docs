@@ -123,8 +123,6 @@
     href: billing-how-to-change-azure-account-profile.md
   - name: Grant access to billing
     href: billing-manage-access.md
-  - name: EA roles in Azure
-    href: billing-understand-ea-roles.md
   - name: Microsoft Customer Agreements roles in Azure
     href: billing-understand-mca-roles.md
   - name: Link partner ID
@@ -133,8 +131,26 @@
     href: billing-view-all-accounts.md
   - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
-  - name: EA tasks in Microsoft Customer Agreement
-    href: billing-mca-enterprise-operations.md
+  - name: EA management
+    items:
+    - name: Get started - Azure EA portal
+      href: billing-ea-portal-get-started.md
+    - name: EA roles in Azure
+      href: billing-understand-ea-roles.md
+    - name: Azure EA portal administration
+     -name: billing-ea-portal-administration.md
+    - name: Azure EA agreements and amendments
+      href: billing-ea-portal-agreements.md
+    - name: Enterprise enrollment invoices
+      href: billing-ea-portal-enrollment-invoices.md
+    - name: Azure Enterprise REST APIs
+      href: billing-ea-portal-rest-apis.md
+    - name: Azure EA VM reserved instances
+      href: billing-ea-portal-vm-reservations.md
+    - name: Troubleshoot Azure EA portal access
+      href: billing-ea-portal-troubleshoot.md
+    - name: EA tasks in Microsoft Customer Agreement
+      href: billing-mca-enterprise-operations.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
   - name: Set up billing account for Microsoft Customer Agreement
