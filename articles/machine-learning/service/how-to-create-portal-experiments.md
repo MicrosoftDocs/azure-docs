@@ -185,7 +185,8 @@ Automated ML helps you with deploying the model without writing code:
     + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
     + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
-1. Populate the **Deploy Model** pane,
+
+1. Populate the **Deploy Model** pane.
 
     Field| Value
     ----|----
