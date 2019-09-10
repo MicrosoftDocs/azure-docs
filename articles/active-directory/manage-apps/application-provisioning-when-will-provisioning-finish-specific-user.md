@@ -61,14 +61,14 @@ When using automatic user provisioning with an application, Azure AD automatical
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial cycle or an incremental cycle.
 
-- For **initial cycle**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. The first sync between Azure AD and an app can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. A comprehensive list of factors that affect initial sync performance are summarized later in this section.
+- For **initial cycle**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. The first sync between Azure AD and an app can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. A comprehensive list of factors that affect initial cycle performance are summarized later in this section.
 
-- For **incremental cycle** after the initial sync, job times tend to be faster (e.g. within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial sync, improving performance of subsequent syncs. The job time depends on the number of changes detected in that provisioning cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental provisioning cycle. 
+- For **incremental cycles** after the initial cycle, job times tend to be faster (e.g. within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial cycle, improving performance of subsequent syncs. The job time depends on the number of changes detected in that provisioning cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental provisioning cycle. 
 
 The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
 
 
-| Scope configuration | Users, groups, and members in scope | Initial sync time | Incremental sync time |
+| Scope configuration | Users, groups, and members in scope | Initial cycle time | Incremental cycle time |
 | -------- | -------- | -------- | -------- |
 | Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
 | Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | < 30 minutes |
@@ -80,12 +80,12 @@ The following table summarizes synchronization times for common provisioning sce
 | Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
 
 
-For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial sync** times:
+For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial cycle** times:
 
 	Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
 	Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
 	
-Summary of factors that influence the time it takes to complete an **initial sync**:
+Summary of factors that influence the time it takes to complete an **initial cycle**:
 
 - The total number of users and groups in scope for provisioning.
 
