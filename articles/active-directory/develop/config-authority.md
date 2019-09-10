@@ -142,13 +142,13 @@ Objective-C
         return;
     }
     
-    MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientApplicationConfig alloc]
+    MSALPublicClientApplicationConfig *applicationConfig = [[MSALPublicClientApplicationConfig alloc]
                                                                initWithClientId:@"your-client-id"
                                                                redirectUri:@"your-redirect-uri"
                                                                authority:sovereignAuthority];
     
     
-    MSALPublicClientApplication *sovereignApplication = [[MSALPublicClientApplication alloc] initWithConfiguration:b2cApplicationConfig error:&error];
+    MSALPublicClientApplication *sovereignApplication = [[MSALPublicClientApplication alloc] initWithConfiguration:applicationConfig error:&error];
     
     
     if (!sovereignApplication)
@@ -166,9 +166,9 @@ do{
     }
     let sovereignAuthority = try MSALAuthority(url: authorityURL)
             
-    let b2cApplicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: sovereignAuthority)
+    let applicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: sovereignAuthority)
             
-    let sovereignApplication = try MSALPublicClientApplication(configuration: b2cApplicationConfig)
+    let sovereignApplication = try MSALPublicClientApplication(configuration: applicationConfig)
 } catch {
     // Handle error
 }
@@ -189,7 +189,7 @@ The following shows how to sign a user into a specific tenant:
 Objective-C
 ```objc
     NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4"];
-    MSALAuthority *tenantedAuthority = [MSALAuthority authorityWithURL:authorityURL error:&authorityError];
+    MSALAADAuthority *tenantedAuthority = [MSALAADAuthority initWithURL:authorityURL error:&authorityError];
     
     if (!tenantedAuthority)
     {
@@ -218,7 +218,7 @@ do{
         //Handle error
         return
     }    
-    let tenantedAuthority = try MSALAuthority(url: authorityURL)
+    let tenantedAuthority = try MSALAADAuthority(url: authorityURL)
             
     let applicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: tenantedAuthority)
             
