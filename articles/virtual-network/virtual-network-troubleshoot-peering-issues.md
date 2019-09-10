@@ -35,17 +35,17 @@ To configure virtual network peering for the virtual networks that are in the sa
 * If the virtual networks are in the **same region**, follow the steps to [create a peering for virtual networks in the same subscription](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
 * If the virtual networks are in the **different regions**, follow the steps to set up [global virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).  
 
->[!Note] Connectivity won't work over Global VNet Peering for the following resources: 
+> [!Note] Connectivity won't work over Global VNet Peering for the following resources: 
 
-   * VMs behind Basic ILB SKU
-   * Redis Cache (uses Basic ILB SKU)
-   * Application Gateway (uses Basic ILB SKU)
-   * Scale Sets (uses Basic ILB SKU)
-   * Service Fabric clusters (uses Basic ILB SKU)
-   * SQL Always-on (uses Basic ILB SKU)
-   * App Service Environments (ASE) (uses Basic ILB SKU)
-   * API Management (uses Basic ILB SKU)
-   * Azure Active Directory Domain Service (ADDS) (uses Basic ILB SKU)
+> * VMs behind Basic ILB SKU
+> * Redis Cache (uses Basic ILB SKU)
+> * Application Gateway (uses Basic ILB SKU)
+> * Scale Sets (uses Basic ILB SKU)
+> * Service Fabric clusters (uses Basic ILB SKU)
+> * SQL Always-on (uses Basic ILB SKU)
+> * App Service Environments (ASE) (uses Basic ILB SKU)
+> * API Management (uses Basic ILB SKU)
+> * Azure Active Directory Domain Service (ADDS) (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
 
@@ -53,7 +53,7 @@ For more information, see the [requirements and constraints](https://docs.micros
 
 To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, follow the steps in [Create peering in different subscriptions for Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
->[!Note] To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> [!Note] To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
 
 ## Scenario 2: Configure virtual network peering with Hub-spoke topology that uses on-premises resources
 
@@ -76,7 +76,7 @@ Follow the steps in: [Configure VPN gateway transit for virtual network peering]
 
 You must configure a Network Virtual Appliance (NVA) in the hub virtual network and have user-defined routes with next hop "Network Virtual Appliance" applied in the spoke virtual networks. For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
 
->[!Note] If you require help to set up an NVA, [contact the NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> [!Note] If you require help to set up an NVA, [contact the NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
@@ -121,17 +121,17 @@ To troubleshoot the issue, follow these steps:
    3. After the **TcpPing** is complete, stop the network trace on the destination.
    4. If packets arrive from the source, there is no networking issue. Examine both the VM firewall and the application listening on that port to locate the configuration issue.
 
-   >[!Note] You can't connect to the following resource types over global virtual network peering (virtual networks in different regions):
+   > [!Note] You can't connect to the following resource types over global virtual network peering (virtual networks in different regions):
    >
-   >* VMs behind Basic ILB SKU
-   >* Redis Cache (uses Basic ILB SKU)
-   >* Application Gateway (uses Basic ILB SKU)
-   >* Scale Sets (uses Basic ILB SKU)
-   >* Service Fabric clusters (uses Basic ILB SKU)
-   >* SQL Always-on (uses Basic ILB SKU)
-   >* App Service Environments (ASE) (uses Basic ILB SKU)
-   >* API Management (uses Basic ILB SKU)
-   >* Azure Active Directory Domain Service (ADDS) (uses Basic ILB SKU)
+   > * VMs behind Basic ILB SKU
+   > * Redis Cache (uses Basic ILB SKU)
+   > * Application Gateway (uses Basic ILB SKU)
+   > * Scale Sets (uses Basic ILB SKU)
+   > * Service Fabric clusters (uses Basic ILB SKU)
+   > * SQL Always-on (uses Basic ILB SKU)
+   > * App Service Environments (ASE) (uses Basic ILB SKU)
+   > * API Management (uses Basic ILB SKU)
+   > * Azure Active Directory Domain Service (ADDS) (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
 
@@ -210,7 +210,7 @@ For more information, see the following articles:
 
 ## Scenario 9: I receive an error when configuring virtual network peering
 
-### Error 1: Current tenant 'TENANT ID' isn't authorized to access linked subscription
+### Error 1: Current tenant `<TENANT ID>` isn't authorized to access linked subscription
 
 To resolve this issue, follow the steps in [Create peering - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
