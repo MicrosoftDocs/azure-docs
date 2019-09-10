@@ -4,11 +4,11 @@ description: A checklist of security controls for evaluating Azure App Service
 services: app-service
 documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: app-service
 
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
@@ -46,8 +46,8 @@ This article documents the security controls built into Azure App Service.
 
 | Security control | Yes/No | Notes | Documentation
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. <br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. | [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
-| Server-side encryption at rest: customer managed keys (BYOK) | Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. | [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md)
+| Server-side encryption at rest: Microsoft-managed keys | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. <br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. | [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. | [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md)
 | Column level encryption (Azure Data Services)| N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic.  | [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (blog post)
 | API calls encrypted| Yes | Management calls to configure App Service occur via [Azure Resource Manager](../azure-resource-manager/index.yml) calls over HTTPS. |
@@ -58,3 +58,6 @@ This article documents the security controls built into Azure App Service.
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | For management operations, the state of an App Service configuration can be exported as an Azure Resource Manager template and versioned over time. For runtime operations, customers can maintain multiple different live versions of an application using the App Service deployment slots feature. | 
 
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

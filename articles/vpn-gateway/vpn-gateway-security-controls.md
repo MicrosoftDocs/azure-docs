@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: load-balancer
 
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 09/06/2019
 ms.author: mbaldwin
 
 ---
@@ -45,9 +45,9 @@ This article documents the security controls built into Azure VPN Gateway.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | N/A | VPN gateway transit customer data, does NOT store customer data |
+| Server-side encryption at rest: Microsoft-managed keys | N/A | VPN gateway transit customer data, does NOT store customer data |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | VPN gateway encrypt customer packets between Azure VPN gateways and customer on-premises VPN devices (S2S) or VPN clients (P2S). VPN gateways also support VNet-to-VNet encryption. |
-| Server-side encryption at rest: customer managed keys (BYOK) | No | Customer-specified pre-shared keys are encrypted at rest; but not integrated with CMK yet. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | No | Customer-specified pre-shared keys are encrypted at rest; but not integrated with CMK yet. |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS  |
 
@@ -56,3 +56,7 @@ This article documents the security controls built into Azure VPN Gateway.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | For management operations, the state of an Azure VPN gateway configuration can be exported as an Azure Resource Manager template and versioned over time. | 
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

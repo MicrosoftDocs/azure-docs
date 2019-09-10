@@ -28315,6 +28315,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/api-management/api-management-security-attributes.md",
+      "redirect_url": "/azure/api-management/api-management-security-controls",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/app-service/app-service-security-attributes.md",
       "redirect_url": "/azure/app-service/app-service-security-controls",
       "redirect_document_id": false

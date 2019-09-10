@@ -46,9 +46,9 @@ This article documents the security controls built into Windows Virtual Machines
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes | See [How to encrypt a Linux virtual machine in Azure](/azure/virtual-machines/linux/encrypt-disks) and [Encrypt virtual disks on a Windows VM](/azure/virtual-machines/windows/encrypt-disks). |
+| Server-side encryption at rest: Microsoft-managed keys | Yes | See [How to encrypt a Linux virtual machine in Azure](/azure/virtual-machines/linux/encrypt-disks) and [Encrypt virtual disks on a Windows VM](/azure/virtual-machines/windows/encrypt-disks). |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Server-side encryption at rest: customer managed keys (BYOK) | Yes | Customer-managed keys is a supported Azure encryption scenario; see [Azure encryption overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | Customer-managed keys is a supported Azure encryption scenario; see [Azure encryption overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Via HTTPS and SSL. |
 
@@ -60,3 +60,6 @@ This article documents the security controls built into Windows Virtual Machines
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes |  | 
 
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

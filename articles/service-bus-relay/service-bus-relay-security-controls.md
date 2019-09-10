@@ -8,7 +8,7 @@ author: msmbaldwin
 manager: barbkess
 
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
@@ -45,8 +45,8 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys |  N/A | Relay is a web socket and does not persist data. |
-| Server-side encryption at rest: customer managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
+| Server-side encryption at rest: Microsoft-managed keys |  N/A | Relay is a web socket and does not persist data. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
 | Column level encryption (Azure Data Services)| N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |
 | API calls encrypted| Yes | HTTPS. |
@@ -57,3 +57,7 @@ This article documents the security controls built into Azure Service Bus Relay.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

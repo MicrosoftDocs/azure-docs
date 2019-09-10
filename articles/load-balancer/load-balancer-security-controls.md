@@ -7,7 +7,7 @@ manager: barbkess
 ms.service: load-balancer
 
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
@@ -45,9 +45,9 @@ This article documents the security controls built into Azure Load Balancer.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | N/A | |
+| Server-side encryption at rest: Microsoft-managed keys | N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
-| Server-side encryption at rest: customer managed keys (BYOK) | N/A | |
+| Server-side encryption at rest: customer-managed keys (BYOK) | N/A | |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
@@ -56,3 +56,7 @@ This article documents the security controls built into Azure Load Balancer.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| N/A |  | 
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

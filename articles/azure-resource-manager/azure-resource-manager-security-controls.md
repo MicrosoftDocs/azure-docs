@@ -3,7 +3,7 @@ title: Security controls for Azure Resource Manager
 description: A checklist of security controls for evaluating Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
@@ -20,9 +20,9 @@ This article documents the security controls built into Azure Resource Manager.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes |  |
+| Server-side encryption at rest: Microsoft-managed keys | Yes |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | HTTPS/TLS. |
-| Server-side encryption at rest: customer managed keys (BYOK) | N/A | Azure Resource Manager stores no customer content, only control data. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | N/A | Azure Resource Manager stores no customer content, only control data. |
 | Column level encryption (Azure Data Services)| Yes | |
 | API calls encrypted| Yes | |
 
@@ -55,3 +55,7 @@ This article documents the security controls built into Azure Resource Manager.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes |  |
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

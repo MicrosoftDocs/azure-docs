@@ -46,8 +46,8 @@ This article documents the security controls built into Azure ExpressRoute.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys |  N/A | ExpressRoute does not store customer data. |
-| Server-side encryption at rest: customer managed keys (BYOK) | N/A |  |
+| Server-side encryption at rest: Microsoft-managed keys |  N/A | ExpressRoute does not store customer data. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | N/A |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | |
 | API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -58,3 +58,7 @@ This article documents the security controls built into Azure ExpressRoute.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Via the Network Resource Provider (NRP). |
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

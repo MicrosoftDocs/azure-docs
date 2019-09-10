@@ -4,10 +4,10 @@ description: A checklist of security controls for evaluating Azure Storage
 services: storage
 documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
@@ -21,8 +21,8 @@ This article documents the security controls built into Azure Storage.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes |  |
-| Server-side encryption at rest: customer managed keys (BYOK) | Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Server-side encryption at rest: Microsoft-managed keys | Yes |  |
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Column level encryption (Azure Data Services)| N/A |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
 | API calls encrypted| Yes |  |
@@ -56,3 +56,7 @@ This article documents the security controls built into Azure Storage.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

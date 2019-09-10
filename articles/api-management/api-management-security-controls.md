@@ -45,10 +45,10 @@ This article documents the security controls built into API Management.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
-| Server-side encryption at rest: customer managed keys (BYOK) | No | All encryption keys are per service instance and are service managed. |
+| Server-side encryption at rest: Microsoft-managed keys | Yes | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | No | All encryption keys are per service instance and are service managed. |
 | Column level encryption (Azure Data Services)| N/A | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
 | API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).
  |
 
@@ -60,8 +60,12 @@ This article documents the security controls built into API Management.
 
 ## Vulnerability scans false positives
 
-This section documents common vulnerabilities, which do not affect Azure API Management.
+This section documents common vulnerabilities that do not affect Azure API Management.
 
 | Vulnerability               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed is vulnerability in the implementation of the TLS SessionTicket extension found in some F5 products. It allows the leakage ("bleeding") of up to 31 bytes of data from uninitialized memory. This is caused by the TLS stack padding a Session ID, passed from the client, with data to make it 32 bits long. |
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

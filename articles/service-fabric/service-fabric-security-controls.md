@@ -4,11 +4,11 @@ description: A checklist of security controls for evaluating Azure Service Fabri
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
 
 ---
@@ -47,8 +47,8 @@ This article documents the security controls built into Azure Service Fabric.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
-| Server-side encryption at rest: customer managed keys (BYOK) | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
+| Server-side encryption at rest: Microsoft-managed keys | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |
@@ -58,3 +58,7 @@ This article documents the security controls built into Azure Service Fabric.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | |
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

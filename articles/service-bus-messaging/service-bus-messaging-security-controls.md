@@ -3,11 +3,10 @@ title: Security controls for Azure Service Bus Messaging
 description: A checklist of security controls for evaluating Azure Service Bus Messaging
 services: service-bus-messaging
 ms.service: service-bus-messaging
-documentationcenter: ''
 author: axisc
 
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
 
 ---
@@ -45,8 +44,8 @@ This article documents the security controls built into Azure Service Bus Messag
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys |  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
-| Server-side encryption at rest: customer managed keys (BYOK) | No |   |
+| Server-side encryption at rest: Microsoft-managed keys |  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
+| Server-side encryption at rest: customer-managed keys (BYOK) | No |   |
 | Column level encryption (Azure Data Services)| N/A | |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Supports standard HTTPS/TLS mechanism. |
 | API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -56,3 +55,7 @@ This article documents the security controls built into Azure Service Bus Messag
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Supports resource provider versioning through the [Azure Resource Manager API](/rest/api/resources/).|
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

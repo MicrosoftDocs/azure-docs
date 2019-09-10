@@ -45,8 +45,8 @@ This article documents the security controls built into Azure Key Vault.
 
 | Security control | Yes/No | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft managed keys | Yes | All objects are encrypted. |
-| Server-side encryption at rest: customer managed keys (BYOK) | Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. |
+| Server-side encryption at rest: Microsoft-managed keys | Yes | All objects are encrypted. |
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | All communication is via encrypted API calls |
 | API calls encrypted| Yes | Using HTTPS. |
@@ -57,3 +57,7 @@ This article documents the security controls built into Azure Key Vault.
 |---|---|--|
 | Control/Management plane access controls | Yes | Azure Resource Manager Role-Based Access Control (RBAC) |
 | Data plane access controls (At every service level) | Yes | Key Vault Access Policy |
+
+## Next steps
+
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
