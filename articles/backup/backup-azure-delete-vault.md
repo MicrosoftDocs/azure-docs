@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.author: dacurwin
 ---
 # Delete an Azure Backup Recovery Services vault
@@ -259,7 +259,7 @@ After deleting the backed up data, un-register any on-premises containers and ma
           [<CommonParameters>]
     ```
 
-    [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) about unregistering a Backup management container from the vault.
+    [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) about un-registering a Backup management container from the vault.
 
 After permanently deleting backed up data and un-registering all containers, proceed to delete the vault. 
 
