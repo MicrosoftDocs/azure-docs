@@ -4,7 +4,7 @@ description: Learn how to create a single-page web application that queries and 
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/29/2019
+ms.date: 08/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -124,6 +124,10 @@ This tutorial also uses data from the sample application's Time Series Insights 
 
       [![Visual Studio - The Publish profile pane](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. Select to publish a new Azure App Service instance or use an existing one.
+
+      [![Select an Azure App Service instance](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. Select the subscription that you want to use to publish the application. Select the **TsiSpaApp** project. Then, select **OK**.
 
       [![Visual Studio - The Publish profile App Service pane](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -134,12 +138,16 @@ This tutorial also uses data from the sample application's Time Series Insights 
 
    1. A successful publish log appears in the Visual Studio **Output** pane. When deployment is finished, Visual Studio opens the web application in a browser tab and prompts for sign-in. After successful sign-in, the Time Series Insights controls are populated with data.
 
+   1. Navigate to your web app and login to view the rendered Time Series Insights visual data.
+
+      [![Review the hosted web app](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## Troubleshoot  
 
 Error code/condition | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** or **step 4** when you [registered the application to use Azure AD](#register-with-azure-ad) is present.
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6.b** in [Build and publish the web application](#build-and-publish) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. |
+*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing a **Redirect URI** property. Go to **Authentication** > **Redirect URIs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** or **step 4** when you [registered the application to use Azure AD](#register-with-azure-ad) is present.
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6.b** in [Build and publish the web application](#build-and-publish) must match the value specified under **Authentication** > **Redirect URIs** in your Azure AD application registration. |
 The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in **step 6** in [Build and publish the web application](#build-and-publish) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources

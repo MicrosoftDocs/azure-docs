@@ -1,5 +1,5 @@
 ---
-title: Create and test an Azure IoT Plug and Play Preview device | Microsoft Docs
+title: Create and test an IoT Plug and Play Preview device | Microsoft Docs
 description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play Preview device.
 author: dominicbetts
 ms.author: dobett
@@ -338,7 +338,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 1. To create an IoT hub:
 
     ```azurecli-interactive
-    az group create --name environmentalsensorresources --location eastus
+    az group create --name environmentalsensorresources --location centralus
     az iot hub create --name {your iot hub name} \
       --resource-group environmentalsensorresources --sku F1
     ```

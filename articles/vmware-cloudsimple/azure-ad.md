@@ -92,4 +92,4 @@ You can optionally configure other Azure AD features.  These are not required fo
 
 3. Sign in to your Private Cloud vCenter after the privileges are escalated.
 4. Follow the instructions in [Add an identity source on vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) using the values from the previous step to set up Azure Active Directory as an identity source.
-5. Add users/groups from Azure AD to vCenter groups as described in the VMware topic <a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">Add Members to a vCenter Single Sign-On Group</a>.
+5. Add users/groups from Azure AD to vCenter groups as described in the VMware topic [Add Members to a vCenter Single Sign-On Group](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).

@@ -3,7 +3,7 @@ title: Connect a SensorTile.box device to your Azure IoT Central application | M
 description: As a device developer, learn how to connect a SensorTile.box device to your Azure IoT Central application.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 04/24/2019
+ms.date: 08/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -29,7 +29,7 @@ To complete the steps in this article, you need the following resources:
 
 In your Azure IoT Central application, add a real device from the **SensorTile.box** device template and make a note of the device connection details: **Scope ID**, **Device ID**, and **Primary key**:
 
-1. Add a device from Device Explorer. Select **+ New > Real** to add a real device.
+1. Add a device from Devices. Select **+ New > Real** to add a real device.
 
     * Enter a lowercase **Device ID**, or use the suggested **Device ID**.
     * Enter a **Device Name**, or use the suggested name

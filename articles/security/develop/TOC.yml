@@ -4,8 +4,10 @@
 - name: Sample apps
   expanded: true
   items:
-  - name: Web app in a Linux container
-    href: secure-web-app.md
+  - name: New to secure development
+    items:
+    - name: Web app in a Linux container
+      href: secure-web-app.md
 
 - name: Concepts
   expanded: true

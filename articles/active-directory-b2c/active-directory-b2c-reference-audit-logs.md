@@ -40,7 +40,7 @@ The **B2C** category in audit logs contains the following types of activities:
 > For user object CRUD activities, refer to the **Core Directory** category.
 
 ## Example activity
-The example below shows the data captured when a user signs in with an external identity provider:
+The example below shows the data captured when a user signs in with an external identity provider:  
     ![Example of Audit Log Activity Details page in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 The activity details panel contains the following relevant information:

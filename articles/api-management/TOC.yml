@@ -193,6 +193,8 @@
               href: api-management-howto-create-groups.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Retrieve IP addresses
+              href: api-management-howto-ip-addresses.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
             - name: Log requests with Azure Application Insights
@@ -205,6 +207,8 @@
               href: api-management-configuration-repository-git.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
+            - name: Migrate API Management instances
+              href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Integrate with Service Fabric
@@ -216,7 +220,7 @@
 - name: Reference
   items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/module/az.apimanagement/?view=azps-2.6.0
       - name: REST
         href: /rest/api/apimanagement/
       - name: REST (original)

@@ -77,7 +77,7 @@ az provider register --namespace Microsoft.ContainerService
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
+* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* feature for your subscription. You can't add or manage node pools with an existing AKS cluster created before this feature was successfully registered.
 * You can't delete the first node pool.
 
 While this feature is in preview, the following additional limitations apply:
@@ -119,8 +119,11 @@ The following example output shows the resource group created successfully:
 ## Create an AKS cluster
 
 In order to run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
-  * The cluster is configured with one node
+  * The cluster is configured with two nodes
   * The *windows-admin-password* and *windows-admin-username* parameters set the admin credentials for any Windows Server containers created on the cluster.
+
+> [!NOTE]
+> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
 Provide your own secure *PASSWORD_WIN* (remember that the commands in this article are entered into a BASH shell):
 
@@ -130,7 +133,7 @@ PASSWORD_WIN="P@ssw0rd1234"
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --enable-addons monitoring \
     --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
@@ -182,7 +185,7 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
+The following example output shows the all the nodes in the cluster. Make sure that the status of all nodes is *Ready*:
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION

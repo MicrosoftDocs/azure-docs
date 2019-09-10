@@ -1,5 +1,5 @@
 ---
-title: Build an Azure IoT Plug and Play Preview device that's ready for certification | Microsoft Docs
+title: Build an IoT Plug and Play Preview device that's ready for certification | Microsoft Docs
 description: As a device developer, learn about how you can build an IoT Plug and Play Preview device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
@@ -119,7 +119,7 @@ To certify the device, it must enable provisioning through the [Azure IoT Device
 
 #### Implement the Model Information and SDK Information interfaces
 
-The Azure IoT device SDK implements the Model Information and SDK Information interfaces. If you use the code generation function in VS Code, your device code uses the Azure IoT Plug and Play device SDK.
+The Azure IoT device SDK implements the Model Information and SDK Information interfaces. If you use the code generation function in VS Code, your device code uses the IoT Plug and Play device SDK.
 
 If you chose to not use the Azure IoT device SDK, you can use the SDK source code as reference for your own implementation.
 

@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 02/14/2018
 ms.author: dacurwin
 ms.custom: mvc
 ---

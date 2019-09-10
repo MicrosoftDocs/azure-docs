@@ -70,14 +70,7 @@ so it cannot be managed by PowerShell DSC or Azure Automation State Configuratio
 
 For nodes running Linux, the following distros/versions are supported:
 
-The DSC Linux extension supports all the Linux distributions
-[endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
-except:
-
-Distribution | Version
--|-
-Debian	| all versions
-Ubuntu	| 18.04
+The DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### DSC requirements
 
