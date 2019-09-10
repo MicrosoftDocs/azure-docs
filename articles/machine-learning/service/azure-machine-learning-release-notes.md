@@ -177,7 +177,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
   + The performance of `read_parquet` has been significantly improved when running in Spark.
   + Fixed an issue where `column_type_builder` failed in case of a single column with ambiguous date formats.
 
-### Azure Portal
+### Azure portal
 + **Preview Feature**
   + Log and output file streaming is now available for run details pages. The files will stream updates in real time when the preview toggle is turned on.
   + Ability to set quota at a workspace level is released in preview. AmlCompute quotas are allocated at the subscription level, but we now allow you to distribute that quota between workspaces and allocate it for fair sharing and governance. Just click on the **Usages+Quotas** blade in the left navigation bar of your workspace and select the **Configure Quotas** tab. Note that you must be a subscription admin to be able to set quotas at the workspace level since this is a cross-workspace operation.
@@ -299,7 +299,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
   + **azureml-explain-model**
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + add scipy sparse support for LimeExplainer
-    + added shap linear explainer wrapper, as well as another level to tabular explainer for explaining linear models
+    + added shape linear explainer wrapper, as well as another level to tabular explainer for explaining linear models
     + for mimic explainer in explain model library, fixed error when include_local=False for sparse data input
     + add expected values to automl output
     + fixed permutation feature importance when transformations argument supplied to get raw feature importance
@@ -436,7 +436,7 @@ We reverted a change that improved performance, as it was causing issues for som
 + **Bug fixes and improvements**
   + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
   + Improve performance of run.create_children
-  + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
+  + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shape values.
   + Improved error handling and message for Automated machine learning. 
   + Fixed the iteration timeout issue for Automated machine learning.
   + Improved the time-series transformation performance for Automated machine learning.
