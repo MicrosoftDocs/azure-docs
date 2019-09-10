@@ -73,12 +73,12 @@ landingContent:
             url: python-quickstart-commandline-feedback-loop.md                
           - text: Pypi package
             url: https://pypi.org/project/azure-cognitiveservices-personalizer/            
-        - linkListType: get-started
-          links:
-          - text: Code Samples
-            url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
-          - text: REST APIs
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+      - linkListType: get-started
+        links:
+        - text: Code Samples
+          url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+        - text: REST APIs
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
   - title: About Reinforcement learning
     linkLists: 
       - linkListType: overview
