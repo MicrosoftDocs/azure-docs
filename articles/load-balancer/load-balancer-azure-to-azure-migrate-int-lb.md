@@ -280,9 +280,10 @@ The following steps show how to prepare the internal load balancer for the move 
     
     ```
 19. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
-    * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+    
+* **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
 
-            ```json
+    ```json
              "resources": [
             {
                 "type": "Microsoft.Network/loadBalancers",
@@ -293,12 +294,12 @@ The following steps show how to prepare the internal load balancer for the move 
                     "name": "Basic",
                     "tier": "Regional"
                 }
-            ```
-           For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+    ```
+       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
+* **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
 
-            ```json
+    ```json
             "loadBalancingRules": [
                         {
                             "name": "MyLoadBalancerRule",
@@ -325,12 +326,12 @@ The following steps show how to prepare the internal load balancer for the move 
                         }
                 ]
 
-            ```
-           For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+    ```
+       For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **template.json** file:
+* **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **template.json** file:
 
-            ```json
+    ```json
             "probes": [
                         {
                             "name": "MyHealthProbe",
@@ -344,12 +345,12 @@ The following steps show how to prepare the internal load balancer for the move 
                             }
                         }
                     ]
-            ```
-           For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+    ```
+       For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **template.json** file:
+* **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **template.json** file:
 
-            ```json
+    ```json
              "inboundNatRules": [
                     {
                         "name": "MyInboundNATRule",
@@ -368,10 +369,10 @@ The following steps show how to prepare the internal load balancer for the move 
                         }
                     }
                 ]
-            ```
-           To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
+    ```
+       To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
 
-            ```json
+    ```json
             {
                 "type": "Microsoft.Network/loadBalancers/inboundNatRules",
                 "apiVersion": "2019-06-01",
@@ -392,8 +393,8 @@ The following steps show how to prepare the internal load balancer for the move 
                     "enableTcpReset": false
                 }
             }
-            ```
-           For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+    ```
+       For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
     
 20. Save the **template.json** file.
