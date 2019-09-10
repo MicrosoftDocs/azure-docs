@@ -512,6 +512,8 @@
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Restore point in time
+      href: sql-database-managed-instance-point-in-time-restore.md
     - name: Determine size of managed instance subnet 
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
     - name: Create new VNet and subnet for managed instance
@@ -534,8 +536,6 @@
       href: sql-database-managed-instance-connect-app.md
   - name: Load and move data
     items:
-    - name: Restore point in time
-      href: sql-database-managed-instance-point-in-time-restore.md
     - name: Move resource to a new region
       href: sql-database-move-resources-across-regions.md
     - name: Copy a database within Azure
