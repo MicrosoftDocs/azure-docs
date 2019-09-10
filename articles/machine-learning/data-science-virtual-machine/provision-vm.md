@@ -6,65 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
-ms.topic: conceptual
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 02/22/2019
+ms.date: 09/10/2019
 
 ---
 
-# Quickstart: Set up a Windows Data Science Virtual Machine on Azure
 
-The Microsoft Windows Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure. It comes preinstalled and configured with tools for data analytics and machine learning.
-
-## Included data science tools
-
-The following tools are included in a DSVM:
-
-* Python SDK for the [Azure Machine Learning service](../index.yml).
-* [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
-* Anaconda Python distribution.
-* Jupyter Notebook with R, Python, and PySpark kernels.
-* Microsoft Visual Studio Community.
-* Microsoft Power BI Desktop.
-* Microsoft SQL Server 2017 Developer edition.
-* A standalone Apache Spark instance for local development and testing.
-* [JuliaPro](https://juliacomputing.com/products/juliapro.html).
-* Machine learning and data analytics tools:
-  * Deep learning frameworks: [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), MXNet, and Keras AI frameworks are included on the VM.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool that provides fast and accurate boosted tree implementation.
-  * [Rattle](https://togaware.com/rattle/). The R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
-  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/): Visual data mining and machine learning software in Java.
-  * [Apache Drill](https://drill.apache.org/): A schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage. It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
-* Libraries in R and Python for use in Azure Machine Learning and other Azure services.
-* Git, including Git Bash, to work with source code repositories like GitHub and Azure DevOps. Git provides several popular Linux command-line tools that are accessible both in Git Bash and in a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
-* Development tools and editors (RStudio, PyCharm).
-
-### About data science
-
-Data science involves iterating on a sequence of tasks:
-
-1. Find, load, and preprocess data.
-1. Build and test models.
-1. Deploy the models for consumption in intelligent applications.
-
-Data scientists use several tools for these tasks. It can be time consuming to find the appropriate versions of software and then download and install them. The DSVM saves time by providing a ready-to-use image that can be provisioned on Azure, with several popular tools preinstalled and configured.
-
-The DSVM jump-starts your analytics project. You can work on tasks in various languages, including R, Python, SQL, and C#. Visual Studio provides an easy-to-use integrated development environment (IDE) to develop and test your code. The Azure SDK is included in the VM, so you can build your applications by using services on the Microsoft cloud platform.
-
-There are no software charges for this DSVM image. You pay only the Azure usage fees. They depend on the size of the virtual machine that you provision. For more information, see the [Data Science Virtual Machine page](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows).
-
-### Other DSVM versions
-
-* An [Ubuntu](dsvm-ubuntu-intro.md) image. It has tools similar to the DSVM, plus a few deep learning frameworks.
-* A [Linux CentOS](linux-dsvm-intro.md) image.
-* The [Windows Server 2012 edition](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) of the Data Science Virtual Machine. A few tools are available only on the Windows Server 2016 edition. Otherwise, this article also applies to the Windows Server 2012 edition.
-
-## Prerequisite
-
-To create a Microsoft Data Science Virtual Machine, you must have an Azure subscription. See [Get Azure free trial](https://azure.com/free).
+To create a Microsoft Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
 
 ## Create your DSVM
 
