@@ -315,7 +315,7 @@ for i in Image.list(workspace=ws):
 
 ### Deploy to the cloud
 
-To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
+To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
