@@ -108,7 +108,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 The following animation shows how to create a dataset in the workspace landing page. Currently, the workspace landing page only supports the creation of TabularDatasets.
 
-In the left pane select **Datasets**, and select **+ Create Dataset**. Choose the source to create your dataset from; either from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Review them or further configure your dataset prior to creation by selecting **Next**. 
+In the left pane select **Datasets**, and select **+ Create Dataset**. Choose the source to create your dataset from; either from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. 
 
 Select **Done** to complete your dataset creation. 
 
