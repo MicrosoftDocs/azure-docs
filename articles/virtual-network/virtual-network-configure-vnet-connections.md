@@ -194,7 +194,8 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 
 Figure 6 - ExpressRoute 'Private Peering' connection to Azure VNets
 
-> [!Note] We recommend that if VNetA and VNetB are in the same geopolitical region that you [link both VNets to the ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm) instead of configuring transitive routing. If your VNets are in different geopolitical regions, you can also link them to your circuit directly if you have [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium). 
+> [!Note]
+> We recommend that if VNetA and VNetB are in the same geopolitical region that you [link both VNets to the ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm) instead of configuring transitive routing. If your VNets are in different geopolitical regions, you can also link them to your circuit directly if you have [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium). 
 
 If you have ExpressRoute and Site-to-Site coexistence, transit routing isn't supported. For more information, see [Configure ExpressRoute and Site-to-Site coexisting connections for more information](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
@@ -233,7 +234,8 @@ To configure transit routing between VNets, you must enable BGP on all intermedi
 
 Transit traffic through Azure VPN gateway is possible by using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP isn't yet supported with Azure Virtual Networks and VPN gateways by using the classic deployment model. Without BGP, manually defining transit address spaces is error prone, and isn't recommended.
 
-> [!Note] Classic VNet-to-VNet connections are configured by using the Azure portal (Classic), or by using a network configuration file in the Classic Portal. You can't create or modify a Classic virtual network through the Azure Resource Manager deployment model or Azure portal. For more information on transit routing for Classic VNets, see [Hub & Spoke, Daisy-Chain, and Full-Mesh VNET topologies in Azure ARM using VPN (V1)](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
+> [!Note]
+> Classic VNet-to-VNet connections are configured by using the Azure portal (Classic), or by using a network configuration file in the Classic Portal. You can't create or modify a Classic virtual network through the Azure Resource Manager deployment model or Azure portal. For more information on transit routing for Classic VNets, see [Hub & Spoke, Daisy-Chain, and Full-Mesh VNET topologies in Azure ARM using VPN (V1)](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
 
 ### Configuration 5: Configure transit routing in a Site-to-Site connection
 
