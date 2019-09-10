@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -64,6 +64,18 @@ Historically, privileged access has been described by other vendors as a separat
 ![Privileged access lifecycle](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 Azure AD Privileged Identity Management (PIM) provides additional controls tailored to securing access rights for resources, across Azure AD, Azure, and other Microsoft Online Services.  The just-in-time access, and role change alerting capabilities provided by Azure AD PIM, in addition to multi-factor authentication and Conditional Access, provide a comprehensive set of governance controls to help secure your company's resources (directory, Office 365, and Azure resource roles). As with other forms of access, organizations can use access reviews to configure recurring access recertification for all users in administrator roles.
+
+## Least privileged roles
+
+It's a best practice to use the least privileged role to perform administrative tasks in Identity Governance. We recommend that you use Azure AD PIM to activate a role as needed to perform these tasks. The following are the least privileged directory roles to configure Identity Governance features: 
+
+| Feature | Least privileged role |
+| ------- | --------------------- |
+| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires Global administrator) |
+| Terms of use | Security administrator or Conditional access administrator |
+| Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires Privileged role administrator) |
+|Privileged Identity Management | Privileged role administrator |
+
 
 ## Getting started
 

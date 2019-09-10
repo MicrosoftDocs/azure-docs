@@ -89,6 +89,7 @@ The folder structure for a Python Functions project looks like the following exa
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -105,6 +106,12 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+To reference modules local to a function, you can use the relative import syntax as follows:
+
+```
+from . import example
 ```
 
 When deploying a Function project to your function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
@@ -374,6 +381,8 @@ pip install -r requirements.txt
 ## Publishing to Azure
 
 When you're ready to publish, make sure that all your dependencies are listed in the *requirements.txt* file, which is located at the root of your project directory. Azure Functions can [remotely build](functions-deployment-technologies.md#remote-build) these dependencies.
+
+Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.  
 
 To deploy to Azure and perform a remote build, use the following command:
 

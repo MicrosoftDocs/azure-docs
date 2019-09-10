@@ -94,7 +94,7 @@ The simplest way to authenticate an cloud-based .NET application is with a manag
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 
@@ -206,5 +206,12 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
-- See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)
-- [Learn more about Key Vault](key-vault-whatis.md)
+In this quickstart you created a key vault, stored a secret, and retrieved that secret. See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
+
+To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+
+- Implement [Service-to-service authentication to Azure Key Vault using .NET](service-to-service-authentication.md)
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

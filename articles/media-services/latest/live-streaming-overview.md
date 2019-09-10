@@ -92,7 +92,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
     * Stop the Live Event. Once the Live Event is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
     * You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in stopped state, it will not incur any charges.
 
-Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first.
+The asset that the live output is archiving to, automatically becomes an on-demand asset when the live output is deleted. You must delete all live outputs before a live event can be stopped. You can use an optional flag [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) to automatically remove live outputs on stop. 
 
 > [!TIP]
 > See [Live streaming tutorial](stream-live-tutorial-with-api.md), the article examines the code that implements the steps described above.

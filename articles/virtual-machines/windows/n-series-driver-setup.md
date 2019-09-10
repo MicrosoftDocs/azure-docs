@@ -37,6 +37,8 @@ After GRID driver installation on a VM, a restart is required. After CUDA driver
 
 ## Verify driver installation
 
+Please note that the Nvidia Control panel is only accessible with the GRID driver installation. If you have installed CUDA drivers then the Nvidia control panel will not be visible.
+
 You can verify driver installation in Device Manager. The following example shows successful configuration of the Tesla K80 card on an Azure NC VM.
 
 ![GPU driver properties](./media/n-series-driver-setup/GPU_driver_properties.png)

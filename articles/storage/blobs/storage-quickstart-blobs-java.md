@@ -14,9 +14,6 @@ ms.topic: conceptual
 
 In this how-to guide, you learn how to use the client library for Java v7 to upload, download, and list block blobs in a container in Azure Blob storage.
 
-> [!TIP]
-> The latest version of the Azure Storage client library for Java is v10. Microsoft recommends that you use the latest version of the client library when possible. To get started using v10, see [Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
