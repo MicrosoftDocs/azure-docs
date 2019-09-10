@@ -54,7 +54,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 7. After running all the lines in the script, you should see an output similar to this:
 
-    ![Workspace](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
+    ![Workspace](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## Submit jobs to an HDInsight ML Services cluster
 
@@ -114,7 +114,7 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
 
     3. Select **Containers** from the left-hand menu on your storage account pane.
 
-        ![Containers](./media/r-server-submit-jobs-r-tools-vs/containers.png)
+        ![Containers](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. Select your cluster's container name, browse to the **user** folder (you might have to click *Load more* at the bottom of the list), then select *RevoShare*, then **newUser**. The `people.json` file should be displayed in the `newUser` folder.
 
