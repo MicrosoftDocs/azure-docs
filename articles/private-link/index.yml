@@ -34,7 +34,7 @@ landingContent:
             url: private-endpoint-overview.md
       - linkListType: quickstart
         links:
-          - text: Create a private endpoint - Portal
+          - text: Create a private endpoint
             url: create-private-endpoint-portal.md
       - linkListType: tutorial
         links:
@@ -52,7 +52,7 @@ landingContent:
       
       - linkListType: get-started
         links:
-          - text: Create a private link service - PowerShell
+          - text: Create a private link service
             url: create-private-link-service-powershell.md   
   # Card
   - title: Reference
