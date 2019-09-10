@@ -235,7 +235,7 @@ To work around this issue, you can try deleting your corrupted local connections
 6. If a connection is not working, remove its value from the Developer Tools and record it so you can add it back later.
 7. Repeat until you have examined all your connections
 
-After going through all your connections, you should have a list of connection names. You need to clear their corrupted data and add them back through normal steps using Storage Explorer.
+After going through all your connections, for all connection names that are not added back, you need to clear their corrupted data (if there is any) and add them back through normal steps using Storage Explorer.
 
 Windows:
 1. In start menu, search for 'Credential Manager' and open it.
