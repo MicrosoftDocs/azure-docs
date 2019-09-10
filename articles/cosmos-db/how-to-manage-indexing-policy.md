@@ -4,7 +4,7 @@ description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/10/2019
 ms.author: thweiss
 ---
 
@@ -23,9 +23,7 @@ Here are some examples of indexing policies shown in their JSON format, which is
         "indexingMode": "consistent",
         "includedPaths": [
             {
-                "path": "/*",
-                "indexes": [
-                ]
+                "path": "/*"
             }
         ],
         "excludedPaths": [
@@ -79,14 +77,10 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
         "indexingMode": "consistent",
         "includedPaths": [
             {
-                "path": "/path/to/included/property/?",
-                "indexes": [
-                ]
+                "path": "/path/to/included/property/?"
             },
             {
-                "path": "/path/to/root/of/multiple/included/properties/*",
-                "indexes": [
-                ]
+                "path": "/path/to/root/of/multiple/included/properties/*"
             }
         ],
         "excludedPaths": [
@@ -138,7 +132,8 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     }
 ```
 
-Note: It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
+> [!NOTE] 
+> It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
 
 ### Using a spatial index on a specific property path only
 
@@ -162,6 +157,7 @@ Note: It is generally recommended to use an **opt-out** indexing policy to let A
             "types": [
                 "Point",
                 "Polygon",
+                "MultiPolygon",
                 "LineString"
             ]
         }
@@ -184,9 +180,7 @@ In addition to including or excluding paths for individual properties, you can a
                 "path":"/*"
             }
         ],
-        "excludedPaths":[  
-
-        ],
+        "excludedPaths":[],
         "compositeIndexes":[  
             [  
                 {  
@@ -202,14 +196,14 @@ In addition to including or excluding paths for individual properties, you can a
     }
 ```
 
-This composite index is required for Query #1 and Query #2:
+The above composite index on name and age is required for Query #1 and Query #2:
 
 Query #1:
 
 ```sql
     SELECT *
     FROM c
-    ORDER BY name asc, age desc
+    ORDER BY name ASC, age DESC
 ```
 
 Query #2:
@@ -217,7 +211,7 @@ Query #2:
 ```sql
     SELECT *
     FROM c
-    ORDER BY name desc, age asc
+    ORDER BY name DESC, age ASC
 ```
 
 This composite index will benefit Query #3 and Query #4 but is not required:
@@ -225,10 +219,10 @@ This composite index will benefit Query #3 and Query #4 but is not required:
 Query #3:
 
 ```sql
-SELECT * 
+SELECT *
 FROM c
 WHERE c.name = "Tim"
-ORDER BY c.name desc, c.age asc
+ORDER BY c.name DESC, c.age ASC
 ```
 
 Query #4:
@@ -239,7 +233,7 @@ FROM c
 WHERE c.name = "Tim" and c.age > 18
 ```
 
-### Composite index defined for (name asc, age asc) and (name asc, age desc):
+### Composite index defined for (name ASC, age ASC) and (name ASC, age DESC):
 
 You can define multiple different composite indexes within the same indexing policy.
 
@@ -252,9 +246,7 @@ You can define multiple different composite indexes within the same indexing pol
                 "path":"/*"
             }
         ],
-        "excludedPaths":[  
-
-        ],
+        "excludedPaths":[],
         "compositeIndexes":[  
             [  
                 {  
@@ -280,7 +272,7 @@ You can define multiple different composite indexes within the same indexing pol
     }
 ```
 
-### Composite index defined for (name asc, age asc):
+### Composite index defined for (name ASC, age ASC):
 
 It is optional to specify the order. If not specified, the order is ascending.
 
@@ -293,9 +285,7 @@ It is optional to specify the order. If not specified, the order is ascending.
                 "path":"/*"
             }
         ],
-        "excludedPaths":[  
-
-        ],
+        "excludedPaths":[],
         "compositeIndexes":[  
             [  
                 {  
@@ -324,6 +314,8 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
 ```
 
 ### No indexing
+
+This policy will turn off indexing. If `indexingMode` is set to `none`, you cannot set a TTL on the container.
 
 ```json
     {

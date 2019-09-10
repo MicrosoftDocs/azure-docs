@@ -4,7 +4,7 @@ description: Understand how indexing works in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 09/10/2019
 ms.author: thweiss
 ---
 
@@ -104,11 +104,11 @@ The **spatial** index kind is used for:
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
+Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported.
 
 The **composite** index kind is used for:
 
-- `ORDER BY` queries on multiple properties: 
+- `ORDER BY` queries on multiple properties:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
@@ -125,7 +125,6 @@ The **composite** index kind is used for:
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
-
 
 ## Querying with indexes
 
