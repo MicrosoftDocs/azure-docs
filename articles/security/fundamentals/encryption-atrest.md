@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: barclayn
 
 ---
@@ -262,7 +262,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | -                  | -                  |
-| Event Hubs                       | Yes                | -                  | -                  |
+| Event Hubs                       | Yes                | Preview, all RSA Lengths. | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Apache Kafka on Azure HDInsight  | Yes                | All RSA Lengths.   | -                  |
