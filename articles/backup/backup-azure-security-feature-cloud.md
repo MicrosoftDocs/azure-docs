@@ -130,4 +130,4 @@ No. Currently soft delete is only supported for Azure virtual machines.
 
 ## Next steps
 
-* Read about [Security attributes for Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes).
+* Read about [Security controls for Azure Backup](backup-security-controls.md).
