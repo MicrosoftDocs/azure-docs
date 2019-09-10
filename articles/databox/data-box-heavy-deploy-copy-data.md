@@ -7,11 +7,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/29/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
+::: zone target = "docs"
+
 # Tutorial: Copy data to Azure Data Box Heavy via SMB
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+# Copy data to Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
@@ -21,6 +34,17 @@ In this tutorial, you learn how to:
 > * Connect to Data Box Heavy
 > * Copy data to Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
+
+In each case, make sure that the share and folder names, and the data size follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).
+
+::: zone-end
+
+::: zone target = "docs"
 
 ## Prerequisites
 
@@ -31,6 +55,7 @@ Before you begin, make sure that:
 3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
+   
 
 ## Connect to Data Box Heavy shares
 
@@ -252,4 +277,60 @@ Advance to the next tutorial to learn how to ship your Data Box Heavy back to Mi
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box Heavy to Microsoft](./data-box-heavy-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+### Copy data via SMB
+
+1. If using a Windows host, use the following command to connect to the SMB shares:
+
+    `\\<IP address of your device>\ShareName`
+
+2. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
+
+3. Use an SMB compatible file copy tool such as Robocopy to copy data to shares.
+
+For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via SMB](data-box-heavy-deploy-copy-data.md).
+
+### Copy data via NFS
+
+1. If using an NFS host, use the following command to mount the NFS shares:
+
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
+2. To get the share access credentials, go to the **Connect & copy page** in the local web UI of the Data Box Heavy.
+3. Use `cp` or `rsync` command to copy your data. 
+4. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
+
+For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
+
+### Copy data via REST
+
+1. To copy data using Data Box Blob storage via REST APIs, you can connect over *http* or *https*.
+2. To copy data to Data Box Blob storage, you can use AzCopy.
+3. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
+
+For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box Blob storage via REST APIs](data-box-heavy-deploy-copy-data-via-rest.md).
+
+### Copy data via data copy service
+
+1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box Heavy, go to **Manage > Copy data > Create**.
+2. Fill out the parameters and create a job.
+3. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
+
+For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
+
+### Copy data to managed disks
+
+1. When ordering the Data Box Heavy device, you should have selected managed disks as your storage destination.
+2. You can connect to Data Box Heavy via SMB or NFS shares.
+3. You can then copy data via SMB or NFS tools.
+4. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
+
+For step-by-step instructions, go to [Tutorial: Use Data Box to Heavy import data as managed disks in Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+
+::: zone-end
+
 

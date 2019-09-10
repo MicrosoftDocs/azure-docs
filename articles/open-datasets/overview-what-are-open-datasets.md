@@ -44,7 +44,7 @@ With an Azure account, you can access open datasets using code or through the Az
 
 Open Datasets provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. 
 
-However, you don't need an Azure account to access Open Datasets; you can access them from any Python environment without or without Spark.
+However, you don't need an Azure account to access Open Datasets; you can access them from any Python environment with or without Spark.
 
 ## Request or contribute datasets
 

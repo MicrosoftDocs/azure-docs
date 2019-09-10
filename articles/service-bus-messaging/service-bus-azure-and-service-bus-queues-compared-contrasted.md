@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
 
 ---
@@ -48,7 +48,9 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
 * Your application handles messages that can exceed 64 KB but will not likely approach the 256 KB limit.
-* You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see [Active Directory Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
+* You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see the following articles:
+    - [Authenticate with managed identities](service-bus-managed-service-identity.md)
+    - [Authenticate from an application](authenticate-application.md)
 * Your queue size will not grow larger than 80 GB.
 * You want to use the AMQP 1.0 standards-based messaging protocol. For more information about AMQP, see [Service Bus AMQP Overview](service-bus-amqp-overview.md).
 * You can envision an eventual migration from queue-based point-to-point communication to a message exchange pattern that enables seamless integration of additional receivers (subscribers), each of which receives independent copies of either some or all messages sent to the queue. The latter refers to the publish/subscribe capability natively provided by Service Bus.
@@ -64,7 +66,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
 | Ordering guarantee |**No** <br/><br>For more information, see the first note in the “Additional Information” section.</br> |**Yes - First-In-First-Out (FIFO)**<br/><br>(through the use of messaging sessions) |
-| Delivery guarantee |**At-Least-Once** |**At-Least-Once**<br/><br/>**At-Most-Once** |
+| Delivery guarantee |**At-Least-Once** |**At-Least-Once** (using PeekLock receive mode - this is the default) <br/><br/>**At-Most-Once** (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Atomic operation support |**No** |**Yes**<br/><br/> |
 | Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with/without timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
 | Push-style API |**No** |**Yes**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) and **OnMessage** sessions .NET API. |
@@ -79,7 +81,6 @@ This section compares some of the fundamental queuing capabilities provided by S
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order; for example, when a message's visibility timeout duration expires (for example, as a result of a client application crashing during processing). When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue (to be dequeued again) after a message that was originally enqueued after it.
 * The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. In the event that the application crashes while processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after its time-to-live (TTL) period expires.
 * Storage queues are designed to support standard queuing scenarios, such as decoupling application components to increase scalability and tolerance for failures, load leveling, and building process workflows.
-* Service Bus queues support the *At-Least-Once* delivery guarantee. 
 * Inconsistencies with regard to message handling in the context of Service Bus sessions can be avoided by using session state to store the application's state relative to the progress of handling the session's message sequence, and by using transactions around settling received messages and updating the session state. This kind of consistency feature is sometimes labeled *Exactly-Once Processing* in other vendor's products, but transaction failures will obviously cause messages to be redelivered and therefore the term is not exactly adequate.
 * Storage queues provide a uniform and consistent programming model across queues, tables, and BLOBs – both for developers and for operations teams.
 * Service Bus queues provide support for local transactions in the context of a single queue.

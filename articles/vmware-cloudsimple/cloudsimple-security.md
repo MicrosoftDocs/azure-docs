@@ -72,11 +72,11 @@ The CloudSimple services are built on top of the base network security provided 
 
 The CloudSimple service has logically separate Layer 2 networks that restrict access to your own private networks in your Private Cloud environment. You can further protect your Private Cloud networks using a firewall. The CloudSimple portal allows you to define EW and NS network traffic controls rules for all network traffic, including intra Private Cloud traffic, inter-Private Cloud traffic, general traffic to the Internet, and network traffic to on-premises over IPsec VPN or ExpressRoute connection.
 
-## Vulnerability and Patch Management
+## Vulnerability and patch management
 
 CloudSimple is responsible for periodic security patching of managed VMware software (ESXi, vCenter, and NSX).
 
-## Identity and Access Management
+## Identity and access management
 
 Customers can authenticate to their Azure account (in Azure AD) using multi-factor authentication or SSO as preferred. From the Azure portal, you can launch the CloudSimple portal without reentering credentials.
 

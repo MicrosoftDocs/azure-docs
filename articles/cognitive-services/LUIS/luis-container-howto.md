@@ -231,7 +231,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.  
+> The ApiKey value is the **Key** from the **Azure Resources** page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -243,7 +243,7 @@ Both V2 and [V3 (Preview)](luis-migration-api-v3.md) versions of the API are ava
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-Use the host, `https://localhost:5000`, for container APIs. 
+Use the host, `http://localhost:5000`, for container APIs. 
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|

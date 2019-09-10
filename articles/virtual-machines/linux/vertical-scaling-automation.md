@@ -12,7 +12,7 @@ ms.assetid: dcee199e-fa25-44d5-9b25-df564cee9b45
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
@@ -31,6 +31,7 @@ The outline for the steps to accomplish this is as below
 2. Import the Azure Automation Vertical Scale runbooks into your subscription
 3. Add a webhook to your runbook
 4. Add an alert to your Virtual Machine
+
 
 ## Scale limitations
 
@@ -219,6 +220,8 @@ You can choose to scale between the following pairs of sizes:
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
+
 
 ## Setup Azure Automation to access your Virtual Machines
 The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:

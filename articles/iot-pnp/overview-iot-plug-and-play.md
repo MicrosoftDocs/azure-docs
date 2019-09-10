@@ -13,7 +13,7 @@ manager: philmea
 # As a device builder, I need to know what is PnP and how to certify devices, so I can understand how they can help me build and market my IoT devices.
 ---
 
-# What is Azure IoT Plug and Play Preview?
+# What is IoT Plug and Play Preview?
 
 IoT Plug and Play Preview enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play is a _device capability model_ schema that describes device capabilities. This schema is a JSON document that's structured as a set of interfaces that include definitions of:
 
@@ -60,7 +60,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 1. Author the device software or firmware that implements the capabilities declared in the device capability model and interfaces. The Azure IoT SDK includes APIs to implement device capability models.
 
-The [IoT Device Workbench for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension provides many features to assist you. For example, as a device developer you can use the extension to generate a skeleton C project from a capability model. However you can use any IDE to author and implement device capability models.
+The [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack provides many features to assist you. For example, as a device developer you can use an extension to generate a skeleton C project from a capability model. However you can use any IDE to author and implement device capability models.
 
 ## Certify an IoT Plug and Play device
 
@@ -73,6 +73,7 @@ As a device developer, you can submit IoT hardware products for certification. Y
 - Publish to the Certified for IoT device catalog.
 
 ## Regional availability
+
 During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
 
 ## Message quotas in IoT Hub

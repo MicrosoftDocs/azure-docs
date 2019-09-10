@@ -2,7 +2,7 @@
 title: Text Merge cognitive search skill - Azure Search
 description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search

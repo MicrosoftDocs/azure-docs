@@ -1,6 +1,6 @@
 ---
 title: Optimize cluster configurations with Apache Ambari - Azure HDInsight 
-description: Use the Apache Ambari web UI to configure and optimize HDInsight clusters.
+description: Use the Apache Ambari web UI to configure and optimize Azure HDInsight clusters.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -44,11 +44,11 @@ To modify the NameNode Java heap size:
 
 1. Type the new value in the text box, and then press **Enter** to save the change.
 
-    ![Edit NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Edit NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
 1. The NameNode Java heap size is changed to 1 GB from 2 GB.
 
-    ![Edited NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![Edited NameNode Java heap size2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
 1. Save your changes by clicking on the green **Save** button on the top of the configuration screen.
 
@@ -141,7 +141,7 @@ By default, Hive follows a set of rules to find one optimal query execution plan
 
 To enable CBO, navigate to the Hive **Configs** tab and search for `parameter hive.cbo.enable`, then switch the toggle button to **On**.
 
-![CBO config](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![CBO config](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 The following additional configuration parameters increase Hive query performance when CBO is enabled:
 

@@ -148,8 +148,7 @@ DDoS Protection Standard should be enabled|Protect virtual networks containing a
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
 
 To learn more about Security Center, see the following:

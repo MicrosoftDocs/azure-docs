@@ -1429,33 +1429,33 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
-|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|No Dimensions|
-|storage|Data space used|Bytes|Maximum|Total database size|No Dimensions|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage. Not applicable to data warehouses.|No Dimensions|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based databases.|No Dimensions|
+|storage|Data space used|Bytes|Maximum|Total database size. Not applicable to data warehouses.|No Dimensions|
 |connection_successful|Successful Connections|Count|Total|Successful Connections|No Dimensions|
 |connection_failed|Failed Connections|Count|Total|Failed Connections|No Dimensions|
 |blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|No Dimensions|
-|deadlock|Deadlocks|Count|Total|Deadlocks|No Dimensions|
-|storage_percent|Data space used percent|Percent|Maximum|Database size percentage|No Dimensions|
-|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
-|workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
-|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
-|dtu_limit|DTU Limit|Count|Average|DTU Limit|No Dimensions|
-|dtu_used|DTU used|Count|Average|DTU used|No Dimensions|
-|cpu_limit|CPU limit|Count|Average|CPU limit|No Dimensions|
-|cpu_used|CPU used|Count|Average|CPU used|No Dimensions|
-|dwu_limit|DWU limit|Count|Maximum|DWU limit|No Dimensions|
-|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage|No Dimensions|
-|dwu_used|DWU used|Count|Maximum|DWU used|No Dimensions|
+|deadlock|Deadlocks|Count|Total|Deadlocks. Not applicable to data warehouses.|No Dimensions|
+|storage_percent|Data space used percent|Percent|Maximum|Database size percentage. Not applicable to data warehouses or hyperscale databases.|No Dimensions|
+|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent. Not applicable to data warehouses.|No Dimensions|
+|workers_percent|Workers percentage|Percent|Average|Workers percentage. Not applicable to data warehouses.|No Dimensions|
+|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage. Not applicable to data warehouses.|No Dimensions|
+|dtu_limit|DTU Limit|Count|Average|DTU Limit. Applies to DTU-based databases.|No Dimensions|
+|dtu_used|DTU used|Count|Average|DTU used. Applies to DTU-based databases.|No Dimensions|
+|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based databases.|No Dimensions|
+|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based databases.|No Dimensions|
+|dwu_limit|DWU limit|Count|Maximum|DWU limit. Applies only to data warehouses.|No Dimensions|
+|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage. Applies only to data warehouses.|No Dimensions|
+|dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|No Dimensions|
 |dw_cpu_percent|DW node level CPU percentage|Percent|Average|DW node level CPU percentage|DwLogicalNodeId|
 |dw_physical_data_read_percent|DW node level Data IO percentage|Percent|Average|DW node level Data IO percentage|DwLogicalNodeId|
-	|cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage|No Dimensions|
-|cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage|No Dimensions|
-|local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage|No Dimensions|
-|app_cpu_billed|App CPU billed|Count|Total|App CPU billed|No Dimensions|
-|app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage|No Dimensions|
-|app_memory_percent|App memory used percentage|Percent|Average|App memory used percentage|No Dimensions|
-|allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|No Dimensions|
+|cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|No Dimensions|
+|cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|No Dimensions|
+|local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|No Dimensions|
+|app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|No Dimensions|
+|app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|No Dimensions|
+|app_memory_percent|App memory used percentage|Percent|Average|App memory used percentage. Applies to serverless databases.|No Dimensions|
+|allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated. Not applicable to data warehouses.|No Dimensions|
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -1464,17 +1464,17 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
 |log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|No Dimensions|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based elastic pools.|No Dimensions|
 |storage_percent|Data space used percent||Percent|Average|Storage percentage|No Dimensions|
 |workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
 |sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
-|eDTU_limit|eDTU limit|Count|Average|eDTU limit|No Dimensions|
+|eDTU_limit|eDTU limit|Count|Average|eDTU limit. Applies to DTU-based elastic pools.|No Dimensions|
 |storage_limit|Data max size|Bytes|Average|Storage limit|No Dimensions|
-|eDTU_used|eDTU used|Count|Average|eDTU used|No Dimensions|
+|eDTU_used|eDTU used|Count|Average|eDTU used. Applies to DTU-based elastic pools.|No Dimensions|
 |storage_used|Data space used|Bytes|Average|Storage used|No Dimensions|
 |xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
-|cpu_limit|CPU limit|Count|Average|CPU limit|No Dimensions|
-|cpu_used|CPU used|Count|Average|CPU used|No Dimensions|
+|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based elastic pools.|No Dimensions|
+|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|No Dimensions|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|No Dimensions|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|No Dimensions|
 

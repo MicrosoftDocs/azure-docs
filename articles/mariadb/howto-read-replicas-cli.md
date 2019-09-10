@@ -12,9 +12,6 @@ ms.date: 07/26/2019
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MariaDB service using the Azure CLI.
 
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Read replicas (same region and cross-region) are currently in public preview.
-
 ## Prerequisites
 
 - [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -44,6 +41,9 @@ To create a cross region read replica, use the `--location` parameter. The CLI e
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
+
+> [!NOTE]
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.

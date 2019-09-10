@@ -37,7 +37,7 @@ To collect the data from the machines, you should have the Log Analytics Agent i
 > Automatic provisioning is off by default. To set Security Center to install automatic provisioning by default, set it to **On**.
 >
 
-When automatic provisioning is On, Security Center provisions the Log Analytics Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Log Analytics Agent extension](#manualagent).
+When automatic provisioning is On, Security Center provisions the Log Analytics Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Log Analytics Agent extension](#manual-agent).
 
 
 
@@ -55,7 +55,7 @@ To enable automatic provisioning of the Log Analytics Agent:
 
 >[!NOTE]
 > - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
-> - For instructions on manual provisioning, see [Install the Log Analytics Agent extension manually](#manualagent).
+> - For instructions on manual provisioning, see [Install the Log Analytics Agent extension manually](#manual-agent).
 > - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning).
 > - For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md).
 >
@@ -238,7 +238,7 @@ If you switch off auto provision after it was previously on:
 >  Disabling automatic provisioning does not remove the Log Analytics Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms).
 >
 	
-## Manual agent provisioning <a name="manualagent"></a>
+## Manual agent provisioning <a name="manual-agent"></a>
  
 There are several ways to install the Log Analytics Agent manually. When installing manually, make sure you disable auto provisioning.
 

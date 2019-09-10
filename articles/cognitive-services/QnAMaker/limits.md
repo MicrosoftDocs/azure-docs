@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -39,19 +39,31 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 ## Metadata Limits
 
+### By Azure Search pricing tier
+
 Maximum number of metadata fields per knowledge base is based on your **[Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)**.
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
+### By name and value
+
+The length and acceptable characters for metadata name and value are listed in the following table.
+
+|Item|Allowed chars|Regex pattern match|Max chars|
+|--|--|--|--|
+|Name|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)|`^[a-zA-Z0-9_]+$`|100|
+|Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)|`^[^:|]+$`|500|
+|||||
+
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:
 * Length of answer text: 25,000
 * Length of question text: 1,000
 * Length of metadata key/value text: 100
-* Supported characters for metadata name: Alphabets, digits and _  
-* Supported characters for metadata value: All except : and | 
+* Supported characters for metadata name: Alphabets, digits and `_`  
+* Supported characters for metadata value: All except `:` and `|` 
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
@@ -73,8 +85,4 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 ## Next steps
 
-Learn when and how to change service tiers:
-
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): When you need to have more source files or bigger documents in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
-* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
-* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): When you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.
+Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).

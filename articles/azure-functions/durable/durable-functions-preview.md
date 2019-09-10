@@ -6,7 +6,6 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
@@ -350,7 +349,7 @@ The [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.Durabl
     "durableTask": {
       "hubName": <string>,
       "storageProvider": {
-        "emulator": { }
+        "emulator": { "enabled": true }
       }
     }
   }

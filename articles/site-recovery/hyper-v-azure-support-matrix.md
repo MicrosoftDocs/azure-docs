@@ -1,12 +1,11 @@
 ---
-title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure | Microsoft Docs
+title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure 
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/10/2019
 ms.author: raynew
 ---
 
@@ -130,6 +129,7 @@ Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
 Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
+Modifying storage account | No. The target Azure storage account can't be modified after enabling replication. To modify, disable and then reenabled disaster recovery. | No
 
 
 ## Azure compute features
@@ -147,7 +147,7 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
 Guest operating system | Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Prerequisites check fails if unsupported.
-Guest operating system architecture | 64-bit | Prerequisites check fails if unsupported.
+Guest operating system architecture | 32-bit (Windows Server 2008)/64-bit | Prerequisites check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for generation 1 VMs.<br/><br/> Up to 300 GB for generation 2 VMs.  | Prerequisites check fails if unsupported.
 Operating system disk count | 1 | Prerequisites check fails if unsupported.
 Data disk count | 16 or less  | Prerequisites check fails if unsupported.
@@ -162,13 +162,13 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 
 ## Recovery Services vault actions
 
-**Action** |  **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
+**Action** |  **Hyper-V with VMM** | **Hyper-V without VMM**
 --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
 > [!NOTE]
-> When replicating Hyper-VMs (managed with/without SCVMM) from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or SCVMM as applicable.
+> When replicating Hyper-VMs  from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or Hyper-V with VMM as applicable.
 
 
 ## Provider and agent

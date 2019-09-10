@@ -16,7 +16,7 @@ Open the VLANs/Subnets tab on the Network page to create and manage VLANs/subnet
 
 ## Create a VLAN/subnet
 
-1. [Access the CloudSimple portal](monitor-activity.md) and select **Network** on the side menu.
+1. [Access the CloudSimple portal](access-cloudsimple-portal.md) and select **Network** on the side menu.
 2. Select **VLANs/subnets**.
 3. Click **Create VLAN/Subnet**.
 
@@ -36,7 +36,7 @@ To create a distributed port group in vSphere, follow the instructions in the VM
 
 ![Distributed Port Group](media/distributed-port-group.png)
 
-## Select a Firewall Table
+## Select a firewall table
 
 Firewall tables and associated rules are defined on the **Network > Firewall tables** page. To select the firewall table to apply to the VLAN/subnet for a Private Cloud, select the VLAN/subnet click **Firewall table attachment** on the **VLANs/Subnets** page. See [Firewall Tables](firewall.md) for instructions on setting up firewall tables and defining rules.
 
