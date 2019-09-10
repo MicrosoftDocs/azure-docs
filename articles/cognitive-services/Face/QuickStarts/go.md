@@ -107,7 +107,7 @@ You'll need to update the `subscriptionKey` value with your subscription key, an
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-You may also wish to change the `imageUrl` field to point to your own input image. You also may wish to chang the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
+You may also wish to change the `imageUrl` field to point to your own input image. You might also wish to change the `returnFaceAttributes` field that specifies which face attributes to retrieve.
 
 ## Run the script
 
