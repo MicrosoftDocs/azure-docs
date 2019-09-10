@@ -84,6 +84,6 @@ Although there are five service types available for Consulting Services offers, 
 
 ## Going to market with your Integrated Solution 
 
-Once your solution is live in Azure Marketplace or AppSource, you’ll want to drive awareness and demand generation through marketing activities. Review the activities listed in the [Project Plan and Timeline](https://aka.ms/AA5qiuc), including activities that partners can drive within their own teams and with one another. Then, access [Go-to-Market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#how-to-access-microsoft-resources) provided to partners who have published in the marketplace. All Integrated Solution offers are eligible for trial-level benefits.
+Once your solution is live in Azure Marketplace or AppSource, you’ll want to drive awareness and demand generation through marketing activities. Review the activities listed in the [Project Plan and Timeline](https://aka.ms/AA5qiuc), including activities that partners can drive within their own teams and with one another. Then, access [Go-to-Market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) provided to partners who have published in the marketplace. All Integrated Solution offers are eligible for trial-level benefits.
 
 ---
