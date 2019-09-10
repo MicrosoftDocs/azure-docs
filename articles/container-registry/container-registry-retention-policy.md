@@ -30,19 +30,18 @@ If you want to delete single image tags or manifests using Azure CLI commands, s
 
 By default, no retention policy is set in a container registry. To set or update a retention policy, run the [az acr config retention update][az-acr-config-retention-update] command in the Azure CLI. You can specify a number of days between 0 and 365 to retain the untagged manifests. If you enable a retention policy without specifying a number of days, the command sets a default of 7 days. After the retention period, all untagged manifests in the registry are automatically deleted.
 
-> [!NOTE]
-> Regardless of the retention policy set in a registry, any untagged manifest that has the `delete-enabled` attribute set to `false` is protected from automatic deletion. For information about this attribute, see [Lock a container image in an Azure container registry](container-registry-image-lock.md).
+Regardless of the retention policy set in a registry, any untagged manifest that has the `delete-enabled` attribute set to `false` is protected from automatic deletion. For information about this attribute, see [Lock a container image in an Azure container registry](container-registry-image-lock.md).
 
 The following example sets a retention policy of 30 days in the registry *myregistry*:
 
 ```azurecli
-az acr config retention update --name myregistry --status Enabled --days 30
+az acr config retention update --name myregistry --status enabled --days 30
 ```
 
 The following example sets a policy to delete any manifest in the registry as soon as it is untagged. Create this policy by setting a retention period of 0 days:
 
 ```azurecli
-az acr config retention update --name myregistry --status Enabled --days 0
+az acr config retention update --name myregistry --status enabled --days 0
 ```
 
 ## Disable a retention policy
@@ -56,7 +55,7 @@ az acr config retention show --name myregistry
 To disable a retention policy in a registry, run the [az acr config retention update][az-acr-config-retention-update] command and set `--Status Disabled`:
 
 ```azurecli
-az acr config retention update --name myregistry --status Disabled
+az acr config retention update --name myregistry --status disabled
 ```
 
 ## Next steps
