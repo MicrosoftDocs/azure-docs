@@ -127,7 +127,7 @@ For more information on managed identities, see [Managed identities for Azure re
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the resync keys operation.
 
-The Azure Machine Learning service creates an additional application (the name starts with `aml-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and another workspace in North Europe in the same subscription, you'll see two of these applications. These applications enable the Azure Machine Learning service to help you manage compute resources.
+The Azure Machine Learning service creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and another workspace in North Europe in the same subscription, you'll see two of these applications. These applications enable the Azure Machine Learning service to help you manage compute resources.
 
 ## Network security
 
