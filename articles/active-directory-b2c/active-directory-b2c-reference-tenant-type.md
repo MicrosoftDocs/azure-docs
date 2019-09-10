@@ -27,7 +27,7 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 
 Azure AD B2C is available worldwide via the Azure public cloud.
 
-This differs from the model followed by most other Azure services, which typically couple *availability* with data *residency*. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+This differs from the model followed by most other Azure services, which typically couple *availability* with *data residency*. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## Data residency
 
@@ -57,7 +57,7 @@ The following countries/regions are in the process of being added to the list.  
 
 If you had created a B2C tenant during Azure AD B2C's preview period, it's likely that your **Tenant type** says **Preview tenant**.
 
-If this is the case, you must use your tenant ONLY for development and testing purposes. Do NOT use a preview tenant for production applications.
+If this is the case, you must use your tenant ONLY for development and testing purposes. DO NOT use a preview tenant for production applications.
 
 **There is no migration path** from a preview B2C tenant to a production-scale B2C tenant. You must create a new B2C tenant for your production applications.
 
