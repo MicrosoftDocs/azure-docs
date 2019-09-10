@@ -18,10 +18,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Search group members and owners (preview) in Azure Active Directory
-This article tells you how to search for members and owners of a group and how to use search filters as part of the enhanced groups experience preview in the Azure Active Directory (Azure AD) portal. There are lots of improvements in the groups experiences to help you manage your groups, including members and owners, quickly and easily.
+# Manage group members and owners (preview) in Azure Active Directory
 
-Azure AD role-based access control is a public preview feature of Azure AD groups and is available with any free or paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article tells you how to search for members and owners of a group and how to use search filters as part of the groups improvement preview in the Azure Active Directory (Azure AD) portal. There are lots of improvements in the groups experiences to help you manage your groups, including members and owners, quickly and easily. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Changes in this preview include:
 
@@ -40,7 +39,7 @@ You can also check out the the latest features and improvements by selecting **P
 
 If you are having any issues, you can switch back the legacy experience by selecting the banner at the top of the **All groups** page. We appreciate your feedback so that we can improve our experience.
 
-## Group list search and sorting
+## Group member search and filtering
 
 The groups list search has been enhanced so that when you can enter a search string, search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters.
 
