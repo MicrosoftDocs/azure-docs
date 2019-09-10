@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 09/10/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
@@ -79,11 +79,11 @@ In RBAC, to grant access, you assign a role. To grant access to a guest user, yo
 
    ![Add menu](./media/role-assignments-external-users/add-menu.png)
 
-   ![Add role assignment pane](./media/role-assignments-external-users/add-role-assignment.png)
-
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, select the guest user. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+1. In the **Select** list, select the guest user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+
+   ![Add role assignment pane](./media/role-assignments-external-users/add-role-assignment.png)
 
 1. Click **Save** to assign the role.
 
