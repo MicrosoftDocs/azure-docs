@@ -14,12 +14,12 @@ ms.reviewer: nibruno; jrasnick
 
 # Performance tuning with ordered clustered columnstore index  
 
-When executing a query against columnstore tables in Azure SQL Data Warehouse, the optimizer checks the metadata on each column segment’s range (minimum and maximum values stored) so segments out of bounds of query predicate are not read from disk to memory.  A query can have faster performance if the number of segments to read and their total size are small.   
+When users query a columnstore table Azure SQL Data Warehouse, the optimizer checks the minimum and the maximum values stored in each segment.  Segments out of bounds of query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
 
 ## Ordered vs. non-ordered clustered columnstore index 
-For Azure Data Warehouse table created with no index option specified, an internal process called Index Builder creates a non-ordered clustered columnstore index (CCI) on it by default.  Each column is compressed into a separate rowgroup segment.  There is metadata on each segment’s value range so only the segments that meet the query predicate are read from disk during query execution.  CCI offers the highest level of data compression and improves query performance by reducing the size of column segments to be read from the disk during query execution.   However, it’s important to know that index builder does not sort data before compressing into column segments, therefore overlapping segments can happen, causing longer query execution as more segments need to be read from disk. 
+By default, for each Azure Data Warehouse table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment’s value range so segments that are out of the bounds of query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing it into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
 
-Ordered CCI can help reduce segment overlapping.  When creating a table with ordered CCI, data is first sorted in memory by Azure Data Warehouse by the order key(s) before index builder compresses them into index segments.  With sorted data, segments can be reduced allowing more efficient segment elimination and faster query performance as fewer number of segments need to be read.   If all data can be sorted in memory at once, then segment overlapping can be avoided.  This scenario could be rare given the large size of data in data warehouse tables.  
+When creating an ordered CCI, Azure Data Warehouse engine sorts the data in memory by the order key(s) before the index builder compresses it into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in data warehouse tables, this scenario doesn't happen often.  
 
 To check the segment ranges for a column, run this command with your table name and column name:
 
@@ -38,19 +38,22 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ## Data loading performance
 - The performance of data loading into an ordered CCI table is similar to data loading into a partitioned table.  
-- Loading data into an ordered CCI table can take more time than data loading into a non-ordered CCI table due to the data sorting.  
+- Loading data into an ordered CCI table can take more time than data loading into a non-ordered CCI table because of the data sorting.  
 
 Figure 1 shows an example performance comparison of loading data into tables with different schemas.  
+
 ![Performance_comparison_data_loading](media/sql-data-warehouse-develop-ordered-cci/CCI_Data_Loading_Performance.png)
  
 ## Reduce segment overlapping
-To further reduce segment overlapping, consider these options when creating an ordered CCI table with CTAS command or when creating an ordered CCI on a table with data:
-- Use a larger resource class.  This allows more data to be sorted at once in memory before index builder compresses them into segments.  Once in an index segment, data cannot be sorted again. 
-- Use a lower degree of parallelism (DOP = 1 for example).  Each thread used for ordered CCI creation works on a subset of data and sort it locally.  There is no global so sorting across data sets.  Using parallel threads can reduce time to create ordered CCI but will generate more overlapping segments than using a single thread. 
+Below are options to further reduce segment overlapping when creating ordered CCI on a new table via CTAS or on an existing table with data:
+
+- Use a larger resource class to allow more data to be sorted at once in memory before index builder compresses them into segments.  Once in an index segment, the data can't be sorted again. 
+
+- Use a lower degree of parallelism (DOP = 1 for example).  Each thread used for ordered CCI creation works on a subset of data and sort it locally.  There's no global so sorting across data sets.  Using parallel threads can reduce time to create ordered CCI but will generate more overlapping segments than using a single thread. 
 - Pre-sort the data by the sort key(s) before loading them into data warehouse tables.
 
 ## Create ordered CCI on large tables
-Creating an ordered CCI is an offline operation.  For non-partitioned tables, data will not be accessible to users until the ordered CCI creation process completes.   For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation is not in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
+Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
 1.	Create partitions on the target large table (called Table A)
 2.	Create an empty ordered CCI table (called Table B) with the same table and partition schema as Table A.
