@@ -130,27 +130,27 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 1. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
        
-   ![The Azure Explorer link](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
+   ![show azure explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 
 2. From Azure Explorer, right-click the **Azure** node, and then select **Sign In**.
    
-   ![The Azure Explorer link](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+   ![explorer right-click azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
 3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
 
-    ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
+    ![view explorer 2](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
 4. In the **Azure Device Login** dialog box, click **Copy&Open**.
    
-   ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
+   ![view explorer 5](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
 
 5. In the browser interface, paste the code, and then click **Next**.
    
-   ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
+   ![view explorer 6](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
 
 6. Enter your Azure credentials, and then close the browser.
    
-   ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-7.png)
+   ![view explorer 7](./media/apache-spark-intellij-tool-plugin/view-explorer-7.png)
 
 7. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions that are associated with the credentials. Select your subscription and then select the **Select** button.
 
@@ -158,7 +158,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 8. From **Azure Explorer**, expand **HDInsight** to view the HDInsight Spark clusters that are in your subscriptions.
 
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
+    ![view explorer 3](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
 9.  To view the resources (for example, storage accounts) that are associated with the cluster, you can further expand a cluster-name node.
 
@@ -372,17 +372,17 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
        
 2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
 
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
+    ![view explorer 15](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
 
 3. Right-click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and Password.
 
   
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
+    ![view explorer 11](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
 
 4. If the cluster is linked successfully, HDInsight will be refreshed.
    The stage of the cluster will become linked.
   
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
+    ![view explorer 8](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
 
 ### Link cluster by expanding Jobs node
 
@@ -390,7 +390,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
    
 2. Click **Link this cluster** to link cluster.
    
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
+    ![view explorer 9](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
 
 ### Link cluster from Run/Debug Configurations window
 
@@ -398,21 +398,21 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
    
 2. Select a cluster, which has reader-only role permission for **Spark clusters(Linux only)**. Warning message shows out. You can Click **Link this cluster** to link cluster.
    
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
+   ![create config 1](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
    
 ### View Storage Accounts
 
 * For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage Explorer** to open Storage Explorer.
      
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
+   ![view explorer 14](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
 
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
+   ![view explorer 10](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
 
 * For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage** to open Storage Explorer.
      
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
+   ![view explorer 13](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
 
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
+   ![view explorer 12](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
 
 ## Convert existing IntelliJ IDEA applications to use Azure Toolkit for IntelliJ
 
