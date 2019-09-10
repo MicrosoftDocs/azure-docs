@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/10/2019
 ms.author: diberry
 ---
 
-# How to analyze your learning loop with an offline evaluation
+# Analyze your learning loop with an offline evaluation
 
 Learn how to complete an offline evaluation and understand the results.
 
@@ -24,7 +24,7 @@ Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 ## Prerequisites
 
 * A configured Personalizer loop
-* The Personalizer loop must have a representative amount of data - as a ballpark we recommmend at least 50,000 events in its logs for meaningful evaluation results. Optionally, you may also have previously exported _learning policy_ files you can compare and test in the same evaluation.
+* The Personalizer loop must have a representative amount of data - as a ballpark we recommend at least 50,000 events in its logs for meaningful evaluation results. Optionally, you may also have previously exported _learning policy_ files you can compare and test in the same evaluation.
 
 ## Steps to Start a new offline evaluation
 
@@ -59,6 +59,6 @@ Comparisons of Learning Policies include:
 
 Effectiveness of [Features](concepts-features.md) for Actions and Context.
 
-## More Information
+## Next steps
 
 * Learn [how offline evaluations work](concepts-offline-evaluation.md).
