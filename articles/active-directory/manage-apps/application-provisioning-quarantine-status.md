@@ -34,7 +34,7 @@ There are three ways to check whether an application is in quarantine:
 
 - Use Microsoft Graph to programmatically get the status of the provisioning job. The quarantine resource provides the reason the application is in quarantine. Use the following request:
 
-  `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
+        `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
 
 - Check your email. Notification emails are sent 1 day after quarantine to the email specified in your provisioning configuration. The notifications are resent **`[>>>periodically<<<]`**. If you don't see an email:
 
