@@ -1,9 +1,9 @@
 ---
-title: Handle mouse events with Azure Maps | Microsoft Docs
+title: Handle events with Azure Maps | Microsoft Docs
 description: How to make an interactive Web SDK map with map events
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
