@@ -1,9 +1,9 @@
 ### YamlMime:Hub
 
-title: Azure Cognitive Services Documentation
+title: Azure Cognitive Services documentation
 summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs. 
 metadata:
-  title: Azure Cognitive Services Documentation
+  title: Azure Cognitive Services documentation
   description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs. 
   ms.service: cognitive-services
   ms.topic: hub-page
@@ -41,118 +41,118 @@ conceptualContent:
     - title: Vision
       summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content. 
       links: 
-        - url: /azure/cognitive-services/computer-vision/
+        - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
         - url: /azure/cognitive-services/Custom-Vision-Service/
           itemType: overview
           text: Custom Vision
-        - url: /azure/cognitive-services/face/
+        - url: ./face/index.yml
           itemType: overview
           text: Face
-        - url: /azure/cognitive-services/form-recognizer/
+        - url: ./form-recognizer/index.yml
           itemType: overview
           text: Form Recognition (Preview)
-        - url: /azure/cognitive-services/form-recognizer/
+        - url: ./form-recognizer/index.yml
           itemType: overview
           text: Ink Recognizer (Preview)
-        - url: /azure/cognitive-services/ink-recognizer/
+        - url: ./ink-recognizer/index.yml
           itemType: overview
           text: Video Indexer   
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links: 
-        - url: /azure/cognitive-services/immersive-reader
+        - url: ./immersive-reader/index.yml
           itemType: overview
           text: Immersive Reader (Preview)
-        - url: /azure/cognitive-services/luis/
+        - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
-        - url: /azure/cognitive-services/qnamaker/index
+        - url: ./qnamaker/index.yml
           itemType: overview
           text: QnA Maker
-        - url: /azure/cognitive-services/text-analytics/
+        - url: ./text-analytics/index.yml
           itemType: overview
           text: Text Analytics
-        - url: /azure/cognitive-services/translator/
+        - url: ./translator/index.yml
           itemType: overview
           text: Translator Text
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links: 
-        - url: /azure/cognitive-services/speech-service
+        - url: ./speech-service/index.yml
           itemType: overview
           text: Speech Services 
-        - url: /azure/cognitive-services/speaker-recognition/home
+        - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
-        - url: /azure/cognitive-services/speech/home
+        - url: ./speech/home.md          
           itemType: overview
           text: Bing Speech (Retiring)   
-        - url: /azure/cognitive-services/translator-speech/
+        - url: ./translator-speech/overview.md
           itemType: overview
           text: Translator Speech (Retiring)           
     - title: Decision Services 
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
-        - url: ./anomaly-detector/overview.md
+        - url: ./anomaly-detector/index.yml
           itemType: overview
           text: Anomaly Detector (Preview)
-        - url: ./content-moderator/overview.md
+        - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
-        - url: ./personalizer/what-is-personalizer.md
+        - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer (Preview) 
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links: 
-        - url: /azure/cognitive-services/Bing-Autosuggest
+        - url: ./Bing-Autosuggest/index.yml
           itemType: overview
           text: Autosuggest Search
-        - url: /azure/cognitive-services/bing-custom-search
+        - url: ./bing-custom-search/index.yml
           itemType: overview
           text: Custom Search
-        - url: /azure/cognitive-services/bing-entities-search/
+        - url: ./bing-entities-search/index.yml
           itemType: overview
           text: Entity Search
-        - url: /azure/cognitive-services/bing-image-search
+        - url: ./bing-image-search/index.yml
           itemType: overview
           text: Image Search     
-        - url: /azure/cognitive-services/bing-local-business-search
+        - url: ./bing-local-business-search/index.yml
           itemType: overview
           text: Local Business Search (Preview)
-        - url: /azure/cognitive-services/bing-news-search/
+        - url: ./bing-news-search/index.yml
           itemType: overview
           text: News Search     
-        - url: /azure/cognitive-services/bing-spell-check/
+        - url: ./bing-spell-check/index.yml
           itemType: overview
           text: Spell Check    
-        - url: /azure/cognitive-services/Bing-Video-Search/
+        - url: ./Bing-Video-Search/index.yml
           itemType: overview
           text: Video Search    
-        - url: /azure/cognitive-services/bing-visual-search
+        - url: ./bing-visual-search/index.yml
           itemType: overview
           text: Visual Search  
-        - url: /azure/cognitive-services/bing-web-search/
+        - url: ./bing-web-search/index.yml
           itemType: overview
           text: Web Search   
     - title: Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers..
       links: 
-        - url: /azure/cognitive-services/cognitive-services-container-support
+        - url: ./cognitive-services-container-support.md
           itemType: overview
           text: Containers for Cognitive Services
-        - url: /azure/cognitive-services/container-reuse-recipe
+        - url: ./containers/container-reuse-recipe.md
           itemType: overview
           text: Create containers for reuse
-        - url: /azure/cognitive-services/azure-container-instance-recipe
+        - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance
-        - url: /azure/cognitive-services/azure-kubernetes-recipe
+        - url: ./containers/azure-kubernetes-recipe.md
           itemType: how-to-guide
           text: Deploy to Azure Kubernetes Service
-        - url: /azure/cognitive-services/docker-compose-recipe
+        - url: ./containers/docker-compose-recipe.md
           itemType: how-to-guide
           text: Use Docker Compose to deploy multiple containers
 
