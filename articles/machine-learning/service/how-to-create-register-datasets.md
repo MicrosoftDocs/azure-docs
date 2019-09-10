@@ -72,7 +72,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### Create TabularDatasets
+
+TabularDatasets can be created via the SDK and in the new workspace landing page (preview).
+
+#### SDK 
 
 Use the `from_delimited_files()` method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -98,6 +103,14 @@ titanic_ds.take(3).to_pandas_dataframe()
 0|1|0|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+
+#### New workspace landing page 
+
+The following animation shows how to create a dataset in the workspace landing page. Currently, the workspace landing page only supports the creation of TabularDatasets.
+
+In the left pane select **Datasets**, and select **+ Create Dataset**. Choose the source to create your dataset from; either from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Review them or further configure your dataset prior to creation by selecting **Next**. 
+
+Select **Done** to complete your dataset creation. 
 
 ### Create FileDatasets
 Use the `from_files()` method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
