@@ -255,9 +255,12 @@ if ($enableDelete) {
 }
 ```
 
+
 ## Automatically purge tags and manifests (preview)
 
 As an alternative to scripting Azure CLI commands, run an on-demand or scheduled ACR task to delete all tags that are older than a certain duration or match a specified name filter. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
+
+Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When the retention policy is enabled, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a specified number of days.
 
 ## Next steps
 
