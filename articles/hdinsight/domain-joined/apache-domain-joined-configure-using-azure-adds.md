@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.date: 04/23/2019
 ---
 
-# Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services
+# Enterprise Security Package configurations with Azure Active Directory Domain Services in HDInsight
 
 Enterprise Security Package (ESP) clusters provide multi-user access on Azure HDInsight clusters. HDInsight clusters with ESP are connected to a domain so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs.
 
@@ -113,7 +113,7 @@ The following screenshot shows a successful configuration in the Azure portal:
 
 The managed identity you created can be chosen in from the user-assigned managed identity dropdown when creating a new cluster.
 
-![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 ## Next steps
 
