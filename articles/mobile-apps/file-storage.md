@@ -1,5 +1,5 @@
 ---
-title: Importance of push notifications in your mobile apps
+title: File Storage
 description: Learn why it is important to engage with your mobile app users
 author: elamalani
 
@@ -12,7 +12,6 @@ ms.author: emalani
 
 # File Storage
 
-
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. It provides the flexibility and hyperscale needed to store and retrieve large amounts of data so that, as storage demands increase (for example, petabytes of storage), developers can leverage 500 TB of total storage per account, and a single subscription supports up to 50 storage accounts. Developers can make use of REST-based APIs to access storage.
 Deliver high-performance, low-latency disk support for I/O-intensive workloads running in Azure Virtual Machines, which is extremely durable and highly available (replication).
  Azure Blob Storage (Object Storage). Store unstructured data, such as documents and media files.
@@ -20,14 +19,12 @@ Deliver high-performance, low-latency disk support for I/O-intensive workloads r
  Azure Queue Storage to reliably store messages.
  SMB-based Azure File Storage for existing or new applications.
 
-## Importance of push notifications in your mobile apps
 
 ## Azure Services
 
-1. ### **Visual Studio App Center**
+1. ### **lorem ipsum**
 
     **Key Features**
 
     **References**
-    - [App Center Portal](https://appcenter.ms) 
-
+    - [loren ipsum](https://appcenter.ms)
