@@ -44,14 +44,14 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 
 A managed compute resource is created and managed by Azure Machine Learning service. This compute is optimized for machine learning workloads. Azure Machine Learning Compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
 
-You can use Azure Machine Learning Compute for training and for batch inferencing (Preview).  With this compute resource, you have:
+You can use Azure Machine Learning Compute for training and for batch inferencing (preview).  With this compute resource, you have:
 
 * Single- or multi-node cluster
 * Autoscales each time you submit a run 
 * Automatic cluster management and job scheduling 
 * Support for both CPU and GPU resources
 
-You can create Azure Machine Learning Compute instances in Azure portal, with the SDK, or with the CLI. When created it is automatically part of your workspace unlike other kinds of compute targets.
+You can create Azure Machine Learning Compute instances in Azure portal or your [workspace landing page (preview)](https://ml.azure.com), with the SDK, or with the CLI. When created it is automatically part of your workspace unlike other kinds of compute targets.
 
 ## Unmanaged compute
 
