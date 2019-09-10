@@ -12,7 +12,7 @@ manager: dikamath
 
 # View the list of CloudSimple portal users
 
-Users are added to the user list when they first access the CloudSimple portal. To view the list of users who have access to the CloudSimple portal through Azure, [access the CloudSimple portal](monitor-activity.md), select **Account** on the side menu, and then select **Users** in the CloudSimple portal.
+Users are added to the user list when they first access the CloudSimple portal. To view the list of users who have access to the CloudSimple portal through Azure, [access the CloudSimple portal](access-cloudsimple-portal.md), select **Account** on the side menu, and then select **Users** in the CloudSimple portal.
 
 * To display the user details, including the Azure subscription, tenant, and user IDs, click an entry on the **Users** page.
 
