@@ -128,7 +128,7 @@ cmdlet | Usage
 `get-msoldomain` | The domain list now shows the domain name as **Verified**.
 
 > [!NOTE]
-> The unmanaged Azure AD organization will be deleted 10 days after the external takeover force option has occurred.
+> The unmanaged Azure AD organization is deleted 10 days after you exercise the external takeover force option.
 
 ### PowerShell example
 
