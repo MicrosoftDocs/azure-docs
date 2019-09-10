@@ -80,7 +80,7 @@ The easiest way to view bookmarked queries, results, or history is by selecting 
 > There can be significant delay (measured in minutes) between the creation of a bookmark and when it is displayed in the **HuntingBookmark** table. It is recommended to create your bookmarks first, then analyze them after the data is ingested. 
 
 ## Delete a bookmark
-If you want to delete a bookmark do the following: 
+If you want to delete a bookmark, do the following: 
 1.	Open th **Hunting bookmark** tab. 
 2.	Select the target bookmark.
 3.	Select the ellipsis (...) at the end of the row and select **Delete bookmark**.

@@ -92,9 +92,9 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/activity-logs-overview.md)| V | |
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
-| AzureFirewall |[Azure Diagnostics](..azure/firewall/tutorial-diagnostics.md) | V | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](../azure/information-protection/reports-aip.md)[Connect Azure Information Protection](connect-azure-information-protection)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](..azure/information-protection/reports-aip.md#how-to-modify-the-reports-and-create-custom-queries)|
-| AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics) [Traffic analytics](..azure/network-watcher/traffic-analytics.md)  | | |
+| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
+| InformationProtectionLogs_CL  | [Azure Information Protection reports](../information-protection/reports-aip.md)[Connect Azure Information Protection](connect-azure-information-protection.md)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](../information-protection/reports-aip.md#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | V | |
 | SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols dashboard, see [Insecure protocols dashboard setup](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |

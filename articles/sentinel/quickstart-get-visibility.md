@@ -132,7 +132,7 @@ When you create a new detection, leverage the built-in detections crafted by Mic
 
  
 ## Next steps
-In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats.md).
+In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
-> [Detect threats](tutorial-detect-threats.md) to automate your responses to threats.
+> [Detect threats](tutorial-detect-threats-built-in.md) to automate your responses to threats.
 

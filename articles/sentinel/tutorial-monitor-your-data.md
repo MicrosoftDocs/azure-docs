@@ -21,7 +21,7 @@ ms.author: rkarlin
 
 
 
-After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can monitor the data using the Azure Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the dashboards based on Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbooks to allow you to quickly gain insights across your data as soon as you connect a data source.
+After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can monitor the data using the Azure Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the dashboards based on Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbooks to allow you to quickly gain insights across your data as soon as you connect a data source.
 
 
 This tutorial helps you monitor your data in Azure Sentinel.
@@ -45,7 +45,7 @@ This tutorial helps you monitor your data in Azure Sentinel.
    > [!NOTE]
    > This saves only the template, not the data inside the template
 
-1. Select **View workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks).
+1. Select **View workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md).
 ![view workbooks](./media/tutorial-monitor-data/workbook-graph.png)
 1. After you make your changes, you can save the workbook making sure to save it under the same subscription and resource group. These workbook are displayed under the **My workbook** tab.
 
@@ -55,7 +55,7 @@ This tutorial helps you monitor your data in Azure Sentinel.
 1. Go to **Workbooks** and then select **Add workbook** to create a new workbook from scratch.
   ![go to workbooks](./media/tutorial-monitor-data/create-workbook.png)
 
-1. To create the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks). 
+1. To create the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). 
 
 1. When building a query, make sure that the **Data source** is set to **Logs**, the **Resource type** is set to **Log Analytics** and then choose the relevant workspace(s). 
 
@@ -73,6 +73,6 @@ This tutorial helps you monitor your data in Azure Sentinel.
 
 In this tutorial, you learned how to view your data in Azure Sentinel.
 
-To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook).
+To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
 
-[Respond to threats](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook) to automate your responses to threats.
+[Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
