@@ -10,7 +10,7 @@ ms.date: 09/09/2019
 ms.author: kumud
 
 ---
-# Connect private to a SQL server in Azure using Azure portal
+# Connect privately to a SQL server in Azure using Azure portal
 
 You can connect privately to any private link resource using a private endpoint from your virtual network. These resources can be in the same region or different regions. Once the private endpoint is created, the private link resource will become available to communicate over the private IP addresses allocated with the same latency and bandwidth as if the resource were access over a public endpoint.
 

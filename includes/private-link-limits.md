@@ -9,9 +9,9 @@ ms.date: 09/10/2019
 ms.author: kumud
 ms.custom: include file
 ---
-<a name="private-link-limits"></a>Azure private link limits 
 
- The following limits apply to Azure private link.
+
+ The following limits apply to Azure private link:
 
 |Resource |Limit |
 |---------|---------|
