@@ -18,12 +18,12 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Private Link
+  - title: About Azure private link
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Private Link?
-            url: private-link-overview.md
+          - text: What is private link?
+            url: private-link-overview.md      
 
   # Card (optional)
   - title: Get started
