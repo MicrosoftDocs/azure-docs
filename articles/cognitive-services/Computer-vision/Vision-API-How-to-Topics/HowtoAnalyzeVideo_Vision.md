@@ -234,7 +234,7 @@ The image, voice, video or text understanding capabilities of VideoFrameAnalyzer
 
 ## Summary
 
-In this guide, you learned how to run near-real-time analysis on live video streams using the Face and Computer Vision APIs, and how you can use our sample code to get started. You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/).
+In this guide, you learned how to run near-real-time analysis on live video streams using the Face and Computer Vision APIs, and how you can use our sample code to get started. You can get started building your app with free API keys at the [Azure Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/).
 
 Please feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), or for more broad API feedback, on our [UserVoice site](https://cognitive.uservoice.com/).
 
