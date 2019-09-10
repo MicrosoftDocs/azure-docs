@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 
 # Application provisioning in quarantine status
 
-If most or all of the calls made against the target system consistently fail because of an error, like invalid admin credentials, the provisioning job is placed in a "quarantine" state.
+The Azure AD provisioning service monitors the health of your configuration and places unhealthy apps in a "quarantine" state. If most or all of the calls made against the target system consistently fail because of an error, for example invalid admin credentials, the provisioning job is marked as in quarantine.
 
-While in quarantine, the frequency of incremental syncs is gradually reduced to once per day. The provisioning job is removed from quarantine after all errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
+While in quarantine, the frequency of incremental cycles is gradually reduced to once per day. The provisioning job is removed from quarantine after all errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled (stops running).
 
 ## How do I know if my application is in quarantine?
 
@@ -32,7 +32,7 @@ There are three ways to check whether an application is in quarantine:
   
 - In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and scroll to the progress bar at the bottom.  
 
-- Use Microsoft Graph to programmatically get the status of provisioning. The quarantine resource provides the reason the application is in quarantine. Use the following request:
+- Use Microsoft Graph to programmatically get the status of the provisioning job. The quarantine resource provides the reason the application is in quarantine. Use the following request:
 
   `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
 
@@ -48,7 +48,7 @@ There are three ways to check whether an application is in quarantine:
 
 Applications can fall into quarantine for a number of reasons:
 
-- Invalid credentials were provided, and the provisioning service is unable to establish a connection between the source system and the target system. A Microsoft Graph request shows the following reason for quarantine:
+- Invalid credentials were provided, and the provisioning service is unable to establish a connection between the source system and the target system. A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
 
     `EncounteredQuarantineException`
 
@@ -72,4 +72,6 @@ After you've resolved the issue, restart the provisioning job. Certain changes t
 
 - Use the Azure portal to restart the provisioning job. On the application's **Provisioning** page under **Settings**, select **Clear state and restart synchronization** and set **Provisioning Status** to **On**. This action fully restarts  the provisioning service, which can take some time. A full initial cycle will run again, which clears escrows, removes the app from quarantine, and clears any watermarks.
 
-- Use Microsoft Graph to restart the provisioning job. You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks.
+- Use Microsoft Graph to restart the provisioning job. You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
+ 
+       `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
