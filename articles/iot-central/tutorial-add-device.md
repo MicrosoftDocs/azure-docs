@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/23/2019
+ms.date: 08/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -42,7 +42,7 @@ Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your developmen
 
 To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
 
-1. To add a new device as an operator choose **Device Explorer** in the left navigation menu:
+1. To add a new device as an operator choose **Devices** in the left navigation menu:
 
    ![Device explorer page showing connected air conditioner](media/tutorial-add-device/explorer.png)
 

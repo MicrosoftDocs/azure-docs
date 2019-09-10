@@ -240,6 +240,8 @@
       href: virtual-machine-scale-sets-automatic-upgrade.md
     - name: Instance protection (Preview)
       href: virtual-machine-scale-sets-instance-protection.md
+    - name: Terminate notification on delete (Preview)
+      href: virtual-machine-scale-sets-terminate-notification.md
     - name: Shared image galleries
       items:
       - name: Overview
@@ -253,7 +255,7 @@
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Create a proximity placement group
-      href: proximity-placement-groups.md  
+      href: proximity-placement-groups.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Using DSC and scale sets

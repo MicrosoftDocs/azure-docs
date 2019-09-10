@@ -7,7 +7,6 @@ author: ggailey777
 manager: jeconnoc
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga

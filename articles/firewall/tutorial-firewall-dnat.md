@@ -6,7 +6,7 @@ author: vhorne
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound access to resources located in a subnet.
@@ -58,8 +58,9 @@ First, create the VNets and then peer them.
 
      The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
      > [!NOTE]
-     > The minimum size of the AzureFirewallSubnet subnet is /26.
-10. For **Address range**, type **10.0.1.0/24**.
+     > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
+10. For **Address range**, type **10.0.1.0/26**.
 11. Use the other default settings, and then click **Create**.
 
 ### Create a spoke VNet

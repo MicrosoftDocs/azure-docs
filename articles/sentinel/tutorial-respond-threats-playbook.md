@@ -100,7 +100,7 @@ Many, if not most, of these alerts conform to recurring patterns that can be add
 
 To automate responses:
 
-1. Choose the alert for which you want to automate the response.
+1. Select the alert for which you want to automate the response.
 1. In the **Edit alert rule** page, under **Real-time automation**, choose the **Triggered playbook** you want to run when this alert rule is matched.
 1. Select **Save**.
 

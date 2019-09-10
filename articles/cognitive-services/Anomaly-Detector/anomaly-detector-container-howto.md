@@ -151,7 +151,7 @@ Each subsequent container should be on a different port.
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, http://localhost:5000, for container APIs.
 
 <!--  ## Validate container is running -->
 

@@ -6,6 +6,7 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
@@ -37,8 +38,7 @@ When you're done, your logic app looks like this workflow at a high level:
 ![High-level logic app](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a> 
-before you begin.
+[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -49,12 +49,11 @@ This quickstart uses an Outlook.com account. If you use a different email accoun
 the general steps stay the same, but your UI might appear slightly different.
 
 * To get the travel time for a route, you need an access key for the Bing Maps API. 
-To get this key, follow the steps for <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">how to get a Bing Maps key</a>. 
+To get this key, follow the steps for [how to get a Bing Maps key](https://msdn.microsoft.com/library/ff428642.aspx). 
 
 ## Sign in to the Azure portal
 
-Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-with your Azure account credentials.
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 ## Create your logic app
 
@@ -162,7 +161,7 @@ Provide these connection details, and choose **Create**.
    | Setting | Value | Description |
    | ------- | ----- | ----------- |
    | **Connection Name** | BingMapsConnection | Provide a name for your connection. | 
-   | **API Key** | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. If you don't have a Bing Maps key, learn <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">how to get a key</a>. | 
+   | **API Key** | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. If you don't have a Bing Maps key, learn [how to get a key](https://msdn.microsoft.com/library/ff428642.aspx). | 
    | | | |  
 
 4. Rename the action with this description: 

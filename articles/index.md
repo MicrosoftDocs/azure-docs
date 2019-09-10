@@ -144,7 +144,7 @@ featureFlags:
                                                             .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt="">
                                                             Python</a>
                                                     </li>
@@ -6320,10 +6320,10 @@ featureFlags:
                                                     Azure for Python Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/python/azure">Get started</a>
+                                                    <a href="/azure/python">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API reference</a>
+                                                    <a href="/python/api/?view=azure-python">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6344,7 +6344,7 @@ featureFlags:
                                                     Azure for Node.js Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Get started</a>
+                                                    <a href="/azure/javascript/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API reference</a>

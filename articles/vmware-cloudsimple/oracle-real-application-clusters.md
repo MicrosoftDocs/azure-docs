@@ -198,7 +198,7 @@ To create a VM for Oracle, clone an existing VM or create a new one.  This secti
 
 After the operating system is installed, you can clone a second VM. Right-click the VM entry and select the and clone option.
 
-### Create Shared Disks for VMs
+### Create shared disks for VMs
 
 Oracle uses shared disk to store the data, log, and redo log files.  You can create a shared disk on vCenter and mount it on both the VMs.  For higher performance, place the data disks on different SCSI controllers  Steps below show how to create a shared disk on vCenter and then attach it to a virtual machine. vCenter Flash client is used for modifying the VM properties.
 

@@ -202,7 +202,9 @@ Cable requirements:
 - Maximum cable length < 10 m
 - Both stereo and mono cable are supported
 
-More details on [external synchronization setup](https://aka.ms/support)
+When using multiple depth camera's in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
+
+More details on [external synchronization setup](https://support.microsoft.com/help/4494429)
 
 ## Device recovery
 
@@ -210,7 +212,7 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To recover the device, see [instructions here](https://aka.ms/support).
+To recover the device, see [instructions here](https://support.microsoft.com/help/4494277).
 
 ## Next steps
 

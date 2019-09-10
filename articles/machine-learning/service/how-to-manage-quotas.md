@@ -71,6 +71,14 @@ Available resources:
 <sup>1</sup> The maximum lifetime refers to the time that a run start and when it finishes. Completed runs persist indefinitely; data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a Low Priority node could be pre-empted any time there is a capacity constraint. It is recommended to implement checkpointing in your job.
 
+### Azure Machine Learning Pipelines
+For Azure Machine Learning Pipelines, there is a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
+- Maximum number of steps allowed in a pipeline is 30,000
+- Maximum number of the sum of schedule-based runs and blob pulls for blog-triggered schedules of published pipelines per subscription per month is 100,000
+
+> [!NOTE]
+> If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+
 ### Container instances
 
 There is also a limit on the number of container instances that you can spin up in a given time period (scoped hourly) or across your entire subscription.

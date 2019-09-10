@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
 ---
 
@@ -29,7 +29,7 @@ At the end of this tutorial, you have two .NET console apps:
 
 * **TriggerReboot**. This app calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
-To complete this tutorial, you need the following prerequisites:
+## Prerequisites
 
 * Visual Studio.
 
@@ -76,7 +76,7 @@ In this section, you create a .NET console app, using C#, that initiates a remot
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+1. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT Hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -128,7 +128,7 @@ In this section, you create a .NET console app, using C#, that initiates a remot
 
 ## Create a simulated device app
 
-In this section, you do the following actions:
+In this section, you:
 
 * Create a .NET console app that responds to a direct method called by the cloud.
 
@@ -159,11 +159,10 @@ To create the simulated device app, follow these steps:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
+1. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string that you noted previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -228,7 +227,7 @@ To create the simulated device app, follow these steps:
    }
    ```
 
-1. In Solution Explorer, right-click your solution, and then select **Set StartUp Projects**. 
+1. In Solution Explorer, right-click your solution, and then select **Set StartUp Projects**.
 
 1. For **Common Properties** > **Startup Project**, Select **Single startup project**, and then select the **SimulateManagedDevice** project. Select **OK** to save your changes.
 
@@ -239,7 +238,7 @@ To create the simulated device app, follow these steps:
 
 ## Run the apps
 
-You are now ready to run the apps.
+You're now ready to run the apps.
 
 1. To run the .NET device app **SimulateManagedDevice**, in Solution Explorer, right-click the **SimulateManagedDevice** project, select **Debug**, and then select **Start new instance**. The app should start listening for method calls from your IoT hub.
 

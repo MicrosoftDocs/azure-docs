@@ -13,6 +13,9 @@ ms.subservice: alerts
 # Manage alert instances
 With the [unified alerts experience](https://aka.ms/azure-alerts-overview) in Azure Monitor, you can now see all your different types of alerts across Azure, spanning multiple subscriptions, in one single pane of glass. This article walks you through how you can view your alert instances, and how to deep-dive on the portal to find specific alert instances for troubleshooting.
 
+> [!NOTE]
+   >  Only alerts generated in the last 30 days can be accessed on the UX or through the REST APIs.
+
 1. There are three ways to land on the Alerts page
 
    + In the [portal](https://portal.azure.com/), select **Monitor** and under the Monitor section - choose **Alerts**.  
