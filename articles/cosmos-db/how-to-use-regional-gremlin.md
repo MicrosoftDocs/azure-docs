@@ -29,14 +29,14 @@ TinkerPop Gremlin client is designed to work with a single server. Application c
 > [!NOTE]
 > Cosmos DB Graph engine can accept write operation in read region by proxying traffic to write region. It is not recommended to send writes into read-only region as it increases traversal latency and is subject to restrictions in the future.
 
-Global database account CNAME always points to a valid write region. During server-side failover of write region, Cosmos DB updates global database account CNAME to point to new region. If application is not instrumented to handle traffic rerouting after failover, it is recommended to use global database account DNS CNAME.
+Global database account CNAME always points to a valid write region. During server-side failover of write region, Cosmos DB updates global database account CNAME to point to new region. If application can't handle traffic rerouting after failover, it should use global database account DNS CNAME.
 
 > [!NOTE]
 > Cosmos DB does not route traffic based on geographic proximity of the caller. It is up to each application to select the right region according to unique application needs.
 
 ## Portal end-point discovery
 
-The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. This approach is recommended for applications that do not change regions often, or have a way to update the list via application configuration.
+The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. This will work for applications that do not change regions often, or have a way to update the list via application configuration.
 
 ![Retrieve regions of Cosmos DB Graph account from the portal](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
 
@@ -72,7 +72,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 ## SDK end-point discovery
 
-Application can use [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. Keep in mind that these locations can change at any time through manual reconfiguration on the server side or automatic failover.
+Application can use [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or automatic failover.
 
 TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime end-point discovery need to host 2 separate SDKs in the process space.
 
