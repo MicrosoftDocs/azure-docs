@@ -88,7 +88,7 @@ HDInsight [script actions](hdinsight-hadoop-customize-cluster-linux.md) run scri
 
 The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which are not) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following is an example log file.
 
-![HDInsight log file example](./media/hdinsight-log-management/logs.png)
+![HDInsight log file example](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### Access the Hadoop log files
 
@@ -143,7 +143,7 @@ After you determine which log files can be deleted, you can adjust logging param
 
 For certain log files, you can use a lower-priced log file archiving approach. For Azure Resource Manager  activity logs, you can explore this approach using the Azure portal.  Set up archiving of the ARM logs by selecting the **Activity Log**' link in the Azure portal for your HDInsight instance.  On the top of the Activity Log search page, select the **Export** menu item to open the **Export activity log** pane.  Fill in the subscription, region, whether to export to a storage account, and how many days to retain the logs. On this same pane, you can also indicate whether to export to an event hub. 
 
-![Export Log Files](./media/hdinsight-log-management/archive.png)
+![Export Log Files](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 Alternatively, you can script log archiving with PowerShell.  For an example PowerShell script, see [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
