@@ -26,20 +26,21 @@ landingContent:
             url: private-link-overview.md
 
   # Card (optional)
-  - title: Create a private endpoint
+  - title: Get started
     linkLists:
       - linkListType: concept
         links:
           - text: What is a private endpoint?
             url: private-endpoint-overview.md
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
           - text: Create a private endpoint - Portal
             url: create-private-endpoint-portal.md
-          - text: Create a private endpoint - CLI
-            url: create-private-endpoint-cli.md
-          - text: Create a private endpoint - PowerShell
-            url: create-private-endpoint-powershell.md            
+      - linkListType: tutorial
+        links:
+          - text: Connect privately to a SQL server
+            url: tutorial-private-endpoint-sql-server-portal.md
+           
 
   # Card (optional)
   - title: Create a private link service
