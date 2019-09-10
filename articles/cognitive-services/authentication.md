@@ -61,7 +61,7 @@ The following video demonstrates using a Cognitive Services key.
 ## Authenticate with a multi-service subscription key
 
 >[!WARNING]
-> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, and Custom Vision.
+> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
 
 This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 

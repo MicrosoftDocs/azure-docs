@@ -6,7 +6,7 @@
     tocHref: /azure/active-directory/saas-apps/
     topicHref: /azure/active-directory/index
     items:
-    - name: Manage applications
+    - name: Application management
       tocHref: /azure/active-directory/saas-apps/
       topicHref: /azure/active-directory/manage-apps/index
   
@@ -18,7 +18,7 @@
     tocHref: /azure/active-directory/fundamentals/
     topicHref: /azure/active-directory/index
     items:
-    - name: Manage applications
+    - name: Application management
       tocHref: /azure/active-directory/fundamentals/
       topicHref: /azure/active-directory/manage-apps/index
   
@@ -27,6 +27,7 @@
   topicHref: /azure/index
   items:  
   - name: Active Directory
+<<<<<<< HEAD
     tocHref: /azure/active-directory/reports-monitoring/
     topicHref: /azure/active-directory/index
     items:
@@ -34,3 +35,23 @@
       tocHref: /azure/active-directory/fundamentals/
       topicHref: /azure/active-directory/manage-apps/index
   
+=======
+    tocHref: /azure/active-directory/hybrid/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Application management
+      tocHref: /azure/active-directory/hybrid/
+      topicHref: /azure/active-directory/manage-apps/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/develop/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Application management
+      tocHref: /azure/active-directory/develop/
+      topicHref: /azure/active-directory/manage-apps/index
+>>>>>>> 7e7e7a1bbcfa4cb3adfec45bdc07d76bcc5f5150

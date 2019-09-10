@@ -20,8 +20,6 @@ This guide explains how to use Az module to create a policy assignment.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 - Before you start, make sure that the latest version of Azure PowerShell is installed. See [Install Azure PowerShell module](/powershell/azure/install-az-ps)
