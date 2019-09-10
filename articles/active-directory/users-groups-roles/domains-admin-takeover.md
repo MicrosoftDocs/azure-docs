@@ -98,7 +98,9 @@ The supported service plans include:
 - Microsoft Stream
 - Dynamics 365 free trial
 
-External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. **The ForceTakeover option does not move over users, or retain access to the subscription. This option moves only the domain name.**
+External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. 
+
+You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. **The ForceTakeover option does not move over users, or retain access to the subscription. This option moves only the domain name.**
 
 #### More information about RMS for individuals
 
@@ -124,6 +126,9 @@ cmdlet | Usage
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Provides the information to put into new DNS TXT record for the domain (MS=xxxxx). Verification might not happen immediately because it takes some time for the TXT record to propagate, so wait a few minutes before considering the **-ForceTakeover** option. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the domain name as **Verified**.
+
+> ![NOTE]
+> The unmanaged Azure AD organization will be deleted 10 days after the external takeover force option has occurred.
 
 ### PowerShell example
 
