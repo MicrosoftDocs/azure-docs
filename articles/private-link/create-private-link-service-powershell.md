@@ -1,17 +1,17 @@
 ---
-title: 'Create an Azure Private Link service using Azure PowerShell| Microsoft Docs'
-description: Learn about Azure Private Link
+title: 'Create an Azure private link service using Azure PowerShell| Microsoft Docs'
+description: Learn how to create an Azure private link service using Azure PowerShell
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Link
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/09/2019
 ms.author: kumud
 
 ---
-# Create Azure Private Link service using Azure PowerShell
-This quickstart shows you how to create a Private Link service in Azure.
+# Create a private Link service using Azure PowerShell
+This article shows you how to create a private link service in Azure using Azure PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ New-AzResourceGroup `
   -Location $location
 ```
 ## Create a virtual network
-Create a virtual network for your Private Link with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myvnet* with subnet for frontend (*frontendSubnet*), backend (*backendSubnet*), private link (*otherSubnet*):
+Create a virtual network for your private link with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myvnet* with subnet for frontend (*frontendSubnet*), backend (*backendSubnet*), private link (*otherSubnet*):
 
 ```azurepowershell
 $virtualNetworkName = "myvnet"
@@ -72,7 +72,7 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name $lbFrontName -PrivateIpAd
 $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name $lbBackendName 
 $NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Sku "Standard" 
 ```
-## Create a Private Link service
+## Create a private link service
 Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer) as follows:
 
 ```azurepowershell
@@ -96,7 +96,7 @@ $privateLinkService = New-AzPrivateLinkService `
 -IpConfiguration $IPConfig 
 ```
 
-## Get Private Link Service
+## Get private link service
 Get details about your private link service with [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
 
 ```azurepowershell
@@ -154,5 +154,5 @@ $pls = Get-AzPrivateLinkService `
 Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
  ``` 
 ## Next steps
-- Learn more about [Azure Private Link](private-link-overview.md)
+- Learn more about [Azure private link](private-link-overview.md)
  
