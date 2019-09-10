@@ -91,7 +91,7 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 ## Analyze an image
 
-Set up sample image URL
+Save a reference to the URL of an image you want to analyze.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
 
