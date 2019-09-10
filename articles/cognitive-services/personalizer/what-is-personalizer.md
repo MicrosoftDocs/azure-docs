@@ -25,7 +25,7 @@ Azure Personalizer is a cloud-based API service that allows you to choose the be
 
 ## How does Personalizer work?
 
-Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback is received, Personalizer automatically updates its own model used for future ranks.
+Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback is received, Personalizer automatically updates its own model used for future ranks. Over time, Personalizer will train one model that can suggest the best action to choose in each context based on their features.
 
 ## How do I use the Personalizer?
 
@@ -49,6 +49,8 @@ For example, your client application can add Personalizer to:
 * Choose a chat bot's response to clarify user intent or suggest an action.
 * Prioritize suggestions of what a user should do as the next step in a business process.
 
+Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action a context a single model that can obtain maximum rewards when similar features occur. 
+
 ## Personalization for developers
 
 Personalizer Service has two APIs:
@@ -60,9 +62,9 @@ Personalizer Service has two APIs:
 
 ## Next steps
 
-* [Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
-* [Quickstart: Create a feedback loop in Node.js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
-* [Quickstart: Create a feedback loop in Python](python-quickstart-commandline-feedback-loop.md)
+* [What's new in Personalizer?](whats-new.md)
+* [How Personalizer works?](how-personalizer-works.md)
+* [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
 * [Learn about features and actions for the Rank request](concepts-features.md)
 * [Learn about determining the score for the Reward request](concept-rewards.md)
 * [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
