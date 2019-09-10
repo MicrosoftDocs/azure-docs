@@ -223,7 +223,7 @@ To work around this issue, you can try deleting your corrupted local connections
     * Blob containers
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
-    * Fileshares
+    * File Shares
         * `StorageExplorer_CustomConnections_Files_v1`
     * Queues
         * `StorageExplorer_CustomConnections_Queues_v1`
