@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/23/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 
