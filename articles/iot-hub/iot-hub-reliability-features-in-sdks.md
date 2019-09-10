@@ -29,7 +29,7 @@ Implementation details may vary by language. For more information, see the API d
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [Python SDK](https://github.com/Azure/azure-iot-sdk-python)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Reliability not yet implemented)
 
 ## Designing for resiliency
 
