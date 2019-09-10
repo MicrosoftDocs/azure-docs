@@ -10,17 +10,17 @@ ms.author: olignat
 ---
 
 # Regional end points for Azure Cosmos DB Graph account
-Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md). Applications can use multiple read end points if their graph is replicated to multiple Azure regions. Applications that need write access in multiple geographic locations can enable [multi-master](how-to-multi-master.md) capability.
+Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read end points. Applications that need write access in multiple geographic locations can enable [multi-master](how-to-multi-master.md) capability.
 
 Reasons to choose more than one region:
 1. **Horizontal read scalability** - as application load increases it may be prudent to route read traffic to different Azure regions.
-2. **Lower latency** - to reduce network latency overhead of each traversal it is recommended to route read and write traffic to the nearest Azure region.
+2. **Lower latency** - you can reduce network latency overhead of each traversal by routing read and write traffic to the nearest Azure region.
 
 Note that **data residency** requirement is achieved by setting Azure Resource Manager policy on Cosmos DB account. Customer can limit regions into which Cosmos DB replicates data.
 
 ## Traffic routing
 
-Cosmos DB Graph database engine is running in multiple regions, each of which contains multiple clusters, that are hosted on hundreds of machines. Cosmos DB Graph account DNS CNAME *accountname.gremlin.cosmos.azure.com* resolves to DNS A record of a cluster. A single IP address of a load-balancer hides internal cluster topology.
+Cosmos DB Graph database engine is running in multiple regions, each of which contains multiple clusters. Each cluster has hundreds of machines. Cosmos DB Graph account DNS CNAME *accountname.gremlin.cosmos.azure.com* resolves to DNS A record of a cluster. A single IP address of a load-balancer hides internal cluster topology.
 
 A regional DNS CNAME record is created for every region of Cosmos DB Graph account. Format of regional end point is *accountname-region.gremlin.cosmos.azure.com*. Region segment of regional end point is obtained by removing all spaces from [Azure region](https://azure.microsoft.com/global-infrastructure/regions) name. For example, `"East US 2"` region for `"contoso"` global database account would have a DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
 
@@ -74,7 +74,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 Application can use [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. Keep in mind that these locations can change at any time through manual reconfiguration on the server side or automatic failover.
 
-There is no API to discover regional end points via TinkerPop Gremlin SDK. Applications that need runtime end point discovery need to host 2 separate SDKs in the process space.
+TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime end point discovery need to host 2 separate SDKs in the process space.
 
 ```csharp
 // Depending on the version and the language of the SDK (.NET vs Java vs Python)
