@@ -42,7 +42,9 @@ They enable:
 - Application identification verification, also required in some enterprise scenarios (See for instance [Intune mobile application management, or MAM](https://docs.microsoft.com/intune/mam-faq))
 
 ## Migrate from ADAL to MSAL
-### **Step 1: Enable the broker**
+
+### Step 1: Enable the broker
+
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
@@ -96,7 +98,7 @@ result = await app.AcquireTokenInteractive(scopes)
 ```
 </table>
 
-### **Step 2: Set a UIViewController()**
+### Step 2: Set a UIViewController()
 In ADAL.NET, you passed in the UIViewController as part of the PlatformParameters (see example in Step 1). However, in MSAL.NET, to give the developer more flexibility, an object window is used, but not required in regular iOS usage. However, in order to use the broker, you'll need to set the object window in order to send and receive responses from broker. 
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
@@ -139,12 +141,12 @@ result = await app.AcquireTokenInteractive(scopes)
 
 </table>
 
-### **Step 3: Update AppDelegate to handle the callback**
+### Step 3: Update AppDelegate to handle the callback
 Both ADAL and MSAL will call the broker, and broker will, in turn, call back to your application through the `OpenUrl` method of the `AppDelegate` class. More information available [here](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS/_edit#step-two-update-appdelegate-to-handle-the-callback)
 
 :heavy_check_mark:**There are no changes here between ADAL.NET and MSAL.NET**
 
-### **Step 4: Register a URL scheme**
+### Step 4: Register a URL scheme
 ADAL.NET and MSAL.NET use URLs to invoke the broker and return the broker response back to the app. Register the URL scheme in the `Info.plist` file for your app as follows:
 
 <table>
@@ -180,10 +182,14 @@ For example:
       </dict>
     </array>
 ```
-**Note:** This URL scheme will become part of the RedirectUri used for uniquely identifying the app when receiving the response from broker
+
+> [!NOTE]
+>  This URL scheme will become part of the RedirectUri used for uniquely identifying the app when receiving the response from broker
+
 </table>
 
-### **Step 5: LSApplicationQueriesSchemes**
+### Step 5: LSApplicationQueriesSchemes
+
 ADAL.NET and MSAL.NET both use `-canOpenURL:` to check if the broker is installed on the device. Add the correct identifier for the iOS broker to the LSApplicationQueriesSchemes section of the info.plist file as follows: 
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
@@ -213,7 +219,7 @@ Uses
 ```
 </table>
 
-### **Step 6: Register you RedirectUri in the portal**
+### Step 6: Register you RedirectUri in the portal
 
 ADAL.NET and MSAL.NET both add an extra requirement on the redirectUri when targeting broker. Register the redirect URI with your application in the portal.
 <table>

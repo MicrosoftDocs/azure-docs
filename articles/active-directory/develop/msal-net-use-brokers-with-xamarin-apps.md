@@ -106,7 +106,7 @@ The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by yo
 **For example:**
 `msauth.com.yourcompany.xforms`
 
-> ![NOTE]
+> [!NOTE]
 > This will become part of the RedirectUri used for uniquely identifying your app when receiving the response from the broker.
 
 ```XML
