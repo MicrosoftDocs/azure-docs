@@ -356,7 +356,7 @@ Application Insights uses dependency type to cusomize UI experiences. For queues
 - `Azure Service Bus` for Azure Service Bus
 
 ### Batch processing
-With some queues, you can dequeue multiple messages with one request. Processing such messages is presumably independent and belongs to the different logical operations. It's not possible to correlate the `Dequeue` operation to particular message processing.
+With some queues, you can dequeue multiple messages with one request. Processing such messages is presumably independent and belongs to the different logical operations. It's not possible to correlate the `Dequeue` operation to a particular message being processed.
 
 Each message should be processed in its own asynchronous control flow. For more information, see the [Outgoing dependencies tracking](#outgoing-dependencies-tracking) section.
 
