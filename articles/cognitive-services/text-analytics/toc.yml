@@ -14,8 +14,23 @@
   items:
     - name: Client library
       items:
-      - name: Analyze Text
+      - name: Analyze Text using the client library
         href: quickstarts/text-analytics-sdk.md
+    - name: REST API
+      items: 
+      - name: Using Java
+        href: includes/quickstarts-2/java.md
+      - name: Using Python
+        href: includes/quickstarts-2/python.md
+      - name: Using Node.js
+        href: includes/quickstarts-2/nodejs.md
+      - name: Using PHP
+        href: includes/quickstarts-2/php.md
+      - name: Using Go
+        href: includes/quickstarts-2/php.md
+      - name: Using Ruby
+        href: includes/quickstarts-2/php.md
+
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
