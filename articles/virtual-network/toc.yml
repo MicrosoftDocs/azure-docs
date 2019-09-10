@@ -259,6 +259,10 @@
       href: virtual-network-azure-to-azure-migrate-vnet.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot virtual network peering issues
+      href: virtual-network-troubleshoot-peering-issues.md
+    - name: Configure and validate VNet or VPN connections
+      href: virtual-network-configure-vnet-connections.md
     - name: Network security groups
       href: diagnose-network-traffic-filter-problem.md
     - name: Routes
@@ -277,6 +281,8 @@
       href: troubleshoot-outbound-smtp-connectivity.md
     - name: About IP address 168.63.129.16
       href: what-is-ip-address-168-63-129-16.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
   - name: Classic
     items:
     - name: Create and manage a virtual network

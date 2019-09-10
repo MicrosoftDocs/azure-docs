@@ -6,7 +6,7 @@ author: madams0013
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: t-maadam
+ms.author: jasonh
 ---
 # How to delete an invitation to a recipient in Azure Data Share Preview
 

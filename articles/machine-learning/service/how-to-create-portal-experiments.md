@@ -1,7 +1,7 @@
 ---
-title: Use automated ML to build and deploy machine learning models
+title: Use Azure's automated ML interface to train & deploy models
 titleSuffix: Azure Machine Learning service
-description: Create, manage and deploy automated machine learning experiments in the Azure portal
+description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's new workspace landing page.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,14 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
+ms.date: 09/09/2019
 
 ---
 
-# Create, explore and deploy automated machine learning experiments in the Azure portal (Preview)
 
- In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+# Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)
+
+ In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's new workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -28,21 +29,26 @@ ms.date: 08/02/2019
 
 ## Get started
 
-Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (Preview) section.
 
-![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
+1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
- If this is your first time doing any experiments, you'll see the **Welcome to Automated Machine Learning** screen. 
+1. Select your subscription and workspace. 
+
+1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
+
+[![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
+ If this is your first time doing any experiments, you'll see the **Get started** screen. 
 
 Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
-## Create an experiment
+## Create and run experiment
 
-Select **Create Experiment** and populate the **Create a new automated machine learning experiment** form.
+1. Select **Create Experiment** and populate the form.
 
 1. Enter a unique experiment name.
 
-1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 3.
+1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 4.
 
 1. Select **Create a new compute** to configure your compute context for this experiment.
 
@@ -51,32 +57,40 @@ Select **Create Experiment** and populate the **Create a new automated machine l
     Compute name| Enter a unique name that identifies your compute context.
     Virtual machine size| Select the virtual machine size for your compute.
     Additional settings| *Min node*: Enter the minimum number of nodes for your compute. The minimum number of nodes for AML compute is 0. To enable data profiling, you must have 1 or more nodes. <br> *Max node*: Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    
+    Select **Create**. Creation of a new compute can take a few minutes.
 
-      Select **Create**. Creation of a new compute can take a few minutes.
+    >[!NOTE]
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](#profile) for more details).
 
-      >[!NOTE]
-      > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
+1. Select a dataset from your storage container, or create one by uploading a file from your local computer to the container. Public preview only supports local file uploads and Azure blob storage accounts.
 
-1. Select a storage account for your data. 
-
-1. Select a storage container.
-
-1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
     >[!Important]
     > Requirements for training data:
     >* Data must be in tabular form.
     >* The value you want to predict (target column) must be present in the data.
 
-    [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    1. To create a new dataset from a file on your local compute, select **Browse** and then select the file. 
 
-1. Use the preview and profile tabs to further configure your data for this experiment.
+    1. Give your dataset a unique name and provide an optional description. 
 
-    1. On the **Preview** tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column.
+    1. Select **Next** to upload it to the default storage container that's automatically created with your workspace or choose a storage container that you want to use for the experiment. 
 
-    1. On the **Profile** tab, you can view the [data profile](#profile) by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
+    1. Review the **Settings and preview** form for accuracy. The form is intelligently populated based on the file type. 
 
-        >[!NOTE]
-        > The following error message will appear if your compute context is **not** profiling enabled: *Data profiling is only available for compute targets that are already running*.
+        Field| Description
+        ----|----
+        File format| Defines the layout and type of data stored in a file.
+        Delimiter| One or more characters for specifying the boundary between separate, independent regions in plain text or other data streams.
+        Encoding| Identifies what bit to character schema table to use to read your dataset.
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.
+        Skip rows | Indicates how many, if any, rows are skipped in the dataset.
+    
+        Select **Next**.
+
+    1. The **Schema** form is intelligently populated based on the selections in the **Settings and preview** form. Here configure the data type for each column, review the column names, and select which columns to **Not include** for your experiment. 
+            
+        Select **Next.**
 
 1. Select the training job type: classification, regression, or forecasting.
 
@@ -87,7 +101,7 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
     1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
-1. (Optional) Advanced settings: additional settings you can use to better control the training job.
+1. (Optional) Advanced settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Advanced settings|Description
     ------|------
@@ -158,7 +172,7 @@ Training jobs can take a while for each pipeline to finish running.
 
 Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-understand-automated-ml.md).
 
-![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
+[![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## Deploy your model
 
@@ -171,7 +185,8 @@ Automated ML helps you with deploying the model without writing code:
     + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
     + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
-1. Populate the **Deploy Model** pane,
+
+1. Populate the **Deploy Model** pane.
 
     Field| Value
     ----|----
