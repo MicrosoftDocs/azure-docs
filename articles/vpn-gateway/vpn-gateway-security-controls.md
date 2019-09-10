@@ -22,7 +22,7 @@ This article documents the security controls built into Azure VPN Gateway.
 | Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| N/A | |
-| VNet injection support| N/A | . |
+| VNet injection support| N/A | |
 | Network Isolation and Firewalling support| Yes | VPN gateways are dedicated VM instances for each customer Virtual Network  |
 | Forced tunneling support| Yes |  |
 

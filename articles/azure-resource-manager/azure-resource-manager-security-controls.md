@@ -16,7 +16,7 @@ This article documents the security controls built into Azure Resource Manager.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-## Data Protection
+## Data protection
 
 | Security control | Yes/No | Notes |
 |---|---|--|
@@ -35,7 +35,7 @@ This article documents the security controls built into Azure Resource Manager.
 | Network isolation and firewalling support| No |  |
 | Forced tunneling support| No |  |
 
-## Monitoring & Logging
+## Monitoring & logging
 
 | Security control | Yes/No | Notes|
 |---|---|--|

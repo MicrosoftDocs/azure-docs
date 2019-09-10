@@ -23,7 +23,7 @@ This article documents the security controls built into Linux Virtual Machines.
 | Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes | |
-| VNet injection support| Yes | . |
+| VNet injection support| Yes | |
 | Network Isolation and Firewalling support| Yes |  |
 | Forced tunneling support| Yes | See [Configure forced tunneling using the Azure Resource Manager deployment model](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 

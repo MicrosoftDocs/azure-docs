@@ -22,7 +22,7 @@ This article documents the security controls built into Azure Load Balancer.
 | Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| N/A | |
-| VNet injection support| N/A | . |
+| VNet injection support| N/A | |
 | Network Isolation and Firewalling support| N/A |  |
 | Forced tunneling support| N/A | |
 

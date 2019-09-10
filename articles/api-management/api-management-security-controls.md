@@ -41,7 +41,7 @@ This article documents the security controls built into API Management.
 | Authentication| Yes | |
 | Authorization| Yes | |
 
-## Data Protection
+## Data protection
 
 | Security control | Yes/No | Notes |
 |---|---|--|
