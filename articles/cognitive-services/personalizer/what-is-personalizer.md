@@ -60,5 +60,7 @@ Personalizer Service has two APIs:
 
 ## Next steps
 
-* [Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
+* [What's new in Personalizer?](whats-new.md)
+* [How Personalizer works?](how-personalizer-works.md)
+* [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
 * [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)

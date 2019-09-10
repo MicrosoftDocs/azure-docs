@@ -1,5 +1,5 @@
 ---
-title: What's New - Personalizer
+title: What's new - Personalizer
 titleSuffix: Azure Cognitive Services
 description: This article contains news about Personalizer.
 author: diberry
@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/10/2019
 ms.author: diberry
 ---
 # What's new in Personalizer
@@ -32,3 +32,8 @@ The following preview features were released at the Build 2019 Conference:
 ## Service updates
 
 [Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+
+## Next steps
+
+* [Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
