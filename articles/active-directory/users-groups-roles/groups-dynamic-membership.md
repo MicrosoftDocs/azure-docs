@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -361,7 +361,7 @@ You can also create a rule that selects device objects for membership in a group
 >
 > For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0 (17763)"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
 
-The following device attributes can be used. 
+The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
