@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
+ms.date: 07/01/2019
 ---
 
 # Install on-premises data gateway for Azure Logic Apps
@@ -39,7 +39,7 @@ The gateway supports [on-premises connectors](../connectors/apis-list.md#on-prem
 * SQL Server
 * Teradata
 
-Although the gateway doesn't incur additional costs, pricing applies to these connectors in Azure Logic Apps. For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
+Although the gateway alone doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 <a name="requirements"></a>
 
@@ -74,7 +74,7 @@ Although the gateway doesn't incur additional costs, pricing applies to these co
   * 8-core CPU
   * 8 GB memory
   * 64-bit version of Windows Server 2012 R2 or later
-  * Solid state drive (SSD) storage for spooling
+  * Solid-state drive (SSD) storage for spooling
 
   > [!NOTE]
   > The gateway doesn't support Windows Server 2016 Core.
@@ -276,8 +276,6 @@ By default, the gateway installation on your local computer runs as a Windows se
 > Your Windows service account differs from the account used for connecting to on-premises 
 > data sources and from the Azure account that you use when you sign in to cloud services.
 
-For you to create and maintain your gateway resource in the Azure portal, this Windows service account requires at least **Contributor** permissions. To check these permissions, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
-
 <a name="restart-gateway"></a>
 
 ## Restart gateway
@@ -290,7 +288,7 @@ To get visibility into all the on-premises data gateways in an Azure AD tenant, 
 
 <a name="gateway-cloud-service"></a>
 
-## How does the gateway work?
+## How the gateway works
 
 The data gateway facilitates quick and secure communication between your logic app, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between your logic app, the on-premises data gateway, and your data source on premises.
 

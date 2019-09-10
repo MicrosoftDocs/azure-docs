@@ -8,12 +8,12 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
+ms.date: 07/01/2019
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-To access data sources on premises from your logic apps, create an on-premises data gateway resource in the Azure portal. Your logic apps can then use the [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). This article shows how to create your Azure gateway resource *after* you [download and install the gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). 
+To access data sources on premises from your logic apps, create an on-premises data gateway resource in the Azure portal. Your logic apps can then use the [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). This article shows how to create your Azure gateway resource *after* you [download and install the gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). To learn more about how the gateway works, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > To connect to Azure virtual networks, consider creating an 
