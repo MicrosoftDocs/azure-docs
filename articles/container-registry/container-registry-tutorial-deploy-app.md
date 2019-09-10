@@ -52,6 +52,10 @@ Under **Web App for Containers** that's displayed after you select "Deploy to we
 | **Resource Group** | **Use existing** > `myResourceGroup` |
 | **App service plan/Location** | Create a new plan named `plan-westus` in the **West US** region. |
 | **Image** | `acr-helloworld:v1`
+| **Operating system** | Linux
+
+> [!NOTE]
+> When you create a new app service plan to deploy your containerized app, a default plan is automatically selected to host your application. The default plan depends on the operating system setting.
 
 Select **Create** to provision the web app to the *West US* region.
 
