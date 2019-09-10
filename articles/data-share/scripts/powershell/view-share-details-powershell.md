@@ -42,7 +42,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzDataShare](/powershell/module/az.resources/get-az) | Gets and lists of shares in an account. |
+| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare?view=azps-2.6.0) | Gets and lists of shares in an account. |
 |||
 
 ## Next steps

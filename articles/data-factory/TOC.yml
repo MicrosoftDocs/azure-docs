@@ -197,6 +197,8 @@
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
+    - name: Avro format
+      href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB SQL API
@@ -277,6 +279,8 @@
       href: connector-informix.md
     - name: Jira
       href: connector-jira.md
+    - name: JSON format
+      href: format-json.md
     - name: Magento
       href: connector-magento.md
     - name: MariaDB
@@ -448,8 +452,6 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
-    - name: Fixed-width filed
-      href: how-to-fixed-width.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -606,6 +608,12 @@
       href: data-migration-guidance-s3-azure-storage.md
     - name: Migrate data from on-premises Hadoop cluster to Azure
       href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premises Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
+  - name: Transformation using Mapping Data Flow
+    items:
+    - name: Process fixed-width text files
+      href: how-to-fixed-width.md
 - name: Reference
   items:
   - name: .NET

@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Configure Apache Kafka policies in HDInsight with Enterprise Security Package - Azure
+title: Tutorial - Apache Kafka with Enterprise Security Package in Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 09/04/2019
 ---
 
 # Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
@@ -59,7 +59,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    * ’*’ indicates zero or more occurrences of characters.
    * ’?‘ indicates single character.
 
-   ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Apache Ranger Admin UI Create Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
 
@@ -74,7 +74,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    |Select User  |  marketing_user1 |
    |Permissions  | publish, consume, create |
 
-   ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Apache Ranger Admin UI Create Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
 6. Select **Add** to save the policy.
 
