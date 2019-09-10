@@ -40,7 +40,7 @@ You can also check out the the latest features and improvements by selecting **P
 
 If you are having any issues, you can switch back the legacy experience by selecting the banner at the top of the **All groups** page. We appreciate your feedback so that we can improve our experience.
 
-## Group member search and filtering
+## Group search and sorting
 
 The groups list search has been enhanced so that when you can enter a search string, search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters.
 
@@ -50,6 +50,8 @@ For example, a search for “policy” will now return both "MDM policy – West
 
 - You can perform the same search on group membership lists as well.
 - You can now sort the groups list by name using the arrows to the right of the name column heading to sort the list in ascending or descending order.
+
+## Group member search and filtering
 
 ### Search group member and owner lists
 

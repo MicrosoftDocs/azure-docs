@@ -74,7 +74,7 @@
     items: 
     - name: Manage access with groups    
       href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage groups in the Azure portal    
+    - name: Search group and member lists (preview)    
       href: groups-members-owners-search.md
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
