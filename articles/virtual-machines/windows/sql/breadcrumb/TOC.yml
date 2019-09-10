@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items: 
+  - name: SQL VM
+    tocHref: /azure/sql-database
+    topicHref: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview
