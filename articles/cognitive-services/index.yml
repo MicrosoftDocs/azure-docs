@@ -137,6 +137,24 @@ conceptualContent:
         - url: /azure/cognitive-services/bing-web-search/
           itemType: overview
           text: Web Search   
+    - title: Containers
+      summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers..
+      links: 
+        - url: /azure/cognitive-services/cognitive-services-container-support
+          itemType: overview
+          text: Containers for Cognitive Services
+        - url: /azure/cognitive-services/container-reuse-recipe
+          itemType: overview
+          text: Create containers for reuse
+        - url: /azure/cognitive-services/azure-container-instance-recipe
+          itemType: how-to-guide
+          text: Deploy and run container on Azure Container Instance
+        - url: /azure/cognitive-services/azure-kubernetes-recipe
+          itemType: how-to-guide
+          text: Deploy to Azure Kubernetes Service
+        - url: /azure/cognitive-services/docker-compose-recipe
+          itemType: how-to-guide
+          text: Use Docker Compose to deploy multiple containers
 
 additionalContent:
   sections:
