@@ -137,7 +137,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
         New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
         ```
 
-    1. Once the disk is available, create a VM by attaching this disk. The VM created is be a generation 2 VM.
+    1. Once the disk is available, create a VM by attaching this disk. The VM created will be a generation 2 VM.
     When the generation 2 VM is created, you can optionally generalize the image of this VM. By generalizing the image you can use it to create multiple VMs.
 
 * **How do I increase the OS disk size?**  
