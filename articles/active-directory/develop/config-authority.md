@@ -189,7 +189,7 @@ The following shows how to sign a user into a specific tenant:
 Objective-C
 ```objc
     NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4"];
-    MSALAADAuthority *tenantedAuthority = [MSALAADAuthority initWithURL:authorityURL error:&authorityError];
+    MSALAADAuthority *tenantedAuthority = [[MSALAADAuthority alloc] initWithURL:authorityURL error:&authorityError];
     
     if (!tenantedAuthority)
     {
