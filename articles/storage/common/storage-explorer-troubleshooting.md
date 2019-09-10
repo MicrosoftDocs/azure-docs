@@ -232,10 +232,10 @@ To work around this issue, you can try deleting your corrupted local connections
 (Optional) If you want to preserve the connections that aren't corrupted, you can perform step 5 to 7 to locate the corrupted connections.
 
 5. From the text editor, re-add each connection name back to the Developer Tools and check whether the connection is still working.
-6. If a connection is not working, remove its value from the Developer Tools and record it so you can add it back later.
-7. Repeat until you have examined all your connections
+6. If a connection is working properly, it is not corrupted and you can safely leave it there. If a connection is not working, remove its value from the Developer Tools and record it so you can add it back later.
+7. Repeat until you have examined all your connections.
 
-After going through all your connections, for all connection names that are not added back, you need to clear their corrupted data (if there is any) and add them back through normal steps using Storage Explorer.
+After going through all your connections, for all connections names that are not added back, you need to clear their corrupted data (if there is any) and add them back through normal steps using Storage Explorer.
 
 Windows:
 1. In start menu, search for 'Credential Manager' and open it.
