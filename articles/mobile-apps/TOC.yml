@@ -1,16 +1,16 @@
-- name: Mobile Apps Documentation
+- name: Build Real-World Mobile Apps with Microsoft
   href: index.md
 - name: Overview
   items:
-  - name: What are Mobile Apps?
-    href: 
-  - name: Stages in Mobile Application Development
+  - name: Mobile Application Development in Microsoft
+    href: mobile-apps-overview.md
+  - name: Stages in Building Mobile Apps
   items:
     - name: Overview
-      href: 
-    - name: Choose the front-end development platform
+      href: stages-overview.md
+    - name: Choose the Front-End Development Platform
       href: front-end-development-platform.md
-    - name: Plan and Design mobile app with back-end services
+    - name: Plan and Design Mobile App with Back-end Services
       items:
       - name: Authentication
         href: authentication.md
@@ -37,11 +37,11 @@
       href: test.md
     - name: Continuous Delivery
       href: continuous-delivery.md
-  - name: Analyze usage and user behavior 
+  - name: Analyze Usage and User Behavior 
     href: analytics.md
-  - name: Monitor the health of your application 
+  - name: Monitor Health of your Application 
     href: diagnostics.md
-  - name: Engage with your app users 
+  - name: Engage with your App Users 
     href: push-notifications.md
   - name: Additional Services
     items:
