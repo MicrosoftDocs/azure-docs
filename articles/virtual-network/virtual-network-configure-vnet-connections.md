@@ -91,7 +91,8 @@ To configure a connection between Resource Manager VNets without IPsec, see [Con
 
 To configure a connection with IPsec between two Resource Manager VNets, follow the steps 1-5 in [Create a Site-to-Site connection in the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) for each VNet.
 
-> [!Note] These steps work only for VNets in the same subscription. If your VNets are in different subscriptions, you must use PowerShell to make the connection. See the [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps) article.
+> [!Note]
+> These steps work only for VNets in the same subscription. If your VNets are in different subscriptions, you must use PowerShell to make the connection. See the [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps) article.
 
 ### Validate VPN connection between Resource Manager VNets
 
@@ -101,11 +102,13 @@ Figure 4 - Classic VNet connection to Azure Resource Manager VNet
 
 To check your VPN connection is configured correctly, follow the instructions:
 
-> [!Note] The number after virtual network components, such as "Vnet 1" in the steps below, correspond to the numbers in Figure 4.
+> [!Note]
+> The number after virtual network components, such as "Vnet 1" in the steps below, correspond to the numbers in Figure 4.
 
 1. Check for overlapping address spaces in the connected VNets.
 
-   > [!Note] There can't be overlapping address spaces in Vnet 1 and Vnet 6. 
+   > [!Note]
+   > There can't be overlapping address spaces in Vnet 1 and Vnet 6. 
 
 2. Verify Azure Resource Manager Vnet 1 address range is defined accurately in **Connection object** 4.
 3. Verify Azure Resource Manager Vnet 6 address range is defined accurately in **Connection object** 3.
@@ -125,11 +128,13 @@ Figure 5 - Classic VNet connection to Azure Resource Manager VNet
 
 To check the configuration when connect a classic VNet to an Azure Resource Manager VNet, follow the instructions:
 
-> [!Note] The number after virtual network components like "Vnet 1" in the steps below are corresponding to the numbers in Figure 5.
+> [!Note]
+> The number after virtual network components like "Vnet 1" in the steps below are corresponding to the numbers in Figure 5.
 
 1. Check for overlapping address spaces in the connected VNets.
 
-   > [!Note] There can't be overlapping address spaces in Vnet 1 and Vnet 6
+   > [!Note]
+   > There can't be overlapping address spaces in Vnet 1 and Vnet 6
 
 2. Verify Azure Resource Manager VNet 6 address range is defined accurately in the Classic local network definition 3.
 3. Verify Classic VNet 1 address range is defined accurately in the Azure Resource Manager **Connection object** 4.
@@ -170,7 +175,8 @@ Azure currently works with two deployment models: Resource Manager and Classic. 
 * [Add a Site-to-Site connection to a VNet with an existing VPN gateway connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal)
 * [Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site)
 
-> [!Note] These steps don't apply to ExpressRoute and Site-to-Site coexisting connection configurations. For more information about coexisting connections, see [ExpressRoute/S2S coexisting connections](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
+> [!Note]
+> These steps don't apply to ExpressRoute and Site-to-Site coexisting connection configurations. For more information about coexisting connections, see [ExpressRoute/S2S coexisting connections](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
 ## Scenario 4: Configure transit routing
 
@@ -194,7 +200,8 @@ If you have ExpressRoute and Site-to-Site coexistence, transit routing isn't sup
 
 If you have enabled ExpressRoute to connect your local networks to an Azure virtual network, you can enable VNet peering between the VNets you want to have transitive routing. To allow your local networks connect to the remote VNet, you must configure [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity). 
 
-> [!Note] VNet peering is available only for VNets in the same region.
+> [!Note]
+> VNet peering is available only for VNets in the same region.
 
 To check whether you have configured transit route for VNet Peering, follow the instructions:
 
@@ -207,7 +214,8 @@ To check whether you have configured transit route for VNet Peering, follow the 
 
 When virtual networks are peered, you can also configure the gateway in the peered virtual network as a transit point to an on-premises network. To configure transit route in VNet peering, check [Virtual network-to-virtual network connections](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=/azure/virtual-network/toc.json).
 
-> [!Note] Gateway transit isn't supported in the peering relationship between virtual networks created through different deployment models. Both virtual networks in the peering relationship must have been created through Resource Manager for a gateway transit to work.
+> [!Note]
+> Gateway transit isn't supported in the peering relationship between virtual networks created through different deployment models. Both virtual networks in the peering relationship must have been created through Resource Manager for a gateway transit to work.
 
 To check whether you have configured transit route for VNet Peering, follow the instructions:
 
@@ -233,7 +241,8 @@ To configure the transit routing between your on-premise network and a VNet with
 
 Transit traffic through Azure VPN gateway is possible by using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP isn't yet supported with Azure Virtual Networks and VPN gateways by using the classic deployment model. Without BGP, manually defining transit address spaces is error prone, and isn't recommended.
 
-> [!Note] Classic Site-to-Site connections are configured by using the Azure portal (Classic), or by using a network configuration file in the Classic Portal. You can't create or modify a Classic virtual network through the Azure Resource Manager deployment model or Azure portal. For more information on transit routing for Classic VNets, see [Hub & Spoke, Daisy-Chain, and Full-Mesh VNET topologies in Azure ARM using VPN (V1)](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
+> [!Note]
+> Classic Site-to-Site connections are configured by using the Azure portal (Classic), or by using a network configuration file in the Classic Portal. You can't create or modify a Classic virtual network through the Azure Resource Manager deployment model or Azure portal. For more information on transit routing for Classic VNets, see [Hub & Spoke, Daisy-Chain, and Full-Mesh VNET topologies in Azure ARM using VPN (V1)](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
 
 ## Scenario 5: Configure BGP for a VPN gateway
 
@@ -292,7 +301,8 @@ You can't change an Azure VNet gateway type from policy-based to route-based or 
    * [Delete a virtual network gateway using PowerShell (classic)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell)
 3. Follow the steps in [Create the VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#a-namevnetgatewaya4-create-the-vpn-gateway) to create the new gateway of desired type and complete the VPN setup.
 
-> [!Note] This process will take around 60 minutes.
+> [!Note]
+> This process will take around 60 minutes.
 
 ## Next steps
 
