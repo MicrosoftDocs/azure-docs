@@ -16,11 +16,11 @@ ms.author: v-lilei
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure portal. To create the knowledge store sample used in this walkthrough, see [How to create a knowledge store](kstore-howto-create.md).
+In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure portal. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](kstore-howto-create.md).
 
 ## Prerequisites
 
-+ Follow the steps in [How to create a knowledge store](kstore-howto-create.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
++ Follow the steps in [Create a knowledge store in Azure portal](kstore-create-portal.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
 ## Connect with Azure Storage
 
@@ -54,4 +54,4 @@ To learn how to connect this knowledge store to Power BI, see the following walk
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
 > [!div class="nextstepaction"]
-> [How to create a knowledge store using REST](knowledge-store-howto.md)
+> [Create a knowledge store in REST](knowledge-store-howto.md)
