@@ -1,5 +1,5 @@
 ---
-title: Quickstart Create an Arcadia workspace #Required; update as needed page title displayed in search results. Include the word "quickstart". Include the brand.
+title: Quickstart Create a workspace #Required; update as needed page title displayed in search results. Include the brand.
 description: #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
@@ -8,9 +8,9 @@ ms.topic: quickstart #Required
 ms.subservice: design #Required will update once these are established.
 ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
 ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
-msreviewer: jrasnick
+ms.reviewer: jrasnick
 manager: rothja #Required do not modify.
-----
+---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
@@ -18,7 +18,7 @@ manager: rothja #Required do not modify.
 You only use quickstarts when you can get the service, technology, or functionality into the hands of new customers in less than 10 minutes.
 --->
 
-# Quickstart: <do something with X> 
+# Quickstart: Create a workspace> 
 <!---Required:
 Starts with "quickstart: "
 Make the first word following "quickstart:" a verb.

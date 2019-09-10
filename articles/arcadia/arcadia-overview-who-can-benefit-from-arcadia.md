@@ -8,7 +8,7 @@ ms.topic: overview #Required
 ms.subservice: design #Required will update once these are established.
 ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
 ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
-msreviewer: jrasnick
+ms.reviewer: jrasnick
 manager: rothja #Required do not modify.
 ---
 
@@ -18,7 +18,7 @@ manager: rothja #Required do not modify.
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# What is <product/service>? 
+# Who can benefit from Arcadia? 
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
