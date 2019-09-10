@@ -68,6 +68,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
     graphSONReader: new GraphSON2Reader(),
     graphSONWriter: new GraphSON2Writer(),
     mimeType: GremlinClient.GraphSON2MimeType);
+}
 ```
 
 ## SDK end-point discovery
