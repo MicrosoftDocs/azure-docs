@@ -1,6 +1,6 @@
 ---
-title: SQL Database managed instance - point-in-time restore | Microsoft Docs
-description: How to restore a database in SQL managed instance to a previous point in time.
+title: SQL Database managed instance - Point-in-time restore | Microsoft Docs
+description: How to restore a database in a SQL managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -20,13 +20,13 @@ Point-in-time restore can be used in recovery scenarios, such as incidents cause
 
 Point-in-time restore can be used to:
 
-1. Restore a database from an existing database.
-1. Restore a database from a deleted database.
+- Restore a database from an existing database.
+- Restore a database from a deleted database.
 
 Additionally, with a managed instance, point-in-time restore can be used to: 
 
-1. Restore a database to the same managed instance.
-1. Restore a database to another managed instance.
+- Restore a database to the same managed instance.
+- Restore a database to another managed instance.
 
 
 > [!NOTE]
@@ -167,7 +167,7 @@ $properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $poi
 $properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
 ```
 
-To restore the deleted database to another instance,  change the resource group name and managed instance name.
+To restore the deleted database to another instance, change the resource group name and managed instance name.
 
 The location parameter should match the location of the resource group and managed instance.
 
@@ -204,9 +204,9 @@ DROP DATABASE WorldWideImporters;
 
 Use one of the following methods to connect to your managed instance database: 
 
-- [SQL virtual machine](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Point-to-site](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Public endpoint](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SQL virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
+- [Public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 # [Portal](#tab/azure-portal)
 
@@ -249,9 +249,9 @@ ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Use one of the following methods to connect to your managed instance database: 
 
-- [SQL virtual machine](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Point-to-site](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Public endpoint](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SQL virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
+- [Public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## Next steps
 
