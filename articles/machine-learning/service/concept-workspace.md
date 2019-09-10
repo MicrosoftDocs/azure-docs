@@ -33,7 +33,7 @@ The diagram shows the following components of a workspace:
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal.
+    + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal or your workspace landing page (preview).
     + The [visual interface (preview)](ui-concept-visual-interface.md).
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
@@ -46,6 +46,7 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + The [Azure portal](https://portal.azure.com)
+    + Your [workspace landing page (preview)](https://ml.azure.com)
     + The [visual interface (preview)](ui-concept-visual-interface.md)
 + In Python using Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
