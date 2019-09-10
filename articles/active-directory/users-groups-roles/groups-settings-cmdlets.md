@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 09/102019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -30,6 +30,23 @@ Office 365 Groups settings are configured using a Settings object and a Settings
 
 The cmdlets are part of the Azure Active Directory PowerShell V2 module. For instructions how to download and install the module on your computer, see the article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). You can install the version 2 release of the module from [the PowerShell gallery](https://www.powershellgallery.com/packages/AzureAD/).
 
+## Install PowerShell cmdlets
+
+Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands.
+
+1. Open the Windows PowerShell app as an administrator.
+2. Uninstall any previous version of AzureADPreview.
+  
+   ``` PowerShell
+   Uninstall-Module AzureADPreview
+   Uninstall-Module azuread
+   ```
+
+3. Install the latest version of AzureADPreview.
+  
+   ``` PowerShell
+   Install-Module AzureADPreview
+
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -37,6 +54,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
+
    ```
    This cmdlet call returns all templates that are available:
   
