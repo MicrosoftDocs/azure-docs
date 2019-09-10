@@ -68,15 +68,15 @@ To learn how to use customer-managed keys with Azure Storage, see one of these a
 
 ## Client-provided keys (preview)
 
-Clients making requests against Azure Blob storage have the option to providing an encryption key on an individual request to the service. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Client-provided keys (preview) can be stored in Azure Key Vault or in another key store.
+Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request to the service. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Client-provided keys (preview) can be stored in Azure Key Vault or in another key store.
 
-When a client provides the encryption key as part of the request, Azure Storage performs encryption and decryption transparently while writing and reading data from Blob storage. A SHA-256 hash of the encryption key is written alongside a blob's contents and is used to verify that all subsequent operations against the blob use the same encryption key. Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
+When a client application provides the encryption key on the request, Azure Storage performs encryption and decryption transparently while writing and reading data from Blob storage. A SHA-256 hash of the encryption key is written alongside a blob's contents and is used to verify that all subsequent operations against the blob use the same encryption key. Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
 
 To send the encryption key as part of the request, a client must establish a secure connection to Azure Storage using HTTPS.
 
-If the client provides a key on the request, and the storage account is also encrypted using a Microsoft-managed key or a customer-managed key, then Azure Storage will use the key provided by the client for encryption and decryption.
+If the client application sends a key on the request, and the storage account is also encrypted using a Microsoft-managed key or a customer-managed key, then Azure Storage will use the key provided by the client application for encryption and decryption.
 
-For operations on blob snapshots, each snapshot can have its own encryption key.
+When performing operations on blob snapshots, each snapshot can have its own encryption key.
 
 ### Request headers for specifying client-provided keys
 
