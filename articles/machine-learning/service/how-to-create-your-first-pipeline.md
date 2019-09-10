@@ -406,19 +406,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### View results of a published pipeline
 
 See the list of all your published pipelines and their run details:
-1. Sign in to the [Azure portal](https://portal.azure.com/).  
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
 
+These results are also available in your [workspace landing page (preview)](https://ml.azure.com).
+
 ### Disable a published pipeline
 
 To hide a pipeline from your list of published pipelines, you disable it:
 
 ```
-# Get the pipeline by using its ID in the Azure portal
+# Get the pipeline by using its ID from the Azure portal
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
