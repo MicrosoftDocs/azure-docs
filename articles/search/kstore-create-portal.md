@@ -75,7 +75,7 @@ In this wizard step, you will create a data source from the Azure Blob with your
 
       ![Create a data source object](media/kstore-create-portal/hotel-reviews-ds.png "Create a data source object")
 
-## Add Cognitive Search (Import data wizard)
+## Add cognitive search (Import data wizard)
 
 In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. These enrichments will be "projected" into a knowledge store as Azure tables.
 

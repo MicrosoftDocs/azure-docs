@@ -1781,6 +1781,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/knowledge-store-connect-powerbi.md",
+      "redirect_url": "/azure/search/kstore-create-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-rest-api.md",
       "redirect_url": "/azure/search/search-get-started-powershell",
       "redirect_document_id": false

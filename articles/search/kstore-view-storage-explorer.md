@@ -36,7 +36,7 @@ Select any table to view the enriched data, including key phrases sentiment scor
 
    ![View tables in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
 
-To change the data type for any table value, click **Edit**. 
+To change the data type for any table value or to change individual values in your table, click **Edit**. When you change the data type for any column in one table row, it will be applied to all rows.
 
    ![Edit table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
 
