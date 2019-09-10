@@ -127,7 +127,7 @@ cmdlet | Usage
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the domain name as **Verified**.
 
-> ![NOTE]
+> [!NOTE]
 > The unmanaged Azure AD organization will be deleted 10 days after the external takeover force option has occurred.
 
 ### PowerShell example
