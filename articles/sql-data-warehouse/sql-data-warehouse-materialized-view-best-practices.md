@@ -340,7 +340,7 @@ GROUP BY c_customer_id
 ```
 Check the execution plan of the original query again.  Now the number of joins changes from 17 to 5 and there's no shuffle anymore.  Click the Filter operation icon in the plan, its Output List shows the data is read from the materialized views instead of base tables.  
 
- ![Plan_Output_List_with_Materialized_Views](media/Output_List_MVs.png)
+ ![Plan_Output_List_with_Materialized_Views](media/sql-data-warehouse-materialized-view-best-practices/Output_List_MVs.png)
 
 With materialized views, the same query runs much faster without any code change.  
  
