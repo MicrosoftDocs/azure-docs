@@ -174,7 +174,7 @@ Follow these steps to prepare the development environment for the DevKit:
 
 5. Configure VS Code with Arduino settings.
 
-    In Visual Studio Code, click **File > Preference > Settings**. Then click the **Open Settings (JSON)** icon in the upper-right corner of the *Settings* page.
+    In Visual Studio Code, click **File > Preferences > Settings** (on macOS, **Code > Preferences > Settings**). Then click the **Open Settings (JSON)** icon in the upper-right corner of the *Settings* page.
 
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 
