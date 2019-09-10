@@ -4,7 +4,7 @@ description: Tutorial to send alerts in response to errors in your application u
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/20/2017
+ms.date: 04/10/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
@@ -13,79 +13,60 @@ manager: carmonm
 
 # Monitor and alert on application health with Azure Application Insights
 
-Azure Application Insights allows you to monitor your application and send you alerts when it is either unavailable, experiencing failures, or suffering from performance issues.  This tutorial takes you through the process of creating tests to continuously check the availability of your application and to send different kinds of alerts in response to detected issues.  You learn how to:
+Azure Application Insights allows you to monitor your application and send you alerts when it is either unavailable, experiencing failures, or suffering from performance issues.  This tutorial takes you through the process of creating tests to continuously check the availability of your application.
+
+You learn how to:
 
 > [!div class="checklist"]
 > * Create availability test to continuously check the response of the application
 > * Send mail to administrators when a problem occurs
-> * Create alerts based on performance metrics 
-> * Use a Logic App to send summarized telemetry on a schedule.
-
 
 ## Prerequisites
 
 To complete this tutorial:
 
-- Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-	- ASP.NET and web development
-	- Azure development
-	- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+Create an [Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
 
+## Sign in to Azure
 
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create availability test
-Availability tests in Application Insights allow you to automatically test your application from various locations around the world.   In this tutorial, you will perform a simple test to ensure that the application is available.  You could also create a complete walkthrough to test its detailed operation. 
+
+Availability tests in Application Insights allow you to automatically test your application from various locations around the world.   In this tutorial, you will perform a url test to ensure that your web application is available.  You could also create a complete walkthrough to test its detailed operation. 
 
 1. Select **Application Insights** and then select your subscription.  
-1. Select **Availability** under the **Investigate** menu and then click **Add test**.
- 
-	![Add availability test](media/tutorial-alert/add-test.png)
 
-2. Type in a name for the test and leave the other defaults.  This requests the home page of the application every 5 minutes from 5 different geographic locations. 
-3. Select **Alerts** to open the **Alerts** panel where you can define details for how to respond if the test fails. Type in an email address to send when the alert criteria is met.  You could optionally type in the address of a webhook to call when the alert criteria is met.
+2. Select **Availability** under the **Investigate** menu and then click **Create test**.
 
-	![Create test](media/tutorial-alert/create-test.png)
- 
-4. Return to the test panel, and after a few minutes you should start seeing results from the availability test.  Click on the test name to view details from each location.  The scatter chart shows the success and duration of each test.
+    ![Add availability test](media/tutorial-alert/add-test-001.png)
 
-	![Test details](media/tutorial-alert/test-details.png)
+3. Type in a name for the test and leave the other defaults.  This selection will trigger requests for the application url every 5 minutes from five different geographic locations.
 
-5.  You can drill down in to the details of any particular test by clicking on its dot in the scatter chart.  The example below shows the details for a failed request.
+4. Select **Alerts** to open the **Alerts** dropdown where you can define details for how to respond if the test fails. Choose **Near-realtime** and set the status to **Enabled.**
 
-	![Test result](media/tutorial-alert/test-result.png)
+    Type in an email address to send when the alert criteria is met.  You could optionally type in the address of a webhook to call when the alert criteria is met.
+
+    ![Create test](media/tutorial-alert/create-test-001.png)
+
+5. Return to the test panel, select the ellipses and edit alert to enter the configuration for your near-realtime alert.
+
+    ![Edit alert](media/tutorial-alert/edit-alert-001.png)
+
+6. Set failed locations to greater than or equal to 3. Create an [action group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) to configure who gets notified when your alert threshold is breached.
+
+    ![Save alert UI](media/tutorial-alert/save-alert-001.png)
+
+7. Once you have configured your alert, click on the test name to view details from each location. Tests can be viewed in both line graph and scatter plot format to visualize the success/failures for a given time range.
+
+    ![Test details](media/tutorial-alert/test-details-001.png)
+
+8. You can drill down into the details of any test by clicking on its dot in the scatter chart. This will launch the end-to-end transaction details view. The example below shows the details for a failed request.
+
+    ![Test result](media/tutorial-alert/test-result-001.png)
   
-6. If the alert criteria is met, a mail similar to the one below is sent to the address that you specified.
-
-	![Alert mail](media/tutorial-alert/alert-mail.png)
-
-
-## Create an alert from metrics
-In addition to sending alerts from an availability test, you can create an alert from any performance metrics that are being collected for your application.
-
-1. Select **Alerts** from the **Configure** menu.  This opens the Azure Alerts panel.  There may be other alert rules configured here for other services.
-1. Click **Add metric alert**.  This opens the panel to create a new alert rule.
-
-	![Add metric alert](media/tutorial-alert/add-metric-alert.png)
-
-1. Type in a **Name** for the alert rule, and select your application in the dropdown for **Resource**.
-1. Select a **Metric** to sample.  A graph is displayed to indicate the value of this request over the past 24 hours.  This assists you in setting the condition for the metric.
-
-	![Add alert rule](media/tutorial-alert/add-alert-01.png)
-
-1. Specify a **Condition** and **Threshold** for the alert. This is the number of times that the metric must be exceeded for an alert to be created. 
-1. Under **Notify via** check the **Email owners, contributors, and readers** box to send a mail to these users when the alert condition is met and add the email address of any additional recipients.  You can also specify a webhook or a logic app here that runs when the condition is met.  These could be used to attempt to mitigate the detected issue or 
-
-	![Add alert rule](media/tutorial-alert/add-alert-02.png)
-
-
-## Proactively send information
-Alerts are created in reaction to a particular set of issues identified in your application, and you typically reserve alerts for critical conditions requiring immediate attention.  You can proactively receive information about your application with a Logic App that runs automatically on a schedule.  For example, you could have a mail sent to administrators daily with summary information that requires further evaluation.
-
-For details on creating a Logic App with Application Insights, see [Automate Application Insights processes by using Logic Apps](../../azure-monitor/app/automate-with-logic-apps.md)
-
 ## Next steps
+
 Now that you've learned how to alert on issues, advance to the next tutorial to learn how to analyze how users are interacting with your application.
 
 > [!div class="nextstepaction"]

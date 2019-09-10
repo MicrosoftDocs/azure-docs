@@ -1,20 +1,20 @@
 ---
-title:  Continuously integrate and develop with Stream Analytics tools
-description: This article describes how to use Visual Studio tools for Azure Stream Analytics to set up a continuous integration and deployment process.
+title: Use the Azure Stream Analytics CI/CD NuGet package for integration and development 
+description: This article describes how to use Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
+ms.date: 05/15/2019
 ---
-# Continuously integrate and develop with Stream Analytics tools
-This article describes how to use to use the Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process.
+# Use the Azure Stream Analytics CI/CD NuGet package for integration and development 
+This article describes how to use the Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.
 
 Use version 2.3.0000.0 or above of [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) to get support for MSBuild.
 
-A NuGet package is available: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). It provides the MSBuild, local run, and deployment tools that support the continuous integration and deployment process of Stream Analytics Visual Studio projects. 
+A NuGet package is available: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). It provides the MSBuild, local run, and deployment tools that support the continuous integration and deployment process of [Stream Analytics Visual Studio projects](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > The NuGet package can be used only with the 2.3.0000.0 or above version of Stream Analytics Tools for Visual Studio. If you have projects created in previous versions of Visual Studio tools, just open them with the 2.3.0000.0 or above version and save. Then the new capabilities are enabled. 
 
@@ -40,7 +40,7 @@ When a Stream Analytics Visual Studio project builds successfully, it generates 
 The default parameters in the parameters.json file are from the settings in your Visual Studio project. If you want to deploy to another environment, replace the parameters accordingly.
 
 > [!NOTE]
-> For all the credentials, the default values are set to null. You are *required* to set the values before you deploy to the cloud.
+> For all the credentials, the default values are set to null. You are **required** to set the values before you deploy to the cloud.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -84,3 +84,9 @@ Example:
 ```
 
 
+
+## Next steps
+
+* [Quickstart: Create an Azure Stream Analytics cloud job in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Test Stream Analytics queries locally with Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Explore Azure Stream Analytics jobs with Visual Studio](stream-analytics-vs-tools.md)

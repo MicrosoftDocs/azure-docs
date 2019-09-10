@@ -5,11 +5,7 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 
-
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
@@ -93,8 +89,6 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -ResourceName $storageAccountName
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
-
-To go through a tutorial, see [Tutorial: Move Azure resources to another resource group or subscription](./resource-manager-tutorial-move-resources.md). 
 
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 

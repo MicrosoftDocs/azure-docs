@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 04/09/2018
+ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
 ---
 
-# Run Azure Functions from Azure Stream Analytics jobs 
+# Tutorial: Run Azure Functions from Azure Stream Analytics jobs 
 
 You can run Azure Functions from Azure Stream Analytics by configuring Functions as one of the output sinks to the Stream Analytics job. Functions are an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.
 
@@ -23,9 +23,10 @@ Stream Analytics invokes Functions through HTTP triggers. The Functions output a
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Stream Analytics job
-> * Create an Azure function
-> * Configure Azure function as output to your job
+> * Create and run a Stream Analytics job
+> * Create an Azure Cache for Redis instance
+> * Create an Azure Function
+> * Check Azure Cache for Redis for results
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,16 +36,9 @@ This section demonstrates how to configure a Stream Analytics job to run a funct
 
 ![Diagram showing relationships among the Azure services](./media/stream-analytics-with-azure-functions/image1.png)
 
-The following steps are required to achieve this task:
-* [Create a Stream Analytics job with Event Hubs as input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* Create an Azure Cache for Redis instance  
-* Create a function in Azure Functions that can write data to the Azure Cache for Redis    
-* [Update the Stream Analytics job with the function as output](#update-the-stream-analytics-job-with-the-function-as-output)  
-* Check Azure Cache for Redis for results  
-
 ## Create a Stream Analytics job with Event Hubs as input
 
-Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application, and create a Stream Analytics job. (Skip the steps to create the query and the output. Instead, see the following sections to set up Functions output.)
+Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application, and create a Stream Analytics job. Skip the steps to create the query and the output. Instead, see the following sections to set up an Azure Functions output.
 
 ## Create an Azure Cache for Redis instance
 
@@ -58,7 +52,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. See the [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) section of the Functions documentation. This walks you through how to create a function app and an [HTTP-triggered function in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), by using the CSharp language.  
 
-2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace "\<your Azure Cache for Redis connection string goes here\>" with the Azure Cache for Redis primary connection string that you retrieved in the previous section.)  
+2. Browse to the **run.csx** function. Update it with the following code. Replace **"\<your Azure Cache for Redis connection string goes here\>"** with the Azure Cache for Redis primary connection string that you retrieved in the previous section. 
 
     ```csharp
     using System;
@@ -109,7 +103,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    ```
 
-   When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to Functions. In your function, use the following code to check that Stream Analytics doesn’t send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
+   When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to Functions. The following code ensures that Stream Analytics doesn't send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -118,7 +112,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
         }
    ```
 
-3. In a text editor of your choice, create a JSON file named **project.json**. Use the following code, and save it on your local computer. This file contains the NuGet package dependencies required by the C# function.  
+3. In a text editor of your choice, create a JSON file named **project.json**. Paste the following code, and save it on your local computer. This file contains the NuGet package dependencies required by the C# function.  
    
     ```json
     {
@@ -142,8 +136,6 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    ![Screenshot of App Service Editor](./media/stream-analytics-with-azure-functions/image4.png)
 
- 
-
 ## Update the Stream Analytics job with the function as output
 
 1. Open your Stream Analytics job on the Azure portal.  
@@ -160,9 +152,9 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    |Max Batch Count|Specifies the maximum number of events in each batch that is sent to the function. The default value is 100. This property is optional.|
    |Key|Allows you to use a function from another subscription. Provide the key value to access your function. This property is optional.|
 
-3. Provide a name for the output alias. In this tutorial, we name it **saop1** (you can use any name of your choice). Fill in other details.  
+3. Provide a name for the output alias. In this tutorial, it is named **saop1**, but you can use any name of your choice. Fill in other details.
 
-4. Open your Stream Analytics job, and update the query to the following. (Make sure to replace the "saop1" text if you have named the output sink differently.)  
+4. Open your Stream Analytics job, and update the query to the following. If you did not name your output sink **saop1**, remember to change it in the query.  
 
    ```sql
     SELECT
@@ -175,9 +167,11 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Start the telcodatagen.exe application by running the following command in command line (use the format `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
+5. Start the telcodatagen.exe application by running the following command in command line. The command uses the format `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.	Start the Stream Analytics job.
 

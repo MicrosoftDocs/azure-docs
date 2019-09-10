@@ -31,15 +31,11 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 ### Azure portal
 
-1. Browse to your app in the [Azure portal](https://portal.azure.com) and click on the **Settings** button.
+1. Browse to your app in the [Azure portal](https://portal.azure.com) and scroll to the **Configuration** page.
 
-    ![App Settings][settings-button]
-2. From the **Settings** blade, select **Application Settings** and choose the new PHP version.
+2. From **Configuration**, select **General Settings** and choose the new PHP version.
 
-    ![Application Settings][application-settings]
-3. Click the **Save** button at the top of the **Application settings** blade.
-
-    ![Save configuration settings][save-button]
+3. Click the **Save** button at the top of the **General settings** blade.
 
 ### Azure PowerShell (Windows)
 
@@ -126,18 +122,12 @@ As noted in the previous section, the best way to see the default PHP version, i
 ### Configure via App Setting
 
 1. Add a `bin` directory to the root directory.
-1. Put `.dll` extension files in the `bin` directory (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
-2. Deploy your app.
-3. Browse to your app in the Azure portal and click on the **Settings** button.
-
-    ![App Settings][settings-button]
-4. From the **Settings** blade, select **Application Settings** and scroll to the **App settings** section.
-5. In the **App settings** section, create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
-
-    ![Enable extension in app settings][php-extensions]
-6. Click the **Save** button at the top of the **Application settings** blade.
-
-    ![Save configuration settings][save-button]
+2. Put `.dll` extension files in the `bin` directory (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
+3. Deploy your app.
+4. Browse to your app in the Azure portal and click on the **Configuration** located below **Settings** section.
+5. From the **Configuration** blade, select **Application Settings**.
+6. In the **Application settings** section, click on **+ New application setting** and create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
+7. Click the **Update** button at the bottom then click **Save** above the **Application settings** tab.
 
 Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To enable multiple extensions, include a comma-separated list of `.dll` files for the app setting value.
 
@@ -150,15 +140,11 @@ Instead of the default PHP runtime, App Service can use a PHP runtime that you p
 3. Optionally, add extensions to your PHP runtime and enable them in the `php.ini` file.
 4. Add a `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
 5. Deploy your app.
-6. Browse to your app in the Azure portal and click on the **Settings** button.
-
-    ![App Settings][settings-button]
-7. From the **Settings** blade, select **Application Settings** and scroll to the **Handler mappings** section. Add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable. If you put your PHP runtime in the `bin` directory in the root of your application, the path is `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Specify handler in handler mappings][handler-mappings]
-8. Click the **Save** button at the top of the **Application settings** blade.
-
-    ![Save configuration settings][save-button]
+6. Browse to your app in the Azure portal and click on the **Configuration** blade.
+8. From the **Configuration** blade, select **Path mappings**. 
+9. Click **+ New Handler** and add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable in **Script processor**. If you put your PHP runtime in the `bin` directory in the root of your application, the path is `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. At the bottom, click **Update** to finish adding the handler mapping.
+11. Click **Save** to save changes.
 
 <a name="composer" />
 
@@ -194,9 +180,9 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[List of php.ini directives]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[List of php.ini directives]: https://www.php.net/manual/en/ini.list.php
+[.user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

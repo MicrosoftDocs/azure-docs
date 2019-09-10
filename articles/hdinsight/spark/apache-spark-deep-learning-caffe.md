@@ -1,7 +1,6 @@
 ---
 title: Use Caffe on Azure HDInsight Spark for distributed deep learning
-description: Use Caffe on Azure HDInsight Spark for distributed deep learning
-services: hdinsight
+description: Use Caffe on Apache Spark for distributed deep learning in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -9,6 +8,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
 ---
+
 # Use Caffe on Azure HDInsight Spark for distributed deep learning
 
 
@@ -170,7 +170,7 @@ For this example, since you are using CPU rather than GPU, you should change the
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
 
 You can change other lines as needed.
 
@@ -179,7 +179,7 @@ The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) define
 - change the "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" to "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
 For more information on how to define the network, check the [Caffe documentation on MNIST dataset](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 

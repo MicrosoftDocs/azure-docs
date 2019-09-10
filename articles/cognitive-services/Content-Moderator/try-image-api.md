@@ -1,6 +1,6 @@
 ---
 title: Moderate images with the API Console - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Image Moderation API in Azure Content Moderator to initiate scan-and-review moderation workflows for image content.
 services: cognitive-services
 author: sanjeev3

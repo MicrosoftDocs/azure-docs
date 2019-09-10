@@ -13,6 +13,9 @@ ms.author: ramamill
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Update mobility service from Azure portal
 
 1. Before you start ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you update the Mobility Service on protected machines.
@@ -32,7 +35,7 @@ You set up mobility agent on your server when you use Azure Site Recovery for di
 Use following script to upgrade mobility service on a server through power shell cmdlet
 
 ```azurepowershell
-Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
 ## Update account used for push installation of Mobility service
@@ -53,11 +56,12 @@ Uninstall from the UI or from a command prompt.
 
 ### On a Linux machine
 1. On the Linux machine, sign in as a **root** user.
-2. In a terminal, go to /user/local/ASR.
+2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
     ```
     uninstall.sh -Y
-
+   ```
+   
 ## Install Site Recovery VSS provider on source machine
 
 Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.

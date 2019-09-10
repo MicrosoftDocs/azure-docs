@@ -2,14 +2,14 @@
 title: Striim quick start with Azure SQL Data Warehouse | Microsoft Docs
 description: Get started quickly with Striim and Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd 
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
+ms.author: martinle
+ms.reviewer: igorstan
 ---
 
 # Striim Azure SQL DW Marketplace Offering Install Guide

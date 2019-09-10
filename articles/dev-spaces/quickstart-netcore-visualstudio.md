@@ -1,36 +1,34 @@
 ---
-title: "Develop with .NET Core on AKS with Azure Dev Spaces and Visual Studio 2017"
+title: "Debug and iterate with Visual Studio and .NET Core on AKS with Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: "03/22/2019"
-ms.topic: "quickstart"
+ms.date: 03/22/2019
+ms.topic: quickstart
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
 ---
-# Quickstart: Develop with .NET Core on Kubernetes with Azure Dev Spaces (Visual Studio 2017)
+# Quickstart: Debug and iterate with Visual Studio and .NET Core on Kubernetes with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
-- Iteratively develop code in containers using Visual Studio 2017.
-- Debug code running in your cluster using Visual Studio 2017.
+- Iteratively develop code in containers using Visual Studio.
+- Debug code running in your cluster using Visual Studio.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- Visual Studio 2017 on Windows with the Web Development workload installed. If you don't have it installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools) installed.
+- Visual Studio 2019 on Windows with the Azure Development workload installed. You can also use Visual Studio 2017 on Windows with the Web Development workload and [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools) installed. If you don't have Visual Studio installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## Create an Azure Kubernetes Service cluster
 
-You must create an AKS cluster in a [supported region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). To create a cluster:
+You must create an AKS cluster in a [supported region][supported-regions]. To create a cluster:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Select *+ Create a resource > Kubernetes Service*. 
@@ -49,7 +47,7 @@ Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change 
 
 ## Create a new ASP.NET web app
 
-1. Open Visual Studio 2017.
+1. Open Visual Studio.
 1. Create a new project.
 1. Choose *ASP.NET Core Web Application* and name your project *webfrontend*.
 1. Click *OK*.
@@ -91,9 +89,11 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 In the above example, the public URL is http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navigate to your service's public URL and interact with the service running in your dev space.
 
+This process may have disabled public access to your service. To enable public access, you can update the [ingress value in the *values.yaml*][ingress-update].
+
 ## Update code
 
-If Visual Studio 2017 is still connected to your dev space, click the stop button. Change line 20 in `Controllers/HomeController.cs` to:
+If Visual Studio is still connected to your dev space, click the stop button. Change line 20 in `Controllers/HomeController.cs` to:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -105,9 +105,9 @@ Instead of rebuilding and redeploying a new container image each time code edits
 
 ## Setting and using breakpoints for debugging
 
-If Visual Studio 2017 is still connected to your dev space, click the stop button. Open `Controllers/HomeController.cs` and click somewhere on line 20 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*. To start your service in debugging mode in your dev space, hit *F5* or click *Debug* then *Start Debugging*.
+If Visual Studio is still connected to your dev space, click the stop button. Open `Controllers/HomeController.cs` and click somewhere on line 20 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*. To start your service in debugging mode in your dev space, hit *F5* or click *Debug* then *Start Debugging*.
 
-Open your service in a browser and notice no message is displayed. Return to Visual Studio 2017 and observe line 20 is highlighted. The breakpoint you set has paused the service at line 20. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
+Open your service in a browser and notice no message is displayed. Return to Visual Studio and observe line 20 is highlighted. The breakpoint you set has paused the service at line 20. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
 
 While running your service in Kubernetes with a debugger attached, you have full access to debug information such as the call stack, local variables, and exception information.
 
@@ -125,3 +125,6 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

@@ -2,11 +2,10 @@
 title: Human interaction and timeouts in Durable Functions - Azure
 description: Learn how to handle human interaction and timeouts in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -49,7 +48,7 @@ The **E4_SmsPhoneVerification** function uses the standard *function.json* for o
 
 Here is the code that implements the function:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
@@ -80,7 +79,7 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 
 And here is the code that generates the 4-digit challenge code and sends the SMS message:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 

@@ -1,15 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Python'
-description: Learn how to create an Azure Data Explorer cluster and database by using Python
-services: data-explorer
+title: 'Create an Azure Data Explorer cluster and database by using Python'
+description: Learn how to create an Azure Data Explorer cluster and database by using Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 06/03/2019
 ---
-
 
 # Create an Azure Data Explorer cluster and database by using Python
 
@@ -21,7 +19,7 @@ ms.date: 03/25/2019
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Python.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using Python.
 
 ## Prerequisites
 
@@ -68,7 +66,7 @@ pip install azure-mgmt-kusto
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 	
-1. Set [*your credentials*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Set [*your credentials*](/azure/python/python-sdk-azure-authenticate)
 
 1. Run the following command to check whether your cluster was successfully created:
 
@@ -116,7 +114,7 @@ You now have a cluster and a database.
 
 ## Clean up resources
 
-* If you plan to follow our other quickstarts and tutorials, keep the resources you created.
+* If you plan to follow our other articles, keep the resources you created.
 * To clean up resources, delete the cluster. When you delete a cluster, it also deletes all the databases in it. Use the following command to delete your cluster:
 
     ```Python
@@ -125,5 +123,4 @@ You now have a cluster and a database.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+* [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)

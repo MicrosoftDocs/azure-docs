@@ -7,13 +7,20 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS cluster - CLI
-    href: kubernetes-walkthrough.md
-  - name: Create an AKS cluster - Portal
-    href: kubernetes-walkthrough-portal.md
+  - name: Create an AKS Cluster
+    expanded: true
+    items:
+    - name: Use the Azure CLI
+      href: kubernetes-walkthrough.md
+    - name: Use the Azure portal
+      href: kubernetes-walkthrough-portal.md
+    - name: Use a Resource Manager template
+      href: kubernetes-walkthrough-rm-template.md
   - name: Develop applications
     expanded: true
     items:
+    - name: Use Draft
+      href: kubernetes-draft.md
     - name: Use Java (VS Code & CLI)
       href: ../dev-spaces/quickstart-java.md
       maintainContext: true
@@ -58,8 +65,9 @@
   - name: Scale
     href: concepts-scale.md
   - name: Best practices
-    href: best-practices.md
     items:
+    - name: Overview
+      href: best-practices.md
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation
@@ -87,7 +95,7 @@
       - name: Pod security
         href: developer-best-practices-pod-security.md
   - name: Quotas and regional limits
-    href: container-service-quotas.md
+    href: quotas-skus-regions.md
   - name: Migrate from ACS to AKS
     href: acs-aks-migration.md
   - name: Supported Kubernetes version
@@ -108,21 +116,27 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Azure AD-enabled AKS
-      href: aad-integration.md
-    - name: Create virtual nodes (preview)
+    - name: Create an ACR with an AKS cluster (preview)
+      href: cluster-container-registry-integration.md
+    - name: Create virtual nodes
       items:
-      - name: Azure CLI
+      - name: Use the Azure CLI
         href: virtual-nodes-cli.md
-      - name: Azure portal
+      - name: Use the Azure portal
         href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler (preview)
       href: cluster-autoscaler.md
+    - name: Use Availability Zones (preview)
+      href: availability-zones.md
+    - name: Use multiple node pools (preview)
+      href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
+    - name: Use the Kubernetes dashboard
+      href: kubernetes-dashboard.md
   - name: Configure data volumes
     items:
     - name: Azure Disk - Dynamic
@@ -133,6 +147,8 @@
       href: azure-files-dynamic-pv.md
     - name: Azure Files - Static
       href: azure-files-volume.md
+    - name: NFS Server - Static
+      href: azure-nfs-volume.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -143,7 +159,9 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
-    - name: Use a static IP addresses
+    - name: Use a Standard Load Balancer
+      href: load-balancer-standard.md
+    - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
       items:
@@ -156,9 +174,10 @@
         - name: Use TLS with your own certificates
           href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
-          href: ingress-tls.md
           items:
-          - name: Use a static public IP
+          - name: Use a dynamic public IP address
+            href: ingress-tls.md
+          - name: Use a static public IP address
             href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
@@ -170,10 +189,26 @@
       href: kubernetes-service-principal.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
-    - name: Secure pod traffic with network policies (preview)
+    - name: Secure pod traffic with network policies
       href: use-network-policies.md
+    - name: Use pod security policies (preview)
+      href: use-pod-security-policies.md
+    - name: Define API server authorized IP ranges (preview)
+      href: api-server-authorized-ip-ranges.md
+    - name: Control deployments with Azure Policy (preview)
+      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
     - name: Update cluster service principal credentials
       href: update-credentials.md
+    - name: Restrict and control cluster egress traffic (preview)
+      href: limit-egress-traffic.md
+    - name: Enable Azure Active Directory integration
+      items:
+        - name: Use the Azure CLI
+          href: azure-ad-integration-cli.md
+        - name: Use the Azure portal
+          href: azure-ad-integration.md
+    - name: Use Kubernetes RBAC with Azure AD integration
+      href: azure-ad-rbac.md
     - name: Authenticate with ACR
       href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
@@ -189,6 +224,20 @@
     - name: View real-time container logs (preview)
       href: ../azure-monitor/insights/container-insights-live-logs.md
       maintainContext: true
+  - name: Use Windows Server containers (preview)
+    items:
+    - name: Create an AKS cluster
+      href: windows-container-cli.md
+    - name: Connect remotely
+      href: rdp.md
+    - name: Known limitations
+      href: windows-node-limitations.md
+    - name: Use the Kubernetes dashboard
+      href: kubernetes-dashboard.md
+    - name: Create Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
+    - name: Optimize Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
     - name: Develop with Dev Spaces
@@ -241,8 +290,6 @@
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md
-    - name: Develop applications with Draft
-      href: kubernetes-draft.md
     - name: Use Open Service Broker for Azure
       href: integrate-azure.md
     - name: Use Cosmos DB API for MongoDB with OSBA
@@ -259,6 +306,10 @@
         href: istio-install.md
       - name: Intelligent routing and canary releases
         href: istio-scenario-routing.md
+    - name: Use Hashicorp Consul Connect
+      items:
+      - name: Install and configure
+        href: consul-install.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true
@@ -272,10 +323,8 @@
     - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
-  - name: Kubernetes basics
-    items:
-    - name: Use Kubernetes dashboard
-      href: kubernetes-dashboard.md
+    - name: Deployment Center Launcher
+      href: deployment-center-launcher.md 
   - name: Troubleshoot
     items:
     - name: Common issues
@@ -310,6 +359,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Support policies
+    href: support-policies.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback

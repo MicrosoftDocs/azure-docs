@@ -91,7 +91,7 @@ Historically, updates to the UserPrincipalName attribute using the sync service 
 
 For more details, see [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192).
 
-Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync. If you use federation, this feature is not supported.
+Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync or pass-through authentication. If you use federation, this feature is not supported.
 
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 

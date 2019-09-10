@@ -1,4 +1,4 @@
-﻿---
+---
 title: Serve content from Azure Storage on Linux - App Service
 description: How to configure and serve content from Azure Storage in Azure App Service on Linux.
 author: msangapu
@@ -9,11 +9,10 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.custom: seodec18
 ---
 # Serve content from Azure Storage in App Service on Linux
 
-This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods. In this guide, you learn how to serve content on Azure Storage by [configuring custom storage](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
+This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
 
 ## Prerequisites
 
@@ -24,6 +23,8 @@ This guide shows how to serve static content in App Service on Linux by using [A
 
 > [!NOTE]
 > Azure Storage is non-default storage and billed separately, not included with the web app.
+>
+> Bring your own storage does not support using the Storage Firewall configuration due to infrastructure limitations.
 >
 
 Create an Azure [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
@@ -63,9 +64,22 @@ You should do this for any other directories you want to be linked to a storage 
 Once a storage container is linked to a web app, you can verify this by running the following command:
 
 ```azurecli
-az webapp config storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+```
+
+## Use custom storage in Docker Compose
+
+Azure Storage can be mounted with multi-container apps using the custom-id. To view the custom-id name, run [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+
+In your *docker-compose.yml* file, map the `volumes` option to `custom-id`. For example:
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ## Next steps
 
-- [Configure web apps in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-configure).
+- [Configure web apps in Azure App Service](../configure-common.md).

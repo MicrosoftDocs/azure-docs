@@ -1,17 +1,15 @@
 ---
 title: Monitor cluster performance - Azure HDInsight 
-description: 'How to monitor an HDInsight cluster for capacity and performance.'
-services: hdinsight
-author: maxluk
+description: How to monitor health and performance of Apache Hadoop clusters in Azure HDInsight.
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
+ms.date: 05/29/2019
+ms.author: hrasheed
 ---
-# Monitor cluster performance
+# Monitor cluster performance in Azure HDInsight
 
 Monitoring the health and performance of an HDInsight cluster is essential for maintaining optimal performance and resource utilization. Monitoring can also help you detect and address cluster configuration errors and user code issues.
 
@@ -26,7 +24,7 @@ To get a high-level look at the nodes of your cluster and their loading, sign in
 | Color | Description |
 | --- | --- |
 | Red | At least one master component on the host is down. Hover to see a tooltip that lists affected components. |
-| Orange | At least one slave component on the host is down. Hover to see a tooltip that lists affected components. |
+| Orange | At least one secondary component on the host is down. Hover to see a tooltip that lists affected components. |
 | Yellow | Ambari Server has not received a heartbeat from the host for more than 3 minutes. |
 | Green | Normal running state. |
 

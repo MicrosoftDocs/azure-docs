@@ -1,14 +1,12 @@
 ---
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Creating dynamic blueprints through parameters
 
@@ -66,10 +64,11 @@ If the blueprint assignment uses a **user-assigned managed identity**, the refer
 _may_ exist in a centralized subscription. The managed identity must be granted appropriate rights
 on the Key Vault prior to blueprint assignment.
 
-In both cases, the Key Vault must have **Enable access to Azure Resource Manager for template
-deployment** configured on the **Access policies** page. For directions on how to enable this
-feature, see [Key Vault - Enable template
-deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> In both cases, the Key Vault must have **Enable access to Azure Resource Manager for template
+> deployment** configured on the **Access policies** page. For directions on how to enable this
+> feature, see [Key Vault - Enable template
+> deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 For more information about Azure Key Vault, see [Key Vault
 Overview](../../../key-vault/key-vault-overview.md).
@@ -210,7 +209,8 @@ and **tagValue**. The value on each is directly provided and doesn't use a funct
 The opposite of a static parameter is a **dynamic parameter**. This parameter isn't defined on the
 blueprint, but instead is defined during each assignment of the blueprint. In the resource group
 example, use of a **dynamic parameter** makes sense for the resource group name. It provides a
-different name for every assignment of the blueprint.
+different name for every assignment of the blueprint. For a list of blueprint functions, see the [blueprint functions](../reference/blueprint-functions.md)
+reference.
 
 #### Setting dynamic parameters in the portal
 
@@ -226,12 +226,12 @@ different name for every assignment of the blueprint.
 
 #### Setting dynamic parameters from REST API
 
-Setting **dynamic parameters** during the assignment is done by entering the value directly.
-Instead of using a function, such as `parameters()`, the value provided is an appropriate string.
-Artifacts for a resource group are defined with a "template name", **name**, and **location**
-properties. All other parameters for included artifact are defined under **parameters** with a
-**\<name\>** and **value** key pair. If the blueprint is configured for a dynamic parameter that
-isn't provided during assignment, the assignment will fail.
+Setting **dynamic parameters** during the assignment is done by entering the value directly. Instead
+of using a function, such as [parameters()](../reference/blueprint-functions.md#parameters), the
+value provided is an appropriate string. Artifacts for a resource group are defined with a "template
+name", **name**, and **location** properties. All other parameters for included artifact are defined
+under **parameters** with a **\<name\>** and **value** key pair. If the blueprint is configured for
+a dynamic parameter that isn't provided during assignment, the assignment will fail.
 
 - REST API URI
 
@@ -284,7 +284,8 @@ isn't provided during assignment, the assignment will fail.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- See the list of [blueprint functions](../reference/blueprint-functions.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

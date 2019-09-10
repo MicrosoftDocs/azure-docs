@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 05/20/2019
 ms.author: rajanaki
 
 ---
@@ -16,6 +16,9 @@ Azure Site Recovery uses a monthly release cadence to fix any issues and enhance
 
 As mentioned in [Azure-to-Azure disaster recovery architecture](azure-to-azure-architecture.md), the Mobility service is installed on all Azure virtual machines (VMs) for which replication is enabled, while replicating VMs from one Azure region to another. When you use automatic updates, each new release updates the Mobility service extension.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## How automatic updates work
 
 When you use Site Recovery to manage updates, it deploys a global runbook (used by Azure services) via an automation account, created in the same subscription as the vault. Each vault uses one automation account. The runbook checks for each VM in a vault for active auto-updates and upgrades the Mobility service extension if a newer version is available.
@@ -23,9 +26,10 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule recurs daily at 12:00 AM in the time zone of the replicated VM's geo. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
+> Starting with Update Rollup 35, you can choose an existing automation account to use for updates. Prior to this update, Site Recovery created this account by default. This option is available when you enable replication for a VM. If you change the setting, it will apply for all Azure VMs protected in the same vault.
+ 
 > Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
-> [!NOTE]
 > Job billing in the automation account is based on the number of job runtime minutes used in a month. By default, 500 minutes are included as free units for an automation account. Job execution takes a few seconds to about a minute each day and is covered as free units.
 
 | Free units included (each month) | Price |
@@ -55,7 +59,7 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 
 
 > [!Note]
-> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created. All subsequent enable replications in the same vault use the previously created one.
+> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. All subsequent enable replications in the same vault use the previously created one. Currently the drop-down will only list Automation accounts that are in the same Resource Group as the vault.  
 
 For a custom automation account, use the following script:
 
@@ -337,7 +341,7 @@ $JobsFailedToStart = 0
 $JobsTimedOut = 0
 $Header = @{}
 
-$AzureRMProfile = Get-Module -ListAvailable -Name AzureRM.Profile | Select Name, Version, Path
+$AzureRMProfile = Get-Module -ListAvailable -Name Az.Accounts | Select Name, Version, Path
 $AzureRmProfileModulePath = Split-Path -Parent $AzureRMProfile.Path
 Add-Type -Path (Join-Path $AzureRmProfileModulePath "Microsoft.IdentityModel.Clients.ActiveDirectory.dll")
 
@@ -526,3 +530,14 @@ If you couldn't enable automatic updates, see the following common errors and re
 - **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection. 
 
     **Recommended action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Error**: The Azure Run as Certificate used by the automation account is about to expire. 
+
+    The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown 2 months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional till you renew the same.
+
+   **Recommended action**: Click on 'Repair' and then 'Renew Certificate' to resolve this issue.
+    
+   ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Once you renew the certificate, please refresh the page so that the current status is updated.

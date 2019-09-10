@@ -14,7 +14,7 @@ ms.custom: include file
 
 In this 2-part tutorial, you learn how to set up and use these custom routing queries with IoT Hub. You route messages from an IoT device to one of multiple endpoints, including blob storage and a Service Bus queue. Messages to the Service Bus queue are picked up by a Logic App and sent via e-mail. Messages that do not have custom message routing defined are sent to the default endpoint, then picked up by Azure Stream Analytics and viewed in a Power BI visualization.
 
- To complete parts 1 and 2 of this tutorial, you perform the following tasks:
+To complete parts 1 and 2 of this tutorial, you performed the following tasks:
 
 **Part I: Create resources, set up message routing**
 > [!div class="checklist"]

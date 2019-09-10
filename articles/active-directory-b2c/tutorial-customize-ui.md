@@ -2,14 +2,14 @@
 title: Tutorial - Customize the interface of user experiences - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to customize the user interface of your applications in Azure Active Directory B2C using the Azure portal.
 services: B2C
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -40,11 +40,11 @@ Although you can store your files in many ways, for this tutorial, you store the
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
-3. Choose All services in the top-left corner of the Azure portal, search for and select **Storage accounts**. 
+3. Choose All services in the top-left corner of the Azure portal, search for and select **Storage accounts**.
 4. Select **Add**.
 5. Under **Resource group**, select **Create new**, enter a name for the new resource group, and then click **OK**.
 6. Enter a name for the storage account. The name you choose must be unique across Azure, must be between 3 and 24 characters in length, and may contain numbers and lowercase letters only.
-7. Select the location of the storage account or accept the default location. 
+7. Select the location of the storage account or accept the default location.
 8. Accept all other default values, select **Review + create**, and then click **Create**.
 9. After the storage account is created, select **Go to resource**.
 
@@ -64,7 +64,7 @@ Although you can store your files in many ways, for this tutorial, you store the
 5. For **Exposed Headers**, enter an asterisk (*).
 6. For **Max age**, enter 200.
 
-    ![Enable CORS](./media/tutorial-customize-ui/enable-cors.png)
+    ![CORS configuration page in Azure Blob storage in Azure portal](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Click **Save**.
 
@@ -81,14 +81,14 @@ To customize the UI of the sign-up experience, you start by creating a simple HT
         <title>My B2C Application</title>
         <link rel="stylesheet" href="https://your-storage-account.blob.core.windows.net/your-container/style.css">
       </head>
-      <body>  
+      <body>
         <h1>My B2C Application</h1>
         <div id="api"></div>
       </body>
     </html>
     ```
 
-    The page can be designed any way that you want, but the **api** div element is required for any HTML customization file that you create. 
+    The page can be designed any way that you want, but the **api** div element is required for any HTML customization file that you create.
 
 3. Save the file as *custom-ui.html*.
 4. Create the following simple CSS that centers all elements on the sign-up or sign-in page including the elements that Azure AD B2C injects.
@@ -99,7 +99,7 @@ To customize the UI of the sign-up experience, you start by creating a simple HT
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 300px ;
@@ -107,7 +107,7 @@ To customize the UI of the sign-up experience, you start by creating a simple HT
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 300px ;
@@ -126,7 +126,7 @@ In this tutorial, you store the files that you created in the storage account so
 2. Select the storage account you created, select **Blobs**, and then select the container that you created.
 3. Select **Upload**, navigate to and select the *custom-ui.html* file, and then click **Upload**.
 
-    ![Upload customization files](./media/tutorial-customize-ui/upload-blob.png)
+    ![Upload blob page in portal with Upload button and Files highlighted](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copy the URL for the file that you uploaded to use later in the tutorial.
 5. Repeat step 3 and 4 for the *style.css* file.
@@ -145,11 +145,11 @@ In this tutorial, you store the files that you created in the storage account so
 2. At the top of the page, click **Run user flow**.
 3. Click the **Run user flow** button.
 
-    ![Run the sign-up or sign-in user flow](./media/tutorial-customize-ui/run-user-flow.png)
+    ![Run user flow page for the sign-up or sign-in user flow](./media/tutorial-customize-ui/run-user-flow.png)
 
     You should see a page similar to the following example with the elements centered based on the CSS file that you created:
 
-    ![User flow results](./media/tutorial-customize-ui/run-now.png) 
+    ![Web browser showing sign up or sign in page with custom UI elements](./media/tutorial-customize-ui/run-now.png)
 
 ## Next steps
 

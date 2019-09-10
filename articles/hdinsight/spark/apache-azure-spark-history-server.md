@@ -1,15 +1,15 @@
 ---
-title: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight 
+title: Extended Spark History Server to debug Spark applications - Azure HDInsight
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/04/2019
 ---
+
 # Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
 This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
@@ -26,7 +26,7 @@ Apache Spark History Server is the web UI for completed and running Spark applic
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### Open the Spark History Server Web UI by URL
-Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
+Open the Spark History Server by browsing to the following URL, replace `<ClusterName>` with Spark cluster name of customer.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory
@@ -295,7 +295,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 **To use the bash file from Azure portal**
 
-1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+1. Launch [Azure portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
     + **Script type**: select **Custom**.
@@ -314,7 +314,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 ## Known issues
 
-1.	Currently, it only works for Spark 2.3 cluster.
+1.	Currently, it only works for Spark 2.3 and 2.4 cluster.
 
 2.	Input/output data using RDD will not show in data tab.
 

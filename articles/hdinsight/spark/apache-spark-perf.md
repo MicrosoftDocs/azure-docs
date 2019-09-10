@@ -1,15 +1,15 @@
 ---
 title: Optimize Spark jobs for performance - Azure HDInsight 
-description: Shows common strategies for the best performance of Spark clusters.
-services: hdinsight
+description: Show common strategies for the best performance of Apache Spark clusters in Azure HDInsight.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/03/2019
 ---
+
 # Optimize Apache Spark jobs
 
 Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, due to improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
@@ -18,7 +18,7 @@ The following sections describe common Spark job optimizations and recommendatio
 
 ## Choose the data abstraction
 
-Earlier Spark versions use RDDs to abstract data, Spark 1.3 and 1.6 introduced DataFrames and DataSets, respectively. Consider the following relative merits:
+Earlier Spark versions use RDDs to abstract data, Spark 1.3, and 1.6 introduced DataFrames and DataSets, respectively. Consider the following relative merits:
 
 * **DataFrames**
     * Best choice in most situations.
@@ -55,7 +55,8 @@ When you create a new Spark cluster, you have the option to select Azure Blob St
 | Store Type | File System | Speed | Transient | Use Cases |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Standard** | Yes | Transient cluster |
-| Azure Data Lake Storage | **adl:**//url/ | **Faster** | Yes | Transient cluster |
+| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Faster** | Yes | Transient cluster |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Yes | Transient cluster |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | No | Interactive 24/7 cluster |
 
 ## Use the cache

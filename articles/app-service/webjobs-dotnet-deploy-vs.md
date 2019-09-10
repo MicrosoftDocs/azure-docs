@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-
+ms.author: glenga
+ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Develop and deploy WebJobs using Visual Studio - Azure App Service
@@ -24,7 +24,7 @@ This article explains how to use Visual Studio to deploy a Console Application p
 
 You can publish multiple WebJobs to a single web app. Make sure that each WebJob in a web app has a unique name.
 
-Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as .NET Core apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different .NET Core projects versus .NET Framework ones.
+Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as either .NET Core apps or .NET Framework apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different for .NET Core projects versus .NET Framework ones.
 
 ## WebJobs as .NET Core console apps
 
@@ -67,10 +67,7 @@ You can use Visual Studio to change the WebJob to run continuously when Always O
 
 ## WebJobs as .NET Framework console apps  
 
-When Visual Studio deploys a WebJobs-enabled .NET Framework Console Application project, it performs two tasks:
-
-* Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
-* Sets up [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) jobs for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
+When Visual Studio deploys a WebJobs-enabled .NET Framework Console Application project, it copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
 
 A WebJobs-enabled project has the following items added to it:
 
@@ -89,7 +86,7 @@ You can deploy a project as a WebJob by itself, or link it to a web project so t
 
 If you're using Visual Studio 2015, install the [Azure SDK for .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-If you're using Visual Studio 2017, install the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+If you're using Visual Studio 2017, install the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing Console Application project
 
@@ -228,7 +225,7 @@ When you [create a WebJob from the Azure portal](webjobs-create.md), the setting
 
 ### CRON expressions
 
-WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions).
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 ### setting.job reference
 
@@ -238,7 +235,7 @@ The following settings are supported by WebJobs:
 | ----------- | --------- | --------------- |
 | `is_in_place` | All | Allows the job to run in place without being first copied to a temp folder. To learn more, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. To learn more, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## Next steps

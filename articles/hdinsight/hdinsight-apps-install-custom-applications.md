@@ -1,7 +1,6 @@
 ---
 title: Install your own custom Apache Hadoop applications on Azure HDInsight 
-description: Learn how to install HDInsight applications on HDInsight applications.
-services: hdinsight
+description: Learn how to install HDInsight applications for Apache Hadoop clusters in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -104,7 +103,7 @@ There are several ways to delete HDInsight applications.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click the cluster where you installed the application.
-4. From the **Settings** blade, click **Applications** under the **General** category. You shall see a list of installed application. For this tutorial, **hue** listed in the **Installed Apps** blade.
+4. From the **Settings** blade, click **Applications** under the **General** category. You shall see a list of installed application. For this article, **hue** listed in the **Installed Apps** blade.
 5. Right-click the application you want to remove, and then click **Delete**.
 6. Click **Yes** to confirm.
 
@@ -113,8 +112,8 @@ From the portal, you can also delete the cluster or delete the resource group wh
 ### Use Azure PowerShell
 Using Azure PowerShell, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### Use Azure Classic CLI
-Using Azure Classic CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure Classic CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### Use Azure CLI
+Using Azure CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## Next steps
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop Resource Manager templates for deploying HDInsight applications.

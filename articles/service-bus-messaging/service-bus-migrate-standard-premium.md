@@ -1,6 +1,6 @@
 ---
-title: Migrate existing Azure Service Bus Standard Namespaces to Premium tier| Microsoft Docs
-description: Guide to allow migration of existing Azure Service Bus Standard Namespaces to Premium
+title: Migrate existing Azure Service Bus standard namespaces to the premium tier| Microsoft Docs
+description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,210 +12,203 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
 ---
 
-# Migrate existing Azure Service Bus Standard Namespaces to Premium tier
+# Migrate existing Azure Service Bus standard namespaces to the premium tier
+Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multi-tenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
 
-Previously, Azure Service Bus offered namespaces only on the Standard tier. These were multi-tenant setups that were optimized for low throughput and developer environments.
-
-In the recent past, Azure Service Bus has expanded to offer the Premium tier which offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price which is optimized for high throughput and production environments requiring additional enterprise features.
-
-The below tooling enables existing Standard tier namespaces to be migrated to the Premium tier.
+This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
 >[!WARNING]
-> Migration is intended for Service Bus Standard namespace to be ***upgraded*** to the Premium tier.
->
-> The migration tooling ***does not*** support downgrading.
->[!NOTE]
-> This migration is meant to happen ***in place***.
->
-> This implies that existing sender and receiver applications don't require any code or configuration change.
->
-> The existing connection string will automatically point to the new premium namespace.
->
-> Additionally, all entities in the Standard namespace are **copied over** in the Premium namespace during the migration process.
->
->
-> We support ***1000 entities per Messaging Unit*** on Premium, so to identify how many Messaging Units you need, please start with the number of entities that you have on your current Standard namespace.
+> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool does not support downgrading.
+
+Some of the points to note: 
+- This migration is meant to happen in place, meaning that existing sender and receiver applications **don't require any changes to code or configuration**. The existing connection string will automatically point to the new premium namespace.
+- The **premium** namespace should have **no entities** in it for the migration to succeed. 
+- All **entities** in the standard namespace are **copied** to the premium namespace during the migration process. 
+- Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace. 
+- You can't directly migrate from **basic tier** to **premier tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
 
 ## Migration steps
+Some conditions are associated with the migration process. Familiarize yourself with the following steps to reduce the possibility of errors. These steps outline the migration process, and the step-by-step details are listed in the sections that follow.
+
+1. Create a new premium namespace.
+1. Pair the standard and premium namespaces to each other.
+1. Sync (copy-over) entities from the standard to the premium namespace.
+1. Commit the migration.
+1. Drain entities in the standard namespace by using the post-migration name of the namespace.
+1. Delete the standard namespace.
 
 >[!IMPORTANT]
-> There are some caveats associated with the migration process. We request you to fully familiarize yourself with the steps involved to reduce possibilities of errors.
+> After the migration has been committed, access the old standard namespace and drain the queues and subscriptions. After the messages have been drained, they may be sent to the new premium namespace to be processed by the receiver applications. After the queues and subscriptions have been drained, we recommend that you delete the old standard namespace.
 
-The concrete step by step migration process is detailed in the guides below.
+### Migrate by using the Azure CLI or PowerShell
 
-The logical steps involved are -
+To migrate your Service Bus standard namespace to premium by using the Azure CLI or PowerShell tool, follow these steps.
 
-1. Create a new Premium namespace.
-2. Pair the Standard and Premium namespace to each other.
-3. Sync (copy-over) entities from Standard to Premium namespace
-4. Commit the migration
-5. Drain entities in the Standard namespace using the post-migration name of the namespace
-6. Delete the Standard namespace
+1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select **premium** for the **serviceBusSku** parameter.
 
->[!NOTE]
-> Once the migration has been committed, it is extremely important to access the old Standard namespace and drain out the queues and subscriptions.
->
-> Once the messages have been drained out they may be sent to the new premium namespace to be processed by the receiver applications.
->
-> Once the queues and subscriptions have been drained, we recommend deleting the old Standard namespace. You won't be needing it !
-
-### Migrate using Azure CLI or PowerShell
-
-To migrate your Service Bus Standard namespace to Premium using the Azure CLI or PowerShell tool, refer to the below guide.
-
-1. Create a new Service Bus Premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select "Premium" for the **serviceBusSku** parameter.
-
-2. Set the below environment variables to simplify the migration commands.
-   ```
+1. Set the following environment variables to simplify the migration commands.
+   ```azurecli
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
-   premiumNamespaceArmId = <Azure Resource Manager ID of the Premium namespace to migrate to>
-   postMigrationDnsName = <post migration DNS name entry to access the Standard namespace>
+   premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
+   postMigrationDnsName = <post migration DNS name entry to access the standard namespace>
    ```
 
     >[!IMPORTANT]
-    > The Post-migration name (post_migration_dns_name) will be used to access the old Standard namespace post migration. You must use this to drain the queues and the subscriptions and then delete the namespace.
+    > The Post-migration alias/name (post_migration_dns_name) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
 
-3. **Pair** the Standard and Premium namespaces and **Start Sync** using the below command -
+1. Pair the standard and premium namespaces and start the sync by using the following command:
 
-    ```
+    ```azurecli
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
 
-4. Check status of the migration using the below command -
-    ```
+1. Check the status of the migration by using the following command:
+    ```azurecli
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
-    The migration is considered complete when
+    The migration is considered complete when you see the following values:
     * MigrationState = "Active"
     * pendingReplicationsOperationsCount = 0
     * provisioningState = "Succeeded"
 
-    This command also displays the migration configuration. Please double check to ensure that the values are set as previous declared.
+    This command also displays the migration configuration. Check to ensure the values are set correctly. Also check the premium namespace in the portal to ensure all the queues and topics have been created, and that they match what existed in the standard namespace.
 
-    Additionally, also check the Premium namespace in the portal to ensure that all the queues and topics have been created, and that they match what existed on the Standard namespace.
-
-5. Commit the migration by executing the Complete command below
-   ```
+1. Commit the migration by executing the following complete command:
+   ```azurecli
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### Migrate using Azure portal
+### Migrate by using the Azure portal
 
-Migration through the Azure portal has the same logical flow as migrating using the commands. Refer to the below guide for the step by step process to migrate using the portal.
+Migration by using the Azure portal has the same logical flow as migrating by using the commands. Follow these steps to migrate by using the Azure portal.
 
-1. Pick the **'Migrate to Premium'** menu option from the Navigation menu on the left pane. Click the **'Get Started'** button to proceed to the next page.
+1. On the **Navigation** menu in the left pane, select **Migrate to premium**. Click the **Get Started** button to continue to the next page.
     ![Migration Landing Page][]
 
-2. Complete **Setup**.
+1. Complete **Setup**.
    ![Setup namespace][]
-   1. Create and assign the Premium namespace to migrate the existing Standard namespace to.
+   1. Create and assign the premium namespace to migrate the existing standard namespace to.
         ![Setup namespace - create premium namespace][]
-   2. Pick the **'Post Migration name'** to access the Standard namespace by after the migration is complete.
+   1. Choose a **Post Migration name**. You'll use this name to access the standard namespace after the migration is complete.
         ![Setup namespace - pick post migration name][]
-   3. Click **'Next'** to proceed.
-3. **Sync** Entities between the Standard and Premium namespace.
+   1. Select **'Next'** to continue.
+1. Sync entities between the standard and premium namespaces.
     ![Setup namespace - sync entities - start][]
 
-   1. Click **'Start Sync'** to begin syncing the entities.
-   2. Click **'Yes'** on the pop-up confirming to start the sync.
-   3. Wait until the **Sync** is complete. The status is made available on the status bar.
+   1. Select **Start Sync** to begin syncing the entities.
+   1. Select **Yes** in the dialog box to confirm and start the sync.
+   1. Wait until the sync is complete. The status is available on the status bar.
         ![Setup namespace - sync entities - progress][]
         >[!IMPORTANT]
-        > If you need to **Abort** for any reason, please review the abort flow in the FAQ section of this document.
-   4. Once the sync is complete, click the **'Next'** button at the bottom of the page.
+        > If you need to abort the migration for any reason, please review the abort flow in the FAQ section of this document.
+   1. After the sync is complete, select **Next** at the bottom of the page.
 
-4. Review changes on the summary page.
-    ![Switch namespace - switch menu][]
-
-5. Click on **'Complete Migration'** to switch namespaces and complete the migration.
+1. Review changes on the summary page. Select **Complete Migration** to switch namespaces and to complete the migration.
+    ![Switch namespace - switch menu][]  
+    The confirmation page appears when the migration is complete.
     ![Switch namespace - success][]
+
+## Caveats
+
+Some of the features provided by Azure Service Bus Standard tier are not supported by Azure Service Bus Premium tier. These are by design since the premium tier offers dedicated resources for predictable throughput and latency.
+
+Here is a list of features not supported by Premium and their mitigation - 
+
+### Express entities
+
+   Express entities that don't commit any message data to storage are not supported in Premium. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
+   
+   During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
+   
+   If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
+
+### Partitioned entities
+
+   Partitioned entities were supported in the Standard tier to provide better availablility in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
+   
+   During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
+   
+   If your ARM template sets 'enablePartitioning' to 'true' for a specific Queue or Topic, then it will be ignored by the broker.
 
 ## FAQs
 
 ### What happens when the migration is committed?
 
-After the migration is committed, the connection string that pointed to the Standard namespace will point to the Premium namespace.
+After the migration is committed, the connection string that pointed to the standard namespace will point to the premium namespace.
 
-The sender and receiver applications will disconnect from the Standard Namespace and reconnect to the Premium namespace automatically.
+The sender and receiver applications will disconnect from the standard Namespace and reconnect to the premium namespace automatically.
 
-### What do I do after the Standard to Premium migration is complete?
+### What do I do after the standard to premium migration is complete?
 
-The Standard to Premium migration ensures that the entity metadata (topics, subscriptions, filters, et al.) are copied over from the Standard to Premium namespace. The message data that was committed to the Standard namespace is not copied over from the Standard to Premium namespace.
+The standard to premium migration ensures that the entity metadata such as topics, subscriptions, and filters are copied from the standard namespace to the premium namespace. The message data that was committed to the standard namespace isn't copied from the standard namespace to the premium namespace.
 
-Due to this, the Standard namespace may have some messages that were sent and committed while the migration was underway. These messages must be manually drained from the Standard Namespace and sent over to the Premium Namespace manually.
+The standard namespace may have some messages that were sent and committed while the migration was underway. Manually drain these messages from the standard Namespace and manually send them to the premium Namespace. To manually drain the messages, use a console app or a script that drains the standard namespace entities by using the Post Migration DNS name that you specified in the migration commands. Send these messages to the premium namespace so that they can be processed by the receivers.
 
-To do this, you ***must*** use a console app or script that drain the Standard namespace entities using the **Post Migration DNS name** that you specified in the migration commands and then send these messages on the Premium Namespace, so that they can be processed by the receivers.
-
-Once the messages have been drained, please proceed to delete the Standard namespace.
+After the messages have been drained, delete the standard namespace.
 
 >[!IMPORTANT]
-> Please note that once the messages from the Standard namespace have been drained, you **must** delete the Standard namespace.
->
-> This is important because the connection string that initially referred to the Standard namespace now actually refers to the Premium namespace. You won't be needing this Standard Namespace anymore.
->
-> Deleting the Standard namespace that you migrated helps reduces the confusion at a later date. 
+> After the messages from the standard namespace have been drained, delete the standard namespace. This is important because the connection string that initially referred to the standard namespace now refers to the premium namespace. You won't need the standard Namespace anymore. Deleting the standard namespace that you migrated helps reduce later confusion.
 
 ### How much downtime do I expect?
-The migration process described above is meant to reduce the expected downtime for the applications. 
-This is done by utilizing the connection string that the sender and receiver applications use to point to the new Premium namespace.
+The migration process is meant to reduce the expected downtime for the applications. Downtime is reduced by using the connection string that the sender and receiver applications use to point to the new premium namespace.
 
-The downtime experienced by the application is limited to the amount of time it takes to update the DNS entry to point to the Premium namespace.
+The downtime that is experienced by the application is limited to the time it takes to update the DNS entry to point to the premium namespace. Downtime is approximately 5 minutes.
 
-This can be assumed to be ***approximately 5 minutes***.
-
-### Do I have to make any configuration changes while performing the migration?
-No, there are no code/configuration changes needed to perform this migration. The connection string that sender and receiver applications use to access the Standard Namespace is automatically mapped to act as an **alias** for the Premium Namespace.
+### Do I have to make any configuration changes while doing the migration?
+No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
 ### What happens when I abort the migration?
-Migration can be aborted either by using the 'Abort' command or via the Azure portal. 
+The migration can be aborted either by using the `Abort` command or by using the Azure portal. 
 
-#### Azure CLI or PowerShell
+#### Azure CLI
 
-    az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+```azurecli
+az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+```
 
 #### Azure portal
 
 ![Abort flow - abort sync][]
 ![Abort flow - abort complete][]
 
-When the migration process is aborted, it actually aborts the process of copying over the entities(topics, subscriptions, and filters) from Standard to Premium namespace and breaks the pairing.
+When the migration process is aborted, it aborts the process of copying the entities (topics, subscriptions, and filters) from the standard to the premium namespace and breaks the pairing.
 
-The connection string **is not** updated to point to the Premium namespace. Your existing applications continue to work as they did before you started the migration.
+The connection string isn't updated to point to the premium namespace. Your existing applications continue to work as they did before you started the migration.
 
-However, it **does not** delete the entities on the Premium namespace or delete the Premium namespace itself. This has to be done manually if you had decided to not move forward with the migration after all.
+However, it doesn't delete the entities on the premium namespace or delete the premium namespace. Delete the entities manually if you decided not to move forward with the migration.
 
 >[!IMPORTANT]
-> If you decide to abort the migration, please delete the Premium Namespace that you had provisioned for the migration, so that you are not charged for the resources.
+> If you decide to abort the migration, delete the premium Namespace that you had provisioned for the migration so that you are not charged for the resources.
 
 #### I don't want to have to drain the messages. What do I do?
 
-There may be messages that are sent by the sender applications and committed to the storage on the Standard Namespace while the migration is taking place, and right before the migration is committed.
+There may be messages that are sent by the sender applications and committed to the storage on the standard Namespace while the migration is taking place and just before the migration is committed.
 
-Given that during migration, the actual message data/payload is not copied over from Standard to Premium, these have to be manually drained and then sent to the Premium namespace.
+During migration, the actual message data/payload isn't copied from the standard to the premium namespace. The messages have to be manually drained and then sent to the premium namespace.
 
-However, if you can migrate during a planned maintenance/housekeeping window and don't want to manually drain and send the messages, please follow the below steps -
+However, if you can migrate during a planned maintenance/housekeeping window, and you don't want to manually drain and send the messages, follow these steps:
 
-1. Stop the sender applications, and allow the receivers to process the messages that are currently in the Standard namespace and drain the queue.
-2. Once the queues and subscriptions in the Standard Namespace are empty, follow the procedure described above to execute the migration from Standard to Premium namespace.
-3. Once the migration is complete, you can restart the sender applications.
-4. The senders and receivers will now automatically connect with the Premium namespace.
+1. Stop the sender applications. The receiver applications will process the messages that are currently in the standard namespace and will drain the queue.
+1. After the queues and subscriptions in the standard Namespace are empty, follow the procedure that is described earlier to execute the migration from the standard to the premium namespace.
+1. After the migration is complete, you can restart the sender applications.
+1. The senders and receivers will now automatically connect with the premium namespace.
 
     >[!NOTE]
-    > The receiver need not be stopped for the migration.
+    > You do not have to stop the receiver applications for the migration.
     >
-    > Once the migration is complete, the receivers will disconnect from the Standard namespace and automatically connect to the Premium namespace.
+    > After the migration is complete, the receiver applications will disconnect from the standard namespace and automatically connect to the premium namespace.
 
 ## Next steps
 
-* Learn more about the [differences between Standard and Premium Messaging](./service-bus-premium-messaging.md)
-* Learn about the High-Availability and Geo-Diaster recovery aspects for Service Bus Premium [here](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)
+* Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
+* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Migration Landing Page]: ./media/service-bus-standard-premium-migration/1.png
 [Setup namespace]: ./media/service-bus-standard-premium-migration/2.png

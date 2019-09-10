@@ -15,7 +15,8 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve high-definition video encoding and broadcast-quality video streaming that reach your audiences on most popular devices. Media Services v3 also enables you to extract the insights from your video and audio files with Video Indexer through Media Services v3 analyzer presets. If you want more detailed insights, use Video Indexer directly.
+  description: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. Azure Media Services integrates seamlessly with the Azure CDN to scale delivery with CDN services from Akamai and Verizon, enabling customers to select the right solution for their needs—for example, for load balance across content delivery networks. Azure Media Services Video Indexer enables you to extract metadata and insights using AI with the built-in video and audio analyzer presets. You can easily improve accuracy by training the provided AI models with your own content using the Video Indexer API. 
+
 sections:
 
   - items:
@@ -30,16 +31,16 @@ sections:
             src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
           title: Azure Media Services v3 
         - href: /azure/media-services/previous/
-          html: <p>No new features or functionality are being added to Media Services v2. </p>          
+          html: <p>Encode, package, protect and more. This is the legacy service that is in maintenance. Customers are encouraged to migrate to Media Services v3 where new features and enhancements are being made.</p>          
           image:
             src:
           title: Azure Media Services v2 (legacy)
         - href: /azure/cdn/
-          html: <p>Use CDN to cache static objects and accelerate dynamic content, which cannot be cached.</p>
+          html: <p>Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks.</p>
           image:
             src: /azure/cdn/media/index/cdn.svg
           title: CDN
-        - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+        - href: https://amp.azure.net/libs/amp/latest/docs/index.html
           html: <p>Play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
           image:
             src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
@@ -48,4 +49,4 @@ sections:
           html: <p>Extract the insights from your video and audio files using Video Indexer.</p>
           image:
             src: media/index/AMSIcons-media_analytics.svg
-          title: Video Indexer
+          title: Azure Media Services Video Indexer

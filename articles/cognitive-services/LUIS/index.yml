@@ -6,10 +6,9 @@ metadata:
   title: Language Understanding (LUIS) - Tutorials, Quickstarts, API Reference
   description: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: language-understanding 
   ms.topic: landing-page
   ms.date: 01/23/2019
   ms.author: nitinme
@@ -85,7 +84,7 @@ sections:
     - html: <a href="luis-tutorial-prebuilt-intents-entities">Add prebuilt intents and entities</a>
     - html: <a href="luis-quickstart-intents-regex-entity">Add regular expression entity</a>
     - html: <a href="luis-quickstart-intent-and-list-entity">Add list entity</a>
-    - html: <a href="luis-quickstart-intent-and-hier-entity">Add hierarchical entity</a>
+    - html: <a href="tutorial-entity-roles">Use entity roles</a>
     - html: <a href="luis-quickstart-primary-and-secondary-data">Add simple entity and phrase list</a>
     - html: <a href="luis-quickstart-intent-and-key-phrase">Add keyPhrase entity</a>
     - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Add sentiment analysis</a>
@@ -113,7 +112,7 @@ sections:
     className: cardsD
     items:
     - title: REST APIs v2
-      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2092356"> Endpoint API</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2092087"> Authoring API</a></p>
     - title: SDKs
       html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
     - title: PowerShell 

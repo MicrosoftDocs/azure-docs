@@ -3,7 +3,7 @@ title: Configure security alerts for Azure AD roles in PIM - Azure Active Direct
 description: Learn how to configure security alerts for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 
@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/04/2019
-ms.author: rolyon
+ms.date: 04/09/2019
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
-![PIM security alerts - screenshot](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## Security alerts
 
@@ -117,11 +117,11 @@ You can customize some of the security alerts in PIM to work with your environme
 
 1. Click **Settings** and then **Alerts**.
 
-    ![Navigate to security alerts settings](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD roles - Settings with Alerts selected](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Click an alert name to configure the setting for that alert.
 
-    ![Security alert settings](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![For the selected alert, security alert settings pane](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## Next steps
 

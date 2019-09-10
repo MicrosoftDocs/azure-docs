@@ -5,13 +5,13 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 08/20/2019
 ms.author: xshi
 ---
 
 # Use Cloud Explorer for Visual Studio for Azure IoT Hub device management
 
-![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+![End-to-end diagram](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is a useful Visual Studio extension that enables you to view your Azure resources, inspect their properties and perform key developer actions from within Visual Studio. It comes with management options that you can use to perform various tasks.
 
@@ -26,64 +26,81 @@ ms.author: xshi
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
+Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
 
 ## What you learn
 
-You learn using Cloud Explorer for Visual Studio with various management options on your development machine.
+In this article, you learn how to use the Cloud Explorer for Visual Studio with various management options on your development computer.
 
 ## What you do
 
-Run Cloud Explorer for Visual Studio with various management options.
+In this article, run Cloud Explorer for Visual Studio with various management options.
 
 ## What you need
 
+You need the following prerequisites:
+
 - An active Azure subscription.
+
 - An Azure IoT Hub under your subscription.
-- Microsoft Visual Studio 2017 Update 8 or later
-- Cloud Explorer component from Visual Studio Installer (selected by default with Azure Workload)
+
+- Microsoft Visual Studio 2017 Update 9 or later. This article uses [Visual Studio 2017 or Visual Studio 2019](https://www.visualstudio.com/vs/).
+
+- Cloud Explorer component from Visual Studio Installer, which selected by default with Azure Workload.
 
 ## Update Cloud Explorer to latest version
 
-The Cloud Explorer component from Visual Studio Installer only supports monitoring device-to-cloud and cloud-to-device messages. You need to download and install the latest [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) to access the management options.
+The Cloud Explorer component from Visual Studio Installer for Visual Studio 2017 only supports monitoring device-to-cloud and cloud-to-device messages. To use Visual Studio 2017, download and install the latest [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS).
 
-## Sign in to access your IoT Hub
+## Sign in to access your hub
 
-1. In Visual Studio **Cloud Explorer** window, click the Account Management icon. You can open the Cloud Explorer window from **View** > **Cloud Explorer** menu.
+1. In Visual Studio, select **View** > **Cloud Explorer** to open Cloud Explorer.
 
-    ![Click Account Management](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
+1. Select the Account Management icon to show your subscriptions.
 
-1. Click **Manage Accounts** in Cloud Explorer.
-1. Click **Add an account...** in the new window to sign in to Azure for the first time.
-1. After you sign in, your Azure subscription list will be shown. Select the Azure subscriptions you want to view and click **Apply**.
-1. Expand **Your subscription** > **IoT Hubs** > **Your IoT Hub**, the device list will be shown under your IoT Hub node. Right-click one device to access the management options.
+    ![Account Management icon](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-    ![Management options](media/iot-hub-device-management-visual-studio/management-options.png)
+1. If you are signed in to Azure, your accounts appear. To sign into Azure for the first time, choose **Add an account**.
+
+1. Select the Azure subscriptions you want to use and choose **Apply**.
+
+1. Expand your subscription, then expand **IoT Hubs**.  Under each hub, you can see your devices for that hub. Right-click one device to access the management options.
+
+    ![Management options](media/iot-hub-device-management-visual-studio/management-options-vs2019.png)
 
 ## Direct methods
 
+To use direct methods, do the following steps:
+
 1. Right-click your device and select **Invoke Device Direct Method**.
-1. Enter the method name and payload in input box.
-1. Results will be shown in the **IoT Hub** output pane.
 
-## Read device twin
+1. Enter the method name and payload in **Invoke Direct Method**, and then select **OK**.
 
-1. Right-click your device and select **Edit Device Twin**.
-1. An **azure-iot-device-twin.json** file will be opened with the content of device twin.
+    Results appear in **Output**.
 
 ## Update device twin
 
-1. Make some edits of **tags** or **properties.desired** field to the **azure-iot-device-twin.json** file.
+To edit a device twin, do the following steps:
+
+1. Right-click your device and select **Edit Device Twin**.
+
+   An **azure-iot-device-twin.json** file opens with the content of device twin.
+
+1. Make some edits of **tags** or **properties.desired** fields to the **azure-iot-device-twin.json** file.
+
 1. Press **Ctrl+S** to update the device twin.
-1. Results will be shown in the **IoT Hub** output pane.
+
+   Results appear in **Output**.
 
 ## Send cloud-to-device messages
 
 To send a message from your IoT Hub to your device, follow these steps:
 
 1. Right-click your device and select **Send C2D Message**.
-1. Enter the message in input box.
-1. Results will be shown in the **IoT Hub** output pane.
+
+1. Enter the message in **Send C2D message** and select **OK**.
+
+   Results appear in **Output**.
 
 ## Next steps
 

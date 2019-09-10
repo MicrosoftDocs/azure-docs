@@ -3,14 +3,15 @@ title: Design Concepts with Acoustics Simulation
 titlesuffix: Azure Cognitive Services
 description: This conceptual overview explains how Project Acoustics incorporates acoustic simulation to the sound design process.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Design Process Concepts

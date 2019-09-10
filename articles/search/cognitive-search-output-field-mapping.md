@@ -1,15 +1,14 @@
 ---
 title: Map cognitive search enriched input fields to output fields - Azure Search
 description: Extract and enrich source data fields, and map to output fields in an Azure Search index.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 
 # How to map enriched fields to a searchable index
@@ -21,7 +20,7 @@ In this article, you learn how to map enriched input fields to output fields in 
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```

@@ -5,13 +5,13 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 03/21/2019
+ms.topic: conceptual
+ms.date: 04/03/2019
 ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -19,11 +19,11 @@ Windows 10 Enterprise multi-session is available in the Azure Image Gallery. The
 
 The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
-The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we'll cover in the following section.
+The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we cover in the following section.
 
 ### Local image creation
 
-Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you just copied. The following is the simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
 To create a VM with the copied VHD:
 
@@ -57,117 +57,26 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## Software preparation and installation
 
-This section covers how to prepare and install Office365 ProPlus, OneDrive, FSLogix, Windows Defender, and other common applications. If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
+This section covers how to prepare and install FSLogix, Windows Defender, and other common applications. 
 
-This section assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager.
+If you're installing Office 365 ProPlus and OneDrive on your VM, see [Install Office on a master VHD image](install-office-on-wvd-master-image.md). Follow the link in Next steps of that article to return to this article and complete the master VHD process.
 
-### Install Office in shared computer activation mode
+If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 
-Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports Office 365 ProPlus, not Office 2019 Perpetual.
+### Disable Automatic Updates
 
-The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+To disable Automatic Updates via local Group Policy:
 
-This sample configuration XML we've provided will do the following things:
-
-- Install Office from the Insiders Channel and deliver updates from the Insiders Channel when they’re executed.
-- Use the x64 architecture.
-- Disable automatic updates.
-- Install Visio and Project.
-- Remove any existing installations of Office and migrate their settings.
-- Enable shared computer licensing for operation in a terminal server environment.
-
-Here's what this sample configuration XML won't do:
-
-- Install Skype for Business
-- Install OneDrive in per-user mode. To learn more, see [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode).
-
->[!NOTE]
->Shared Computer Licensing can be set up through Group Policy Objects (GPOs) or registry settings. The GPO is located at **Computer Configuration\\Policies\\Administrative Templates\\Microsoft Office 2016 (Machine)\\Licensing Settings**
-
-The Office Deployment Tool contains setup.exe. To install Office, run the following command in a command line:
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### Sample configuration.xml
-
-The following XML sample will install the Insiders release, also known as Insiders Fast or Insiders Main.
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->The Office team recommends using 64-bit install for the **OfficeClientEdition** parameter.
-
-After installing Office, you can update the default Office behavior. Run the following commands individually or in a batch file to update the behavior.
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
-
-You can disable Automatic Updates manually.
-
-To disable Automatic Updates:
-
-1. Install Office365 by following the instructions in [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Configure Windows Defender](set-up-customize-master-image.md#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Disable Windows Auto Update Service on the local VM.
-4. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
-5. Right-click **Configure Automatic Update** and set it to **Disabled**.
+1. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
+2. Right-click **Configure Automatic Update** and set it to **Disabled**.
 
 You can also run the following command on a command prompt to disable Automatic Updates.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### Specify Start layout for Windows 10 PCs (optional)
 
 Run this command to specify a Start layout for Windows 10 PCs.
 
@@ -175,63 +84,13 @@ Run this command to specify a Start layout for Windows 10 PCs.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### Install OneDrive in per-machine mode
-
-OneDrive is normally installed per-user. In this environment, it should be installed per-machine.
-
-Here's how to install OneDrive in per-machine mode:
-
-1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc](file://unc) location is fine.
-
-2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
-
-3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. Run this command from an elevated command prompt to set the **AllUsersInstall** registry value:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. Run this command to install OneDrive in per-machine mode:
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
-    ```
-
-6. Run this command to configure OneDrive to start at sign in for all users:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. Enable **Silently configure user account** by running the following command.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. Redirect and move Windows known folders to OneDrive by running the following command.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### Teams and Skype
-
-Windows Virtual Desktop does not officially support Skype for Business and Teams.
-
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
 
 ### Configure Windows Defender
 
-If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment of the same.
+If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment.
 
 This configuration only removes scanning of VHD and VHDX files during attachment, but won't affect real-time scanning.
 
@@ -248,17 +107,17 @@ To configure remote session policies:
 1. Navigate to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
 2. In the panel on the right side, select the **Set time limit for active but idle Remote Desktop Services sessions** policy.
 3. After the modal window appears, change the policy option from **Not configured** to **Enabled** to activate the policy.
-4. In the drop-down menu beneath the policy option, set the amount of time to **4 hours**.
+4. In the drop-down menu beneath the policy option, set the amount of time to **3 hours**.
 
 You can also configure remote session policies manually by running the following commands:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 600000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### Set up time zone redirection
@@ -270,7 +129,7 @@ To redirect time zones:
 1. On the Active Directory server, open the **Group Policy Management Console**.
 2. Expand your domain and Group Policy Objects.
 3. Right-click the **Group Policy Object** that you created for the group policy settings and select **Edit**.
-4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Horizon View RDSH Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
+4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
 5. Enable the **Allow time zone redirection** setting.
 
 You can also run this command on the master image to redirect time zones:
@@ -288,7 +147,7 @@ For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windo
 You can also change the setting with the registry by running the following command:
 
 ```batch
-reg add HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy /v 01 /t REG_DWORD /d 0 /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
 ### Include additional language support
@@ -304,13 +163,12 @@ This article doesn’t cover how to configure language and regional support. For
 This section covers application and operating system configuration. All configuration in this section is done through registry entries that can be executed by command-line and regedit tools.
 
 >[!NOTE]
->You can implement best practices in configuration with either General Policy Objects (GPOs) or registry imports. The administrator can choose either option based on their organization's requirements.
+>You can implement best practices in configuration with either Group Policy Objects (GPOs) or registry imports. The administrator can choose either option based on their organization's requirements.
 
 For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 Run the following command to fix Watson crashes:
@@ -322,15 +180,13 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 Enter the following commands into the registry editor to fix 5k resolution support. You must run the commands before you can enable the side-by-side stack.
 
 ```batch
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
-"MaxMonitors"=dword:00000004
-"MaxXResolution"=dword:00001400
-"MaxYResolution"=dword:00000b40
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs]
-"MaxMonitors"=dword:00000004
-"MaxXResolution"=dword:00001400
-"MaxYResolution"=dword:00000b40
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxMonitors /t REG_DWORD /d 4 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxXResolution /t REG_DWORD /d 5120 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxYResolution /t REG_DWORD /d 2880 /f
 ```
 
 ## Prepare the image for upload to Azure
@@ -366,5 +222,5 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
-- [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
+- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)

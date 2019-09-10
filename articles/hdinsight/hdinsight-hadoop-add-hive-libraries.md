@@ -1,7 +1,6 @@
 ---
 title: Add Apache Hive libraries during HDInsight cluster creation - Azure 
 description: Learn how to add Apache Hive libraries (jar files,) to an HDInsight cluster during cluster creation.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -35,9 +34,6 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 For **Linux-based clusters**: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
 
 For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
-
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Requirements**
 

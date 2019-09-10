@@ -24,7 +24,7 @@ Throughout the lifecycle of a virtual machine scale set, you may need to run one
 
 If you need to create a virtual machine scale set, you can [create a scale set with Azure PowerShell](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## View information about a scale set
 To view the overall information about a scale set, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:

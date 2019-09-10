@@ -43,6 +43,12 @@ You can also use autoforwarding to decouple message senders from receivers. For 
 
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative has not received any messages, none of the ERP topics ever reach quota.
 
+> [!NOTE]
+> When autoforwarding is setup, the value for AutoDeleteOnIdle on **both the Source and the Destination** is automatically set to the maximum value of the data type.
+> 
+>   - On the Source side, autoforwarding acts as a receive operation. So the source which has autoforwarding setup is never really "idle".
+>   - On the destination side, this is done to ensure that there is always a destination to forward the message to.
+
 ## Autoforwarding considerations
 
 If the destination entity accumulates too many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](service-bus-dead-letter-queues.md) until there is space in the destination (or the entity is re-enabled). Those messages continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.

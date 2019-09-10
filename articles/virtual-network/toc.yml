@@ -59,6 +59,8 @@
     href: virtual-network-ip-addresses-overview-arm.md
   - name: Public IP prefix
     href: public-ip-address-prefix.md
+  - name: IPv6 for Azure VNet
+    href: ipv6-overview.md
   - name: DDoS protection
     href: ddos-protection-overview.md
   - name: Backend Connectivity Interoperability
@@ -71,6 +73,8 @@
       href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Data Plane Analysis
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+  - name: Cross-network connectivity
+    href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: Classic
     items:
     - name: IP addressing
@@ -87,6 +91,22 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
+    - name: IPv6 for VNet - Basic Load Balancer
+      items: 
+      - name: Azure PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+      - name: Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+      - name: Resource Manager template
+        href: ipv6-configure-template-json.md
+    - name: IPv6 for VNet - Standard Load Balancer
+      items: 
+      - name: Azure PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      - name: Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      - name: Resource Manager template
+        href: ipv6-configure-standard-load-balancer-template-json.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
@@ -193,8 +213,6 @@
         href: virtual-network-scenario-udr-gw-nva.md
       - name: DMZ between Azure and the Internet
         href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-      - name: Create a DMZ with NSGs
-        href: virtual-networks-dmz-nsg.md
   - name: Configure
     items:
     - name: Name resolution for VMs and cloud services
@@ -255,6 +273,8 @@
       href: troubleshoot-outbound-smtp-connectivity.md
     - name: About IP address 168.63.129.16
       href: what-is-ip-address-168-63-129-16.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
   - name: Classic
     items:
     - name: Create and manage a virtual network
@@ -319,14 +339,8 @@
         - name: Move VM to a different subnet
           href: virtual-networks-move-vm-role-to-subnet.md
     - name: Cloud service and network security
-      href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+      href: https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter
       items:
-      - name: Create a DMZ with NSGs
-        href: virtual-networks-dmz-nsg-asm.md
-      - name: Create a DMZ with firewall and NSGs
-        href: virtual-networks-dmz-nsg-fw-asm.md
-      - name: DMZ with firewall, UDR, and NSGs
-        href: virtual-networks-dmz-nsg-fw-udr-asm.md
       - name: Sample application
         href: virtual-networks-sample-app.md
 - name: Reference
@@ -359,6 +373,8 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Networking feedback
+    href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-network
   - name: Pricing calculator

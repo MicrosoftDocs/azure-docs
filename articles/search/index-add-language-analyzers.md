@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: "Yahnoosh"
 ms.author: "jlembicz"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -39,9 +39,6 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 + Lucene's English analyzer extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per Porter Stemming algorithm, and removes English stop words.  
 
 + Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better what results in more relevant search results 
-
-  > [!Tip]
-  > The [Search Analyzer Demo](https://alice.unearth.ai/) provides side-by-side comparison of results produced by the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
 
 ## Configuring analyzers
 
@@ -86,7 +83,7 @@ For more information about index properties, see [Create Index &#40;Azure Search
 |Irish||ga.lucene|  
 |Italian|it.microsoft|it.lucene|  
 |Japanese|ja.microsoft|ja.lucene|  
-|Kannada|ka.microsoft||  
+|Kannada|kn.microsoft||  
 |Korean|ko.microsoft|ko.lucene|  
 |Latvian|lv.microsoft|lv.lucene|  
 |Lithuanian|lt.microsoft||  
@@ -115,7 +112,7 @@ For more information about index properties, see [Create Index &#40;Azure Search
 |Urdu|ur.microsoft||  
 |Vietnamese|vi.microsoft||  
 
- All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## See also  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

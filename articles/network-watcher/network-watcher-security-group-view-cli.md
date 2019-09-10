@@ -3,8 +3,8 @@ title: Analyze network security with Azure Network Watcher Security Group View -
 description: This article will describe how to use Azure CLI to analyze a virtual machines security with Security Group View.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Analyze your Virtual Machine security with Security Group View using Azure CLI

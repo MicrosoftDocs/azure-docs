@@ -1,0 +1,100 @@
+### YamlMime:Landing
+
+title: Personalizer documentation
+summary: Learn how to use Personalizer to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
+
+metadata:
+  ms.topic: landing-page
+  ms.date: 09/09/2019
+  ms.author: nitinme
+  author: nitinme
+  ms.service: cognitive-services
+  ms.subservice: personalizer
+  services: cognitive-services
+  title: Personalizer documentation
+  titleSuffix: Azure Cognitive Services
+  description:  Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+landingContent:
+  - title: About Personalizer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Personalizer?
+            url: what-is-personalizer.md
+      - linkListType: concept
+        links:
+          - text: How Personalizer works
+            url: how-personalizer-works.md  
+          - text: Where you can use Personalizer?
+            url: where-can-you-use-personalizer.md
+          - text: Ethics and responsible use
+            url: ethics-responsible-use.md
+          - text: Choosing features and actions to personalize
+            url: concepts-features.md
+          - text: How to calculate a reward
+            url: concept-rewards.md
+          - text: Offline evaluations
+            url: concepts-offline-evaluation.md
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze success with offline evaluation
+            url: how-to-offline-evaluation.md
+  - title: Developing with Personalizer
+    linkLists: 
+      - linkListType: quickstart
+        links: 
+          - text: Using .Net
+            url: csharp-quickstart-commandline-feedback-loop.md
+          - text: Using Python
+            url: python-quickstart-commandline-feedback-loop.md
+          - text: Node.js
+            url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+      - linkListType: how-to-guide
+        links: 
+          - text: How to create and configure Personalizer
+            url: how-to-settings.md
+      - linkListType: reference
+        links:
+          - text: Code Samples
+            url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+          - text: REST APIs
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+          - text: NuGet package
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+          - text: NPM package
+            url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+          - text: Pypi package
+            url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+      - linkListType: concept
+        links: 
+          - text: Scalability and performance
+            url: concepts-scalability-performance.md 
+  - title: About Reinforcement learning
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What is Reinforcement learning?
+            url: concepts-reinforcement-learning.md
+      - linkListType: concept
+        links: 
+          - text: Exploration
+            url: concepts-exploration.md
+          - text: Features, action, and context
+            url: concepts-features.md
+          - text: Active learning
+            url: concept-active-learning.md
+          - text: Rewards
+            url: concept-rewards.md
+  - title: Help and feedback
+    linkLists: 
+      - linkListType: reference
+        links: 
+          - text: Troubleshooting
+            url: troubleshooting.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/personalizer
+          - text: Influence service with UserVoice
+            url: https://cognitive.uservoice.com/forums/921562-personalizer
+

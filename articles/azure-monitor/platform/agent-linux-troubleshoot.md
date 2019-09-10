@@ -183,6 +183,33 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 ## Issue: You see a 500 and 404 error in the log file right after onboarding
 This is a known issue that occurs on first upload of Linux data into a Log Analytics workspace. This does not affect data being sent or service experience.
 
+
+## Issue: You see omiagent using 100% CPU
+
+### Probable causes
+A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) caused a severe performance issue, that we've been seeing come up a lot in Redhat/Centos 7.x distributions. To learn more about this issue, check the following documentation: Bug [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+
+Performance related bugs don't happen all the time, and they are very difficult to reproduce. If you experience such issue with omiagent you should use the script omiHighCPUDiagnostics.sh which will collect the stack trace of the omiagent when exceeding a certain threshold.
+
+1. Download the script <br/>
+`wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
+
+2. Run diagnostics for 24 hours with 30% CPU threshold <br/>
+`bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
+
+3. Callstack will be dumped in omiagent_trace file, If you notice many Curl and NSS function calls, follow resolution steps below.
+
+### Resolution (step by step)
+
+1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+`sudo yum upgrade nss-pem`
+
+2. If nss-pem is not available for upgrade (mostly happens on Centos), then downgrade curl to 7.29.0-46. If by mistake you run "yum update", then curl will be upgraded to 7.29.0-51 and the issue will happen again. <br/>
+`sudo yum downgrade curl libcurl`
+
+3. Restart OMI: <br/>
+`sudo scxadmin -restart`
+
 ## Issue: You are not seeing any data in the Azure portal
 
 ### Probable causes

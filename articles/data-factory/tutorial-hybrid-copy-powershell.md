@@ -3,17 +3,15 @@ title: Copy data from SQL Server to Blob storage by using Azure Data Factory | M
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: jingwang
+ms.author: abnarain
 ---
 # Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
 In this tutorial, you use Azure PowerShell to create a data-factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores. 
@@ -72,13 +70,11 @@ You use the name and key of your Azure storage account in this tutorial. Get the
 
 1. In the left pane, select **More services**, filter by using the **Storage** keyword, and then select **Storage accounts**.
 
-    ![Search for storage account](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Search for storage account](media/doc-common-process/search-storage-account.png)
 
 1. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account. 
 
 1. In the **Storage account** window, select **Access keys**.
-
-    ![Get storage account name and key](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial. 
 
@@ -103,7 +99,6 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
 1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
-    ![Container window](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### Windows PowerShell
 

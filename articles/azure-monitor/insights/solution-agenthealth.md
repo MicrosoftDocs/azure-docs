@@ -7,7 +7,7 @@ author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -57,7 +57,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 | Distribution by Agent Version | A partition of the different agent versions installed in your environment and a count of each one.|
 | Distribution by Agent Category | A partition of the different categories of agents that are sending up heartbeat events: direct agents, OpsMgr agents, or the OpsMgr Management Server.|
 | Distribution by Management Group | A partition of the different Operations Manager Management groups in your environment.|
-| Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.|
+| Geo-location of Agents | A partition of the different countries/regions where you have agents and a total count of the number of agents that have been installed in each country/region.|
 | Count of Gateways Installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers.|
 
 ![Agent Health Solution dashboard example](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
@@ -70,21 +70,21 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 
 | Property | Description |
 | --- | --- |
-| Type | *Heartbeat*|
-| Category | Value is *Direct Agent*, *SCOM Agent*, or *SCOM Management Server*.|
-| Computer | Computer name.|
-| OSType | Windows or Linux operating system.|
-| OSMajorVersion | Operating system major version.|
-| OSMinorVersion | Operating system minor version.|
-| Version | Log Analytics Agent or Operations Manager Agent version.|
-| SCAgentChannel | Value is *Direct* and/or *SCManagementServer*.|
-| IsGatewayInstalled | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
-| ComputerIP | IP address of the computer.|
-| RemoteIPCountry | Geographic location where computer is deployed.|
-| ManagementGroupName | Name of Operations Manager management group.|
-| SourceComputerId | Unique ID of computer.|
-| RemoteIPLongitude | Longitude of computer's geographic location.|
-| RemoteIPLatitude | Latitude of computer's geographic location.|
+| `Type` | *Heartbeat*|
+| `Category` | Value is *Direct Agent*, *SCOM Agent*, or *SCOM Management Server*.|
+| `Computer` | Computer name.|
+| `OSType` | Windows or Linux operating system.|
+| `OSMajorVersion` | Operating system major version.|
+| `OSMinorVersion` | Operating system minor version.|
+| `Version` | Log Analytics Agent or Operations Manager Agent version.|
+| `SCAgentChannel` | Value is *Direct* and/or *SCManagementServer*.|
+| `IsGatewayInstalled` | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
+| `ComputerIP` | IP address of the computer.|
+| `RemoteIPCountry` | Geographic location where computer is deployed.|
+| `ManagementGroupName` | Name of Operations Manager management group.|
+| `SourceComputerId` | Unique ID of computer.|
+| `RemoteIPLongitude` | Longitude of computer's geographic location.|
+| `RemoteIPLatitude` | Latitude of computer's geographic location.|
 
 Each agent reporting to an Operations Manager management server will send two heartbeats, and SCAgentChannel property's value will include both **Direct** and **SCManagementServer** depending on what data sources and monitoring solutions you have enabled in your subscription. If you recall, data from solutions are either sent directly from an Operations Manager management server to Azure Monitor, or because of the volume of data collected on the agent, are sent directly from the agent to Azure Monitor. For heartbeat events which have the value **SCManagementServer**, the ComputerIP value is the IP address of the management server since the data is actually uploaded by it.  For heartbeats where SCAgentChannel is set to **Direct**, it is the public IP address of the agent.  
 

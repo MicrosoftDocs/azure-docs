@@ -7,11 +7,9 @@ manager: dougeby
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 09/03/2019
 ms.author: jgao
 
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -61,10 +59,10 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**. 
     * **Location**: select a location.  For example, **Central US**.
-    * **Key Vault Name**: enter a unique name for the key vault.  
-    * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
+    * **Key Vault Name**: enter a name for the key vault which must be globally unique within the .vault.azure.net namespace.  
+    * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value.
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
-    * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**
+    * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**.
     * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Purchase**.
@@ -101,7 +99,9 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-* [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
-* [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)
+In this quickstart you created a key vault and a secret using an Azure Resource manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
+
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Get more info on [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

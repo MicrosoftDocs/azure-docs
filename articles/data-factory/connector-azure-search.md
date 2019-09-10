@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
 ---
 
@@ -72,9 +72,9 @@ The following properties are supported for Azure Search linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Search dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Search dataset.
 
-To copy data into Azure Search, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data into Azure Search, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -88,12 +88,13 @@ To copy data into Azure Search, set the type property of the dataset to **Relati
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }

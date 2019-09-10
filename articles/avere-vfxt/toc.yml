@@ -42,8 +42,6 @@
     items: 
     - name: Supplemental documentation  
       href: avere-vfxt-additional-resources.md
-    - name: Customized controller access role  
-      href: avere-vfxt-controller-role.md
     - name: Avere cluster DNS configuration
       href: avere-vfxt-configure-dns.md
     - name: Authorize non-owners to deploy Avere vFXT

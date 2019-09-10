@@ -2,16 +2,15 @@
 title: Text Merge cognitive search skill - Azure Search
 description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 
 #	 Text Merge cognitive skill
@@ -74,7 +73,7 @@ This example shows the output of the previous input, assuming that the *insertPr
 
 A common scenario for using Text Merge is to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
 
-The following example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. You can learn more about the OCR skill [here](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
+The following example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. You can learn more about the OCR skill [here](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {

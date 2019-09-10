@@ -1,7 +1,6 @@
 ---
 title: Compute context options for ML Services on HDInsight - Azure 
 description: Learn about the different compute context options available to users with ML Services on HDInsight 
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -71,6 +70,5 @@ You can also refer to the [Distributed computing overview](https://docs.microsof
 In this article, you learned about the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster. To learn more about how to use ML Services with HDInsight clusters, see the following topics:
 
 * [Overview of ML Services for Apache Hadoop](r-server-overview.md)
-* [Get started with ML Services for Apache Hadoop](r-server-get-started.md)
 * [Azure Storage options for ML Services on HDInsight](r-server-storage.md)
 

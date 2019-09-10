@@ -3,8 +3,8 @@ title: Monitor network communication - tutorial - Azure portal | Microsoft Docs
 description: Learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 10/25/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ---
 
@@ -73,7 +73,7 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 | 3 | Name                                  | myVm2                                                                   |
 | 3 | Authentication type                   | Paste your SSH public key or select **Password**, and enter a password. |
 | 3 | Resource group                        | Select **Use existing** and select **myResourceGroup**.                 |
-| 6 | Extensions                            | **Network Agent for Linux**                                             |
+| 6 | Extensions                            | **Network Watcher Agent for Linux**                                             |
 
 The VM takes a few minutes to deploy. Wait for the VM to finish deploying before continuing with the remaining steps.
 

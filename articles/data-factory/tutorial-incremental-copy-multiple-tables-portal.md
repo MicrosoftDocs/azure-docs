@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
@@ -126,7 +124,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Creationtime datetime
     );
 
-    ```
+	```
 
 ### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
@@ -171,6 +169,11 @@ END
 ### Create data types and additional stored procedures in Azure SQL database
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
+
+In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge the them into destination store. Be cautious that it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
+
+If you do need to merge a large number of delta rows into the destination store, we suggest you to use copy activity to copy all the delta data into a temporary "staging" table in the destination store first, and then built your own stored procedure without using table variable to merge  them from the “staging” table to the “final” table. 
+
 
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
@@ -223,10 +226,9 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
+1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-
+   ![New->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
 1. In the **New data factory** page, enter **ADFMultiIncCopyTutorialDF** for the **name**. 
       
      ![New data factory page](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
@@ -268,7 +270,7 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Next**. 
 
    ![Select integration runtime type](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Select **Private Network**, and click **Next**. 
+1. Select ** Private Network**, and click **Next**. 
 
    ![Select private network](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
@@ -380,7 +382,7 @@ In this step, you create datasets to represent the data source, the data destina
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
-   1. After clicking **Finish**, you see **\@dataset().SinkTableName** as the table name.
+ 1. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
    
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -422,11 +424,11 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Pipeline name](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. In the **Properties** window, do the following steps: 
 
-   1. Click **+ New**. 
-   1. Enter **tableList** for the parameter **name**. 
-   1. Select **Object** for the parameter **type**.
+    1. Click **+ New**. 
+    1. Enter **tableList** for the parameter **name**. 
+    1. Select **Object** for the parameter **type**.
 
-      ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+    ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. In the **Activities** toolbox, expand **Iteration & Conditionals**, and drag-drop the **ForEach** activity to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
 
     ![ForEach activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -455,69 +457,70 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Second Lookup Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Switch to the **Settings** tab.
 
-     1. Select **SourceDataset** for **Source Dataset**. 
-     1. Select **Query** for **Use Query**.
-     1. Enter the following SQL query for **Query**.
+    1. Select **SourceDataset** for **Source Dataset**. 
+    1. Select **Query** for **Use Query**.
+    1. Enter the following SQL query for **Query**.
 
-         ```sql    
-         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-         ```
+        ```sql    
+        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+        ```
     
-         ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Drag-drop the **Copy** activity from the **Activities** toolbox, and enter **IncrementalCopyActivity** for **Name**. 
 
-     ![Copy Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+    ![Copy Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Connect **Lookup** activities to the **Copy** activity one by one. To connect, start dragging at the **green** box attached to the **Lookup** activity and drop it on the **Copy** activity. Release the mouse button when the border color of the Copy activity changes to **blue**.
 
-     ![Connect Lookup activities to Copy activity](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    ![Connect Lookup activities to Copy activity](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. Select the **Copy** activity in the pipeline. Switch to the **Source** tab in the **Properties** window. 
 
-     1. Select **SourceDataset** for **Source Dataset**. 
-     1. Select **Query** for **Use Query**. 
-     1. Enter the following SQL query for **Query**.
+    1. Select **SourceDataset** for **Source Dataset**. 
+    1. Select **Query** for **Use Query**. 
+    1. Enter the following SQL query for **Query**.
 
-         ```sql
-         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-         ```
+        ```sql
+        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+        ```
 
-         ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
         
-     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Switch to the **Parameters** tab, and do the following steps:
+    ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+1. Do the following steps:
 
-     1. For **Sink Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
-     1. For **Sink Table Type** property, enter `@{item().TableType}`.
-     1. In the **Sink Dataset** section, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+    1. In the **Dataset** property, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+    1. For **Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
+    1. For **Table Type** property, enter `@{item().TableType}`.
 
-         ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+
+        ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
 
-     ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+    ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Select the **Stored Procedure** activity in the pipeline, and enter **StoredProceduretoWriteWatermarkActivity** for **Name** in the **General** tab of the **Properties** window. 
 
-     ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+    ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Switch to the **SQL Account** tab, and select **AzureSqlDatabaseLinkedService** for **Linked Service**.
 
-     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Switch to the **Stored Procedure** tab, and do the following steps:
 
-     1. For **Stored procedure name**, select `usp_write_watermark`. 
-     1. Select **Import parameter**. 
-     1. Specify the following values for the parameters: 
+    1. For **Stored procedure name**, select `usp_write_watermark`. 
+    1. Select **Import parameter**. 
+    1. Specify the following values for the parameters: 
 
-         | Name | Type | Value | 
-         | ---- | ---- | ----- |
-         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | Name | Type | Value | 
+        | ---- | ---- | ----- |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-         ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. In the left pane, click **Publish**. This action publishes the entities you created to the Data Factory service. 
 
-     ![Publish button](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+    ![Publish button](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Wait until you see the **Successfully published** message. To see the notifications, click the **Show Notifications** link. Close the notifications window by clicking **X**.
 
-     ![Show Notifications](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+    ![Show Notifications](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## Run the pipeline

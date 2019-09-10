@@ -1,23 +1,23 @@
 ---
 title: Migrate to V3 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # Translator Text API V2 to V3 Migration
 
 > [!NOTE]
-> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3.
 > 
-> The Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
+> The Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 
@@ -105,7 +105,7 @@ Global
 
 > [!NOTE]
 > 
-> The Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).   
+> The Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)
 
@@ -125,7 +125,6 @@ Neural translation with the V3 text API does not support the use of standard cat
 You are using Version 3 of the Translator Text API If you are using the api.cognitive.microsofttranslator.com endpoint.
 
 **Translator Text API Version 2**
-* Is deprecated. It will be discontinued on April 30, 2019. 
 * Does not satisfy all ISO 20001,20018 and SOC 3 certification requirements. 
 * Does not allow you to invoke the neural network translation systems you have customized with the Translator customization feature.
 * Provides access to custom translation systems created using the Microsoft Translator Hub.

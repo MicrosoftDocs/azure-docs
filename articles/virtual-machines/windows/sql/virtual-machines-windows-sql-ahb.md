@@ -1,156 +1,96 @@
 ---
-title: How to change the licensing model for a SQL Server VM in Azure | Microsoft Docs
-description: Learn how to switch licensing for a SQL virtual machine in Azure. 
+title: Change the license model for a SQL Server VM in Azure
+description: Learn how to switch licensing for a SQL Server virtual machine in Azure from pay-as-you-go to bring-your-own-license by using the Azure Hybrid Benefit. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
+manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# How to change the licensing model for a SQL Server virtual machine in Azure
-This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-as-you-go, and bring your own license (BYOL). And now, using either PowerShell or Azure CLI, you can modify which licensing model your SQL Server VM uses. 
+# Change the license model for a SQL Server virtual machine in Azure
+This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the new SQL VM resource provider, **Microsoft.SqlVirtualMachine**.
 
-The **pay-as-you-go** (PAYG) model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
+There are two license models for a VM that's hosting SQL Server: pay-as-you-go and Azure Hybrid Benefit. You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
 
-The **bring-your-own-license** (BYOL) model is also known as the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL Server VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
+The pay-as-you-go model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
+[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your own SQL Server license with a VM that's running SQL Server. 
 
-Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
+Azure Hybrid Benefit allows the use of SQL Server licenses with Software Assurance ("Qualified License") on Azure virtual machines. With Azure Hybrid Benefit, customers aren't charged for the use of a SQL Server license on a VM. But they must still pay for the cost of the underlying cloud compute (that is, the base rate), storage, and backups. They must also pay for I/O associated with their use of the services (as applicable).
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+According to the Microsoft Product Terms: "Customers must indicate that they are using Azure SQL Database (Managed Instance, Elastic Pool, and Single Database), Azure Data Factory, SQL Server Integration Services, or SQL Server Virtual Machines under Azure Hybrid Benefit for SQL Server when configuring workloads on Azure."
 
-## Remarks
+To indicate the use of Azure Hybrid Benefit for SQL Server on an Azure VM and be compliant, you have three options:
 
- - The ability to convert the licensing model is currently only available when starting with a pay-as-you-go SQL Server VM image. If you start with a bring-your-own-license image from the portal, you will not be able to convert that image to pay-as-you-go.
- - CSP customers can utilize the AHB benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
- - Currently this ability is only enabled for Public Cloud installations.
- - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail. 
+- Provision a virtual machine by using a bring-your-own-license SQL Server image from Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
+- Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate Azure Hybrid Benefit.
+- Self-install SQL Server on an Azure VM, manually [register the SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md), and activate Azure Hybrid Benefit.
+
+The license type of SQL Server is set when the VM is provisioned. You can change it anytime afterward. Switching between license models incurs no downtime, does not restart the VM, adds no additional cost, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
 
 ## Prerequisites
-The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
+
+The use of the SQL VM resource provider requires the SQL Server IaaS extension. As such, you need the following:
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
-- A *pay-as-you-go* [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
+- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
+- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 
-## Register SQL resource provider to your subscription 
+## Change the license for VMs already registered with the resource provider 
 
-The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). SQL Server VMs deployed after December 2018 are automatically registered with the new resource provider. However, existing VMs that were deployed prior to this date need to be manually registered with the resource provider before they are able to switch their licensing model. 
+# [Portal](#tab/azure-portal)
 
-  > [!NOTE] 
-  > If you drop your SQL Server VM resource, you will go back to the hard coded license setting of the image. 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with the Azure portal, Azure CLI, or PowerShell. 
+You can modify the license model directly from the portal: 
 
-### With the Azure portal
-The following steps will register the SQL resource provider to your Azure subscription using the Azure portal. 
+1. Open the [Azure portal](https://portal.azure.com) and open the [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) for your SQL Server VM. 
+1. Select **Configure** under **Settings**. 
+1. Select the **Azure Hybrid Benefit** option, and select the check box to confirm that you have a SQL Server license with Software Assurance. 
+1. Select **Apply** at the bottom of the **Configure** page. 
 
-1. Open the Azure portal and navigate to **All Services**. 
-1. Navigate to **Subscriptions** and select the subscription of interest.  
-1. In the **Subscriptions** blade, navigate to **Resource providers**. 
-1. Type `sql` in the filter to bring up the SQL-related resource providers. 
-1. Select either *Register*, *Re-register*, or *Unregister* for the  **Microsoft.SqlVirtualMachine** provider depending on your desired action. 
-
-   ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
-
-### With Azure CLI
-The following code snippet will register the SQL resource provider to your Azure subscription. 
-
-```azurecli
-# Register the new SQL resource provider to your subscription 
-az provider register --namespace Microsoft.SqlVirtualMachine 
-```
-
-### With PowerShell
-The following code snippet will register the SQL resource provider to your Azure subscription. 
-
-```powershell
-# Register the new SQL resource provider to your subscription
-Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
-```
+![Azure Hybrid Benefit in the portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-## Register SQL Server VM with SQL resource provider
-Once the SQL resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider. You can do so using Azure CLI, and PowerShell. 
+# [Azure CLI](#tab/azure-cli)
 
-### With Azure CLI
+You can use the Azure CLI to change your license model.  
 
-Register SQL Server VM using Azure CLI with the following code snippet: 
+The following code snippet switches your pay-as-you-go license model to bring-your-own-license (or using Azure Hybrid Benefit):
 
-```azurecli
-# Register your existing SQL Server VM with the new resource provider
-az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
-```
-
-### With PowerShell
-
-Register SQL Server VM using PowerShell with the following code snippet: 
-
-```powershell
-# Register your existing SQL Server VM with the new resource provider
-# example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
-$vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
-```
-
-## Change licensing model
-
-Once your SQL Server VM has been registered with the resource provider, you can change the licensing model using either the Azure portal, Azure CLI, or PowerShell. 
-
-### With the Azure portal
-
-You can modify the licensing model directly from the portal. 
-
-1. Navigate to your SQL Server VM within the [Azure portal](https://portal.azure.com). 
-1. Select **SQL Server configuration** in the **Settings** pane. 
-1. Select **Edit** in the **SQL Server License** pane to modify the license. 
-
-![AHB in Portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
-
-  >[!NOTE]
-  > This option is not available for bring-your-own-license images. 
-
-### With Azure CLI
-
-You can use Azure CLI to change your licensing model.  
-
-The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit):
-
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 # example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-The following code snippet switches your BYOL model to pay-as-you-go: 
+The following code snippet switches your bring-your-own-license model to pay-as-you-go: 
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 # example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-### With PowerShell 
+# [PowerShell](#tab/azure-powershell)
+You can use PowerShell to change your license model.
 
-You can use PowerShell to change your licensing model. 
+The following code snippet switches your pay-as-you-go license model to bring-your-own-license (or using Azure Hybrid Benefit):
 
-The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit): 
-
-```PowerShell
+```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="AHUB"
 <# the following code snippet is only necessary if using Azure Powershell version > 4
@@ -160,12 +100,11 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
 $SqlVm | Set-AzResource -Force 
 ```
 
-The following code snippet switches your BYOL model to pay-as-you-go:
+The following code snippet switches your bring-your-own-license model to pay-as-you-go:
 
-```PowerShell
+```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="PAYG"
 <# the following code snippet is only necessary if using Azure Powershell version > 4
@@ -173,62 +112,73 @@ $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
 $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
 $SqlVm | Set-AzResource -Force 
-``` 
-
-
-## View current licensing 
-
-The following code snippet allows you to view your current licensing model for your SQL Server VM. 
-
-```powershell
-# View current licensing model for your SQL Server VM
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType
 ```
+---
+
+## Change the license for VMs not registered with the resource provider
+
+If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, then the SQL Server license type will be pay-as-you-go. If you provisioned a SQL Server VM by using a bring-your-own-license image from Azure Marketplace, then the license type will be AHUB. All SQL Server VMs provisioned from default (pay-as-you-go) or bring-your-own-license Azure Marketplace images will automatically be registered with the SQL VM resource provider, so they can change the [license type](#change-the-license-for-vms-already-registered-with-the-resource-provider).
+
+You are only eligible to self-install SQL Server on an Azure VM via Azure Hybrid Benefit. You should [register these VMs with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) by setting the SQL Server license as Azure Hybrid Benefit, to indicate the Azure Hybrid Benefit usage according to Microsoft Product Terms.
+
+You can change the license type of a SQL Server VM as pay-as-you-go or Azure Hybrid Benefit only if the SQL Server VM is registered with the SQL VM resource provider. All SQL Server VMs should be registered with the resource provider for license compliance.
+
+## Remarks
+
+- Azure Cloud Solution Provider (CSP) customers can use the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license, if they have active Software Assurance.
+- If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
+- The ability to change the license model is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. But customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
+- Adding a SQL Server VM to an availability set requires re-creating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type. Azure Hybrid Benefit will need to be enabled again. 
+
+
+## Limitations
+
+- Changing the license model is available only to customers who have Software Assurance.
+- Changing the license model is supported only for the Standard and Enterprise editions of SQL Server. License changes for Express, Web, and Developer are unsupported. 
+- Changing the license model is supported only for virtual machines deployed through the Azure Resource Manager model. VMs deployed through the classic model are not supported. You can migrate your VM from classic to the Resource Manager model and register it with the SQL VM resource provider. After the VM is registered with the SQL VM resource provider, license model changes will be available on the VM.
+- Changing the license model is enabled only for public cloud installations.
+- Changing the license model is supported only on virtual machines that have a single NIC (network interface). On virtual machines that have more than one NIC, you should first remove one of the NICs (by using the Azure portal) before you attempt the procedure. Otherwise, you'll get an error similar to the following: 
+   
+  `The virtual machine '\<vmname\>' has more than one NIC associated.` 
+   
+  Although you might be able to add the NIC back to the VM after you change the license model, operations done through the SQL Server configuration page in the Azure portal, like automatic patching and backup, will no longer be considered supported.
 
 ## Known errors
 
-### Sql IaaS Extension is not installed on Virtual Machine
-The SQL IaaS extension is a necessary prerequisite for registering your SQL Server VM with the SQL VM resource provider. If you attempt to register your SQL Server VM before installing the SQL IaaS extension, you will encounter the following error:
+### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found.
+This error occurs when you try to change the license model on a SQL Server VM that has not been registered with the SQL VM resource provider:
 
-`Sql IaaS Extension is not installed on Virtual Machine: '{0}'. Please make sure it is installed and in running state and try again later.`
+`The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-To resolve this issue, install the SQL IaaS extension before attempting to register your SQL Server VM. 
-
-  > [!NOTE]
-  > Installing the SQL IaaS extension will restart the SQL Server service and should only be done during a maintenance window. For more information, see [SQL IaaS Extension installation](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation). 
+You'll need to register the resource provider to your [subscription](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription), and then [register your SQL Server VM with the resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 ### Cannot validate argument on parameter 'Sku'
-You may encounter this error when attempting to change your SQL Server VM licensing model when using Azure PowerShell > 4.0:
+You might encounter this error when trying to change your SQL Server VM license model by using Azure PowerShell versions later than 4.0:
 
-`Set-AzResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
+`Set-AzResource: Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
 
-To resolve this error, uncomment these lines in the previously mentioned PowerShell code snippet when switching your licensing model: 
-```powershell
-# the following code snippet is necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
-```
+To resolve this error, uncomment these lines in the previously mentioned PowerShell code snippet when switching your license model:
 
+  ```powershell-interactive
+  # the following code snippet is necessary if using Azure Powershell version > 4
+  $SqlVm.Kind= "LicenseChange"
+  $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
+  $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
+  ```
+  
 Use the following code to verify your Azure PowerShell version:
-
-```powershell
-Get-Module -ListAvailable -Name Azure -Refresh
-```
-
-### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/<resource-group>' under resource group '<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
-This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL resource provider. You'll need to register the resource provider to your [subscription](#register-sql-resource-provider-to-your-subscription), and then register your SQL Server VM with the SQL [resource provider](#register-sql-server-vm-with-sql-resource-provider). 
+  
+  ```powershell-interactive
+  Get-Module -ListAvailable -Name Azure -Refresh
+  ```
 
 ## Next steps
 
 For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md)
-* [SQL Server on a Windows VM FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
-* [SQL Server on a Windows VM pricing guidance](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [SQL Server on a Windows VM release notes](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [FAQ for SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Pricing guidance for SQL Server on a Windows VM](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [Release notes for SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

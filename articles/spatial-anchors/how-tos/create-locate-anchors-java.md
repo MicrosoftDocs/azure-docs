@@ -5,9 +5,9 @@ author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using Azure Spatial Anchors in Java
@@ -34,7 +34,7 @@ To complete this guide, make sure you have:
 - Read through the [Azure Spatial Anchors overview](../overview.md).
 - Completed one of the [5-minute Quickstarts](../index.yml).
 - Basic knowledge on Java.
-- Basic knowledge on <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5.
+- Basic knowledge on <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
@@ -338,7 +338,7 @@ Learn more about the [AnchorLocatedListener](https://docs.microsoft.com/java/api
                 // This anchor has already been reported and is being tracked
                 break;
             case NotLocatedAnchorDoesNotExist:
-                // The anchor was deleted or never exited in the first place
+                // The anchor was deleted or never existed in the first place
                 // Drop it, or show UI to ask user to anchor the content anew
                 break;
             case NotLocated:

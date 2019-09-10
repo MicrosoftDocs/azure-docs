@@ -2,14 +2,14 @@
 title: Configure the resource owner password credentials flow in Azure Active Directory B2C | Microsoft Docs
 description: Learn how to configure the resource owner password credentials flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -136,7 +136,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
     </TechnicalProfile>
     ```
 
-    Replace the **DefaultValue** of **client_id** and **resource_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial.
+    Replace the **DefaultValue** of **client_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial. Then replace **DefaultValue** of **resource_id** with the Application ID  of the IdentityExperienceFramework application that you also created in the prerequisite tutorial.  
 
 5. Add following **ClaimsProvider** elements with their technical profiles to the **ClaimsProviders** element:
 
@@ -251,7 +251,7 @@ Next, update the relying party file that initiates the user journey that you cre
     ```
 
 5. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-6. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
+6. Enable **Overwrite the policy if it exists**, and then browse to and select the *ROPC_Auth.xml* file.
 7. Click **Upload**.
 
 ## Test the policy

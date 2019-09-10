@@ -18,6 +18,9 @@
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create Standard Load Balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
+  - name: Create Standard Load Balancer - Azure Resource Manager template
+    displayName: ARM
+    href: quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs
@@ -58,6 +61,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
     href: load-balancer-standard-diagnostics.md
+  - name: Built-in security controls
+    href: load-balancer-security-controls.md
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer
@@ -126,23 +131,23 @@
     items:
     - name: Outbound connections (classic)
       href: load-balancer-outbound-connections-classic.md
-  - name: Configure multiple VIPs for cloud service
-    href: load-balancer-multivip.md
-    items:
-    - name: Configure internal Load Balancer for Cloud Services
-      href: load-balancer-get-started-ilb-classic-cloud.md
+    - name: Configure multiple VIPs for cloud service
+      href: load-balancer-multivip.md
       items:
-      - name: Configure internal Load Balancer for Cloud Services (PowerShell)
-        href: load-balancer-get-started-ilb-classic-ps.md
-      - name: Configure internal Load Balancer for Cloud Services (CLI)
-        href: load-balancer-get-started-ilb-classic-cli.md
-    - name: Configure public Load Balancer (Classic PowerShell)
-      href: load-balancer-get-started-internet-classic-ps.md
-      items:
-      - name: Configure public Load Balancer (Classic Cloud)
-        href: load-balancer-get-started-internet-classic-cloud.md
-      - name: Configure public Load Balancer (Classic CLI)
-        href: load-balancer-get-started-internet-classic-cli.md
+      - name: Configure internal Load Balancer for Cloud Services
+        href: load-balancer-get-started-ilb-classic-cloud.md
+        items:
+        - name: Configure internal Load Balancer for Cloud Services (PowerShell)
+          href: load-balancer-get-started-ilb-classic-ps.md
+        - name: Configure internal Load Balancer for Cloud Services (CLI)
+          href: load-balancer-get-started-ilb-classic-cli.md
+      - name: Configure public Load Balancer (Classic PowerShell)
+        href: load-balancer-get-started-internet-classic-ps.md
+        items:
+        - name: Configure public Load Balancer (Classic Cloud)
+          href: load-balancer-get-started-internet-classic-cloud.md
+        - name: Configure public Load Balancer (Classic CLI)
+          href: load-balancer-get-started-internet-classic-cli.md
 - name: Reference
   items:
   - name: Code samples
@@ -185,6 +190,8 @@
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Azure Load Balancer feedback
+    href: https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator

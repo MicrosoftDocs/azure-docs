@@ -11,33 +11,93 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/26/2019
 ms.author: juliako
 ---
 
 # Streaming Locators
 
-To make videos in the output Asset available to clients for playback, you have to create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) and then build streaming URLs. For .NET sample, see [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+To make videos in the output Asset available to clients for playback, you have to create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) and then build streaming URLs. To build a URL, you need to concatenate the Streaming Endpoint host name and the Streaming Locator path. For .NET sample, see [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
 The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a **Streaming Locator**, you need to specify the [Asset](https://docs.microsoft.com/rest/api/media/assets) name and the [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies) name. You can either use one of the predefined Streaming Policies or created a custom policy. The predefined policies currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'. When using a custom streaming policy, you should design a limited set of such policies for your Media Service account, and reuse them for your Streaming Locators whenever the same options and protocols are needed. 
+When creating a **Streaming Locator**, you must specify an **Asset** name and a **Streaming Policy** name. For more information, see the following topics:
 
-If you want to specify encryption options on your stream, create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) that configures how the content key is delivered to end clients via the Key Delivery component of Media Services. Associate your Streaming Locator with the **Content Key Policy** and the content key. You can let Media Services to autogenerate the key. The following .NET example shows how to configure AES encryption with a token restriction in Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Content Key Policies** are updatable, you might want to update the policy if you need to do a key rotation. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. It is recommended to not create a new Content Key Policy for each Streaming Locator. You should try to reuse the existing policies whenever the same options are needed.
+* [Assets](assets-concept.md)
+* [Streaming Policies](streaming-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md)
 
-> [!IMPORTANT]
-> * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
+You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
+
+## Considerations
+
+* **Streaming Locators** are not updatable. 
+* Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
+* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+
+## Create Streaming Locators  
+
+### Not encrypted
+
+If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use the PredefinedStreamingPolicy.ClearStreamingOnly enum).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### Encrypted 
+
+If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will be delivered to a playback client based on the configured DRM licenses.
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+If you also want to encrypt your HLS stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
 ## Associate filters with Streaming Locators
 
-You can specify a list of [asset or account filters](filters-concept.md), which would apply to your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [dynamic packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [dyanamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+See [Filters: associate with Streaming Locators](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## Filter, order, page Streaming Locator entities
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
+## List Streaming Locators by Asset name
+
+To get Streaming Locators based on the associated Asset name, use the following operations:
+
+|Language|API|
+|---|---|
+|REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/assets?view=azure-node-latest#liststreaminglocators-string--string--string--object-)|
+
+## Also see
+
+* [Assets](assets-concept.md)
+* [Streaming Policies](streaming-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md)
+
 ## Next steps
 
-* [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
-* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+[Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)

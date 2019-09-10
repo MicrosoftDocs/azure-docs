@@ -1,21 +1,20 @@
 ---
-title: Azure HDInsight Go SDK
-description: Reference for Azure HDInsight Go SDK
-services: hdinsight
+title: Azure HDInsight SDK for Go
+description: Reference material for using Azure HDInsight SDK for Go and Apache Hadoop clusters
 author: tylerfox
 
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
 
 ---
 
-# HDInsight Go Management SDK Preview
+# HDInsight SDK for Go (Preview)
 
 ## Overview
-The HDInsight Go SDK provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
+The HDInsight SDK for Go provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
 
 > [!NOTE]  
 >GoDoc reference material for this SDK is also [available here](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -34,7 +33,7 @@ From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/ma
 The SDK first needs to be authenticated with your Azure subscription.  Follow the example below to create a service principal and use it to authenticate. After this is done, you will have an instance of a `ClustersClient`, which contains many functions (outlined in below sections) that can be used to perform management operations.
 
 > [!NOTE]  
-> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### Authentication example using a service principal
 

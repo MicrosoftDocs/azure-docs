@@ -5,8 +5,9 @@ services: databox
 author: alkohli
 
 ms.service: databox
+ms.subservice: gateway
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 08/21/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
@@ -25,6 +26,8 @@ Data Box Gateway can be leveraged for transferring data to the cloud such as clo
 - **Continuous data ingestion** - Continuously ingest data into the device to copy to the cloud, regardless of the data size. As the data is written to the gateway device, the device uploads the data to Azure Storage.  
 
 - **Initial bulk transfer followed by incremental transfer** - Use Data Box for the bulk transfer in an offline mode (initial seed) and Data Box Gateway for incremental transfers (ongoing feed) over the network.
+
+For more information, go to [Azure Data Box Gateway use cases](data-box-gateway-use-cases.md).
 
 ## Benefits
 
@@ -50,7 +53,6 @@ Data Box Gateway has the following capabilities:
 |Fast access     | Local cache on the device for fast access of most recently used files.|
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*       |
 |Resiliency     | Built-in network resiliency        |
 
 
@@ -83,12 +85,7 @@ The Data Box Gateway solution comprises of Data Box Gateway resource, Data Box G
 
 Data Box Gateway physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For this release, the Data Box Gateway resource is available in the following regions that support public cloud:
-    - **United States** - East US
-    - **European Union** - West Europe
-    - **Asia Pacific** - South East Asia
-
-    Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resource availability** - For a list of all the regions where the Data Box Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions.
 

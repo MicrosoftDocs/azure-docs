@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 01/25/2019
+ms.custom: seoapril2019
 ---
 # Multi-tenant SaaS database tenancy patterns
 
-When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
+This article describes the various tenancy models available for a multi-tenant SaaS application.
 
-This article describes alternative tenancy models.
+When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
 
 ## A. SaaS concepts and terminology
 

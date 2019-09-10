@@ -4,11 +4,10 @@ description: Understand how to use Twilio bindings with Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
@@ -118,7 +117,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-You can't use out parameters in synchronous code. Here's an asynchronous C# script code example:
+You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -294,7 +293,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-You can't use out parameters in synchronous code. Here's an asynchronous C# script code example:
+You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
 
 ```cs
 #r "Newtonsoft.Json"

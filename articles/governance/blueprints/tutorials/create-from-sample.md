@@ -1,16 +1,14 @@
 ---
 title: Create an environment from a blueprint sample
 description: Use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-ms.custom: mvc
 manager: carmonm
 ---
-# Create an environment from a blueprint sample
+# Tutorial: Create an environment from a blueprint sample
 
 Sample blueprints provide examples of what can be done using Azure Blueprints. Each is a sample with
 a specific intent or purpose, but doesn't create a complete environment by themselves. Each is
@@ -256,7 +254,7 @@ When finished with this tutorial, delete the following resources:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md)
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md)
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md)
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md)
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md)

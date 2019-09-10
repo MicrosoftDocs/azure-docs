@@ -1,18 +1,17 @@
 ---
 title: Apache Phoenix in HDInsight - Azure HDInsight 
-description: 
-services: hdinsight
+description: Overview of Apache Phoenix
 author: ashishthaps
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 09/05/2019
 ms.author: ashishth
-
 ---
-# Apache Phoenix in HDInsight
+
+# Apache Phoenix in Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database layer built on [Apache HBase](hbase/apache-hbase-overview.md). Phoenix allows you to use SQL-like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase. Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This approach minimizes client/server data transfer.
 

@@ -1,14 +1,13 @@
 ---
 title: Azure PowerShell samples for Azure Blob storage | Microsoft Docs
 description: Azure PowerShell samples for working with Azure Blob storage
-services: storage
-author: tamram
+author: mhopkins-msft
 
-ms.service: storage
-ms.topic: sample
+ms.author: mhopkins
 ms.date: 11/07/2017
-ms.author: tamram
+ms.service: storage
 ms.subservice: blobs
+ms.topic: sample
 ---
 
 # Azure PowerShell samples for Azure Blob storage

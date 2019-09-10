@@ -5,7 +5,7 @@ author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
 ---

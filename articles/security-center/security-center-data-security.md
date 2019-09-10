@@ -42,12 +42,18 @@ Azure Security Center analyzes data from the following sources to provide visibi
 
 **Your Workspace(s)**: A workspace is specified for the following Geos, and data collected from your Azure virtual machines, including crash dumps, and some types of alert data, are stored in the nearest workspace.
 
-| VM Geo                        | Workspace Geo |
-|-------------------------------|---------------|
-| United States, Brazil, Canada | United States |
-| Europe, United Kingdom        | Europe        |
-| Asia Pacific, Japan, India    | Asia Pacific  |
-| Australia                     | Australia     |
+| VM Geo                              | Workspace Geo |
+|-------------------------------------|---------------|
+| United States, Brazil, South Africa | United States |
+| Canada                              | Canada        |
+| Europe (Excluding United Kingdom)   | Europe        |
+| United Kingdom                      | United Kingdom |
+| Asia (Excluding India, Japan, Korea, China)   | Asia Pacific  |
+| Korea                              | Asia Pacific  |
+| India                               | India         |
+| Japan                               | Japan         |
+| China                               | China         |
+| Australia                           | Australia     |
 
 
 VM disk snapshots are stored in the same storage account as the VM disk.

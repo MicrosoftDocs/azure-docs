@@ -1,6 +1,6 @@
 ---
 title: Create video transcript reviews using .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create video transcript reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
 
@@ -151,7 +151,7 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 **CreateVideoReviews** has the following required parameters:
 1. A string that contains a MIME type, which should be "application/json." 
 1. Your Content Moderator team name.
-1. An **IList<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
+1. An **IList\<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
 
 **CreateVideoReviewsBodyItem** has several properties. At a minimum, you set the following properties:
 - **Content**. The URL of the video to be reviewed.
@@ -159,7 +159,7 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 - **Status**. Set the value to "Unpublished." If you do not set it, it defaults to "Pending", which means the video review is published and pending human review. Once a video review is published, you can no longer add video frames, a transcript, or a transcript moderation result to it.
 
 > [!NOTE]
-> **CreateVideoReviews** returns an IList<string>. Each of these strings contains an ID for a video review. These IDs are GUIDs and are not the same as the value of the **ContentId** property.
+> **CreateVideoReviews** returns an IList\<string>. Each of these strings contains an ID for a video review. These IDs are GUIDs and are not the same as the value of the **ContentId** property.
 
 Add the following method definition to namespace VideoReviews, class Program.
 
@@ -241,15 +241,15 @@ In addition to adding a transcript to a video review, you also add the result of
 1. A string that contains a MIME type, which should be "application/json." 
 1. Your Content Moderator team name.
 1. The video review ID returned by **CreateVideoReviews**.
-1. An IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
-1. **Terms**. An IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
+1. An IList\<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
+1. **Terms**. An IList\<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
 1. **Index**. The zero-based index of the term.
 1. **Term**. A string that contains the term.
 1. **Timestamp**. A string that contains, in seconds, the time in the transcript at which the terms are found.
 
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
-Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method. It also translates the result into an IList<TranscriptModerationBodyItem>, and submits to **AddVideoTranscriptModerationResult**.
+Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method. It also translates the result into an IList\<TranscriptModerationBodyItem>, and submits to **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -338,7 +338,7 @@ static void Main(string[] args)
         var transcript = @"WEBVTT
 
         01:01.000 --> 02:02.000
-        First line with a crap word in a transcript.
+        First line with a negative word in a transcript.
 
         02:03.000 --> 02:25.000
         This is another line in the transcript.

@@ -48,7 +48,7 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
     - For Windows VMs, install the latest Windows updates so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate-update processes for your organization.
     - For Linux VMs, follow guidance from your Linux distributor to get the latest trusted root certificates and certificate revocation list.
 2. Make sure that you're not using an authentication proxy to control network connectivity for VMs that you plan to move.
-3. If a VM that you want to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the [requirements](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. If a VM that you want to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the [requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Document the source networking layout and all resources that you're currently using, including (but not limited to) load balancers, network security groups, and public IP addresses for verification.
 
 ## Prepare the target region
@@ -62,8 +62,8 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
    Azure Site Recovery automatically discovers and creates a virtual network and storage account when you enable replication for the source VM. You can also pre-create these resources and assign them to the VM as part of the enable-replication step. But you must manually create any other resources in the target region. Refer to the following documents to create the most commonly used network resources based on the your source VM configuration:
 
    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+   - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
    For any other networking components, see the [Azure networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 

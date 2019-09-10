@@ -1,7 +1,6 @@
 ---
-title: 'Deal with duplicate data'
-description: This topic will show you various ways to deal with duplicate data
-services: data-explorer
+title: Handle duplicate data in Azure Data Explorer
+description: This topic will show you various approaches to deal with duplicate data when using Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -12,7 +11,7 @@ ms.date: 12/19/2018
 #Customer intent: I want to learn how to deal with duplicate data.
 ---
 
-# Deal with duplicate data
+# Handle duplicate data in Azure Data Explorer
 
 Devices sending data to the Cloud maintain a local cache of the data. Depending on the data size, the local cache could be storing data for days or even months. You want to safeguard your analytical databases from malfunctioning devices that resend the cached data and cause data duplication in the analytical database. This topic outlines best practices for handling duplicate data for these types of scenarios.
 
@@ -68,7 +67,7 @@ DeviceEventsAll
 
 ### Solution #3: Filter duplicates during the ingestion process
 
-Another solution is to filter duplicates during the ingestion process. The system ignores the duplicate data during ingestion into Kusto tables. Data is ingested into a staging table and copied into another table after removing duplicate rows. The advantage of this solution is that query performance improves dramatically as compared to the previous solution. The disadvantages include increased ingestion time and additional data storage costs.
+Another solution is to filter duplicates during the ingestion process. The system ignores the duplicate data during ingestion into Kusto tables. Data is ingested into a staging table and copied into another table after removing duplicate rows. The advantage of this solution is that query performance improves dramatically as compared to the previous solution. The disadvantages include increased ingestion time and additional data storage costs. Additionaly, this solution works only if duplications aren't ingested concurrently. If there are multiple concurrent ingestions containing duplicate records, all may be ingested since the deduplication process will not find any existing matching records in the table.    
 
 The following example depicts this method:
 

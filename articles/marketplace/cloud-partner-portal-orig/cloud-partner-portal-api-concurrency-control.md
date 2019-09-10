@@ -1,25 +1,15 @@
 ---
-title: Concurrency Control | Microsoft Docs
+title: Concurrency Control | Azure Marketplace
 description: Concurrency control strategies for the Cloud Partner Portal publishing APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
-
-Concurrency Control
-===================
+# Concurrency Control
 
 Every call to the Cloud Partner Portal publishing APIs must explicitly
 specify which concurrency control strategy to use. Failure to provide

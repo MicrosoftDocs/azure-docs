@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, JavaScript (Browser) - Speech Services'
+title: 'Quickstart: Recognize speech, JavaScript (Browser) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in JavaScript in a browser using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: fmegen
 ---
 
@@ -17,14 +17,14 @@ ms.author: fmegen
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the Speech SDK for JavaScript ([Download version 1.6.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the Speech Services for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
-* A current version of Chrome or Microsoft Edge.
+* A current version of Chrome, Microsoft Edge, or Safari.
 * Optionally, a web server that supports hosting PHP scripts.
 
 ## Create a new Website folder
@@ -47,7 +47,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -93,6 +93,10 @@ That way, your subscription key will never leave your server while allowing user
 ## Build and run the sample locally
 
 To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](regions.md) and trigger a recognition using the microphone.
+
+> [!NOTE]
+> This method doesn't work on the Safari browser.
+> On Safari, the sample web page needs to be hosted on a web server; Safari doesn't allow websites loaded from a local file to use the microphone.
 
 ## Build and run the sample via a web server
 

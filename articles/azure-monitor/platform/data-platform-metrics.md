@@ -5,7 +5,7 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -16,8 +16,7 @@ ms.author: bwren
 # Metrics in Azure Monitor
 
 > [!NOTE]
-> The Azure Monitor data platform  is based on two fundamental data types: Metrics and Logs. This article describes Metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platforn](data-platform.md) for a comparison of the two.
-
+> The Azure Monitor data platform  is based on two fundamental data types: Metrics and Logs. This article describes Metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platform](data-platform.md) for a comparison of the two.
 
 Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. This article describes how metrics are structured, what you can do with them, and identifies different data sources that store data in metrics.
 
@@ -34,9 +33,8 @@ The following table lists the different ways that you can use metric data in Azu
 | Alert | Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
 | Automate |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
 | Export | [Route Metrics to Logs](diagnostic-logs-stream-log-store.md) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
-| Retrieve | Access metric values from a command line using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/azure/monitor/metrics). |
+| Retrieve | Access metric values from a command line using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/cli/azure/monitor/metrics). |
 | Archive | [Archive](..//learn/tutorial-archive-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
-
 
 ## How is data in Azure Monitor Metrics structured?
 Data collected by Azure Monitor Metrics is stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
@@ -47,8 +45,6 @@ Data collected by Azure Monitor Metrics is stored in a time-series database whic
 * A metric name
 * The value itself
 * Some metrics may have multiple dimensions as described in [Multi-dimensional metrics](#multi-dimensional-metrics). Custom metrics can have up to 10 dimensions.
-
-Metrics in Azure are stored for 93 days. You can [send platform metrics for Azure Monitor resources to a Log Analytics workspace](diagnostic-logs-stream-log-store.md) for long term trending.
 
 ## Multi-dimensional metrics
 One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric _Available disk space_ could have a dimension called _Drive_ with values _C:_, _D:_, which would allow viewing either available disk space across all drives or for each drive individually.
@@ -95,6 +91,24 @@ There are three fundamental sources of metrics collected by Azure Monitor. Once 
 **Application metrics** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
 
 **Custom metrics** are metrics that you define in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights or create custom metrics for an Azure service using the [custom metrics API](metrics-store-custom-rest-api.md).
+
+## Retention of Metrics
+For most resources in Azure, metrics are stored for 93 days. There are some exceptions:
+
+**Guest OS metrics**
+-	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is 14 days.
+-	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the Windows Diagnostic Extension (WAD) and send to the [Azure Monitor Sink](diagnostics-extension-overview.md#data-storage), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
+-	**Guest OS metrics collected by Log Analytics agent**. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
+
+**Application Insights log-based metrics**. 
+- Behind the scene, [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md) translate into log queries. Their retention matches the retention of events in underlying logs. For Application Insights resources, logs are stored for 90 days.
+
+
+> [!NOTE]
+> You can [send platform metrics for Azure Monitor resources to a Log Analytics workspace](diagnostic-logs-stream-log-store.md) for long term trending.
+
+
+
 
 
 ## Next steps

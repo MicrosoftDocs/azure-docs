@@ -34,7 +34,7 @@ The features are organized into three perspectives:
 * Map
 
 >[!NOTE]
->Currently, the Health feature is offered only for Azure virtual machines and virtual machine scale sets. Performance and Map features support both Azure VMs and virtual machines that are hosted in your environment or other cloud provider.
+>Currently, the Health feature is offered only for Azure virtual machines. Performance and Map features support Azure VMs, Azure VM scale sets, and virtual machines that are hosted in your environment or other cloud provider.
 
 Integration with Azure Monitor logs delivers powerful aggregation and filtering, and it can analyze data trends over time. Such comprehensive workload monitoring can't be achieved with Azure Monitor or Service Map alone.  
 
@@ -59,4 +59,4 @@ When you deploy Azure Monitor for VMs, the data that's collected by your VMs is 
 The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you already have a workspace and are collecting these counters, no duplicate charges are applied. If you're already using Service Map, the only change you’ll see is the additional connection data that's sent to Azure Monitor.​
 
 ## Next steps
-To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-onboard.md).
+To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-enable-overview.md).

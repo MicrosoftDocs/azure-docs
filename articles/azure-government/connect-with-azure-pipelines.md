@@ -25,13 +25,15 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 
 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=vsts) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 Before starting this tutorial, you must have the following:
 
 + [Create an organization in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=vsts)
 + [Create and add a project to the Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&%3Bbc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav)
-+ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
++ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
@@ -62,7 +64,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
     `./<name of script file you saved>`
-6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
 7. When prompted for the "password" parameter, enter your desired password. 
 8. After providing your Azure Government subscription credentials, you should see the following: 
 

@@ -5,9 +5,9 @@ author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using Azure Spatial Anchors in Objective-C
@@ -149,7 +149,7 @@ Learn more about the [ASACloudSpatialAnchor](https://docs.microsoft.com/objectiv
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
     NSArray<ARHitTestResult *> *hits = [_sceneView.session.currentFrame hitTest:CGPointMake(0.5, 0.5) types:ARHitTestResultTypeEstimatedHorizontalPlane];
     if ([hits count] == 0) return;
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ARAnchor *localAnchor = [[ARAnchor alloc] initWithTransform:hits[0].worldTransform];
     [_sceneView.session addAnchor:localAnchor];
@@ -264,7 +264,7 @@ Learn more about the [anchorLocated](https://docs.microsoft.com/objectivec/api/s
             // This anchor has already been reported and is being tracked
             break;
         case ASALocateAnchorStatusNotLocatedAnchorDoesNotExist:
-            // The anchor was deleted or never exited in the first place
+            // The anchor was deleted or never existed in the first place
             // Drop it, or show UI to ask user to anchor the content anew
             break;
         case ASALocateAnchorStatusNotLocated:

@@ -23,7 +23,7 @@ ms.author: jowargo
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial, you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial, you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you're interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 There are two parts to this scenario:
 
@@ -45,7 +45,7 @@ In [Use Notification Hubs to send breaking news], you built an app that used **t
 > [!NOTE]
 > One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, you would need three different tags for world news: "world_en", "world_fr", and "world_ch". You would then have to send a localized version of the world news to each of these tags. In this topic, you use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
 
-At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In your case, you send a locale-agnostic message containing all supported languages:
+Templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In your case, you send a locale-agnostic message containing all supported languages:
 
 ```json
 {
@@ -70,7 +70,7 @@ For more information on templates, see [Templates](notification-hubs-templates-c
 ## Prerequisites
 
 * Complete the [Push notifications to specific iOS devices](notification-hubs-ios-xplat-segmented-apns-push-notification.md) tutorial and have the code available, because this tutorial builds directly upon that code.
-* Visual Studio 2017 is optional.
+* Visual Studio 2019 is optional.
 
 ## Update the app user interface
 
@@ -86,7 +86,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 
 ## Build the iOS app
 
-1. In your `Notification.h` add the `retrieveLocale` method, and modify the store and subscribe methods as shown in the following code:
+1. In your `Notification.h`, add the `retrieveLocale` method, and modify the store and subscribe methods as shown in the following code:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

@@ -55,11 +55,10 @@ Currently, US DoD East, US DoD Central, US Gov Virginia, US Gov Arizona, US Gov 
 Navigate through the links below to get started using Azure Government.
 
 * [Login to Azure Government Portal](documentation-government-get-started-connect-with-portal.md)
-* [Connect with Visual Studio](documentation-government-get-started-connect-with-vs.md)
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
-* [Connect with Azure SDK for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-multi-cloud?view=azure-python)
+* [Connect with Azure SDK for Python](/azure/python/python-sdk-azure-multi-cloud)
 
 ### Azure Government Video Library 
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
@@ -91,6 +90,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Key Vault DNS Suffix | \*.vault.usgovcloudapi.net | \*.vault.azure.net |
 | Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
 | API Management | \*.azure-api.us | \*.azure-api.net |
+| Azure Service Fabric cluster | \*.cloudapp.usgovcloudapi.net | \*.cloudapp.azure.com |
 | Container Registry Suffix | \*.azurecr.us | \*.azurecr.io |
 | Gallery Url | https:\//gallery.azure.us/ | https:\//gallery.azure.com/ |
 | Classic Deployment Model Url | https:\//management.core.usgovcloudapi.net/ | https:\//management.core.windows.net/ |

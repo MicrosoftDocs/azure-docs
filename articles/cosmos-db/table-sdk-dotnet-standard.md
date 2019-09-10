@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/18/2018
+ms.date: 03/18/2019
 
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
@@ -26,8 +26,30 @@ ms.date: 10/18/2018
 |**Quickstart**|[Quickstart](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
+|**Report Issue**|[Report Issue](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
-## Release notes
+## Release notes for 2.0.0 series
+2.0.0 series takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Cosmos DB endpoint.
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+* initial preview of 2.0.0 Table SDK that takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Cosmos DB endpoint. The public API remains the same.
+
+## Release notes for 1.0.0 series
+1.0.0 series takes the dependency on [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="1.0.5-preview"/>1.0.5-preview
+* Bug fixes
+
+### <a name="1.0.4"/>1.0.4
+* Bug fixes
+* Provide HttpClientTimeout option for RestExecutorConfiguration.
+
+### <a name="1.0.4-preview"/>1.0.4-preview
+* Bug fixes
+* Provide HttpClientTimeout option for RestExecutorConfiguration.
+
+### <a name="1.0.1"/>1.0.1
+* Bug fixes
 
 ### <a name="1.0.0"/>1.0.0
 * General availability release
@@ -55,8 +77,21 @@ ms.date: 10/18/2018
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
+This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) will replace the .NET Framework library [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
+
+### 2.0.0 series
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.0.0-preview](#2.0.0-preview) |Auguest 22, 2019 |--- |
+
+### 1.0.0 series
+| Version | Release Date | Retirement Date |
+| --- | --- | --- |
+| [1.0.5-preview](#1.0.5-preview) |Auguest 20, 2019 |--- |
+| [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
+| [1.0.4-preview](#1.0.4-preview) |July 26, 2019 |--- |
+| 1.0.2-preview |May 2, 2019 |--- |
+| [1.0.1](#1.0.1) |April 19, 2019 |--- |
 | [1.0.0](#1.0.0) |March 13, 2019 |--- |
 | [0.11.0-preview](#0.11.0-preview) |March 5, 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |January 22, 2019 |--- |
@@ -69,4 +104,4 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md). 
+To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md).

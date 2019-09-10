@@ -8,7 +8,6 @@ manager: jeconnoc
 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
@@ -16,7 +15,7 @@ ms.author: glenga
 
 # Use Azure Functions to connect to an Azure SQL Database
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2017. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
 
 If this is your first experience working with C# Functions, you should read the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
@@ -60,7 +59,7 @@ You must have previously published your app to Azure. If you haven't already don
 
 You need to add the NuGet package that contains the SqlClient library. This data access library is needed to connect to a SQL database.
 
-1. Open your local function app project in Visual Studio 2017.
+1. Open your local function app project in Visual Studio 2019.
 
 1. In Solution Explorer, right-click the function app project and choose **Manage NuGet Packages**.
 
@@ -123,7 +122,7 @@ Now, you can add the C# function code that connects to your SQL Database.
 
     On the first execution, you should update 32 rows of data. Following runs update no data rows, unless you make changes to the SalesOrderHeader table data so that more rows are selected by the `UPDATE` statement.
 
-If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#cron-expressions) than every 15 seconds.
+If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds.
 
 ## Next steps
 

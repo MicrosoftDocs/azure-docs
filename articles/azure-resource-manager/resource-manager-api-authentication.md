@@ -1,19 +1,10 @@
 ---
 title: Azure Active Directory authentication and Resource Manager | Microsoft Docs
 description: A developer's guide to authentication with the Azure Resource Manager API and Azure Active Directory for integrating an app with other Azure subscriptions.
-services: azure-resource-manager,active-directory
-documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
-
-ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
 
 ---
@@ -27,8 +18,6 @@ Your app can access the Resource Manager APIs in couple of ways:
 2. **App-only access**: for apps that run daemon services and scheduled jobs. The app's identity is granted direct access to the resources. This approach works for apps that need long-term headless (unattended) access to Azure.
 
 This article provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to do each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## What the web app does
 
@@ -68,27 +57,9 @@ Manage your connected subscriptions:
 ## Register application
 Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs for the user.
 
-Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, sign in to the portal.
+To register your app, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Give your app a name, and select **Accounts in any organizational directory** for the supported account types. For redirect URL, provide a domain associated with your Azure Active Directory.
 
-The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-To sign in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-The following example shows how to register the app by using Azure CLI.
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-The results include the AppId, which you need when authenticating as the application.
+To sign in as the AD application, you need the application ID and a secret. The application ID is displayed in the overview for the application. To create a secret and request API permissions, see [Quickstart: Configure a client application to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Provide a new client secret. For API permissions, select **Azure Service Management**. Select **Delegated permissions** and **user_impersonation**.
 
 ### Optional configuration - certificate credential
 Azure AD also supports certificate credentials for applications: you create a self-signed cert, keep the private key, and add

@@ -101,6 +101,8 @@
     href: event-sources.md
   - name: Event handlers
     href: event-handlers.md
+  - name: Geo disaster recovery
+    href: geo-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Post to custom topic
@@ -125,6 +127,8 @@
     href: how-to-event-domains.md
   - name: Implement client-side failover
     href: custom-disaster-recovery.md
+  - name: Troubleshoot errors  
+    href: troubleshoot-errors.md    
 - name: Reference
   items:
   - name: Azure CLI
@@ -133,6 +137,14 @@
     href: /powershell/module/az.eventgrid
   - name: REST
     href: /rest/api/eventgrid
+  - name: .NET
+    href: /dotnet/api/overview/azure/eventgrid
+  - name: Java
+    href: /java/api/overview/azure/eventgrid
+  - name: Python
+    href: /python/api/overview/azure/event-grid
+  - name: Node.js
+    href: /javascript/api/overview/azure/eventgrid
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
@@ -156,6 +168,10 @@
       href: event-schema-service-bus.md
     - name: Azure Maps
       href: event-schema-azure-maps.md
+    - name: App Configuration
+      href: event-schema-app-configuration.md
+    - name: Azure SignalR
+      href: event-schema-azure-signalr.md
   - name: Template resources
     items:
     - name: Event subscriptions

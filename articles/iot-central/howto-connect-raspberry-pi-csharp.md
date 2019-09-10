@@ -1,9 +1,9 @@
 ---
 title: Connect a Raspberry Pi to your Azure IoT Central application (C#) | Microsoft Docs
-description: As an device developer, how to connect a Raspberry Pi to your Azure IoT Central application using C#.
+description: As a device developer, how to connect a Raspberry Pi to your Azure IoT Central application using C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,43 +14,42 @@ manager: peterpr
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a device developer, to connect a Raspberry Pi to your Microsoft Azure IoT Central application using the C# programming language.
 
 ## Before you begin
 
 To complete the steps in this article, you need the following components:
 
-* [.NET Core 2](https://www.microsoft.com/net) installed on your development machine. You should also have a suitable code editor such as [Visual Studio Code](https://code.visualstudio.com/).
 * An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-* A Raspberry Pi device running the Raspbian operating system.
-
+* A Raspberry Pi device running the Raspbian operating system. The Raspberry Pi must be able to connect to the internet. For more information, see [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## **Sample Devkits** application
 
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics: 
+An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
 
 - Telemetry, which includes the following measurements the device will collect:
-    - Humidity
-    - Temperature
-    - Pressure
-    - Magnetometer (X, Y, Z)
-    - Accelerometer (X, Y, Z)
-    - Gyroscope (X, Y, Z)
+  - Humidity
+  - Temperature
+  - Pressure
+  - Magnetometer (X, Y, Z)
+  - Accelerometer (X, Y, Z)
+  - Gyroscope (X, Y, Z)
 - Settings
-    - Voltage
-    - Current
-    - Fan Speed
-    - IR toggle.
+  - Voltage
+  - Current
+  - Fan Speed
+  - IR toggle.
 - Properties
-    - Die number device property
-    - Location cloud property
+  - Die number device property
+  - Location cloud property
 
-For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
-
+For the full details of the configuration of the device template, see the [Raspberry Pi Device template details](#raspberry-pi-device-template-details).
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template. Make a note of the device connection details (**Scope ID**, **Device ID**, and **Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
 ### Create your .NET application
 
@@ -81,7 +80,7 @@ To complete the following steps, you can use Visual Studio Code. For more inform
         <RuntimeIdentifiers>win-arm;linux-arm</RuntimeIdentifiers>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.5.2" />
+        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.19.0" />
       </ItemGroup>
     </Project>
     ```
@@ -267,12 +266,9 @@ To complete the following steps, you can use Visual Studio Code. For more inform
 
 ## Run your .NET application
 
-Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. You made a note of this connection string when you added your real device to your Azure IoT Central application.
+Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. Follow these instructions to [generate the device connection string](howto-generate-connection-string.md) using the **Scope ID**, **Device ID**, and **Primary key** you made a note of previously.
 
-  > [!NOTE]
-   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instructions to [get the device connection string](concepts-connectivity.md#get-a-connection-string) and continue with the rest of the tutorial.
-
-1. Replace `{your device connection string}` in the **Program.cs** file with the connection string you noted previously.
+1. Replace `{your device connection string}` in the **Program.cs** file with the connection string you generated.
 
 1. Run the following command in your command-line environment:
 
@@ -281,7 +277,7 @@ Add your device-specific connection string to the code for the device to authent
    dotnet publish -r linux-arm
    ```
 
-1. Copy the `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` folder to your Raspberry Pi device. You can use the **scp** command to copy the files, for example:
+1. Copy the `pisample\bin\Debug\netcoreapp2.1\linux-arm\publish` folder to your Raspberry Pi device. You can use the **scp** command to copy the files, for example:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
@@ -316,8 +312,7 @@ Add your device-specific connection string to the code for the device to authent
 
      ![Raspberry Pi receives setting change](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
-
-## Raspberry PI Device template details
+## Raspberry Pi Device template details
 
 An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
 
@@ -356,13 +351,11 @@ Toggle settings
 
 ### Properties
 
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| Type            | Display name | Field name | Data type                              |
+| --------------- | ------------ | ---------- | -------------------------------------- |
+| Device property | Die number   | dieNumber  | number                                 |
+| Location        | Location     | location   | {lat: float, long: float, alt?: float} |
 
 ## Next steps
 
-Now that you have learned how to connect a Raspberry Pi to your Azure IoT Central application, here are the suggested next steps:
-
-* [Connect a generic Node.js client application to Azure IoT Central](howto-connect-nodejs.md)
+Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

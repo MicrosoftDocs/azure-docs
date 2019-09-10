@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
 
 ---
@@ -22,8 +22,8 @@ ms.author: moderakh
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 
@@ -38,6 +38,16 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 | **Minimum supported runtime**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## Release notes
+
+### <a name="2.5.0"/>2.5.0
+* TCP mode now on by default
+* Query metrics in cross partition now returns all partitions
+* Global Strong now works properly
+* Failover for queries not properly retries for multi-master
+* Dependency bumps for security hotfixes
+
+### <a name="2.4.5"/>2.4.5
+* Bugfix for Hash V2 support
 
 ### <a name="2.4.3"/>2.4.3
 * Bugfix for resource leak on client#close()  ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
@@ -137,6 +147,10 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
+> [!WARNING]
+> All versions **1.x** of the Async Java SDK for SQL API will be retired on **August 30, 2020**.
+> 
+>
 <br/>
 
 | Version | Release Date | Retirement Date |
@@ -154,9 +168,9 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [2.1.0](#2.1.0) |September 5, 2018|--- |
 | [2.0.1](#2.0.1) |August 16, 2018|--- |
 | [2.0.0](#2.0.0) |June 20, 2018|--- |
-| [1.0.2](#1.0.2) |May 18, 2018|--- |
-| [1.0.1](#1.0.1) |April 20, 2018|--- |
-| [1.0.0](#1.0.0) |February 27, 2018|--- |
+| [1.0.2](#1.0.2) |May 18, 2018|August 30, 2020 |
+| [1.0.1](#1.0.1) |April 20, 2018|August 30, 2020 |
+| [1.0.0](#1.0.0) |February 27, 2018|August 30, 2020 |
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

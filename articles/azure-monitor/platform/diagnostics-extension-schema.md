@@ -6,7 +6,7 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
 ---
@@ -23,7 +23,7 @@ This page indexes Azure Diagnostics extension schema versions shipped as part of
 >
 > This page is only relevant if you are using one of these services.
 
-The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
+The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
 
 ## Azure SDK and diagnostics versions shipping chart  
 
@@ -48,13 +48,7 @@ The Azure Diagnostics extension is used with other Microsoft diagnostics product
  Starting with SDK 2.5 (diagnostics version 1.2), Azure diagnostics went to an extension model. The tools to utilize new features were only available in newer Azure SDKs, but any service using Azure diagnostics would pick up the latest shipping version directly from Azure. For example, anyone still using SDK 2.5 would be loading the latest version shown in the previous table, regardless if they are using the newer features.  
 
 ## Schemas index  
-Different versions of Azure diagnostics use different configuration schemas.
-
-[Diagnostics 1.0 Configuration Schema](diagnostics-extension-schema-1dot0.md)  
-
-[Diagnostics 1.2 Configuration Schema](diagnostics-extension-schema-1dot2.md)  
-
-[Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-1dot3.md)  
+Different versions of Azure diagnostics use different configuration schemas. Schema 1.0 and 1.2 have been deprecated. For more information on version 1.3 and later, see [Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-1dot3.md)  
 
 ## Version history
 
@@ -181,7 +175,7 @@ There are some notable differences between how the connection string worked in A
 
 * In Azure SDK 2.4 and earlier, the connection string was used at runtime by the diagnostics plugin to get the storage account information for transferring diagnostics logs.
 * In Azure SDK 2.6 and later, Visual Studio uses the diagnostics connection string to configure the diagnostics extension with the appropriate storage account information during publishing. The connection string lets you define different storage accounts for different service configurations that Visual Studio will use when publishing. However, because the diagnostics plugin is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the Diagnostics Extension. You have to enable the extension separately through tools such as Visual Studio or PowerShell.
-* To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.<RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
+* To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
 * The connection string in the .cscfg file is also used by the Azure portal to access the diagnostics data so it can appear in the **Monitoring** tab. The connection string is needed to configure the service to show verbose monitoring data in the portal.
 
 #### Migrating projects to Azure SDK 2.6 and later

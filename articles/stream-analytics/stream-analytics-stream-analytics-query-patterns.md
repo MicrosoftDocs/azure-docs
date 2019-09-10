@@ -7,25 +7,25 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 05/16/2019
 ---
 # Query examples for common Stream Analytics usage patterns
 
-## Introduction
-Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. 
+Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) guide. 
 
-The query design can express simple pass-through logic to move event data from one input stream into another output data store. Or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows as in the TollApp sample. You can join data from multiple inputs to combine streaming events, and do lookups against static reference data to enrich the event values. Also you can write data to multiple outputs.
+The query design can express simple pass-through logic to move event data from one input stream into an output data store, or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows as in the [Build an IoT solution by using Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guide. You can join data from multiple inputs to combine streaming events, and you can do lookups against static reference data to enrich the event values. You can also write data to multiple outputs.
 
-This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
+This article outlines solutions to several common query patterns based on real-world scenarios.
 
-## Work with complex Data Types in JSON and AVRO 
+## Work with complex Data Types in JSON and AVRO
+
 Azure Stream Analytics supports processing events in CSV, JSON and Avro data formats.
-Both JSON and Avro may contain complex types such as nested objects (records) or arrays. In order to work with these complex data types, refer to the [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) article.
 
+Both JSON and Avro may contain complex types such as nested objects (records) or arrays. For more information on working with these complex data types, refer to the [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) article.
 
 ## Query example: Convert data types
-**Description**: Define the types of properties on the input stream.
-For example, the car weight is coming on the input stream as strings and needs to be converted to **INT** to perform **SUM** it up.
+
+**Description**: Define the types of properties on the input stream. For example, the car weight is coming on the input stream as strings and needs to be converted to **INT** to perform **SUM**.
 
 **Input**:
 
@@ -54,9 +54,10 @@ For example, the car weight is coming on the input stream as strings and needs t
 ```
 
 **Explanation**:
-Use a **CAST** statement in the **Weight** field to specify its data type. See the list of supported data types in [Data types (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+Use a **CAST** statement in the **Weight** field to specify its data type. See the list of supported data types in [Data types (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
 
-## Query example: Use Like/Not like to do pattern matching
+## Query example: Use LIKE/NOT LIKE to do pattern matching
+
 **Description**: Check that a field value on the event matches a certain pattern.
 For example, check that the result returns license plates that start with A and end with 9.
 
@@ -87,11 +88,11 @@ For example, check that the result returns license plates that start with A and 
 ```
 
 **Explanation**:
-Use the **LIKE** statement to check the **LicensePlate** field value. It should start with an A, then have any string of zero or more characters, and then end with a 9. 
+Use the **LIKE** statement to check the **LicensePlate** field value. It should start with the letter A, then have any string of zero or more characters, and then end with the number 9. 
 
 ## Query example: Specify logic for different cases/values (CASE statements)
-**Description**: Provide a different computation for a field, based on a particular criterion.
-For example, provide a string description for how many cars of the same make passed, with a special case for 1.
+
+**Description**: Provide a different computation for a field, based on a particular criterion. For example, provide a string description for how many cars of the same make passed, with a special case for 1.
 
 **Input**:
 
@@ -116,7 +117,7 @@ For example, provide a string description for how many cars of the same make pas
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -125,11 +126,11 @@ For example, provide a string description for how many cars of the same make pas
 ```
 
 **Explanation**:
-The **CASE** expression compares an expression to a set of simple expressions to determine the result. In this example, vehicle makes with a count of 1 returned a different string description than vehicle makes with a count other than 1. 
+The **CASE** expression compares an expression to a set of simple expressions to determine the result. In this example, vehicle makes with a count of 1 returned a different string description than vehicle makes with a count other than 1.
 
 ## Query example: Send data to multiple outputs
-**Description**: Send data to multiple output targets from a single job.
-For example, analyze data for a threshold-based alert and archive all events to blob storage.
+
+**Description**: Send data to multiple output targets from a single job. For example, analyze data for a threshold-based alert and archive all events to blob storage.
 
 **Input**:
 
@@ -169,7 +170,7 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
     SELECT
         Make,
-        System.TimeStamp AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -183,11 +184,10 @@ For example, analyze data for a threshold-based alert and archive all events to 
 ```
 
 **Explanation**:
-The **INTO** clause tells Stream Analytics which of the outputs to write the data to from this statement.
-The first query is a pass-through of the data received to an output that named **ArchiveOutput**.
-The second query does some simple aggregation and filtering, and it sends the results to a downstream alerting system.
+The **INTO** clause tells Stream Analytics which of the outputs to write the data to from this statement. The first query is a pass-through of the data received to an output named **ArchiveOutput**. The second query does some simple aggregation and filtering, and it sends the results to a downstream alerting system, **AlertOutput**.
 
 Note that you can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
+
 For example: 
 
 ```SQL
@@ -204,8 +204,8 @@ For example:
 ```
 
 ## Query example: Count unique values
-**Description**: Count the number of unique field values that appear in the stream within a time window.
-For example, how many unique makes of cars passed through the toll booth in a 2-second window?
+
+**Description**: Count the number of unique field values that appear in the stream within a time window. For example, how many unique makes of cars passed through the toll booth in a 2-second window?
 
 **Input**:
 
@@ -229,7 +229,7 @@ For example, how many unique makes of cars passed through the toll booth in a 2-
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -240,8 +240,8 @@ GROUP BY
 **COUNT(DISTINCT Make)** returns the number of distinct values in the **Make** column within a time window.
 
 ## Query example: Determine if a value has changed
-**Description**: Look at a previous value to determine if it is different than the current value.
-For example, is the previous car on the toll road the same make as the current car?
+
+**Description**: Look at a previous value to determine if it is different than the current value. For example, is the previous car on the toll road the same make as the current car?
 
 **Input**:
 
@@ -272,6 +272,7 @@ For example, is the previous car on the toll road the same make as the current c
 Use **LAG** to peek into the input stream one event back and get the **Make** value. Then compare it to the **Make** value on the current event and output the event if they are different.
 
 ## Query example: Find the first event in a window
+
 **Description**: Find the first car in every 10-minute interval.
 
 **Input**:
@@ -306,7 +307,7 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
         IsFirst(minute, 10) = 1
 ```
 
-Now let’s change the problem and find the first car of a particular make in every 10-minute interval.
+Now let's change the problem and find the first car of a particular make in every 10-minute interval.
 
 | LicensePlate | Make | Time |
 | --- | --- | --- |
@@ -330,6 +331,7 @@ Now let’s change the problem and find the first car of a particular make in ev
 ```
 
 ## Query example: Find the last event in a window
+
 **Description**: Find the last car in every 10-minute interval.
 
 **Input**:
@@ -377,9 +379,9 @@ Now let’s change the problem and find the first car of a particular make in ev
 **Explanation**:
 There are two steps in the query. The first one finds the latest time stamp in 10-minute windows. The second step joins the results of the first query with the original stream to find the events that match the last time stamps in each window. 
 
-## Query example: Detect the absence of events
-**Description**: Check that a stream has no value that matches a certain criterion.
-For example, have 2 consecutive cars from the same make entered the toll road within the last 90 seconds?
+## Query example: Locate correlated events in a stream
+
+**Description**: Find correlated events in a stream. For example, have 2 consecutive cars from the same make entered the toll road within the last 90 seconds?
 
 **Input**:
 
@@ -415,6 +417,7 @@ For example, have 2 consecutive cars from the same make entered the toll road wi
 Use **LAG** to peek into the input stream one event back and get the **Make** value. Compare it to the **MAKE** value in the current event, and then output the event if they are the same. You can also use **LAG** to get data about the previous car.
 
 ## Query example: Detect the duration between events
+
 **Description**: Find the duration of a given event. For example, given a web clickstream, determine the time spent on a feature.
 
 **Input**:  
@@ -434,7 +437,12 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+	feature,
+	DATEDIFF(
+	    second,
+	    LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+	    Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -491,8 +499,8 @@ For example, suppose that a bug resulted in all cars having an incorrect weight 
 Use **LAG** to view the input stream for 24 hours and look for instances where **StartFault** and **StopFault** are spanned by the weight < 20000.
 
 ## Query example: Fill missing values
-**Description**: For the stream of events that have missing values, produce a stream of events with regular intervals.
-For example, generate an event every 5 seconds that reports the most recently seen data point.
+
+**Description**: For the stream of events that have missing values, produce a stream of events with regular intervals. For example, generate an event every 5 seconds that reports the most recently seen data point.
 
 **Input**:
 
@@ -524,7 +532,7 @@ For example, generate an event every 5 seconds that reports the most recently se
 
 ```SQL
     SELECT
-        System.Timestamp AS windowEnd,
+        System.Timestamp() AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
@@ -532,12 +540,12 @@ For example, generate an event every 5 seconds that reports the most recently se
 ```
 
 **Explanation**:
-This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping window--Azure Stream Analytics") duration determines how far back the query looks to find the latest event (300 seconds in this example).
+This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](/stream-analytics-query/hopping-window-azure-stream-analytics) duration determines how far back the query looks to find the latest event (300 seconds in this example).
 
 
 ## Query example: Correlate two event types within the same stream
-**Description**: Sometimes alerts need to be generated based on multiple event types that occurred in a certain time range.
-For example, in an IoT scenario for home ovens, an alert must be generated when the fan temperature is less than 40 and the maximum power during the last 3 minutes is less than 10.
+
+**Description**: Sometimes alerts need to be generated based on multiple event types that occurred in a certain time range. For example, in an IoT scenario for home ovens, an alert must be generated when the fan temperature is less than 40 and the maximum power during the last 3 minutes is less than 10.
 
 **Input**:
 
@@ -573,7 +581,7 @@ For example, in an IoT scenario for home ovens, an alert must be generated when 
 ```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
-        System.TimeStamp AS windowTime,
+        System.TimeStamp() AS windowTime,
         deviceId,
         max(value) as maxPower
     FROM
@@ -607,13 +615,13 @@ WHERE
 ```
 
 **Explanation**:
-The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
+The first query `max_power_during_last_3_mins`, uses the [Sliding window](/stream-analytics-query/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
 The second query is joined to the first query to find the power value in the most recent window relevant for the current event. 
 And then, provided the conditions are met, an alert is generated for the device.
 
 ## Query example: Process events independent of Device Clock Skew (substreams)
-**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
 
+**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is five seconds behind TollID 1, and the device clock for TollID 3 is ten seconds behind TollID 1. 
 
 **Input**:
 
@@ -651,10 +659,11 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
 **Explanation**:
-The [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
+The [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
 
 ## Query example: Remove duplicate events in a window
-**Description**: When performing an operation such as calculating averages over events in a given time window, duplicate events should be filtered.
+
+**Description**: When performing an operation such as calculating averages over events in a given time window, duplicate events should be filtered. In the following example, the second event is a duplicate of the first.
 
 **Input**:  
 
@@ -687,7 +696,7 @@ With Temp AS (
     GROUP BY
         Value,
         DeviceId,
-        SYSTEM.TIMESTAMP
+        SYSTEM.TIMESTAMP()
 )
 
 SELECT
@@ -698,15 +707,25 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Explanation**:
-[COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
+[COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
+
+## Geofencing and geospatial queries
+Azure Stream Analytics provides built-in geospatial functions that can be used to implement scenarios such as fleet management, ride sharing, connected cars, and asset tracking. Geospatial data can be ingested in either GeoJSON or WKT formats as part of event stream or reference data. For more information, refer to the [Geofencing and geospatial aggregation scenarios with Azure Stream Analytics](geospatial-scenarios.md) article.
+
+## Language extensibility through JavaScript and C#
+Azure Stream Ananlytics query langugae can be extended with custom functions written in JavaScript or C# languages. For more information see the foolowing articles:
+* [Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md)
+* [Develop .NET Standard user-defined functions for Azure Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf-methods.md)
 
 ## Get help
+
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

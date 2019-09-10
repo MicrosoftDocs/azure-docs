@@ -40,23 +40,25 @@ Get more information on working with access management:
 A script action is Bash script that runs on the nodes in an HDInsight cluster. Characteristics and features of script actions are as follows:
 
 * Must be stored on a URI that's accessible from the HDInsight cluster. The following are possible storage locations:
+    
+    * For regular clusters:
+    
+      * ADLS Gen1: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is 
+      `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
 
-    * An Azure Data Lake Storage account that's accessible by the HDInsight cluster. For information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+        > [!IMPORTANT]  
+        > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
 
-        The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
-
-    * A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
-
-    * A public file-sharing service. Examples are Azure Blob, GitHub, OneDrive, and Dropbox.
+      * A public file-sharing service accessible through http:// paths. Examples are Azure Blob, GitHub, OneDrive.
 
         For example URIs, see [Example script action scripts](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight only supports Blob in Azure Storage accounts with a standard performance tier. 
-
+     * For clusters with ESP:
+         
+         * The wasb:// or wasbs:// or http[s]:// URIs are supported.
+            
 * Can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
 
 * Can be persisted or ad hoc.
@@ -144,10 +146,8 @@ HDInsight provides scripts to install the following components on HDInsight clus
 | --- | --- |
 | Add an Azure Storage account |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. See [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md). |
 | Install Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. See [Install and use Hue on HDInsight Hadoop clusters](hdinsight-hadoop-hue-linux.md). |
-| Install Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. See [Install and use Presto on Hadoop-based HDInsight clusters](hdinsight-hadoop-install-presto.md). |
 | Install Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. See [Install Apache Giraph on HDInsight Hadoop clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Preload Hive libraries |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. See [Add custom Apache Hive libraries when creating your HDInsight cluster](hdinsight-hadoop-add-hive-libraries.md). |
-| Install or update Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. See [Install or update Mono on HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## Use a script action during cluster creation
 
@@ -174,7 +174,7 @@ This section explains the different ways you can use script actions when you cre
     | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
     | Name |Specify a name for the script action. |
     | Bash script URI |Specify the URI of the script. |
-    | Head/Worker/Zookeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
+    | Head/Worker/ZooKeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
     | Parameters |Specify the parameters, if required by the script. |
 
     Use the __Persist this script action__ entry to make sure that the script is applied during scaling operations.
@@ -449,7 +449,7 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
 * The storage logs are available at `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Script action logs](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
     Under this directory, the logs are organized separately for **headnode**, **worker node**, and **zookeeper node**. See the following examples:
 

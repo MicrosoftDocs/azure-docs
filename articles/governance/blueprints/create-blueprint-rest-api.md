@@ -1,17 +1,14 @@
 ---
 title: Create a blueprint with REST API
 description: Use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.custom: seodec18
 ---
-# Define and Assign an Azure Blueprint with REST API
+# Quickstart: Define and Assign an Azure Blueprint with REST API
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Resource Manager templates, policy,
@@ -489,7 +486,7 @@ To remove the blueprint itself, use the following REST API operation:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](./concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).

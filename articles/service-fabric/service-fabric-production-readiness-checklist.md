@@ -3,7 +3,7 @@ title: Azure Service Fabric Production Readiness Checklist| Microsoft Docs
 description: Get your Service Fabric application and cluster production ready by following best practices.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft 
+author: athinanthny 
 manager: chakdan
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
-ms.author: aljo
+ms.date: 6/05/2019
+ms.author: atsenthi
 ---
 
 # Production readiness checklist
@@ -22,14 +22,8 @@ ms.author: aljo
 Is your application and cluster ready to take production traffic? Running and testing your application and your cluster doesn't necessarily mean it's ready to go into production. Keep your application and cluster running smoothly by going through the following checklist. We strongly recommend all these items to be checked off. Obviously, you can choose to use alternative solutions for a particular line item  (for example, your own diagnostics frameworks).
 
 
-## Pre-requisites for production
-1. [Azure Service Fabric Security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) are: 
-1. Use X.509 certificates
-1. Configure security policies
-1. Configure SSL for Azure Service Fabric
-1. Use network isolation and security with Azure Service Fabric
-1. Set up Azure Key Vault for security
-1. Microsoft.Network/loadBalancersAssign users to roles
+## Prerequisites for production
+1. Azure Service Fabric best practices: [Application Design](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.md), [Capacity planning and scaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), and [Monitoring and Diagnostics](./service-fabric-best-practices-monitoring.md). 
 1. Implement the Reliable Actors security configuration if using the Actors programming model
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
 1. Use a D2v2 or higher SKU for the primary node type. It is recommended to pick a SKU with at least 50 GB hard disk capacity.

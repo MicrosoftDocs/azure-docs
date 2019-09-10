@@ -1,19 +1,18 @@
 ---
 title: Use Apache Spark to read and write data to Azure SQL database 
 description: Learn how to set up a connection between HDInsight Spark cluster and an Azure SQL database to read data, write data, and stream data into a SQL database
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+ms.date: 05/21/2019
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL database
 
-Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQL database and then read, write, and stream data into the SQL database. The instructions in this article use a [Jupyter Notebook](https://jupyter.org/) to run the Scala code snippets. However, you can create a standalone application in Scala or Python and perform the same tasks. 
+Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQL database and then read, write, and stream data into the SQL database. The instructions in this article use a [Jupyter Notebook](https://jupyter.org/) to run the Scala code snippets. However, you can create a standalone application in Scala or Python and perform the same tasks.
 
 ## Prerequisites
 
@@ -32,7 +31,7 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 Start by creating a [Jupyter Notebook](https://jupyter.org/) associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
 
 1. From the [Azure portal](https://portal.azure.com/), open your cluster.
-1. Select **Jupyter notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, click **Overview** from the left menu on the blade. If prompted, enter the admin credentials for the cluster.
+1. Select **Jupyter notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, select **Overview** from the left menu. If prompted, enter the admin credentials for the cluster.
 
     ![Jupyter notebook on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter notebook on Spark")
    
@@ -91,7 +90,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    
     You see an output similar to the following:
 
-    ![Provide a name for the notebook](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "Provide a name for the notebook")
+    ![schema output](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "schema output")
 
 1. You can also perform operations like, retrieve the top 10 rows.
 
@@ -144,11 +143,11 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
     a. Start SSMS and connect to the Azure SQL database by providing connection details as shown in the screenshot below.
 
-    ![Connect to SQL database using SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS")
+    ![Connect to SQL database using SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Connect to SQL database using SSMS1")
 
     b. From the Object Explorer, expand the Azure SQL database and the Table node to see the **dbo.hvactable** created.
 
-    ![Connect to SQL database using SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS")
+    ![Connect to SQL database using SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS2")
 
 1. Run a query in SSMS to see the columns in the table.
 
@@ -160,7 +159,7 @@ In this section, we stream data into the **hvactable** that you already created 
 
 1. As a first step, make sure there are no records in the **hvactable**. Using SSMS, run the following query on the table.
 
-       DELETE FROM [dbo].[hvactable]
+       TRUNCATE TABLE [dbo].[hvactable]
 
 1. Create a new Jupyter notebook on the HDInsight Spark cluster. In a code cell, paste the following snippet and then press **SHIFT + ENTER**:
 
@@ -170,7 +169,7 @@ In this section, we stream data into the **hvactable** that you already created 
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. We stream data from the **HVAC.csv** into the hvactable. HVAC.csv file is available on the cluster at */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. In the following snippet, we first get the schema of the data to be streamed. Then, we create a streaming dataframe using that schema. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
+1. We stream data from the **HVAC.csv** into the hvactable. HVAC.csv file is available on the cluster at `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. In the following snippet, we first get the schema of the data to be streamed. Then, we create a streaming dataframe using that schema. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

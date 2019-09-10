@@ -17,26 +17,11 @@
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
-  href: release-notes.md
   items:
     - name: Recent Release
       href: release-notes-10-0-10106-0.md  
     - name: Gen2 region upgrade schedule
       href: gen2-migration-schedule.md
-    - name: Archived Release Notes
-      items:   
-      - name: September 2018 
-        href: release-notes-september-2018.md
-      - name: August 2018 
-        href: release-notes-august-2018.md
-      - name: July 2018 
-        href: release-notes-july-2018.md
-      - name: June 2018 
-        href: release-notes-june-2018.md
-      - name: May 2018
-        href: release-notes-may-2018.md
-      - name: April 2018
-        href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -60,9 +45,9 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
-  - name: Workload Management
+  - name: Workload management
     items: 
-    - name: Create workload classifier (Preview)
+    - name: Create workload classifier
       items:
       - name: T-SQL
         href: quickstart-create-a-workload-classifier-tsql.md
@@ -72,28 +57,48 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-manage-security.md
-    - name: Access control
-      href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Firewall rules
-      href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json      
-    - name: Virtual network service endpoints
-      href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Authentication
-      href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Azure AD
-      href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Logins and users
-      href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Multi-factor auth
-      href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Advanced data security
+      items:
+      - name: Overview
+        href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Data discovery & classification
+        href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Vulnerability assessment
+        href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Advanced Threat Protection
+        href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
       href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Data Discovery & Classification
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
-    - name: Column-level security
-      href: column-level-security.md
-    - name: Row-level security
-      href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
+    - name: Network security
+      items:
+      - name: Firewall rules
+        href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Virtual network service endpoints
+        href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Authentication
+      items:
+      - name: Overview
+        href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Azure Active Directory
+        href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Logins and users
+        href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Multi-Factor Auth
+        href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Access control
+      items:
+      - name: Overview
+        href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: Column-level security
+        href: column-level-security.md
+      - name: Row-level security
+        href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
+    - name: Data protection
+      items:
+      - name: Transparent Data Encryption (TDE) overview
+        href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+      - name: TDE with Bring Your Own Key
+        href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
   - name: Data loading
     items:
     - name: Overview
@@ -108,6 +113,28 @@
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: sql-data-warehouse-best-practices-development.md
+    - name: JSON
+      items:
+      - name: JSON
+        href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+      - name: ISJSON
+        href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+      - name: JSON_VALUE
+        href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+      - name: JSON_QUERY
+        href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+      - name: JSON_MODIFY
+        href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+      - name: OPENJSON
+        href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+    - name: Materialized view
+      items:
+      - name: Create
+        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+      - name: Alter
+        href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+    - name: Result set caching
+      href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
       items:
       - name: Overview
@@ -138,7 +165,7 @@
         href: sql-data-warehouse-develop-stored-procedures.md
       - name: Transactions
         href: sql-data-warehouse-develop-transactions.md
-      - name: Transactions Best Practices
+      - name: Transactions best practices
         href: sql-data-warehouse-develop-best-practices-transactions.md
       - name: User-defined schemas
         href: sql-data-warehouse-develop-user-defined-schemas.md
@@ -158,9 +185,9 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
-    - name: Workload Classification (Preview)
+    - name: Workload classification
       href: sql-data-warehouse-workload-classification.md
-    - name: Workload Importance (Preview)
+    - name: Workload importance
       href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
@@ -196,7 +223,7 @@
     items:
     - name: Configure Azure AD auth
       href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Conditional access
+    - name: Conditional Access
       href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Virtual network rules by PowerShell
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
@@ -204,15 +231,13 @@
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
       href: sql-data-warehouse-encryption-tde-tsql.md
-    - name: Threat detection
-      href: sql-data-warehouse-security-threat-detection.md
   - name: Load data
     items:
     - name: New York taxi cab data
       href: load-data-from-azure-blob-storage-using-polybase.md
     - name: Contoso public data
       href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-    - name: Azure Data Lake Storage Gen1
+    - name: Azure Data Lake Storage
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
     - name: Azure Databricks
       href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
@@ -228,30 +253,52 @@
       href: sql-data-warehouse-connect-overview.md
     - name: Connection strings
       href: sql-data-warehouse-connection-strings.md
-    - name: sqlcmd
-      href: sql-data-warehouse-get-started-connect-sqlcmd.md
-    - name: Query with SSMS
-      href: sql-data-warehouse-query-ssms.md
-    - name: Query with Visual Studio
-      href: sql-data-warehouse-query-visual-studio.md
-    - name: Install Visual studio
-      href: sql-data-warehouse-install-visual-studio.md
-  - name: Manage workload
+    - name: Change management and deployment
+      items:
+      - name: Install Visual Studio SSDT
+        href: sql-data-warehouse-install-visual-studio.md
+      - name: Source control integration
+        href: sql-data-warehouse-source-control-integration.md
+      - name: Continuous integration and deployment
+        href: sql-data-warehouse-continuous-integration-and-deployment.md
+    - name: Connect and query
+      items:
+      - name: Visual Studio SSDT
+        href: sql-data-warehouse-query-visual-studio.md
+      - name: SSMS
+        href: sql-data-warehouse-query-ssms.md
+      - name: sqlcmd
+        href: sql-data-warehouse-get-started-connect-sqlcmd.md
+  - name: Workload management
     items:
     - name: Analyze your workload
-      href: analyze-your-workload.md    
+      href: analyze-your-workload.md 
+    - name: Manage and monitor workload importance
+      href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md 
+    - name: Configure workload importance
+      href: sql-data-warehouse-how-to-configure-workload-importance.md 
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
-    - name: Restore your data warehouse
-      href: sql-data-warehouse-restore.md
+    - name: Manage Compute
+      href: manage-compute-with-azure-functions.md
     - name: Monitor your workload - Portal 
       href: sql-data-warehouse-monitor-workload-portal.md
     - name: Monitor your workload - DMVs 
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
       href: sql-data-warehouse-how-to-monitor-cache.md
+  - name: Backup and restore
+    items:
+    - name: Create restore points
+      href: sql-data-warehouse-restore-points.md
+    - name: Restore an existing data warehouse
+      href: sql-data-warehouse-restore-active-paused-dw.md
+    - name: Restore a deleted data warehouse 
+      href: sql-data-warehouse-restore-deleted-dw.md
+    - name: Restore from a geo-backup 
+      href: sql-data-warehouse-restore-from-geo-backup.md 
   - name: Integrate
     items:
     - name: Use machine learning
@@ -274,6 +321,8 @@
       href: sql-data-warehouse-troubleshoot-connectivity.md   
 - name: Reference
   items:
+  - name: Database collation types
+    href: sql-data-warehouse-reference-collation-types.md
   - name: T-SQL
     items:
     - name: Full reference

@@ -6,15 +6,15 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-
-ms.assetid: na
+ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
-ms.author: v-ant-msft
+ms.date: 03/27/2019
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Zscaler Beta for automatic user provisioning
@@ -23,46 +23,41 @@ The objective of this tutorial is to demonstrate the steps to be performed in Zs
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-*   An Azure AD tenant
-*   A Zscaler Beta tenant
-*   A user account in Zscaler Beta with Admin permissions
+* An Azure AD tenant
+* A Zscaler Beta tenant
+* A user account in Zscaler Beta with Admin permissions
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the Zscaler Beta SCIM API, which is available to Zscaler Beta developers for accounts with the Enterprise package.
 
 ## Adding Zscaler Beta from the gallery
+
 Before configuring Zscaler Beta for automatic user provisioning with Azure AD, you need to add Zscaler Beta from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Zscaler Beta from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications** > **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications Section][2]
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add Zscaler Beta, click the **New application** button on the top of the dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Zscaler Beta**.
+4. In the search box, type **Zscaler Beta**, select **Zscaler Beta** from result panel then click **Add** button to add the application.
 
-	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/app-search.png)
-
-5. In the results panel, select **Zscaler Beta**, and then click the **Add** button to add Zscaler Beta to your list of SaaS applications.
-
-	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/app-search-results.png)
-
-	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/app-creation.png)
+	![Zscaler Beta in the results list](common/search-new-app.png)
 
 ## Assigning users to Zscaler Beta
 
@@ -70,13 +65,13 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler Beta. Once decided, you can assign these users and/or groups to Zscaler Beta by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### Important tips for assigning users to Zscaler Beta
 
-*	It is recommended that a single Azure AD user is assigned to Zscaler Beta to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Zscaler Beta to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Zscaler Beta, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Zscaler Beta, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Zscaler Beta
 
@@ -87,11 +82,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Zscaler Beta in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Zscaler Beta**.
 
-2. Select Zscaler Beta from your list of SaaS applications.
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/app-instance-search.png)
+2. In the applications list, select **Zscaler Beta**.
+
+	![The Zscaler Beta link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
@@ -103,20 +100,20 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Zscaler Beta account as described in Step 6.
 
-6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler Beta portal user interface and click on **SAML** under **Authentication Type**. 
+6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler Beta portal user interface and click on **SAML** under **Authentication Type**.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
-	
-	Click on **Configure SAML** to open the **Configuration SAML** options. 
+
+	Click on **Configure SAML** to open the **Configuration SAML** options.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
-	
+
 	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL**, and **Bearer Token**  to **Secret Token** in the Azure portal.
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
-	
+
 8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/notification.png)

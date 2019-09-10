@@ -1,11 +1,11 @@
 ---
-title: Architecture for Hyper-V disaster recovery to a secondary on-premises site with Azure Site Recovery | Microsoft Docs
+title: Architecture for Hyper-V disaster recovery to a secondary on-premises site with Azure Site Recovery 
 description: This article provides an overview of the architecture for disaster recovery of on-premises Hyper-V VMs to a secondary System Center VMM site with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
 ---
 

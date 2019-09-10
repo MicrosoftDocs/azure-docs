@@ -342,7 +342,7 @@ So far, the chat app works anonymously. In Azure, you will use [App Service Auth
 
 When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 
-1. In VS Code, open **SignalRInfo/function.json**.
+1. In VS Code, open **negotiate/function.json**.
 
 1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 

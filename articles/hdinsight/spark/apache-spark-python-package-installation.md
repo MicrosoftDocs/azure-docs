@@ -1,18 +1,16 @@
 ---
 title: Script action - Install Python packages with Jupyter on Azure HDInsight 
 description: Step-by-step instructions on how to use script action to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
-services: hdinsight
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/20/2019
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 04/22/2019
 ---
 
-# Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight
+# Script Action to install external Python packages for Jupyter notebooks in Apache Spark on HDInsight
+
 > [!div class="op_single_selector"]
 > * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Using Script Action](apache-spark-python-package-installation.md)
@@ -72,10 +70,10 @@ There are two types of open-source components that are available in the HDInsigh
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. Select **Create**.  Visit the documentation on [how to use custom script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+5. Select **Create**.  Visit the documentation on [how to use custom script actions](../hdinsight-hadoop-customize-cluster-linux.md).
 
 6. Wait for the script to complete.  The  **Script actions** pane will state **New script actions can be submitted after the current cluster operation finishes** while the script is executing.  A progress bar can be viewed from the Ambari UI **Background Operations** window.
 

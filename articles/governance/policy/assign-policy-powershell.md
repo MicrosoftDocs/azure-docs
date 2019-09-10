@@ -1,16 +1,14 @@
 ---
 title: Create policy for non-compliant resources with Azure PowerShell
 description: Use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
-# Create a policy assignment to identify non-compliant resources using Azure PowerShell
+# Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
 The first step in understanding compliance in Azure is to identify the status of your resources. In
 this quickstart, you create a policy assignment to identify virtual machines that aren't using
@@ -22,16 +20,15 @@ This guide explains how to use Az module to create a policy assignment.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 - Before you start, make sure that the latest version of Azure PowerShell is installed. See [Install Azure PowerShell module](/powershell/azure/install-az-ps)
   for detailed information.
-- Register the Policy Insights resource provider using Azure PowerShell. Registering the resource
-  provider makes sure that your subscription works with it. To register a resource provider, you
-  must have permission to the register resource provider operation. This operation is included in
-  the Contributor and Owner roles. Run the following command to register the resource provider:
+- Register the Azure Policy Insights resource provider using Azure PowerShell. Registering the
+  resource provider makes sure that your subscription works with it. To register a resource
+  provider, you must have permission to the register resource provider operation. This operation is
+  included in the Contributor and Owner roles. Run the following command to register the resource
+  provider:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered

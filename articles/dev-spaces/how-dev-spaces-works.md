@@ -3,10 +3,9 @@ title: "How Azure Dev Spaces works and is configured"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "03/04/2019"
+ms.date: 03/04/2019
 ms.topic: "conceptual"
 description: "Describes the processes that power Azure Dev Spaces and how they are configured in the azds.yaml configuration file"
 keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -25,7 +24,7 @@ This article describes the processes that power Azure Dev Spaces and how those p
 
 * [Java with CLI and Visual Studio Code](quickstart-java.md)
 * [.NET Core with CLI and Visual Studio Code](quickstart-netcore.md)
-* [.NET Core with Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET Core with Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js with CLI and Visual Studio Code](quickstart-nodejs.md)
 
 ## How Azure Dev Spaces works
@@ -62,7 +61,7 @@ While your application is running, the client-side tooling also:
 You can use the client-side tooling from the command line as part of the `azds` command. You can also use the client-side tooling with:
 
 * Visual Studio Code using the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 with [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio with [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
 
 Here's the basic flow for setting up and using Azure Dev Spaces:
 1. Prepare your AKS cluster for Azure Dev Spaces
@@ -76,7 +75,7 @@ We'll cover more details of how Azure Dev Spaces works in each of the below sect
 ## Prepare your AKS cluster
 
 Preparing your AKS cluster involves:
-* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions].
 * Verifying you are running Kubernetes 1.10.3 or later.
 * Enabling Azure Dev Spaces on your cluster using `az aks use-dev-spaces`
 
@@ -90,7 +89,11 @@ When Azure Dev Spaces is enabled on your AKS cluster, it installs the controller
 
 * Creates or designates a Kubernetes namespace to use as a dev space.
 * Removes any Kubernetes namespace named *azds*, if it exists, and creates a new one.
-* Deploys a Kubernetes initializer object.
+* Deploys a Kubernetes webhook configuration.
+* Deploys a webhook admission server.
+	
+
+It also uses the same service principal that your AKS cluster uses to make service calls to other Azure Dev Spaces components.
 
 ![Azure Dev Spaces prepare cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
@@ -98,9 +101,9 @@ In order to use Azure Dev Spaces, there must be at least one dev space. Azure De
 
 By default, the controller creates a dev space named *default* by upgrading the existing *default* Kubernetes namespace. You can use the client-side tooling to create new dev spaces and remove existing dev spaces. Due to a limitation in Kubernetes, the *default* dev space cannot be removed. The controller also removes any existing Kubernetes namespaces named *azds* to avoid conflicts with the `azds` command used by the client-side tooling.
 
-The Kubernetes initializer object is used to inject pods with three containers during deployment for instrumentation: a devspaces-proxy container, a devspaces-proxy-init container, and a devspaces-build container. **All three of these containers run with root access on your AKS cluster.**
+The Kubernetes webhook admission server is used to inject pods with three containers during deployment for instrumentation: a devspaces-proxy container, a devspaces-proxy-init container, and a devspaces-build container. **All three of these containers run with root access on your AKS cluster.** They also use the same service principal that your AKS cluster uses to make service calls to other Azure Dev Spaces components.
 
-![Azure Dev Spaces Kubernetes initializer](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure Dev Spaces Kubernetes webhook admission server](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 The devspaces-proxy container is a sidecar container that handles all TCP traffic into and out of the application container and helps perform routing. The devspaces-proxy container reroutes HTTP messages if certain spaces are being used. For example, it can help route HTTP messages between applications in parent and child spaces. All non-HTTP traffic passes through devspaces-proxy unmodified. The devspaces-proxy container also logs all inbound and outbound HTTP messages and sends them to the client-side tooling as traces. These traces can then be viewed by the developer to inspect the behavior of the application.
 
@@ -111,7 +114,7 @@ The devspaces-build container is an init container and has the project source co
 > [!NOTE]
 > Azure Dev Spaces uses the same node to build your application's container and run it. As a result, Azure Dev Spaces does not need an external container registry for building and running your application.
 
-The Kubernetes initializer object listens for any new pod that's created in the AKS cluster. If that pod is deployed to any namespace with the *azds.io/space=true* label, it injects that pod with the additional containers. The devspaces-build container is only injected if the application's container is run using the client-side tooling.
+The Kubernetes webhook admission server listens for any new pod that's created in the AKS cluster. If that pod is deployed to any namespace with the *azds.io/space=true* label, it injects that pod with the additional containers. The devspaces-build container is only injected if the application's container is run using the client-side tooling.
 
 Once you have prepared your AKS cluster, you can use the client-side tooling to prepare and run your code in your dev space.
 
@@ -202,7 +205,7 @@ The `up` command uploads your application source files and other artifacts neede
 1. Builds the container for your application.
 1. Deploys your application to the dev space.
 1. Creates a publicly accessible DNS name for your application endpoint if configured.
-1. Uses *port-forward* to provide access to your application endpoint using http://locahost.
+1. Uses *port-forward* to provide access to your application endpoint using http://localhost.
 1. Forwards stdout and stderr to the client-side tooling.
 
 
@@ -215,7 +218,7 @@ At a more granular level, here is what happens when you run `azds up`:
 1. Files are synchronized from the user’s machine to an Azure file storage that is unique to the user’s AKS cluster. The source code, Helm chart, and configuration files are uploaded. More details on the synchronization process are available in the next section.
 1. The controller creates a request to start a new session. This request contains several properties, including a unique ID, space name, path to source code, and a debugging flag.
 1. The controller replaces the *$(tag)* placeholder in the Helm chart with the unique session ID and installs the Helm chart for your service. Adding a reference to the unique session ID to the Helm chart allows the container deployed to the AKS cluster for this specific session to be tied back to the session request and associated information.
-1. During the installation of the Helm chart, the Kubernetes initializer object adds additional containers to your application's pod for instrumentation and access to your project's source code. The devspaces-proxy and devspaces-proxy-init containers are added to provide HTTP tracing and space routing. The devspaces-build container is added to provide the pod with access to the Docker instance and project source code for building your application's container.
+1. During the installation of the Helm chart, the Kubernetes webhook admission server adds additional containers to your application's pod for instrumentation and access to your project's source code. The devspaces-proxy and devspaces-proxy-init containers are added to provide HTTP tracing and space routing. The devspaces-build container is added to provide the pod with access to the Docker instance and project source code for building your application's container.
 1. When the application's pod is started, the devspaces-build container and devspaces-proxy-init container are used to build the application container. The application container and devspaces-proxy containers are then started.
 1. After the application container has started, the client-side functionality uses the Kubernetes *port-forward* functionality to provide HTTP access to your application over http://localhost. This port forwarding connects your development machine to the service in your dev space.
 1. When all containers in the pod have started, the service is running. At this point, the client-side functionality begins to stream the HTTP traces, stdout, and stderr. This information is displayed by the client-side functionality for the developer.
@@ -329,7 +332,7 @@ The *install.set* property allows you to configure one or more values you want r
 
 In the above example, the *install.set.replicaCount* property tells the controller how many instances of your application to run in your dev space. Depending on your scenario, you can increase this value, but it will have an impact on attaching a debugger to your application's pod. For more information, see the [troubleshooting article](troubleshooting.md).
 
-In the generated Helm chart, the container image is set to *{{ .Values.image.repository }}:{{ .Values.image.tag }}*. The `azds.yaml` file defines *install.set.image.tag* property as *$(tag)* by default, which is used as the value for *{{ .Values.image.tag }}*. By setting the *install.set.image.tag* property in this way, it allows the container image for your application to be tagged in a distinct way when running Azure Dev Spaces. In this specific case, the image is tagged as *<value from image.repository>:$(tag)*. You must use the *$(tag)* variable as the value of   *install.set.image.tag* in order for Dev Spaces recognize and locate the container in the AKS cluster.
+In the generated Helm chart, the container image is set to *{{ .Values.image.repository }}:{{ .Values.image.tag }}*. The `azds.yaml` file defines *install.set.image.tag* property as *$(tag)* by default, which is used as the value for *{{ .Values.image.tag }}*. By setting the *install.set.image.tag* property in this way, it allows the container image for your application to be tagged in a distinct way when running Azure Dev Spaces. In this specific case, the image is tagged as *\<value from image.repository>:$(tag)*. You must use the *$(tag)* variable as the value of   *install.set.image.tag* in order for Dev Spaces recognize and locate the container in the AKS cluster.
 
 In the above example, `azds.yaml` defines *install.set.ingress.hosts*. The *install.set.ingress.hosts* property defines a host name format for public endpoints. This property also uses *$(spacePrefix)*, *$(rootSpacePrefix)*, and *$(hostSuffix)*, which are values provided by the controller. 
 
@@ -396,11 +399,11 @@ ingress:
 
 ## Debug your code
 
-For Java, .NET and Node.js applications, you can debug your application running directly in your dev space using Visual Studio Code or Visual Studio 2017. Visual Studio Code and Visual Studio 2017 provide tooling to connect to your dev space, launch your application, and attach a debugger. After running `azds prep`, you can open your project in Visual Studio Code or Visual Studio 2017. Visual Studio Code or Visual Studio 2017 will generate their own configuration files for connecting which is separate from running `azds prep`. From within Visual Studio Code or Visual Studio 2017, you can set breakpoints and launch your application to your dev space.
+For Java, .NET and Node.js applications, you can debug your application running directly in your dev space using Visual Studio Code or Visual Studio. Visual Studio Code and Visual Studio provide tooling to connect to your dev space, launch your application, and attach a debugger. After running `azds prep`, you can open your project in Visual Studio Code or Visual Studio. Visual Studio Code or Visual Studio will generate their own configuration files for connecting which is separate from running `azds prep`. From within Visual Studio Code or Visual Studio, you can set breakpoints and launch your application to your dev space.
 
 ![Debugging your code](media/get-started-node/debug-configuration-nodejs2.png)
 
-When you launch your application using Visual Studio Code or Visual Studio 2017 for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio 2017 also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder. 
+When you launch your application using Visual Studio Code or Visual Studio for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder.
 
 The debugger image is automatically determined by the client-side tooling. It uses a method similar to the one used during Dockerfile and Helm chart generate when running `azds prep`. After the debugger is mounted in the application's image, it is run using `azds exec`.
 
@@ -425,12 +428,16 @@ To get started using Azure Dev Spaces, see the following quickstarts:
 
 * [Java with CLI and Visual Studio Code](quickstart-java.md)
 * [.NET Core with CLI and Visual Studio Code](quickstart-netcore.md)
-* [.NET Core with Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET Core with Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js with CLI and Visual Studio Code](quickstart-nodejs.md)
 
 To get started with team development, see the following how-to articles:
 
 * [Team Development - Java with CLI and Visual Studio Code](team-development-java.md)
 * [Team Development - .NET Core with CLI and Visual Studio Code](team-development-netcore.md)
-* [Team Development - .NET Core with Visual Studio 2017](team-development-netcore-visualstudio.md)
+* [Team Development - .NET Core with Visual Studio](team-development-netcore-visualstudio.md)
 * [Team Development - Node.js with CLI and Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

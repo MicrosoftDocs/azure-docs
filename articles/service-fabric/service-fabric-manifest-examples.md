@@ -8,7 +8,6 @@ manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
@@ -35,7 +34,7 @@ The following is an index of the features shown and the example manifest(s) they
 |[Declare a data package](service-fabric-application-and-service-manifests.md)|[VotingData service manifest](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[Override environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Container Application manifest](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Configure container port-to-host mapping](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [Container Application manifest](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[Configure container registry authentication](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[Container Application manifest](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[Configure container registry authentication](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[Container Application manifest](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Set isolation mode](service-fabric-get-started-containers.md#configure-isolation-mode)|[Container Application manifest](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Specify OS build-specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[Container Application manifest](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Set environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Container FrontEndService service manifest](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [Container BackEndService service manifest](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

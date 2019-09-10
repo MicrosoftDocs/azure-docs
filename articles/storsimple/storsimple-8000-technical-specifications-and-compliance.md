@@ -21,6 +21,8 @@ ms.author: alkohli
 
 ## Overview
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, storage capacity, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling.
 
 ## Power and Cooling Module specifications
@@ -169,7 +171,7 @@ The device complies with EN55024.
 
 ## AC power cord compliance
 
-The plug and the complete power cord assembly must meet the standards appropriate for the country in which the device is being used, and they must have safety approvals that are acceptable in that country. The following tables list standards for the USA and Europe.
+The plug and the complete power cord assembly must meet the standards appropriate for the country/region in which the device is being used, and they must have safety approvals that are acceptable in that country/region. The following tables list standards for the USA and Europe.
 
 ### AC power cords - USA (must be NRTL listed)
 

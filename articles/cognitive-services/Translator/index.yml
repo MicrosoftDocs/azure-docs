@@ -5,14 +5,13 @@ metadata:
   title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Translator Text to translate text in multiple languages.
   services: cognitive-services
-  author: v-pawal
-  manager: Chris.Wendt
+  author: swmachan
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 02/21/2019
-  ms.author: v-jansko
+  ms.date: 06/04/2019
+  ms.author: swmachan
 abstract:
   description: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Speech Services</a>. For the list of supported languages, both for neural and statistical machine translation, see <a href="languages.md">Supported languages</a>.
 
@@ -61,40 +60,54 @@ sections:
         src: media/index/logo_go.svg
       title: Go
     rows:
-    - title: Translate text from one language to another
+    - title: Translate text
       values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-java-translate
-      - href: quickstart-nodejs-translate
-      - href: quickstart-python-translate
-      - href: quickstart-go-translate
+      - href: quickstart-translate?pivots=programming-language-csharp
+      - href: quickstart-translate?pivots=programming-language-java
+      - href: quickstart-translate?pivots=programming-language-nodejs
+      - href: quickstart-translate?pivots=programming-language-python
+      - href: quickstart-translate?pivots=programming-language-go
     - title: Convert text from one script to another
       values:
-      - href: quickstart-csharp-transliterate
-      - href: quickstart-java-transliterate
-      - href: quickstart-nodejs-transliterate
-      - href: quickstart-python-transliterate
-      - href: quickstart-go-transliterate
-    - title: Identify language of text
+      - href: quickstart-transliterate?pivots=programming-language-csharp
+      - href: quickstart-transliterate?pivots=programming-language-java
+      - href: quickstart-transliterate?pivots=programming-language-nodejs
+      - href: quickstart-transliterate?pivots=programming-language-python
+      - href: quickstart-transliterate?pivots=programming-language-go
+    - title: Detect text language
       values:
-      - href: quickstart-csharp-detect
-      - href: quickstart-java-detect
-      - href: quickstart-nodejs-detect
-      - href: quickstart-python-detect
-      - href: quickstart-go-detect
+      - href: quickstart-detect?pivots=programming-language-csharp
+      - href: quickstart-detect?pivots=programming-language-java
+      - href: quickstart-detect?pivots=programming-language-nodejs
+      - href: quickstart-detect?pivots=programming-language-python
+      - href: quickstart-detect?pivots=programming-language-go
     - title: Get alternate translations and usage
       values:
-      - href: quickstart-csharp-dictionary
-      - href: quickstart-java-dictionary
-      - href: quickstart-nodejs-dictionary
-      - href: quickstart-python-dictionary
-      - href: quickstart-go-dictionary
+      - href: quickstart-dictionary?pivots=programming-language-csharp
+      - href: quickstart-dictionary?pivots=programming-language-java
+      - href: quickstart-dictionary?pivots=programming-language-nodejs
+      - href: quickstart-dictionary?pivots=programming-language-python
+      - href: quickstart-dictionary?pivots=programming-language-go
+    - title: Determine sentence length
+      values:
+      - href: quickstart-sentences?pivots=programming-language-csharp
+      - href: quickstart-sentences?pivots=programming-language-java
+      - href: quickstart-sentences?pivots=programming-language-nodejs
+      - href: quickstart-sentences?pivots=programming-language-python
+      - href: quickstart-sentences?pivots=programming-language-go
+    - title: Get a full list of supported languages
+      values:
+      - href: quickstart-languages?pivots=programming-language-csharp
+      - href: quickstart-languages?pivots=programming-language-java
+      - href: quickstart-languages?pivots=programming-language-nodejs
+      - href: quickstart-languages?pivots=programming-language-python
+      - href: quickstart-languages?pivots=programming-language-go
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: "Learn how to develop applications using the Translator Text API:"
   - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Write a WPF application for Translator Text using C#</a>
+    text: <li><a href="tutorial-wpf-translation-csharp.md">Create a WPF app for Translator Text, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Create a Flask translation app, Python</a></li>
 - title: Reference
   items:
   - type: paragraph

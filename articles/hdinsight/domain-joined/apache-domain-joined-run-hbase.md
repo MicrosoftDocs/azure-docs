@@ -1,15 +1,15 @@
 ---
-title: Configure Apache HBase policies in HDInsight with Enterprise Security Package - Azure
-description: Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
-services: hdinsight
+title: Tutorial - Configure Apache HBase with Enterprise Security Package - Azure
+description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 09/04/2019
 ---
 
-# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache HBase clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to different column-families in an HBase table.
 
@@ -155,7 +155,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit sales_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`.
+2. Open the HBase shell and scan the table `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -197,7 +197,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit marketing_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`:
+2. Open the HBase shell and scan the table `Customers`:
 
     ```hbaseshell
     hbase shell

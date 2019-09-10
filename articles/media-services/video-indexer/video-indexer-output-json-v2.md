@@ -1,5 +1,5 @@
 ---
-title: Examine the Video Indexer output produced by v2 API
+title: Examine the Azure Media Services Video Indexer output produced by v2 API
 titlesuffix: Azure Media Services
 description: This topic examines the Video Indexer output produced by v2 API.
 services: media-services
@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
@@ -75,7 +76,7 @@ This section shows the summary of the insights.
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
 |faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
@@ -102,7 +103,7 @@ This section shows the summary of the insights.
 |metadata|The video's external metadata (if specified by the user).|
 |isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object. For more information, see [insights](#insights).|
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it the video ID and thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
 |publishedUrl|A url to stream the video.|
 |publishedUrlProxy|A url to stream the video from (for Apple devices).|
 |viewToken|A short lived view token for streaming the video.|
@@ -275,40 +276,24 @@ Example:
 |instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+	id: 0,
+	text: "technology",
+	confidence: 1,
+	language: "en-US",
+	instances: [{
+			adjustedStart: "0:05:15.782",
+			adjustedEnd: "0:05:16.249",
+			start: "0:05:15.782",
+			end: "0:05:16.249"
+	},
+	{
+			adjustedStart: "0:04:54.761",
+			adjustedEnd: "0:04:55.228",
+			start: "0:04:54.761",
+			end: "0:04:55.228"
+	}]
 }
-] 
 ```
 
 #### faces

@@ -1,7 +1,6 @@
 ---
 title: Operationalize ML Services on HDInsight - Azure 
-description: Learn how to operationalize ML Services in Azure HDInsight.
-services: hdinsight
+description: Learn how to operationalize your data model to make predictions with ML Services in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -16,9 +15,9 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 ## Prerequisites
 
-* **An ML Services cluster on HDInsight**: For instructions, see [Get started with ML Services on HDInsight](r-server-get-started.md).
+* An ML Services cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **ML Services** for **Cluster type**.
 
-* **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* A Secure Shell (SSH) client: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Operationalize ML Services cluster with one-box configuration
 

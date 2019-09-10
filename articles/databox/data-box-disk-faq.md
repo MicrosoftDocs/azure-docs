@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 08/15/2019
 ms.author: alkohli
 ---
-# What is Azure Data Box Disk?
+# Azure Data Box Disk: Frequently Asked Questions
 
 The Microsoft Azure Data Box Disk cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way. This FAQ contains questions and answers that you may have when you use Data Box Disks in the Azure portal. 
 
@@ -49,7 +49,10 @@ A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity 
 A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+
+### Q. Will my Data Box Disk cross country borders during shipping?
+A. Data Box Disk are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -105,7 +108,7 @@ A.  To speed up the copy process:
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the disks are connected.
 - Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [USBView tool](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
-- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://bluestop.org/fio/) to benchmark the performance of the server hardware.
+- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 ### Q. How to speed up the data if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -127,8 +130,8 @@ The toolset is available both for Windows and Linux. You can download the toolse
 - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
 - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
  
-  ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
-  A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
+A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
 
 
 ## Verify and upload
@@ -161,7 +164,7 @@ A. You can clone your previous order. Cloning creates the same order as before a
 A. Yes. Your data was uploaded to Azure but if you don't see any managed disks with the specified resource groups, it is likely because the data was not valid. If the page blobs, block blobs, Azure Files, and managed disks were not valid, these would go to the following folders:
  - Page blobs would go to a block blob container starting with *databoxdisk-invalid-pb-*.
  - Azure Files would go to a block blob container starting with *databoxdisk-invalid-af-*.
- - Managed disks would go to a block blob container starting with *databoxdisk-invliad-md-*.
+ - Managed disks would go to a block blob container starting with *databoxdisk-invalid-md-*.
 
 ## Next steps
 

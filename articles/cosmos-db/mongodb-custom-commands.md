@@ -157,7 +157,7 @@ The following table describes the parameters within the command:
 
 |**Field**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    | string | Name of the custom command. Must be "CreateDatabase"     |
+| customAction    | string | Name of the custom command. Must be "CreateCollection"     |
 | collection      | string | Name of the collection                                   |
 | offerThroughput | int    | Provisioned Throughput to set on the database. It's an Optional parameter |
 | shardKey        | string | Shard Key path to create a sharded collection. It's an Optional parameter |

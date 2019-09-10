@@ -1,15 +1,15 @@
 ---
-title: Performance recommendations in Azure Database for PostgreSQL
-description: This article describes the Performance Recommendation feature in Azure Database for PostgreSQL.
+title: Performance recommendations in Azure Database for PostgreSQL - Single Server
+description: This article describes the Performance Recommendation feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 08/21/2019
 ---
-# Performance Recommendations in Azure Database for PostgreSQL
+# Performance Recommendations in Azure Database for PostgreSQL - Single Server
 
-**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 The Performance Recommendations feature analyses your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable [Query Store](concepts-query-store.md) on your server to fully utilize the Performance Recommendations feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes. 
 
@@ -41,7 +41,8 @@ Currently, two types of recommendations are supported: *Create Index* and *Drop 
 ### Drop Index recommendations
 Besides detecting missing indexes, Azure Database for PostgreSQL analyzes the performance of existing indexes. If an index is either rarely used or redundant, the analyzer recommends dropping it.
 
-
+## Considerations
+* Performance Recommendations is not available for [read replicas](concepts-read-replicas.md).
 ## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
 

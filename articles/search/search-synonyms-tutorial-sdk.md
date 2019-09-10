@@ -1,12 +1,12 @@
 ---
 title: Synonyms C# example - Azure Search
 description: In this C# example, learn how to add the synonyms feature to an index in Azure Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
@@ -18,13 +18,15 @@ Synonyms expand a query by matching on terms considered semantically equivalent 
 In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This example covers essential steps for adding and using synonyms with an existing index. You learn how to:
 
 > [!div class="checklist"]
-> * Enable synonyms by creating and posting mapping rules 
-> * Reference a synonym map in a query string
+> * Create a synonym map using the  [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) class. 
+> * Set the [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) property on fields that should support query expansion via synonyms.
+
+You can query a synonym-enabled field as you would normally. There is no additional query syntax required to access synonyms.
 
 You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
-> Synonyms are supported in the latest API and SDK versions (api-version=2017-11-11, SDK version 5.0.0). There is no Azure portal support at this time. If Azure portal support for synonyms would be useful to you, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Synonyms can be created programmatically, but not in the portal. If Azure portal support for synonyms would be useful to you, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## Prerequisites
 
@@ -163,11 +165,11 @@ You can find the full source code of the sample application used in this walk th
 
 ## Clean up resources
 
-The fastest way to clean up after a example is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+The fastest way to clean up after an example is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
 
 ## Next steps
 
-This example demonstrated the [Synonyms REST API](https://aka.ms/rgm6rq) in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/) reference documentation.
+This example demonstrated the synonyms feature in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/) reference documentation.
 
 > [!div class="nextstepaction"]
 > [How to use synonyms in Azure Search](search-synonyms.md)

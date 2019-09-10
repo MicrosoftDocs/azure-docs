@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
+ms.author: sutalasi
 
 ---
 # About networking in Azure to Azure replication
@@ -43,7 +43,7 @@ If you are using a URL-based firewall proxy to control outbound connectivity, al
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specifc storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specific storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
@@ -91,13 +91,28 @@ Site Recovery IP address ranges are as follows:
    UK South 2 | 13.87.37.4| 13.87.34.139
    UK North | 51.142.209.167 | 13.87.102.68
    Korea Central | 52.231.28.253 | 52.231.32.85
-   Korea South | 52.231.298.185 | 52.231.200.144
+   Korea South | 52.231.198.185 | 52.231.200.144
    France Central | 52.143.138.106 | 52.143.136.55
    France South | 52.136.139.227 |52.136.136.62
    Australia central| 20.36.34.70 | 20.36.46.142
    Australia Central 2| 20.36.69.62 | 20.36.74.130
    South Africa West | 102.133.72.51 | 102.133.26.128
    South Africa North | 102.133.160.44 | 102.133.154.128
+   US Gov Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   US Gov Arizona | 52.244.205.45 | 52.244.48.85
+   US Gov Texas | 52.238.119.218 | 52.238.116.60
+   US DoD East | 52.181.164.103 | 52.181.162.129
+   US DoD Central | 52.182.95.237 | 52.182.90.133
+   China North | 40.125.202.254 | 42.159.4.151
+   China North 2 | 40.73.35.193 | 40.73.33.230
+   China East | 42.159.205.45 | 42.159.132.40
+   China East 2 | 40.73.118.52| 40.73.100.125
+   Germany North| 51.116.208.58| 51.116.58.128
+   Germany West Central | 51.116.156.176 | 51.116.154.192
+   Switzerland West | 51.107.231.223| 51.107.154.128
+   Switzerland North | 51.107.68.31| 51.107.58.128
+
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.
@@ -133,7 +148,7 @@ These rules are required so that replication can be enabled from the target regi
 
    **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
-   Central US | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## Network virtual appliance configuration
 

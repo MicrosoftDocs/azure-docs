@@ -7,16 +7,13 @@ author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
-
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-
 ---
 # Troubleshoot cloud service deployment problems
 When you deploy a cloud service application package to Azure, you can obtain information about the deployment from the **Properties** pane in the Azure portal. You can use the details in this pane to help you troubleshoot problems with the cloud service, and you can provide this information to Azure Support when opening a new support request.
@@ -70,7 +67,7 @@ For more information on how to troubleshoot for this problem, see the blog post 
 1. In the Azure portal, click the role instance.
 2. In the **Properties** pane of the Azure portal, consider the following conditions to resolve your problem:
    * If the role instance has recently stopped (you can check the value of **Abort count**), the deployment could be updating. Wait to see if the role instance resumes functioning on its own.
-   * If the role instance is **Busy**, check your application code to see if the [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) event is handled. You might need to add or fix some code that handles this event.
+   * If the role instance is **Busy**, check your application code to see if the [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) event is handled. You might need to add or fix some code that handles this event.
    * Go through the diagnostic data and troubleshooting scenarios in the blog post [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]

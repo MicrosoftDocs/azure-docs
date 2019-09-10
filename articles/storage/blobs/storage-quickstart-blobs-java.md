@@ -1,22 +1,18 @@
 ---
 title: How to create a blob in Azure Storage using the client library for Java v7 | Microsoft Docs
 description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Java v7 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-services: storage
-author: roygara
+author: mhopkins-msft
 
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
+ms.author: mhopkins
 ms.date: 02/04/2019
-ms.author: rogarana
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
 ---
 
 # How to upload, download, and list blobs using the client library for Java v7
 
 In this how-to guide, you learn how to use the client library for Java v7 to upload, download, and list block blobs in a container in Azure Blob storage.
-
-> [!TIP]
-> The latest version of the Azure Storage client library for Java is v10. Microsoft recommends that you use the latest version of the client library when possible. To get started using v10, see [Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
 
 ## Prerequisites
 

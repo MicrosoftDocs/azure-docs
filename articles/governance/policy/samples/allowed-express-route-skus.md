@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed ExpressRoute SKUs
 description: This sample policy definition requires that ExpressRoute use an approved SKU.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

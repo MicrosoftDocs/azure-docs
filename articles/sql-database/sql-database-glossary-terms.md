@@ -7,17 +7,18 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 04/26/2019
 ---
 # Azure SQL Database glossary of terms
 
 |Context|Term|More information|
 |:---|:---|:---|
 |Azure service name|Azure SQL Database or SQL Database|[The Azure SQL Database service](sql-database-technical-overview.md)|
+|Compute tier|Serverless (preview)|[Serverless compute tier](sql-database-serverless.md)
+||Provisioned|[Serverless compute tier](sql-database-serverless.md)
 |Deployment options |Single database|[Single databases](sql-database-single-database.md)|
 ||Elastic pool|[Elastic pool](sql-database-elastic-pool.md)|
 ||Managed instance|[Managed instance](sql-database-managed-instance.md)|
@@ -33,6 +34,7 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||General purpose database|A database created within or moved into the general purpose service tier of the vCore-based purchasing model|
 ||Hyperscale database|A database created within or moved into the hyperscale service tier of the vCore-based purchasing model|
 ||Business critical database|A database created within or moved into the business critical service tier of the vCore-based purchasing model|
+||Provisioned database|A database configured in the provisioned compute tier|
 |[Purchase models and resources](sql-database-purchase-models.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
 ||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
 ||vCore|A core provided to the guest OS by the hypervisor.|
@@ -41,6 +43,6 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||Storage amount|The amount of storage available to a single database, elastic pool, or managed instance|
 ||Compute generation|The generation of processor within a service tier|
 |Database server IP firewall rules|IP firewall rules|[IP firewall rules](sql-database-firewall-configure.md)|
-||Server-level IP firewall rules|[Server-level IP firewall rules](sql-database-firewall-configure.md#overview)|
-|| Database-level IP firewall rules|[Database-level IP firewall rules](sql-database-firewall-configure.md#overview)|
+||Server-level IP firewall rules|[Server-level IP firewall rules](sql-database-firewall-configure.md)|
+|| Database-level IP firewall rules|[Database-level IP firewall rules](sql-database-firewall-configure.md)|
 ||Virtual network endpoints and rules|[Virtual network endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md)|

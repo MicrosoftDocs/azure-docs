@@ -1,5 +1,5 @@
 ---
-title: Remote Monitoring solution import ADM package - Azure | Microsoft Docs 
+title: Remote Monitoring solution import package - Azure | Microsoft Docs 
 description: This article describes how to import an automatic device management package into the Remote Monitoring solution accelerator
 author: dominicbetts
 manager: philmea

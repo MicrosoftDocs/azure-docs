@@ -1,17 +1,18 @@
 ---
-title: Configure containers
-titlesuffix: Text Analytics - Azure Cognitive Services
+title: Configure containers - Text Analytics
+titleSuffix: Azure Cognitive Services
 description: Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: diberry
+ms.date: 08/21/2019
+ms.author: dapine
 ---
+
 # Configure Text Analytics docker containers
 
 Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
@@ -29,7 +30,7 @@ The `ApiKey` setting specifies the Azure resource key used to track billing info
 
 This setting can be found in the following place:
 
-* Azure portal: **Text Analytics's** Resource Management, under **Keys**
+* Azure portal: **Text Analytics** resource management, under **Keys**
 
 ## ApplicationInsights setting
 
@@ -41,11 +42,11 @@ The `Billing` setting specifies the endpoint URI of the _Text Analytics_ resourc
 
 This setting can be found in the following place:
 
-* Azure portal: **Text Analytics's** Overview, labeled `Endpoint`
+* Azure portal: **Text Analytics** Overview, labeled `Endpoint`
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Yes| `Billing` | String | The required billing endpoint URI |
 
 ## Eula setting
 
@@ -87,60 +88,26 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{BILLING_KEY} | The endpoint key of the Text Analytics resource available on the Azure portal's Text Analytics Keys page. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value is available on the Azure portal's Text Analytics Overview page.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+| **{API_KEY}** | The endpoint key of the `Text Analytics` resource available on the Azure `Text Analytics` Keys page. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Text Analytics` Overview page.| See [gathering required parameters](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure Text Analytics Resource keys page. 
+> The ApiKey value is the **Key** from the Azure `Text Analytics` Resource keys page. 
 
-## Keyphrase extraction container docker examples
+#### [Key Phrase Extraction](#tab/keyphrase)
 
-The following docker examples are for the keyphrase extraction container. 
+[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-### Basic example 
+#### [Language Detection](#tab/language)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
-  ```
+[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-### Logging example 
+#### [Sentiment Analysis](#tab/sentiment)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
-## Language detection container docker examples
-
-The following docker examples are for the language detection container. 
-
-### Basic example
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
-  ```
-
-### Logging example
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
-  ```
- 
-## Sentiment analysis container docker examples
-
-The following docker examples are for the sentiment analysis container. 
-
-### Basic example
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
-  ```
-
-### Logging example
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+***
 
 ## Next steps
 

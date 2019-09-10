@@ -1,11 +1,10 @@
 ---
 title: Samples - ISO 27001 Shared Services blueprint - Overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ---
@@ -51,7 +50,7 @@ composed of:
   ASGs for full micro-segmentation containing:
   - A jumpbox or bastion host used for management purposes, which can only be accessed over an [Azure Firewall](../../../../firewall/overview.md)
     deployed in the ingress stack subnet
-  - Two virtual machines running Active Directory Directory Services (ADDS) and DNS only accessible
+  - Two virtual machines running Active Directory Domain Services (ADDS) and DNS only accessible
     through the jumpbox, and can be configured only to replicate AD over a VPN or [ExpressRoute](../../../../expressroute/expressroute-introduction.md)
     connection (not deployed by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
@@ -79,7 +78,7 @@ sample:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

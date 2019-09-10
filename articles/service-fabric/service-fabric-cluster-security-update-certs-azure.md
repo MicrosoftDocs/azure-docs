@@ -3,7 +3,7 @@ title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
@@ -29,6 +29,9 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Add a secondary cluster certificate using the portal
 Secondary cluster certificate cannot be added through the Azure portal, use Azure powershell. The process is outlined later in this document.
 
@@ -41,7 +44,7 @@ If your intent is to remove the certificate that is marked primary, then you wil
 
 ## Add a secondary certificate using Resource Manager Powershell
 > [!TIP]
-> It is now better and easier way to add a secondary certificate using the [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
+> There is now a better and easier way to add a secondary certificate using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 These steps assume that you are familiar with how Resource Manager works and have deployed at least one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
@@ -188,22 +191,22 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 ### Deploy the template to Azure
 
 - You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
-- Log in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
+- Sign in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 Test the template prior to deploying it. Use the same Resource Group that your cluster is currently deployed to.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Deploy the template to your resource group. Use the same Resource Group that your cluster is currently deployed to. Run the New-AzureRmResourceGroupDeployment command. You do not need to specify the mode, since the default value is **incremental**.
+Deploy the template to your resource group. Use the same Resource Group that your cluster is currently deployed to. Run the New-AzResourceGroupDeployment command. You do not need to specify the mode, since the default value is **incremental**.
 
 > [!NOTE]
 > If you set Mode to Complete, you can inadvertently delete resources that are not in your template. So do not use it in this scenario.
@@ -211,7 +214,7 @@ Deploy the template to your resource group. Use the same Resource Group that you
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 Here is a filled out example of the same powershell.
@@ -221,7 +224,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

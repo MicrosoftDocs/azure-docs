@@ -1,6 +1,6 @@
 ---
-title: Prebuilt domain reference
-titleSuffix: Azure
+title: Prebuilt domain reference - LUIS
+titleSuffix: Azure Cognitive Services
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,9 +8,11 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: diberry
+#source: https://raw.githubusercontent.com/Microsoft/luis-prebuilt-domains/master/README.md
+#acrolinx bug for exception: https://mseng.visualstudio.com/TechnicalContent/_workitems/edit/1518317
 ---
 
 # Prebuilt domain reference for your LUIS app
@@ -18,632 +20,408 @@ This reference provides information about the [prebuilt domains](luis-how-to-use
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
-## List of prebuilt domains
-LUIS offers 20 prebuilt domains. 
-
-| Prebuilt domain | Description | Supported Languages |
-| ---------------- |-----------------------|:------:|
-| Calendar | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.| en-US<br/> zh-CN |
-| Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.| en-US |
-| Communication | Sending messages and making phone calls.| en-US <br/> zh-CN |
-| Entertainment  | Handling queries related to music, movies, and TV.| en-US |
-| Events | Booking tickets for concerts, festivals, sports games and comedy shows.| en-US |
-| Fitness | Handling requests related to tracking fitness activities.| en-US |
-| Gaming | Handling requests related to a game party in a multiplayer game.| en-US |
-| HomeAutomation | Controlling smart home devices like lights and appliances.| en-US<br/> zh-CN |
-| MovieTickets | Booking tickets to movies at a movie theater.| en-US |
-| Music | Playing music on a music player.| en-US<br/> zh-CN |
-| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.| en-US<br/> zh-CN |
-| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.| en-US<br/> zh-CN |
-| Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| en-US<br/> zh-CN |
-| Reminder | Handling requests related to creating, editing, and finding reminders.| en-US<br/> zh-CN |
-| RestaurantReservation | Handling requests to manage restaurant reservations.| en-US<br/> zh-CN |
-| Taxi | Handling bookings for a taxi.| en-US<br/> zh-CN |
-| Translate | Translating text to a target language.| en-US<br/> zh-CN |
-| TV | Controlling TVs.| en-US |
-| Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over."| en-US |
-| Weather | Getting weather reports and forecasts.| en-US<br/> zh-CN |
-| Web | Navigating to a website.| en-US<br/> zh-CN |
-
-For more detail on each domain, see the sections that follow.
-
-## Calendar 
-
-The Calendar domain provides intents and entities related to calendar entries. The Calendar intents include adding, deleting or editing an appointment, checking availability, and finding information about a calendar entry or appointment.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Add | Add a new one-time item to the calendar.| Make an appointment with Lisa at 2pm on Sunday <br/><br/>I want to schedule a meeting<br/><br/>I need to set up a meeting|
-| CheckAvailability | Find availability for an appointment or meeting on the user's calendar or another person's calendar.| When is Jim available to meet? <br/><br/>Show when Carol is available tomorrow<br/><br/>Is Chris free on Saturday?|
-| Delete | Request to delete a calendar entry.| Cancel my appointment with Carol. <br/><br/>Delete my 9 am meeting<br/>|
-| Edit | Request to change an existing meeting or calendar entry.| Move my 9 am meeting to 10 am.<br/><br/>I want to update my schedule.<br/><br/>Reschedule my meeting with Ryan.|
-| Find | Display my weekly calendar.| Find the dentist review appointment. <br/><br/>Show my calendar<br/>|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Location | Location of calendar item, meeting or appointment. Addresses, cities, and regions are good examples of locations.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garage|
-| Subject | The title of a meeting or appointment.| Dentist's appointment <br/><br/>Lunch with Julia<br/><br/>Doctor's appointment|
-
-## Camera 
-The Camera domain provides intents and entities related to using a camera. The intents cover capturing a photo, selfie, screenshot or video, and broadcasting video to an application.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| CapturePhoto| Capture a photo.| Take a photo<br/><br/>capture|
-| CaptureScreenshot | Capture a screenshot.| Take screen shot.<br/><br/>capture the screen.|
-| CaptureSelfie | Capture a selfie.| Take a selfie <br/><br/>take a picture of me |
-| CaptureVideo | Start recording video.| Start recording <br/><br/>Begin recording|
-| StartBroadcasting| Start broadcasting video.| Start broadcasting to Facebook|
-| StopBroadcasting| Stop broadcasting video.| Stop broadcasting|
-| StopVideoRecording| Stop recording a video.| That's enough<br/><br/>stop recording|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AppName | The name of an application to broadcast video to.| OneNote<br/><br/>Facebook<br/><br/>Skype|
-
-
-## Communication 
-The Communication domain provides intents and entities related to email, messages and phone calls.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AddContact| Add a new contact to the user's list of contacts.|Add new contact <br/><br/>Save this number and put the name as Carol|
-| AddMore| Add more to an email or text, as part of a step-wise email or text composition.|Add more to text <br/><br/>Add more to email body|
-| Answer| Answer an incoming phone call.|Answer the call <br/><br/>Pick it up|
-| AssignContactNickname| Assign a nickname to a contact.|Change Isaac to dad <br/>Edit Jim's nickname<br/>Add nickname to Patti Owens|
-| CallVoiceMail| Connect to the user's voice mail.|Connect me to my voicemail box <br/>Voice mail<br/>Call voicemail|
-| CheckIMStatus| Check the status of a contact in Skype.|Is Jim's online status set to away? <br/>Is Carol available to chat with?|
-| Confirm| Confirm an action.|Yes<br/>Okay<br/>All right<br/>I confirm that I want to send this email.<br/>|
-| Dial| Make a phone call.|Call Jim<br/>Please dial 311<br/>|
-| FindContact| Find contact information by name.|Find Carol's number<br/>Show me Carol's number<br/>|
-| FindSpeedDial| Find the speed dial number a phone number is set to and vice versa.|What is my dial number 5?<br/>Do I have speed dial set?<br/>What is the dial number for 941-5555-333?|
-| GetForwardingsStatus| Get the current status of call forwarding.|Is my call forwarding turned on?<br/>Tell me if my call status is on or off<br/>|
-| Goback| Go back to the previous step.|Go back to twitter<br/>Go back a step<br/>Go back|
-| Ignore| Ignore an incoming call.|Don't answer<br/>Ignore call|
-| IgnoreWithMessage| Ignore an incoming call and reply with text instead.|Don't answer that call but send a message instead.<br/>Ignore and send a text back.|
-| PressKey| Press a button or number on the keypad.|Dial star.<br/>Press 1 2 3.|
-| ReadAloud| Read a message or email to the user.|Read text.<br/>What did she say in the message?|
-| TurnForwardingOff| Make a phone call.|<br/><br/>|
-| Redial| Redial or call a number again.|Redial.<br/>Redial my last call.|
-| Reject| Reject an incoming call.|Reject call<br/>Can't answer now<br/>Not available at the moment and will call back later.|
-| SendEmail| Send an email. This intent applies to email but not text messages.|Email to Mike Waters: Mike, that dinner last week was splendid.<br/>Send an email to Bob<br/>|
-| SendMessage| Send a text message or an instant message.|Send text to Chris and Carol|
-| SetSpeedDial| Set a speed dial shortcut for a contact's phone number.|Set speed dial one for Carol.<br/>Set up speed dial for mom.|
-| ShowNext| See the next item, for example, in a list of text messages or emails.|Show the next one.<br/>Go to the next page.|
-| ShowPrevious| See the previous item, for example, in a list of text messages or emails.|Show the previous one.<br/>Previous<br/>Go to previous.|
-| StartOver| Start the system over or start a new session.|Start over<br/>New session<br/>restart|
-| TurnForwardingOff| Turn off call forwarding.|Stop forwarding my calls<br/>Switch off call forwarding|
-| TurnForwardingOn| Turn off the speaker phone.|Forwarding my calls to 3333<br/>Switch on call forwarding to 3333|
-| TurnSpeakerOff| Turn off the speaker phone.|Take me off speaker.<br/>Turn off speakerphone.<br/>|
-| TurnSpeakerOn| Turn on the speaker phone.|Speakerphone mode.<br/>Put speakerphone on.<br/>|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AudioDeviceType | Type of audio device (speaker, headset, microphone, etc).| Speaker<br/>Hands-free<br/>Bluetooth|
-| Category | The category of a message or email.| Important<br/>High priority|
-| ContactAttribute | An attribute of the contact the user inquires about.| Birthdays<br/>Address<br/>Phone number|
-| ContactName | The name of a contact or message recipient.| Carol<br/>Jim<br/>Chris|
-| EmailSubject | The text used as the subject line for an email.| RE: interesting story|
-| Line | The line the user wants to use to make a call or send a text/email from.| Work line<br/>British cell<br/>Skype|
-| Message | The message to send as an email or text.| It was great meeting you today. See you again soon!|
-| MessageType | The name of a contact or message recipient.| Text<br/>Email|
-| OrderReference | The ordinal or relative position in a list, identifying an item to retrieve. For example, "last" or "recent" in "What was the last message I sent?"| Last<br/>Recent|
-| SenderName | The name of the sender.| Patti Owens|
-
-## Entertainment  
-The Entertainment domain provides intents and entities related to searching for movies, music, games and TV shows.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Search| Search for movies, music, apps, games and TV shows.|Search the store for Halo.<br/>Search for Avatar.|
-
-### Entities
-| Entities name | Description | Examples |
-| ---------------- |-----------------------|----|
-| ContentRating | Media content rating like G, or R for movies.|Kids video.<br/>PG rated.|
-| Genre | The genre of a movie, game, app or song.|Comedies<br/>Dramas<br/>Funny|
-| Keyword| A generic search keyword specifying an attribute the doesn't exist in the more specific media slots.|Soundtracks<br/>Moon River<br/>Amelia Earhart|
-| Language | Language used in media, such as spoken language of movie or song.|French<br/>English<br/>Korean|
-| MediaFormat | The additional special technical type in which the media is formatted.|HD Movies<br/>3D movies<br/>Downloadable|
-| MediaSource | The store or marketplace for acquiring the media.|Netflix<br/>Prime|
-| MediaSubTypes| Media types smaller than movies and games.|Demos<br/>Dlc<br/>Trailers|
-| Nationality| The country where a movie, show, or song was created.|French<br/>German<br/>Korean|
-| Person| The actor, director, producer, musician or artist associated with a movie, app, game or TV show.|Madonna<br/>Stanley Kubrick|
-| Role| Role played by a person in the creation of media.|Sings<br/>Directed by<br/>By|
-| Title| The name of a movie, app, game, TV show, or song.|Friends<br/>Minecraft|
-| Type| The type or media format of a movie, app, game, TV show, or song.|Music<br/>MovieTV <br/>shows|
-| UserRating| User star or thumbs rating.|5 stars<br/>3 stars<br/>4 stars|
-
-## Events 
-The Events domain provides intents and entities related to booking tickets for events like concerts, festivals, sports games and comedy shows.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Book| Purchase tickets to an event.|I'd like to buy a ticket for the symphony this weekend.|
-
-
-### Entities
-| Entities name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Address | Event location or address. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Name | The name of an event.|Shakespeare in the Park|
-| PlaceName| The event location name.|Louvre<br/>Opera House<br/>Broadway|
-| PlaceType | The type of the location the event will be held in.|Cafe<br/>Theatre<br/>Library|
-| Type | The type of an event.|Concert<br/>Sports game|
-
-## Fitness 
-The Fitness domain provides intents and entities related to tracking fitness activities. The intents include saving notes, remaining time or distance, or saving activity results.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AddNote| Adds supplemental notes to a tracked activity.|The difficulty of this run was 6/10<br/>The terrain I am on running on is asphalt<br/>I am using a 3 speed bike|
-|GetRemaining| Gets the remaining time or distance for an activity.|How much time till the next lap?<br/>How many miles are remaining in my run? How much time for the split?|
-| LogActivity| Save or log completed activity results.|Save my last run<br/>Log my Saturday morning walk<br/>store my previous swim|
-| LogWeight| Save or log the user's current weight.|Save my current weight<br/>log my weight now<br/>store my current body weight|
-
-### Entities
-| Entities name | Description | Examples |
-| ---------------- |-----------------------|----|
-| ActivityType | The type of activity to track. |Run<br/>Walk<br/>Swim<br/>Cycle |
-| Food | A type of food to track in a fitness app. |Banana<br/>Salmon<br/>Protein Shake|
-| MealType| The meal type to track in a health or fitness app.|Breakfast<br/>Dinner<br/>Lunch<br/>Supper|
-| Measurement| A type of measurements for time, distance or weight, for use in a fitness or health app.|Kilometers<br/>Miles<br/>Minutes<br/>Kilograms|
-| Number | A numeric quantity for use in a fitness or health app.|19<br/>three<br/>200<br/>one|
-| StatType | A statistic type on aggregated data, for use in a fitness or health app.|Sum<br/>Average<br/>Maximum<br/>Minimum|
-
-## Gaming 
-The Gaming domain provides intents and entities related to managing a game party in a multiplayer game.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| InviteParty| Invite a contact to join a gaming party.|Invite this player to my party<br/>Come to my party<br/>Join my clan|
-|LeaveParty| Gets the remaining time or distance for an activity.|I'm out<br/>I'm leaving this party for another<br/>I am quitting|
-| StartParty| Start a gaming party in a multiplayer game.|Dude let's start a party<br/>start a party<br/>should we start a clan tonight|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Contact| A contact name to use in a multiplayer game.|Carol<br/>Jim|
-
-
-## HomeAutomation 
-The HomeAutomation domain provides intents and entities related to controlling smart home devices like lights and appliances.
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| TurnOff| Turn off, close, or unlock a device.|Turn off the lights<br/>Stop the coffee maker<br/>Close garage door|
-|TurnOn| Turn on a device or set the device to a particular setting or mode.|turn on my coffee maker<br/>can you turn on my coffee maker?<br/>Set the thermostat to 72 degrees.|
-
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Device | A type of device that can be turned on or off.|coffee maker<br/>thermostat<br/>lights|
-| Operation | The state to set of the device.|lock<br/>open<br/>on<br/>off|
-| Room | The location or room the device is in.|living room<br/>bedroom<br/>kitchen|
-
-## MovieTickets 
-The MovieTickets domain provides intents and entities related to booking tickets to movies at a movie theater.
-
-### Examples
-
-|Examples|
-|--|
-|Book me two tickets for Captain Omar and the two Musketeers|
-|Cancel tickets|
-|When is Captain Omar showing?|
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captain Omar Part 2 next Wednesday|
-|GetShowTime| Get the showtime of a movie.|When is Captain Omar showing?|
-
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Address | The address of a movie theater.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| MovieTitle | The title of a movie.|Life of Pi<br/>Hunger Games<br/>Inception|
-| PlaceName | The name of a movie theater or cinema.|Cinema Amir<br/>Alexandria Theatre<br/>New York Theater|
-| PlaceType | The type of location a movie is showing at.|cinema<br/>theater<br/>IMAX cinema|
-
-## Music 
-The Music domain provides intents and entities related to playing music on a music player.
-
-### Examples
-
-|Examples|
-|--|
-|play Beethoven|
-|Increase track volume|
-|Skip to the next song|
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| DecreaseVolume | Decrease the device volume.|decrease track volume<br/>volume down|
-| IncreaseVolume | Increase the device volume.|increase track volume<br/>volume up|
-| Mute |Mute the playing music.|Mute song<br/>Put the track on mute<br/>Mute music |
-| Pause | Pause the playing music.|Pause<br/>Pause music<br/>Pause track|
-| PlayMusic | Play music on a device.|play Kevin Durant<br/>play Paradise by Coldplay<br/>play Hello by Adele|
-| Repeat |Repeat the playing music.|Repeat song<br/>Play the track gain<br/>Repeat music|
-| Resume | Resume the playing music.|Resume song<br/>Start music again<br/>Unpause|
-| SkipBack | Skip backwards a track.|Skip to the next song<br/>Play the next song|
-| SkipForward |Skip forward a track.|Play the previous song<br/>Go back to the previous track |
-| Stop | Stop an action relating to music playback. |Stop playing this album.|
-| Unmute | Unmute a music playback device.| Unmute.|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| ArtistName | The actor, director, producer, writer, musician or artist associated with media to play on a device.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
-| Genre | The genre of the music being requested.|Country music<br/>Broadway classics<br/>Play my classical music from the Baroque period|
-
-## Note 
-The Note domain provides intents and entities related to creating, editing, and finding notes.
-
-### Examples
-
-|Examples|
-|--|
-|Add to my groceries note lettuce tomato bread coffee|
-|Check off bananas from my grocery list|
-|Remove all items from my vacation list|
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AddToNote | Add information to a note.|Add to my groceries note lettuce tomato bread coffee<br/>Add to my todo list<br/>add cupcakes to my Wunderlist|
-| CheckOffItem | Check off items from a pre-existing note.|Check off bananas from my grocery list<br/>Mark cheese cake on my holiday shopping list as done|
-| Clear | Clear all items from a pre-existing note.|Remove all items from my vacation list<br/>Clear all from my reading list|
-| Confirm | Confirm an action relating to a note.|It's okay by me<br/>yes<br/>I am confirming keeping all items on lists|
-| Create | Create a new note. | Create a list<br/>Note to remind me that Jason is in town first week of May|
-| Delete | Delete an entire note. |Delete my vacation list <br/>delete my groceries note|
-| DeleteNoteItem | Delete items from a pre-existing note.| Delete chips from my grocery list<br/>Remove pens from my school shopping list|
-| ReadAloud | Read a list out loud.|Read me the first one<br/>Read me the details|
-| ShowNext | See the next item in a list of notes.|Show the next one<br/>Next page<br/>Next|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AppName | The note-taking application name.|Wunderlist<br/>OneNote|
-| ContactName | The name of a contact in a note.|Carol<br/>Jim<br/>Chris|
-| DataSource | Location of notes.|OneDrive<br/>Google docs<br/>my computer|
-| DataType | The type of file or document, usually associated with particular software programs.|Slides<br/>Spreadsheet<br/>Worksheet|
-| Text | The text of a note or reminder.|stretch before walking<br/>long run tomorrow|
-| Title | Title of a note.|groceries<br/>people to call<br/>to-do|
-
-## OnDevice 
-The OnDevice domain provides intents and entities related to controlling the device.
-
-### Examples
-
-|Examples|
-|--|
-|Close video player|
-|Cancel playback|
-|Can you make the screen brighter?|
-
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AreYouListening | Ask if the device is listening.|is this on?<br/>are you listening?|
-|CloseApplication|Close the device application.|close video player|
-|FileBug|File a bug on the device.|file a bug please<br/>Can you file a bug for me ?<br/>Let me report this bug|
-|GoBack|Ask to go back one step or return to the previous step.|Go back please<br/>Go to previous screen<br/>Go back stop listening|
-|Help| Request help.|Help please<br/>Hello<br/>What can you do?<br/>I need help| 
-|LocateDevice|Locate the device.|Can you locate my phone<br/>Find tom's iphone<br/>Find my phone|
-|LogIn|Log in to a service using the device.|Login please<br/>Facebook log in<br/>Log into LinkedIn|
-|LogOut|Log out of a service using the device.|Log off my phone<br/>Log on to twitter<br/>Log out|
-|MainMenu|View the main menu of a device.|View menu.|
-|OpenApplication|Open an application on the device.|Open the alarm please<br/>Turn on camera<br/>Launch calendar|
-|OpenSetting|Open a setting on the device.|Open network settings.|
-|PairDevice|Pair the device.|Can you help me in pairing Bluetooth signal to phone<br/>Turn the bluetooth on and pair it with laptop<br/>Pair Bluetooth signal to my laptop|
-|PowerOff | Turn off the device.|Can you shut down my computer<br/>Shutdown<br/>Turn off my mobile|
-|QueryBattery|Get information about battery life.|Show me battery life.<br/>What's my battery status<br/>How much battery left now?<br/>Show me battery|
-|QueryWifi|Get information about WiFi.|Get WiFi info.|
-|Restart|Restart the device.|Please restart.|
-|RingDevice| Ask the device to ring, in order to find it when it's lost.|Ring my phone.| 
-|SetBrightness|Set the device brightness.|Set brightness to medium<br/>Set brightness to high<br/>Set brightness to low|
-|SetupDevice|Initiate device setup.|I want to install OS setup<br/>Setup please<br/>Do setup for me|
-|ShowAppBar|Show an app bar.|Show me the application bar<br/>Application bar please<br/>Let me see the application bar|
-|ShowContextMenu|Show a context menu.|Let me see the context menu<br/>Context menu please<br/>Can you show me the context menu|
-|Sleep|Put the device to sleep.|Go to sleep<br/>Sleep<br/>My computer sleep|
-|SwitchApplication|Switch the application to use on the device.|Switch to my media player.|
-|TurnDownBrightness|Turn down device brightness.|Dim the screen.|
-|TurnOffSetting|Turn off a device setting.|Deactivate Bluetooth<br/>Disable data<br/>Disconnect bluetooth|
-|TurnOnSetting|Turn on a device setting.|On <br/> Off|
-|TurnUpBrightness|Turn up device brightness.|Can you make the screen brighter?|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AppName | Name of an application on the device.|SoundCloud<br/>YouTube|
-| BrightnessLevel | Set the brightness level on the device.|One hundred percent<br/>Fifty<br/>40%|
-| ContactName | The name of a contact on the device.|Paul<br/>Marlen Max|
-| DeviceType | The type of device. |Phone<br/>Kindle<br/>Laptop|
-| MediaType | The media type handled by the device.|Music<br/>Movie<br/>TV shows|
-| SettingType | A type of setting or settings panel that the user wants to edit.|WiFi<br/>Wireless Network<br/>Color Scheme<br/>Notification Center|
-
-## Places  
-The Places domain provides intents for handling queries related to places like businesses, institution, restaurants, public spaces and addresses.
-
-### Examples
-
-|Examples|
-|--|
-|Save this location to my favorites|
-|How far away is Holiday Inn?|
-|At what time does Safeway close?|
-
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AddFavoritePlace | Add a location to the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
-|CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
-|CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
-|CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
-|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffic to Kirkland<br/>How is the traffic to Seattle?| 
-|Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
-|Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
-|FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|
-|GetAddress| Ask for the address of a place.|Show me the address of Guu on Robson street<br/>What is the address of the nearest Starbucks?| 
-|GetDistance|Ask about distance to a specific place.|How far away is Holiday Inn?<br/>how far is it to Bellevue square from here<br/>what's the distance to Tahoe|
-|GetHours|Ask about the operating hours for a place.|At what time does Safeway close?<br/>What are the hours for Home Depot?<br/>Is Starbucks still open?|
-|GetMenu|Ask for the menu items for a restaurant.|Does Zucca serve anything vegan?<br/>What's on the menu at Sizzler<br/>Show me Applebee's menu|
-|GetPhoneNumber| Ask for the phone number of a place.|What is the phone number of the nearest Starbucks?<br/>Give the number for Home Depot| 
-|GetPriceRange| Asks for the price range of a place.|Is Zucca cheap?<br/>Is the Cineplex half price on Wednesdays?<br/>How much does a whole lobster dinner cost at Sizzler?|
-|GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecake Factory<br/>Read Cineplex reviews in Yelp|
-|GetRoute|Ask for directions to a place.|How to walk to Bellevue square<br/>Show me the shortest way to 8th and 59th from here<br/>Get me directions to Mountain View CA|
-|GetStarRating|Ask for the star rating of a place.|How is Zucca rated according to Yelp?<br/>How many stars does the French Laundry have?<br/>Is the aquarium in Monterrey good?|
-|GetTransportationSchedule|Get the bus schedule for a place.|What time is the next bus to downtown?<br/>Show me the buses in King County|
-|GetTravelTime|Ask for the travel time to a specified destination.|How long will it take to get to San Francisco from here<br/>What's the driving time to Denver from SF|
-|MakeCall|Make a phone call to a place.|Call mom<br/>I would like to place a Skype call to Anna<br/>Call Jim|
-|MakeReservation|Request a reservation for a restaurant or other business.|Reserve at Zucca for two for tonight<br/>Book a table for tomorrow<br/>Table for 3 in Palo Alto at 8|
-|MapQuestions|Request information about directions or whether a specified road goes to a destination.|Does 13 pass through downtown?<br/>Can I take 880 to Oakland?|
-|Rating|Get the rating description of a restaurant or place.|How many stars does the Contoso Inn have?|
-|ReadAloud|Read a list of places out loud.|Read me the first one<br/>Read me the details|
-|SelectItem|Choose an item from a list of choices relating to a place or places.|Pick the second one<br/>Select the first|
-|ShowMap|Show a map of an area.|Show a map for the second one<br/>Show map<br/>Find San Francisco on the map|
-|ShowNext|Show the next item in a series.|Show the next one<br/>go to the next page|
-|ShowPrevious|Show the previous item in a series.|show previous one<br/>previous<br/>go to previous|
-|StartOver|Restart the app or start a new session.|Start over<br/>New session<br/>
-restart|
-|TakesReservations|Ask whether a place accepts reservations.|Does the art gallery accept reservations<br/>Is it possible to make a reservation at the Olive Garden
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| AbsoluteLocation | The location or address of a place.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| Amenities | The objective characteristics/benefits of a place.|kids eat free<br/>waterfront<br/>free parking|
-| Atmosphere | The atmosphere of a place.|kid-friendly<br/>casual restaurant<br/>sporty|
-| Cuisine | The cuisine of a place. |Mediterranean<br/>Italian<br/>Indian|
-| DestinationAddress| A destination location or address.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName| The name of a destination that is a business, restaurant, public attraction, or institution.|central park<br/>safeway<br/>walmart|
-| DestinationPlaceType | The type of a destination that is a local business, restaurant, public attraction, or institution. |Restaurant<br/>Opera<br/>Cinema|
-| Distance | The distance to a place.|15 miles<br/>5 miles<br/>10 miles away|
-| MealType | Type of meal like breakfast or lunch. |breakfast<br/>dinner<br/>lunch<br/>supper|
-| OpenStatus | Indicates whether a place is open or closed.|Open<br/>closed<br/>opening|
-| PlaceName | The name of a place.|Cheesecake Factory|
-| PlaceType | The type of a place.|Cafe<br/>Theatre<br/>Library|
-| PreferredRoute | The preferred route specified by the user. | 101 <br/>202 <br/>Route 401|
-| Product | The product offered by a place. | Clothes<br/>Digital ASR Cameras<br/>Fresh fish | 
-| PublicTransportationRoute | The name of the public transportation route that the user is searching for. | Northeast corridor train<br/>Bus route 3X |
-| Rating | The rating of a place. | 5 stars<br/>3 stars<br/>4 stars|
-| RouteAvoidanceCriteria | Criteria for avoiding specific routes like avoiding accidents, constructions or tolls | Tolls <br/>Constructions<br/>Route 11|
-| ServiceProvided | This is the service provided by a business or place such as haircut, snow plowing, landscaping. | haircut<br/>mechanic<br/>plumber|
-| TransportationCompany | The name of a transport provider.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | The transportation type.|Bus<br/>Train<br/>Driving|
-
-## Reminder 
-The reminder domain provides intents and entities for creating, editing, and finding reminders.
-
-### Examples
-
-|Examples|
-|--|
-|Change my interview to 9 am tomorrow|
-|Remind me to buy milk on my way back home|
-|Can you check if I have a reminder about Christine's birthday?|
-
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Change| Change a reminder.|Change my interview to 9 am tomorrow<br/>Move my assignment reminder to tomorrow|
-| Create| Create a new reminder.|Create a reminder<br/>Remind me to buy milk<br/>I want to remember to call Rebecca when I'm at home|
-| Delete | Delete a reminder.|Delete my picture reminder<br/>Delete this reminder|
-| Find | Find a reminder.|Do I have a reminder about my anniversary?<br/>Can you check if I have a reminder about Christine's birthday?|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Text | The text description of a reminder.|pick up dry cleaning<br/>dropping my car off at the service center|
-
-## RestaurantReservation 
-The RestaurantReservation domain provides intents and entities related to managing restaurant reservations.
-
-### Examples
-
-|Examples|
-|--|
-|Reserve at Zucca for two for tonight|
-|Book a table at BJ's for tomorrow|
-|Table for 3 in Palo Alto at 7|
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Reserve | Request a reservation for a restaurant. |Reserve at Zucca for two for tonight<br/>Book a table for tomorrow<br/>Table for 3 in Palo Alto at 7|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Address| An event location or address for a reservation.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| Amenities | An attribute describing the amenities of a place.|ocean view<br/>non smoking|
-| AppName | The name of an application for making reservations.|OpenTable<br/>Yelp<br/>TripAdvisor|
-| Atmosphere | A description of the atmosphere of a restaurant or other place.|romantic<br/>casual<br/>good for groups|
-| Cuisine | A type of food, cuisine or cuisine nationality. |Chinese<br/>Italian<br/>Mexican|
-| MealType | A meal type associated with a reservation.|breakfast<br/>dinner<br/>lunch<br/>supper|
-| PlaceName | The name of a local business, restaurant, public attraction, or institution.|IHOP<br/>Cheesecake Factory<br/>Louvre|
-| PlaceType | The type of a local business, restaurant, public attraction, or institution.|restaurant<br/>opera<br/>cinema|
-| Rating | The rating of a place or restaurant.|5 stars<br/>3 stars<br/>4 stars|
-
-## Taxi 
+# Supported Domains across Cultures
+
+The table below summarizes the currently supported domains. Support for English is usually more complete than others. 
+
+| Entity Type       | EN-US      | ZH-CN   | DE    | FR     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
+|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
+| [Calendar](#calendar)    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Communication](#communication)   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Email](#email)           | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [HomeAutomation](#homeautomation)           | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Notes](#notes)      | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Places](#places)    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [RestaurantReservation](#restaurantreservation)   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [ToDo](#todo)     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Utilities](#utilities)          | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Weather](#weather)        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| [Web](#web)    | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+
+Prebuilt domains are **not supported** in:
+
+* French Canadian
+* Hindi
+* Spanish Mexican
+
+# Description for LUIS Prebuilt Domains
+## **Calendar**
+Calendar is anything about personal meetings and appointments, NOT public event (for example, world cup schedules, seattle event calendar) or generic calendar (for example, what day is it today, what does fall begin, when is Labor Day).
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------------
+ AcceptEventEntry | Accept a(n) appointment/meeting/event on calendar. | Accept an appointment. <br> Accept the event <br> accept today's meeting.
+ Cancel | Cancel the ongoing action by virtual assistant, such as canceling the process of creating a meeting. <br> ***Notice**: This intent mainly includes "Cancel" action in Calendar scenario. If you need general expression on "Cancel", please leverage "Cancel" intent in **Utilities** domain.* | It's ok, just cancel the event. <br> No, I just cancel the appointment.
+ ChangeCalendarEntry | Change or reschedule the calendar entry. | Reschedule my 6 a.m. appointment tomorrow to 2 p.m. <br> Reschedule doctor's appointment for 5 PM <br> Reschedule lunch with jenny olson to Friday. <br> Change event time.
+ CheckAvailability | Find availability for an appointment or meeting on the user's calendar or another person's calendar. | When is Jim available to meet? <br> Show when Carol is available tomorrow. <br> Is Chris free on Saturday?
+ Confirm | Confirm whether to perform an operation/action based on previous intent. <br> ***Notice**: This intent mainly includes "Confirm" action for Calendar scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain.*| That's correct, please create the meeting <br> Yes, thanks, connect to the meeting.
+ ConnectToMeeting | Connect to a meeting. | Connect me to 11:00 conference call with Andy. <br> Accept the budget meeting call.
+ ContactMeetingAttendees | Contact to the meeting attendees. | Tell the meeting I am running late to 3:00 meeting. <br> Notify colleagues for 8 am meeting that it needs to start at 8:30.
+ CreateCalendarEntry | Add a new one-time item to the calendar. | Create a meeting about discussing issues. <br> create a meeting with abc@microsoft.com
+ DeleteCalendarEntry | Request to delete a calendar entry.| Cancel my appointment with Carol. <br> Delete my 9 a.m. meeting. <br> Delete my event.
+  FindCalendarEntry | Open the calendar application or search the calendar entry. | Find the dentist review appointment. <br> Show my calendar. <br> What's in my calendar on Thursday?
+ FindCalendarWhen | Check the time when the schedule takes place. | When do I meet with Amber and Susan? <br> When do I have a brunch scheduled? 
+ FindCalendarWhere | Check the place where the schedule takes place. | Where are my appointments tomorrow? <br>Where am i meeting with Stacy and Michael tomorrow for dinner?
+  FindCalendarWho | Check the attendee(s) who will attend to the target schedule. | I want the confirmed attendants on tomorrow's meeting at 2. <br> Will jim be at the next nurses' meeting?
+ FindCalendarDetail | Check and show the details for the schedule. | I need you to provide me the details of the meeting I have scheduled with my colleague Paul.
+ FindDuration | Check the duration. | How much time will I have to pick up groceries? <br> How long do I have for lunch?
+ FindMeetingRoom | Find the available meeting rooms. | What meet rooms do I have? <br> A new meeting location, find one.
+ GoBack | Go back to last step or item.  <br> ***Notice**: Please refer to **Utilities** domain for more GoBack general utterances.* | Previous one <br> Back to last email.
+ Reject | The user rejects what virtual assistant proposed. <br> ***Notice**: Please refer to **Utilities** domain for more Reject general utterances.* | Not need to set the event. <br> I have other things to do at that time.
+ShowNext | Check the next event. <br> ***Notice**: Please refer to **Utilities** domain for more ShowNext general utterances.* | Give me my next event. <br> What is next in calendar?
+ ShowPrevious | Check the previous event. <br> ***Notice**: Please refer to **Utilities** domain for more ShowPrevious general utterances.* | What is the schedule before that?
+ TimeRemaining | Check the remaining time until next event. | Display how much time i have before my meetings. <br> Display the amount of time I have before my next meeting begins.
  
-The Taxi domain provides intents and entities for creating and managing taxi bookings.
+### **Entities**
+Entity Name | Entity Type | Description | Examples | Slots
+-------|-----------------------|-------------|---------|--------
+ContactName | personName | The name of a contact or meeting attendee. | Meet with **Betsy**. <br>  Meet with **Aubrey** on July 3rd at 7 p.m. | Betsy <br> Aubrey <br> Amy 
+DestinationCalendar | simple | The target calendar name. | lunch with mom Tuesday 12 **personal** <br> Use my **Google** calendar as my default calendar. <br> Update yoga class to mon wed at 3 p.m. list in **personal** calendar. | Google <br> personal <br> business <br> main
+Duration | datetime | Duration of a meeting, appointment, or remaining time. | Add to work calender meeting with Gary to discuss scholarship details tomorrow at 11 am for **20 minutes**. <br> Add to the calendar an event at subway on Friday I'll be eating with Thomas for **an hour** at 9 p.m. | an hour <br> 2 days <br> 20 minutes 
+EndDate | datetime | End date for a meeting or appointment. | Calendar add concert at bass hall Mary 3rd to **Mary 5th** | Mary 5th  
+EndTime | datetime | End time for a meeting or appointment. | can you make it two thirty to **three** | three 
+Location | simple | Location of calendar item, meeting or appointment.  Addresses, cities, and regions are good examples of locations. | put a meeting in **fremont** to put the tablet in Burma <br> pro bono meeting in **Edina** | 209 Nashville Gym <br> 897 Pancake house <br> Garage 
+MeetingRoom | simple | Room for a meeting or appointment. | Add to work calendar meeting with jake at 2 p.m. in his **office** this Friday | his office <br> conference room <br> Room 2
+MoveEarlierTimeSpan | datetime | The time user wants to move a meeting or appointment earlier. | Move my lunch date ahead by **30 minutes**. | 30 minutes <br> two hours 
+MoveLaterTimeSpan |  datetime | The time user wants to move a meeting or appointment later. | push my meeting with orchid box back **4 hours**. | 4 hours <br> 15 minutes 
+OrderReference | simple | The ordinal or relative position in a list, identifying an item to retrieve. | What's my next appointment for tomorrow? | next
+OriginalEndDate | datetime | Original end date of a meeting or appointment. | Change my vacation from ending on **Friday** to Monday | Friday 
+OriginalEndTime | datetime | Original end time of a meeting or appointment. | Make the one ending at **3** go until 4 | 3
+OriginalStartDate | datetime | Original start date of a meeting or appointment. | Change **tomorrow**'s appointment from 10 a.m. to Wednesday at 9 a.m.  | tomorrow 
+OriginalStartTime | datetime | Original start time of a meeting or appointment. | Change tomorrow's appointment from **10 a.m.** to Wednesday at 9 a.m. | 10 a.m.
+PositionReference | ordinal | The absolute position in a list, identifying an item to retrieve. | The **second** one | second <br> No. 3 <br> number 5
+RelationshipName | list | The relationship name of a contact. | add lunch at 1:00 P.M. with my **wife** | wife <br> husband <br> sister 
+SlotAttribute | simple | The attribute user wants to query or edit. | change event **location** <br> change it the **time** to seven o'clock | location <br> time 
+StartDate | datetime | Start date of a meeting or appointment. | Create a meeting on **Wednesday** at 4 p.m. | Wednesday 
+StartTime | datetime | Start time of a meeting or appointment. | create a meeting on Wednesday at **4 p.m.** | 4 p.m.
+Subject | simple, pattern.Any | Subject, such as title of a meeting or appointment. | What time is the **party preparation** meeting? | Dentist's <br> Lunch with Julia 
+Message | simple, pattern.Any | The message to send to the attendees. | Alert attendees of dinner meeting that **I will be late**. | I will be late
 
-### Examples
+## **Communication**
+Requests to make calls, send texts/ IMs, find/add contacts and various other communication-related requests (generally outgoing). _Contact name only_ utterances do not belong to Communication domain.
 
-|Examples|
-|--|
-|Get me a cab at 3 pm|
-|How much longer do I have to wait for my taxi?|
-|Cancel my Uber|
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+AddContact | Add a new contact to the user's list of contacts. | Add new contact.  <br>   Save this number and put the name as Jane.
+AddFlag | Add flag to an email | Flag this email <br> Add a flag to this email.
+AddMore | Add more to an email or text, as part of a step-wise email or text composition. | Add more to text.  <br>   Add more to email body.
+Answer | Answer an incoming phone call. | Answer the call.  <br>   Pick it up.
+AssignContactNickname | Assign a nickname to a contact. | Change Isaac to Dad.  <br>   Edit Jim's nickname. <br>   Add nickname to Patti Owens.
+CallBack | Return a phone call. | Call back.
+CallVoiceMail | Connect to the user's voice mail. | Connect me to my voicemail box. <br>Voice mail. <br>   Call voicemail.
+Cancel | Cancel an operation. | Cancel. <br>   End it.
+CheckIMStatus | Check the status of a contact in IM. | Is Jim's online status set to away? 
+CheckMessages | Check for the new messages or emails. | Check my inbox <br>  Do I have any new mail?
+Confirm | Confirm an action. | Yes, send it. <br> Right, I confirm that I want to send this email.
+EndCall | End a phone call. | Hang up the call. <br> End up.
+FindContact | Find contact information by name. | Find mum's number. <br>   Show me Carol's number.
+FinishTask | Finish current task. | I'm done <br> That is all.
+TurnForwardingOff | Turn off call forwarding. | Stop forwarding my calls. <br> Switch off call forwarding.
+TurnForwardingOn | Turn on call forwarding. | Forwarding my calls to 3333 <br>  Switch on call forwarding to 3333.
+GetForwardingsStatus | Get the current status of call forwarding. | Is my call forwarding turned on? <br>   Tell me if my call status is on or off.
+GetNotifications | Get the notifications. | open my notifications <br>   can you check my phone facebook notifications
+Goback | Go back to the previous step. | Go back to twitter <br>   Go back a step <br>   Go back
+Ignore | Ignore an incoming call. | Don't answer <br>   Ignore call
+IgnoreWithMessage | Ignore an incoming call and reply with text instead. | Don't answer that call but send a message instead. <br>   Ignore and send a text back.
+Dial | Make a phone call. | Call Jim <br>   Please dial 311.
+FindSpeedDial | Find the speedial number a phone number is set to and vice versa. | What is my dial number 5? <br>   Do I have speed dial set? <br>   What is the dial number for 941-5555-333?
+Forward | Forward an email | Forward this email to Greg.
+ReadAloud | Read a message or email to the user. | Read text. <br>   What did she say in the message?
+PressKey | Press a button or number on the keypad. | Dial star. <br>   Press 1 2 3.
+QueryLastText | Query the last text or message. | Who texted me? <br>   Who recently messaged me?
+Redial | Redial or call a number again. | Redial. <br>   Redial my last call.
+Reject | Reject an incoming call. | Reject call <br>   Can't answer now <br>   Not available at the moment and will call back later.
+Reply | Reply a message. | respond to lore hound <br>   reply by typing i am on my way
+SearchMessages | Search the messages by some conditions. | Can you search my emails sent by Jane?
+SendEmail | Send an email. This intent applies to email but not text messages. | Email to Mike Waters: Mike, that dinner last week was splendid. <br>   Send an email to Bob.
+SendMessage | Send a text message or an instant message. | Send text to Chris and Carol <br>   Facebook message greg <br>   
+SetSpeedDial | Set a speed dial shortcut for a contact's phone number. | Set speed dial one for Carol. <br>   Set up speed dial for mom.
+ShowCurrentNotification | Show current notifications. | Are there any new notifications? <br> Show me a notification.
+ShowNext | See the next item, for example, in a list of text messages or emails. | Show the next one. <br>   Go to the next page.
+ShowPrevious | See the previous item, for example, in a list of text messages or emails. | Show the previous one. <br>   Previous. <br>   Go to previous.
+TurnSpeakerOff | Turn off the speaker phone. | Take me off speaker. <br>   Turn off speakerphone.
+TurnSpeakerOn | Turn on the speaker phone. | Speakerphone mode. <br>   Put speakerphone on.
 
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Book | Call a taxi. |Get me a cab<br/>Find a taxi<br/>Book me an uber x|
-| Cancel | Cancel an action relating to booking a taxi.|Cancel my taxi<br/>Cancel my Uber|
-| Track | Track a taxi route.|How much longer do I have to wait for my taxi?<br/>Where is my Uber?|
+### **Entities**
+Entity Name | Entity Type | Description | Examples | Slots
+------|-------|----------|--------------|---------------
+Attachment | simple | The attachment the user wants to send by text or email. | Email a **file** from onenote. <br> Send my housekeeping **doc** to Katie. | file <br> doc
+AudioDeviceType | simple | Type of audio device (speaker, headset, microphone, etc.). | Answer using **hands-free**. <br> Redial on **speaker phone**. | speaker <br> hands-free <br> bluetooth
+Category | simple | The category of a message or email, the category must has a clear definition in email system, such as "unread", "flag". Description w/o clear definition, for example, "new" and "recent" are not categories. | Mark all email as **read**  <br> New **high priority** email for Paul | important <br> high priority <br> read
+ContactAttribute | simple | An attribute of the contact the user inquiries about.| Any **birthdays** next month I should know about? | birthdays <br> address <br> phone number
+ContactName | personName  | The name of a contact or message recipient. | Send the mail to **Stevens** | Stevens
+Date/Time | datetime | Datetime of an email received. | Read **today**'s mail <br> Who emailed me **today**? <br> who phoned at **7 p.m.**? | today <br> tomorrow
+DestinationPhone | simple | The target user wants to call or send a text to. | make a call to **house** <br> send a text message to **home** | house <br> home
+EmailAddress | email | The email address user wants to send or query. | send email to Megan.Flynn@MKF.com<br> abc@outlook.com 
+EmailSubject | simple, pattern.Any | The text used as the subject line for an email. | Compose email to David with subject **hey**  | RE: interesting story
+Key | simple | The key user wants to press. | Press the **space** key. <br> press **9** | pound <br> star <br> 8
+Line | simple | The line user wants to use to send an email or a text from. | Read my last **hotmail** email. <br> Call Peter by **mobile**. <br> Call Dad using my **work** line.| hotmail <br> Skype <br> British cell
+SenderName | personName | The name of the sender. | Read the email from **David** <br> Emails from Chanda | David <br> Chanda
+FromRelationshipName | simple | The relationship name of the sender. | Read message from **Dad**. <br> Can you read me all text messages from **mom**? | Dad <br> Mom 
+Message | simple, pattern.Any |  The message to send as an email or text.  | Send email saying "**I am busy**". | I am busy
+OrderReference | simple | The ordinal or relative position in a list, identifying an item to retrieve. | What was the **last** message I sent? <br> Read **latest** nokia email. <br> Read **new** text messages. | last <br> latest <br> recent <br> newest
+PositionReference | simple, ordinal | The ordinal or relative position in a list, identifying an item to retrieve.| What was the **first** message I sent? <br> The **3rd** one.| First <br> 3rd
+phoneNumber | phoneNumber | The phone number user wants to call or send a text to. | send a text to **four one five six eight four five two eight four** | 3525214446
+RelationshipName | simple | The relationship name of a contact or message recipient. | Email to my **wife** | wife
+SearchTexts | simple, pattern.any | The texts used for filtering emails or messages | Search all emails that contain "**Surface Pro**" | Surface Pro
+SpeedDial | simple | The speed dial. | Call **three four five**. <br> Set speed dial **one**. | 345 <br> 5
 
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Address| The address associated with booking a taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationAddress| A destination location or address. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName | The name of a destination that is a local business, restaurant, public attraction, or institution. |Central Park<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | The type of a destination that is a local business, restaurant, public attraction, or institution. |Restaurant<br/>Opera<br/>Cinema|
-| PlaceName | Name of local business, restaurant, public attraction, or institution. |Central Park<br/>Safeway<br/>Walmart|
-| PlaceType| The type of place in a request to book a taxi.|Restaurant<br/>Opera<br/>Cinema|
-| TransportationCompany | The name of a transport provider.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | The transportation type.|Bus<br/>Train<br/>Driving|
-
-## Translate 
-The Translate domain provides intents and entities related to translating text to a target language.
-
-### Examples
-
-|Examples|
-|--|
-|Translate to French|
-|Translate hello to German|
-|Translate this sentence to English|
-
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Translate| Translate text to another language.|Translate to French<br/>Translate hello to German|
-
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| TargetLanguage | The target language of a translation.|French<br/>German<br/>Korean|
-| Text | The text to translate.|Hello World<br/>Good morning<br/>Good evening|
-
-## TV 
- 
-The TV domain provides intents and entities for controlling TVs.
-
-### Examples
-
-|Examples|
-|--|
-|Switch channel to BBC|
-|Show TV guide|
-|Watch National Geographic|
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| ChangeChannel| Change a channel on a TV.|Change channel to CNN<br/>Switch channel to BBC<br/>Go to channel 4|
-| ShowGuide| Show the TV guide.|Show TV guide<br/>what is on movie channel now?<br/>show my program list|
-| WatchTV| Ask to watch a TV channel.|I want to watch the Disney channel<br/>go to TV please<br/>Watch National Geographic|
-
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| ChannelName | The name of a TV channel.|CNN<br/>BBC<br/>Movie channel|
-
-## Utilities  
-The Utilities domain provides intents for tasks that are common to many tasks, such as greetings, cancellation, confirmation, help, repetition, navigation, starting and stopping.
-
-### Examples
-
-|Examples|
-|--|
-|Go back to Twitter|
-|Please help|
-|Repeat last question please|
-
-
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Cancel | Cancel an action.|Cancel the message<br/>I don't want to send the email anymore|
-| Confirm | Confirm an action.|Yeah ohh I confirm<br/>Good I am confirming<br/>Okay I am confirming|
-| FinishTask | Finish a task the user started.|I am done<br/>I am finished<br/>It is done|
-| GoBack | Go back one step or return to a previous step.|Go back to Twitter<br/>Go back a step<br/>Go back|
-| Help | Request for help.|Please help<br/>open help<br/>help|
-| Repeat | Repeat an action.|Repeat last question please<br/>repeat last song|
-| ShowNext | Show the next item in a series. |Show the next one<br/>go to the next page|
-| ShowPrevious | Show the previous item in a series.|show previous one|
-| StartOver | Restart the app or start a new session.|Start over<br/>New session<br/>restart|
-| Stop | Stop an action.| Stop saying this please<br/>Shut up<br/>Stop please|
-
-## Weather 
-The Weather domain provides intents and entities for getting weather reports and forecasts.
-
-### Examples
-
-|Examples|
-|--|
-|weather in London in september|
-|What?s the 10 day forecast?|
-|What's the average temperature in India in september?|
+## **Email**
+Email is a subdomain of the *Communication* domain. It mainly contains requests to send and receive messages through emails.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+AddMore | Add more to an email or text, as part of a step-wise email or text composition. | Add more to email body.
+Cancel | Cancel an operation. <br> ***Notice**: Please refer to **Utilities** domain for more Cancel general utterances.* | Cancel. Don't send it. <br> End it.
+CheckMessages | Check for the new messages/emails without conditional inquiry. If there is any condition, the utterances belong to *SearchMessage* intent. | Check my inbox. <br> Do i have any new mails? 
+Confirm | Confirm an ongoing action related with processing emails. <br> ***Notice**: Please refer to **Utilities** domain for more Confirm general utterances.* | Yes, send it. <br> I confirm that I want to send this email.
+Delete | Delete an email or the mails filtered by some conditions. | Put the email into recycle bin <br> Empty my inbox. <br> Remove Mary's email.
+ReadAloud | Read a message or email to the user. <br> ***Notice**: Please refer to **Utilities** domain for more ReadAloud general utterances.*  | Read the email sent by Mary.
+Reply | Reply a message to the current email. | Create a response to the email. <br> Reply by typing "thank you very much, best regards, John".
+SearchMessages | Search the messages by some conditions, including sender name, time, and subject. | Show me the messages from Nisheen. <br> Can you search my emails titled "ABC"?
+SendEmail | Send an email. | Email to Mike: Mike, that dinner last week was splendid. <br> Send an email to Bob.
+ShowNext | See the next item(s) in a list of text messages or emails. <br> ***Notice**: Please refer to **Utilities** domain for more ShowNext general utterances.* | Show the next one. <br> Go to the next page.
+ShowPrevious | Show the previous item(s) in a list of text messages or emails. <br> ***Notice**: Please refer to **Utilities** domain for more ShowPrevious general utterances.* | Show the previous one. <br> Previous. <br> Go to previous.
+Forward | Forward an email. | Forward this email to Greg.
+AddFlag | Add flag to an email. | Flag this email <br> Add a flag to this email.
+QueryLastText | Query the last email. | Who sent email to me? <br> Who recently emailed me?
 
 
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| GetCondition | Get historic facts related to weather. |weather in London in September<br/>What's the average temperature in India in September?|
-| GetForecast | Get the current weather and forecast for the next few days. |How is the weather today?<br/>What's the 10 day forecast?<br/>How will the weather be this weekend?|
+### **Entities**
+Entity Name | Entity Type | Description | Examples | Slots
+------|-------|----------|--------------|---------------
+Attachment | simple | The attachment the user wants to send by text or email. | Email a **file** from onenote. <br> Send my housekeeping **doc** to Katie. | file <br> doc
+ContactName | personName  | The name of a contact or message recipient. | Send the mail to **Stevens** | Stevens
+Date | datetime | Date of an email received. | Read **today**'s mail <br> Who emailed me **today**? | today
+EmailAddress | email | The email address user wants to send or query. | send email to Megan.Flynn@MKF.com<br> abc@outlook.com 
+EmailSubject | simple, pattern.Any | The text used as the subject line for an email. | Compose email to David with subject **hey**  | RE: interesting story
+SenderName | personName | The name of the sender. | Read the email from **David** <br> Emails from Chanda | David <br> Chanda
+FromRelationshipName | simple | The relationship name of the sender. | Read message from **Dad**. <br> Can you read me all text messages from **mom**? | Dad <br> Mom 
+Message | simple, pattern.Any |  The message to send as an email or text.  | Send email saying "**I am busy**". | I am busy
+Category | simple | The category of a message or email, the category must has a clear definition in email system, such as "unread", "flag". Description w/o clear definition, for example, "new" and "recent" are not categories. | Mark all email as **read**  <br> New **high priority** email for Paul | important <br> high priority <br> read
+OrderReference | simple | The ordinal or relative position in a list, identifying an item to retrieve. | What was the **last** message I sent? <br> Read **latest** nokia email. <br> Read **new** text messages. | last <br> latest <br> recent <br> newest
+PositionReference | simple, ordinal | The ordinal or relative position in a list, identifying an item to retrieve.| What was the **first** message I sent? <br> The **3rd** one.| First <br> 3rd
+RelationshipName | simple | The relationship name of a contact or message recipient. | Email to my **wife** | wife
+Time | datetime | Time | send email **tonight**. | tonight
+SearchTexts | simple, pattern.any | The texts used for filtering emails or messages | Search all emails that contain "**Surface Pro**" | Surface Pro 
+Line | simple | The line user wants to use to send an email from. | Read my last **hotmail** email. <br> Send an email from my **work account**.| hotmail <br> work account 
 
-### Entities
-| Entity name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Location| The absolute location for a weather request.|Seattle<br/>Paris<br/>Palo Alto|
+## **HomeAutomation**
+The HomeAutomation domain provides intents and entities related to controlling smart home devices. We mainly support the control command related to lights and air conditioner. But it has some generalization abilities on other electric appliances.
+### **Supported Devices and Properties**
+Device | Properties
+-------|---------
+Temperature sensor | Temperature
+Light, lamp | On-off, brightness, color
+TV, radio | On-off, volume
+Air conditioner(A/C), thermostat | On-off, temperature, power
+Fan | On-off, power
+Outlets, dvd player, ice maker, etc. | On-off
 
-## Web 
-The Web domain provides an intent for navigating to a website.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+ TurnOff | User wants to turn off device or settings.  | Turn off the lights. <br> Switch off something. <br> Something off.
+ TurnOn | Turn on a device or turn on and set the device to a particular setting or mode. | Turn on the light to 50%. <br> Turn on my coffee maker <br> Can you turn on my coffee maker?
+ SetDevice | User wants to set the device to a particular setting or type.  | Set the air conditioner to 26 degrees. <br> Turn the lights blue. <br> Call this light as nightlight.
+ QueryState | User asks for the state of a device or setting.  | What is the thermostat set to? <br> Is the A/C on? <br> What's the bedroom temperature?
+ TurnUp | Turn up settings or brightness of devices. | Brighten the lights by 75 percent. <br> Up the brightness here by 10 percent.  <br> Make it warmer in the living room.
+ TurnDown | Turning down BUT NOT off a device, either through dimming, the temperature or the brightness of the lights. | Turn down the library by 44%. <br> Dim the lights. <br> Make the room cooler.
+### **Entities**
+Entity Name | Entity Type | Description | Examples
+-------|----------|--------------|---------------
+DeviceName | List | User-defined text for their devices. | Blue<br> Christmas <br> Desk
+DeviceType | List | Supported devices. | Lights <br> Air conditioner <br> nightlight
+Location | simple | Location or room the device is in. | Kitchen<br> Downstairs <br> Bedroom
+NumericalChange | simple | Amount by which a setting is increased or decreased. <br> <br> _The slot only appears with turn_up and turn_down intents._ | 3<br> 50%<br>
+OrderReference | ordinal | The purpose of this slot is to capture the selection of the items. It indicates the position of the item on a list. | First<br> Second
+Quantifier | List | Quantifier indicates how many instances of a particular entity are referenced. For example, "all", "every", etc. | All<br> Every<br> Everything
+Setting | Simple | The setting the user wishes to set their device to, which includes scene, level, intensity, color, mode, temperature, state of the device. | Blue<br> 72 <br> Heat 
+SettingType | List | The device setting the user is interested in. | Temperature<br> 
+Time/Date |  datetime | Time and duration for operating a device| 5 minutes <br> 3 p.m.
+Unit | List | To tag words like 'degrees', 'percent', "Fahrenheit", "Celsius" each unit term should be tagged separately. | Degrees<br> Percent
 
-### Examples
 
-|Examples|
-|--|
-|Navigate to facebook.com|
-|Go to www.twitter.com|
-|Navigate to www.bing.com|
+## **Notes**
+Note domain facilitates creating notes and writing down items for users.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+AddToNote | Add information to an opened note. | Add to my planning note to contact my boss about the project.
+Clear | Clear all items from a pre-existing note. | Remove all items from my vacation note. <br>Clear all from my reading note.
+Confirm | Confirm an action relating to a note. <br> ***Notice**: This intent mainly includes "Confirm" action for Note scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain.* | It's okay by me for this note. <br>I am confirming keeping all items on lists.
+Create | Create a new note. | Create a note. <br>Note to remind me that Jason is in town first week of May. 
+Delete | Delete an entire note. | Delete my vacation note. <br>Delete my groceries note.
+ReadAloud | Read a note out loud. | Read me the first note. <br>Read me the details.
+Close | Close the current note. | Close the note. <br>Close the current note.
+Open | Open a pre-existing note. | Open my vocation note. <br>Open the note "planning".
+RemoveSentence | Remove a sentence for a note. | Remove the last sentence. <br>Delete chips from my grocery note. <br>Remove pens from my school shopping note
+ChangeTitle | Change the title of the note. | Named this note as "planning".
 
-### Intents
-| Intent name | Description | Examples |
-| ---------------- |-----------------------|----|
-| Navigate | A request to navigate to a specified website. |Navigate to facebook.com<br/>Go to www.twitter.com|
+### **Entities**
+Entity Name | Entity Type | Description | Examples 
+------- | ------- | ------- | -------
+Text | simple, pattern.Any | The text of a note or reminder. | stretch before walking <br> long run tomorrow
+Title | simple, pattern.Any | Title of a note. | groceries <br> people to call <br> to-do
+CreationDate | datetimeV2 | This slot is for when the user asks for notes created within a certain date/time window. | 
+Quantifier | List | When a user asks to perform an action on 'all', 'every' or 'any' items or all text in a note. | all <br> any <br> every
+OrderReference | ordinal | User wants to make actions with 'first', 'last', 'next', etc. items. | first <br> last
+
+
+## **Places**
+Places include businesses, institutions, restaurants, public spaces, and addresses. The domain supports place finding and inquiring the information a public place such as location, operating hours and distance. 
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+MakeCall | Make a phone call to a place. | applebees on 1000/200 Rojas St and call.
+FindPlace | Search for a place (business, institution, restaurant, public space, address). But not: <li> Business name only: Starbucks <li> Location name only: Seattle/Norway <li> Cuisine, food or product only: Pizza/guacamole/Italian | Where's the nearest library? <br> Starbucks in Seattle. <br> Where's the nearest library? <br> 
+GetAddress | Ask for the address of a place. | Show me the address of Guu on Robson street. <br> What is the address of the nearest Starbucks?
+GetDistance | Ask about distance from current location to a specific place. | How far away is Holiday Inn?<br> How far is it to Bellevue square from here? <br> What's the distance to Tahoe?
+GetPhoneNumber | Ask for the phone number of a place. | What is the phone number of the nearest Starbucks?<br> Give the number for Home Depot. <br> A phone number for Disneyland.
+GetPriceRange | Ask for the range of per capita consumption for a place. | Average price of J.Sushi in Seattle. <br> Is the Cineplex half price on Wednesdays? <br> How much does a whole lobster dinner cost at Sizzler?
+GetStarRating | Ask for the star rating of a place. | How is Zucca rated?<br> How many stars does the French Laundry have?<br> Is the aquarium in Monterrey good?
+GetHours | Ask about the operating hours for a place. | At what time does Safeway close?<br> What are the hours for Home Depot?<br> Is Starbucks still open?
+GetReviews | Ask for reviews of a place. | Show me reviews for Cheesecake Factory. <br> Read Cineplex reviews. <br> Are there any recent reviews for Humperdinks?
+GetMenu | Ask for the menu items for a restaurant. | Does Zucca serve anything vegan? <br> What's on the menu at Sizzler? <br> Show me Applebee's menu.
+RatePlace | Rate a place. | 4 star rating for Maxi's pizza in Kimberly. <br> Give 4-star to Bonefish on Tripadvisor. <br> Create a 4 star review for La Hacienda.
+AddFavoritePlace | The user wants to add a location to their favorites or MVP list. | Save this location to my favorites. <br> Add Best Buy to my favorites.
+
+### **Entities**
+LUIS Entities | Entity Type | Description | Examples | Utterance Examples
+--------------|-------------|-------------|----------|-------------------
+AbsoluteLocation | simple | The location or address of a place. | Palo Alto <br> 300 112th Ave SE <br> Seattle | **1020 Middlefield Rd.** in **Palo Alto** <br> bird seed stores in **Seattle** <br> Get the distance from here to **300 112th Ave SE**.
+Amenities | simple | The objective characteristics and benefits of a public place. | waterfront <br> free parking | Kirkland **waterfront** seafood restaurants. <br> Is there any **free parking** near me?
+Cuisine | simple | A type of food, cuisine or cuisine nationality. | Chinese <br> Italian <br> Sushi <br> Noodle <br> | Help me find a **Chinese** restaurant. <br> What are the opening hours of the **Sushi** restaurant? <br> Where is the nearest **steak** house?
+Date | datetime | datetime or duration for date of the targeted location. | tomorrow <br> today <br> 6 p.m. | What time does aquarium close **tomorrow**? <br> the Closest bike shop that is open after **6 p.m.**
+Distance | dimension | The distance to a public place from user's currenct position. | 15 miles <br> 10 miles | a clothing store within **15 miles** <br> A kids' restaurant that is only **10 miles** away
+MealType | List | Type of meal like breakfast or lunch. | breakfast <br> dinner | Search **breakfast** Greenwood Seattle <br> Find me a place to have my **lunch**.
+Nearby | List | Describe a nearby place without absolute location or address. | nearest <br> in this area <br> around me | Find **nearest** indian restaurant. <br> Where is my **local** Wetherspoon? <br> Any good restaurants **around me**?
+OpenStatus | List | Indicates whether a place is open or closed. | open <br> closed | What time does Yogurt Land **closed** today? <br> What are the **opening** hours for Costco?
+PlaceName | simple | The name of a destination that is a business, restaurant, public attraction, or institution. The place name could contains a placetype if it is common used. | Central Park <br> Safeway <br> Walmart| What time does the **Safeway** pharmacy open? <br> Is **Walmart** open?
+PlaceType | simple | The type of a destination that is a local business, restaurant, public attraction, or institution. | restaurant <br> opera <br> cinema | **cinemas** in Cambridge <br> Is there a **restaurant** near me?
+PriceRange | simple | The price range of the products or service of the place. | cheap <br> cost effective <br> expensive | Find **affordable** appliance repair <br> What's a **cheap** pizza place that's open now?
+Product | simple | The product offered by a place. | clothes <br> televisions | Where's the best place to get **food**? <br> Find me east kilbride looking for **televisions**.
+Rating | simple | The rating of a place. | 5 stars <br> top <br> good | Are there any **good** places for me to go out and eat tomorrow <br> **best** Amsterdam restaurants <br> List **top** three pizza shops.
+
+
+## **RestaurantReservation**
+Restaurant reservation domain supports intents on handling reservation for restaurants.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+Reserve | Request a reservation for a restaurant. | Reserve at Zucca for two for tonight. <br> Book a table for tomorrow. <br> Table for 3 in Palo Alto at 7. <br> Make a reservation for 3 at Red Lobster.
+DeleteReservation | Cancel or delete a reservation for a restaurant. | Cancel the reservation at Zucca tomorrow night. <br> Forget about my reservation for red lobster at 7:00 p.m. next Friday. <br> I don't need the reservation for Zucca, cancel it.
+ChangeReservation | Change the time, place or number of people for an existing restaurant reservation. | Change my reservation to 9 p.m. <br> Change my reservation from Zucca to Red Lobster. <br> 7 people instead of 6 for the reservation at Zucca.
+Confirm | Confirm an action related to reservation. <br> ***Notice**: This intent mainly includes "Confirm" action for Restaurant Reservation scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain.* | Yes, I've made the reservations for tonight at 8 o'clock at the pasta maker. <br> Yes, just book it. <br> Confirm the reservation at Sushi Bar.
+FindReservationDetail | Display the detailed information of the an existing reservation. | Find my reservation at renaissance San Diego <br> Show the reservation tomorrow. <br> Display details of my reservation for Zucca.
+FindReservationWhere | Check the absolute location of the reservation. | Where is the location of Zucca in my reservation? <br> Show the locale of my reservation tomorrow.
+FindReservationWhen | Check the exact time of the reservation | When is the reservation of Zucca for tomorrow? <br> The time for my reservation at Red Lobster.
+Reject | The user rejects what virtual assistant proposed on managing a reservation. <br> ***Notice**:Please refer to **Utilities** domain for more Reject general utterances.* | Not need to set the event. | No, I don't want to change the reservation. <br> No, don't book it, I made a mistake.
+
+### **Entities**
+LUIS Entity | Entity Type | Description | Examples
+-------|------|---------|-------------------
+Address | simple | An event location or address for a reservation. | Palo Alto<br>300 112th Ave SE<br>Seattle
+Atmosphere | List | A description of the atmosphere of a restaurant. | romantic<br>casual<br>good for groups<br>nice
+Cuisine | simple | A type of food, cuisine or cuisine nationality. | Chinese<br>Italian<br>Mexican<br>Sushi<br>Noodle<br>steak
+MealType | List | A meal type associated with a reservation. | breakfast<br>dinner<br>lunch<br>supper
+PlaceName | simple | The name of a restaurant | Zucca<br>Cheesecake Factory<br>red lobster
+Rating | simple | The rating of a place or restaurant. | 5 stars<br>3 stars<br>4-star
+NumberPeople | simple | Number of people for reservation | 3<br>six
+Time | datetime| The time for restaurant reservation | tomorrow<br>tonight<br>7:00 p.m.<br>Christmas Eve
+
+
+## **ToDo**
+_ToDo_ domain provides types of task lists for users to add, mark and delete their todo-items.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+AddToDo | The user wants to add task items for any of the list types. |  Remind me to buy milk. <br> Add an item called "buy milk" to my to-do list
+Confirm | The user wants to confirm an ongoing action. The utterance contains explicit signal like "Yes" to confirm an operation. <br> <br> ***Notice**: This intent mainly includes "Confirm" action for ToDo scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain.* | Please delete the task. <br> I'm sure I want to add this task. <br> Yes, I want to do that.
+Cancel | The user wants to cancel ongoing action.  <br> <br> ***Notice**: This intent mainly includes "Confirm" action for Restaurant Reservation scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain.* | No, forget it. <br> just cancel the task. <br> No, don't add it.
+DeleteToDo | Delete an item in the task list by referring to its order or delete all to-do items. | Remove all tasks. <br> Help me to delete the second one.
+MarkToDo | Mark a task as finished or done by referring to its order or task content. | Mark the task "buy milk" as finished. <br> Complete task reading. <br> Complete all.
+ShowNextPage | A list will be split into several pages to shown. Show list items on the next page for the user. | Can you show next page in the shopping list? <br> What’s on the next? <br> What's next?
+ShowPreviousPage | Show list items on the previous page for the user. | show previous. <br> I need to check previous tasks.
+ShowToDo | Show all the items on the to-do list. | Show my shopping list. <br> Show my grocery list.
+
+### **Entities**
+LUIS Entity | Entity Type | Description | Examples
+-------|------|---------|-------------------
+ContainsAll | simple | Represent all or any items in task list | can you help to remove **all** tasks. <br> Finish **everything**.
+ordinal | ordinal | An ordinal or numeric reference to an item. | Mark the **third** one as completed. <br> Delete the **first** task.
+ListType | simple | Task list type.  | Add shoes to my **shopping** list.
+FoodOfGrocery | List | Detect a list of food items | Remind me to buy **milk**. <br> Add **beef** to my grocery list.
+TaskContent | simple, pattern.any | Detect the content of a task. | Remind me to **call my mother** please. <br> Add **celebrate John’s birthday** to my to-do list
+
+
+## **Utilities**
+_Utilities_ domain is a general domain among all _LUIS_ prebuilt models which contains common intents and utterances in difference scenarios.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+ Cancel | Cancel an action/request/task/service. | Cancel it. <br> Never mind, forget it.
+ Confirm | Confirm an action. | Sure <br> Yes, please <br> Confirm.
+ Reject | The user rejects what virtual assistant proposed. | No
+ FinishTask | Finish a task the user started. | I am done. <br> That's all. <br> Finish.
+ GoBack | Go back one step or return to a previous step. | Go back a step. <br> Go back.
+ Help | Request for help. | Please help. <br> Open help.
+ Repeat | Repeat an action. | Say it again.
+ ShowNext | Show or tell the next item(s). | Show the next one.
+ ShowPrevious | Show the previous item in a series. | Show previous one.
+ StartOver | Restart the app or start a new session. | Restart.
+ Stop | Tell the virtual assistant to stop talking.  | Stop saying this please.
+ SelectAny | User asks to select any item or results shown on the screen. | Any of it. <br> Select any one.
+ SelectNone | User selects none of the existing items and asks for more options. | Give me other suggestions. <br> None of them.
+  SelectItem | User asks to select an item or results shown on the screen. | Select the third one. <br> Select the top right one.
+ Escalate | Ask for a customer service to handle the issues. | Can I talk to a person?
+ ReadAloud | Read something aloud to user. | Read this page. <br> Read it aloud.
+
+### **Entities**
+LUIS Entity | Entity Type | Description | Examples
+------------|-------------|-------------|---------
+ordinal | ordinal | An ordinal or numeric reference to an item. | The **second** one. <br> **Next** one.
+number | number | Quantity of items user wants | The next **3** items
+DirectionalReference | simple | A reference point for where on the screen an item is located. | The right one <br> upper
+
+## **Weather**
+Weather domain focuses on checking weather condition and advisories with location and time or checking time by weather conditions.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+ CheckWeatherValue | Ask for weather or a weather-related factor for a location on forecast or past information. <br> Weather-related factors include: <li> temperature </li> <li> rain/snow/precipitation </li> <li> dry/wet/humidity </li> <li> fog </li> <li> UV index </li> <li> inches of rain/snow </li> | What is the Air Quality Index in Beijing? <br> How much rain is expected in Seattle in March? <br> Record highest temperature of Hawaii.
+ CheckWeatherTime | Ask for the time of forecasted or historical weather-related factors for a location. | When is it expected to rain? <br> A good time to go to Canada <br> When is the hottest month in Minnesota?
+ QueryWeather | Ask about the weather condition or weather-related factors for a specific location for which a "yes, no or maybe" response is expected, or ask for activity advise that depends on the weather condition. | Will it rain tomorrow? <br> Is it sunny today? <br> Is May too early to go to Alaska?
+ ChangeTemperatureUnit | Change the unit of weather, including Celsius,  Kelvin and Fahrenheit. | Convert in celsius. <br> Can i get that in Kelvin?
+ GetWeatherAdvisory | Get weather advisories or alert from a specific location. | Are there weather advisories in Memphis? <br> Are there any weather alerts for my area?
+
+### **Entities**
+LUIS Entity | Entity Type | Description | Examples
+------------|-------------|-------------|---------
+Location | geography | The absolute or implicit location for a weather request. | Palo Alto<br>Shanghai<br>Seattle<br>Delvina<br>
+Date/Time   | datetime | Datetime or duration for querying the weather. | November<br>hourly<br>morning<br>This weekend<br>10 day<br>
+AdditionalWeatherCondition | list | Additional description word for weather, such as the speed or direction of wind. | direction<br>Fast<br>speed
+Historic | simple | Description words of historical weather condition, including average、bordered cases in past time period. | past<br>historical/history<br>seasonal<br>best time<br>ever recorded
+PrecipitationUnit | dimension | The precipitation for snow or rain. | 5 inches<br>6 cm
+SuitableFor | simple | The description of a human activity under a weather condition, which is common when users query activity advice that depends on the weather condition. | jacket<br>umbrella<br>swimming
+TemperatureUnit |temperature | temperature | 18 Celsius<br>7 Kelvin degrees
+WeatherRange | simple | The specific condition of temperature, wind and other weather conditions among a period of time | maximum<br>high<br>low<br>average high<br>Highest
+WeatherCondition | simple | Weather condition description | sunny<br>rain<br>raining<br>temperature<br>snow<br>hot
+WindDirectionUnit | list | The direction words of wind | north<br>south<br>east<br>west<br>northeast
+
+
+## **Web**
+The Web domain provides the intent and entities for search for a website.
+### **Intents**
+Intent Name | Description | Examples
+---------|----------|---------
+ WebSearch | A request to navigate to a specified website or search in a search engine. | Search surface in google.com. <br> Find happy birthday song on web <br> Go to www.twitter.com.
+
+### **Entities**
+LUIS Entity | Entity Type | Description | Examples
+------------|-------------|-------------|---------
+SearchEngine | List | The search engine user wants to use. | Bing <br> Google
+SearchText | simple, pattern.Any | The text user wants to search. <br> _Tag "friends in facebook" as SearchText if the website after "in" is not a search engine. Url should also tag as SearchText._ | Movie <br> Deep learning <br> Tom cruise
+Link | url | The website link. | www.twitter.com
 

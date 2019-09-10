@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
+ms.author: yaya
 
 ---
 # Download the Azure SDK for PHP
@@ -77,7 +77,7 @@ The Azure CLI is a set of commands for deploying and managing Azure services, su
 
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
-[install-php]: http://www.php.net/manual/en/install.php
+[install-php]: https://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
 [composer-phar]: https://getcomposer.org/composer.phar
 [nodejs-org]: https://nodejs.org/

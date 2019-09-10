@@ -1,11 +1,11 @@
 ---
-title: VMware to Azure disaster recovery architecture in Azure Site Recovery | Microsoft Docs
+title: VMware to Azure disaster recovery architecture in Azure Site Recovery 
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ---
 
@@ -40,7 +40,7 @@ The following table and graphic provide a high-level view of the components used
         - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours. 
         - **App-consistent snapshots**. App-consistent snapshot can be take every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
 
-2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
+2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 3. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
 4. Communication happens as follows:
 
@@ -48,6 +48,7 @@ The following table and graphic provide a high-level view of the components used
     - The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
+5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as asr seed disk). The recovery points are created on this disk.
 
 
 

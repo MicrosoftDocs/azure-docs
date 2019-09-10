@@ -1,27 +1,21 @@
 ---
 title: Azure Storage code samples | Microsoft Docs
-description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries.
-services: storage
-author: tamram
+description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Python, Node.js, and C++ storage client libraries.
+author: mhopkins-msft
+
+ms.author: mhopkins
+ms.date: 09/06/2019
 ms.service: storage
-ms.topic: article
-ms.date: 06/03/2017
-ms.author: tamram
 ms.subservice: common
+ms.topic: sample
 ---
+
 # Azure Storage samples
 
 Use the links below to view and download Azure Storage sample code and applications.
 
 ## Azure Code Samples library
 The [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
-
-<!--## Getting started samples-->
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
-* [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
--->
 
 ## .NET samples
 To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
@@ -32,6 +26,12 @@ To explore the .NET samples, download the [.NET Storage Client Library](https://
 To explore the Java samples, download the [Java Storage Client Library](https://github.com/azure/azure-storage-java).
 
 * [Azure Storage samples using Java](storage-samples-java.md)
+
+## Python samples
+To explore the Python samples, download the [Python Storage Client Library](https://github.com/azure/azure-storage-python).
+
+* [Azure Storage samples using Python](storage-samples-python.md)
+
 
 ## Node.js samples
 To explore the Node.js samples, download the [Node.js Storage Client Library](https://github.com/Azure/azure-storage-node).
@@ -55,8 +55,9 @@ To explore the C++ samples, download the [C++ Storage Client Library](https://ww
 
 | Language | API reference | Source code |
 |----------|---------------|-------------|
-| .NET | [.NET Client Library Reference](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
+| .NET | [.NET Client Library Reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
 | Java | [Java Client Library Reference](https://docs.microsoft.com/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
+| Python | [Python Client Library Reference](https://azure-storage.readthedocs.io/) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-p[ython]) |
 | Node.js | [Node.js Client Library Reference](https://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ Client Library Reference](https://azure.github.io/azure-storage-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)|
 
@@ -66,3 +67,4 @@ The following articles index each of the samples by service (blob, file, queue, 
 
 * [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * [Azure Storage samples using Java](storage-samples-java.md)
+* [Azure Storage samples using Python](storage-samples-python.md)

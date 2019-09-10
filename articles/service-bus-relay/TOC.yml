@@ -36,6 +36,8 @@
     href: relay-authentication-and-authorization.md
   - name: Hybrid Connections protocol
     href: relay-hybrid-connections-protocol.md
+  - name: Built-in security controls
+    href: service-bus-relay-security-controls.md
 - name: How To
   items:
   - name: Plan and design
@@ -46,8 +48,6 @@
     items:
     - name: Create a namespace
       href: relay-create-namespace-portal.md
-    - name: Use WCF Relay to expose WCF services to external clients
-      href: relay-wcf-dotnet-get-started.md
     - name: Available APIs
       href: relay-api-overview.md
       items:

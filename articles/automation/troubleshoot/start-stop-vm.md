@@ -4,9 +4,9 @@ description: This article provides information on troubleshooting Starting and S
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 02/13/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -82,7 +82,7 @@ Review the following list for potential solutions to your problem or places to l
 
 * Check that you've properly configured a schedule for the Start/Stop VM solution. To learn how to configure a schedule, see the [Schedules](../automation-schedules.md) article.
 
-* Check the job streams for the runbooks to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**. From the **Jobs** page look for jobs from one of the following runbooks:
+* Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**. From the **Jobs** page look for jobs from one of the following runbooks:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -137,6 +137,8 @@ Review the following list for potential solutions to your problem or places to l
 
 * If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
+* Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**.
+
 ## <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 
 ### Issue
@@ -149,7 +151,7 @@ The cause for the failure could be one of many things. Go to your Automation Acc
 
 ### Resolution
 
-It's recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. Custom runbooks are not supported by Microsoft. You might find a solution for your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article. This article provides general guidance and troubleshooting for runbooks of all types.
+It's recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. Custom runbooks are not supported by Microsoft. You might find a solution for your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article. This article provides general guidance and troubleshooting for runbooks of all types. Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Scenario: VMs don't start or stop in the correct sequence
 
@@ -171,7 +173,7 @@ Take the following steps to ensure that the solution is configured correctly.
 
 For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Scenario: Start/Stop VM job fails with 403 forbidden status 
+## <a name="403"></a>Scenario: Start/Stop VM job fails with 403 forbidden status
 
 ### Issue
 
@@ -201,9 +203,12 @@ You experience an issue or unexpected result when using the Start/Stop VMs durin
 
 Many times errors can be caused by using an old and outdated version of the solution.
 
+> [!NOTE]
+> The Start/Stop VMs during off-hours solution has been tested with the Azure modules that are imported into your Automation Account when you deploy the solution. The solution does currently not work with newer versions of the Azure module. This only affects the Automation Account that you use to run the Start/Stop VMs during off-hours solution. You can still use newer versions of the Azure module in your other Automation Accounts, as described in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md)
+
 ### Resolution
 
-To resolve many errors, it's recommended to remove and update the solution. To learn how to update the solution, see [Update the Start/Stop VMs during off hours solution](../automation-solution-vm-management.md#update-the-solution).
+To resolve many errors, it's recommended to remove and update the solution. To learn how to update the solution, see [Update the Start/Stop VMs during off hours solution](../automation-solution-vm-management.md#update-the-solution). Additionally, you can check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**.
 
 ## Next steps
 

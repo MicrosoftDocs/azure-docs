@@ -295,7 +295,7 @@ When creating additional connections, it's important to verify that the IP addre
 
 ### <a name="TestVNet5"></a>Step 7 - Create and configure TestVNet5
 
-This step must be done in the context of the new subscription, Subscription 5. This part may be performed by the administrator in a different organization that owns the subscription. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
+This step must be done in the context of the new subscription, Subscription 5. This part may be performed by the administrator in a different organization that owns the subscription. To switch between subscriptions use `az account list --all` to list the subscriptions available to your account, then use `az account set --subscription <subscriptionID>` to switch to the subscription that you want to use.
 
 1. Make sure you are connected to Subscription 5, then create a resource group.
 
@@ -334,7 +334,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
 
 ### <a name="connections5"></a>Step 8 - Create the connections
 
-This step is split into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
+This step is split into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use `az account list --all` to list the subscriptions available to your account, then use `az account set --subscription <subscriptionID>` to switch to the subscription that you want to use.
 
 1. **[Subscription 1]** Log in and connect to Subscription 1. Run the following command to get the name and ID of the Gateway from the output:
 

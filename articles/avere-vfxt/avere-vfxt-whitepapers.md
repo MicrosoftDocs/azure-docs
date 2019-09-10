@@ -20,7 +20,7 @@ This guide provides step-by-step guidance for installing Agisoft PhotoScan photo
 
 ## Datasheet: Avere vFXT for Azure
 
-**Link:** [Avere vFXT for Azure datasheet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
+**Link:** [Avere vFXT for Azure datasheet](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 This two-page brief has basic information and diagrams that explain how to use Avere vFXT for Azure in several use case scenarios.
 

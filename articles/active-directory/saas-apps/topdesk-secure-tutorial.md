@@ -179,7 +179,7 @@ To configure Azure AD single sign-on with TOPdesk - Secure, perform the followin
 
     b. To upload your certificate file, under **Certificate (RSA)**, click **Browse**.
 
-    c. For **Private key(RSA, PKCS8, DER)**, you can upload your own private key or you can contact [TOPdesk - Secure Client support team](http://www.topdesk.com/us/support) to get the private key.
+    c. For **Private key(RSA, PKCS8, DER)**, you can upload your own private key or you can contact [TOPdesk - Secure Client support team](https://www.topdesk.com/us/support) to get the private key.
 
     d. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
 
@@ -282,5 +282,5 @@ When you click the TOPdesk - Secure tile in the Access Panel, you should be auto
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

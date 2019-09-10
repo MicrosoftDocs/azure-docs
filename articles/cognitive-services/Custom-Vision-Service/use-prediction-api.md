@@ -1,6 +1,6 @@
 ---
 title: "Use prediction endpoint to programmatically test images with classifier - Custom Vision"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 services: cognitive-services
 author: anrothMSFT
@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
 ---
@@ -41,7 +41,7 @@ Once your model has been published, you can retrieve the required information by
 ![The performance tab is shown with a red rectangle surrounding the Prediction URL value for using an image file and the Prediction-Key value.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Your __Prediction-Key__ can also be found in the [Azure Portal](https://portal.azure.com) page for the Custom Vision Azure Resource associated with your project, under the __Keys__ blade.
+> Your __Prediction-Key__ can also be found in the [Azure portal](https://portal.azure.com) page for the Custom Vision Azure Resource associated with your project, under the __Keys__ blade.
 
 In this guide, you will use a local image, so copy the URL under **If you have an image file** to a temporary location. Copy the corresponding __Prediction-Key__ value as well.
 

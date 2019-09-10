@@ -3,19 +3,16 @@ title: Troubleshoot Azure Data Factory issues
 description: Learn how to troubleshoot issues with using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
-
+author: djpmsft
+ms.author: daperlov
+ms.reviewer: maghan
+manager: craigg
 robots: noindex
 ---
 # Troubleshoot Data Factory issues
@@ -116,14 +113,14 @@ See [Debug a pipeline with custom activity](data-factory-use-custom-activities.m
 
 ## Use Azure portal to troubleshoot
 ### Using portal blades
-See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) for steps.
+See [Monitor pipeline](data-factory-monitor-manage-pipelines.md) for steps.
 
 ### Using Monitor and Manage App
 See [Monitor and manage data factory pipelines using Monitor and Manage App](data-factory-monitor-manage-app.md) for details.
 
 ## Use Azure PowerShell to troubleshoot
 ### Use Azure PowerShell to troubleshoot an error
-See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) for details.
+See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-monitor-manage-pipelines.md) for details.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

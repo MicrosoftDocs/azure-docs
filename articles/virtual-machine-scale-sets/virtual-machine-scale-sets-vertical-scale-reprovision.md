@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 04/18/2019
 ms.author: manayar
 
 ---
@@ -85,7 +85,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> 
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 > 
 
 ## Create an Azure Automation Account with run-as capability

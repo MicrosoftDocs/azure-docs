@@ -12,7 +12,6 @@ ms.assetid:
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
@@ -24,7 +23,7 @@ ms.custom: seodec18
 [App Service on Linux](app-service-linux-intro.md) offers three different paths to getting your application published to the web:
 
 - **Custom image deployment**: "Dockerize" your app into a Docker image that contains all of your files and dependencies in a ready-to-run package.
-- **Multi-container deployment**: "Dockerize" your app across multiple containers using a Docker Compose or a Kubernetes configuration file. For more information, see [Multi-container app](#multi-container-apps-supportability).
+- **Multi-container deployment**: "Dockerize" your app across multiple containers using a Docker Compose configuration file.
 - **App deployment with a built-in platform image**: Our built-in platform images contain common web app runtimes and dependencies, such as Node and PHP. Use any one of the [Azure App Service deployment methods](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to deploy your app to your web app's storage, and then use a built-in platform image to run it.
 
 ## Which method is right for your app? 
@@ -40,37 +39,19 @@ The primary factors to consider are:
 - **Build resource usage**: When an app is deployed from source, the deployment scripts run by Kudu use the same App Service Plan compute and storage resources as the running app. Large app deployments may consume more resources or time than desired. In particular, many deployment workflows generate heavy disk activity on the app content volume, which is not optimized for such activity. A custom image delivers all of your app's files and dependencies to Azure in a single package with no need for additional file transfers or deployment actions.
 - **Need for rapid iteration**: Dockerizing an app requires additional build steps. For changes to take effect, you must push your new image to a repository with each update. These updates are then pulled to the Azure environment. If one of the built-in containers meets your app's needs, deploying from source may offer a faster development workflow.
 
-## Multi-container apps supportability
+## Next steps
 
-### Supported Docker Compose configuration options
-- command
-- entrypoint
-- environment
-- image
-- ports
-- restart
-- services
-- volumes
+Custom container:
+* [Run custom container](quickstart-docker-go.md)
 
-### Unsupported Docker Compose configuration options
-- build (not allowed)
-- depends_on (ignored)
-- networks (ignored)
-- secrets (ignored)
-- ports other than 80 and 8080 (ignored)
+Multi-container:
+* [Create multi-container app](quickstart-multi-container.md)
 
-> [!NOTE]
-> Any other options not explicitly called out are also ignored in Public Preview.
+The following articles get you started with App Service on Linux with a built-in platform image:
 
-### Supported Kubernetes configuration options
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
->Any other Kubernetes options not explicitly called out aren't supported in Public Preview.
->
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)

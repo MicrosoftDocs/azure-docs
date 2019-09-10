@@ -1,7 +1,6 @@
 ---
 title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight 
 description: Learn how to use the Azure Data Lake tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox, and view job output and history.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -10,8 +9,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-
 ---
+
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
 
 Azure Data Lake includes tools for working with generic Apache Hadoop clusters. This document provides the steps needed to use the Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
@@ -22,7 +21,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 * The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. For information on setting up the sandbox, see the [Get started with the Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) document.
 
-* Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017 (any edition).
+* Visual Studio.
 
 * The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or later.
 
@@ -42,13 +41,13 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in the 
 
 3. From the **Connect to HDInsight Emulator** dialog box, enter the password that you configured for Ambari.
 
-    ![Screenshot of dialog box, with password text box highlighted](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Screenshot of dialog box, with ambari password text box highlighted](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Select **Next** to continue.
 
 4. Use the **Password** field to enter the password you configured for the `root` account. Leave the other fields at the default value.
 
-    ![Screenshot of dialog box, with password text box highlighted](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![Screenshot of dialog box, with root password text box highlighted](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     Select **Next** to continue.
 
@@ -87,7 +86,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     You can also use the drop-down menu next to **Submit** to select **Advanced**. Advanced options allow you to provide additional options when you submit the job.
 
-    ![Screenshot of Submit Script dialog box](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Screenshot of Submit Script dialog box hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
 3. After you submit the query, the job status appears. The job status displays information about the job as it is processed by Hadoop. **Job State** provides the status of the job. The state is updated periodically, or you can use the refresh icon to refresh the state manually.
 
@@ -146,7 +145,7 @@ While Hive provides a SQL-like language for working with structured data, Pig wo
 
     While Pig uses a different language than Hive, how you run the jobs is consistent between both languages, through the **Submit** button. Selecting the drop-down beside **Submit** displays an advanced submit dialog box for Pig.
 
-    ![Screenshot of Submit Script dialog box](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Screenshot of Submit Script dialog box pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
 3. The job status and output is also displayed, the same as a Hive query.
 

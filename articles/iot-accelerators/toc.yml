@@ -67,7 +67,7 @@
       - name: Node.js on Raspberry Pi
         href: iot-accelerators-connecting-pi-node.md
       - name: MXChip IoT DevKit
-        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md
     - name: Simulate a device
       items:
       - name: Create a simulated device
@@ -103,7 +103,7 @@
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Explore telemetry
       items:
-      - name: Visualize telemetry with PowerBI
+      - name: Visualize telemetry with Power BI
         href: iot-accelerators-integrate-data-powerbi.md
       - name: Integrate Azure Time Series Insights with Remote Monitoring
         href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -142,41 +142,35 @@
     items: 
     - name: What is industrial IoT
       href: overview-iot-industrial.md 
-    - name: OPC Twin
-      items:
-        - name: What is OPC Twin
-          href: overview-opc-twin.md
-        - name: OPC Twin Architecture
-          href: overview-opc-twin-architecture.md
-    - name: OPC Vault
-      items:
-        - name: What is OPC Vault
-          href: overview-opc-vault.md 
-    - name: Connected Factory
-      items:
-      - name: Connected Factory Overview
-        href: iot-accelerators-connected-factory-features.md
-      - name: Connected Factory Architecture
-        href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: What is OPC Twin
+      href: overview-opc-twin.md
+    - name: What is OPC Vault
+      href: overview-opc-vault.md 
+    - name: What is OPC Publisher
+      href: overview-opc-publisher.md 
+    - name: What is Connected Factory
+      href: iot-accelerators-connected-factory-features.md
   - name: Quickstarts
     items:
     - name: Try a connected factory solution
       href: quickstart-connected-factory-deploy.md
+  - name: Concepts
+    items:
+    - name: OPC Twin Architecture
+      href: overview-opc-twin-architecture.md
+    - name: OPC Vault Architecture
+      href: overview-opc-vault-architecture.md
   - name: How-to guides
     items:
-    - name: Connected Factory    
+    - name: Connected Factory
       items:
       - name: Use the dashboard
         href: iot-accelerators-connected-factory-dashboard.md
-      - name: Deploy a gateway
-        href: iot-accelerators-connected-factory-gateway-deployment.md
-      - name: Use the OPC publisher
-        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
       - name: Configure the solution accelerator
         href: iot-accelerators-connected-factory-configure.md
       - name: Customize the solution accelerator
         href: iot-accelerators-connected-factory-customize.md
-    - name: OPC Twin    
+    - name: OPC Twin
       items:
       - name: Deploy OPC Twin services
         href: howto-opc-twin-deploy-existing.md
@@ -186,14 +180,20 @@
         href: howto-opc-twin-deploy-dependencies.md 
     - name: OPC Vault
       items:
-      - name: Deploy OPC Vault to an existing project
-        items: 
-        - name: Secure communication of OPC Client and OPC PLC
-          href: howto-opc-vault-deploy-existing-client-plc-communication.md
-        - name: Secure OPC UA Client and OPC UA Server Application 
-          href: howto-opc-vault-deploy-existing-client-server-communication.md
-      - name: Deploy OPC Vault from scratch
-        href: howto-opc-vault-deploy-scratch.md
+      - name: Deploy OPC Vault service
+        href: howto-opc-vault-deploy.md
+      - name: Manage OPC Vault service
+        href: howto-opc-vault-manage.md
+      - name: Secure OPC UA device communication with OPC Vault
+        href: howto-opc-vault-secure.md
+      - name: Operate the OPC Vault service securely
+        href: howto-opc-vault-secure-ca.md
+    - name: OPC Publisher
+      items:
+      - name: Configure OPC Publisher
+        href: howto-opc-publisher-configure.md
+      - name: Run OPC Publisher
+        href: howto-opc-publisher-run.md
   - name: Resources
     items:
     - name: GitHub repository
@@ -226,7 +226,7 @@
       href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualize telemetry with Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Serialize telemetry using Protbuf
+    - name: Serialize telemetry using Protobuf
       href: iot-accelerators-device-simulation-protobuf.md
     - name: Deploy a custom docker image
       href: iot-accelerators-device-simulation-deploy-image.md
@@ -272,34 +272,30 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators 
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/ 
-  - name: Platform Services 
+      href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+  - name: Platform Services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub 
+      href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT Service SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Maps
-      href: /azure/azure-maps 
+      href: /azure/azure-maps
     - name: Time Series Insights
-      href: /azure/time-series-insights 
-  - name: Edge
+      href: /azure/time-series-insights
+  - name: IoT Edge
     items:
-    - name: IoT Edge
-      href: /azure/iot-edge 
+    - name: Azure IoT Edge
+      href: /azure/iot-edge
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
-  - name: Stream Analytics
-    href: /azure/stream-analytics/
-  - name: Event Hubs
-    href: /azure/event-hubs/
-  - name: Machine Learning
-    href: /azure/machine-learning/
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 
 - name: Resources
   items:

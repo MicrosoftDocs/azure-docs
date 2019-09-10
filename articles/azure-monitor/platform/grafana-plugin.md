@@ -14,8 +14,6 @@ ms.subservice: ""
 # Monitor your Azure services in Grafana
 You can now monitor Azure services and applications from [Grafana](https://grafana.com/) using the [Azure Monitor data source plugin](https://grafana.com/plugins/grafana-azure-monitor-datasource). The plugin gathers application performance data collected by Azure Monitor, including various logs and metrics. You can then display this data on your Grafana dashboard.
 
-The plugin is currently in preview.
-
 Use the following steps to set up a Grafana server and build dashboards for metrics and logs from Azure Monitor.
 
 ## Set up a Grafana server
@@ -114,8 +112,6 @@ You can also reuse this set up to include metrics from your Prometheus server. U
 
 Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, and Docker
  - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [Monitor Docker resource metrics with Grafana, InfluxDB, and Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 

@@ -8,7 +8,7 @@ manager: cshepard
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -54,7 +54,7 @@ When you try to connect to a VM, you experience the following scenarios:
 This problem occurs because Remote Desktop Services isn't running on the VM. The cause can depend on the following scenarios: 
 
 - The TermService service is set to **Disabled**. 
-- The TermService service is crashing or hanging. 
+- The TermService service is crashing or not responding. 
 - The TermService is not starting because of to an incorrect configuration.
 
 ## Solution

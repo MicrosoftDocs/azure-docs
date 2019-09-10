@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -40,19 +40,18 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Adding Application Insights Resource](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Adding Application Insights Resource](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
 
-
-   A configuration box appears; use the following table to fill out the input fields.
+   A configuration page appears; use the following table to fill out the input fields. 
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
    | **Application Type** | Node.js Application | Type of app you are monitoring |
-   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-2. Click **Create**.
+2. Select **Create**.
 
 ## Configure App Insights SDK
 
@@ -84,11 +83,11 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Application Insights Overview Menu](./media/nodejs-quick-start/4overview.png)
 
-2. Click **Application map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
+2. Select **Application map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
 
    ![Application Map](./media/nodejs-quick-start/5appmap.png)
 
-3. Click on the **App Analytics** icon ![Application Map icon](./media/nodejs-quick-start/006.png) **View in Analytics**.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3. Select the **App Analytics** icon ![Application Map icon](./media/nodejs-quick-start/006.png) **View in Analytics**.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
    ![Analytics graph of user requests over a period of time](./media/nodejs-quick-start/6analytics.png)
 
@@ -118,7 +117,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    </script>
    ```
 
-5. On the left click on **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by picking "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Server metrics graph](./media/nodejs-quick-start/8metrics.png)
 
@@ -128,8 +127,8 @@ To learn more about monitoring Node.js, check out the [additional App Insights N
 
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
-2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
+1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **myResourceGroup**.
+2. On your resource group page, select **Delete**, enter **myResourceGroup** in the text box, and then select **Delete**.
 
 ## Next steps
 

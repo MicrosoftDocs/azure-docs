@@ -30,4 +30,5 @@ Currently, App Configuration keeps seven days of change history.
 
 ## Next steps
 
-* [Quickstart: Create an ASP.NET web app](quickstart-aspnet-core-app.md)  
+> [!div class="nextstepaction"]
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  

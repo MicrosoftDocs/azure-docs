@@ -82,11 +82,11 @@ To copy the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset to 
 
 Here, we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting started with the AzCopy command-line utility](../../storage/common/storage-use-azcopy.md).
 
-1. From a command prompt window, run the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
+1. From a command prompt window, run the following AzCopy commands, replacing *\<path_to_data_folder>* with the desired destination:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *<path\_to\_unzipped_data\_files\>* in what follows.
+1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *\<path\_to\_unzipped_data\_files\>* in what follows.
 
 ## <a name="upload"></a>Upload the data to the default container of the HDInsight Hadoop cluster
 > [!NOTE]
@@ -96,10 +96,10 @@ Here, we describe how to use AzCopy to transfer the files containing data. To do
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
-* ***<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
-* ***<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
-* ***<storage account key>*** The key for the storage account used by your cluster.
+* ***\<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
+* ***\<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
+* ***\<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
+* ***\<storage account key>*** The key for the storage account used by your cluster.
 
 From a command prompt or a Windows PowerShell window, run the following two AzCopy commands.
 

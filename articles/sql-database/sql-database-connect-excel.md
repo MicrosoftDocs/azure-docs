@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: joseidz
 ms.author: craigg
 ms.reviewer: 
-manager: craigg
 ms.date: 02/12/2019
 ---
 # Connect Excel to a single database in Azure SQL database and create a report
@@ -33,7 +32,7 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
    The Data Connection Wizard opens.
 3. In the **Connect to Database Server** dialog box, type the SQL Database **Server name** you want to connect to in the form <*servername*>**.database.windows.net**. For example, **msftestserver.database.windows.net**. Optionally, enter in the name of your database. Select **OK** to open the credentials window. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![Connect to Database Server Dialog box](media/sql-database-connect-excel/server-name.png)
 
 4. In the **SQL Server Database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the SQL Database server  you want to connect to. Select **Connect** to open the **Navigator**. 
 
@@ -62,7 +61,7 @@ Now that you've established the connection, you have several different options w
 
 > [!TIP]
 > If you want to connect other Excel workbooks and worksheets to the database, select the **Data** tab, and select **Recent Sources** to launch the **Recent Sources** dialog box. From there, choose the connection you created from the list, and then click **Open**.
-> ![Recent Connections](media/sql-database-connect-excel/recent-connections.png)
+> ![Recent Sources dialog box](media/sql-database-connect-excel/recent-connections.png)
 
 ## Create a permanent connection using .odc file
 
@@ -72,7 +71,7 @@ To save the connection details permanently, you can create an .odc file and make
    1. Select **Browse for more** to open the **Select Data Source** dialog box.   
    2. Select the **+NewSqlServerConnection.odc** file and then select **Open** to open the **Data Connection Wizard**.
 
-      ![New Connection](media/sql-database-connect-excel/new-connection.png)
+      ![New Connection dialog box](media/sql-database-connect-excel/new-connection.png)
 
 2. In the **Data Connection Wizard**, type in your server name and your SQL Database credentials. Select **Next**. 
    1. Select the database that contains your data from the drop-down. 

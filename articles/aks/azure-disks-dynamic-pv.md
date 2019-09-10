@@ -2,12 +2,12 @@
 title: Dynamically create a Disk volume for multiple pods in Azure Kubernetes Service (AKS)
 description: Learn how to dynamically create a persistent volume with Azure disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
 ---
@@ -37,6 +37,8 @@ Each AKS cluster includes two pre-created storage classes, both configured to wo
     * Standard storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
 * The *managed-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
+    
+These default storage classes don't allow you to update the volume size once created. To enable this ability, add the *allowVolumeExpansion: true* line to one of the default storage classes, or create you own custom storage class. You can edit an existing storage class using the `kubectl edit sc` command. For more information on storage classes and creating youor own, see [Storage options for applications in AKS][storage-class-concepts].
 
 Use the [kubectl get sc][kubectl-get] command to see the pre-created storage classes. The following example shows the pre-create storage classes available within an AKS cluster:
 
@@ -84,7 +86,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## Use the persistent volume
 
-Once the persistent volume claim has been created and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim named *azure-managed-disk* to mount the Azure disk at the path `/mnt/azure`.
+Once the persistent volume claim has been created and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim named *azure-managed-disk* to mount the Azure disk at the path `/mnt/azure`. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
 
@@ -277,3 +279,4 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

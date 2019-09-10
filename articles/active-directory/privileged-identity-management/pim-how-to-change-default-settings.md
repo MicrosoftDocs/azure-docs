@@ -3,7 +3,7 @@ title: Configure Azure AD role settings in PIM - Azure Active Directory | Micros
 description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 
@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/30/2018
-ms.author: rolyon
+ms.date: 05/31/2019
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -67,6 +67,7 @@ Use the **Multi-Factor Authentication** switch to specify whether to require use
 * Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure MFA. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable MFA for that role.
 * You cannot disable MFA for highly privileged roles for Azure AD and Office365. This is a safety feature because these roles should be carefully protected:  
   
+  * Azure Information Protection Administrator
   * Billing Administrator
   * Cloud Application Administrator
   * Compliance Administrator
@@ -76,7 +77,6 @@ Use the **Multi-Factor Authentication** switch to specify whether to require use
   * Directory Writers
   * Exchange Administrator
   * Global Administrator
-  * Information Protection Administrator
   * Intune Service Administrator
   * Power BI Service Administrator
   * Privileged Role Administrator

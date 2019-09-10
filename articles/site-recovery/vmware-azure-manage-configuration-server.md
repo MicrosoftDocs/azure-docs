@@ -5,13 +5,16 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 04/15/2019
 ms.author: ramamill
 ---
 
 # Manage the configuration server for VMware VM disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Access configuration server
 
@@ -102,7 +105,7 @@ You can reregister the configuration server in the same vault if you need to. If
 
     >[!NOTE]
     >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
-    > *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
 8. Finally, restart the obengine by executing the following command.
    ```
@@ -230,28 +233,28 @@ ProxyPassword="Password"
 
 You can optionally delete the configuration server by using PowerShell.
 
-1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) the Azure PowerShell module.
+1. [Install](https://docs.microsoft.com/powershell/azure/install-Az-ps) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Select the vault subscription.
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Set the vault context.
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. Retrieve the configuration server.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Delete the configuration server.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
+> You can use the **-Force** option in Remove-AzSiteRecoveryFabric for forced deletion of the configuration server.
 
 ## Generate configuration server Passphrase
 

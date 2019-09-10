@@ -1,7 +1,7 @@
 ---
 title: Automated ML remote compute targets
 titleSuffix: Azure Machine Learning service
-description: Learn how to build models using automated machine learning on a Data Science Virtual machine (DSVM) remote compute target with Azure Machine Learning service
+description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning service
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -10,24 +10,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.custom: seodec18
+ms.date: 7/12/2019
 
-#Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on a DSVM remote compute target.
+#Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on an Azure Machine Learning remote compute target.
 ---
 # Train models with automated machine learning in the cloud
 
-In Azure Machine Learning, you train your model on different types of compute resources that you manage. The compute target could be a local computer or a computer in the cloud.
+In Azure Machine Learning, you train your model on different types of compute resources that you manage. The compute target could be a local computer or a resource in the cloud.
 
-You can easily scale up or scale out your machine learning experiment by adding additional compute targets. Compute target options include Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Machine Learning Compute. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
+You can easily scale up or scale out your machine learning experiment by adding additional compute targets, such as Azure Machine Learning Compute (AmlCompute). AmlCompute is a managed-compute infrastructure that allows you to easily create a single or multi-node compute.
 
-In this article, you learn how to build a model using automated ML on the DSVM.
+In this article, you learn how to build a model using automated ML with AmlCompute.
 
 ## How does remote differ from local?
 
-The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train model with automated ML.  The workflow when training locally also applies to  remote targets as well. However, with remote compute, automated ML experiment iterations are executed asynchronously. This functionality allows you to cancel a particular iteration, watch the status of the execution, or continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as an Azure DSVM.  Then you configure the remote resource and submit your code there.
+The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train a model with automated ML. The workflow when training locally also applies to  remote targets as well. However, with remote compute, automated ML experiment iterations are executed asynchronously. This functionality allows you to cancel a particular iteration, watch the status of the execution, or continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as AmlCompute. Then you configure the remote resource and submit your code there.
 
-This article shows the extra steps needed to run an automated ML experiment on a remote DSVM.  The workspace object, `ws`, from the tutorial is used throughout the code here.
+This article shows the extra steps needed to run an automated ML experiment on a remote AmlCompute target. The workspace object, `ws`, from the tutorial is used throughout the code here.
 
 ```python
 ws = Workspace.from_config()
@@ -35,109 +34,90 @@ ws = Workspace.from_config()
 
 ## Create resource
 
-Create the DSVM in your workspace (`ws`) if it doesn't already exist. If the DSVM was previously created, this code skips the creation process and loads the existing resource detail into the `dsvm_compute` object.  
+Create the AmlCompute target in your workspace (`ws`) if it doesn't already exist.
 
-**Time estimate**: Creation of the VM takes approximately 5 minutes.
-
-```python
-from azureml.core.compute import DsvmCompute
-
-dsvm_name = 'mydsvm' #Name your DSVM
-try:
-    dsvm_compute = DsvmCompute(ws, dsvm_name)
-    print('found existing dsvm.')
-except:
-    print('creating new dsvm.')
-    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
-    dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-    dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
-    dsvm_compute.wait_for_completion(show_output = True)
-```
-
-You can now use the `dsvm_compute` object as the remote compute target.
-
-DSVM name restrictions include:
-+ Must be shorter than 64 characters.  
-+ Cannot include any of the following characters: 
-  `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
-
->[!Warning]
->If creation fails with a message about Marketplace purchase eligibility:
->    1. Go to the [Azure portal](https://portal.azure.com)
->    1. Start creating a DSVM 
->    1. Select "Want to create programmatically" to enable programmatic creation
->    1. Exit without actually creating the VM
->    1. Rerun the creation code
-
-This code doesn't create a user name or password for the DSVM that is provisioned. If you want to connect directly to the VM, go to the [Azure portal](https://portal.azure.com) to create credentials.  
-
-### Attach existing Linux DSVM
-
-You can also attach an existing Linux DSVM as the compute target. This example utilizes an existing DSVM, but doesn't create a new resource.
-
-> [!NOTE]
->
-> The following code uses the [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) target class to attach an existing VM as your compute target.
-> The [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) class will be deprecated in future releases in favor of this design pattern.
-
-Run the following code to create the compute target from a pre-existing Linux DSVM.
+**Time estimate**: Creation of the AmlCompute target takes approximately 5 minutes.
 
 ```python
-from azureml.core.compute import ComputeTarget, RemoteCompute 
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
 
-attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_address_or_fqdn>',
-                                                   ssh_port=22,
-                                                   private_key_file='./.ssh/id_rsa')
-compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached-vm',
-                                      attach_configuration=attach_config)
+amlcompute_cluster_name = "automlcl"  # Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
+                                                            # for GPU, use "STANDARD_NC6"
+                                                            # vm_priority = 'lowpriority', # optional
+                                                            max_nodes=6)
+compute_target = ComputeTarget.create(
+    ws, amlcompute_cluster_name, provisioning_config)
 
-compute_target.wait_for_completion(show_output=True)
+# Can poll for a minimum number of nodes and for a specific timeout.
+# If no min_node_count is provided, it will use the scale settings for the cluster.
+compute_target.wait_for_completion(
+    show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 You can now use the `compute_target` object as the remote compute target.
 
-## Access data using get_data file
+Cluster name restrictions include:
++ Must be shorter than 64 characters.
++ Cannot include any of the following characters:
+  `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-Provide the remote resource access to your training data. For automated machine learning experiments running on remote compute, the data needs to be fetched using a `get_data()` function.  
+## Access data using TabularDataset function
 
-To provide access, you must:
-+ Create a get_data.py file containing a `get_data()` function 
-+ Place that file in a directory accessible as an absolute path 
+Defined X and y as `TabularDataset`s, which are passed to Automated ML in the AutoMLConfig. `from_delimited_files` by default sets the `infer_column_types` to true, which will infer the columns type automatically. 
 
-You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
-
->[!Warning]
->If you are using remote compute, then you must use `get_data()` where your data transformations are performed. If you need to install additional libraries for data transformations as part of get_data(), there are additional steps to be followed. Refer to the [auto-ml-dataprep sample notebook](https://aka.ms/aml-auto-ml-data-prep ) for details.
-
+If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each columns. In the following code sample, the data comes from the sklearn package.
 
 ```python
 # Create a project_folder if it doesn't exist
+if not os.path.isdir('data'):
+    os.mkdir('data')
+    
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-#Write the get_data file.
-%%writefile $project_folder/get_data.py
-
 from sklearn import datasets
+from azureml.core.dataset import Dataset
 from scipy import sparse
 import numpy as np
+import pandas as pd
 
-def get_data():
-    
-    digits = datasets.load_digits()
-    X_digits = digits.data[10:,:]
-    y_digits = digits.target[10:]
+data_train = datasets.load_digits()
 
-    return { "X" : X_digits, "y" : y_digits }
+pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+
+ds = ws.get_default_datastore()
+ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
+
+X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
+y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
+
 ```
 
+## Create run configuration
+
+To make dependencies available to the get_data.py script, define a `RunConfiguration` object with defined `CondaDependencies`. Use this object for the `run_configuration` parameter in `AutoMLConfig`.
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+
+run_config = RunConfiguration(framework="python")
+run_config.target = compute_target
+run_config.environment.docker.enabled = True
+run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+
+dependencies = CondaDependencies.create(
+    pip_packages=["scikit-learn", "scipy", "numpy"])
+run_config.environment.python.conda_dependencies = dependencies
+```
+
+See this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) for an additional example of this design pattern.
+
 ## Configure experiment
-
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
-
-In the settings, `run_configuration` is set to the `run_config` object, which contains the settings and configuration for the DSVM.  
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -158,10 +138,12 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
-                             data_script=project_folder + "/get_data.py",
+                             compute_target=compute_target,
+                             run_configuration=run_config,
+                             X = X,
+                             y = y,
                              **automl_settings,
-                            )
+                             )
 ```
 
 ### Enable model explanations
@@ -172,12 +154,14 @@ Set the optional `model_explainability` parameter in the `AutoMLConfig` construc
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
-                             data_script=project_folder + "/get_data.py",
+                             compute_target=compute_target,
+                             run_configuration=run_config,
+                             X = X,
+                             y = y,
                              **automl_settings,
                              model_explainability=True,
-                             X_valid = X_test
-                            )
+                             X_valid=X_test
+                             )
 ```
 
 ## Submit training experiment
@@ -186,7 +170,7 @@ Now submit the configuration to automatically select the algorithm, hyper parame
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -200,7 +184,7 @@ You will see output similar to the following example:
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     ***********************************************************************************************
-    
+
      ITERATION     PIPELINE                               DURATION                METRIC      BEST
              2      Standardize SGD classifier            0:02:36                  0.954     0.954
              7      Normalizer DT                         0:02:22                  0.161     0.954
@@ -226,33 +210,42 @@ You will see output similar to the following example:
 
 ## Explore results
 
-You can use the same Jupyter widget as the one in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
+You can use the same [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) as shown in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
+
 Here is a static image of the widget.  In the notebook, you can click on any line in the table to see run properties and output logs for that run.   You can also use the dropdown above the graph to view a graph of each available metric for each iteration.
 
 ![widget table](./media/how-to-auto-train-remote/table.png)
 ![widget plot](./media/how-to-auto-train-remote/plot.png)
 
-The widget displays a URL you can use to see and explore the individual run details.
- 
+The widget displays a URL you can use to see and explore the individual run details.  
+
+If you aren't in a Jupyter notebook, you can display the URL  from the run itself:
+
+```
+remote_run.get_portal_url()
+```
+
+The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
+
 ### View logs
 
 Find logs on the DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
-## Best model explanation
+## <a name="explain"></a> Best model explanation
 
 Retrieving model explanation data allows you to see detailed information about the models to increase transparency into what's running on the back-end. In this example, you run model explanations only for the best fit model. If you run for all models in the pipeline, it will result in significant run time. Model explanation information includes:
 
-* shap_values: The explanation information generated by shap lib
+* shap_values: The explanation information generated by shap lib.
 * expected_values: The expected value of the model applied to set of X_train data.
-* overall_summary: The model level feature importance values sorted in descending order
-* overall_imp: The feature names sorted in the same order as in overall_summary
-* per_class_summary: The class level feature importance values sorted in descending order. Only available for the classification case
-* per_class_imp: The feature names sorted in the same order as in per_class_summary. Only available for the classification case
+* overall_summary: The model level feature importance values sorted in descending order.
+* overall_imp: The feature names sorted in the same order as in overall_summary.
+* per_class_summary: The class level feature importance values sorted in descending order. Only available for the classification case.
+* per_class_imp: The feature names sorted in the same order as in per_class_summary. Only available for the classification case.
 
 Use the following code to select the best pipeline from your iterations. The `get_output` method returns the best run and the fitted model for the last fit invocation.
 
@@ -282,13 +275,13 @@ Printing the `best_run` explanation summary variables results in the following o
 
 ![Model explainability console output](./media/how-to-auto-train-remote/expl-print.png)
 
-You can also visualize feature importance through the widget UI as well as the web UI on Azure portal inside your workspace.
+You can also visualize feature importance through the widget UI, the web UI on Azure portal, or your [workspace landing page (preview)](https://ml.azure.com). 
 
 ![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 
 ## Example
 
-The [how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article. 
+The [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook demonstrates concepts in this article.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

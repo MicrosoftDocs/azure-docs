@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -62,9 +62,19 @@ Then install packages:
 
 ```fsharp
 Paket.Package
-[ "MathNet.Numerics"
-"MathNet.Numerics.FSharp"
-]
+  [ "MathNet.Numerics"
+    "MathNet.Numerics.FSharp"
+  ]
+```
+
+Then load the paket generator:
+```fsharp
+#load "Paket.Generated.Refs.fsx"
+```
+
+Open the libray:
+```fsharp
+open MathNet.Numerics
 ```
 
 ## Next steps

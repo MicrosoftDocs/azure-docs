@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 03/13/2019
+ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ---
@@ -20,7 +20,7 @@ You use maintenance scheduling to choose a time window when it's convenient to r
 
 All newly created Azure SQL Data Warehouse instances will have a system-defined maintenance schedule applied during deployment. The schedule can be edited as soon as deployment is complete.
 
-Each maintenance window can be three to eight hours. Maintenance can occur at any time within the window. You should expect a brief loss of connectivity as the service deploys new code to your data warehouse.
+Each maintenance window can be three to eight hours. Maintenance can occur at any time within the window. When maintenance starts, all active sessions will be canceled and Non-committed transactions will be rolled back. You should expect multiple brief losses in connectivity as the service deploys new code to your data warehouse. You'll be notified immediately after maintenance is finished on your data warehouse
 
 To use this feature you will need to identify a primary and secondary window within separate day ranges. All maintenance operations should finish within the scheduled maintenance windows. No maintenance will take place outside the specified maintenance windows without prior notification. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation.  
 
@@ -28,7 +28,10 @@ To use this feature you will need to identify a primary and secondary window wit
 
 Integration with Service Health notifications and the Resource Health Check Monitor allows customers to stay informed of impending maintenance activity. The new automation takes advantage of Azure Monitor. You can decide how you want to be notified of impending maintenance events. Also decide which automated flows can help you manage downtime and minimize the impact to your operations.
 
-A 24-hour advance notification precedes all  maintenance events, with the current exception of DW400c and lower tiers. To minimize instance downtime, make sure that your data warehouse has no long-running transactions before your chosen maintenance period. When maintenance starts, all active sessions will be canceled. Non-committed transactions will be rolled back, and your data warehouse will experience a short loss of connectivity. You'll be notified immediately after maintenance is finished on your data warehouse.
+A 24-hour advance notification precedes all  maintenance events, with the current exception of DW400c and lower tiers. To minimize instance downtime, make sure that your data warehouse has no long-running transactions before your chosen maintenance period.
+
+> [!NOTE]
+> In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced.
 
 If you received an advance notification that maintenance will take place, but SQL Data Warehouse can't perform maintenance during that time, you'll receive a cancellation notification. Maintenance will then resume during the next scheduled maintenance period.
 

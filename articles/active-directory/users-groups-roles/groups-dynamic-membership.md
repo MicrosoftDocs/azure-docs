@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -24,24 +24,32 @@ In Azure Active Directory (Azure AD), you can create complex attribute-based rul
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
-* You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
-* You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
+- You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
+- You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
 
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 >
 
-## Constructing the body of a membership rule
+## Rule builder in the Azure portal
 
-A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
-* Property
-* Operator
-* Value
+Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
-The order of the parts within an expression are important to avoid syntax errors.
+- Rule with more than five expressions
+- The Direct reports rule
+- Setting [operator precedence](groups-dynamic-membership.md#operator-precedence)
+- [Rules with complex expressions](groups-dynamic-membership.md#rules-with-complex-expressions); for example `(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### Rules with a single expression
+> [!NOTE]
+> The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
+
+For more step-by-step instructions, see [Update a dynamic group](groups-update-rule.md).
+
+![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
+
+### Rule syntax for a single expression
 
 A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the name of object.property.
 
@@ -53,13 +61,23 @@ user.department -eq "Sales"
 
 Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
 
+# Constructing the body of a membership rule
+
+A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
+
+- Property
+- Operator
+- Value
+
+The order of the parts within an expression are important to avoid syntax errors.
+
 ## Supported properties
 
 There are three types of properties that can be used to construct a membership rule.
 
-* Boolean
-* String
-* String collection
+- Boolean
+- String
+- String collection
 
 The following are the user properties that you can use to create a single expression.
 
@@ -110,7 +128,7 @@ The following are the user properties that you can use to create a single expres
 
 For the properties used for device rules, see [Rules for devices](#rules-for-devices).
 
-## Supported operators
+## Supported expression operators
 
 The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
 
@@ -288,10 +306,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 The following tips can help you use the rule properly.
 
-* The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
-* For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
-* This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
-* This rule can't be combined with any other membership rules.
+- The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
+- For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
+- This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
+- This rule can't be combined with any other membership rules.
 
 ### Create an "All users" rule
 
@@ -338,19 +356,23 @@ The custom property name can be found in the directory by querying a user's prop
 
 You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
 
+> [!NOTE]
+> systemlabels is a read-only attribute that cannot be set with Intune.
+>
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0 (17763)"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+
 The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | any string value |(device.displayName -eq "Rob Iphone”)
- deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
+ displayName | any string value |(device.displayName -eq "Rob iPhone")
+ deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
@@ -365,8 +387,8 @@ The following device attributes can be used.
 
 These articles provide additional information on groups in Azure Active Directory.
 
-* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)
+- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Manage dynamic rules for users in a group](groups-create-rule.md)

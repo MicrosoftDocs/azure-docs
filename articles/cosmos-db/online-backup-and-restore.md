@@ -4,7 +4,7 @@ description: This article describes how automatic, online backup and on-demand d
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
 

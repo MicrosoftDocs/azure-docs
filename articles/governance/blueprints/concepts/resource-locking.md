@@ -1,14 +1,12 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options to protect resources when assigning a blueprint.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand resource locking in Azure Blueprints
 
@@ -69,10 +67,20 @@ lock outside Blueprints.
 
 ![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
 
+The
+[deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)
+of each mode are as follows:
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Read Only |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Do Not Delete |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+
 > [!IMPORTANT]
-> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny assignments deny action's
-> on blueprint resources may not immediately be in full effect. During this period of time, it might be
-> possible to delete a resource intended to be protected by blueprint locks.
+> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny
+> assignments deny action's on blueprint resources may not immediately be in full effect. During
+> this period of time, it might be possible to delete a resource intended to be protected by
+> blueprint locks.
 
 ## Exclude a principal from a deny assignment
 
@@ -124,7 +132,7 @@ This is an example of a request body that includes **excludedPrincipals**:
 ## Next steps
 
 - Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Understand how to use [static and dynamic parameters](parameters.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

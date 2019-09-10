@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
 ---
 
-# What is Azure Media Services v3?
+# Azure Media Services v3 overview
 
 Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## What can I do with Media Services?
 
@@ -45,7 +45,8 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
-Before you start developing, review [Fundamental concepts](concepts-overview.md)<br/>
+> [!TIP]
+> Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (incudes important concepts: packaging, encoding, protecting, etc.)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
 
 ### Quickstarts  
 
@@ -71,17 +72,16 @@ Articles contain code samples that demonstrate how to complete a task. In this s
 
 * [Create an account - CLI](create-account-cli-how-to.md)
 * [Access APIs - CLI](access-api-cli-how-to.md)
-* [Start developing with SDKs](developers-guide.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
 * [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
 
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
-How can I get started with v3? 
-
-> [!div class="nextstepaction"]
-> [Learn about fundamental concepts](concepts-overview.md)<br/>
-> [Develop with the Media Services v3 API using SDKs](developers-guide.md) 
+[Learn about fundamental concepts](concepts-overview.md)
 

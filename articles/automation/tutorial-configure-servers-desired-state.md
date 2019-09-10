@@ -59,6 +59,10 @@ configuration TestConfig {
 }
 ```
 
+> [!NOTE]
+> In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
+> make sure each module has a unique `Import-DscResource` line in your configuration.
+
 Call the `Import-AzureRmAutomationDscConfiguration` cmdlet to upload the configuration into your Automation account:
 
 ```powershell
@@ -136,6 +140,23 @@ By default, the DSC node is checked for compliance with the node configuration e
 For information about how to change the compliance check interval, see
 [Configuring the Local Configuration Manager](/PowerShell/DSC/metaConfig).
 
+## Working with Partial Configurations
+
+Azure Automation State Configuration supports usage of
+[partial configurations](/powershell/dsc/pull-server/partialconfigs).
+In this scenario, DSC is configured to manage multiple configurations independently,
+and each configuration is retrieved from Azure Automation.
+However, only one configuration can be assigned to a node per automation account.
+This means if you are using two configurations for a node you will require two automation accounts.
+
+For details about how to register a partial configuration from pull service,
+see the documentation for
+[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+
+For more information about how teams can work together to collaboratively manage servers
+using configuration as code see
+[Understanding DSC's role in a CI/CD Pipeline](/powershell/dsc/overview/authoringadvanced).
+
 ## Check the compliance status of a managed node
 
 You can get reports on the compliance status of a managed node by calling the `Get-AzureRmAutomationDscNodeReport` cmdlet:
@@ -150,6 +171,37 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## Removing nodes from service
+
+When you add a node to Azure Automation State Configuration,
+the settings in Local Configuration Manager are set to register with the service
+and pull configurations and required modules to configure the machine.
+If you choose to remove the node from the service,
+you can do so using either the Azure portal
+or the Az cmdlets.
+
+> [!NOTE]
+> Unregistering a node from the service only sets the Local Configuration Manager settings
+> so the node is no longer connecting to the service.
+> This does not effect the configuration that is currently applied to the node.
+> To remove the current configuration, use the
+> [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)
+> or delete the local configuration file
+> (this is the only option for Linux nodes).
+
+### Azure portal
+
+From Azure Automation, click on **State configuration (DSC)** in the table of contents.
+Next click **Nodes** to view the list of nodes that are registered with the service.
+Click on the name of the node you wish to remove.
+In the Node view that opens, click **Unregister**.
+
+### PowerShell
+
+To unregister a node from Azure Automation State Configuration service using PowerShell,
+follow the documentation for the cmdlet
+[Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## Next steps
 

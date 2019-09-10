@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,8 +23,8 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 ## Clone the sample into your account
 
 1. Sign into [Azure Notebooks](https://notebooks.azure.com/).
-1. Select **My Projects** to navigate to the projects dashboard.
-1. Select the **Upload GitHub Repo** (the up arrow) button open the **Upload GitHub Repository** popup.
+1. Select **My Projects** to go to the projects dashboard.
+1. Select the **Upload GitHub Repo** (the up arrow) button to open the **Upload GitHub Repository** popup.
 1. In the popup, enter `Azure/MachineLearningNotebooks` in **GitHub repository**, provide a name for the project in **Project Name** like "Azure Machine Learning service", provide an identifier in **Project ID**, clear **Public** if you want, then select **Import**.
 
     ![Import Azure Machine Learning Notebook sample into your Notebooks account](media/azureml-import-project.png)
@@ -37,7 +37,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
     - Because Azure Notebooks already contains the necessary Python packages, you can just run the code snippet in step 2 of the Prerequisites to verify the Azure ML SDK version.
 
-1. Once configuration is complete, select **01.getting-started** to navigate into the folder containing thirteen different sample notebooks, each of which is self-explanatory.
+1. Once configuration is complete, select **01.getting-started** to open the folder containing thirteen different sample notebooks, each of which is self-explanatory.
 
 ## Next steps
 

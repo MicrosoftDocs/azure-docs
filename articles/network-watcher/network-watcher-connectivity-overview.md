@@ -3,8 +3,8 @@ title: Introduction to Azure Network Watcher Connection Troubleshoot | Microsoft
 description: This page provides an overview of the Network Watcher connection troubleshooting capability
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Introduction to connection troubleshoot in Azure Network Watcher

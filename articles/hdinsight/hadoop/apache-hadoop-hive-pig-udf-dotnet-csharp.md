@@ -1,7 +1,6 @@
 ---
 title: Use C# with Apache Hive and Apache Pig on Apache Hadoop in HDInsight - Azure 
 description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,9 +8,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-
 ---
-# Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop in HDInsight
+
+# Use C# user-defined functions with Apache Hive and Apache Pig on Apache Hadoop in HDInsight
 
 Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig on HDInsight.
 
@@ -41,8 +40,6 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 * __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-    To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
 
 * __Windows-based HDInsight__ clusters use the Microsoft .NET CLR to run .NET applications.
 

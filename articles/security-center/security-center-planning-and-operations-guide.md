@@ -3,7 +3,7 @@ title: Security Center Planning and Operations Guide | Microsoft Docs
 description: This document helps you to plan before adopting Azure Security Center and considerations regarding daily operations.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
-ms.author: rkarlin
+ms.date: 08/22/2019
+ms.author: v-mohabe
 
 ---
 # Azure Security Center planning and operations guide
@@ -79,30 +79,25 @@ Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-con
 
 The Security Center roles described above do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.  
 
-> [!NOTE]
-> A user needs to be at least a subscription, resource group owner, or contributor to be able to see Security Center in Azure.
->
->
-
 Using the personas explained in the previous diagram, the following RBAC would be needed:
 
 **Jeff (Workload Owner)**
 
-* Resource Group Owner/Collaborator
+* Resource Group Owner/Contributor
 
 **David (IT Security)**
 
-* Subscription Owner/Collaborator or Security Admin
+* Subscription Owner/Contributor or Security Admin
 
 **Judy (Security Operations)**
 
 * Subscription Reader or Security Reader to view Alerts
-* Subscription Owner/Collaborator or Security Admin required to dismiss Alerts
+* Subscription Owner/Contributor or Security Admin required to dismiss Alerts
 
 **Sam (Security Analyst)**
 
 * Subscription Reader to view Alerts
-* Subscription Owner/Collaborator required to dismiss Alerts
+* Subscription Owner/Contributor required to dismiss Alerts
 * Access to the workspace may be required
 
 Some other important information to consider:
@@ -216,7 +211,7 @@ You can use [Adaptive Application Controls](https://docs.microsoft.com/azure/sec
 
 
 ## Incident response
-Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
+Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 While this article doesn’t have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 
@@ -247,7 +242,7 @@ Once you identify the compromised system, you can run security [playbooks](https
 In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 
 > [!NOTE]
-> Read [Leveraging Azure Security Center for Incident Response](security-center-incident-response.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process.
+> Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process.
 >
 >
 

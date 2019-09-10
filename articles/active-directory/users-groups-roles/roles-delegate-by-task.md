@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -54,6 +54,9 @@ Create, read, update, and delete user attributes | Global Administrator |
 Create, read, update, and delete users | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 Read all configuration | Global Administrator | 
 Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Azure AD B2C global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 
@@ -106,7 +109,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices
@@ -138,6 +141,13 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
+## Entitlement management
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Add SharePoint Online sites to catalog | Global administrator
+
+
 ## Groups
 
 Task | Least privileged role | Additional roles
@@ -164,10 +174,10 @@ Configure and enable or disable MFA policy| Security Administrator |
 Configure and enable or disable sign-in risk policy| Security Administrator | 
 Configure and enable or disable user risk policy | Security Administrator | 
 Configure weekly digests | Security Administrator| 
-Dismiss all risk events | Security Administrator | 
+Dismiss all risk detections | Security Administrator | 
 Fix or dismiss vulnerability | Security Administrator | 
 Read all configuration | Security Reader | 
-Read all risk events | Security Reader | 
+Read all risk detections | Security Reader | 
 Read vulnerabilities | Security Reader | 
 
 ## Licenses
@@ -265,25 +275,25 @@ Task | Least privileged role | Additional roles
 Configure authentication methods | Global Administrator | 
 Read all configuration | Global Administrator | 
 
-## Security - Conditional access
+## Security - Conditional Access
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure MFA trusted IP addresses | Conditional access administrator | 
-Create custom controls | Conditional access administrator | Security administrator
-Create named locations | Conditional access administrator | Security administrator
-Create policies | Conditional access administrator | Security administrator
-Create terms of use | Conditional access administrator | Security administrator
-Create VPN connectivity certificate | Conditional access administrator | Security administrator
-Delete classic policy | Conditional access administrator | Security administrator
-Delete terms of use | Conditional access administrator | Security administrator
-Delete VPN connectivity certificate | Conditional access administrator | Security administrator
-Disable classic policy | Conditional access administrator | Security administrator
-Manage custom controls | Conditional access administrator | Security administrator
-Manage named locations | Conditional access administrator | Security administrator
-Manage terms of use | Conditional access administrator | Security administrator
+Configure MFA trusted IP addresses | Conditional Access administrator | 
+Create custom controls | Conditional Access administrator | Security administrator
+Create named locations | Conditional Access administrator | Security administrator
+Create policies | Conditional Access administrator | Security administrator
+Create terms of use | Conditional Access administrator | Security administrator
+Create VPN connectivity certificate | Conditional Access administrator | Security administrator
+Delete classic policy | Conditional Access administrator | Security administrator
+Delete terms of use | Conditional Access administrator | Security administrator
+Delete VPN connectivity certificate | Conditional Access administrator | Security administrator
+Disable classic policy | Conditional Access administrator | Security administrator
+Manage custom controls | Conditional Access administrator | Security administrator
+Manage named locations | Conditional Access administrator | Security administrator
+Manage terms of use | Conditional Access administrator | Security administrator
 Read all configuration | Security reader | Security administrator
-Read named locations | Security reader | Conditional access administrator, security administrator
+Read named locations | Security reader | Conditional Access administrator, security administrator
 
 ## Security - Identity security score
 
@@ -336,7 +346,7 @@ Update user settings | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Submit support ticket | Service Administrator | Application Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Information Protection Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
+Submit support ticket | Service Administrator | Application Administrator, Azure Information Protection Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
 
 ## Next steps
 

@@ -1,19 +1,10 @@
 ---
 title: Azure Resource Manager template functions - string | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to work with strings.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/11/2019
+ms.topic: conceptual
+ms.date: 07/31/2019
 ms.author: tomfitz
 
 ---
@@ -31,6 +22,7 @@ Resource Manager provides the following functions for working with strings:
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
@@ -537,7 +529,7 @@ Determines if an array, object, or string is empty.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
 
@@ -710,9 +702,66 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## format
+
+`format(formatString, arg1, arg2, ...)`
+
+Creates a formatted string from input values.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| formatString | Yes | string | The composite format string. |
+| arg1 | Yes | string, integer, or boolean | The value to include in the formatted string. |
+| additional arguments | No | string, integer, or boolean | Additional values to include in the formatted string. |
+
+### Remarks
+
+Use this function to format a string in your template. It uses the same formatting options as the [System.String.Format](/dotnet/api/system.string.format) method in .NET.
+
+### Examples
+
+The following example template shows how to use the format function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+
 ## guid
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Creates a value in the format of a globally unique identifier based on the values provided as parameters.
 
@@ -727,7 +776,7 @@ Creates a value in the format of a globally unique identifier based on the value
 
 This function is helpful when you need to create a value in the format of a globally unique identifier. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment.
 
-The returned value is not a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It is not globally unique. To create a new GUID that is not based on that hash value of the parameters, use the [newGuid](#newguid) function.
+The returned value isn't a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It isn't globally unique. To create a new GUID that isn't based on that hash value of the parameters, use the [newGuid](#newguid) function.
 
 The following examples show how to use guid to create a unique value for commonly used levels.
 
@@ -796,7 +845,7 @@ Returns the first position of a value within a string. The comparison is case-in
 
 ### Return value
 
-An integer that represents the position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
+An integer that represents the position of the item to find. The value is zero-based. If the item isn't found, -1 is returned.
 
 ### Examples
 
@@ -909,7 +958,7 @@ Returns the last position of a value within a string. The comparison is case-ins
 
 ### Return value
 
-An integer that represents the last position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
+An integer that represents the last position of the item to find. The value is zero-based. If the item isn't found, -1 is returned.
 
 ### Examples
 
@@ -959,13 +1008,13 @@ The output from the preceding example with the default values is:
 
 `length(string)`
 
-Returns the number of characters in a string, or elements in an array.
+Returns the number of characters in a string, elements in an array, or root-level properties in an object.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The array to use for getting the number of elements, or the string to use for getting the number of characters. |
+| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
@@ -991,6 +1040,18 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -1002,6 +1063,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -1013,6 +1078,7 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 ## newGuid
 
@@ -1199,7 +1265,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1212,7 +1278,7 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
 ## skip
 
@@ -1225,7 +1291,7 @@ Returns a string with all the characters after the specified number of character
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
 
 ### Return value
 
@@ -1550,7 +1616,7 @@ Returns a string with the specified number of characters from the start of the s
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
+| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -1772,7 +1838,7 @@ Creates a deterministic hash string based on the values provided as parameters.
 
 This function is helpful when you need to create a unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
+The returned value isn't a random string, but rather the result of a hash function. The returned value is 13 characters long. It isn't globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
 
     tcvhiyu5h2o5o
 
@@ -1796,7 +1862,7 @@ Unique scoped to deployment for a resource group
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name is not unique if constructed the same way.
+The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```json
 "resources": [{ 
@@ -1805,7 +1871,7 @@ The following example shows how to create a unique name for a storage account ba
     ...
 ```
 
-If you need to create a new unique name each time you deploy a template, and don't intent to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcnow).
+If you need to create a new unique name each time you deploy a template, and don't intend to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcnow).
 
 ### Return value
 

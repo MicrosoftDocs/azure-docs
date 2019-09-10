@@ -2,13 +2,13 @@
 title: 'Diagnose and troubleshoot the Azure Time Series Insights Preview | Microsoft Docs'
 description: Understand how to diagnose and troubleshoot with the Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 08/06/2019
 ms.custom: seodec18
 ---
 
@@ -16,13 +16,13 @@ ms.custom: seodec18
 
 This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Preview environment. The article also describes potential causes and solutions for each problem.
 
-## Problem: I can’t find my environment in the Time Series Insights Preview explorer
+## Problem: I can’t find my environment in the Preview explorer
 
 This problem might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, visit the Data Access Policies section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
-  ![Environment][1]
+  [![Environment](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## Problem: No data is seen in the Time Series Insights Preview explorer
+## Problem: no data is seen in the Preview explorer
 
 There are several common reasons why you might not see your data in the [Azure Time Series Insights Preview explorer](https://insights.timeseries.azure.com/preview).
 
@@ -30,7 +30,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
     Verify that your event source, which is an event hub or an IoT hub, is receiving data from your tags or instances. To verify, go to the overview page of your resource in the Azure portal.
 
-    ![Dashboard-insights][2]
+    [![Dashboard-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Your event source data isn't in JSON format.
 
@@ -40,12 +40,12 @@ There are several common reasons why you might not see your data in the [Azure T
 
   * For an IoT hub, you need to provide the key that has **service connect** permission.
 
-    ![Configuration][3]
+    [![Configuration](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
 
   * As shown in the preceding image, both of the policies **iothubowner** and **service** work because they have **service connect** permission.
   * For an event hub, you need to provide the key that has **Listen** permission.
   
-    ![Permissions][4]
+    [![Permissions](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
   * As shown in the preceding image, both of the **read** and **manage** policies work because they have **Listen** permission.
 
@@ -57,7 +57,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
     This problem might occur if the Time Series ID property is configured incorrectly at the time of provisioning the environment. For more information, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights environment to use a different Time Series ID.
 
-## Problem: Some data shows, but some is missing
+## Problem: some data shows, but some is missing
 
 You might be sending data without the Time Series ID.
 
@@ -68,7 +68,7 @@ You might be sending data without the Time Series ID.
     > [!NOTE]
     > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
 
-## Problem: My event source's Timestamp property name setting doesn't work
+## Problem: my event source's Timestamp property name doesn't work
 
 Ensure that the name and value conform to the following rules:
 
@@ -83,33 +83,26 @@ The easiest way to ensure that your Timestamp property name is captured and work
 
 If the Timestamp property isn’t explicitly specified, an event’s IoT hub or event hub Enqueued Time is used as the default time stamp.
 
-## Problem: I can’t edit or view my Time Series Model
+## Problem: I can’t view or edit my Time Series Model
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
    Time Series Models are supported only in PAYG environments. For more information on how to access your S1/S2 environment from the Time Series Insights Preview explorer, see [Visualize data in the explorer](./time-series-insights-update-explorer.md).
 
-   ![Access][5]
+   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - You might not have permissions to view and edit the model.
 
    Users need contributor-level access to edit and view their Time Series Model. To verify the current access levels and grant additional access, visit the Data Access Policies section on your Time Series Insights resource in the Azure portal.
 
-## Problem: All my instances in the Time Series Insights Preview explorer don’t have a parent
+## Problem: all my instances in the Preview explorer lack a parent
 
 This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
-  ![Time Series Models][6]
+  [![Time Series Models](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## Next steps
 
 - Read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
-- Read [Supported JSON shapes](./how-to-shape-query-json.md).
 
-<!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
-[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
-[5]: media/v2-update-diagnose-and-troubleshoot/access.png
-[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png
+- Learn about [supported JSON shapes](./how-to-shape-query-json.md).

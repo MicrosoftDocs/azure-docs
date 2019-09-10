@@ -1,6 +1,6 @@
 ---
-title: Train app 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Train app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Training is the process of teaching your Language Understanding (LUIS) app version to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -38,6 +38,10 @@ To start the iterative process in the [LUIS portal](https://www.luis.ai), you fi
 
 >[!NOTE]
 >If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](luis-how-to-add-example-utterances.md).
+
+## Training date and time
+
+Training date and time is GMT + 2. 
 
 ## Train with all data
 

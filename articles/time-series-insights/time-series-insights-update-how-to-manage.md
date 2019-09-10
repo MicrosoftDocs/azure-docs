@@ -2,13 +2,13 @@
 title: Provision and manage Azure Time Series Preview | Microsoft Docs
 description: Understanding how to provision and manage Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 09/04/2019
 ms.custom: seodec18
 ---
 
@@ -28,7 +28,7 @@ When you provision an Azure Time Series Insights Preview environment, you create
 Learn [how to plan your environment](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> For the Preview, make sure you're using an Azure Storage general-purpose v1 (GPv1) account.  Support for GPv2 and later will be added in the near future.  
+> For the Preview, make sure you're using an Azure Storage general-purpose v1 (GPv1) account.
 
 Optionally, you can associate each Azure Time Series Insights Preview environment with an event source. For more information, read [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md) and [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md). You provide a Timestamp ID property and a unique consumer group during this step. Doing so ensures that the environment has access to the appropriate events.
 
@@ -40,7 +40,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, and choose which subscription group and which resource group to use. Then, select a supported location for the environment to be hosted in.
 
-   ![Create an Azure Time Series Insights instance.][1]
+   [![Create an Azure Time Series Insights instance.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Enter a Time Series ID.
 
@@ -51,7 +51,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Create an Azure storage account by selecting a storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose v1 account. It will be created in the same region as the Azure Time Series Insights Preview environment that you previously selected.
 
-    ![Create an Azure storage account for your instance][5]
+    [![Create an Azure storage account for your instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Optionally, you can add an event source.
 
@@ -62,11 +62,11 @@ The following steps describe how to create an Azure Time Series Insights Preview
      > [!TIP]
      > The message enqueued time might not be the best configured setting to use in batch event or historical data uploading scenarios. Make sure to verify your decision to use or not use a Timestamp property in such cases.
 
-     ![Event Source tab][2]
+     [![Event Source tab](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Confirm that your environment has been provisioned with the desired settings.
 
-    ![Review + Create tab][3]
+    [![Review + Create tab](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## Manage the environment
 
@@ -83,19 +83,12 @@ You can manage your Azure Time Series Insights Preview environment by using the 
 
 * The Azure portal's **Reference data** blade has been removed in Azure Time Series Insights Preview because reference data is not a component of PAYG environments.
 
-![Time Series Insights Preview environment in the Azure portal][4]
+[![Time Series Insights Preview environment in the Azure portal](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## Next steps
 
-Read [Plan your environment](./time-series-insights-update-plan.md).
+- Read [Plan your environment](./time-series-insights-update-plan.md).
 
-Read [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Learn how to [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-Read [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG
+- Configure [an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).

@@ -1,5 +1,5 @@
 ---
-title: Exact text match
+title: "Tutorial: Exact text match - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/03/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 ---
@@ -104,11 +104,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 1. On the Department entity page, enter `Accounting` as the new value.
 
-    [![Screenshot of entering value](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. For Synonyms, add the synonyms from the previous table.
-
-    [![Screenshot of entering synonyms](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Continue adding all the canonical names and their synonyms. 
 
@@ -181,5 +177,5 @@ This tutorial created a new intent, added example utterances, then created a lis
 Continue with this app, [adding a composite entity](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)
+> [Add prebuilt entity with a role to the app](tutorial-entity-roles.md)
 

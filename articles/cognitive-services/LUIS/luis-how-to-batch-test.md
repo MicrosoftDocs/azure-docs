@@ -1,6 +1,6 @@
 ---
-title: Batch test 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch test - LUIS
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/02/2019
+ms.topic: conceptual
+ms.date: 03/29/2019
 ms.author: diberry
 ---
 
@@ -90,6 +90,8 @@ In this preceding image, the utterance `switch on` is labeled with the TurnAllOn
 The two sections of the chart in red indicate utterances that did not match the expected prediction. These indicate utterances which LUIS needs more training. 
 
 The two sections of the chart in green did match the expected prediction.
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## Next steps
 

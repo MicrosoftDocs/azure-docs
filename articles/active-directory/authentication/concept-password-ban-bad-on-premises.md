@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Enforce Azure AD password protection for Windows Server Active Directory
 
-Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
+Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment of password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
 
 ## Design principles
 
@@ -28,7 +28,8 @@ Azure AD password protection is designed with these principles in mind:
 * No Active Directory schema changes are required. The software uses the existing Active Directory **container** and **serviceConnectionPoint** schema objects.
 * No minimum Active Directory domain or forest functional level (DFL/FFL) is required.
 * The software doesn't create or require accounts in the Active Directory domains that it protects.
-* User clear-text passwords don't leave the domain controller during password validation operations or at any other time.
+* User clear-text passwords never leave the domain controller, either during password validation operations or at any other time.
+* The software is not dependent on other Azure AD features; for example Azure AD password hash sync is not related and is not required in order for Azure AD password protection to function.
 * Incremental deployment is supported, however the password policy is only enforced where the Domain Controller Agent (DC Agent) is installed. See next topic for more details.
 
 ## Incremental deployment
@@ -59,7 +60,7 @@ The DC Agent service is responsible for initiating the download of a new passwor
 
 After the DC Agent service receives a new password policy from Azure AD, the service stores the policy in a dedicated folder at the root of its domain *sysvol* folder share. The DC Agent service also monitors this folder in case newer policies replicate in from other DC Agent services in the domain.
 
-The DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Azure AD, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
+The DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Azure AD via the proxy service, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
 
 Whenever an Azure AD password protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
 
@@ -74,6 +75,8 @@ The proxy service is stateless. It never caches policies or any other state down
 The DC Agent service always uses the most recent locally available password policy to evaluate a user's password. If no password policy is available on the local DC, the password is automatically accepted. When that happens, an event message is logged to warn the administrator.
 
 Azure AD password protection isn't a real-time policy application engine. There can be a delay between when a password policy configuration change is made in Azure AD and when that change reaches and is enforced on all domain controllers.
+
+Azure AD password protection acts as a supplement to the existing Active Directory password policies, not a replacement. This includes any other 3rd-party password filter dlls that may be installed. Active Directory always requires that all password validation components agree before accepting a password.
 
 ## Forest/tenant binding for password protection
 

@@ -10,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
 ---
 
 # Azure Cloud Services Definition WorkerRole Schema

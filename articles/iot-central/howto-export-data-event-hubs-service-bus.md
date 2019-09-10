@@ -4,13 +4,15 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/07/2018
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ---
 
 # Export your data in Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *This topic applies to administrators.*
 
@@ -59,14 +61,14 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     > [!Note]
     > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
 
-    ![Create new cde Event Hub](media/howto-export-data/export_menu.PNG)
+    ![Create new cde Event Hub](media/howto-export-data/export_menu1.png)
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs** or **Azure Service Bus** as the destination of your export. 
 
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data/export_new.PNG)
+    ![Create new continuous data export](media/howto-export-data/export_new1.png)
 
 4. In the drop-down list box, select your **Event Hubs namespace/Service Bus namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 
@@ -76,7 +78,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     > [!NOTE] 
     > For 7 day trial apps, the only way to configure continuous data export is through a connection string. This is because 7 day trial apps do not have an associated Azure subscription.
 
-    ![Create new cde Event Hub](media/howto-export-data/export_create.PNG)
+    ![Create new cde Event Hub](media/howto-export-data/export_create1.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Event Hubs or Service Bus, go to the namespace in the Azure portal.
@@ -90,7 +92,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
 
 6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
-  ![Configure continuous data export](media/howto-export-data/export_list.PNG)
+    ![Configure continuous data export](media/howto-export-data/export_list1.png)
 
 7. After a few minutes, your data will appear in your chosen destination.
 

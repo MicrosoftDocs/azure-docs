@@ -19,6 +19,9 @@ ms.author: juliako
 ---
 # Use Azure Webhooks to monitor Media Services job notifications with .NET 
 
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
 When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This article shows how to work with webhooks.
 
 This article shows how to
@@ -27,7 +30,7 @@ This article shows how to
 	
 	In this case, the webhook is triggered by Media Services when your encoding job changes status. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
 	
-	>[!NOTE]
+	>[!TIP]
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../../azure-functions/functions-bindings-http-webhook.md) work.
 	>
 	
@@ -238,7 +241,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

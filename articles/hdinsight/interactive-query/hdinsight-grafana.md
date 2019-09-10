@@ -1,7 +1,6 @@
 ---
 title: Use Grafana on Azure HDInsight
-description: Learn how to access Grafana in Azure HDInsight.
-services: hdinsight
+description: Learn how to access the Grafana dashboard with Apache Hadoop clusters in Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -61,7 +60,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
     
 
 > [!NOTE]  
-> For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
+> For other cluster creation methods and understanding the properties used in this article, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## Access the Grafana dashboard
 
@@ -103,7 +102,7 @@ After you complete the article, you may want to delete the cluster. With HDInsig
 In this article, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Apache Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Interactive Query on HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 

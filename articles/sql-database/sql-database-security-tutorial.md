@@ -1,6 +1,6 @@
 ---
 title: Secure a single or pooled database in Azure SQL Database | Microsoft Docs
-description: Learn about techniques and features to secure a single or pooled database in Azure SQL Database.
+description: A tutorial that teaches you the about techniques and features to secure a single or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,10 +8,18 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 09/03/2019
+ms.custom: seoapril2019
 ---
 # Tutorial: Secure a single or pooled database
+
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> - Create server-level and database-level firewall rules
+> - Configure an Azure Active Directory (AD) administrator
+> - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
+> - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
 Azure SQL Database secures data in a single or pooled database by allowing you to:
 
@@ -23,15 +31,10 @@ Azure SQL Database secures data in a single or pooled database by allowing you t
 > [!NOTE]
 > An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
 
-You can improve your database security with just a few simple steps. In this tutorial you learn how to:
-
-> [!div class="checklist"]
-> - Create server-level and database-level firewall rules
-> - Configure an Azure Active Directory (AD) administrator
-> - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as advanced data security, auditing, data masking, and encryption
-
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
+
+> [!TIP]
+> The following Microsoft Learn module helps you learn for free about  how to [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## Prerequisites
 
@@ -49,7 +52,7 @@ For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.co
 
 ## Create firewall rules
 
-SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected, except for connections from other Azure services. To learn more, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
+SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected. To learn more, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
 
 Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
@@ -78,9 +81,6 @@ To set up a server-level firewall rule:
    1. Select **OK** and close the **Firewall settings** page.
 
 You can now connect to any database in the server with the specified IP address or IP address range.
-
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services, under **Allow access to Azure services**. Choose **OFF** to disable access for all Azure services.
 
 ### Setup database firewall rules
 

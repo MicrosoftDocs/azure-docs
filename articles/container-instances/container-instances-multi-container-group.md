@@ -1,39 +1,50 @@
 ---
-title: Deploy multi-container groups in Azure Container Instances
-description: Learn how to deploy a container group with multiple containers in Azure Container Instances using an Azure Resource Manager template.
+title: Tutorial - Deploy a multi-container group in Azure Container Instances - template 
+description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using an Azure Resource Manager template with the Azure CLI.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Deploy a multi-container group with a Resource Manager template
+# Tutorial: Deploy a multi-container group using a Resource Manager template
 
-Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
 
-There are two methods for deploying multi-container groups using the Azure CLI:
+Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). A container group is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
-* Resource Manager template deployment (this article)
-* [YAML file deployment](container-instances-multi-container-yaml.md)
+In this tutorial, you follow steps to run a simple two-container sidecar configuration by deploying an Azure Resource Manager template using the Azure CLI. You learn how to:
 
-Deployment with a Resource Manager template is recommended when you need to deploy additional Azure service resources (for example, an Azure Files share) at the time of container instance deployment. Due to the YAML format's more concise nature, deployment with a YAML file is recommended when your deployment includes *only* container instances.
+> [!div class="checklist"]
+> * Configure a multi-container group template
+> * Deploy the container group
+> * View the logs of the containers
+
+A Resource Manager template can be readily adapted for scenarios when you need to deploy additional Azure service resources (for example, an Azure Files share or a virtual network) with the container group. 
 
 > [!NOTE]
-> Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Multi-container groups are currently restricted to Linux containers. 
 
-For additional template samples, see [Azure Resource Manager templates for Azure Container Instances](container-instances-samples-rm.md). 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Configure the template
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-The sections in this article walk you through running a simple multi-container sidecar configuration by deploying an Azure Resource Manager template.
+## Configure a template
 
-Start by creating a file named `azuredeploy.json`, then copy the following JSON into it.
+Start by copying the following JSON into a new file named `azuredeploy.json`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
-This Resource Manager template defines a container group with two containers, a public IP address, and two exposed ports. The containers are deployed from public Microsoft images. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
+```
+code azuredeploy.json
+```
+
+This Resource Manager template defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing web application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
 ```JSON
 {
@@ -165,9 +176,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## View logs
+## View container logs
 
-View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified.
+View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the `aci-tutorial-app` container is specified.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -182,7 +193,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-To see the logs for the side-car container, run the same command specifying the second container name.
+To see the logs for the sidecar container, run a similar command specifying the `aci-tutorial-sidecar` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -208,14 +219,21 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
+As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than `200 OK`.
 
 ## Next steps
 
-This article covered the steps needed for deploying a multi-container Azure container instance. For an end-to-end Azure Container Instances experience, see the Azure Container Instances tutorial.
+In this tutorial, you used an Azure Resource Manager template to deploy a multi-container group in Azure Container Instances. You learned how to:
 
-> [!div class="nextstepaction"]
-> [Azure Container Instances tutorial][aci-tutorial]
+> [!div class="checklist"]
+> * Configure a multi-container group template
+> * Deploy the container group
+> * View the logs of the containers
+
+For additional template samples, see [Azure Resource Manager templates for Azure Container Instances](container-instances-samples-rm.md).
+
+You can also specify a multi-container group using a [YAML file](container-instances-multi-container-yaml.md). Due to the YAML format's more concise nature, deployment with a YAML file is a good choice when your deployment includes only container instances.
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

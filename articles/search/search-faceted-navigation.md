@@ -2,20 +2,20 @@
 title: How to implement faceted navigation in a category hierarchy - Azure Search
 description: Add facet navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 # How to implement faceted navigation in Azure Search
 Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term 'faceted navigation' may be unfamiliar, but you've probably used it before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
- ![Azure Search Job Portal Demo][1]
+ ![Azure Search Job Portal Demo](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search Job Portal Demo")
 
-Faceted navigation is an alternative entry point to search. It offers a convenient alternative to typing complex search expressions by hand. Facets can help you find what you're looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
+Faceted navigation is an alternative entry point to search. It offers a convenient alternative to typing complex search expressions by hand. Facets can help you find what you're looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search index. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
 
 Implementing faceted navigation differs across search technologies. In Azure Search, faceted navigation is built at query time, using fields that you previously attributed in your schema.
 
@@ -28,7 +28,7 @@ In your application development, writing code that constructs queries constitute
 ## Sample code and demo
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
--   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -316,7 +316,7 @@ Under certain circumstances, you might find that facet counts do not match the r
 
 Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
+Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:\<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
 
 ### User interface tips
 **Add labels for each field in facet navigation**
@@ -336,7 +336,7 @@ To set price facets in $10 increments, you would specify: `&facet=price,interval
 **Approach 2: Use a values list**  
 For numeric data, you can use a values list.  Consider the facet range for a `listPrice` field, rendered as follows:
 
-  ![Sample values list][5]
+  ![Sample values list](media/search-faceted-navigation/Facet-5-Prices.PNG "Sample values list")
 
 To specify a facet range like the one in the preceding screenshot, use a values list:
 
@@ -347,7 +347,7 @@ Each range is built using 0 as a starting point, a value from the list as an end
 ### Build a filter for a range
 To filter documents based on a range you select, you can use the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if you choose the range 10-25 for a `listPrice` field, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`. In the sample code, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. 
 
-  ![Query for a range of values][6]
+  ![Query for a range of values](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Query for a range of values")
 
 <a name="geofacets"></a> 
 
@@ -380,11 +380,11 @@ As you work with search results, watch the URL for changes in query construction
    
    A faceted navigation structure is also returned with the search results. In the search result page, the faceted navigation structure includes counts for each facet result. No facets are selected, so all matching results are returned.
    
-   ![Search results before selecting facets][11]
+   ![Search results before selecting facets](media/search-faceted-navigation/faceted-search-before-facets.png "Search results before selecting facets")
 
 4. Click a Business Title, Location, or Minimum Salary. Facets were null on the initial search, but as they take on values, the search results are trimmed of items that no longer match.
    
-   ![Search results after selecting facets][12]
+   ![Search results after selecting facets](media/search-faceted-navigation/faceted-search-after-facets.png "Search results after selecting facets")
 
 5. To clear the faceted query so that you can try different query behaviors, click the `[X]` after the selected facets to clear the facets.
    
@@ -395,42 +395,6 @@ Watch [Azure Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/20
 
 For more insights on design principles for faceted navigation, we recommend the following links:
 
-* [Designing for Faceted Search](http://www.uie.com/articles/faceted_search/)
 * [Design Patterns: Faceted Navigation](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Front End Concerns When Implementing Faceted Search – Part 1](https://articles.uie.com/faceted_search2/)
 
