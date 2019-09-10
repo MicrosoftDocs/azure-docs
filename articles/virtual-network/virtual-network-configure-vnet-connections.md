@@ -113,8 +113,8 @@ To check your VPN connection is configured correctly, follow the instructions:
 2. Verify Azure Resource Manager Vnet 1 address range is defined accurately in **Connection object** 4.
 3. Verify Azure Resource Manager Vnet 6 address range is defined accurately in **Connection object** 3.
 4. Verify that the Pre-Shared-Keys are matching on both connection objects 3 and 4.
-5. Verify the Azure Resource Manager Vnet Gateway 2 VIP is defined accurately in the ARM **Connection object** 4.
-6. Verify the Azure Resource Manager Vnet Gateway 5 VIP is defined accurately in the ARM **Connection object** 3.
+5. Verify the Azure Resource Manager Vnet Gateway 2 VIP is defined accurately in the **Connection object** 4.
+6. Verify the Azure Resource Manager Vnet Gateway 5 VIP is defined accurately in the **Connection object** 3.
 
 ### Connection type 2: Connect a classic VNet to a Resource Manager VNet
 
