@@ -1,5 +1,5 @@
-- name: Azure Storage Documentation
-  href: /azure/storage/
+- name: Azure Blob storage documentation
+  href: /azure/storage/blobs/
 - name: Overview
   expanded: true
   items:
@@ -116,8 +116,8 @@
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure common security attributes
-        href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Built-in security controls
+        href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:

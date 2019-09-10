@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
-You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
+You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, your workspace landing page (preview), Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
 In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
 1. __Create__ a compute target if you don’t already have one.
@@ -39,9 +39,9 @@ Azure Machine Learning service has varying support across different compute targ
 
 ## What's a run configuration?
 
-When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
+When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script.
 
-All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md)
+All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -272,6 +272,7 @@ You can access the compute targets that are associated with your workspace in th
 * [Create a compute target](#portal-create) in your workspace
 * [Attach a compute target](#portal-reuse) that was created outside the workspace
 
+
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
 
 ```python
@@ -284,7 +285,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 To see the compute targets for your workspace, use the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. 
+1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. You can also access these same steps in your [workspace landing page (preview)](https://ml.azure.com), although the images below show the Azure portal.
+ 
 1. Under __Applications__, select __Compute__.
 
     [![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
