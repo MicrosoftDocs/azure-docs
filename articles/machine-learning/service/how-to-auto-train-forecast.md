@@ -205,4 +205,4 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 ## Next steps
 
 * Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
-* View the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) reference documentation.
+* View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.

@@ -1,5 +1,5 @@
 ---
-title: Detect data drift (Preview) on AKS deployments
+title: Detect data drift (preview) on AKS deployments
 titleSuffix: Azure Machine Learning service
 description: Detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning service.
 services: machine-learning
@@ -31,7 +31,7 @@ With Azure Machine Learning service, you can monitor the inputs to a model deplo
 + Send alerts to data drift by email.
 
 > [!Note]
-> This service is in (Preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
+> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
 
 ### How data drift is monitored in Azure Machine Learning service
 
@@ -129,6 +129,7 @@ There are multiple ways to view drift metrics:
 * Use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
 * View the metrics in the Azure portal on your model.
+* View the metrics from the **Models** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
 
@@ -153,15 +154,17 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen on the model details page in the Azure portal.
+The configuration of the data drift detector can be seen on the model details page in the Azure portal or your workspace landing page (preview).
 
 ![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
 
 ## View results in Azure portal
 
-To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (preview)' tab is now available visualizing the data drift metrics. 
 
 ![Azure portal Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
+
+The results are also available in the model details in your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Receiving drift alerts
 
@@ -173,16 +176,8 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 
 ## Retrain your model after drift
 
-When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following [`diff()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) method gives you an initial sense of what changed between the old and new training data sets. 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-Based on the output of the previous code, you may want to retrain your model. To do so, proceed with the following steps.
+When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. 
+To do so, proceed with the following steps.
 
 * Investigate the collected data and prepare data to train the new model.
 * Split it into train/test data.

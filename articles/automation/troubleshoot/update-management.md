@@ -108,6 +108,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
+### <a name="updates-nodeployment"></a>Scenario: Updates install without a deployment
+
+### Issue
+
+When you enroll a Windows machine in Update Management, you could see updates install without a deployment.
+
+### Cause
+
+On Windows, updates are installed automatically as soon as they are available. This can cause confusion if you did not schedule an update to be deployed to the machine.
+
+### Resolution
+
+The Windows registry key, `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` defaults to "4" - **auto download and install**.
+
+For Update Management clients, we recommend setting this key to "3" - **auto download but do not auto install**.
+
+For more information, see [Configuring Automatic Updates](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+
 ### <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
 #### Issue
@@ -272,6 +290,7 @@ Double-click on the exception displayed in red to see the entire exception messa
 |`0x8024001E`| The update operation did not complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
+|`0x80072EE2`|Network connectivity issue or issue talking to a configured WSUS server. Check WSUS settings and make sure it is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
 |Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
 

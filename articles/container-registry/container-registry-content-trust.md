@@ -6,7 +6,7 @@ author: dlepow
 manager: gwallace
 
 ms.service: container-registry
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ---

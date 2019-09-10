@@ -3,7 +3,7 @@ title: Single-page application (acquire a token to call an API) - Microsoft iden
 description: Learn how to build a single-page application (Acquire a token to call an API)
 services: active-directory
 documentationcenter: dev-center-name
-author: navyasric
+author: negoe
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 08/20/2019
+ms.author: negoe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Single-page application - acquire a token to call an API
 
-The pattern for acquiring tokens for APIs with MSAL.js is to first attempt a silent token request using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in the browser storage to see if a valid token exists and returns it. When there is no valid token in the cache, it sends a silent token request to Azure Active Directory (Azure AD) from a hidden iframe. This method also allows the library to renew tokens. For more details about single sign-on session and token lifetime values in Azure AD, see [token lifetimes](active-directory-configurable-token-lifetimes.md).
+The pattern for acquiring tokens for APIs with MSAL.js is to first attempt a silent token request using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in the browser storage to see if a valid token exists and returns it. When there is no valid token in the cache, it sends a silent token request to Azure Active Directory (Azure AD) from a hidden iframe. This method also allows the library to renew tokens. For more information about single sign-on session and token lifetime values in Azure AD, see [token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 The silent token requests to Azure AD may fail for some reasons such as an expired Azure AD session or a password change. In that case, you can invoke one of the interactive methods(which will prompt the user) to acquire tokens.
 
@@ -36,7 +36,7 @@ The silent token requests to Azure AD may fail for some reasons such as an expir
 
 * There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. It's also recommended to use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
 
-You can set the API scopes that you want the access token to include when building the access token request. Note that all requested scopes may not be granted in the access token and depends on the user's consent.
+You can set the API scopes that you want the access token to include when building the access token request. Note, that all requested scopes may not be granted in the access token and depends on the user's consent.
 
 ## Acquire token with a pop-up window
 
@@ -69,9 +69,9 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 ### Angular
 
-The MSAL Angular wrapper provides the convenience of adding the HTTP interceptor `MsalInterceptor` which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
+The MSAL Angular wrapper provides the convenience of adding the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
-You can specify the scopes for APIs in the `protectedResourceMap` config option which the MsalInterceptor will request when automatically acquiring tokens.
+You can specify the scopes for APIs in the `protectedResourceMap` config option, which the MsalInterceptor will request when automatically acquiring tokens.
 
 ```javascript
 //In app.module.ts
@@ -113,7 +113,7 @@ Alternatively, you can also explicitly acquire tokens using the acquire token me
 
 ### JavaScript
 
-The pattern is as described above but shown with a redirect method to acquire token interactively. Note that you will need to register the redirect callback as mentioned above.
+The pattern is as described above but shown with a redirect method to acquire token interactively. You will need to register the redirect callback as mentioned above.
 
 ```javascript
 function authCallback(error, response) {
@@ -138,6 +138,37 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
     }
 });
 ```
+
+## Request for optional claims
+You can request optional claims in your app to specify which additional claims to include in tokens for your application. In order to request optional claims in the id_token, you can send a stringified claims object to the claimsRequest field of the AuthenticationParameters.ts class.
+
+You can use optional claims for following purpose:
+
+- To include additional claims in tokens for your application.
+- Change the behavior of certain claims that Azure AD returns in tokens.
+- Add and access custom claims for your application.
+
+
+### JavaScript
+```javascript
+"optionalClaims":  
+   {
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": true
+             }
+      ],
+
+var request = {
+    scopes: ["user.read"],
+    claimsRequest: JSON.stringify(claims)
+};
+
+myMSALObj.acquireTokenPopup(request);
+```
+To learn more about optional claims, checkout [optional claims](active-directory-optional-claims.md)
+
 
 ### Angular
 

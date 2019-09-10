@@ -7,10 +7,10 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ---
 # Azure SQL Database serverless (preview)
 
@@ -109,7 +109,8 @@ The following features do not support autopausing.  That is, if any of the follo
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
-- The sync database used in SQL data sync.
+- The sync database used in SQL data sync.  Unlike sync databases, hub and member databases support autopausing.
+- The job database used in elastic jobs.
 
 Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
 
@@ -194,7 +195,7 @@ New-AzSqlDatabase `
 The following example moves a database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
-Set-AzSqlDatabase
+Set-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
   -ServerName $serverName `
   -DatabaseName $databaseName `
@@ -285,7 +286,7 @@ The amount of compute billed is the maximum of CPU used and memory used each sec
 - **Amount billed**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
 - **Billing frequency**: Per second
 
-The vCore unit price in the cost per vCore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
+The vCore unit price is the cost per vCore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
 
 The amount of compute billed is exposed by the following metric:
 

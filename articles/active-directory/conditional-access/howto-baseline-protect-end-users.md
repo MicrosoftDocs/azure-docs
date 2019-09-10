@@ -21,7 +21,7 @@ We tend to think that administrator accounts are the only accounts that need pro
 
 To achieve a reasonable balance of security and usability, users shouldn’t be prompted every single time they sign-in. Authentication requests that reflect normal user behavior, such as signing in from the same device from the same location, have a low chance of compromise. Only sign-ins that are deemed risky and show characteristics of a bad actor should be prompted with MFA challenges.
 
-End user protection is a risk-based MFA [baseline policy](concept-baseline-protection.md) that protects all users in a directory, including all administrator roles. Enabling this policy requires all users to register for MFA using the Authenticator App. Users can ignore the MFA registration prompt for 14 days, after which they will be blocked from signing in until they register for MFA. Once registered for MFA, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until their password is reset and risk events have been dismissed.
+End user protection is a risk-based MFA [baseline policy](concept-baseline-protection.md) that protects all users in a directory, including all administrator roles. Enabling this policy requires all users to register for MFA using the Authenticator App. Users can ignore the MFA registration prompt for 14 days, after which they will be blocked from signing in until they register for MFA. Once registered for MFA, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until their password is reset and risk detections have been dismissed.
 
 > [!NOTE]
 > This policy applies to all users including guest accounts and will be evaluated when logging into all applications.
@@ -30,7 +30,7 @@ End user protection is a risk-based MFA [baseline policy](concept-baseline-prote
 
 To help protect our customers, Microsoft’s leaked credential service finds publicly available username/password pairs. If they match one of our users, we help secure that account immediately. Users identified as having a leaked credential are confirmed compromised. These users will be blocked from signing in until their password is reset.
 
-Users assigned an Azure AD Premium license can restore access through self-service password reset (SSPR) if the capability is enabled in their directory. Users without a premium license that become blocked must contact an administrator to perform a manual password reset and dismiss the flagged user risk event.
+Users assigned an Azure AD Premium license can restore access through self-service password reset (SSPR) if the capability is enabled in their directory. Users without a premium license that become blocked must contact an administrator to perform a manual password reset and dismiss the flagged user risk detection.
 
 ### Steps to unblock a user
 

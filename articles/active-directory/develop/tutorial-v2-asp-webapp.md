@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
@@ -481,8 +481,15 @@ Learn about how web apps can call web APIs.
 
 ### Learn how to create the application used in this quickstart guide
 
+Learn more about Web apps calling web APIs with the Microsoft identity platform:
+
 > [!div class="nextstepaction"]
-> [Web apps calling Web APIs]( https://aka.ms/msal-net-authorization-code)
+> [Web apps calling Web APIs](scenario-web-app-sign-user-overview.md)
+
+Learn how to build Web apps calling Microsoft Graph:
+
+> [!div class="nextstepaction"]
+> [Microsoft Graph ASP.NET tutorial](https://docs.microsoft.com/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

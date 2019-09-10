@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -85,6 +85,8 @@ The following policy applies to all selected users, who attempt to register usin
 1. Then click **Create**
 
 ## Next steps
+
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
 [Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 

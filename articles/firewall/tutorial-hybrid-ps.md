@@ -1,29 +1,29 @@
 ---
-title: 'Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
+title: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
+description: In this article, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
+ms.topic: article
 ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
-# Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
+# Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
 
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
 
 You can use Azure Firewall to control network access in a hybrid network using rules that define allowed and denied network traffic.
 
-For this tutorial, you create three virtual networks:
+For this article, you create three virtual networks:
 
 - **VNet-Hub** - the firewall is in this virtual network.
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
+- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
 ![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Declare the variables
@@ -37,12 +37,13 @@ In this tutorial, you learn how to:
 > * Create the virtual machines
 > * Test the firewall
 
+If you want to use Azure portal instead to complete this tutorial, see [Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
-This tutorial requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 There are three key requirements for this scenario to work correctly:
 
@@ -52,7 +53,7 @@ There are three key requirements for this scenario to work correctly:
    No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 - Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
 
-See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
+See the [Create Routes](#create-the-routes) section in this article to see how these routes are created.
 
 >[!NOTE]
 >Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
@@ -68,7 +69,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Declare the variables
 
-The following example declares the variables using the values for this tutorial. In some cases, you might need to replace some values with your own to work in your subscription. Modify the variables if needed, then copy and paste them into your PowerShell console.
+The following example declares the variables using the values for this article. In some cases, you might need to replace some values with your own to work in your subscription. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -112,7 +113,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## Create the firewall hub virtual network
 
-First, create the resource group to contain the resources for this tutorial:
+First, create the resource group to contain the resources for this article:
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -491,5 +492,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 Next, you can monitor the Azure Firewall logs.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+[Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)

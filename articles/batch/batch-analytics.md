@@ -7,7 +7,6 @@ manager: gwallace
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute

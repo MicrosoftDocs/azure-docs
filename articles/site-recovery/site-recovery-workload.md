@@ -5,7 +5,7 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 09/03/2019
 ms.author: raynew
 
 ---
@@ -36,7 +36,7 @@ Site Recovery contributes to application-level protection and recovery as follow
 * A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
 
 ## Workload summary
-Site Recovery can replicate any app running on a supported machine. In addition, we've partnered with product teams to carry out additional app-specific testing.
+Site Recovery can replicate any app running on a supported machine. In addition, we've partnered with product teams to carry out additional testing for the apps specified in the table.
 
 | **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** |
 | --- | --- | --- | --- | --- |---|

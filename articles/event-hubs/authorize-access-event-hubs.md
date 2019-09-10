@@ -19,7 +19,10 @@ Azure Event Hubs offers the following options for authorizing access to secure r
 ## Azure Active Directory
 Azure Active Directory (Azure AD) integration for Event Hubs resources provides role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use role-based access control (RBAC) to grant permissions to security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Event Hubs resource.
 
-For more information about authenticating with Azure AD, see [Authenticating requests to Azure Event Hubs using Azure Active Directory](authenticate-application.md). For more information about authorizing with Azure AD, see [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md).
+For more information about authenticating with Azure AD, see the following articles:
+
+- [Authenticate requests to Azure Event Hubs using Azure Active Directory](authenticate-application.md)
+- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 ## Share access signatures 
 Shared access signatures (SAS) for Event Hubs resources provide limited delegated access to Event Hubs resources. Adding constraints on time interval for which the signature is valid or on permissions it grants provides flexibility in managing resources. For more information, see [Authenticate using shared access signatures (SAS)](authenticate-shared-access-signature.md). 

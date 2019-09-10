@@ -210,16 +210,6 @@ error=user_authentication_required
 
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token. You can choose to handle this case in whatever way makes sense for your application.
 
-## Validating access tokens
-
-Once you receive an access_token, make sure to validate the signature of the token as well as the following claims. You may also choose to validate additional claims based on your scenario.
-
-* **audience** claim, to ensure that the token was intended to be given to your app
-* **issuer** claim, to verify that the token was issued to your app by the Microsoft identity platform endpoint
-* **not before** and **expiration time** claims, to verify that the token has not expired
-
-For more information about the claims present in the access token, see the [access token reference](access-tokens.md)
-
 ## Refreshing tokens
 
 The implicit grant does not provide refresh tokens. Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically. To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control the identity platform's behavior. If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.

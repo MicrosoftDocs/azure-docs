@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ---
@@ -154,7 +154,7 @@ A.  To speed up the copy process:
 - Use multiple streams of data copy. For instance, with Robocopy, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md).
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the Data Box is connected.
-- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://bluestop.org/fio/) to benchmark the performance of the server hardware.
+- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
