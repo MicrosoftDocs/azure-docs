@@ -102,7 +102,7 @@ We recommend that you set up and validate a full HADR solution and security desi
            3.  Evaluate and test the sizing of your Azure VMs with regard to maximum storage throughput and network throughput of the VM types you chose during the planning phase. You can find the data here:
                     -  [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
                     -  [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It's important to consider the *max uncached disk throughput* for sizing.
-   2. Storage
+   2. Storage.
            -  At a minimum, use [Azure Standard SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) for VMs that represent SAP application layers and for DBMS deployment that isn't performance sensitive.
            -  In general, we don't recommend the use of [Azure Standard HDD disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
            -  Use [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
@@ -111,7 +111,7 @@ We recommend that you set up and validate a full HADR solution and security desi
            -  For the different DBMS types, check the [generic SAP-related DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the DBMS-specific documentation that the generic document points to.
            -  For more information about SAP HANA, see [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
            - Never mount Azure data disks to an Azure Linux VM by using the device ID. Instead, use the universally unique identifier (UUID). Be careful when you use graphical tools to mount Azure data disks, for example. Double-check the entries in /etc/fstab to make sure the UUID is used to mount the disks. You can find [more details here](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
-   3. Networking
+   3. Networking.
            1.  Test and evaluate your virtual network infrastructure and the distribution of your SAP applications across or within the different Azure virtual networks.
            1.  Evaluate the hub-and-spoke virtual network architecture approach or the microsegmentation approach within a single Azure virtual network. Base this evaluation on:
                     1.  Costs of data exchange between [peered Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). For information about costs, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -130,13 +130,13 @@ We recommend that you set up and validate a full HADR solution and security desi
             5.   Make sure ILB deployments are set up to use Direct Server Return. This setting will reduce latency when Azure ILBs are used for high availability configurations on the DBMS layer.
             6.   If you're using Azure Load Balancer together with Linux guest operating systems, check that the Linux network parameter **net.ipv4.tcp_timestamps** is set to **0**. This recommendation conflicts with recommendations in older versions of [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note is now updated to state that this parameter needs to be set to **0** to work with Azure load balancers.
             7.   Consider using [Azure proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) to get optimal network latency. For more information, see [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
-   4. High Availability and disaster recovery deployments.
+   4. High availability and disaster recovery deployments.
            1. If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs running SAP dialog instance or middleware instances of a single SAP system are deployed in an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
               1.   In case you don't require high availability for the SAP Central Services and DBMS, these VMs can be deployed into the same Availability Set as the SAP application layer
            2. If you protect the SAP Central Services and the DBMS layer for high availability with passive replicas, have the two nodes for SAP Central Services in one separate Availability Set and the two DBMS node in another Availability Set
            3. If you deploy into Azure Availability Zones, you can't leverage Availability Sets. However you would need to make sure that you deploy the active and passive Central Services nodes into two different Availability Zones, which show the smallest latency between zones.
               1.   Keep in mind that you need to use [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) for the case of establishing Windows or Pacemaker Failover Clusters for the DBMS and SAP Central Services layer across Availability Zones. [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) can't be used for zonal deployments 
-   5. Timeout settings
+   5. Timeout settings.
            1. Check SAP NetWeaver developer traces of the different SAP instances and make sure that no connection breaks between enqueue server and the SAP work processes are noted. These connection breaks can be avoided by setting these two registry parameters:
               1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 - see also [this article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
               2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 - see also [this article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
