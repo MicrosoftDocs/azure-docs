@@ -76,12 +76,6 @@ The Authentication administrator role is currently in public preview. This previ
 * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 * Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
-### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
-
-Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users/AAD groups. Users in this role can manage this policy through any Azure DevOps organization that is backed the company’s Azure AD.
-
-In the future, all enterprise Azure DevOps policies will be managed by users in this role.
-
 ### [Azure Information Protection Administrator](#azure-information-protection-administrator-permissions)
 
 Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
@@ -494,19 +488,6 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
-
-### Azure DevOps Administrator permissions
-
-Can manage Azure DevOps organization policy and settings.
-
-> [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#azure-devops-administrator) above.
->
->
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.devOps/allEntities/allTasks | Read and configure Azure DevOps. |
 
 ### Azure Information Protection Administrator permissions
 
@@ -1512,7 +1493,6 @@ Graph displayName | Azure portal display name | directoryRoleTemplateId
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Azure DevOps Administrator | Azure DevOps Administrator | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection Administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C User flow Administrator | B2C User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

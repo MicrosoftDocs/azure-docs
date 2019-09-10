@@ -55,7 +55,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Cluster type     | Select **Hadoop** |
     |Version     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 
-    ![HDInsight Linux get started provide cluster basic values](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "Provide basic values for creating an HDInsight cluster")
+    ![HDInsight Linux get started cluster configuration](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "HDInsight Linux get started cluster configuration")
 
     Select **Select** and then select **Next** to advance to the storage settings.
 
@@ -98,7 +98,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 3. Open **Hive View** as shown in the following screenshot:
 
-    ![Selecting Ambari views](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer menu")
+    ![Selecting Ambari views](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive Viewer menu")
 
 4. In the **QUERY** tab, paste the following HiveQL statements into the worksheet:
 
@@ -112,7 +112,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
     Once the query has finished, the **QUERY** tab displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
 
-    ![HDInsight Hive views](./media/apache-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive View Query Editor")
+    ![HDInsight Hive view results](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive view results")
 
 6. Repeat step 4 and step 5 to run the following query:
 
