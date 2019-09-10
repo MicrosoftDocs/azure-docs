@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 #As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
