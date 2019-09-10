@@ -49,7 +49,7 @@ After the pipeline is designed, there is often more fine-tuning around the train
 
 With Azure Machine Learning, you can use various toolkits and frameworks, such as PyTorch or TensorFlow, for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so that your intermediate data can be shared with the downstream compute targets easily.
 
-You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in the Azure portal. After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
+You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in  Azure portal or your [workspace landing page (preview)](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
 
 ## Key advantages
 
