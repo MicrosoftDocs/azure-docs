@@ -18,14 +18,15 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Manage group members and owners (preview) in Azure Active Directory
+# Search groups  and members (preview) in Azure Active Directory
 
 This article tells you how to search for members and owners of a group and how to use search filters as part of the groups improvement preview in the Azure Active Directory (Azure AD) portal. There are lots of improvements in the groups experiences to help you manage your groups, including members and owners, quickly and easily. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Changes in this preview include:
 
-- New search capabilities, such as substring search in groups lists
+- New groups search capabilities, such as substring search in group names
 - New filtering and sorting options on member and owner lists
+- New search capabilities for member and owner lists
 - More accurate group counts for large groups
 
 ## Enabling and managing the preview
@@ -76,5 +77,11 @@ We’ve improved the group **Overview** page to provide group member counts for 
 
 These articles provide additional information on working with groups in Azure AD.
 
-- For a reference to dynamic group rules, see [Dynamic membership rule syntax](groups-dynamic-membership.md).
-- [Manage a group and add members in PowerShell](groups-settings-v2-cmdlets.md).
+- [View your groups and members](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Manage group membership](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Manage dynamic rules for users in a group](groups-create-rule.md)
+- [Edit your group settings](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Manage access to resources using groups](../fundamentals/active-directory-manage-groups.md)
+- [Manage access to SaaS apps using groups](groups-saasapps.md)
+- [Manage groups using PowerShell commands](groups-settings-v2-cmdlets.md)
+- [Add an Azure subscription to Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
