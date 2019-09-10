@@ -13,7 +13,7 @@ manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain consortium so that I can perform actions on a blockchain.
 ---
 
-# Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network
+# Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network
 
 In this quickstart, you install and use the Azure Blockchain Development Kit for Ethereum Visual Studio Code extension to attach to a consortium on Azure Blockchain Service. The Azure Blockchain Development Kit simplifies how you create, connect, build, and deploy smart contracts on Ethereum ledgers. 
 
