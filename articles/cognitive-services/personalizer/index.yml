@@ -31,7 +31,7 @@ landingContent:
             url: where-can-you-use-personalizer.md
           - text: Ethics and responsible use
             url: ethics-responsible-use.md
-  - title: Create Personalizer loop
+  - title: Create and use Personalizer loop
     linkLists: 
       - linkListType: concept
         links:
@@ -39,6 +39,20 @@ landingContent:
             url: concepts-features.md
           - text: How to calculate a reward
             url: concept-rewards.md
+      - linkListType: quickstart
+        links: 
+          - text: Using .Net 
+            url: csharp-quickstart-commandline-feedback-loop.md
+          - text: Using Python
+            url: python-quickstart-commandline-feedback-loop.md
+          - text: Node.js
+            url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+      - linkListType: how-to-guide
+        links: 
+          - text: How to create and configure Personalizer
+            url: how-to-settings.md
+  - title: Developing with Personalizer
+    linkLists: 
       - linkListType: quickstart
         links: 
           - text: Using .Net
@@ -49,8 +63,20 @@ landingContent:
             url: quickstart-command-line-feedback-loop-nodejs-sdk.md
       - linkListType: how-to-guide
         links: 
-          - text: How to create and configure Personalizer
+          - text: How to create and configure Personalizer 
             url: how-to-settings.md
+      - linkListType: reference
+        links:
+          - text: Code Samples
+            url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+          - text: REST APIs
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+          - text: NuGet package
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+          - text: NPM package
+            url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+          - text: Pypi package
+            url: https://pypi.org/project/azure-cognitiveservices-personalizer/            
   - title: About Reinforcement learning
     linkLists: 
       - linkListType: overview
