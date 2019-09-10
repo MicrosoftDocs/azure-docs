@@ -37,11 +37,11 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 ## Data loading performance
-- The performance of data loading into an ordered CCI table is similar to data loading into a partitioned table.  
-- Loading data into an ordered CCI table can take more time than data loading into a non-ordered CCI table because of the data sorting.  
 
-Figure 1 shows an example performance comparison of loading data into tables with different schemas.  
+The performance of data loading into an ordered CCI table is similar to data loading into a partitioned table.  
+Loading data into an ordered CCI table can take more time than data loading into a non-ordered CCI table because of the data sorting.  
 
+Here is an example performance comparison of loading data into tables with different schemas.
 ![Performance_comparison_data_loading](media/sql-data-warehouse-develop-ordered-cci/CCI_Data_Loading_Performance.png)
  
 ## Reduce segment overlapping
