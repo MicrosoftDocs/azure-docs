@@ -141,7 +141,7 @@ By default, Hive follows a set of rules to find one optimal query execution plan
 
 To enable CBO, navigate to the Hive **Configs** tab and search for `parameter hive.cbo.enable`, then switch the toggle button to **On**.
 
-![CBO config](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![CBO config](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 The following additional configuration parameters increase Hive query performance when CBO is enabled:
 
