@@ -60,34 +60,8 @@ The **Current Status** should be the first place admins look to check on the ope
 
 ## Provisioning logs (preview)
 
-All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs). You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. Logged activity event types include:
-
-* **Import events** - An "import" event is recorded each time the Azure AD provisioning service retrieves information about an individual user or group from a source system or target system. During synchronization, users are retrieved from the source system first, with the results recorded as "import" events. The matching IDs of the retrieved users are then queried against the target system to check if they exist, with the results also recorded as "import" events. These events record all mapped user attributes and their values that were seen by the Azure AD provisioning service at the time of the event.
-* **Synchronization rule events** - These events report on the results of the attribute-mapping rules and any configured scoping filters, after user data has been imported and evaluated from the source and target systems. For example, if a user in a source system is deemed to be in scope for provisioning, and deemed to not exist in the target system, then this event records that the user will be provisioned in the target system.
-* **Export events** - An "export" event is recorded each time the Azure AD provisioning service writes a user account or group object to a target system. These events record all user attributes and their values that were written by the Azure AD provisioning service at the time of the event. If there was an error while writing the user account or group object to the target system, it will be displayed here.
-* **Process escrow events** - Process escrows occur when the provisioning service encounters a failure while attempting an operation, and begins to retry the operation on a back-off interval of time. An "escrow" event is recorded each time a provisioning operation was retried.
-
-When looking at provisioning events for an individual user, the events normally occur in this order:
-
-1. Import event: User is retrieved from the source system.
-1. Import event: Target system is queried to check for the existence of the retrieved user.
-1. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute-mapping rules and scoping filters to determine what action, if any, should be performed.
-1. Export event: If the synchronization rule event dictated that an action should be performed (Add, Update, Delete), then the results of the action are recorded in an Export event.
-
-   ![Example: Audit log page that shows the activities and status](./media/check-status-user-account-provisioning/provisioning_logs.png)
-
-### Looking up provisioning events for a specific user
-
-The most common use case for the provisioning audit logs is to check the provisioning status of an individual user account. To look up the last provisioning events for a specific user:
-
-1. Go to **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
-1. In the **Date** menu, select the date range you want to search.
-2. In the **Identity** box, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (for example, userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
-3. Select **Apply** to apply the filter. The most recent provisioning events will be returned first.
-4. If events are returned, note the activity types and whether they succeeded or failed. If no results are returned, then it means the user either does not exist, or has not yet been detected by the provisioning process if a full sync has not yet completed.
-5. Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
-
-For more details about using the logs, see [Provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs).
+All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs). You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs). 
+Logged activity event types include:
 
 ## Troubleshooting
 

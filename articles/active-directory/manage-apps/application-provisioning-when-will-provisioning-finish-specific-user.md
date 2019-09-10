@@ -45,9 +45,7 @@ The provisioning progress can viewed in the Azure portal, in the **Azure Active 
 
 To see the provisioning status for a selected user, consult the [Provisioning logs (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs) in Azure AD. All operations run by the user provisioning service are recorded in the Azure AD provisioning logs. This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
 
-The provisioning logs can be accessed in the Azure portal by going to **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search for users based on the “matching ID” that was configured for them in the attribute mappings. 
-
-For example, if you configured the “user principal name” or “email address” as the matching attribute on the Azure AD side, and the user not being provisioning has a value of “audrey@contoso.com”, then filter the provisioning logs using the identity “audrey@contoso.com” and review then entries returned.
+You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs). 
 
 The provisioning logs record all the operations performed by the provisioning service, including:
 

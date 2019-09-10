@@ -158,7 +158,7 @@ The provisioning service continues running back-to-back incremental syncs indefi
 
 ### Errors and retries
 
-If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
+If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#provisioning-logs) to determine the root cause and take the appropriate action. Common failures can include:
 
 - Users not having an attribute populated in the source system that is required in the target system
 - Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record
