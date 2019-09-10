@@ -41,9 +41,9 @@ Azure IoT Central is a fully managed software-as-a-service solution that makes i
 
 The Azure IoT certification service runs a set of certification tests when you submit an [IoT Plug and Play device](#iot-plug-and-play-device) for certification through the [Azure Certified for IoT portal](#azure-certified-for-iot-portal). Before you can add a device to the [Certified for IoT device catalog](#certified-for-iot-device-catalog), the device must be certified.
 
-## Azure IoT Device Workbench extension
+## Azure IoT Tools extension
 
-Azure IoT Device Workbench is a [Visual Studio code](#visual-studio-code) extension that provides an integrated environment to:
+Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For develop IoT Plug and Play device, it provides:
 
 - Author [device capability models](#device-capability-model) and [interfaces](#interface).
 - Publish to [model repositories](#model-repository).
@@ -195,4 +195,4 @@ Telemetry fields defined in an [interface](#interface) represent measurements. T
 
 ## Visual Studio code
 
-Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as the [Azure IoT Device Workbench extension](#azure-iot-device-workbench-extension) enable you to customize it to support a wide range of development scenarios.
+Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) enable you to customize it to support a wide range of development scenarios.

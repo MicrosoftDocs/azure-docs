@@ -25,12 +25,12 @@ To complete this quickstart, you need to install the following software on your 
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-### Install Azure IoT Device Workbench
+### Install Azure IoT Tools
 
-Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
+Use the following steps to install the [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools):
 
 1. In VS Code, select the **Extensions** tab.
-1. Search for **Azure IoT Device Workbench**.
+1. Search for **Azure IoT Tools**.
 1. Select **Install**.
 
 ### Install the Azure IoT explorer
