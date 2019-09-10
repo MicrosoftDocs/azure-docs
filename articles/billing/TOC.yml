@@ -133,12 +133,12 @@
     href: billing-mca-section-invoice.md
   - name: EA management
     items:
-    - name: Get started - Azure EA portal
+    - name: Get started in the Azure EA portal
       href: billing-ea-portal-get-started.md
     - name: EA roles in Azure
       href: billing-understand-ea-roles.md
     - name: Azure EA portal administration
-     -name: billing-ea-portal-administration.md
+      href: billing-ea-portal-administration.md
     - name: Azure EA agreements and amendments
       href: billing-ea-portal-agreements.md
     - name: Enterprise enrollment invoices
