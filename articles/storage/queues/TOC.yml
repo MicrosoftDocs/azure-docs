@@ -166,7 +166,7 @@
       href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use the Azure Storage emulator
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-- name: Develop with queues
+  - name: Develop with queues
     items:
     - name: .NET
       href: storage-dotnet-how-to-use-queues.md
