@@ -29,7 +29,7 @@
   - name: Client libraries
     href: analysis-services-data-providers.md
   - name: Compatibility level
-    href: analysis-services-compat-level.md
+    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers

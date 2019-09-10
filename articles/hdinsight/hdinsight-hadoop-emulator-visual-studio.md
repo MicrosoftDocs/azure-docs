@@ -181,7 +181,7 @@ Data Lake tools also allow you to easily view information about jobs that have b
 
 You can view the properties of a database or table. Selecting **Properties** displays details for the selected item in the properties window. For example, see the information shown in the following screenshot:
 
-![Screenshot of Properties window](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Screenshot of Properties window](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### Create a table
 

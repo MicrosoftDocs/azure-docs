@@ -153,18 +153,20 @@
     - name: Set up training environments
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
-    - name: Create estimators in training
-      href: how-to-train-ml-models.md
-    - name: Use Scikit-learn
-      href: how-to-train-scikit-learn.md
-    - name: Use TensorFlow
-      href: how-to-train-tensorflow.md
-    - name: Use Keras
-      href: how-to-train-keras.md
-    - name: Use PyTorch
-      href: how-to-train-pytorch.md
-    - name: Use Chainer
-      href: how-to-train-chainer.md
+    - name: Use estimators to train
+      items:
+      - name: Create estimators in training
+        href: how-to-train-ml-models.md
+      - name: Use Scikit-learn
+        href: how-to-train-scikit-learn.md
+      - name: Use TensorFlow
+        href: how-to-train-tensorflow.md
+      - name: Use Keras
+        href: how-to-train-keras.md
+      - name: Use PyTorch
+        href: how-to-train-pytorch.md
+      - name: Use Chainer
+        href: how-to-train-chainer.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md

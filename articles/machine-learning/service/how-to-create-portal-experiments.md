@@ -14,6 +14,7 @@ ms.date: 09/09/2019
 
 ---
 
+
 # Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)
 
  In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's new workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
@@ -27,6 +28,7 @@ ms.date: 09/09/2019
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 ## Get started
+
 
 1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
@@ -59,7 +61,7 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](#profile) for more details).
 
 1. Select a dataset from your storage container, or create one by uploading a file from your local computer to the container. Public preview only supports local file uploads and Azure blob storage accounts.
 
@@ -183,7 +185,8 @@ Automated ML helps you with deploying the model without writing code:
     + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
     + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
-1. Populate the **Deploy Model** pane,
+
+1. Populate the **Deploy Model** pane.
 
     Field| Value
     ----|----
