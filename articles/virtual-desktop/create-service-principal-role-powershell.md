@@ -42,6 +42,7 @@ Before you can create service principals and role assignments, you need to do th
 After you’ve fulfilled the prerequisites in your PowerShell session, run the following PowerShell cmdlets to create a multitenant service principal in Azure.
 
 ```powershell
+$myTenantName = "<WVD Tenant Name>"
 Import-Module AzureAD
 $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
