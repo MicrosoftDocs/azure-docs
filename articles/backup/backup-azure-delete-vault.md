@@ -232,7 +232,7 @@ To stop protection and delete the backup data:
 
 After deleting the backed up data, un-register any on-premises containers and management servers. 
 
-- For on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure
+- For on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure:
 
     ```PowerShell
     Unregister-AzRecoveryServicesBackupContainer 
@@ -245,6 +245,21 @@ After deleting the backed up data, un-register any on-premises containers and ma
               [<CommonParameters>] 
     ```
     [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) about un-registering a Windows Server or other container from the vault. 
+
+- For on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manage:
+
+    ```PowerShell
+        Unregister-AzRecoveryServicesBackupManagementServer
+          [-AzureRmBackupManagementServer] <BackupEngineBase>
+          [-PassThru]
+          [-VaultId <String>]
+          [-DefaultProfile <IAzureContextContainer>]
+          [-WhatIf]
+          [-Confirm]
+          [<CommonParameters>]
+    ```
+
+    [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) about unregistering a Backup management container from the vault.
 
 After permanently deleting backed up data and un-registering all containers, proceed to delete the vault. 
 
