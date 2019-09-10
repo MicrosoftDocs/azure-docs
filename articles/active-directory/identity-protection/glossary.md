@@ -18,13 +18,13 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory Identity Protection Glossary
 
 ### At risk (User)
-A user with one or more active risk events. 
+A user with one or more active risk detections. 
 
 ### Atypical sign-in location
 A sign-in from a geographic location that is not typical for the specific user, similar users, or the tenant.
 
 ### Azure AD Identity Protection
-A security module of Azure Active Directory that provides a consolidated view into risk events and potential vulnerabilities affecting an organization’s identities.
+A security module of Azure Active Directory that provides a consolidated view into risk detections and potential vulnerabilities affecting an organization’s identities.
 
 ### Conditional Access
 A policy for securing access to resources. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
@@ -35,29 +35,29 @@ Information that includes identification and proof of identification that is use
 ### Event
 A record of an activity in Azure Active Directory.
 
-### False-positive (risk event)
-A risk event status set manually by an Identity Protection user, indicating that the risk event was investigated and was incorrectly flagged as a risk event.
+### False-positive (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the risk detection was investigated and was incorrectly flagged as a risk detection.
 
 ### Identity
 A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
 
-### Identity risk event
+### Identity risk detection
 AAD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
 
-### Ignored (risk event)
-A risk event status set manually by an Identity Protection user, indicating that the risk event is closed without taking a remediation action.
+### Ignored (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.
 
 ### Impossible travel from atypical locations
-A risk event triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
+A risk detection triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
 
 ### Investigation
-The process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
+The process of reviewing the activities, logs, and other relevant information related to a risk detection to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
 
 ### Leaked credentials
-A risk event triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
+A risk detection triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
 
 ### Mitigation
-An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk events associated with the identity or device.
+An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk detections associated with the identity or device.
 
 ### Multi-factor authentication
 An authentication method that requires two or more authentication methods, which may include something the user has, such a certificate; something the user knows, such as user names, passwords, or pass phrases; physical attributes, such as a thumbprint; and personal attributes, such as a personal signature.
@@ -72,10 +72,10 @@ A part of a security policy, which defines the entities (groups, users, apps, de
 The part of a security policy which describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
 
 ### Prevention
-An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk events.
+An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk detections.
 
 ### Privileged (user)
-A user that at the time of a risk event, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
+A user that at the time of a risk detection, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
 
 ### Real-time
 See Real-time detection.
@@ -83,23 +83,23 @@ See Real-time detection.
 ### Real-time detection
 The detection of anomalies and evaluation of the risk of an event such as sign-in attempt before the event is allowed to proceed.
 
-### Remediated (risk event)
-A risk event status set automatically by Identity Protection, indicating that the risk event was remediated using the standard remediation action for this type of risk event. For example, when the user password is reset, many risk events that indicate that the previous password was compromised are automatically remediated.
+### Remediated (risk detection)
+A risk detection status set automatically by Identity Protection, indicating that the risk detection was remediated using the standard remediation action for this type of risk detection. For example, when the user password is reset, many risk detections that indicate that the previous password was compromised are automatically remediated.
 
 ### Remediation
-An action to secure an identity or a device that were previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
+An action to secure an identity or a device that were previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk detections associated with the identity or device.
 
-### Resolved (risk event)
-A risk event status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk event should be considered closed.
+### Resolved (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk detection should be considered closed.
 
-### Risk event status
-A property of a risk event, indicating whether the event is active, and if closed, the reason for closing it.
+### Risk detection status
+A property of a risk detection, indicating whether the event is active, and if closed, the reason for closing it.
 
-### Risk event type
-A category for the risk event, indicating the type of anomaly that caused the event to be considered risky.
+### Risk detection type
+A category for the risk detection, indicating the type of anomaly that caused the event to be considered risky.
 
-### Risk level (risk event)
-An indication (High, Medium, or Low) of the severity of the risk event to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
+### Risk level (risk detection)
+An indication (High, Medium, or Low) of the severity of the risk detection to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
 
 ### Risk level (sign-in)
 An indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to use the user’s identity.
@@ -123,16 +123,16 @@ To authenticate to an identity in Azure Active Directory.
 The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
 
 ### Sign in from anonymous IP address
-A risk event triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
+A risk detection triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
 
 ### Sign in from infected device
-A risk event triggered when a sign-in originates from an IP address, which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
+A risk detection triggered when a sign-in originates from an IP address, which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
 
 ### Sign in from IP address with suspicious activity
-A risk event triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
+A risk detection triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
 
 ### Sign in from unfamiliar location
-A risk event triggered when a user successfully signs in from a new location (IP, Latitude/Longitude, and ASN).
+A risk detection triggered when a user successfully signs in from a new location (IP, Latitude/Longitude, and ASN).
 
 ### Sign-in risk
 See Risk level (sign-in)
@@ -150,7 +150,7 @@ See Risk level (user compromise).
 A Conditional Access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
 
 ### Users flagged for risk
-Users that have risk events, which are either active or remediated
+Users that have risk detections, which are either active or remediated
 
 ### Vulnerability
 A configuration or condition in Azure Active Directory, which makes the directory susceptible to exploits or threats.

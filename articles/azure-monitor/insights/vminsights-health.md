@@ -280,7 +280,7 @@ To see an updated health state, you can refresh the Health Diagnostics page by s
 
 Azure Monitor for VMs health integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md). It raises an alert when predefined criteria, when detected, change from a healthy state to an unhealthy state. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 as the highest level.
 
-Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
+Alerts aren't associated with an action group to notify you when the alert has been triggered. A user with Owner role at the subscription scope must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
 The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts** section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
 

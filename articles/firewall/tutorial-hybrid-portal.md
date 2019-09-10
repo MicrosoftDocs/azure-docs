@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 08/29/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -75,6 +75,9 @@ First, create the resource group to contain the resources for this tutorial:
 
 Now, create the VNet:
 
+> [!NOTE]
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
 4. For **Name**, type **VNet-hub**.
@@ -83,10 +86,8 @@ Now, create the VNet:
 7. For **Resource group**, select **FW-Hybrid-Test**.
 8. For **Location**, select **East US**.
 9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.5.0.0/24**.
-    > [!NOTE]
-    > The minimum size of the AzureFirewallSubnet subnet is /26.
-1. Accept the other default settings, and then select **Create**.
+10. For **Address range**, type **10.5.0.0/26**. 
+11. Accept the other default settings, and then select **Create**.
 
 ## Create the spoke virtual network
 

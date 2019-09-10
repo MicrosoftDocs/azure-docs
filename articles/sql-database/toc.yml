@@ -6,6 +6,8 @@
     href: sql-database-technical-overview.md
   - name: Which SQL option should I choose?
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Feature comparison
+    href: sql-database-features.md
   - name: Release notes
     href: sql-database-release-notes.md
   - name: Gateway IP migration updates
@@ -219,10 +221,16 @@
     items:
     - name: Managed instance documentation
       href: sql-database-managed-instance-index.yml
-    - name: Managed instance capabilities
+    - name: Managed instance overview
       href: sql-database-managed-instance.md
     - name: Managed instance FAQ
       href: sql-database-managed-instance-faq.md
+    - name: Instance pools
+      items:
+      - name: Instance pools overview
+        href: sql-database-instance-pools.md
+      - name: Instance pools how-to guide
+        href: sql-database-instance-pools-how-to.md
     - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
@@ -325,7 +333,7 @@
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
     - name: Security attributes
-      href: sql-database-security-attributes.md
+      href: sql-database-security-controls.md
     - name: Feature restrictions
       href: sql-database-feature-restrictions.md
   - name: Scalability
@@ -384,10 +392,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
-    - name: SQL Database feature documentation
+    - name: Overview
       href: sql-database-features-index.yml
-    - name: SQL features comparison
-      href: sql-database-features.md
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
@@ -528,6 +534,8 @@
       href: sql-database-managed-instance-connect-app.md
   - name: Load and move data
     items:
+    - name: Restore point in time
+      href: sql-database-managed-instance-point-in-time-restore.md
     - name: Move resource to a new region
       href: sql-database-move-resources-across-regions.md
     - name: Copy a database within Azure

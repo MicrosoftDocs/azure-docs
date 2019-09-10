@@ -187,6 +187,7 @@ Sets the source image an existing image version in a Shared Image Gallery. The i
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 ## Properties: buildTimeoutInMinutes
+
 By default, the Image Builder will run for 240 minutes. After that, it will timeout and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
 
 ```text
@@ -200,7 +201,6 @@ If you find you need more time for customizations to complete, set this to what 
 
 
 ## Properties: customize
-
 
 Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
 
