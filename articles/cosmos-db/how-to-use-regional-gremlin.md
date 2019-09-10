@@ -10,7 +10,7 @@ ms.author: olignat
 ---
 
 # Regional end points for Azure Cosmos DB Graph account
-Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read end points. Applications that need write access in multiple geographic locations can enable [multi-master](how-to-multi-master.md) capability.
+Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read end points. Applications that need write access in multiple locations should enable [multi-master](how-to-multi-master.md) capability.
 
 Reasons to choose more than one region:
 1. **Horizontal read scalability** - as application load increases it may be prudent to route read traffic to different Azure regions.
@@ -36,7 +36,7 @@ Global database account CNAME always points to a valid write region. During serv
 
 ## Portal end-point discovery
 
-The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. This will work for applications that do not change regions often, or have a way to update the list via application configuration.
+The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. It will work for applications that do not change regions often, or have a way to update the list via application configuration.
 
 ![Retrieve regions of Cosmos DB Graph account from the portal](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
 
