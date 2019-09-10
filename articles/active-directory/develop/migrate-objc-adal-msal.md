@@ -232,7 +232,7 @@ You can add MSAL SDK to your app using your preferred package management tool. S
 
 ### Update your app's Info.plist file
 
-Add your application's redirect URI scheme to your info.plist file. For ADAL broker compatible apps, it should be there already. The default MSAL redirect URI scheme will be in the format: `msauth.<app.bundle.id>`.  
+For iOS only, add your application's redirect URI scheme to your info.plist file. For ADAL broker compatible apps, it should be there already. The default MSAL redirect URI scheme will be in the format: `msauth.<app.bundle.id>`.  
 
 ```xml
 <key>CFBundleURLSchemes</key>
@@ -253,7 +253,7 @@ Add following schemes to your app's Info.plist under `LSApplicationQueriesScheme
 
 ### Update your AppDelegate code
 
-Add the following to your AppDelegate.m file:
+For iOS only, add the following to your AppDelegate.m file:
 
 ```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
@@ -264,6 +264,17 @@ Add the following to your AppDelegate.m file:
 
 This allows MSAL to handle responses from the broker and web component.
 This wasn't necessary in ADAL since it "swizzled" app delegate methods automatically. Adding it manually is less error prone and gives the application more control.
+
+### Enable token caching
+
+By default, MSAL caches your app's tokens in the iOS or macOS keychain. 
+
+To enable token caching:
+1. Ensure your application is properly signed
+2. Go to your Xcode Project Settings > **Capabilities tab** > **Enable Keychain Sharing**
+3. Click **+** and enter a following **Keychain Groups** entry:
+3.a For iOS, enter `com.microsoft.adalcache`
+3.b For macOS enter `com.microsoft.identity.universalstorage`
 
 ### Create MSALPublicClientApplication and switch to its acquireToken and acquireTokeSilent calls
 

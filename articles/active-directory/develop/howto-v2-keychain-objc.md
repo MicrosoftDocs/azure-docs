@@ -38,7 +38,9 @@ On iOS, add the `com.microsoft.adalcache` keychain group to your app's entitleme
 
 MSAL on macOS uses `com.microsoft.identity.universalstorage` access group by default.
 
-Due to macOS keychain limitations, MSAL's `access group` doesn't directly translate to the keychain access group attribute (see [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) on all macOS versions. However, it behaves similarly from a SSO perspective by ensuring that multiple applications distributed by the same Apple developer can have silent SSO.
+Due to macOS keychain limitations, MSAL's `access group` doesn't directly translate to the keychain access group attribute (see [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) on macOS 10.14 and earlier. However, it behaves similarly from a SSO perspective by ensuring that multiple applications distributed by the same Apple developer can have silent SSO.
+
+On macOS 10.15 onwards (macOS Catalina), MSAL uses keychain access group attribute to achieve silent SSO, similarly to iOS.
 
 ## Custom keychain access group
 
