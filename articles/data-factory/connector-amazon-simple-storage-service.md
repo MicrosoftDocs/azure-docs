@@ -21,7 +21,8 @@ ms.author: jingwang
 
 This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3). To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
-For data migration scenario from Amazon S3 to Azure Storage, learn more from [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
+>[!TIP]
+>For data migration scenario from Amazon S3 to Azure Storage, learn more from [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
 
 ## Supported capabilities
 
