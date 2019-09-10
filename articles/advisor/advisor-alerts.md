@@ -1,3 +1,16 @@
+---
+title: Create Azure Advisor alerts for new recommendations | Microsoft Docs
+description: Create Azure Advisor alerts for new recommendation
+services: advisor
+author: saket-ms
+ms.service: advisor
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/09/2019
+ms.author: saket-ms
+---
+
 # Create activity log alerts for new recommendations 
 
 ## Overview
@@ -154,7 +167,6 @@ This article shows you how to configure Azure Advisor alerts to send recommendat
 
 You can set up alerts to be notified when you have a new Advisor recommendation on one of your resources. These alerts can notify you through email or text message, but they can also be used to integrate with your existing systems through a webhook. 
 
-To learn more about configuring recommendation alerts, see [Create activity log alerts for new recommendations](createalerts.md).
 
 ## Using the Advisor recommendation alert payload
 If you want to integrate Advisor alerts into your own systems using a webhook, you will need to parse the JSON payload that is sent from the notification. 
