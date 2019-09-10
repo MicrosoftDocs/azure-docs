@@ -36,8 +36,8 @@ The series is divided into the following topics:
     - Plan and design with back-end services
         - [Authentication](authentication.md)
         - [Data Storage](data-storage.md)
-        - [Serverless Compute](azure-funcitons.md)
-        - File Storage
+        - [Serverless Compute](serverless-compute.md)
+        - [Azure Storage](azure-storage.md)
         - Mobile App Backend
         - Secure and Manage apps 
     - [Code Hosting Services](code-hosting-services.md)

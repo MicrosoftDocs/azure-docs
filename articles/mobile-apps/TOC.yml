@@ -19,9 +19,9 @@
       - name: Real-time and Offline Data Storage
         href: 
       - name: Serverless Compute
-        href: azure-functions.md
-      - name: File Storage
-        href: 
+        href: serverless-compute.md
+      - name: Azure Storage
+        href: azure-storage.md
       - name: Mobile App Backend
         href: 
       - name: Secure and Manage apps 
