@@ -1,9 +1,9 @@
 ---
-title: Azure Private Endpoint
-description: Learn about Azure Private Endpoint
+title: What is an Azure private endpoint?
+description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Private Endpoint so that I can securely connect to my Azure PaaS services within the virtual network.
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure private e so that I can securely connect to my Azure PaaS services within the virtual network.
 
 ms.service: virtual-network
 ms.topic: article
@@ -11,7 +11,7 @@ ms.date: 09/05/2019
 ms.author: kumud
 
 ---
-# What is Azure Private Endpoint? (Preview)
+# What is Azure private endpoint?
 
 You can connect secure and privately to an Azure Service from your virtual network with a private endpoint. A private endpoint represents a unique network identifier that you can use to securely connect to an Azure Service. Traffic from your virtual network to the Private Link resource is secured by the platform from reaching other resources hosted on the same service.
  
@@ -22,8 +22,8 @@ This article explains private endpoint concepts, to help you use them effectivel
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-## Private Endpoint properties 
- A Private Endpoint specifies the following properties: 
+## Private endpoint properties 
+ A private endpoint specifies the following properties: 
 
 
 |Property  |Description |
@@ -36,7 +36,7 @@ This article explains private endpoint concepts, to help you use them effectivel
 |Request Message     |  You can specify a message for connections requested to be approved manually, this message can be used to identify a specific request.        |
 |Connection status   |   A read-only property that specifies if the private endpoint is active, only private endpoints in approved state can be used to send traffic. Additional states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection is created manually and pending for approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. </br>|
 
-Here are some key details about Private Endpoints: 
+Here are some key details about private endpoints: 
 - An approved private endpoint allows connectivity from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) connections private. 
  
 - When creating a private endpoint, a network interface will also be created for the life cycle of the resource, multiple private IP addresses can be allocated to a selected private link resource.  
@@ -61,11 +61,11 @@ A private link resource is the destination target of a given private endpoint. T
 - **Azure SQL Data Warehouse**: Generally available in all Azure regions. 
  
 All private link resources shares a common behavior and experience for managing associated private endpoints. For details, see the following sections:
-- Network security for Private Endpoints
-- Access to a Private Link Resource using approval workflow
+- Network security for private endpoints.
+- Access to a private link resource using approval workflow.
 - DNS configuration.
  
-### Network security of Private Endpoints 
+### Network security of private endpoints 
 When using private endpoints for Azure Services, traffic is secured to a specific private link resource, the platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure Service, additional private endpoints are required. 
  
 You can completely lock down your workloads from accessing to public endpoints to connect to a supported Azure Service. This control provides an additional network security layer to your resources by providing a build-in exfiltration protection that prevents access to other resources hosted on the same Azure Service. 
@@ -122,7 +122,7 @@ For more details, please check the tutorial how to configure the DNS settings fo
 
 ## Limitations
  
-The following is a list of known limitation when using private endpoints: 
+The following table includes a list of known limitation when using private endpoints: 
 
 
 |Limitation |Description |Mitigation  |
@@ -135,5 +135,5 @@ The following is a list of known limitation when using private endpoints:
 
 
 ## Next steps
-- [Create a Private Endpoint using Azure portal](create-private-endpoint-portal.md)
+- [Create a private endpoint using the Azure portal](create-private-endpoint-portal.md)
  
