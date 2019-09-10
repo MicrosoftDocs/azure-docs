@@ -38,7 +38,7 @@ We use **python/pip** command to build virtual environment in your Home path. If
 
 If you encounter an error message, install the required packages by running the following commands:
 
-   ![Python pip version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![libkrb5 package](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev
