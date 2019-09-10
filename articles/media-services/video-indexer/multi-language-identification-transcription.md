@@ -26,10 +26,10 @@ You can choose **multi-language detection** when uploading and indexing your vid
 1. On the right-bottom corner, click the **Re-index video** button. 
 1. In the **Re-index video** dialog, choose **multi-language detection** from the **Video source language** drop-down box.
 
-* When a video was indexed as multi-language, the insight page will include that option, and an additional insight type will appear, enabling the user to view which segment is transcribed in which language "Spoken language".
-* Translation to all languages is fully available from the multi-language transcript.
-* All other insights will appear in the master language detected – that is the language that appeared most in the audio.
-* Closed captioning on the player is available in multi-language as well.
+    * When a video is indexed as multi-language, the insight page will include that option, and an additional insight type will appear, enabling the user to view which segment is transcribed in which language "Spoken language".
+    * Translation to all languages is fully available from the multi-language transcript.
+    * All other insights will appear in the master language detected – that is the language that appeared most in the audio.
+    * Closed captioning on the player is available in multi-language as well.
 
 ![Portal experience](./media/multi-language-identification-transcription/portal-experience.png)
 
