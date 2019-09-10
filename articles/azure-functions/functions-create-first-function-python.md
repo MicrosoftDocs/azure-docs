@@ -33,7 +33,13 @@ Before you start, you must have the following:
 
 ## Create and activate a virtual environment (optional)
 
-To locally develop and test Python functions, it is recommended to use a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`.
+To locally develop and test Python functions, it is recommended to use a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`. 
+
+> [!NOTE]
+> If Python didn't install venv on your Linux distribution, you can install it using the following command:
+> ```command
+> sudo apt-get install python3-venv
+>
 
 ### Bash:
 

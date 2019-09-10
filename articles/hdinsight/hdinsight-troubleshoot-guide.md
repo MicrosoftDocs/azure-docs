@@ -28,3 +28,13 @@ ms.date: 08/14/2019
 | Logs and dumps | - [Access Apache Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Enable heap dumps for Apache Hadoop services on Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analyze HDInsight logs](hdinsight-debug-jobs.md)|
 | Errors | - [Understand and resolve WebHCat errors](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive settings to fix OutofMemory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Tools | - [Optimize Apache Hive queries](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight IntelliJ tool](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse tool](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode tool](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio tool](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+
+## Next steps
+
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
+
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

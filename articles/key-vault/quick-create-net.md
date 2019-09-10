@@ -94,7 +94,7 @@ The simplest way to authenticate an cloud-based .NET application is with a manag
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 

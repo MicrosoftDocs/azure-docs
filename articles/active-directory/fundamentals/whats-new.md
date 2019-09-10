@@ -49,6 +49,23 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 
 ---
 
+### Enhanced search, filtering, and sorting for groups is available in the Azure AD portal (Public Preview)
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+We're pleased to announce public preview availability of the enhanced groups-related experiences in the Azure AD portal. These enhancements help you better manage groups and member lists, by providing:
+
+- Advanced search capabilities, such as substring search on groups lists.
+- Advanced filtering and sorting options on member and owner lists.
+- New search capabilities for member and owner lists.
+- More accurate group counts for large groups.
+
+For more information, see [Manage groups in the Azure portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
+
+---
+
 ### New custom roles are available for app registration management (Public Preview)
 
 **Type:** New feature  
@@ -70,7 +87,7 @@ If you need additional permissions or resources supported, which you don’t cur
 New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning deployment. These new log files include information about:
 
 - What groups were successfully created in [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
-- What roles were imported from [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)
+- What roles were imported from [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-and-test-azure-ad-single-sign-on)
 - What employees weren't imported from [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
 
 For more information, see [Provisioning reports in the Azure Active Directory portal (preview)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs).
@@ -166,7 +183,7 @@ New updates to the AzureAD and AzureAD Preview PowerShell modules are available:
 
 ---
 
-### Improvements to the UI of the dynamic group rule builder in the Azure Portal
+### Improvements to the UI of the dynamic group rule builder in the Azure portal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
