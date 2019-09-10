@@ -146,7 +146,9 @@ When Server-side encryption with service-managed keys is used, the key creation,
 
 #### Server-side encryption using customer-managed keys in Azure Key Vault
 
-For scenarios where the requirement is to encrypt the data at rest and control the encryption keys customers can use server-side encryption using customer-managed Keys in Key Vault. Some services may store only the root Key Encryption Key in Azure Key Vault and store the encrypted Data Encryption Key in an internal location closer to the data. In that scenario customers can bring their own keys to Key Vault (BYOK – Bring Your Own Key), or generate new ones, and use them to encrypt the desired resources. While the Resource Provider performs the encryption and decryption operations it uses the configured key as the root key for all encryption operations.
+For scenarios where the requirement is to encrypt the data at rest and control the encryption keys customers can use server-side encryption using customer-managed Keys in Key Vault. Some services may store only the root Key Encryption Key in Azure Key Vault and store the encrypted Data Encryption Key in an internal location closer to the data. In that scenario customers can bring their own keys to Key Vault (BYOK – Bring Your Own Key), or generate new ones, and use them to encrypt the desired resources. While the Resource Provider performs the encryption and decryption operations it uses the configured key encryption key as the root key for all encryption operations.
+
+These key encryption keys should be backed up whenever rotated or a new one is created and [Soft-Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) should be enabled on any vault storing key encryption keys. Key encryption keys should not be deleted as that would result in data loss, including backups of databases, disks, etc. protected by those key encryption keys. Instead, set enabled to false or set the expiry date on the keys if you no longer want them used.
 
 ##### Key Access
 
