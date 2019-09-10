@@ -23,20 +23,19 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### New web experience for Azure Machine Learning workspaces (preview)
 The new web experience enables data scientists and data engineers to complete their end-to-end machine learning lifecycle from prepping and visualizing data to training and deploying models in a single location. 
 
-![Azure Machine Learning workspace UI](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+![Azure Machine Learning workspace UI (preview)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
 
-**Key features**
+**Key features:**
+
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
 + Run automated ML experiments
-+ [Create & manage datasets from local files](how-to-create-register-datasets.md)
-+ Explore and process training and test datasets for model creation
-+ Track the datasets used in your ML models 
++ [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
++ Explore & prepare datasets for model creation
 + Monitor data drift for your models 
 + View recent resources from a dashboard
-+ More features are coming soon.
 
-As of 9.9, you can access the web interface with the following browsers: Chrome, Firefox, Safari, and Microsoft Edge Preview.
+At the time of this release, the following browsers are supported: Chrome, Firefox, Safari, and Microsoft Edge Preview.
 
 **Known issues:**
 
@@ -48,8 +47,6 @@ As of 9.9, you can access the web interface with the following browsers: Chrome,
    1. Find the SSH keys  that were created during VM setup. Or, find the keys in  the Azure ML Azure portal > open Compute tab > locate Notebook VM in the list > open it’s properties : copy the keys from the dialog.
    1. Import those public and private SSH keys to your local machine.
    1. Use them to SSH into the Notebook VM. 
-
-
 
 ## 2019-09-03
 ### Azure Machine Learning SDK for Python v1.0.60
@@ -67,7 +64,7 @@ As of 9.9, you can access the web interface with the following browsers: Chrome,
     + AutoML models now return AutoMLExceptions
     + This release improves the execution performance of automated machine learning local runs.
   + **azureml-core**
-    + Introduce  , which returns a dictionary of `TabularDataset` and `FileDataset` objects keyed by their registration name. 
+    + Introduce Dataset.get_all(workspace), which returns a dictionary of `TabularDataset` and `FileDataset` objects keyed by their registration name. 
     
     ```py 
     workspace = Workspace.from_config() 
