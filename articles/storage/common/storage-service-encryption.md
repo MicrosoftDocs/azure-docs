@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 09/10/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -66,9 +66,9 @@ To learn how to use customer-managed keys with Azure Storage, see one of these a
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you transfer a subscription from one Azure AD directory to another, managed identities are not updated and customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-## Client-provided keys
+## Client-provided keys (preview)
 
-Clients making requests against Azure Blob storage have the option to providing an encryption key on an individual request to the service. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Client-provided keys can be stored in Azure Key Vault or in another key store.
+Clients making requests against Azure Blob storage have the option to providing an encryption key on an individual request to the service. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Client-provided keys (preview) can be stored in Azure Key Vault or in another key store.
 
 When a client provides the encryption key as part of the request, Azure Storage performs encryption and decryption transparently while writing and reading data from Blob storage. A SHA-256 hash of the encryption key is written alongside a blob's contents and is used to verify that all subsequent operations against the blob use the same encryption key. Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
 
@@ -118,6 +118,58 @@ To rotate the key used to encrypt a blob on a request, use the [Copy Blob](/rest
 >
 > Be sure to protect the encryption key you provide on a request to Blob storage. If you attempt a write operation on a container or blob without the encryption key, the operation will fail, and you will lose access to the object.
 
+### Example: Use a client-provided key to upload a blob
+
+The following example creates a client-provided key and uses that key to upload a blob. The code uploads a block, then commits the block list to write the blob to Azure Storage.
+
+The key is created with the [AesCryptoServiceProvider](/dotnet/api/system.security.cryptography.aescryptoserviceprovider) class. To create an instance of this class in your code, add a `using` statement that references the `System.Security.Cryptography` namespace:
+
+```csharp
+public static void UploadBlobWithClientKey(CloudBlobContainer container)
+{
+    // Create a new key using the Advanced Encryption Standard (AES) algorithm.
+    AesCryptoServiceProvider keyAes = new AesCryptoServiceProvider();
+
+    // Specify the key as an option on the request.
+    BlobCustomerProvidedKey customerProvidedKey = new BlobCustomerProvidedKey(keyAes.Key);
+    var options = new BlobRequestOptions
+    {
+        CustomerProvidedKey = customerProvidedKey
+    };
+
+    string blobName = "sample-blob-" + Guid.NewGuid();
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
+
+    try
+    {
+        // Create an array of random bytes.
+        byte[] buffer = new byte[1024];
+        Random rnd = new Random();
+        rnd.NextBytes(buffer);
+
+        using (MemoryStream sourceStream = new MemoryStream(buffer))
+        {
+            // Write the array of random bytes to a block.
+            int blockNumber = 1;
+            string blockId = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("BlockId{0}",
+                blockNumber.ToString("0000000"))));
+
+            // Write the block to Azure Storage.
+            blockBlob.PutBlock(blockId, sourceStream, null, null, options, null);
+
+            // Commit the block list to write the blob.
+            blockBlob.PutBlockList(new List<string>() { blockId }, null, options, null);
+        }
+    }
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
+
 ## Azure Storage encryption versus disk encryption
 
 With Azure Storage encryption, all Azure Storage accounts and the resources they contain are encrypted, including the page blobs that back Azure virtual machine disks. Additionally, Azure virtual machine disks may be encrypted with [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide operating system-based encryption solutions that are integrated with Azure Key Vault.
@@ -125,3 +177,6 @@ With Azure Storage encryption, all Azure Storage accounts and the resources they
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
+- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
+- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
