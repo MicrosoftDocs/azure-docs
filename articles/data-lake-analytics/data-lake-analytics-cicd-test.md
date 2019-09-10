@@ -110,7 +110,7 @@ Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit
 
 ### Run U-SQL test cases in Azure Pipelines
 
-For a U-SQL test, make sure you load `CPPSDK` on your build computer, and then pass the `CPPSDK` path to `USqlScriptTestRunner(cppSdkFolderFullPath: \@"")`.
+For a U-SQL test, make sure you load `CPPSDK` on your build computer, and then pass the `CPPSDK` path to `USqlScriptTestRunner(cppSdkFolderFullPath: @"")`.
 
 #### What is CPPSDK?
 
