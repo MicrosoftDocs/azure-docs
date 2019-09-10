@@ -1,6 +1,6 @@
 ---
-title: Regional end points for Azure Cosmos DB Graph database
-description: Learn how to connect to nearest Graph database end point for your application
+title: Regional endpoints for Azure Cosmos DB Graph database
+description: Learn how to connect to nearest Graph database endpoint for your application
 author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -9,8 +9,8 @@ ms.date: 09/09/2019
 ms.author: olignat
 ---
 
-# Regional end points for Azure Cosmos DB Graph account
-Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read end points. Applications that need write access in multiple locations should enable [multi-master](how-to-multi-master.md) capability.
+# Regional endpoints for Azure Cosmos DB Graph account
+Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-master](how-to-multi-master.md) capability.
 
 Reasons to choose more than one region:
 1. **Horizontal read scalability** - as application load increases it may be prudent to route read traffic to different Azure regions.
@@ -22,9 +22,9 @@ Reasons to choose more than one region:
 
 Cosmos DB Graph database engine is running in multiple regions, each of which contains multiple clusters. Each cluster has hundreds of machines. Cosmos DB Graph account DNS CNAME *accountname.gremlin.cosmos.azure.com* resolves to DNS A record of a cluster. A single IP address of a load-balancer hides internal cluster topology.
 
-A regional DNS CNAME record is created for every region of Cosmos DB Graph account. Format of regional end point is *accountname-region.gremlin.cosmos.azure.com*. Region segment of regional end point is obtained by removing all spaces from [Azure region](https://azure.microsoft.com/global-infrastructure/regions) name. For example, `"East US 2"` region for `"contoso"` global database account would have a DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
+A regional DNS CNAME record is created for every region of Cosmos DB Graph account. Format of regional endpoint is *accountname-region.gremlin.cosmos.azure.com*. Region segment of regional endpoint is obtained by removing all spaces from [Azure region](https://azure.microsoft.com/global-infrastructure/regions) name. For example, `"East US 2"` region for `"contoso"` global database account would have a DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
 
-TinkerPop Gremlin client is designed to work with a single server. Application can use global writable DNS CNAME for read and write traffic. Region-aware applications should use regional end point for read traffic. Use regional end point for write traffic only if specific region is configured to accept writes. 
+TinkerPop Gremlin client is designed to work with a single server. Application can use global writable DNS CNAME for read and write traffic. Region-aware applications should use regional endpoint for read traffic. Use regional endpoint for write traffic only if specific region is configured to accept writes. 
 
 > [!NOTE]
 > Cosmos DB Graph engine can accept write operation in read region by proxying traffic to write region. It is not recommended to send writes into read-only region as it increases traversal latency and is subject to restrictions in the future.
@@ -34,13 +34,13 @@ Global database account CNAME always points to a valid write region. During serv
 > [!NOTE]
 > Cosmos DB does not route traffic based on geographic proximity of the caller. It is up to each application to select the right region according to unique application needs.
 
-## Portal end-point discovery
+## Portal endpoint discovery
 
 The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. It will work for applications that do not change regions often, or have a way to update the list via application configuration.
 
 ![Retrieve regions of Cosmos DB Graph account from the portal](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
 
-Example below demonstrates general principles of accessing regional Gremlin end point. Application should consider number of regions to send the traffic to and number of corresponding Gremlin clients to instantiate.
+Example below demonstrates general principles of accessing regional Gremlin endpoint. Application should consider number of regions to send the traffic to and number of corresponding Gremlin clients to instantiate.
 
 ```csharp
 // Example value: Central US, West US and UK West. This can be found in the overview blade of you Azure Cosmos DB Gremlin Account. 
@@ -71,11 +71,11 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 }
 ```
 
-## SDK end-point discovery
+## SDK endpoint discovery
 
 Application can use [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or automatic failover.
 
-TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime end-point discovery need to host 2 separate SDKs in the process space.
+TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime endpoint discovery need to host 2 separate SDKs in the process space.
 
 ```csharp
 // Depending on the version and the language of the SDK (.NET vs Java vs Python)
@@ -91,7 +91,7 @@ DatabaseAccount databaseAccount = await cosmosClient.GetDatabaseAccountAsync();
 IEnumerable<DatabaseAccountLocation> writeLocations = databaseAccount.WritableLocations;
 IEnumerable<DatabaseAccountLocation> readLocations = databaseAccount.ReadableLocations;
 
-// Pick write or read locations to construct regional end points for.
+// Pick write or read locations to construct regional endpoints for.
 foreach (string location in readLocations)
 {
   // Convert preferred read location to the form "[acountname]-[region].gremlin.cosmos.azure.com".
