@@ -102,7 +102,7 @@ To enable this cache sharing, you need to set the use the 'WithIosKeychainSecuri
 Earlier, it was mentioned that MSAL added the $(AppIdentifierPrefix) whenever you use the `WithIosKeychainSecurityGroup()` api. This is because the AppIdentifierPrefix or the "team ID" is used to ensure only applications made by the same publisher can share keychain access.
 
 > [!NOTE]
-> **KeychainSecurityGroup Property is deprecated**.
+> **The `KeychainSecurityGroup` property is deprecated.**
 > 
 > Previously, from MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property.
 >
