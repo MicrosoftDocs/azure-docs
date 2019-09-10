@@ -28,7 +28,7 @@ With maintenance control, you can:
 
 - VMs must be on a dedicated host, be created using an isolated VM size or on a Dedicated Node Group (DNG).
 - After 35 days, an update will automatically be applied and availability constraints will not be respected.
-- User must have Resource Owner access.
+- User must have **Resource Owner** access.
 
 
 ## Enable preview
@@ -52,13 +52,13 @@ az group create \
 az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
-   --maintenanceScope All \
+   --maintenanceScope host\
    --location  eastus
 ```
 
 Copy the configuration ID from the output to use later.
 
-For dedicated hosts, you can use `--maintenanceScope host` to have the configuration scoped to a dedicated host.
+For dedicated hosts, you can use `--maintenanceScope host` to have the configuration scoped to a dedicated host. Using `--maintenanceScope host` will ensure that all VMs on a host will follow the same maintenance configuration.
 
 ## Apply the configuration
 
@@ -87,13 +87,13 @@ The parameter `--resource-id` is the ID of the host. You can use [az vm host get
 
 ```bash
 az maintenance assignment create \
-   -g myHostResourceGroup \
+   -g myDHResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
-   --maintenanceconfiguration-id "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Maintenance/maintenanceConfigura tions/{config-name}" \
-   -l {location} \
+   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myDhResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig" \
+   -l eastus \
    --resource-parent-name myHostGroup \
    --resource-parent-type hostGroups \
    --resource-id /subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/re
@@ -120,7 +120,7 @@ az maintenance update list \
 
 ### Dedicated host
 
-To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. 
+To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
 
 ```bash
 az maintenance update list \
@@ -140,15 +140,14 @@ Use [az maintenance apply update]() to apply pending updates.
 
 ## VM
 
-Apply updates to a single VM.
+Create a request to apply updates to a single VM.
 
 ```bash
-az maintenance apply update \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myResourceGroup\
+az maintenance applyupdate create \
+   -g myMaintenanceRG\
    --resource-name myVM \
    --resource-type virtualMachines \
-   --providername Microsoft.Compute
+   --provider-name Microsoft.Compute
 ```
 
 ### Dedicated host
@@ -156,7 +155,7 @@ az maintenance apply update \
 Apply updates to a dedicated host.
 
 ```bash
-az maintenance apply update \
+az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myHostResourceGroup \
    --resource-name myHost \

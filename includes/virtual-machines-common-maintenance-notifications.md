@@ -20,11 +20,11 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 2. In the left navigation, click **Virtual Machines**.
 
-3. In the Virtual Machines pane, click the **Columns** button to open the list of available columns.
+3. In the Virtual Machines pane, select **Edit columns** button to open the list of available columns.
 
 4. Select and add the following columns:
 
-   **Maintenance**: Shows the maintenance status for the VM. The following are the potential values:
+   **Maintenance status**: Shows the maintenance status for the VM. The following are the potential values:
 	  
       | Value | Description |
 	  |-------|-------------|
@@ -46,7 +46,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-Make sure you set the **Event type** as **Planned maintenance** and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**
+Make sure you set the **Event type** as **Planned maintenance**, and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**
 	
 	
 ## Start Maintenance on your VM from the portal
