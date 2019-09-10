@@ -24,7 +24,7 @@ This guided walkthrough provides step-by-step guidance to configure and validate
 
 Azure VPN gateways enable flexibility in arranging almost any kind of connected Virtual Network (VNet) topology in Azure: you can connect VNets across regions, between VNet types (ARM vs. Classic), within Azure or with on-premise hybrid environment, in different subscriptions, and so on. 
 
-## VNet-to-VNet VPN connection
+## Scenario 1: VNet-to-VNet VPN connection
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) via VPN is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using **IPsec/IKE**. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 
@@ -38,7 +38,7 @@ If your VNets are both created by using Azure Resource Manger deployment model, 
 
 If one of the VNets is created by using Azure classic deployment model, the other is created by Resource Manager (ARM), select **Configure and validate a classic VNet to a Resource Manager VNet connection** to configure a VPN connection.
 
-### Configure VNet peering for two VNets in the same region
+### Configuration 1: Configure VNet peering for two VNets in the same region
 
 Before you start the implementation of Azure VNet Peering, make sure that you meet the following pre-requisites to configure VNet Peering:
 
@@ -81,11 +81,11 @@ RemoteGateways                   : null
 RemoteVirtualNetworkAddressSpace : null
 ```
 
-### Connect a Resource Manager VNet to anther Resource Manager VNet (ARM to ARM)
+### Connection type 1: Connect a Resource Manager VNet to anther Resource Manager VNet (ARM to ARM)
 
 You can configure a connection from one Resource Manager VNet to another Resource Manager VNet directly, or configure the connection with IPsec.
 
-### Configure VPN connection between Resource Manager VNets
+### Configuration 2: Configure VPN connection between Resource Manager VNets
 
 To configure a connection between Resource Manager VNets without IPsec, see [Configure a VNet-to-VNet VPN gateway connection using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
 
@@ -113,7 +113,7 @@ To check your VPN connection is configured correctly, follow the instructions:
 5. Verify the ARM Vnet Gateway 2 VIP is defined accurately in the ARM **Connection object** 4.
 6. Verify the ARM Vnet Gateway 5 VIP is defined accurately in the ARM **Connection object** 3.
 
-### Connect a classic VNet to a Resource Manager VNet
+### Connection type 2: Connect a classic VNet to a Resource Manager VNet
 
 You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as you have configured the gateway type as route-based.
 
@@ -139,7 +139,7 @@ To check the configuration when connect a classic VNet to an ARM VNet, follow th
    1. Classic Vnet - Local Network Definition 3
    2. ARM Vnet - Connection Object 4
 
-## Point-to-Site VPN connection
+## Scenario 2: Point-to-Site VPN connection
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. The P2S VPN connection is initiated from the client computer using the native Windows VPN client. Connecting clients use certificates to authenticate.
 
@@ -157,7 +157,7 @@ Validate your Point-to-Site connections
 
 The article [Troubleshooting: Azure point-to-site connection problems](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems) walks through common issues with Point-to-Site connections.
 
-## Multi-Site VPN connection
+## Scenario 3: Multi-Site VPN connection
 
 You can add a Site-to-Site (S2S) connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection, this kind of connection is frequently known as a **Multi-site** configuration. 
 
@@ -172,15 +172,15 @@ Azure currently works with two deployment models: Resource Manager and Classic. 
 
 **Note:** These steps don't apply to ExpressRoute and Site-to-Site coexisting connection configurations. For more information about coexisting connections, see [ExpressRoute/S2S coexisting connections](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
-## Configure transit routing
+## Scenario 4: Configure transit routing
 
 Transitive routing is a specific routing scenario where you connect multiple networks in a ‘daisy chain’ topology. This routing enables resources in Vnets at either end of the ‘chain’ to communicate with one another through VNets in-between. Without transitive routing, networks or devices peered through a hub can't reach one another.
 
-### Configure transit routing in a Point-to-Site connection
+### Configuration 1: Configure transit routing in a Point-to-Site connection
 
 In this scenario, you configure a site to site VPN connection between VNetA and VNetB, also configure a point to site VPN for client to connect to the gateway of VNetA. Then, you want to enable transit routing for the Point-to-Site clients to connect to VNetB, which passes through VNetA. This scenario is supported when BGP is enabled on the site to site VPN between VNetA and VNetB. For more information, see [About Point-to-Site VPN routing](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing).
 
-### Configure transit routing in an ExpressRoute connection
+### Configuration 2: Configure transit routing in an ExpressRoute connection
 
 Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.  For more information, see [ExpressRoute overview](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
@@ -203,7 +203,7 @@ To check whether you have configured transit route for VNet Peering, follow the 
 3. In the pane that appears for the virtual network that you selected, click **Peerings** in the **Settings** section.
 4. Click the peering you want to view and **Configuration** to validate that you have enabled **Allow Gateway Transit** on the VNetA connected to the ExpressRoute circuit and **Use Remote Gateway** on the remote VNetB not connected to the ExpressRoute circuit.
 
-### Configure transit routing in a VNet peering connection
+### Configuration 3: Configure transit routing in a VNet peering connection
 
 When virtual networks are peered, you can also configure the gateway in the peered virtual network as a transit point to an on-premises network. To configure transit route in VNet peering, check [Virtual network-to-virtual network connections](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=/azure/virtual-network/toc.json).
 
@@ -219,7 +219,7 @@ To check whether you have configured transit route for VNet Peering, follow the 
 
 ![IMAGE](./media/virtual-network-configure-vnet-connections/4035414_en_1.png)
 
-### Configure transit routing in a VNet-to-VNet connection
+### Configuration 4: Configure transit routing in a VNet-to-VNet connection
 
 To configure transit routing between VNets, you must enable BGP on all intermediate VNet-to-VNet connections by using the Resource Manager deployment model and PowerShell. For instructions, see [How to configure BGP on Azure VPN Gateways by using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps).
 
@@ -227,7 +227,7 @@ Transit traffic through Azure VPN gateway is possible by using the classic deplo
 
 **Note:** Classic VNet-to-VNet connections are configured by using the Azure portal (Classic), or by using a network configuration file in the Classic Portal. You can't create or modify a Classic virtual network through the Azure Resource Manager deployment model or Azure portal. For more information on transit routing for Classic VNets, see [Hub & Spoke, Daisy-Chain, and Full-Mesh VNET topologies in Azure ARM using VPN (V1)](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
 
-### Configure transit routing in a Site-to-Site connection
+### Configuration 5: Configure transit routing in a Site-to-Site connection
 
 To configure the transit routing between your on-premise network and a VNet with a Site-to-Site connection, you must enable BGP on all intermediate Site-to-Site connections by using the Resource Manager deployment model and PowerShell, see [How to configure BGP on Azure VPN Gateways by using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps) for the instructions.
 
@@ -235,7 +235,7 @@ Transit traffic through Azure VPN gateway is possible by using the classic deplo
 
 **Note:** Classic Site-to-Site connections are configured by using the Azure portal (Classic), or by using a network configuration file in the Classic Portal. You can't create or modify a Classic virtual network through the Azure Resource Manager deployment model or Azure portal. For more information on transit routing for Classic VNets, see [Hub & Spoke, Daisy-Chain, and Full-Mesh VNET topologies in Azure ARM using VPN (V1)](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
 
-## Configure BGP for a VPN gateway
+## Scenario 5: Configure BGP for a VPN gateway
 
 BGP is the standard routing protocol used in the Internet to exchange routing and reachability information between two or more networks. When BGP is used in the context of Azure Virtual Networks, BGP enables the Azure VPN Gateways and your on-premises VPN devices, known as BGP peers or neighbors. They exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers. For more information, see [Overview of BGP with Azure VPN Gateways](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview).
 
@@ -268,7 +268,7 @@ BgpSettingsText:
 }
 ```
 
-## Highly available Active-Active VPN connection
+## Scenario 6: Highly available Active-Active VPN connection
 
 The key differences between the active-active and active-standby gateways:
 
@@ -284,7 +284,7 @@ To create active-active cross-premises and VNet-to-VNet connections, follow the 
 1. When you add addresses to the Local Network Gateway for BGP enabled, active-to-active mode *only add the /32 addresses of the BGP peers*. If you add more addresses, they will be considered static routes and take precedence over BGP routes.
 2. You must use different BGP ASNs for your on-premises networks connecting to Azure. (If they are the same, you have to change your VNet ASN if your on-premises VPN device already uses the ASN to peer with other BGP neighbors.)
 
-## Change an Azure VPN gateway type after deployment
+## Scenario 7: Change an Azure VPN gateway type after deployment
 
 You can't change an Azure VNet gateway type from policy-based to route-based or the other way directly. You must delete the gateway, after that the IP address and the Pre-Shared Key (PSK) won'tbe preserved. Then you can create a new gateway of desired type. To delete and create a gateway, follow the steps:
 

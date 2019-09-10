@@ -24,11 +24,11 @@ This troubleshooting guide provides steps to help you resolve most [virtual netw
 
 ![IMAGE](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
-## Configure virtual network peering between two virtual networks
+## Scenario 1: Configure virtual network peering between two virtual networks
 
 Are the virtual networks in the same subscription or in different subscriptions?
 
-### The virtual networks are in the same subscription
+### Connection Type 1: The virtual networks are in the same subscription
 
 To configure virtual network peering for the virtual networks that are in the same subscription, use the methods that are provided in the following articles, as appropriate:
 
@@ -49,30 +49,30 @@ To configure virtual network peering for the virtual networks that are in the sa
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
 
-### The virtual networks are in different subscriptions or AD tenants
+### Connection Type 2: The virtual networks are in different subscriptions or AD tenants
 
 To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, follow the steps in [Create peering in different subscriptions for Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 **Note:** To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
 
-## Configure virtual network peering with Hub-spoke topology that uses on-premises resources
+## Scenario 2: Configure virtual network peering with Hub-spoke topology that uses on-premises resources
 
 ![IMAGE](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
 
-### For site-to-site connection or ExpressRoute connection
+### Connection Type 1: For site-to-site connection or ExpressRoute connection
 
 Follow the steps in: [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
-### For point-to-site connections
+### Connection Type 2: For point-to-site connections
 
 1. Follow the steps in: [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 2. After virtual network peering is established or changed, the point-to-site package must be downloaded and installed again in order for the point-to-site clients to get the updated routes to the spoke virtual network.
 
-## Configure virtual network peering with Hub-spoke topology for Azure Virtual Network
+## Scenario 3: Configure virtual network peering with Hub-spoke topology for Azure Virtual Network
 
 ![IMAGE](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1b.png)
 
-### The virtual networks are in the same region
+### Connection Type 1: The virtual networks are in the same region
 
 You must configure a Network Virtual Appliance (NVA) in the hub virtual network and have user-defined routes with next hop "Network Virtual Appliance" applied in the spoke virtual networks. For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
 
@@ -80,7 +80,7 @@ You must configure a Network Virtual Appliance (NVA) in the hub virtual network 
 
 For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
-### The virtual networks are in different regions
+### Connection Type 2: The virtual networks are in different regions
 
 Transit over Global VNet Peering is now supported. Connectivity does not work over Global VNet Peering for the following resources:
 
@@ -96,11 +96,11 @@ Transit over Global VNet Peering is now supported. Connectivity does not work ov
 
 To learn more about Global Peering requirements and restraints, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
 
-## I have a connectivity issue between two peered virtual networks
+## Scenario 4: I have a connectivity issue between two peered virtual networks
 
 Sign-in to the [Azure portal](https://portal.azure.com/) with an account that has the necessary [roles and permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions). Select the virtual network, select **Peering**, then check the **Status** field. What is the status?
 
-### The peering status shows 'Connected'
+### Connection Type 1: The peering status shows 'Connected'
 
 To troubleshoot the issue, follow these steps:
 
@@ -135,22 +135,22 @@ To troubleshoot the issue, follow these steps:
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
 
-### The Peering status shows 'Disconnected'
+### Connection Type 2: The Peering status shows 'Disconnected'
 
 You must delete peerings from both VNets and re-create them.
 
-## I have a connectivity issue between a Hub-Spoke virtual network and on-premises resource
+## Scenario 5: I have a connectivity issue between a Hub-Spoke virtual network and on-premises resource
 
 Do you use a third-party NVA or VPN gateway?
 
-### My network uses a third-party NVA or VPN gateway
+### Connection Type 1: My network uses a third-party NVA or VPN gateway
 
 To troubleshoot connectivity issues that affect a third-party NVA or VPN gateway, see the following articles:
 
 * [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
 * [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
 
-### My network does not a third-party NVA or VPN gateway
+### Connection Type 2: My network does not a third-party NVA or VPN gateway
 
 Do both the hub and spoke virtual networks have a VPN gateway?
 
@@ -174,13 +174,13 @@ For Point-to-Site connections:
 * Verify that the **Use remote gateway** check box is selected on the virtual network that does not have a gateway.
 * Download and install the Point-to-Site client package again. Virtual network routes that are newly peered don't automatically add routes to Point-to-Site clients.
 
-## I have a Hub-Spoke network connectivity issue between spoke virtual networks in the same region
+## Scenario 6: I have a Hub-Spoke network connectivity issue between spoke virtual networks in the same region
 
 You must have an NVA in a hub network, configure UDRs in spokes that have an NVA set as the next hop, and enable **Allow Forwarded Traffic** in the hub virtual network.
 
 For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining), and discuss these requirements with the [NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) of your choice.
 
-## I have a Hub-Spoke network connectivity issue between spoke virtual networks in different regions
+## Scenario 7: I have a Hub-Spoke network connectivity issue between spoke virtual networks in different regions
 
 Transit over Global VNet Peering is now supported. Connectivity won't work over Global VNet Peering for the following resources:
 
@@ -196,7 +196,7 @@ Transit over Global VNet Peering is now supported. Connectivity won't work over 
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering, and [Different VPN Topologies](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
 
-## I have a Hub-Spoke network connectivity issue between a web app and the spoke virtual network
+## Scenario 8: I have a Hub-Spoke network connectivity issue between a web app and the spoke virtual network
 
 To troubleshoot this issue, follow these steps:
 
@@ -208,16 +208,16 @@ For more information, see the following articles:
 * [Integrate your app with an Azure Virtual Network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [About Point-to-Site VPN routing](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
-## I receive an error when configuring virtual network peering
+## Scenario 9: I receive an error when configuring virtual network peering
 
-### Error: Current tenant '<TENANT ID>' isn't authorized to access linked subscription
+### Error 1: Current tenant '<TENANT ID>' isn't authorized to access linked subscription
 
 To resolve this issue, follow the steps in [Create peering - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
-### Error: Not Connected
+### Error 2: Not Connected
 
 You must delete peerings from both VNets and recreate them.
 
-### Error: Failed to peer a Databricks virtual network
+### Error 3: Failed to peer a Databricks virtual network
 
 To resolve this issue, configure the virtual network peering from the **Azure Databricks** blade, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
