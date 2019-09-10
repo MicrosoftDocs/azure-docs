@@ -47,6 +47,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * NetSuite supports [Automated user provisioning](NetSuite-provisioning-tutorial.md)
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding NetSuite from the gallery
 
 To configure the integration of NetSuite into Azure AD, you need to add NetSuite from the gallery to your list of managed SaaS apps.
