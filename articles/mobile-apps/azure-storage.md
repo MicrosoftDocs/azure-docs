@@ -11,7 +11,7 @@ ms.author: emalani
 ---
 
 # Azure Storage
-Azure Storage is Microsoft's cloud storage solution for modern application that offers a massively scalable object store for data objects, a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store. Azure Storage is:
+[Azure Storage](https://azure.microsoft.com/en-us/services/storage/) is Microsoft's cloud storage solution for modern application that offers a massively scalable object store for data objects, a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store. Azure Storage is:
 - **Durable and highly available**. Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across datacenters or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
 - **Secure** as all data written to Azure Storage is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable** as the services are designed to be massively scalable to meet the data storage and performance needs of today's applications.
@@ -33,7 +33,7 @@ Azure Storage is Microsoft's cloud storage solution for modern application that 
    - [Azure Portal](https://portal.azure.com) to create a Storage account
    - [Documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
    - [Quickstarts](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal)
-   - [Samples] (https://docs.microsoft.com/en-us/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+   - [Samples](https://docs.microsoft.com/en-us/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
    
 2. ### **Azure Table Storage**
     [Azure Table Storage](https://azure.microsoft.com/en-us/services/storage/tables/) is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Azure Table storage stores large amounts of structured data. The service is a NoSQL datastore which accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data. Common uses of Table storage include:
@@ -60,7 +60,7 @@ Azure Storage is Microsoft's cloud storage solution for modern application that 
         Azure Files can also be used in numerous ways to simplify new cloud development projects. For example:
         - Shared application settings: A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many application instances. Application instances can load their configuration through the File REST API, and humans can access them as needed by mounting the SMB share locally.
         - Diagnostic share: An Azure file share is a convenient place for cloud applications to write their logs, metrics, and crash dumps. Logs can be written by the application instances via the File REST API, and developers can access them by mounting the file share on their local machine. This enables great flexibility, as developers can embrace cloud development without having to abandon any existing tooling they know and love.
-        - Dev/Test/Debug: When developers or administrators are working on VMs in the cloud, they often need a set of tools or utilities. Copying such utilities and tools to each VM can be a time consuming exercise. By mounting an Azure file share locally on the VMs, a developer and administrator can quickly access their tools and utilities, no copying required.
+        - Dev/Test/Debug
 
     **References**
     - [Azure Portal](https://portal.azure.com) to create an Azure storage table
@@ -72,7 +72,7 @@ Azure Storage is Microsoft's cloud storage solution for modern application that 
     [Azure Queue Storage](https://azure.microsoft.com/en-us/services/storage/queues/) is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size and a queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously.
     
     **References**
-    - [Azure Portal](https://portal.azure.com) to create an Azure storage table
+    - [Azure Portal](https://portal.azure.com)
     - [Documentation](https://docs.microsoft.com/en-us/azure/storage/queues/)
     - [Quickstarts](https://docs.microsoft.com/en-us/azure/storage/queues/storage-quickstart-queues-portal)
     - [Samples](https://docs.microsoft.com/en-us/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
