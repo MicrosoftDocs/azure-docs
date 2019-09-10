@@ -45,7 +45,7 @@ After approval/ rejection the list will reflect the appropriate state along with
 ![Screenshot of all PECs after approval][5]
 
 ## Use cases of Private Link for Azure SQL Database 
-Clients can connect to  the Private endpoint from the same Vnet, peered Vnet in same region or via Vnet2Vnet connection across regions. Additionally they can connect from on-premises using ER private peering or VPN tunnel. Here is a simplified diagram showing the common use cases.
+Clients can connect to  the Private endpoint from the same Vnet, peered Vnet in same region or via Vnet2Vnet connection across regions. Additionally they can connect from on-premises using ER private peering or VPN tunnel. Below is a simplified diagram illustrating these  common use cases.
 
  ![Diagram of connectivity options][1]
 
