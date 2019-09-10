@@ -16,7 +16,7 @@ Connectivity issues for IoT devices can be difficult to troubleshoot because the
 
 ## Using Azure Monitor to view metrics and set up alerts
 
-the following procedure describes how to view and set up alert on IoT Hub Device Provisiiong Service metric. 
+The following procedure describes how to view and set up alert on IoT Hub Device Provisioning Service metric. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
