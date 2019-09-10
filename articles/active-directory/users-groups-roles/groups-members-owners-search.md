@@ -44,7 +44,7 @@ If you are having any issues, you can switch back the legacy experience by selec
 
 The groups list search has been enhanced so that when you can enter a search string, search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters.
 
-![new substring searches on the All Groups page](./media/groups-memners-ownsers-search/groups-search-preview.png)
+![new substring searches on the All Groups page](./media/groups-members-ownsers-search/groups-search-preview.png)
 
 For example, a search for “policy” will now return both "MDM policy – West" and "Policy group." A group named "New_policy" wouldn't be returned.
 
@@ -55,7 +55,7 @@ For example, a search for “policy” will now return both "MDM policy – West
 
 You can now search the members of a specific group by name, and perform the same search on the list of a the group's owners as well. In the new experience, if you enter a string in the search box, a startswith search will automatically performed. For example, a search for “Scott” will return Scott Wilkinson.
 
-![new substring searches on the group members and owners lists](./media/groups-memners-ownsers-search/members-list.png)
+![new substring searches on the group members and owners lists](./media/groups-members-ownsers-search/members-list.png)
 
 ### Filter member and owners list
 
@@ -71,7 +71,7 @@ You can also search and filter the direct members list and the all members list 
 
 We’ve improved the group **Overview** page to provide group member counts for groups of all sizes. You can see the member counts even for groups with more than 1,000 members. You can now see the total number of direct members for a group and the total membership count (all the unique members of group including transitive members) on the **Overview** page.
 
-![Higher accuracy in group membership counts](./media/groups-memners-ownsers-search/member-numbers.png)
+![Higher accuracy in group membership counts](./media/groups-members-ownsers-search/member-numbers.png)
 
 ## Next steps
 
