@@ -471,6 +471,8 @@
           href: graph-execution-profile.md
         - name: Use resource tokens
           href: how-to-use-resource-tokens-gremlin.md
+        - name: Use regional end-points
+          href: how-to-use-regional-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
