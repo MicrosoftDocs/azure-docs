@@ -12,7 +12,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Client
+    - name: Client library
       items:
       - name: Analyze Text
         href: quickstarts/text-analytics-sdk.md
@@ -33,13 +33,13 @@
   items:
    - name: Call the Text Analytics API
      href: How-tos/text-analytics-how-to-call-api.md
-   - name: Detect language
+   - name: Language detection
      href: How-tos/text-analytics-how-to-language-detection.md
-   - name: Analyze sentiment
+   - name: Sentiment analysis 
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
-   - name: Extract key phrases
+   - name: Key phrase extraction
      href: How-tos/text-analytics-how-to-keyword-extraction.md
-   - name: Call named entity recognition
+   - name: Named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
    - name: Use containers
      items:
