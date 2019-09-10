@@ -11,7 +11,7 @@ ms.author: olignat
 
 # System Document Properties
 
-Azure Cosmos DB has [system properties](https://docs.microsoft.com/rest/api/cosmos-db/databases) such as ```_ts```, ```_self```, ```_attachments```, ```_rid``` and ```_etag``` on every document. Additionally, Gremlin engine adds ```inVPartition``` and ```outVPartition``` properties on edges. By default, these properties are available for traversal. However, it is possible to include specific properties, or all of them, in Gremlin traversal.
+Azure Cosmos DB has [system properties](https://docs.microsoft.com/rest/api/cosmos-db/databases) such as ```_ts```, ```_self```, ```_attachments```, ```_rid```, and ```_etag``` on every document. Additionally, Gremlin engine adds ```inVPartition``` and ```outVPartition``` properties on edges. By default, these properties are available for traversal. However, it is possible to include specific properties, or all of them, in Gremlin traversal.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
@@ -27,7 +27,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ### TTL
 
-If collection has document expiration enabled and documents have ```ttl``` property set on them then this property will be available in Gremlin traversal as a regular vertex or edge property. There is no need to use ```ProjectionStrategy``` to enable TTL exposure.
+If collection has document expiration enabled and documents have ```ttl``` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. There is no need to use ```ProjectionStrategy``` to enable TTL exposure.
 
 Vertex created with the traversal below will be automatically deleted in **123 seconds**.
 
