@@ -93,7 +93,8 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](../information-protection/reports-aip.md)[Connect Azure Information Protection](connect-azure-information-protection.md)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](../information-protection/reports-aip.md#how-to-modify-the-reports-and-create-custom-queries)|
+| InformationProtectionLogs_CL  | [Azure Information Protection reports](https://docs.microsoft.com/azure/information-protection/reports-aip
+)[Connect Azure Information Protection](connect-azure-information-protection.md)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | V | |
