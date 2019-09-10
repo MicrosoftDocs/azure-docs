@@ -52,5 +52,6 @@ The series is divided into the following topics:
     - [Cognitive Services](cognitive-services.md)
     - [Azure Maps](azure-maps.md)
     - [Aure CDN for Asset Hosting](azure-cdn.md)
+    - [Azure Search](azure-search.md)
       
      

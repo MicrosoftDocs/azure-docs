@@ -27,3 +27,5 @@ Building a mobile application involves multiple stages and developers can easilt
     - Automatic server maintainence.
 
 - **DevOps and continuous monitoring** - Developers creating mobile and cloud focused apps can leverage continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms, run UI automation tests on thousands of physical devices, automated their releases through beta testing channels or deploy directly to app store. In addition, they can gather usage analytics, crash and exception information for their apps.
+
+- **Additional Services** - There are a variery of Azure services like Azure Maps, Cognitive Seervices etc. that developers can leverage depending on the type and nature of application that they are building.

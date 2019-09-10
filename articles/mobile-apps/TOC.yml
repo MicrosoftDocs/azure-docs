@@ -16,8 +16,6 @@
         href: authentication.md
       - name: Data Storage
         href: data-storage.md
-      - name: Real-time and Offline Data Storage
-        href: 
       - name: Serverless Compute
         href: serverless-compute.md
       - name: Azure Storage
@@ -51,6 +49,8 @@
       href: azure-maps.md
     - name: Azure CDN for Asset Hosting
       href: azure-cdn.md        
+    - name: Azure Search
+      href: azure-search.md        
      
  
  
