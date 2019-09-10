@@ -78,3 +78,6 @@ CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)
 WITH (DROP_EXISTING = ON)
 ```
+
+## Next steps
+For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).

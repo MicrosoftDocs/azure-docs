@@ -343,4 +343,6 @@ Check the execution plan of the original query again.  Now the number of joins c
  ![Plan_Output_List_with_Materialized_Views](media/sql-data-warehouse-materialized-view-best-practices/Output_List_MVs.png)
 
 With materialized views, the same query runs much faster without any code change.  
- 
+
+## Next steps
+For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
