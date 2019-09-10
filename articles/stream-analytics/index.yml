@@ -124,8 +124,6 @@ landingContent:
         links:
           - text: Deploy your job using Azure Pipelines
             url: stream-analytics-tools-visual-studio-cicd-vsts.md
-          - text: linktext2
-            url: file2.md
       - linkListType: how-to-guide
         links:
           - text: Automate with .NET SDK
@@ -141,12 +139,6 @@ landingContent:
         links:
           - text: Run a JavaScript UDF
             url: stream-analytics-javascript-user-defined-functions.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
 
 # Card
   - title: Azure Stream Analytics query language and patterns
