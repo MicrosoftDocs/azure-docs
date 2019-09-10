@@ -134,7 +134,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 2. From Azure Explorer, right-click the **Azure** node, and then select **Sign In**.
    
-   ![explorer rightclick azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+   ![explorer right-click azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
 3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
 
