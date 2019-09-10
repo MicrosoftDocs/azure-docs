@@ -29,7 +29,7 @@ The new web experience enables data scientists and data engineers to complete th
 
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
-+ Run automated ML experiments
++ [Run automated ML experiments](tutorial-first-experiment-automated-ml.md)
 + [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
 + Explore & prepare datasets for model creation
 + Monitor data drift for your models 
