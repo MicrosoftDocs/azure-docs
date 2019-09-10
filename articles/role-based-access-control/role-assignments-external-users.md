@@ -43,7 +43,7 @@ Native members of a directory (member users) have different permissions than use
 
     ![New guest user feature in Azure portal](./media/role-assignments-external-users/invite-guest-user.png)
 
-1. Follow the steps to add a new guest user. For more information see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
+1. Follow the steps to add a new guest user. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email.
 
