@@ -53,34 +53,32 @@ landingContent:
             url: quickstart-command-line-feedback-loop-nodejs-sdk.md
   - title: Developing with Personalizer
     linkLists: 
-      - linkListType: quickstart
+      - linkListType: get-started
         links: 
-          - text: Using .Net
+          - text: Develop Personalizer loop with .Net
             url: csharp-quickstart-commandline-feedback-loop.md
-          - text: Using Python
-            url: python-quickstart-commandline-feedback-loop.md
-          - text: Node.js
-            url: quickstart-command-line-feedback-loop-nodejs-sdk.md
-      - linkListType: reference
-        links:
+          - text: NuGet package
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+          - text: NuGet reference documentation
+            url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet   
+      - linkListType: get-started
+        links:      
+          - text: Develop Personalizer loop with Node.js
+            url: quickstart-command-line-feedback-loop-nodejs-sdk.md                      
+          - text: NPM package
+            url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+      - linkListType: get-started
+        links:    
+          - text: Develop Personalizer loop with Python
+            url: python-quickstart-commandline-feedback-loop.md                
+          - text: Pypi package
+            url: https://pypi.org/project/azure-cognitiveservices-personalizer/            
+        - linkListType: get-started
+          links:
           - text: Code Samples
             url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
           - text: REST APIs
             url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
-      - linkListType: reference
-        links:            
-          - text: NuGet package
-            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
-          - text: NuGet reference documentation
-            url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet    
-      - linkListType: reference
-        links:                    
-          - text: NPM package
-            url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
-      - linkListType: reference
-        links:            
-          - text: Pypi package
-            url: https://pypi.org/project/azure-cognitiveservices-personalizer/            
   - title: About Reinforcement learning
     linkLists: 
       - linkListType: overview
