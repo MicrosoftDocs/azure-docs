@@ -45,7 +45,7 @@ To create a DSVM instance:
 
 ## Access the DSVM
 
-After the VM is created and provisioned, follow the steps listed [here](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md) to access it through a remote desktop connection. Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
+After the VM is created and provisioned, follow the steps listed to [connect to your Azure-based virtual machine](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Use the admin account credentials that you configured in the **Basics** step of creating a virtual machine. 
 
 You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through **Start** menu tiles and desktop icons.
 
