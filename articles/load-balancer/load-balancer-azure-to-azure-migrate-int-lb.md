@@ -121,7 +121,7 @@ The following steps show how to prepare the internal load balancer for the move 
                                  "10.0.0.0/16"
                                  ]
                            },
-                          [
+                          
     ```
 * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
     
