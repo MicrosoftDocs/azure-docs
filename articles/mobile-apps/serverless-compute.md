@@ -39,3 +39,5 @@ Every mobile application needs a backend that is responsible for data storage, b
    - [Azure Portal](https://portal.azure.com) to create Function app
    - [Azure Functions Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
    - [Azure Functions Developer Guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference)
+   - [Quickstarts](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code)
+   - [Samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=csharp)

@@ -27,5 +27,6 @@ ms.author: emalani
 
  ## References
    - [Azure Portal](https://portal.azure.com) to manage CDN endpoints
-   - [CDN Documentation](https://docs.microsoft.com/en-us/azure/cdn/)
+   - [Documentation](https://docs.microsoft.com/en-us/azure/cdn/)
    - [Get started with CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint)
+   - [Quickstarts](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint)   

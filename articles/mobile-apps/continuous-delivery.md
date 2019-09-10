@@ -56,6 +56,7 @@ Beta testing your mobile application is one of the critical step during the app 
     **References**
   - [Get started with Azure Pipelines guide](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
   - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
+  
 
 # Distribute your application directly to App Stores
 Once your application is ready for production use, it needs to be submitted to App Stores from where it can be downloaded by customers. There are multiple ways to distribute your application directly to App Stores. 
@@ -83,7 +84,6 @@ Once your application is ready for production use, it needs to be submitted to A
     - Ensure devices and apps are compliant with company security requirements
     
 # Deploy updates directly to users' devices
-
 
 ## Services
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage
-description: Learn how to leverage Azure Storage in your applications
+description: Learn how to leverage Azure Storage services in your application
 author: elamalani
 
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
@@ -55,7 +55,7 @@ ms.author: emalani
     
     Azure file shares can be used to:
     - Replace or supplement on-premises file servers: Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used.
-    - **Lift and shift" applications** to the cloud that expect a file share to store file application or user data.
+    - **Lift and shift applications** to the cloud that expect a file share to store file application or user data.
     - Simplify cloud development:
         Azure Files can also be used in numerous ways to simplify new cloud development projects. For example:
         - Shared application settings: A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many application instances. Application instances can load their configuration through the File REST API, and humans can access them as needed by mounting the SMB share locally.
@@ -63,10 +63,9 @@ ms.author: emalani
         - Dev/Test/Debug
 
     **References**
-    - [Azure Portal](https://portal.azure.com) to create an Azure storage table
+    - [Azure Portal](https://portal.azure.com)
     - [Documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
     - [Quickstarts](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-quick-create-use-windows)
-
 
 3. ### **Azure Queues**
     [Azure Queue Storage](https://azure.microsoft.com/en-us/services/storage/queues/) is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size and a queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously.

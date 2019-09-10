@@ -44,6 +44,8 @@ Having a view of the user and their behavior across your app empowers developers
     **References**
     - [Azure Portal](https://portal.azure.com/)
     - [Azure AD B2C documentation](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+    - [Quickstarts](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
+    - [Samples](https://docs.microsoft.com/en-us/azure/active-directory-b2c/code-samples)
 
 3. ### **Azure Active Directory**
     [Azure Active Directory (Azure AD)](https://azure.microsoft.com/en-us/services/active-directory/) is Microsoft’s cloud-based identity and access management service, which helps your employee sign in and access resources in:
@@ -60,3 +62,4 @@ Having a view of the user and their behavior across your app empowers developers
     - [Azure Portal](https://portal.azure.com/)
     - [What is Azure AD?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
     - [Get started with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+    - [Quickstarts](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)

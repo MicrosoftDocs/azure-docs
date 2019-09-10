@@ -53,7 +53,6 @@ For application users, push notification:
 
 
 2. ### **Azure Notification Hubs**
-
     [Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform and from any backend (cloud or on-premises).
     
     **Key Features**
@@ -65,4 +64,7 @@ For application users, push notification:
     - **Platform Support** - iOS, Android, Windows, Kindle, Baidu.
             
     **References**
+    - [Azure Portal](https://portal.azure.com) 
     - [Get started with Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)   
+    - [Quickstarts](https://docs.microsoft.com/en-us/azure/notification-hubs/create-notification-hub-portal)
+    - [Samples](https://docs.microsoft.com/en-us/azure/notification-hubs/samples)

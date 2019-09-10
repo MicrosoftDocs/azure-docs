@@ -55,3 +55,4 @@ ms.author: emalani
    - [Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/welcome)
    - [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account)
    - [Container support](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-container-support)
+   - [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)

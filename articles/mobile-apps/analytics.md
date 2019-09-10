@@ -71,3 +71,4 @@ The more you drill down into the data, the more you could find ways to improve y
     **References**
     - [PlayFab Portal](https://developer.playfab.com/en-us/login)
     - [Analytics](https://docs.microsoft.com/en-us/gaming/playfab/#pivot=documentation&panel=analytics)
+    - [Quickstarts](https://docs.microsoft.com/en-us/gaming/playfab/#pivot=documentation&panel=quickstarts)    
