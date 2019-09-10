@@ -33,6 +33,7 @@ The Microsoft identity platform differs from Azure Active Directory v1.0 in that
 - Supports both:
   - Organizational Identity (Azure Active Directory)
   - Non-organizational identities such as Outlook.com, Xbox Live, and so on.
+  - (B2C Only) Federated login with Google, Facebook, Twitter, and Amazon.
 
 - Is standards compatible with:
   - OAuth v2.0
@@ -42,9 +43,10 @@ The MSAL public API reflects introduces important usability changes, including:
 
 - New model for accessing tokens:
   - ADAL provides access to tokens via the `AuthenticationContext`, which represents the server. MSAL provides access to tokens via the `PublicClientApplication`, which represents the client. Client developers don't need to create a new `PublicClientApplication` instance for every Authority they need to interact with. Only one `PublicClientApplication` configuration should ever be required.
-  - Support for requesting access tokens using scopes rather than resource identifiers.
+  - Support for requesting access tokens using scopes in addition to resource identifiers.
   - Support for incremental consent. Developers can request scopes, including those not included during app registration.
   - Authority Validation -> Known Authorities
+      * Authorities are no longer validated at run-time; instead, the developer declares a list of 'known authorities' during development.
 - Token API changes:
   - In ADAL, `AcquireToken` first attempts to make a silent request and failing that, does an interactive request. This behavior resulted in some developers relying only on `AcquireToken`, which sometimes meant that a user interaction would happen at an unexpected moment. MSAL requires developers be intentional about when the  user receives a UI prompt.
     - `AcquireTokenSilent` always results in a silent request that either succeeds or fails.

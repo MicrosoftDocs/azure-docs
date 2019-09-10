@@ -33,7 +33,7 @@ When using MSAL in your Android application, you can choose between using a brow
 
 ## Single sign-in implications
 
-By default, applications use a browser/custom tabs strategy. Because MSAL can persist a cookie in the browser, the user doesn't have to enter their credentials as often. Which enables other native android, or web, apps to participate in Single Sign-On (SSO).
+By default, applications integrated with MSAL use the system browser's Custom Tabs to authorize. Unlike WebViews, Custom Tabs share a cookie jar with the default system browser enabling fewer sign-ins with web or other native apps that have integrated with Custom Tabs.
 
 If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users can have a SSO experience from a single application but not across the device or between native apps and web apps.
 
@@ -63,11 +63,7 @@ Use this approach to provide a SSO experience through the device's browser. MSAL
 
 ## Browser selection heuristic
 
-It's impossible for MSAL to specify the exact browser package to use on each of the broad array of Android phones. So MSAL implements a browser selection heuristic that tries to provide the best cross-device SSO. The heuristic is implemented in the following method:
-
-```java
-[com.microsoft.identity.common.internal.ui.browser.BrowserSelector.select(final Context context)](https://github.com/AzureAD/microsoft-authentication-library-common-for-android/blob/dev/common/src/main/java/com/microsoft/identity/common/internal/ui/browser/BrowserSelector.java#L57)
-```
+Because it's impossible for MSAL to specify the exact browser package to use on each of the broad array of Android phones, MSAL implements a browser selection heuristic that tries to provide the best cross-device SSO.
 
 MSAL retrieves the full list of browsers installed on the device to select which browser to use. The list is in the order returned by the package manager, which indirectly reflects the user's preferences. For example, the default browser, if set, is the first entry in the list. The _first_ browser in the list will be chosen regardless of whether it supports custom tabs. If the browser supports Custom Tabs, MSAL will launch the Custom Tab. Custom Tabs have a look and feel closer to an in-app `WebView` and allow basic UI customization. See [Custom Tabs in Android](https://developer.chrome.com/multidevice/android/customtabs) to learn more.
 
