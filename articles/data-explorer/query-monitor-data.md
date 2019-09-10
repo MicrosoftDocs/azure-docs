@@ -53,7 +53,9 @@ You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to q
 
 > [!TIP]
 > * Database name should have the same name as the resource specified in the proxy cluster. Names are case sensitive.
-> * In cross cluster queries, make sure that the [naming of apps and workspaces](#application-insights-app-and-log-analytics-workspace-names) is correct.
+> * In cross cluster queries, make sure that the naming of Application Insights apps and Log Analytics workspaces is correct.
+>     * If names contain special characters, they're replaced by URL encoding in the proxy cluster name. 
+>     * If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
 
 ### Query against the native Azure Data Explorer cluster 
 
@@ -114,11 +116,6 @@ The following syntax options are available when calling the Application Insights
 | Cluster that contains all apps/workspaces in this subscription    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
 |Cluster that contains all apps/workspaces in the subscription and are members of this resource group    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
 |Cluster that contains only the defined resource in this subscription      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
-
-### Application Insights app and Log Analytics workspace names
-
-* If names contain special characters, they're replaced by URL encoding in the proxy cluster name. 
-* If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), the are replaced by the dash **-** character.
 
 ## Next steps
 

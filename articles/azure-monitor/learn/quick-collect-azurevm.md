@@ -1,5 +1,5 @@
 ---
-title: Collect data about Azure Virtual Machines | Microsoft Docs
+title: Collect data from an Azure virtual machine with Azure Monitor | Microsoft Docs
 description: Learn how to enable the Log Analytics agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
@@ -16,9 +16,9 @@ ms.author: magoedte
 ms.custom: mvc
 ---
 
-# Collect data about Azure Virtual Machines
+# Collect data from an Azure virtual machine with Azure Monitor
 
-[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
+[Azure Monitor](../overview.md) can collect data directly from your Azure virtual machines into a Log Analytics workspace for detailed analysis and correlation. Installing the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) allows Azure Monitor to collect data from your Azure VMs. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs using the VM extension with a few easy steps.  
  
 This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
@@ -28,7 +28,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a workspace
 
-1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
     ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
@@ -50,7 +50,7 @@ While the information is verified and the workspace is created, you can track it
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension. Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes. Before proceeding, verify the VM is running otherwise the process will fail to complete successfully.  
+For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension. Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically when a newer version is released, ensuring that you have the latest features and fixes. Before proceeding, verify the VM is running otherwise the process will fail to complete successfully.  
 
 >[!NOTE]
 >The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
@@ -69,7 +69,7 @@ For Windows and Linux virtual machines already deployed in Azure, you install th
 
 ## Collect event and performance data
 
-Log Analytics can collect events from the Windows event logs or Linux Syslog and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected. Follow these steps to configure collection of events from the Windows system log and Linux Syslog, and several common performance counters to start with.  
+Azure Monitor can collect events from the Windows event logs or Linux Syslog and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected. Follow these steps to configure collection of events from the Windows system log and Linux Syslog, and several common performance counters to start with.  
 
 ### Data collection from Windows VM
 
@@ -119,15 +119,15 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 
 Now that you have enabled data collection, lets run a simple log search example to see some data from the target VMs.  
 
-1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
+1. In the selected workspace, from the left-hand pane, select **Logs**.
 
-2. Select the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or select the search button to the right of the query field.
+2. On the Logs query page, type `Perf` in the query editor and select **Run**.
 
-    ![Log Analytics log search query example](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+    ![Log Analytics log search query example](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 
-For example, the query in the following image returned 735 performance records.  Your results will be significantly less.
+    For example, the query in the following image returned 10,000 performance records. Your results will be significantly less.
 
-![Log Analytics log search result](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Log Analytics log search result](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## Clean up resources
 

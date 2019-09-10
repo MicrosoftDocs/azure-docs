@@ -15,10 +15,10 @@ A VPN gateway is used to send encrypted traffic between a CloudSimple region net
 
 CloudSimple provides two kinds of VPN gateways:
 
-* Site-to-site VPN gateway
-* Point-to-site VPN gateway
+* Site-to-Site VPN gateway
+* Point-to-Site VPN gateway
 
-## Site-to-site VPN gateway
+## Site-to-Site VPN gateway
 
 A Site-to-Site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range, for network traffic between your on-premises network and the CloudSimple region network.
 
@@ -58,9 +58,9 @@ A Site-to-Site VPN connection uses the following default cryptographic parameter
 | Life Time | 1,800 seconds | 1,800 seconds | 1,800 seconds |
 | Data Size | 4 GB | 4 GB | 4 GB |
 
-## Point-to-site VPN gateway
+## Point-to-Site VPN gateway
 
-A Point-to-Site VPN is used to send encrypted traffic between a CloudSimple region network and a client computer.  Point-to-site VPN is the easiest way to access your Private Cloud network, including your Private Cloud vCenter and workload VMs.  Use Point-to-Site VPN connectivity if you're connecting to the Private Cloud remotely.
+A Point-to-Site VPN is used to send encrypted traffic between a CloudSimple region network and a client computer.  Point-to-Site VPN is the easiest way to access your Private Cloud network, including your Private Cloud vCenter and workload VMs.  Use Point-to-Site VPN connectivity if you're connecting to the Private Cloud remotely.
 
 ## Next steps
 

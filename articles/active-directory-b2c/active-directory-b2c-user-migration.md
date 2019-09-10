@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -135,7 +135,9 @@ Change the `$AppId` value with your Azure AD **Application ID**.
 
 ## Step 2: Pre-migration application sample
 
-[Download and run the sample code][UserMigrationSample]. You can download it as a .zip file.
+You can find the pre-migration code sample in the community-maintained `azure-ad-b2c/user-migration` GitHub repository:
+
+[azure-ad-b2c/user-migration/pre-migration][UserMigrationSample-code] (GitHub)
 
 ### Step 2.1: Edit the migration data file
 
@@ -360,7 +362,7 @@ You can view and monitor logging information in near-real time.
 
 ## (Optional) Download the complete policy files
 
-After you complete the [Get started with custom policies][B2C-GetStartedCustom] walk-through, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [sample policy files][UserMigrationSample].
+After you complete the [Get started with custom policies][B2C-GetStartedCustom] walk-through, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [sample policy files][UserMigrationSample-policy].
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -371,4 +373,5 @@ After you complete the [Get started with custom policies][B2C-GetStartedCustom] 
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

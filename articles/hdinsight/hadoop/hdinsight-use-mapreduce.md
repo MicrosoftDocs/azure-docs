@@ -1,6 +1,6 @@
 ---
 title: MapReduce with Apache Hadoop on HDInsight 
-description: Learn how to run MapReduce jobs on Apache Hadoop in HDInsight clusters.
+description: Learn how to run Apache MapReduce jobs on Apache Hadoop in HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -11,40 +11,7 @@ ms.date: 03/20/2019
 ---
 # Use MapReduce in Apache Hadoop on HDInsight
 
-Learn how to run MapReduce jobs on HDInsight clusters. 
-
-## <a id="whatis"></a>What is MapReduce
-
-Apache Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks. Each chunk is processed in parallel across the nodes in your cluster. A MapReduce job consists of two functions:
-
-* **Mapper**: Consumes input data, analyzes it (usually with filter and sorting operations), and emits tuples (key-value pairs)
-
-* **Reducer**: Consumes tuples emitted by the Mapper and performs a summary operation that creates a smaller, combined result from the Mapper data
-
-A basic word count MapReduce job example is illustrated in the following diagram:
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-The output of this job is a count of how many times each word occurred in the text.
-
-* The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a word occurs of the word is followed by a 1. The output is sorted before sending it to reducer.
-* The reducer sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
-
-MapReduce can be implemented in various languages. Java is the most common implementation, and is used for demonstration purposes in this document.
-
-## Development languages
-
-Languages or frameworks that are based on Java and the Java Virtual Machine can be ran directly as a MapReduce job. The example used in this document is a Java MapReduce application. Non-Java languages, such as C#, Python, or standalone executables, must use **Hadoop streaming**.
-
-Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT. The mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab character:
-
-    [key]/t[value]
-
-For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
-
-For examples of using Hadoop streaming with HDInsight, see the following document:
-
-* [Develop C# MapReduce jobs](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+Learn how to run MapReduce jobs on HDInsight clusters.
 
 ## <a id="data"></a>Example data
 
@@ -152,7 +119,6 @@ To learn more about working with data in HDInsight, see the following documents:
 
 * [Use Apache Pig with HDInsight][hdinsight-use-pig]
 
-
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -161,5 +127,3 @@ To learn more about working with data in HDInsight, see the following documents:
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

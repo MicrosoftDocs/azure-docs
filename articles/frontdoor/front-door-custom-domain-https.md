@@ -78,11 +78,17 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 > [!WARNING]
 > Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
 
-2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with.
+2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
+
+> [!IMPORTANT]
+> You must upload the certificate in PFX format **without** password protection.
 
 #### Register Azure Front Door Service
 
 Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
+
+> [!NOTE]
+> This action need only be performed **once** per tenant.
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
@@ -92,18 +98,19 @@ Register the service principal for Azure Front Door Service as an app in your Az
 
 #### Grant Azure Front Door Service access to your key vault
  
-Grant Azure Front Door Service permission to access the  certificates under Secrets in your Azure Key Vault account.
+Grant Azure Front Door Service permission to access the  certificates in your Azure Key Vault account.
 
 1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
 
 2. In **Select principal**, search for **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, and choose **Microsoft.Azure.Frontdoor**. Click **Select**.
 
+3. In **Secret permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-3. In **Secret permissions**, select **Get** to allow Front Door to perform these permissions to get and list the certificates. 
+4. In **Certificate permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-4. Select **OK**. 
+5. Select **OK**. 
 
-    Azure Front Door Service can now access this key vault and the certificates (secrets) that are stored in this key vault.
+    Azure Front Door Service can now access this Key Vault and the certificates that are stored in this Key Vault.
  
 #### Select the certificate for Azure Front Door Service to deploy
  

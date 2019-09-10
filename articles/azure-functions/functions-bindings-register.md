@@ -7,7 +7,6 @@ author: craigshoemaker
 manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe

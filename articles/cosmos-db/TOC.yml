@@ -455,6 +455,10 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -465,6 +469,8 @@
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
+        - name: Use resource tokens
+          href: how-to-use-resource-tokens-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
@@ -712,6 +718,8 @@
       items:
       - name: Use Power BI 
         href: powerbi-visualize.md
+      - name: Create a live weather dashboard 
+        href: create-real-time-weather-dashboard-powerbi.md  
       - name: Use Qlik Sense
         href: visualize-qlik-sense.md
     - name: Integrate with other Azure services
@@ -751,6 +759,10 @@
         href: cosmosdb-sql-api-migrate-data-striim.md
       - name: Migrate to Cassandra API using Striim
         href: cosmosdb-cassandra-api-migrate-data-striim.md
+      - name: Migrate - Oracle DB to Cassandra API using Blitzz
+        href: oracle-migrate-cosmos-db-blitzz.md
+      - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+        href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
     - name: Bulk executor library

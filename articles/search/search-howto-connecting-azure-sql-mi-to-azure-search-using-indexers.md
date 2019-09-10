@@ -2,7 +2,7 @@
 title: Azure SQL Managed Instance connection for search indexing - Azure Search
 description: Enable public endpoint to allow connections to SQL Managed Instances from an indexer on Azure Search.
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual

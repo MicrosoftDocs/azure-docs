@@ -138,7 +138,7 @@ The Network pages in the CloudSimple portal allow you to specify the configurati
 
     ![Public IP](media/quick-create-pc-public-ip.png)
 
-The task of allocating the public IP address begins. You can check the status of the task on the **Activity > Tasks** page. When allocation is complete, the new entry is shown on the Public IPs page. 
+The task of allocating the public IP address begins. You can check the status of the task on the **Activity > Tasks** page. When allocation is complete, the new entry is shown on the Public IPs page.
 
 The VM to which this IP address must be mapped needs to be configured with the local address specified above. The procedure to configure an IP address is specific to the VM operating system. Consult the documentation for your VM operating system for the correct procedure.
 
@@ -200,7 +200,7 @@ or
 ```
 python3 -m http.server 80
 ```
-Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM. 
+Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM.
 
 ### Default CloudSimple firewall rules for public IP
 

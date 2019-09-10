@@ -9,9 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath 
 ---
-# Private cloud VMware components
+# Private Cloud VMware components
 
-A private cloud is an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX) environment managed by a vCenter server in a management domain.  The CloudSimple service allows you to deploy VMware natively on Azure bare metal infrastructure in Azure locations.  Private clouds are integrated with the rest of the Azure Cloud.  A private cloud is deployed with the following VMware stack components:
+A Private Cloud is an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX) environment managed by a vCenter server in a management domain.  The CloudSimple service allows you to deploy VMware natively on Azure bare metal infrastructure in Azure locations.  Private Clouds are integrated with the rest of the Azure Cloud.  A private cloud is deployed with the following VMware stack components:
 
 * **VMware ESXi -** Hypervisor on Azure dedicated nodes
 * **VMware vCenter -** Appliance for centralized management of private cloud vSphere environment
@@ -20,14 +20,14 @@ A private cloud is an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX)
 
 ## VMware component versions
 
-A private cloud VMware stack is deployed with the following software version.
+A Private Cloud VMware stack is deployed with the following software version.
 
 | Component | Version | Licensed version |
 |-----------|---------|------------------|
-| ESXi | 6.7U1 | Enterprise Plus |
-| vCenter | 6.7U1 | vCenter Standard |
+| ESXi | 6.7U2 | Enterprise Plus |
+| vCenter | 6.7U2 | vCenter Standard |
 | vSAN | 6.7 | Enterprise |
-| NSX Data Center | 2.3 | Advanced |
+| NSX Data Center | 2.4.1 | Advanced |
 
 ## ESXi
 
@@ -96,7 +96,7 @@ Occasionally it's necessary to make changes to the configuration of the VMware i
 * All networking and storage
 * All Azure traffic
 
-## Updates and Upgrades
+## Updates and upgrades
 
 CloudSimple is responsible for lifecycle management of VMware software (ESXi, vCenter, PSC, and NSX) in the private cloud.
 

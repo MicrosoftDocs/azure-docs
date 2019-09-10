@@ -11,7 +11,6 @@ ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch

@@ -135,7 +135,7 @@ Following are best practices for using App Service.
 **Detail**: [App Service Environment](/azure/app-service/environment/intro) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet).
 
 **Best practice**: Monitor the security state of your App Service environments.   
-**Detail**: Use Azure Security Center to monitor your App Service environments. When Security Center identifies potential security vulnerabilities, it creates [recommendations](/azure/security-center/security-center-virtual-machine-recommendations) that guide you through the process of configuring the needed controls.
+**Detail**: Use Azure Security Center to monitor your App Service environments. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-virtual-machine-protection.md) that guide you through the process of configuring the needed controls.
 
 > [!NOTE]
 > Monitoring App Service is in preview and available only on the [Standard tier](/azure/security-center/security-center-pricing) of Security Center.

@@ -16,10 +16,8 @@ metadata:
   manager: daveba
   ms.date: 08/01/2019
 
-# linkListType: architecture | deploy | download | get-started | how-to-guide | learn | overview | quickstart | tutorial
-
 landingContent:
-  - title: Learn about Azure AD Domain Services
+  - title: About Azure AD Domain Services
     linkLists:
       - linkListType: overview
         links:
@@ -27,6 +25,8 @@ landingContent:
             url: overview.md
           - text: Compare identity solutions
             url: compare-identity-solutions.md
+      - linkListType: concept
+        links:
           - text: How does synchronization work?
             url: synchronization.md
           - text: FAQs
@@ -52,7 +52,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Enable password hash synchronization
-            url: active-directory-ds-getting-started-password-sync-synced-tenant.md
+            url: tutorial-configure-password-hash-sync.md
           - text: Create an organizational unit (OU)
             url: create-ou.md
           - text: Configure Kerberos Constrained Delegation

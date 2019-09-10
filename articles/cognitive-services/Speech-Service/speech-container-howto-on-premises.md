@@ -1,5 +1,5 @@
 ---
-title: Use with Kubernetes and Helm - Speech Service
+title: Use Speech Service container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/16/2019
+ms.date: 8/26/2019
 ms.author: dapine
 ---
 
-# Use with Kubernetes and Helm
+# Use Speech Service container with Kubernetes and Helm
 
 One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech Service containers](speech-container-howto.md).
 
@@ -145,7 +145,7 @@ To install the *helm chart* we'll need to execute the [`helm install`][helm-inst
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
-    --version 0.1.0 \
+    --version 0.1.1 \
     --values <config-values.yaml> \
     --name onprem-speech
 ```

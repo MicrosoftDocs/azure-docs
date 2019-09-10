@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

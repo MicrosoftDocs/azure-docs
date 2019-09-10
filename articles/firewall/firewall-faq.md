@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ---
 
@@ -145,3 +145,15 @@ If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not co
 ## What does *Provisioning state: Failed* mean?
 
 Whenever a configuration change is applied, Azure Firewall attempts to update all its underlying backend instances. In rare cases, one of these backend instances may fail to update with the new configuration and the update process  stops with a failed provisioning state. Your Azure Firewall is still operational, but the applied configuration may be in an inconsistent state, where some instances have the previous configuration where others have the updated rule set. If this happens, try updating your configuration one more time until the operation succeeds and your Firewall is in a *Succeeded* provisioning state.
+
+## Is there a character limit for a firewall name?
+
+Yes. There is a 50 character limit for a firewall name.
+
+## Why does Azure Firewall need a /26 subnet size?
+
+Azure Firewall must provision more virtual machine instances as it scales. A /26 address space ensures that the firewall has enough IP addresses available to accommodate the scaling.
+
+## Does the firewall subnet size need to change as the service scales?
+
+No. Azure Firewall does not need a subnet bigger than /26.
