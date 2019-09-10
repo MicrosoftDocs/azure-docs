@@ -753,6 +753,9 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Web Application Firewall
+    tocHref: /azure/web-application-firewall/
+    topicHref: /azure/web-application-firewall/
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
