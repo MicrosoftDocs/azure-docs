@@ -6,11 +6,11 @@
     href: private-link-overview.md
 - name: Quickstarts
   items:
-  - name: Create a Private Endpoint - Azure portal
+  - name: Create a private endpoint - Azure portal
     href: create-private-endpoint-portal.md
-  - name: Create a Private Endpoint - Azure CLI
+  - name: Create a private eEndpoint - Azure CLI
     href: create-private-endpoint-cli.md
-  - name: Create a Private Endpoint - Azure PowerShell
+  - name: Create a private endpoint - Azure PowerShell
     href: create-private-endpoint-powershell.md
 
 - name: Tutorials
@@ -20,15 +20,15 @@
 
 - name: Concepts
   items:
-  - name: What is a Private Endpoint?
+  - name: What is a private endpoint?
     href: private-endpoint-overview.md
-  - name: What is a Private link service?
+  - name: What is private link service?
     href: private-link-service-overview.md    
 
 - name: How to
   items:
 
-  - name: Create your own Private Link service - Azure PowerShell
+  - name: Create a private link service - Azure PowerShell
     href: create-private-link-service-powershell.md
 
 - name: Reference

@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is a Private Link?
+          - text: What is Private Link?
             url: private-link-overview.md
 
   # Card (optional)
@@ -42,11 +42,11 @@ landingContent:
             url: create-private-endpoint-powershell.md            
 
   # Card (optional)
-  - title: Create a Private Link service
+  - title: Create a private link service
     linkLists:
       - linkListType: concept
         links:
-          - text: What is a private link service?
+          - text: What is private link service?
             url: private-link-service-overview.md
       
       - linkListType: get-started
