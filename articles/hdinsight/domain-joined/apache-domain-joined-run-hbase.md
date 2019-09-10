@@ -95,7 +95,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
 2. The **List of Policies** screen will display all Ranger policies created for this cluster. One pre-configured policy may be listed. Click **Add New Policy**.
 
-    ![Apache Ranger hbase policies list](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Apache Ranger HBase policies list](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. On the **Create Policy** screen, enter the following values:
 
