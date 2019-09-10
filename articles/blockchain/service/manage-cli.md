@@ -182,7 +182,7 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 |---------|-------------|
 | **role** | Name of the Azure AD role. |
 | **assignee** | Azure AD user ID. For example, `user@contoso.com` |
-| **scope** | Scope of the role assignment. Can be either a blockchain member of transaction node. |
+| **scope** | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 **Example:**
 
@@ -215,7 +215,7 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 |---------|-------------|
 | **role** | Name of the Azure AD role. |
 | **assignee-object-id** | Azure AD group ID or application ID. |
-| **scope** | Scope of the role assignment. Can be either a blockchain member of transaction node. |
+| **scope** | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 **Example:**
 
@@ -238,7 +238,7 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 |---------|-------------|
 | **role** | Name of the Azure AD role. |
 | **assignee** | Azure AD user ID. For example, `user@contoso.com` |
-| **scope** | Scope of the role assignment. Can be either a blockchain member of transaction node. |
+| **scope** | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 ## Next steps
 

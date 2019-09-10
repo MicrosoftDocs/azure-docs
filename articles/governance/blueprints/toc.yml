@@ -153,6 +153,9 @@
   - name: Manage assignments with PowerShell
     displayName: create, update, remove
     href: ./how-to/manage-assignments-ps.md
+  - name: Import and export with PowerShell
+    displayName: import, export, folders
+    href: ./how-to/import-export-ps.md
   - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md

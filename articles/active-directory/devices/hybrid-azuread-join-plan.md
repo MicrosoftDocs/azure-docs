@@ -74,7 +74,7 @@ Hybrid Azure AD join is currently not supported if your environment consists of 
 
 Hybrid Azure AD join is currently not supported when using virtual desktop infrastructure (VDI).
 
-Hybrid Azure AD join is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2 . If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
@@ -148,7 +148,7 @@ The table below provides details on support for these on-premises AD UPNs in Win
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | Not supported | |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps

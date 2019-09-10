@@ -307,7 +307,7 @@ Your company's users can be assigned the following roles and permissions for the
   - Can view some publisher reports
 
 > [!NOTE]
-> The Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used in the Commercial Marketplace program and have no associated permissions.
+> For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
 
 For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
