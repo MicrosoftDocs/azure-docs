@@ -3662,7 +3662,7 @@
     },
     {
       "source_path": "articles/dotnet-sdk.md",
-      "redirect_url": "https://docs.microsoft.com/azure/dotnet",
+      "redirect_url": "https://docs.microsoft.com/dotnet/azure",
       "redirect_document_id": false
     },
     {
@@ -4973,6 +4973,16 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
+      "redirect_url": "/azure/application-gateway/create-url-route-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-url-route-overview.md",
+      "redirect_url": "/azure/application-gateway/url-route-overview",
       "redirect_document_id": false
     },
     {
@@ -10808,11 +10818,6 @@
     {
       "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md",
       "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-manage-use-java-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/dotnet/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/dotnet/",
       "redirect_document_id": false
     },
     {
