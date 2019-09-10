@@ -167,17 +167,17 @@ The following code gets the detected category of the image. See [Categorize imag
 
 ### Get image tags
 
-The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details
+The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### Get faces
+### Detect faces
 
 The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### Get adult or racy content
+### Detect adult or racy content
 
 The following code prints the detected presence of adult or racy content in the image. See [Adult and racy content](../concept-detecting-adult-content.md) for more details.
 
