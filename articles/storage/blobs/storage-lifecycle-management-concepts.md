@@ -1,15 +1,14 @@
 ---
 title: Managing the Azure Storage lifecycle
 description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
-services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
+ms.topic: conceptual
+ms.reviewer: yzheng
 ---
 
 # Manage the Azure Blob storage lifecycle
@@ -51,7 +50,7 @@ You can add, edit, or remove a policy by using any of the following methods:
 This article shows how to manage policy by using the portal and PowerShell methods.  
 
 > [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. The required bypass are: `Logging,  Metrics,  AzureServices`. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. The required bypass is: `AzureServices`. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### Azure portal
 

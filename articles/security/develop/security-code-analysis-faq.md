@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Security Code Analysis documentation FAQs
-description: This article contains FAQs about the Security Code Analysis Extension
+title: Microsoft Security Code Analysis documentation FAQ
+description: This article contains an FAQ about the Microsoft Security Code Analysis extension
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -16,80 +16,92 @@ ms.workload: na
 ---
 
 # Frequently asked questions
-Got questions? Check out the FAQs below for more information.
+Got questions? Check out the following FAQ for more information.
 
-## General FAQs
+## General FAQ
 
-### Can I install the extension on my TFS (not Azure DevOps) server? 
+### Can I install the extension on my Visual Studio Team Foundation Server instance instead of on an Azure DevOps instance?
 
-No, the extension isn't available for download and install for TFS.
+No. The extension isn't available for downloading and installation for Visual Studio Team Foundation Server.
 
 ### Do I have to run Microsoft Security Code Analysis with my build? 
 
-Yes and no. Depending on the type of analysis tool, the source code itself may be the only thing that's required or the output of the build may be required. For example, since Credential Scanner analyzes files within the folder structure of the code repository, you could run the Credential Scanner and Publish Security Analysis logs build tasks in a standalone build to retrieve results.
-For other tools that analyze post build artifacts, like BinSkim, the build will be required first.
+Maybe. It depends on the type of analysis tool. The source code might be the only thing that's required, or the build output might be required.
 
-### Can I break my build when results are found? 
-Yes, you can introduce a build break when any tool reports an issue, a finding, in its log file. Just add the Post-Analysis build task and check the checkbox for any tool for which you would like to break the build. You can choose to break the build when any tool reports errors, or warnings and errors, in the UI of the Post-Analysis task.
+For example, Credential Scanner (CredScan) analyzes files within the folder structure of the code repository. Because of this analysis, you can run the CredScan and Publish Security Analysis Logs build tasks in a standalone build to get results.
 
-### How are the command line arguments different in Azure DevOps than they are in the standalone desktop tools? 
+For other tools like BinSkim that analyze post-build artifacts, the build is required first.
 
-For the most part, the Azure DevOps build tasks are direct wrappers around the command line arguments of the security tools. Anything you would normally pass to the tool on the command line from your desktop, you can pass to the Arguments input of the build task.
-Here is a list of noticeable differences:
- - The tool will be executing from the source folder of the agent $(Build.SourcesDirectory) or %BUILD_SOURCESDIRECTORY%. Example: C:\agent\_work\1\s 
- - Paths in the Arguments can be relative to the root of the source directory listed above or absolute either by running an on-prem agent with known deployment locations of local resources or using Azure DevOps Build Variables
- - Tools will automatically provide an output file path or folder if an output path is provided, it will be removed and replaced with a path to our well-known logs location on the build agent
- - Some additional command line parameters are sanitized and removed on some tools, such as the addition or removal of options to ensure that no GUI is launched.
+### Can I break my build when results are found?
 
-### Can I run a build task (for example, Credential Scanner) across multiple repositories in an Azure DevOps Build? 
+Yes. You can introduce a build break when any tool reports an issue or problem in its log file. Just add the Post-Analysis build task, and select the checkbox for any tool for which you want to break the build.
 
-No, running the secure development tools against multiple repositories in a single pipeline is currently not supported.
+In the UI of the Post-Analysis task, you can choose to break the build when any tool reports either errors only or both errors and warnings.
 
-###  The output file I specified is not being created / I can’t find the output file I specified 
+### How do the command-line arguments in Azure DevOps differ from those arguments in the standalone desktop tools? 
 
-The build tasks currently sanitize user input and update the location of the output file generated to a common location on the build agent. For more information on this location, see the following questions.
+For the most part, the Azure DevOps build tasks are direct wrappers around the command-line arguments of the security tools. You can pass as arguments to a build task anything you normally pass to a command-line tool.
+
+Noticeable differences:
+
+- Tools run from the source folder of the agent $(Build.SourcesDirectory) or from %BUILD_SOURCESDIRECTORY%. An example is C:\agent\_work\1\s.
+- Paths in the arguments can be relative to the root of the source directory previously listed. Paths can also be absolute. You get absolute paths either by using Azure DevOps Build Variables or by running an on-premises agent with known deployment locations of local resources.
+- Tools automatically provide an output file path or folder. If you provide an output location for a build task, that location is replaced with a path to our well-known location of logs on the build agent
+- Some additional command-line arguments are changed for some tools. One example is the addition or removal of options that ensure no GUI is launched.
+
+### Can I run a build task like Credential Scanner across multiple repositories in an Azure DevOps Build?
+
+No. Running the secure development tools across multiple repositories in a single pipeline isn't supported.
+
+### The output file I specified isn't being created, or I can’t find the output file I specified
+
+The build tasks filter some user input. For this question specifically, they update the location of the generated output file to be a common location on the build agent. For more information on this location, see the following questions.
 
 ### Where are the output files generated by the tools saved? 
 
-The build tasks automatically add output paths to the following well-known location on the build agent $(Agent.BuildDirectory)\_sdt\logs. By standardizing on this location, we can guarantee that other teams producing code analysis logs or consuming them will have access.
+The build tasks automatically add output paths to this well-known location on the build agent: $(Agent.BuildDirectory)\_sdt\logs. Because we standardize on this location, all teams that produce or consume code-analysis logs have access to the output.
 
-### Can I queue a build to run these tasks on a Hosted Build Agent? 
+### Can I queue a build to run these tasks on a hosted build agent? 
 
-Yes, all tasks and tools in the extension can be executed on a hosted build agent.
+Yes. All tasks and tools in the extension can be executed on a hosted build agent.
 
 >[!NOTE]
-> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" or later build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
-Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
+> The Anti-Malware Scanner build task requires a build agent with Windows Defender enabled. Hosted Visual Studio 2017 and later provide such an agent. The build task won't run on the Visual Studio 2015 hosted agent.
 >
+> Although signatures can't be updated on these agents, signatures should always be less than three hours old.
 
-### Can I run these build tasks as part of a Release Pipeline (as opposed to a Build pipeline)? 
-In most cases, Yes. 
-However, tasks that publish artifacts are not supported by Azure DevOps to be run from within Release Pipelines: "The only category of tasks not expected to work with Release are the ones that publish artifacts. This is because, as of now, we don’t have support for publishing artifacts within Release".
-This prevents the "Publish Security Analysis Logs" task from running successfully from a release pipeline; it will fail, with a descriptive error message.
+### Can I run these build tasks as part of a release pipeline as opposed to a build pipeline?
 
-### From where do the build tasks download the tools? 
-The build tasks a) download NuGet packages for the tools from the following [Azure DevOps Package Management feed](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json)
-or using the Node Package Manager, which must be pre-installed on the build agent (example: "npm install tslint").
+In most cases, yes.
 
-### What effect will installing the extension have on my Azure DevOps Organization? 
+However, Azure DevOps doesn't support running tasks within release pipelines when those tasks publish artifacts. This lack of support prevents the Publish Security Analysis Logs task from running successfully in a release pipeline. The task instead fails with a descriptive error message.
 
-Upon installing, the security build tasks provided by the extension will become available for use by all users in your organization. When creating or editing an Azure pipeline, these tasks will be available to add from the build task collection list. Otherwise, installing the extension in your Azure DevOps organization has no impact. It does not modify any account or project settings or pipelines.
+### From where do the build tasks download the tools?
 
-### Will installing the extension modify my existing Azure Pipelines? 
+Build tasks can download the tools' NuGet packages from the [Azure DevOps Package Management feed](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json). Build tasks can also use Node Package Manager, which must be preinstalled on the build agent. An example of such installation is the command **npm install tslint**.
 
-No. Installing the extension will make the security build tasks available to add to your Azure Pipelines. Users are still required to add or update build definitions to integrate the tools into your build process.
+### What effect does installing the extension have on my Azure DevOps organization? 
 
-## Task specific FAQs
+Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
 
-FAQs specific to build tasks will be listed in this section.
+### Does installing the extension modify my existing Azure pipelines? 
 
-### Credential Scanner FAQs
+No. Installing the extension makes the security build tasks available for addition to your pipelines. You're still required to add or update build definitions, so that the tools can work with your build process.
 
-#### What are common suppressions scenarios and examples? 
-Two of the most common suppression scenarios are detailed below:
-##### Suppress all occurrences of a given secret within the specified path 
-The hash key of the secret from the Credential Scanner output file is required as shown in the sample below
-   
+## Task-specific FAQ
+
+Questions specific to build tasks are listed in this section.
+
+### Credential Scanner
+
+#### What are common suppression scenarios and examples?
+
+Here are details of two of the most common suppression scenarios.
+
+##### To suppress all occurrences of a given secret within the specified path
+
+The hash key of the secret from the CredScan output file is required as shown in the following sample.
+
         {
             "tool": "Credential Scanner",
             "suppressions": [
@@ -101,21 +113,21 @@ The hash key of the secret from the Credential Scanner output file is required a
         }
 
 >[!WARNING]
-> The hash key is generated by a portion of the matching value or file content. Any source code revision could change the hash key and disable the suppression rule. 
+> The hash key is generated by a portion of the matching value or file content. Any source-code revision can change the hash key and disable the suppression rule.
 
-##### To suppress all secrets in a specified file (or to suppress the secrets file itself) 
-The file expression could be a file name or any postfix portion of the full file path/name. Wildcards are not supported. 
+##### To suppress all secrets in a specified file or to suppress the secrets file itself
 
-**Example** 
+The file expression can be a file name. It can also be the basename part of a full file path or a file name. Wildcards are not supported.
 
-File to be suppressed: [InputPath]\src\JS\lib\angular.js 
+The following examples show how to suppress the file \<InputPath>\src\JS\lib\angular.js
 
-Valid Suppression Rules: 
-- [InputPath]\src\JS\lib\angular.js -- suppress the file in the specified path
+Examples of valid suppression rules:
+
+- \<InputPath>\src\JS\lib\angular.js - suppresses the file in the specified path
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- angular.js -- suppress any file with the same name
+- angular.js - suppresses any file with the same name
 
         {
             "tool": "Credential Scanner",
@@ -132,63 +144,86 @@ Valid Suppression Rules:
         }      
 
 >[!WARNING] 
-> All future secrets added to the file will also get suppressed automatically. 
+> All future secrets added to the file will also be suppressed automatically.
 
-#### What are recommended Secrets management guidelines? 
-While detecting hard coded secrets in a timely manner and mitigating the risks is helpful, it is even better if one could prevent secrets from getting checked in altogether. In this regard, Microsoft has released CredScan Code Analyzer as part of [Microsoft DevLabs extension](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) for Visual Studio. While in early preview, it provides developers an inline experience for detecting potential secrets in their code, giving them the opportunity to fix those issues in real-time. For more information, please refer to [this](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/) blog on Managing Secrets Securely in the Cloud. 
-Below are few additional resources to help you manage secrets and access sensitive information from within your applications in a secure manner: 
- - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
- - [Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
- - [Azure AD Managed Service Identity](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Managed Service Identity (MSI) for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
- - [Azure Managed Service Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
- - [AppAuthentication Library](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+#### What are recommended guidelines for managing secrets?
+
+It's helpful to detect hard-coded secrets quickly and to mitigate the risks. But preventing secrets from getting checked in at all is even better.
+
+To help in this regard, Microsoft has released an early preview of Credential Scanner Code Analyzer as part of the [Microsoft DevLabs extension](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) for Visual Studio. The analyzer is an early-preview release. It gives developers an inline experience for detecting potential secrets in their code. By doing so, the analyzer also gives developers the chance to fix those issues in real time.
+
+For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
+
+The following resources help you securely manage secrets and access sensitive information from within your applications:
+
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure AD Managed Service Identity (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
+ - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
+ - [AppAuthentication library](../../key-vault/service-to-service-authentication.md)
 
 #### Can I write my own custom searchers?
 
-Credential Scanner relies on a set of content searchers commonly defined in the **buildsearchers.xml** file. The file contains an array of XML serialized objects that represent a ContentSearcher object. The program is distributed with a set of searchers that have been well tested but it does allow you to implement your own custom searchers too. 
+Credential Scanner relies on a set of content searchers that are commonly defined in the buildsearchers.xml file. The file contains an array of XML serialized objects that represent a **ContentSearcher** object. The program is distributed with a set of well-tested searchers. But you can implement your own custom searchers too.
 
-A content searcher is defined as follows: 
+A content searcher is defined as follows:
 
-- **Name** – The descriptive searcher name to be used in Credential Scanner output file. It is recommended to use camel case naming convention for searcher names. 
-- **RuleId** – The stable opaque ID of the searcher. 
-    - Credential Scanner default searchers are assigned with RuleIds like CSCAN0010, CSCAN0020, CSCAN0030, etc. The last digit is reserved for potential searcher regex group merging or division.
-    - RuleId for customized searchers should have its own namespace in the format of: CSCAN-{Namespace}0010, CSCAN-{Namespace}0020, CSCAN-{Namespace}0030, etc.
-    - The fully qualified searcher name is the combination of the RuleId and the searcher name. Example CSCAN0010.KeyStoreFiles, CSCAN0020.Base64EncodedCertificate, etc.
-- **ResourceMatchPattern** – Regex of file extensions to check against searcher
-- **ContentSearchPatterns** – Array of strings containing Regex statements to match. If no search patterns are defined, all files matching the resource match pattern will be returned.
-- **ContentSearchFilters** – Array of strings containing Regex statements to filter searcher specific false positives.
-- **Matchdetails** – A descriptive message and/or mitigation instructions to be added for each match of the searcher.
-- **Recommendation** – Provides the suggestions field content for a match using PREfast report format.
-- **Severity** – An integer to reflect the severity of the issue (Highest = 1).
-![Credential Scanner Setup](./media/security-tools/6-credscan-customsearchers.png)
+- **Name**: The descriptive searcher name to be used in Credential Scanner output files. We recommended you use the camel-case naming convention for searcher names.
+- **RuleId**: The stable opaque ID of the searcher:
+    - A Credential Scanner default searcher is assigned a **RuleId** value like CSCAN0010, CSCAN0020, or CSCAN0030. The last digit is reserved for potentially merging or dividing searcher groups via regular expressions (regex).
+    - The **RuleId** value for a customized searcher should have its own namespace. Examples include CSCAN-\<Namespace\>0010, CSCAN-\<Namespace\>0020, and CSCAN-\<Namespace\>0030.
+    - A fully qualified searcher name is the combination of a **RuleId** value and a searcher name. Examples include CSCAN0010.KeyStoreFiles and CSCAN0020.Base64EncodedCertificate.
+- **ResourceMatchPattern**: Regex of file extensions to check against the searcher.
+- **ContentSearchPatterns**: An array of strings containing regex statements to match. If no search patterns are defined, all files matching the **ResourceMatchPattern** value are returned.
+- **ContentSearchFilters**: An array of strings containing regex statements to filter searcher-specific false positives.
+- **MatchDetails**: A descriptive message, mitigation instructions, or both to be added for each match of the searcher.
+- **Recommendation**: The suggestions-field content for a match using the PREfast report format.
+- **Severity**: An integer that reflects the severity level of an issue. The highest severity level has the value 1.
 
-### Roslyn Analyzers FAQs
+  ![XML showing Credential Scanner setup](./media/security-tools/6-credscan-customsearchers.png)
 
-#### What are the most common errors when using the Roslyn Analyzers task?
+### Roslyn Analyzers
 
-**Error: The project was restored using Microsoft.NETCore.App version x.x.x, but with current settings, version y.y.y would be used instead. To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish. Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore:**
+#### What are common errors when using the Roslyn Analyzers task?
 
-Roslyn analyzers run as part of compilation, so the source tree on the build machine needs to be in a buildable state. A step (probably "dotnet.exe publish") between your main build and Roslyn analyzers may have put the source tree in an unbuildable state. Perhaps duplicating the step that does a Nuget Restore, just before the Roslyn Analyzers step, will put the source tree back in a buildable state.
+##### The project was restored using a wrong Microsoft.NETCore.App version
 
-**"csc.exe" exited with error code 1 -- An instance of analyzer AAAA cannot be created from C:\BBBB.dll : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=X.X.X.X, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.**
+The full error message:
 
-Ensure your compiler supports Roslyn analyzers. "csc.exe /version" should report at least v2.6.x. In some cases, individual .csproj files can override the build machine's Visual Studio installation, by referencing a package from Microsoft.Net.Compilers. If using a specific version of the compiler was unintended, remove references to Microsoft.Net.Compilers. Otherwise, make sure the referenced package is also at least v2.6.x. Try to get the error log, which you can find in the /errorlog: parameter from the csc.exe command line (found in the Roslyn build task's log). It may look something like: /errorlog:F:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif
+"Error: The project was restored using Microsoft.NETCore.App version *x.x.x*, but with current settings, version *y.y.y* would be used instead. To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish. Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore."
 
-**The C# compiler is not recent enough (it must be >= 2.6)**
+Because Roslyn Analyzers tasks run as part of compilation, the source tree on the build machine needs to be in a buildable state.
 
-The latest versions of the C# compiler are released here: https://www.nuget.org/packages/Microsoft.Net.Compilers. To get the installed version you are using run `C:\>csc.exe /version` from command prompt. Ensure that you do not have any reference to a Microsoft.Net.Compilers NuGet package that is < v2.6.
+A step between your main build and Roslyn Analyzers steps might have put the source tree into a state that prevents building. This extra step is probably **dotnet.exe publish**. Try duplicating the step that does a NuGet restoration just before the Roslyn Analyzers step. This duplicated step might put the source tree back in a buildable state.
 
-**MSBuild/VSBuild Logs Not Found**
+##### csc.exe can't create an analyzer instance
 
-Because of how the task works, this task needs to query Azure DevOps for the MSBuild log from the MSBuild build task. If this task runs immediately after the MSBuild build task, the log will not yet be available; Place other build tasks, including SecDevTools build tasks, like Binskim, Antimalware Scan, and others), between the MSBuild build task and the Roslyn Analyzers build task. 
+The full error message:
+
+"'csc.exe' exited with error code 1 -- An instance of analyzer *AAAA* cannot be created from C:\\*BBBB*.dll : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=*X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified."
+
+Ensure your compiler supports Roslyn Analyzers. Running the command **csc.exe /version** should report a version value of 2.6 or later.
+
+Sometimes a .csproj file can override the build machine's Visual Studio installation by referencing a package from Microsoft.Net.Compilers. If you don't intend to use a specific version of the compiler, remove references to Microsoft.Net.Compilers. Otherwise, make sure the version of the referenced package is also 2.6 or later.
+
+Try to get the error-log path, which is specified in the **csc.exe /errorlog** option. The option and path appear in the log for the Roslyn Analyzers build task. They might look something like **/errorlog:F:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif**
+
+##### The C# compiler version isn't recent enough
+
+To get the latest versions of the C# compiler, go to [Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). To get your installed version, run **csc.exe /version** at a command prompt. Ensure that you reference a Microsoft.Net.Compilers NuGet package that is version 2.6 or later.
+
+##### MSBuild and VSBuild logs aren't found
+
+The Roslyn Analyzers build task needs to query Azure DevOps for the MSBuild log from the MSBuild build task. If the analyzer task runs immediately after the MSBuild task, the log won't yet be available. Place other tasks between the MSBuild task and the Roslyn Analyzers task. Examples of other tasks include BinSkim and Anti-Malware Scanner.
 
 ## Next steps
 
-If you need additional assistance, Microsoft Security Code Analysis Support is available Monday through Friday from 9:00 AM - 5:00 PM Pacific Standard Time
+If you need additional assistance, Microsoft Security Code Analysis Support is available Monday to Friday from 9:00 AM to 5:00 PM Pacific Standard Time.
 
-  - Onboarding - Contact your Technical Account Managers to get started. 
+  - Onboarding: Contact your Technical Account Managers to get started.
+  
+  - Support: Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
+
   >[!NOTE] 
-  >If you don’t already have a paid support relationship with Microsoft or if you have a support offering that doesn’t allow you to purchase services from the Phoenix catalog, please visit our [support services home page](https://www.microsoft.com/enterprise/services/support) for more information.
-
-  - Support - Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)
+  >You might not have a paid support relationship with Microsoft. Or you might have a support offering that prevents you from purchasing services from the Phoenix catalog. If either of these conditions is true, please visit our [support services home page](https://www.microsoft.com/enterprise/services/support) for more information.

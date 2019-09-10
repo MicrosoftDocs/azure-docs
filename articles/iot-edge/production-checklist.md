@@ -1,10 +1,10 @@
 ---
 title: Prepare devices and deployments for production - Azure IoT Edge | Microsoft Docs 
-description: Learn how to take your Azure IoT Edge solution from development to production, including setting your devices up with the appropriate certificates and making a deployment plan for future code updates. 
+description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -15,11 +15,11 @@ ms.custom: seodec18
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
-The information provided in this article is not all equal. To help you prioritize, each section starts with lists that divide the work into two sections: **important** to complete before going to production, or **helpful** for you to know.
+The information provided in this article isn't all equal. To help you prioritize, each section starts with lists that divide the work into two sections: **important** to complete before going to production, or **helpful** for you to know.
 
 ## Device configuration
 
-IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual machine running on a server. You may have access to the device either physically or through a virtual connection, or it may be isolated for extended periods of time. Either way, you want to make sure that it's configured to perform appropriately. 
+IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual machine running on a server. You may have access to the device either physically or through a virtual connection, or it may be isolated for extended periods of time. Either way, you want to make sure that it's configured to work appropriately. 
 
 * **Important**
     * Install production certificates
@@ -47,15 +47,15 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge daemon
 * CA certificates
 
-For steps to update the IoT Edge daemon, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating the IoT Edge daemon require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible to perform updates at scale.
+For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating the IoT Edge daemon require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible.
 
 ### Use Moby as the container engine
 
-Having a container engine on a device is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. Using other container engines on an IoT Edge device is not supported.
+A container engine is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine.
 
 ### Choose upstream protocol
 
-The protocol (and therefore the port used) for upstream communication to IoT Hub can be configured for both the Edge agent and the Edge hub. The default protocol is AMQP, but you may want to change that depending on your network setup. 
+The protocol (and therefore the port used) for upstream communication to IoT Hub can be configured for both the IoT Edge agent and the IoT Edge hub. The default protocol is AMQP, but you may want to change that depending on your network setup. 
 
 The two runtime modules both have an **UpstreamProtocol** environment variable. The valid values for the variable are: 
 
@@ -64,7 +64,7 @@ The two runtime modules both have an **UpstreamProtocol** environment variable. 
 * MQTTWS
 * AMQPWS
 
-Configure the UpstreamProtocol variable for the Edge agent in the config.yaml file on the device itself. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you may need to configure the Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub. 
+Configure the UpstreamProtocol variable for the IoT Edge agent in the config.yaml file on the device itself. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you may need to configure the IoT Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub. 
 
 Once your IoT Edge device connects, be sure to continue configuring the UpstreamProtocol variable for both runtime modules in future deployments. An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
@@ -72,32 +72,39 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 
 * **Helpful**
     * Be consistent with upstream protocol
-    * Reduce memory space used by Edge hub
+    * Set up host storage for system modules
+    * Reduce memory space used by the IoT Edge hub
     * Do not use debug versions of module images
 
 ### Be consistent with upstream protocol
 
-If you configured the Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all subsequent deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, if you don't configure the same APQPWS protocol for the Edge agent and Edge hub, the default AMQP will override the settings and prevent you from connecting again. 
+If you configured the IoT Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all future deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, configure the same APQPWS protocol for the IoT Edge agent and IoT Edge hub, or else the default AMQP will override the settings and prevent you from connecting again. 
 
-You only have to configure the UpstreamProtocol environment variable for the Edge agent and Edge hub modules. Any additional modules adopt whatever protocol is set in the runtime modules. 
+You only have to configure the UpstreamProtocol environment variable for the IoT Edge agent and IoT Edge hub modules. Any additional modules adopt whatever protocol is set in the runtime modules. 
 
 An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
-### Reduce memory space used by Edge hub
+### Set up host storage for system modules
 
-If you're deploying constrained devices with limited memory available, you can configure Edge hub to run in a more streamlined capacity and use less disk space. These configurations do limit the performance of the Edge hub, however, so find the right balance that works for your solution. 
+The IoT Edge hub and agent modules use local storage to maintain state and enable messaging between modules, devices, and the cloud. For better reliability and performance, configure the system modules to use storage on the host filesystem.
+
+For more information, see [Host storage for system modules](offline-capabilities.md#host-storage-for-system-modules).
+
+### Reduce memory space used by IoT Edge hub
+
+If you're deploying constrained devices with limited memory available, you can configure IoT Edge hub to run in a more streamlined capacity and use less disk space. These configurations do limit the performance of the IoT Edge hub, however, so find the right balance that works for your solution. 
 
 #### Don't optimize for performance on constrained devices
 
-The Edge hub is optimized for performance by default, so it attempts to allocate large chunks of memory. This configuration can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the Edge hub. 
+The IoT Edge hub is optimized for performance by default, so it attempts to allocate large chunks of memory. This configuration can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the IoT Edge hub. 
 
 For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 #### Disable unused protocols
 
-Another way to optimize the performance of the Edge hub and reduce its memory usage is to turn off the protocol heads for any protocols that you're not using in your solution. 
+Another way to optimize the performance of the IoT Edge hub and reduce its memory usage is to turn off the protocol heads for any protocols that you're not using in your solution. 
 
-Protocol heads are configured by setting boolean environment variables for the Edge hub module in your deployment manifests. The three variables are:
+Protocol heads are configured by setting boolean environment variables for the IoT Edge hub module in your deployment manifests. The three variables are:
 
 * **amqpSettings__enabled**
 * **mqttSettings__enabled**
@@ -107,7 +114,7 @@ All three variables have *two underscores* and can be set to either true or fals
 
 #### Reduce storage time for messages
 
-The Edge hub module stores messages temporarily if they cannot be delivered to IoT Hub for any reason. You can configure how long the Edge hub holds on to undelivered messages before letting them expire. If you have memory concerns on your device, you can lower the **timeToLiveSecs** value in the Edge hub module twin. 
+The IoT Edge hub module stores messages temporarily if they cannot be delivered to IoT Hub for any reason. You can configure how long the IoT Edge hub holds on to undelivered messages before letting them expire. If you have memory concerns on your device, you can lower the **timeToLiveSecs** value in the IoT Edge hub module twin. 
 
 The default value of the timeToLiveSecs parameter is 7200 seconds, which is two hours. 
 
@@ -139,16 +146,16 @@ For an example of a tag convention, see [Update the IoT Edge runtime](how-to-upd
 
 * **Helpful**
     * Review outbound/inbound configuration
-    * Whitelist connections
+    * Allow connections from IoT Edge devices
     * Configure communication through a proxy
 
 ### Review outbound/inbound configuration
 
 Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
 
-### Whitelist connections
+### Allow connections from IoT Edge devices
 
-If your networking setup requires that you explicitly whitelist connections made from IoT Edge devices, review the following list of IoT Edge components:
+If your networking setup requires that you explicitly permit connections made from IoT Edge devices, review the following list of IoT Edge components:
 
 * **IoT Edge agent** opens a persistent AMQP/MQTT connection to IoT Hub, possibly over WebSockets. 
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets. 
@@ -164,7 +171,7 @@ This checklist is a starting point for firewall rules:
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft container registry |
    | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
-   | \*.azurecr.io | 443 | Personal and 3rd party container registries |
+   | \*.azurecr.io | 443 | Personal and third-party container registries |
    | \*.blob.core.windows.net | 443 | Download of image deltas | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
    | \*.docker.io  | 443 | Docker Hub access (optional) |

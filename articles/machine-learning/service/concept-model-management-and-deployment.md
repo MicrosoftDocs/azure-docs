@@ -118,7 +118,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### Analytics
 
-Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (Preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
 ## Monitor ML applications for operational and ML related issues
@@ -134,9 +134,9 @@ For more information, see [How to enable model data collection](how-to-enable-da
 
 Azure ML gives you the capability to track the end to end audit trail of all of your ML assets. Specifically:
 
-- Azure ML integrates with Git to track information which repository / branch / commit your code came from.
-- Azure ML Datasets help you track and version data.
-- Azure ML Run History manages the code, data and compute used to train a model.
+- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information which repository / branch / commit your code came from.
+- [Azure ML Datasets](how-to-create-register-datasets.md) help you track and version data.
+- Azure ML Run history stores a snapshot of the code, data and compute used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 
 ## Automate the end to end ML lifecycle 

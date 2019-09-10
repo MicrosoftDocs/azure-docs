@@ -1,18 +1,18 @@
 ---
-title: Preview - Use a Standard SKU load balancer in Azure Kubernetes Service (AKS)
+title: Use a Standard SKU load balancer in Azure Kubernetes Service (AKS)
 description: Learn how to use a load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 09/05/2019
 ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
 
-# Preview - Use a Standard SKU load balancer in Azure Kubernetes Service (AKS)
+# Use a Standard SKU load balancer in Azure Kubernetes Service (AKS)
 
 To provide access to your applications in Azure Kubernetes Service (AKS), you can create and use an Azure Load Balancer. A load balancer running on AKS can be used as an internal or an external load balancer. An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the AKS cluster. An external load balancer receives one or more public IPs for ingress and makes a Kubernetes service accessible externally using the public IPs.
 
@@ -21,8 +21,6 @@ Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By defaul
 This article shows you how to create and use an Azure Load Balancer with the *Standard* SKU with Azure Kubernetes Service (AKS).
 
 This article assumes a basic understanding of Kubernetes and Azure Load Balancer concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts] and [What is Azure Load Balancer?][azure-lb].
-
-This feature is currently in preview.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -34,17 +32,11 @@ If you choose to install and use the CLI locally, this article requires that you
 
 The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
-You must create an AKS cluster that sets the SKU for the load balancer to *Standard* instead of the default *Basic*. Creating an AKS cluster is covered in a later step, but you first need to enable a few preview features.
-
-> [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+You must create an AKS cluster that sets the SKU for the load balancer to *Standard* instead of the default *Basic*.
 
 ### Install aks-preview CLI extension
 
-To use the Azure load balancer standard SKU, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To use the Azure load balancer standard SKU, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -54,46 +46,17 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Register AKSAzureStandardLoadBalancer preview feature
-
-To create an AKS cluster that can use a load balancer with the *Standard* SKU, you must enable the *AKSAzureStandardLoadBalancer* feature flag on your subscription. The *AKSAzureStandardLoadBalancer* feature also uses *VMSSPreview* when creating a cluster using virtual machine scale sets. This feature provides the latest set of service enhancements when configuring a cluster. While it's not required, it's recommended you enable the *VMSSPreview* feature flag as well.
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-Register the *VMSSPreview* and *AKSAzureStandardLoadBalancer* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "VMSSPreview"
-az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureStandardLoadBalancer"
-```
-
-> [!NOTE]
-> Any AKS cluster you create after you've successfully registered the *VMSSPreview* or *AKSAzureStandardLoadBalancer* feature flags use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ### Limitations
 
 The following limitations apply when you create and manage AKS clusters that support a load balancer with the *Standard* SKU:
 
-* When using the *Standard* SKU for a load balancer, you must allow public addresses and avoid creating any Azure Policy that bans IP creation. The AKS cluster automatically creates a *Standard* SKU public IP in same resource group created for the AKS cluster, which usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. The public IP is required for allowing egress traffic from the AKS cluster. This public IP is also required to maintain connectivity between the control plane and agent nodes as well as to maintain compatibility with previous versions of AKS.
-* When using the *Standard* SKU for a load balancer, you must use Kubernetes version 1.13.5 or greater.
-
-While this feature is in preview, the following additional limitations apply:
-
-* When using the *Standard* SKU for a load balancer in AKS, you cannot set your own public IP address for egress for the load balancer. You must use the IP address AKS assigns to your load balancer.
+* At least one public IP or IP prefix is required for allowing egress traffic from the AKS cluster. The public IP or IP prefix is also required to maintain connectivity between the control plane and agent nodes as well as to maintain compatibility with previous versions of AKS. You have the following options for specifying public IPs or IP prefixes with a *Standard* SKU load balancer:
+    * Provide your own public IPs.
+    * Provide your own public IP prefixes.
+    * Specify a number up to 100 to allow the AKS cluster to create that many *Standard* SKU public IPs in the same resource group created as the AKS cluster, which is usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. By default, one public IP will automatically be created in the same resource group as the AKS cluster, if no public IP, public IP prefix, or number of IPs is specified. You also must allow public addresses and avoid creating any Azure Policy that bans IP creation.
+* When using the *Standard* SKU for a load balancer, you must use Kubernetes version 1.13 or greater.
+* Defining the load balancer SKU can only be done when you create an AKS cluster. You cannot change the load balancer SKU after an AKS cluster has been created.
+* You can only use one load balancer SKU in a single cluster.
 
 ## Create a resource group
 
@@ -122,10 +85,12 @@ The following example output shows the resource group created successfully:
 ```
 
 ## Create AKS cluster
-In order to run an AKS cluster that supports a load balancer with the *Standard* SKU, your cluster needs to set the *load-balancer-sku* parameter to *standard*. This parameter creates a load balancer with the *Standard* SKU when your cluster is created. When you run a *LoadBalancer* service on your cluster, the configuration of the *Standard* SK load balancer is updated with the service's configuration. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*.
+In order to run an AKS cluster that supports a load balancer with the *Standard* SKU, your cluster needs to set the *load-balancer-sku* parameter to *standard*. This parameter creates a load balancer with the *Standard* SKU when your cluster is created. When you run a *LoadBalancer* service on your cluster, the configuration of the *Standard* SKU load balancer is updated with the service's configuration. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*.
 
 > [!NOTE]
 > The *load-balancer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created. Also, you can only use one type of load balancer SKU in a single cluster.
+> 
+> If you want to use your own public IPs, use the *load-balancer-outbound-ips*, or *load-balancer-outbound-ip-prefixes* parameters. Both of these parameters can also be used when [updating the cluster](#optional---provide-your-own-public-ips-or-prefixes-for-egress).
 
 ```azurecli-interactive
 az aks create \
@@ -133,7 +98,6 @@ az aks create \
     --name myAKSCluster \
     --enable-vmss \
     --node-count 1 \
-    --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
     --generate-ssh-keys
 ```
@@ -164,7 +128,7 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
 ```
 
 ## Verify your cluster uses the *Standard* SKU
@@ -307,6 +271,71 @@ Navigate to the public IP in a browser and verify you see the sample application
 > [!NOTE]
 > You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
 
+## Optional - Scale the number of managed public IPs
+
+When using a *Standard* SKU load balancer with managed outbound public IPs, which are created by default, you can scale the number of managed outbound public IPs using the *load-balancer-managed-ip-count* parameter.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-managed-outbound-ip-count 2
+```
+
+The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*. You can also use the *load-balancer-managed-ip-count* parameter to set the initial number of managed outbound public IPs when creating your cluster. The default number of managed outbound public IPs is 1.
+
+## Optional - Provide your own public IPs or prefixes for egress
+
+When using a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in same resource group created for the AKS cluster and assigns the public IP to the *Standard* SKU load balancer. Alternatively, you can assign your own public IP.
+
+> [!IMPORTANT]
+> You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
+>
+> ```azurecli-interactive
+> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+> ```
+
+Use the [az network public-ip show][az-network-public-ip-show] command to list the IDs of your public IPs.
+
+```azurecli-interactive
+az network public-ip show --resource-group myResourceGroup --name myPublicIP --query id -o tsv
+```
+
+The above command shows the ID for the *myPublicIP* public IP in the *myResourceGroup* resource group.
+
+Use the *az aks update* command with the *load-balancer-outbound-ips* parameter to update your cluster with your public IPs.
+
+The following example uses the *load-balancer-outbound-ips* parameter with the IDs from the previous command.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+You can also use public IP prefixes for egress with your *Standard* SKU load balancer. The following example uses the [az network public-ip prefix show][az-network-public-ip-prefix-show] command to list the IDs of your public IP prefixes:
+
+```azurecli-interactive
+az network public-ip prefix show --resource-group myResourceGroup --name myPublicIPPrefix --query id -o tsv
+```
+
+The above command shows the ID for the *myPublicIPPrefix* public IP prefix in the *myResourceGroup* resource group.
+
+Use the *az aks update* command with the *load-balancer-outbound-ip-prefixes* parameter with the IDs from the previous command.
+
+The following example uses the *load-balancer-outbound-ip-prefixes* parameter with the IDs from the previous command.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
+
+> [!IMPORTANT]
+> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+
 ## Clean up the Standard SKU load balancer configuration
 
 To remove the sample application and load balancer configuration, use [kubectl delete][kubectl-delete]:
@@ -344,6 +373,8 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
@@ -353,3 +384,4 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+

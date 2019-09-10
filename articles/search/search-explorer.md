@@ -1,7 +1,7 @@
 ---
 title: Search explorer tool for querying data in Azure portal - Azure Search
 description: Use Azure portal tools like Search explorer to query indexes in Azure Search. Enter search terms or fully-qualified search strings with advanced syntax.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search

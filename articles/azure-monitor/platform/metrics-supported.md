@@ -72,22 +72,23 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TotalRequests|Total Gateway Requests|Count|Total|Number of gateway requests|Location, Hostname|
-|SuccessfulRequests|Successful Gateway Requests|Count|Total|Number of successful gateway requests|Location, Hostname|
-|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total|Number of unauthorized gateway requests|Location, Hostname|
-|FailedRequests|Failed Gateway Requests|Count|Total|Number of failures in gateway requests|Location, Hostname|
-|OtherRequests|Other Gateway Requests|Count|Total|Number of other gateway requests|Location, Hostname|
-|Duration|Overall Duration of Gateway Requests|Milliseconds|Average|Overall Duration of Gateway Requests in milliseconds|Location, Hostname|
-|Capacity|Capacity|Percent|Average|Utilization metric for ApiManagement service|Location|
-|EventHubTotalEvents|Total EventHub Events|Count|Total|Number of events sent to EventHub|Location|
-|EventHubSuccessfulEvents|Successful EventHub Events|Count|Total|Number of successful EventHub events|Location|
-|EventHubTotalFailedEvents|Failed EventHub Events|Count|Total|Number of failed EventHub events|Location|
-|EventHubRejectedEvents|Rejected EventHub Events|Count|Total|Number of rejected EventHub events (wrong configuration or unauthorized)|Location|
-|EventHubThrottledEvents|Throttled EventHub Events|Count|Total|Number of throttled EventHub events|Location|
-|EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|Number of timed out EventHub events|Location|
-|EventHubDroppedEvents|Dropped EventHub Events|Count|Total|Number of events skipped because of queue size limit reached|Location|
-|EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|Total size of EventHub events in bytes|Location|
-|Requests|Requests|Count|Total|Gateway requests|Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
+|Requests|Requests|Count|Total|The total number of gateway requests in a given period. It can be sliced by various dimensions to help you diagnose issues. |Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
+|TotalRequests|Total Gateway Requests|Count|Total|The total number of gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric. |Location, Hostname|
+|SuccessfulRequests|Successful Gateway Requests|Count|Total|The total number of successful gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total| The total number of unauthorized gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|FailedRequests|Failed Gateway Requests|Count|Total|The total number of failed gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|OtherRequests|Other Gateway Requests|Count|Total|The total number of gateway requests in a given period that do not fall into the successful, unauthorized, or failed categories. This metric has been deprecated, we recommend using the new `Requests` metric. |Location, Hostname|
+|Duration|Overall Duration of Gateway Requests|Milliseconds|Average|The time between when API Management receives a request from a client and when it returns a response to the client.|Location, Hostname|
+|Capacity|Capacity|Percent|Average|Indicator of load on an API Management instance for making informed decisions whether to scale the instance to accommodate more load.|Location|
+|EventHubTotalEvents|Total EventHub Events|Count|Total|The total number of events sent to EventHub from API Management in a given period.|Location|
+|EventHubSuccessfulEvents|Successful EventHub Events|Count|Total|The total number of successful EventHub events in a given period.|Location|
+|EventHubTotalFailedEvents|Failed EventHub Events|Count|Total|The total number of failed EventHub events in a given period.|Location|
+|EventHubRejectedEvents|Rejected EventHub Events|Count|Total|The total number of rejected EventHub events (wrong configuration or unauthorized) in a given period.|Location|
+|EventHubThrottledEvents|Throttled EventHub Events|Count|Total|The total number of throttled EventHub events in a given period.|Location|
+|EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|The total number of timed out EventHub events in a given period.|Location|
+|EventHubDroppedEvents|Dropped EventHub Events|Count|Total|The total number of events skipped because of queue size limit reached in a given period.|Location|
+|EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|The total size of EventHub events in bytes in a given period.|Location|
+
 
 ## Microsoft.Automation/automationAccounts
 
@@ -1236,9 +1237,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |outgoing.wns.authenticationerror|WNS Authentication Errors|Count|Total|Notification not delivered because of errors communicating with Windows Live invalid credentials or wrong token.|No Dimensions|
 |outgoing.apns.success|APNS Successful Notifications|Count|Total|The count of all successful notifications.|No Dimensions|
 |outgoing.apns.invalidcredentials|APNS Authorization Errors|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|No Dimensions|
-|outgoing.apns.badchannel|APNS Bad Channel Error|Count|Total|The count of pushes that failed because the token is invalid (APNS status code: 8).|No Dimensions|
+|outgoing.apns.badchannel|APNS Bad Channel Error|Count|Total|The count of pushes that failed because the token is invalid (APNS binary protocol status code: 8. APNS HTTP protocol status code: 400 with "BadDeviceToken").|No Dimensions|
 |outgoing.apns.expiredchannel|APNS Expired Channel Error|Count|Total|The count of token that were invalidated by the APNS feedback channel.|No Dimensions|
-|outgoing.apns.invalidnotificationsize|APNS Invalid Notification Size Error|Count|Total|The count of pushes that failed because the payload was too large (APNS status code: 7).|No Dimensions|
+|outgoing.apns.invalidnotificationsize|APNS Invalid Notification Size Error|Count|Total|The count of pushes that failed because the payload was too large (APNS binary protocol status code: 7).|No Dimensions|
 |outgoing.apns.pnserror|APNS Errors|Count|Total|The count of pushes that failed because of errors communicating with APNS.|No Dimensions|
 |outgoing.gcm.success|GCM Successful Notifications|Count|Total|The count of all successful notifications.|No Dimensions|
 |outgoing.gcm.invalidcredentials|GCM Authorization Errors (Invalid Credentials)|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|No Dimensions|
@@ -1428,33 +1429,33 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
-|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|No Dimensions|
-|storage|Data space used|Bytes|Maximum|Total database size|No Dimensions|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage. Not applicable to data warehouses.|No Dimensions|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based databases.|No Dimensions|
+|storage|Data space used|Bytes|Maximum|Total database size. Not applicable to data warehouses.|No Dimensions|
 |connection_successful|Successful Connections|Count|Total|Successful Connections|No Dimensions|
 |connection_failed|Failed Connections|Count|Total|Failed Connections|No Dimensions|
 |blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|No Dimensions|
-|deadlock|Deadlocks|Count|Total|Deadlocks|No Dimensions|
-|storage_percent|Data space used percent|Percent|Maximum|Database size percentage|No Dimensions|
-|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
-|workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
-|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
-|dtu_limit|DTU Limit|Count|Average|DTU Limit|No Dimensions|
-|dtu_used|DTU used|Count|Average|DTU used|No Dimensions|
-|cpu_limit|CPU limit|Count|Average|CPU limit|No Dimensions|
-|cpu_used|CPU used|Count|Average|CPU used|No Dimensions|
-|dwu_limit|DWU limit|Count|Maximum|DWU limit|No Dimensions|
-|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage|No Dimensions|
-|dwu_used|DWU used|Count|Maximum|DWU used|No Dimensions|
+|deadlock|Deadlocks|Count|Total|Deadlocks. Not applicable to data warehouses.|No Dimensions|
+|storage_percent|Data space used percent|Percent|Maximum|Database size percentage. Not applicable to data warehouses or hyperscale databases.|No Dimensions|
+|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent. Not applicable to data warehouses.|No Dimensions|
+|workers_percent|Workers percentage|Percent|Average|Workers percentage. Not applicable to data warehouses.|No Dimensions|
+|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage. Not applicable to data warehouses.|No Dimensions|
+|dtu_limit|DTU Limit|Count|Average|DTU Limit. Applies to DTU-based databases.|No Dimensions|
+|dtu_used|DTU used|Count|Average|DTU used. Applies to DTU-based databases.|No Dimensions|
+|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based databases.|No Dimensions|
+|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based databases.|No Dimensions|
+|dwu_limit|DWU limit|Count|Maximum|DWU limit. Applies only to data warehouses.|No Dimensions|
+|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage. Applies only to data warehouses.|No Dimensions|
+|dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|No Dimensions|
 |dw_cpu_percent|DW node level CPU percentage|Percent|Average|DW node level CPU percentage|DwLogicalNodeId|
 |dw_physical_data_read_percent|DW node level Data IO percentage|Percent|Average|DW node level Data IO percentage|DwLogicalNodeId|
-	|cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage|No Dimensions|
-|cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage|No Dimensions|
-|local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage|No Dimensions|
-|app_cpu_billed|App CPU billed|Count|Total|App CPU billed|No Dimensions|
-|app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage|No Dimensions|
-|app_memory_percent|App memory used percentage|Percent|Average|App memory used percentage|No Dimensions|
-|allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|No Dimensions|
+|cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|No Dimensions|
+|cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|No Dimensions|
+|local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|No Dimensions|
+|app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|No Dimensions|
+|app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|No Dimensions|
+|app_memory_percent|App memory used percentage|Percent|Average|App memory used percentage. Applies to serverless databases.|No Dimensions|
+|allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated. Not applicable to data warehouses.|No Dimensions|
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -1463,17 +1464,17 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
 |log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|No Dimensions|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based elastic pools.|No Dimensions|
 |storage_percent|Data space used percent||Percent|Average|Storage percentage|No Dimensions|
 |workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
 |sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
-|eDTU_limit|eDTU limit|Count|Average|eDTU limit|No Dimensions|
+|eDTU_limit|eDTU limit|Count|Average|eDTU limit. Applies to DTU-based elastic pools.|No Dimensions|
 |storage_limit|Data max size|Bytes|Average|Storage limit|No Dimensions|
-|eDTU_used|eDTU used|Count|Average|eDTU used|No Dimensions|
+|eDTU_used|eDTU used|Count|Average|eDTU used. Applies to DTU-based elastic pools.|No Dimensions|
 |storage_used|Data space used|Bytes|Average|Storage used|No Dimensions|
 |xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
-|cpu_limit|CPU limit|Count|Average|CPU limit|No Dimensions|
-|cpu_used|CPU used|Count|Average|CPU used|No Dimensions|
+|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based elastic pools.|No Dimensions|
+|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|No Dimensions|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|No Dimensions|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|No Dimensions|
 

@@ -7,14 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 07/25/2019
+ms.topic: conceptual
+ms.date: 08/16/2019
 ms.author: diberry
 ---
 
 # Data sources for QnA Maker content
 
 QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files    . Content can also be added to the knowledge base from structured QnA content files. 
+
+## Data types
 
 The table below summarizes the types of content and file formats that are supported by QnA Maker.
 
@@ -27,11 +29,21 @@ The table below summarizes the types of content and file formats that are suppor
 
 ## Data source locations
 
-Most data source locations need to provide public URLs or files, which do not require authentication. 
+Data source locations are **public URLs or files**, which do not require authentication. 
 
-[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated files. Sharepoint resources must be files, not web pages. 
+If you need authentication for your data source, consider the following methods to get that data into QnA Maker:
 
-If you have an authenticated file or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base. 
+* [Download file manually](#download-file-from-authenticated-data-source-location) and import into QnA Maker
+* Import file for authenticated [Sharepoint location](#import-file-from-authenticated-sharepoint) 
+
+### Download file from authenticated data source location
+
+If you have an authenticated file (not on an authenticated Sharepoint location) or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base.
+
+### Import file from authenticated Sharepoint 
+
+[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated **files**. Sharepoint resources must be files, not web pages. If the URL ends with a web extension, such as **.ASPX**, it will not import into QnA Maker from Sharepoint.
+
 
 ## FAQ URLs
 
@@ -128,9 +140,21 @@ QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be upload
 
 Any additional columns in the source file are ignored.
 
+### Example of structured Excel file
+
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
  ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### Example of alternate questions for single answer in Excel file
+
+Below is an example of a structured QnA *.xls* file, with several alternate questions for a single answer:
+
+ ![Example of alternate questions for single answer in Excel file](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
+
+ ![Screenshot of alternate questions for single answer imported into knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## Structured data format through import
 

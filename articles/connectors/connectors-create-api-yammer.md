@@ -34,7 +34,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Your Yammer account and user credentials
 
@@ -80,7 +80,7 @@ and open your logic app in Logic App Designer, if not open already.
        Under the actions list, select the action you want.
 
 1. If you're prompted to sign in to Yammer, sign in now 
-sign in now so you can allow access.
+so that you can allow access.
 
 1. Provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.

@@ -234,7 +234,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
 
-* [Understanding Azure Security Center recommendations for virtual machines](security-center-virtual-machine-recommendations.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Monitor identity and access in Azure Security Center](security-center-identity-access.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 * [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)

@@ -8,8 +8,8 @@ ms.custom: experiment-luis-0519
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 07/22/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
@@ -17,6 +17,14 @@ ms.author: diberry
 Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
 
 ## Release notes 
+
+### September 3, 2019
+
+* Azure authoring resource - [migrate now](luis-migration-authoring.md).
+    * 500 apps per Azure resource
+    * 100 versions per app
+* Turkish support for prebuilt entities
+* Italian support for datetimeV2
 
 ### July 23, 2019
 

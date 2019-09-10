@@ -1,5 +1,5 @@
 ---
-title: Composite entity tutorial - LUIS
+title: "Tutorial: Composite entity tutorial - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
 ---

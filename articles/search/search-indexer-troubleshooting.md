@@ -2,14 +2,12 @@
 title: Troubleshoot common search indexer issues - Azure Search
 description: Fix errors and common problems with indexers in Azure Search, including data source connection, firewall, and missing documents.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
 ---
 
 # Troubleshooting common indexer issues in Azure Search

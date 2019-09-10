@@ -3,8 +3,8 @@ title: Azure Resource Manager template functions - resources | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 07/31/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: tomfitz
 
 ---
@@ -38,6 +38,10 @@ The syntax for this function varies by name of the list operations. Each impleme
 | apiVersion |Yes |string |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
 | functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. | 
 
+### Valid uses
+
+The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+
 ### Implementations
 
 The possible uses of list* are shown in the following table.
@@ -56,7 +60,6 @@ The possible uses of list* are shown in the following table.
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
-| Microsoft.ContainerRegistry/registries | [listPolicies](/rest/api/containerregistry/registries/listpolicies) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
@@ -183,7 +186,7 @@ Specify the resource by using either the resource name or the [resourceId functi
 
 If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
 
-### Example
+### List example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account. 
 
@@ -279,7 +282,7 @@ Each supported type is returned in the following format:
 
 Array ordering of the returned values isn't guaranteed.
 
-### Example
+### Providers example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) shows how to use the provider function:
 
@@ -337,8 +340,8 @@ Returns an object representing a resource's runtime state.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. |
-| apiVersion |No |string |API version of the specified resource. Include this parameter when the resource isn't provisioned within same template. Typically, in the format, **yyyy-mm-dd**. |
+| resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID. |
+| apiVersion |No |string |API version of the specified resource. Include this parameter when the resource isn't provisioned within same template. Typically, in the format, **yyyy-mm-dd**. For valid API versions for your resource, see [template reference](/azure/templates/). |
 | 'Full' |No |string |Value that specifies whether to return the full resource object. If you don't specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
@@ -347,17 +350,7 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
-The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
-
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
-
-You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#external-template-and-external-parameters).
-
-By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
-
-If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
-
-To see the property names and values for a resource type, create a template that returns the object in the outputs section. If you have an existing resource of that type, your template returns the object without deploying any new resources. 
+The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios.
 
 Typically, you use the **reference** function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
 
@@ -398,9 +391,48 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
     ...
 ```
 
-For the complete example of the preceding template, see [Windows to Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). A similar example is available for [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+### Valid uses
 
-### Example
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
+
+You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#external-template-and-external-parameters).
+
+If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+
+### Implicit dependency
+
+By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
+
+### Resource name or identifier
+
+When referencing a resource that is deployed in the same template, provide the name of the resource.
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+When referencing a resource that isn't deployed in the same template, provide the resource ID.
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource name.
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+When constructing a fully qualified reference to a resource, the order to combine segments from the type and name isn't simply a concatenation of the two. Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
+
+**{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]**
+
+For example:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
+`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
+
+### Reference example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) deploys a resource, and references that resource.
 
@@ -534,7 +566,9 @@ The returned object is in the following format:
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -542,6 +576,8 @@ The returned object is in the following format:
   }
 }
 ```
+
+The **managedBy** property is returned only for resource groups that contain resources that are managed by another service. For Managed Applications, Databricks, and AKS, the value of the property is the resource ID of the managing resource.
 
 ### Remarks
 
@@ -563,7 +599,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 
 You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](resource-group-using-tags.md#apply-tags-from-resource-group).
 
-### Example
+### Resource group example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returns the properties of the resource group.
 
@@ -587,6 +623,7 @@ The preceding example returns an object in the following format:
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"
@@ -596,7 +633,7 @@ The preceding example returns an object in the following format:
 
 ## resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. 
 
@@ -608,43 +645,46 @@ Returns the unique identifier of a resource. You use this function when the reso
 | resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
-| resourceName2 |No |string |Next resource name segment if resource is nested. |
+| resourceName2 |No |string |Next resource name segment, if needed. |
+
+Continue adding resource names as parameters when the resource type includes more segments.
 
 ### Return value
 
 The identifier is returned in the following format:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 ### Remarks
 
-When used with a [subscription-level deployment](deploy-to-subscription.md), the `resourceId()` function can only retrieve the ID of resources deployed at that level. For example, you can get the ID of a policy definition or role definition, but not the ID of a storage account. For deployments to a resource group, the opposite is true. You can't get the resource ID of resources deployed at the subscription-level.
+The number of parameters you provide varies based on whether the resource is a parent or child resource, and whether the resource is in the same subscription or resource group.
 
-The parameter values you specify depend on whether the resource is in the same subscription and resource group as the current deployment. To get the resource ID for a storage account in the same subscription and resource group, use:
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-To get the resource ID for a storage account in the same subscription but a different resource group, use:
+To get the resource ID for a parent resource in the same subscription and resource group, provide the type and name of the resource.
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-To get the resource ID for a storage account in a different subscription and resource group, use:
+To get the resource ID for a child resource, pay attention to the number of segments in the resource type. Provide a resource name for each segment of the resource type. The name of the segment corresponds to the resource that exists for that part of the hierarchy.
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+To get the resource ID for a resource in the same subscription but different resource group, provide the resource group name.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+To get the resource ID for a resource in a different subscription and resource group, provide the subscription ID and resource group name.
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-To get the resource ID for a database in a different resource group, use:
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+When used with a [subscription-level deployment](deploy-to-subscription.md), the `resourceId()` function can only retrieve the ID of resources deployed at that level. For example, you can get the ID of a policy definition or role definition, but not the ID of a storage account. For deployments to a resource group, the opposite is true. You can't get the resource ID of resources deployed at the subscription-level.
 
 To get the resource ID of a subscription-level resource when deploying at the subscription scope, use:
 
@@ -696,7 +736,7 @@ Often, you need to use this function when using a storage account or virtual net
 }
 ```
 
-### Example
+### Resource ID example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returns the resource ID for a storage account in the resource group:
 
@@ -754,7 +794,7 @@ The function returns the following format:
 }
 ```
 
-### Example
+### Subscription example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) shows the subscription function called in the outputs section. 
 

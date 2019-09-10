@@ -84,26 +84,26 @@ The solution does import alerts from System Center Operations Manager and create
 
 | Property | Description |
 |:--- |:--- |
-| Type |*Alert* |
-| SourceSystem |*OpsManager* |
-| AlertContext |Details of the data item that caused the alert to be generated in XML format. |
-| AlertDescription |Detailed description of the alert. |
-| AlertId |GUID of the alert. |
-| AlertName |Name of the alert. |
-| AlertPriority |Priority level of the alert. |
-| AlertSeverity |Severity level of the alert. |
-| AlertState |Latest resolution state of the alert. |
-| LastModifiedBy |Name of the user who last modified the alert. |
-| ManagementGroupName |Name of the management group where the alert was generated. |
-| RepeatCount |Number of times the same alert was generated for the same monitored object since being resolved. |
-| ResolvedBy |Name of the user who resolved the alert. Empty if the alert has not yet been resolved. |
-| SourceDisplayName |Display name of the monitoring object that generated the alert. |
-| SourceFullName |Full name of the monitoring object that generated the alert. |
-| TicketId |Ticket ID for the alert if the System Center Operations Manager environment is integrated with a process for assigning tickets for alerts.  Empty of no ticket ID is assigned. |
-| TimeGenerated |Date and time that the alert was created. |
-| TimeLastModified |Date and time that the alert was last changed. |
-| TimeRaised |Date and time that the alert was generated. |
-| TimeResolved |Date and time that the alert was resolved. Empty if the alert has not yet been resolved. |
+| `Type` |*Alert* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |Details of the data item that caused the alert to be generated in XML format. |
+| `AlertDescription` |Detailed description of the alert. |
+| `AlertId` |GUID of the alert. |
+| `AlertName` |Name of the alert. |
+| `AlertPriority` |Priority level of the alert. |
+| `AlertSeverity` |Severity level of the alert. |
+| `AlertState` |Latest resolution state of the alert. |
+| `LastModifiedBy` |Name of the user who last modified the alert. |
+| `ManagementGroupName` |Name of the management group where the alert was generated. |
+| `RepeatCount` |Number of times the same alert was generated for the same monitored object since being resolved. |
+| `ResolvedBy` |Name of the user who resolved the alert. Empty if the alert has not yet been resolved. |
+| `SourceDisplayName` |Display name of the monitoring object that generated the alert. |
+| `SourceFullName` |Full name of the monitoring object that generated the alert. |
+| `TicketId` |Ticket ID for the alert if the System Center Operations Manager environment is integrated with a process for assigning tickets for alerts.  Empty of no ticket ID is assigned. |
+| `TimeGenerated` |Date and time that the alert was created. |
+| `TimeLastModified` |Date and time that the alert was last changed. |
+| `TimeRaised` |Date and time that the alert was generated. |
+| `TimeResolved` |Date and time that the alert was resolved. Empty if the alert has not yet been resolved. |
 
 ## Sample log searches
 The following table provides sample log searches for alert records collected by this solution: 

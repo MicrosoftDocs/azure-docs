@@ -1,8 +1,7 @@
 ---
 title: Using PowerShell to setup Application Insights in an Azure  | Microsoft Docs
-description: Automate configuring Azure Diagnostics to pipe to Application Insights.
+description: Automate configuring Azure Diagnostics to pipe data to Application Insights.
 services: application-insights
-documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
@@ -10,12 +9,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/17/2015
+ms.date: 08/06/2019
 ms.author: mbullwin
 ---
-# Using PowerShell to set up Application Insights for an Azure web app
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+# Using PowerShell to set up Application Insights for Azure Cloud Services
 
 [Microsoft Azure](https://azure.com) can be [configured to send Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) to [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The diagnostics relate to Azure Cloud Services and Azure VMs. They complement the telemetry that you send from within the app using the Application Insights SDK. As part of automating the process of creating new resources in Azure, you can configure diagnostics using PowerShell.
 

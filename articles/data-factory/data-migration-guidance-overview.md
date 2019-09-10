@@ -20,7 +20,7 @@ Azure Data Factory can be the tool to do data migration when you want to migrate
 - Big data workload migration from AWS S3, on-prem Hadoop File System to Azure.​ 
 - EDW migration from Oracle Exadata, Netezza, Teradata, AWS Redshift to Azure. 
 
-Azure Data Factory can move PBs' level of data for data lake migration, and tens of TB data for data warehouse migration​. 
+Azure Data Factory can move PBs of data for data lake migration, and tens of TB data for data warehouse migration​. 
 
 ## Why Azure Data Factory can be used for data migration 
 
@@ -53,4 +53,6 @@ If you want to complete the data migration within two weeks (migration window), 
 
 ## Next steps
 
-- [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-azure-storage.md)
+- [Migrate data from on-premises hadoop cluster to Azure](data-migration-guidance-hdfs-azure-storage.md)
+- [Migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md)

@@ -36,7 +36,7 @@ Certificates are composed of three interrelated resources linked together as a K
 -   On-boarding as the IT Admin, PKI Admin or anyone managing accounts with CAs, for a given company (ex. Contoso)  is a prerequisite to using Key Vault certificates.  
     The following CAs are the current partnered providers with Key Vault:  
     -   DigiCert - Key Vault offers OV SSL certificates with DigiCert.  
-    -   Globaltrust - Key Vault offers OV SSL certificates with Globaltrust.  
+    -   GlobalSign - Key Vault offers OV SSL certificates with GlobalSign.  
 
 **Step 2** - An account admin for a CA provider creates credentials to be used by Key Vault to enroll, renew, and use SSL certificates via Key Vault.
 

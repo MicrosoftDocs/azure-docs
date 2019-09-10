@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a Scala Maven application for Spark in Azure HDInsight using IntelliJ'
+title: 'Tutorial: Scala Maven application for Spark with IntelliJ - Azure HDInsight'
 description: Tutorial - Create a Spark application written in Scala with Apache Maven as the build system and an existing Maven archetype for Scala provided by IntelliJ IDEA.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 * A Java IDE. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
 
 ## Install Scala plugin for IntelliJ IDEA
 

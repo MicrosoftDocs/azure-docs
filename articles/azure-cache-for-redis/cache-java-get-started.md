@@ -1,5 +1,5 @@
 ---
-title: Quickstart to learn how to use Azure Cache for Redis with Java | Microsoft Docs
+title: 'Quickstart: Use Azure Cache for Redis with Java'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc
+ms.custom: mvc, seo-java-august2019
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
 ---
 
@@ -144,13 +144,13 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
 >
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Delete](./media/cache-java-get-started/cache-delete-resource-group.png)
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+1. You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
 

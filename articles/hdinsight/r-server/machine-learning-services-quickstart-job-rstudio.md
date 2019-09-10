@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server'
+title: 'Quickstart: RStudio Server to execute R against ML Services - Azure HDInsight'
 description: In the quickstart, you execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -178,3 +178,6 @@ In this quickstart, you learned how to run an R script with RStudio Server that 
 
 > [!div class="nextstepaction"]
 >[Compute context options for ML Services on HDInsight](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> This page describes features of RStudio software. Microsoft Azure HDInsight is not affiliated with RStudio, Inc.

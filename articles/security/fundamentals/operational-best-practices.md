@@ -10,6 +10,7 @@ editor: tomsh
 
 ms.assetid:
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -115,7 +116,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Integrate security solutions in Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) for instructions. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Best practice**: Integrate Azure logs with your SIEM.   
-**Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview.md#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
+**Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
 **Detail**: [Enable Windows Defender ATP integration](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
@@ -215,7 +216,7 @@ For more information, see [Create and manage policies to enforce compliance](../
 **Detail**: Document mapping in your organization’s documentation or in the Azure policy itself by adding a reference to the organizational policy in the Azure [policy description](../../governance/policy/concepts/definition-structure.md#display-name-and-description) or the Azure policy [initiative](../../governance/policy/concepts/definition-structure.md#initiatives) description.
 
 ## Monitor Azure AD risk reports
-The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a [risk event](../../active-directory/reports-monitoring/concept-risk-events.md). Risk events are recorded in Azure AD security reports. For more information, read about the [users at risk security report](../../active-directory/reports-monitoring/concept-user-at-risk.md) and the [risky sign-ins security report](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
+The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a [risk detection](../../active-directory/reports-monitoring/concept-risk-events.md). Risk detections are recorded in Azure AD security reports. For more information, read about the [users at risk security report](../../active-directory/reports-monitoring/concept-user-at-risk.md) and the [risky sign-ins security report](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## Next steps
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

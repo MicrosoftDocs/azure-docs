@@ -2,12 +2,12 @@
 title: Install Office on a master VHD image - Azure
 description: How to install and customize Office on a Windows Virtual Desktop preview master image to Azure.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Install Office on a master VHD image
 

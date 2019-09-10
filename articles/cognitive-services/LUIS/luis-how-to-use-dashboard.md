@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
 ---
@@ -73,9 +73,9 @@ The primary method of fixing your app will be to add or edit example utterances 
 
 Adding example utterances should be done by someone who:
 
-* has a high degree of understanding of what utterances are in the different intents
-* knows how utterances in one intent may be confused with another intent
-* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent, and the different data pulled out with entities
+* has a high degree of understanding of what utterances are in the different intents.
+* knows how utterances in one intent may be confused with another intent.
+* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent. If this is the case, the different data must be pulled out with entities.
 
 ### Patterns and phrase lists
 

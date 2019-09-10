@@ -1,9 +1,7 @@
 ---
 title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Storage Gen2
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
@@ -28,7 +26,7 @@ To learn how to assign roles to security principals in the scope of your storage
 
 ### The impact of role assignments on file and directory level access control lists
 
-While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the file system level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a file system, that security principal has the authorization level associated with that role for ALL directories and files in that file system, regardless of ACL assignments.
+While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
 
 When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an RBAC assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
 
@@ -78,7 +76,7 @@ Both access ACLs and default ACLs have the same structure.
 
 ### Levels of permission
 
-The permissions on a file system object are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
+The permissions on a container object are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -87,7 +85,7 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
 
 > [!NOTE]
-> If you are granting permissions by using only ACLs (no RBAC), then to grant a service principal read or write access to a file, you'll need to give the service principal **Execute** permissions to the file system, and to each folder in the hierarchy of folders that lead to the file.
+> If you are granting permissions by using only ACLs (no RBAC), then to grant a service principal read or write access to a file, you'll need to give the service principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
 
 #### Short forms for permissions
 
@@ -151,7 +149,7 @@ In the POSIX ACLs, every user is associated with a *primary group*. For example,
 
 ##### Assigning the owning group for a new file or directory
 
-* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the file system is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
+* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 container is created. In this case, the owning group is set to the user who created the container if it was done using OAuth. If the container is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
 
 ##### Changing the owning group
@@ -213,13 +211,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 As illustrated in the Access Check Algorithm, the mask limits access for named users, the owning group, and named groups.  
 
 > [!NOTE]
-> For a new Data Lake Storage Gen2 file system, the mask for the access ACL of the root directory ("/") defaults to 750 for directories and 640 for files. Files do not receive the X bit as it is irrelevant to files in a store-only system.
+> For a new Data Lake Storage Gen2 container, the mask for the access ACL of the root directory ("/") defaults to 750 for directories and 640 for files. Files do not receive the X bit as it is irrelevant to files in a store-only system.
 >
 > The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
 
 #### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX file system. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
 
 The sticky bit isn't shown in the Azure portal.
 
@@ -288,7 +286,7 @@ Or
 
 ### Who is the owner of a file or directory?
 
-The creator of a file or directory becomes the owner. In the case of the root directory, this is the identity of the user who created the file system.
+The creator of a file or directory becomes the owner. In the case of the root directory, this is the identity of the user who created the container.
 
 ### Which group is set as the owning group of a file or directory at creation?
 
@@ -317,7 +315,7 @@ When you have the correct OID for the service principal, go to the Storage Explo
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-Azure RBAC assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the file system resource.
+Azure RBAC assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
 
 ACLs do not inherit. However, default ACLs can be used to set ACLs for child subdirectories and files created under the parent directory. 
 

@@ -1,6 +1,6 @@
 ---
 title: Set up Apache Kafka on HDInsight using Azure Resource Manager - Quickstart
-description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.
+description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure Resource Manager template. You also learn about Kafka topics, subscribers, and consumers.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -63,7 +63,7 @@ An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) u
 
     Once connected, you see information similar to the following text:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -81,7 +81,6 @@ An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) u
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information

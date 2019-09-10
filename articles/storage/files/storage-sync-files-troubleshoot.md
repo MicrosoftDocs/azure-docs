@@ -559,7 +559,7 @@ To confirm the certificate is expired, perform the following steps:
 If the client authentication certificate is expired, perform the following steps to resolve the issue:
 
 1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell commands on the server:
+2. Run the following PowerShell command on the server:
 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
@@ -630,7 +630,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (decimal)** | -2134364145 |
+| **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
@@ -680,7 +680,7 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 | **Error string** | ECS_E_SERVICE_UNAVAILABLE |
 | **Remediation required** | No |
 
-This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
+This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service is available again.
 
 <a id="-2146233088"></a>**Sync failed due to an exception.**  
 
@@ -713,7 +713,7 @@ This error occurs because the storage account has failed over to another region.
 | **Error string** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Remediation required** | No |
 
-This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
+This error occurs because of an internal problem with the sync database. This error will auto-resolve when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
 <a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
 

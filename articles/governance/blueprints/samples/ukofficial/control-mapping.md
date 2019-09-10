@@ -41,7 +41,7 @@ encryption on storage accounts, SQL databases, virtual machine disks, and automa
 variables; audit insecure connections to storage accounts and Redis Cache; audit weak virtual
 machine password encryption; and audit unencrypted Service Fabric communication.
 
-- Monitor unencrypted SQL databases in Azure Security Center
+- Transparent Data Encryption on SQL databases should be enabled
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
 - Secure transfer to storage accounts should be enabled
@@ -208,7 +208,7 @@ This blueprint helps you ensure system events are logged by assigning [Azure Pol
 definitions that audit log settings on Azure resources. An assigned policy also audits if virtual
 machines aren't sending logs to a specified log analytics workspace.
 
-- Monitor unaudited SQL servers in Azure Security Center
+- Auditing should be enabled on advanced data security settings on SQL Server
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
@@ -226,7 +226,7 @@ following articles to learn about the overview and how to deploy this sample:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

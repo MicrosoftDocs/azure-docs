@@ -176,7 +176,7 @@ For MARS agent operations to succeed the cache folder needs to adhere to the bel
 - [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
 
 ### Increase shadow copy storage
-Backup operations could fail if there is insufficient shadow copy storage space required to protect the data source. To resolve this issue increase the shadow copy storage space on the protected volume using vssadmin as shown below:
+Backup operations could fail if there is insufficient shadow copy storage space required to protect the data source. To resolve this issue, increase the shadow copy storage space on the protected volume using vssadmin as shown below:
 - Check the current shadow storage space from the elevated command prompt:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
 - Increase the shadow storage space using the below command:<br/>

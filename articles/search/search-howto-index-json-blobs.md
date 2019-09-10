@@ -4,7 +4,7 @@ description: Crawl Azure JSON blobs for text content using the Azure Search Blob
 
 ms.date: 05/02/2019
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 
 services: search

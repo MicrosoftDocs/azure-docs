@@ -219,7 +219,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 ## Create a table
 
 > [!NOTE]  
-> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](https://www.freetds.org/) from the HDInsight cluster.
 
 1. Use the following command to install FreeTDS on the HDInsight cluster:
 
@@ -637,7 +637,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     > [!NOTE]  
     > This image only shows successful runs of the job, not the individual actions within the scheduled workflow. To see the individual actions, select one of the **Action** entries.
 
-    ![Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Coordinator Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## Troubleshooting
 

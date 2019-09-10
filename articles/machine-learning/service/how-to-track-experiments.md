@@ -15,11 +15,14 @@ ms.date: 07/11/2019
 ms.custom: seodec18
 ---
 
-# Log metrics during training runs in Azure Machine Learning
+# Track machine learning training metrics with Azure Machine Learning
 
-Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging to your training script, submit an experiment run, monitor the run, and view the results of a run in Azure Machine Learning service.
+Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning service.
 
-## List of training metrics 
+> [!NOTE]
+> Azure Machine Learning service may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+
+## Available metrics to track
 
 The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -36,7 +39,7 @@ The following metrics can be added to a run while training an experiment. To vie
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
 
-## Start logging metrics
+## Choose a logging option
 
 If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
@@ -45,7 +48,7 @@ If you want to track or monitor your experiment, you must add code to start logg
 ## Set up the workspace
 Before adding logging and submitting an experiment, you must set up the workspace.
 
-1. Load the workspace. To learn more about setting the workspace configuration, follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk).
+1. Load the workspace. To learn more about setting the workspace configuration, see [workspace configuration file](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -217,7 +220,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
 ## Manage a run
 
-The [Start, monitor and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
+The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
 
 ## View run details
 
@@ -266,7 +269,7 @@ Model training and monitoring occur in the background so that you can run other 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## View the experiment in the Azure portal
+## View the experiment in the Azure portal or your [workspace landing page (preview)](https://ml.azure.com)
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history in two ways:
 

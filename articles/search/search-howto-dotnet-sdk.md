@@ -2,7 +2,7 @@
 title: How to use Azure Search from a .NET Application - Azure Search
 description: Learn how to use Azure Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -576,7 +576,7 @@ The SDK uses JSON.NET for serializing and deserializing documents. You can custo
 * Map between property names in your code and field names in your index.
 * Create custom attributes that can be used for mapping properties to document fields.
 
-You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests.
+You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models). It contains classes that are used by the custom serialization tests.
 
 ### Searching for documents in the index
 The last step in the sample application is to search for some documents in the index:

@@ -25,7 +25,7 @@ Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 ## Prerequisites
 
 1. You must have a Personalizer loop configured
-1. The Personalizer loop must have at least 50,000 events in its logs for meaningful evaluation results.
+1. The Personalizer loop must have a representative amount of data - as a ballpark we recommmend at least 50,000 events in its logs for meaningful evaluation results.
 
 Optionally, you may also have previously exported _learning policy_ files you can compare and test in the same evaluation.
 

@@ -1,7 +1,7 @@
 ---
 title: How to create a Commercial Marketplace account in Partner Center 
 description: Learn how to create a Commercial Marketplace account in Partner Center. 
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
@@ -15,7 +15,7 @@ To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft
 
 ## Create a Partner Center account
 
-In this article, we'll cover how to create a Partner Center account, including how to: 
+In this article, we'll cover how to create a Partner Center account, including how to:
 
 - [Register using the Partner Center enrollment page](#to-create-a-commercial-marketplace-account-in-partner-center)
 - [Sign in with a work account](#sign-in-with-a-work-account)
@@ -51,11 +51,11 @@ You'll need to agree to terms and conditions in the [Microsoft Marketplace Publi
 
 #### Provide your publisher profile
 
-Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the [Microsoft Partner Network](https://partner.microsoft.com/commercial). After you join the Microsoft Partner Network, you'll be provided with an MPN ID. 
+Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the [Microsoft Partner Network](https://partner.microsoft.com/commercial). After you join the Microsoft Partner Network, you'll be provided with an MPN ID.
 
-Create a Publisher ID. Your Publisher ID uniquely identifies your company and your offers in Marketplace and AppSource. 
+Create a Publisher ID. Your Publisher ID uniquely identifies your company and your offers in Marketplace and AppSource.
 
-After you've confirmed your publisher profile information, agree to the terms and conditions and create your Partner Center account by selecting **Accept and continue**. 
+After you've confirmed your publisher profile information, agree to the terms and conditions and create your Partner Center account by selecting **Accept and continue**.
 
 >[!Important]
 >*You must be authorized to act on your company's behalf in order to accept these terms.*
@@ -66,7 +66,7 @@ Thank you for creating an account on Partner Center! You'll now be taken to the 
 
 If your account has been migrated from the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), you do not need to create a new Partner Center account, but will have received a customized link to your new Partner Center account via email, and in a banner notification displayed after logging in to your existing CPP account.
 
-Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/) in Partner Center.
+Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 
 The publishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account. 
 

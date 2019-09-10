@@ -26,9 +26,7 @@ Use this section to review whether your Windows device can support IoT Edge, and
 
 ### Supported Windows versions
 
-Azure IoT Edge with Linux containers can run on the following versions of Windows: 
-* Windows 10 Anniversary update (build 14393) or newer
-* Windows Server 2016 or newer
+Azure IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
 For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
@@ -102,7 +100,8 @@ Examine service logs from the last 5 minutes.
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md), you will see others. 
+List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 
+
 
 ```powershell
 iotedge list

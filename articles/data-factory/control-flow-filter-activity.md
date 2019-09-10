@@ -3,19 +3,16 @@ title: Filter activity in Azure Data Factory | Microsoft Docs
 description: The Filter activity filters the inputs. 
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: shlo
-
 ---
+
 # Filter activity in Azure Data Factory
 You can use a Filter activity in a pipeline to apply a filter expression to an input array. 
 
@@ -43,7 +40,7 @@ items | Input array on which filter should be applied. | Expression | Yes
 
 ## Example
 
-In this example, the pipeline has two activities: **Filter** and **ForEach**. The Filter activity is configured to filter the input array for items with a value greater than 3. The ForEach activity then iterates over the filtered values and waits for the number of seconds specified by the current value.
+In this example, the pipeline has two activities: **Filter** and **ForEach**. The Filter activity is configured to filter the input array for items with a value greater than 3. The ForEach activity then iterates over the filtered values and sets the variable **test** to the current value.
 
 ```json
 {
@@ -58,32 +55,54 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 				}
 			},
 			{
-				"name": "MyForEach",
-				"type": "ForEach",
-				"typeProperties": {
-					"isSequential": "false",
-					"batchCount": 1,
-					"items": "@activity('MyFilterActivity').output.value",
-					"activities": [{
-						"type": "Wait",
-						"typeProperties": {
-							"waitTimeInSeconds": "@item()"
-						},
-						"name": "MyWaitActivity"
-					}]
-				},
-				"dependsOn": [{
+			"name": "MyForEach",
+			"type": "ForEach",
+			"dependsOn": [
+				{
 					"activity": "MyFilterActivity",
-					"dependencyConditions": ["Succeeded"]
-				}]
+					"dependencyConditions": [
+						"Succeeded"
+					]
+				}
+			],
+			"userProperties": [],
+			"typeProperties": {
+				"items": {
+					"value": "@activity('MyFilterActivity').output.value",
+					"type": "Expression"
+				},
+				"isSequential": "false",
+				"batchCount": 1,
+				"activities": [
+					{
+						"name": "Set Variable1",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "test",
+							"value": {
+								"value": "@string(item())",
+								"type": "Expression"
+							}
+						}
+					}
+				]
 			}
-		],
+		}],
 		"parameters": {
 			"inputs": {
 				"type": "Array",
 				"defaultValue": [1, 2, 3, 4, 5, 6]
 			}
-		}
+		},
+
+        "variables": {
+            "test": {
+                "type": "String"
+            }
+        },
+        "annotations": []
 	}
 }
 ```

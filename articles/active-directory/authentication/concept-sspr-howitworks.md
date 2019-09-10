@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,11 +18,6 @@ ms.collection: M365-identity-device-management
 # How it works: Azure AD self-service password reset
 
 How does self-service password reset (SSPR) work? What does that option mean in the interface? Continue reading to find out more about Azure Active Directory (Azure AD) SSPR.
-
-|     |
-| --- |
-| Mobile app notification and Mobile app code as methods for Azure AD self-service password reset are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 ## How does the password reset portal work?
 
@@ -58,8 +53,8 @@ Read through the following steps to learn about the logic behind the password re
 
 If SSPR is enabled, you must select at least one of the following options for the authentication methods. Sometimes you hear these options referred to as "gates." We highly recommend that you **choose two or more authentication methods** so that your users have more flexibility in case they are unable to access one when they need it. Additional details about the methods listed below can be found in the article [What are authentication methods?](concept-authentication-methods.md).
 
-* Mobile app notification (preview)
-* Mobile app code (preview)
+* Mobile app notification
+* Mobile app code
 * Email
 * Mobile phone
 * Office phone
@@ -83,7 +78,7 @@ Users can choose to supply more authentication methods if the administrator enab
 
 If a user does not have the minimum required methods registered, they see an error page that directs them to request that an administrator reset their password.
 
-#### Mobile app and SSPR (Preview)
+#### Mobile app and SSPR
 
 When using a mobile app, like the Microsoft Authenticator app, as a method for password reset, you should be aware of the following caveats:
 

@@ -74,7 +74,7 @@ Before you publish the runbook to make it available in production, you want to t
 1. Click **Start** to start the test. This option should be the only enabled option.
 1. A [runbook job](automation-runbook-execution.md) is created and its status displayed.
 
-   The job status will start as *Queued* indicating that it's waiting for a runbook worker in the cloud to come available. It moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
+   The job status will start as *Queued* indicating that it's waiting for a runbook worker in the cloud to come available. It moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.
 
 1. When the runbook job completes, its output is displayed. In your case, you should see *Hello World*.
 
@@ -88,7 +88,7 @@ The runbook that you created is still in Draft mode. You must publish it before 
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 1. If you scroll left to view the runbook in the **Runbooks** pane now, it shows an **Authoring Status** of **Published**.
-1. Scroll back to the right to view the pane for **MyFirstRunbook-Workflow**.  
+1. Scroll back to the right to view the pane for **MyFirstRunbook-Workflow**.
    The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
 1. you just want to start the runbook so click **Start** and then **Yes** when prompted.
 
@@ -101,7 +101,7 @@ The runbook that you created is still in Draft mode. You must publish it before 
 
 1. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and you can see your *Hello World*.
 
-   ![Job Summary](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
+   ![Job Summary](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
 1. Close the Output pane.
 1. Click **All Logs** to open the Streams pane for the runbook job. you should only see *Hello World* in the output stream, but this view can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
@@ -150,7 +150,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 Now that your runbook is authenticating to your Azure subscription, you can manage resources. you add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now you're hardcoding that name in the runbook. If you're managing resources across multiple subscriptions, you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
-1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
+1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -182,7 +182,7 @@ your runbook currently starts the virtual machine that you hardcoded in the runb
     Param(
      [string]$VMName,
      [string]$ResourceGroupName
-    )  
+    )
    # Ensures you do not inherit an AzureRMContext in your runbook
    Disable-AzureRmContextAutosave –Scope Process
 
@@ -200,10 +200,11 @@ your runbook currently starts the virtual machine that you hardcoded in the runb
 
    ![Start Runbook](media/automation-first-runbook-textual/automation-pass-params.png)
 
-7. When the runbook completes, check that the virtual machine was started.  
+7. When the runbook completes, check that the virtual machine was started.
 
 ## Next steps
 
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

@@ -25,7 +25,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
-|[Access Interactive Inc.](http://www.access-interactive.com/)|
+|[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[ActioNet](https://www.actionet.com/)|
 |[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Affigent](http://www.affigent.com/)|
@@ -56,7 +56,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
-|[Bio Automation Support](http://www.stacsdna.com/)|
+|[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
@@ -78,7 +78,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciracom Inc.](https://ciracom.com)|
-|[ClearShark](http://clearshark.com/)|
+|[ClearShark](https://clearshark.com/)|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -278,7 +278,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[Sybatech, Inc](https://www.linkedin.com/company/sybatech-inc-)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|

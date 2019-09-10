@@ -27,12 +27,12 @@ Security Center reports the following endpoint protection issues:
 - Endpoint protection health:
 
   - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
-  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-os-coverage.md#supported-endpoint-protection-solutions) for a list of supported solutions.
+  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-services.md#endpoint-supported) for a list of supported solutions.
   - Not reporting – An antimalware solution is installed but not reporting data.
   - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
 
     > [!NOTE]
-    > See [Integrate security solutions](security-center-os-coverage.md#supported-endpoint-protection-solutions) for a list of endpoint protection security solutions integrated with Security Center.
+    > See [Integrate security solutions](security-center-services.md#endpoint-supported) for a list of endpoint protection security solutions integrated with Security Center.
     >
     >
 

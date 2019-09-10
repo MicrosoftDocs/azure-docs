@@ -181,7 +181,7 @@ To prevent others from changing or deleting your logic app, you can use [Azure R
 
 ## Access to run history data
 
-During a logic app run, all the data is encrypted during transit and at rest. When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
+During a logic app run, all the data is encrypted during transit by using [Transit Layer Security (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) and at [rest](../security/fundamentals/encryption-atrest.md). When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
 When you access your logic app's run history, Logic Apps authenticates your access and provides links to the inputs and outputs from the requests and responses in your logic app's run. However, for actions that handle any passwords, secrets, keys, or other sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/key-vault-whatis.md) to use when authenticating an HTTP action, you want to hide that secret from view.
 
@@ -440,7 +440,7 @@ This example template that has multiple secured parameter definitions that use t
 | Parameter name | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | A template parameter that accepts a password that is then passed to the workflow definition's `basicAuthPasswordParam` parameter |
-| `TemplatePasswordParam` | A template parameter that accepts a username that is then passed to the workflow definition's `basicAuthUserNameParam` parameter |
+| `TemplateUsernameParam` | A template parameter that accepts a username that is then passed to the workflow definition's `basicAuthUserNameParam` parameter |
 | `basicAuthPasswordParam` | A workflow definition parameter that accepts the password for basic authentication in an HTTP action |
 | `basicAuthUserNameParam` | A workflow definition parameter that accepts the username for basic authentication in an HTTP action |
 |||

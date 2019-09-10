@@ -67,7 +67,7 @@ From your SSL certificate, export the public key .cer file (not the private key)
 
 ## Export trusted root certificate (for v2 SKU)
 
-A trusted root certificate is required to allow backend instances in Application Gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, you'll use an SSL certificate for the backend certificate and export its public key. Then you'll export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. 
+Trusted root certificate is required to whitelist backend instances in application gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, we will use an SSL certificate for the backend certificate, export its public key and then export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. The intermediate certificate(s) should be bundled with server certificate and installed on the backend server.
 
 The following steps help you export the .cer file for your certificate:
 
@@ -99,4 +99,5 @@ The following steps help you export the .cer file for your certificate:
 
 ## Next steps
 
-Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add it to the application gateway to allow your backend servers for end to end SSL encryption. See [how to configure end to end SSL encryption](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add this to the application gateway to whitelist your backend servers for end to end SSL encryption. See [how to configure end to end SSL encryption](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

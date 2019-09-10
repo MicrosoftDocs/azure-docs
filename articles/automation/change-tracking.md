@@ -29,7 +29,7 @@ The following versions of the Windows operating system are officially supported 
 
 ## Supported Linux operating systems
 
-The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
+The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.
 
 ### 64-bit
 
@@ -63,6 +63,24 @@ To begin tracking changes, you need to enable the Change Tracking and Inventory 
 To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Once you have a machine onboarding with the Change Tracking and Inventory solution, you can configure the items to track. When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
 
 For tracking changes in files on both Windows and Linux, MD5 hashes of the files are used. Theses hashes are then used to detect if a change has been made since the last inventory.
+
+### File Integrity Monitoring in Azure Security Center
+
+Azure Security Center has added File Integrity Monitoring (FIM) built on Azure Change Tracking. While FIM monitors Files and Registries only, the full Change Tracking solution also includes:
+
+- Software changes
+- Windows Services
+- Linux Daemons
+
+If you have already enabled FIM and would like to try out the full Change Tracking solution, you need to perform the following steps. You settings are not removed by this process.
+
+> [!NOTE]
+> Enabling the full Change Tracking solution may cause additional charges, for more information, see [Automation Pricing](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
+1. Remove the monitoring solution by navigating to the workspace and locating it in the [List of installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Click on the name of the solution to open its summary page and then click on Delete, as detailed in [Remove a monitoring solution](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Re-enable the solution by navigating to the Automation account and selecting **Change Tracking** from the resource menu under **Configuration Management**.
+4. Confirm your workspace setting details, and click **Enable**.
 
 ### Configure Linux files to track
 
@@ -192,7 +210,7 @@ The agent only tracks changes, this optimizes the performance of the agent. Sett
 
 > [!NOTE]
 > While the agent can track changes down to a 10 second interval, the data still takes a few minutes to be displayed in the portal. Changes during the time to display in the portal are still tracked and logged.
-  
+
 ### Registry key change tracking
 
 The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys, you must enable each one.
@@ -273,7 +291,7 @@ The following table provides sample log searches for change records collected by
 
 ## Alert on changes
 
-A key capability of Change Tracking and Inventory is the ability to alert on the configuration state and any changes to the configuration state of your hybrid environment.  
+A key capability of Change Tracking and Inventory is the ability to alert on the configuration state and any changes to the configuration state of your hybrid environment.
 
 In the following example, the screenshot shows that the file `C:\windows\system32\drivers\etc\hosts` has been modified on a machine. This file is important because the Hosts file is used by Windows to resolve hostnames to IP addresses and takes precedence over even DNS, which could result in connectivity issues or the redirection of traffic to malicious or otherwise dangerous websites.
 

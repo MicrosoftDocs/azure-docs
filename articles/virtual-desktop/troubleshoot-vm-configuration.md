@@ -2,12 +2,12 @@
 title: Tenant and host pool creation in Windows Virtual Desktop - Azure
 description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
-ms.author: v-chjenk
+ms.date: 08/29/2019
+ms.author: helohr
 ---
 # Tenant and host pool creation
 
@@ -29,39 +29,45 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Cause:** There was a typo made when the credentials were entered in the Azure Resource Manager template interface fixes.
 
-**Fix:** Follow these instructions to correct the credentials.
+**Fix:** Take one of the following actions to resolve.
 
-1. Manually add the VMs to a domain.
-2. Redeploy once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Manually add the VMs to a domain.
+- Redeploy the template once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### Error: Timeout waiting for user input
 
 **Cause:** The account used to complete the domain join may have multi-factor authentication (MFA).
 
-**Fix:** Follow these instructions to complete the domain join.
+**Fix:** Take one of the following actions to resolve.
 
-1. Temporarily remove MFA for the account.
-2. Use a service account.
+- Temporarily remove MFA for the account.
+- Use a service account.
 
 ### Error: The account used during provisioning doesn't have permissions to complete the operation
 
 **Cause:** The account being used doesn't have permissions to join VMs to the domain due to compliance and regulations.
 
-**Fix:** Follow these instructions.
+**Fix:** Take one of the following actions to resolve.
 
-1. Use an account that is a member of the Administrator group.
-2. Grant the necessary permissions to the account being used.
+- Use an account that is a member of the Administrator group.
+- Grant the necessary permissions to the account being used.
 
 ### Error: Domain name doesn't resolve
 
-**Cause 1:** VMs are in a resource group that's not associated with the virtual network (VNET) where the domain is located.
+**Cause 1:** VMs are on a virtual network that's not associated with the virtual network (VNET) where the domain is located.
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Cause 2:** When using AadService (AADS), DNS entries have not been set.
+**Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+
+**Cause 3:** The network interface's DNS server settings do not point to the appropriate DNS server on the virtual network.
+
+**Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
+- Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
+- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ## Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
@@ -197,7 +203,12 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
@@ -299,7 +310,7 @@ We're currently looking into the notification and grace period timeout issues an
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To learn more about the Preview service, see [Windows Virtual Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

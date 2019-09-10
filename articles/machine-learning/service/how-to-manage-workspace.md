@@ -1,5 +1,5 @@
 ---
-title: Create and manage workspaces
+title: Create Azure ML workspaces in the portal
 titleSuffix: Azure Machine Learning service
 description: Learn how to create, view and delete Azure Machine Learning service workspaces in the Azure portal.
 services: machine-learning
@@ -15,15 +15,26 @@ ms.custom: seodec18
 
 ---
 
-# Create and manage Azure Machine Learning service workspaces
+# Create and manage Azure Machine Learning service workspaces in the Azure portal
 
-In this article, you'll create, view, and delete [**Azure Machine Learning service workspaces**](concept-workspace.md) in the Azure portal for [Azure Machine Learning service](overview-what-is-azure-ml.md).  You can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md), [with Python code](https://aka.ms/aml-sdk) or [via the VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
+In this article, you'll create, view, and delete [**Azure Machine Learning service workspaces**](concept-workspace.md) in the Azure portal for [Azure Machine Learning service](overview-what-is-azure-ml.md).  The portal is the easiest way to get started with workspaces but as your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md), [with Python code](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or [via the VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
 ## Create a workspace
 
 To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+
+### Download a configuration file
+
+1. If you will be creating a [Notebook VM](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
+
+1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
+
+   ![Download config.json](./media/how-to-manage-workspace/configure.png)
+   
+   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to the correct directory on the VM for you.
+
 
 ## <a name="view"></a>View a workspace
 

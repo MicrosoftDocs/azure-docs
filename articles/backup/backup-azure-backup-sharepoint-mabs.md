@@ -6,11 +6,11 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/8/2018
+ms.date: 06/08/2018
 ms.author: dacurwin
 ---
 
-# Back up a SharePoint farm to Azure
+# Back up a SharePoint farm to Azure with MABS
 You back up a SharePoint farm to Microsoft Azure by using Microsoft Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 ## SharePoint supported versions and related protection scenarios
@@ -38,7 +38,7 @@ Azure Backup Server runs as a LocalSystem account. To back up SQL Server databas
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
 
 ### SharePoint Server
-While performance depends on many factors such as size of SharePoint farm, as general guidance one MABS can protect a 25 TB SharePoint farm.
+While performance depends on many factors such as size of SharePoint farm, as general guidance one MABS can protect a 25-TB SharePoint farm.
 
 ### What's not supported
 * MABS that protects a SharePoint farm does not protect search indexes or application service databases. You will need to configure the protection of these databases separately.

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2019
 ms.author: ryanwi
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn how Android native apps can call an API that requires access tokens by Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
 ---

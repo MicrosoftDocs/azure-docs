@@ -64,12 +64,13 @@ To use PowerShell to initiate an account failover, you must first install the 6.
 
     - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
     - Remove all **Azure** modules from `%Program Files%\WindowsPowerShell\Modules`.
-    
+
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Close and reopen the PowerShell window after installing PowerShellGet. 
 
 1. Install the latest version of Azure PowerShell:
@@ -78,14 +79,14 @@ To use PowerShell to initiate an account failover, you must first install the 6.
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Install an Azure Storage preview module that supports Azure AD:
-   
+1. Install an Azure Storage preview module that supports account failover:
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Close and reopen the PowerShell window.
  
-
 To initiate an account failover from PowerShell, execute the following command:
 
 ```powershell

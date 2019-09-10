@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Enable authentication in a single-page application - Azure Active Directory B2C
+title: 'Tutorial: Enable authentication in a single-page application - Azure Active Directory B2C'
 description: Learn how to use Azure Active Directory B2C to provide user login for a single page application (JavaScript).
 services: active-directory-b2c
 author: mmacy
@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.author: marsma
 ms.date: 07/24/2019
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -45,8 +45,8 @@ Additionally, you need the following in your local development environment:
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory and subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Select **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select the *webapp1* application.
 1. Under **Reply URL**, add `http://localhost:6420`.
 1. Select **Save**.
@@ -105,23 +105,23 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
     Listening on port 6420...
     ```
 
-1. Navigate to `http://localhost:6420` in your browser to view the application.
+1. Go to `http://localhost:6420` in your browser to view the application.
 
 The sample supports sign-up, sign-in, profile editing, and password reset. This tutorial highlights how a user signs up using an email address.
 
 ### Sign up using an email address
 
-1. Click **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
-1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, click the **Sign up now** link.
+1. Select **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
+1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, select the **Sign up now** link.
 1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
     ![Sign-up page presented by the sign-in/sign-up user flow](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
-1. Click **Create** to create a local account in the Azure AD B2C directory.
+1. Select **Create** to create a local account in the Azure AD B2C directory.
 
-When you click **Create**, the sign up page closes and the sign in page reappears.
+When you select **Create**, the sign up page closes and the sign in page reappears.
 
 You can now use your email address and password to sign in to the application.
 

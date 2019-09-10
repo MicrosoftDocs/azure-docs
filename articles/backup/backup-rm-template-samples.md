@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager templates for Azure Backup
-description: Azure Backup PowerShell Samples
+description: Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features
 
 author: dcurwin
 manager: carmonm

@@ -82,7 +82,7 @@ There are two options when conducting a self-upgrade.  You can either upgrade yo
 - [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
 - [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
-   - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
    - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
@@ -149,6 +149,6 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
-- [Create a user-defined restore point](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Learn How to restore to Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Create a user-defined restore point](sql-data-warehouse-restore-points.md)
+- [Learn How to restore to Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)

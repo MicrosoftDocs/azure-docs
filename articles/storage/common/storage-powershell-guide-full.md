@@ -127,7 +127,7 @@ To change the settings for a storage account, use [Set-AzStorageAccount](/powers
 
 * The **tags** assigned to the storage account. Tags are often used to categorize resources for billing purposes.
 
-* The **SKU** is the replication setting for the storage account, such as LRS for Locally Redundant Storage. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. Note that you can't change Standard\_ZRS or Premium\_LRS to other SKUs, or change other SKUs to these.
+* The **SKU** is the replication setting for the storage account, such as LRS for Locally Redundant Storage. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. Note that you can't change Standard\_ZRS, Standard\_GZRS, Standard\_RAGZRS, or Premium\_LRS to other SKUs, or change other SKUs to these.
 
 * The **access tier** for Blob storage accounts. The value for access tier is set to **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 

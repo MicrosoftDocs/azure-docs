@@ -172,7 +172,7 @@ Yes. To document compliance, Microsoft retained a leading independent assessment
 
 **Does the feature apply to only block blobs, or to page and append blobs as well?**
 
-Immutable storage can be used with any blob type, but we recommend that you use it mostly for block blobs. Unlike block blobs, page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed.
+Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs. Unlike block blobs, any new page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed. Therefore, setting a WORM policy on a container that stores VHDs (page blobs) for any active Virtual Machines is strongly discouraged as it will lock the VM disk.
 
 **Do I need to create a new storage account to use this feature?**
 

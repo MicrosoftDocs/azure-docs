@@ -8,10 +8,12 @@ manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
+
+experimental: true
+experiment_id: 565f208d-553a-4c
 ---
 
 # Azure Blob storage bindings for Azure Functions

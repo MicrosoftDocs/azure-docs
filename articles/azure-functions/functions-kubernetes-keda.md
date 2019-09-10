@@ -8,7 +8,6 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture, kubernetes
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: jehollan

@@ -35,6 +35,8 @@
         href: quickstart-v2-aspnet-core-webapp.md
       - name: NodeJS
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+      - name: Java
+        href: quickstart-v2-java-webapp.md
     - name: Web APIs
       items:
       - name: ASP .NET
@@ -203,6 +205,8 @@
             href: msal-net-system-browser-android-considerations.md
           - name: Xamarin iOS
             href: msal-net-xamarin-ios-considerations.md
+          - name: Use brokers with Xamarin iOS and Android Applications
+            href: msal-net-use-brokers-with-xamarin-apps.md
           - name: Universal Windows Platform
             href: msal-net-uwp-considerations.md
         - name: Acquiring a token for the app
@@ -223,6 +227,8 @@
             href: msal-net-migration.md
           - name: Migrate to MSAL.js
             href: msal-compare-msal-js-and-adal-js.md
+          - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
+            href: msal-net-migration-ios-broker.md
         - name: Supported authentication flows
           href: msal-authentication-flows.md
         - name: Acquire and cache tokens
@@ -295,6 +301,8 @@
         href: v2-oauth2-device-code.md
       - name: OAuth 2.0 resource owner password credentials grant
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: ID tokens

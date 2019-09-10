@@ -1,14 +1,14 @@
 ---
 title: "Azure Active Directory (Azure AD) authentication"
 titleSuffix: Azure Cognitive Services
-description: Reference for the Immersive Reader SDK
+description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ---
@@ -130,5 +130,7 @@ Alternatively, the service principal can be authenticated with a certificate. In
 
 ## Next steps
 
-* View the [tutorial](./tutorial.md) to see what else you can do with the Immersive Reader SDK
+* View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
+* View the [Swift tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)

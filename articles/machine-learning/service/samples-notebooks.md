@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
 titleSuffix: Azure Machine Learning service
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK. 
+description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -24,7 +24,6 @@ This article shows you how to access the repository from the following environme
 - [Azure Machine Learning Notebook VM](#notebookvm)
 - [Bring your own notebook server](#byo)
 - [Data Science Virtual Machine](#dsvm)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
@@ -32,7 +31,7 @@ This article shows you how to access the repository from the following environme
 <a name="notebookvm"></a>
 ## Get samples on Azure Machine Learning Notebook VM
 
-The easiest way to get started with the samples is to complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
+The easiest way to get started with the samples is to complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
 
 <a name="byo"></a>
 
@@ -51,17 +50,10 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-<a name="aznb"></a>
-## Get samples on Azure Notebooks
-
-On [Azure Notebooks](https://notebooks.azure.com/), the SDK and notebook server are installed and configured for you. Azure Notebooks provides a fully-managed, lightweight notebook environment for you to explore.
-
-To access the sample repository on Azure Notebooks, navigate to your Azure Machine Learning workspace through the [Azure portal](https://portal.azure.com). From the  **Overview** section, select **Get Started in Azure Notebooks**.
-
 ## Next steps
 
 Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning service can do, or try these tutorials:
 
 - [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
 
-- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-data-prep.md)
+- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-auto-train-models.md)

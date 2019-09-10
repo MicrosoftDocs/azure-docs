@@ -78,7 +78,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 15. Click the **Assign** button to assign the application to the selected users.
 
-After a short period of time, the users you have selected be able to launch these applications using the methods described in the solution description section.
+After a short period of time, the users you have selected will be able to launch these applications using the methods described in the solution description section.
 
 ## Assign groups
 
@@ -116,7 +116,7 @@ To assign one or more groups to an application directly, follow the steps below:
 
 15. Click the **Assign** button to assign the application to the selected groups.
 
-After a short period of time, the users within the groups you have selected be able to launch these applications using the methods described in the solution description section. If these are dynamic groups, there may be some additional processing delay in these assignments appearing for users within these assigned groups.
+After a short period of time, the users within the groups you have selected will be able to launch these applications using the methods described in the solution description section. If these are dynamic groups, there may be some additional processing delay in these assignments appearing for users within these assigned groups.
 
 ## Enable self-service application access
 
@@ -161,7 +161,7 @@ To enable self-service application access to an application, follow the steps be
 
 Once you complete Self-service application configuration, users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and click the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [Application Access Panel](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval. 
 
-These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approver access to the application.
+These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approve access to the application.
 
 ## Next steps
 [Provide single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

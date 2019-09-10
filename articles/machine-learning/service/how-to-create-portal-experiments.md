@@ -1,12 +1,12 @@
 ---
-title: Use automated ML to build and deploy machine learning models
+title: Use Azure's automated ML interface to train & deploy models
 titleSuffix: Azure Machine Learning service
 description: Create, manage and deploy automated machine learning experiments in the Azure portal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
@@ -14,27 +14,30 @@ ms.date: 08/02/2019
 
 ---
 
-# Create, explore and deploy automated machine learning experiments in the Azure portal (Preview)
+# Create, explore and deploy automated machine learning experiments in the Azure portal (preview)
 
  In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
+
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 ## Get started
 
-Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (Preview) section.
+Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (preview) section.
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
  If this is your first time doing any experiments, you'll see the **Welcome to Automated Machine Learning** screen. 
 
 Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+
+You can also access Automated Machine Learning from your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Create an experiment
 
@@ -62,6 +65,10 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 1. Select a storage container.
 
 1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
+    >[!Important]
+    > Requirements for training data:
+    >* Data must be in tabular form.
+    >* The value you want to predict (target column) must be present in the data.
 
     [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
@@ -96,7 +103,7 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 <a name="profile"></a>
 
-### Data profiling
+## Data profiling & summary stats
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
@@ -122,7 +129,7 @@ Kurtosis| Measure of how heavily tailed this column's data is compared to a norm
 
 <a name="preprocess"></a>
 
-### Advanced preprocessing
+## Advanced preprocessing options
 
 When configuring your experiments, you can enable the advanced setting `Preprocess`. Doing so means that the following data preprocessing and featurization steps are performed automatically.
 

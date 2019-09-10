@@ -2,16 +2,15 @@
 title: Text Translation cognitive search skill - Azure Search
 description: Evaluates text and, for each record, returns text translated to the specified target language in an Azure Search enrichment pipeline.
 services: search
-manager: briansmi
+manager: nitinme
 author: careyjmac
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 #	Text Translation cognitive skill
 

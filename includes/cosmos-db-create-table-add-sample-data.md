@@ -11,11 +11,11 @@
 ---
 You can now add data to your new table using Data Explorer.
 
-1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
+1. In Data Explorer, expand **sample-table**, select **Entities**, and then select **Add Entity**.
 
    ![Create new entities in Data Explorer in the Azure portal](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
 
-2. Now add data to the PartitionKey value box and RowKey value box, and click **Add Entity**.
+2. Now add data to the PartitionKey value box and RowKey value box, and select **Add Entity**.
 
    ![Set the Partition Key and Row Key for a new entity](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)
   

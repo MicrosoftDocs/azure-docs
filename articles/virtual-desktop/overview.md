@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop Preview? 
@@ -24,9 +24,11 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 ## Introductory video
 
-In the following video, Scott Manchester demonstrates some of Windows Virtual Desktop's capabilities:
+Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
 
-<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+For more videos about Windows Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## Key capabilities
 
@@ -74,7 +76,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
 * [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
-* Running one of the following [supported OS images](#supported-virtual-machine-os-image).
+* Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
@@ -94,7 +96,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## Supported virtual machine OS image
+## Supported virtual machine OS images
 
 Windows Virtual Desktop supports the following OS images:
 
