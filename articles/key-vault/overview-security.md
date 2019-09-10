@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: msmbaldwin
+ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
 

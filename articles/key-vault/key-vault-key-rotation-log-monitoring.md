@@ -9,7 +9,7 @@ tags: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: msmbaldwin
+ms.author: mbaldwin
 
 ---
 # Set up Azure Key Vault with key rotation and auditing

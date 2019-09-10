@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
-ms.author: msmbaldwin
+ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
 # What is Azure Key Vault?

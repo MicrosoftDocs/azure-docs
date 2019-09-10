@@ -9,7 +9,7 @@ editor: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: msmbaldwin
+ms.author: mbaldwin
 
 ---
 # Azure Key Vault service limits

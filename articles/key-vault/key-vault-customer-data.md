@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
-ms.author: msmbaldwin
+ms.author: mbaldwin
 
 ---
 # Azure Key Vault customer data features​

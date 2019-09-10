@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: msmbaldwin
+ms.author: mbaldwin
 
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault

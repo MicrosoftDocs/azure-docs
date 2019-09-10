@@ -10,7 +10,7 @@ metadata:
   ms.service: key-vault
   ms.topic: landing-page
   ms.date: 09/14/2018
-  ms.author: msmbaldwin
+  ms.author: mbaldwin
 abstract:
   description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys and secrets that access and encrypt your resources and solutions.
 sections:
