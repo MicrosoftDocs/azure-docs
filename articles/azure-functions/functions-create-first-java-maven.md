@@ -7,7 +7,6 @@ author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/10/2018

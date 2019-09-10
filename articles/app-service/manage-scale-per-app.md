@@ -11,7 +11,6 @@ ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal

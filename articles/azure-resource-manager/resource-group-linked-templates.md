@@ -474,6 +474,8 @@ Although the linked template must be externally available, it doesn't need to be
 
 The parameter file can also be limited to access through a SAS token.
 
+Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../storage/common/storage-network-security.md).
+
 The following example shows how to pass a SAS token when linking to a template:
 
 ```json

@@ -34,9 +34,31 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 
 Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
 
-| Menu | Description |
-| ---- | ----------- |
-| ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>The **Dashboard** page displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.</li><li>The **Devices** page lists the simulated and real devices associated with each device template in the application. As an operator, you use **Devices** to manage your connected devices.</li><li>The **Device groups** page lets you view and create device groups. As an operator, you can create device groups as a logical collection of devices specified by a query.</li><li>The **Rules** page lets you edit rules that fire based on device telemetry and trigger customizable actions.</li><li>The **Analytics** page shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** page enables bulk device management by having you create and run jobs to update your devices at scale.</li><li>The **Device templates** page shows the tools a builder uses to create and manage device templates.</li><li>The **Data Export** page enables an administrator to configure a continuous export to other Azure services such as storage and queues.</li><li>The **Administration** page shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+
+      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+    
+      **Devices** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+    
+      **Device groups** lets you view and create device groups. As an operator, you can create device groups as a logical collections of devices specified by a query.
+
+      **Rules** lets you edit rules that fire based on device telemetry and trigger customizable actions.
+    
+      **Analytics** shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.
+    
+      **Jobs** enables bulk device management by having you create and run jobs to update your devices at scale.
+    
+      **Device templates** shows the tools a builder uses to create and manage device templates.
+    
+      **Data export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+    
+      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+   :::column-end:::
+:::row-end:::
 
 ## Search, help, and support
 

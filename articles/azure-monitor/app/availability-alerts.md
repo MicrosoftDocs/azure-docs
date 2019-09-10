@@ -1,5 +1,5 @@
 ---
-title: Setup availability alerts with Azure Application Insights | Microsoft Docs
+title: Set up availability alerts with Azure Application Insights | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
@@ -56,11 +56,15 @@ Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-d
 
 ### Alert on custom analytics queries
 
-Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on [custom log queries](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). With custom queries, you can alert on any arbitrary condition that helps you get the most reliable signal of availability issues. This is also particularly applicable, if you are sending custom availability results using the TrackAvailability SDK. 
+Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on [custom log queries](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). With custom queries, you can alert on any arbitrary condition that helps you get the most reliable signal of availability issues. This is also applicable, if you are sending custom availability results using the TrackAvailability SDK.
 
 > [!Tip]
 > The metrics on availability data include any custom availability results you may be submitting by calling our TrackAvailability SDK. You can use the alerting on metrics support to alert on custom availability results.
 >
+
+## Automate alerts
+
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) documentation.
 
 ## Troubleshooting
 
@@ -70,4 +74,3 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Multi-step web tests](availability-multistep.md)
 * [Url ping web tests](monitor-web-app-availability.md)
-

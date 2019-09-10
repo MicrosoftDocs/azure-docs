@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 6/26/2019
+ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
 ---
@@ -13,6 +13,10 @@ ms.reviewer: craigg
 # Troubleshoot Azure Data Factory
 
 This article explores common troubleshooting methods for external control activities in Azure Data Factory.
+
+## Connector and copy activity
+
+For connector issues e.g. encounter error using copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
 
 ## Azure Databricks
 

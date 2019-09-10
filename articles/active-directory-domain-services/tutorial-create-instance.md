@@ -42,6 +42,9 @@ To complete this tutorial, you need the following resources and privileges:
 * You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
 * The Azure AD tenant must be [configured for self-service password reset][configure-sspr].
 
+> [!IMPORTANT]
+> After you create an Azure AD DS managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+
 ## Sign in to the Azure portal
 
 In this tutorial, you create and configure the Azure AD DS instance using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
@@ -197,7 +200,7 @@ To change the password for a cloud-only user, the user must complete the followi
 1. On the **Change password** page, enter your existing (old) password, then enter and confirm a new password.
 1. Select **Submit**.
 
-It takes a few minutes after you've changed your password for the new password to be usable in Azure AD DS. After about 20 minutes, you can use the new password to sign in to computers joined to the managed domain.
+It takes a few minutes after you've changed your password for the new password to be usable in Azure AD DS and to successfully sign in to computers joined to the managed domain.
 
 ## Next steps
 

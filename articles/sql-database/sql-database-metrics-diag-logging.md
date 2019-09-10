@@ -550,7 +550,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Time stamp when the log was recorded |
 |Type|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQ |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
 |Category|Name of the category. Always: Errors |
 |OperationName|Name of the operation. Always: ErrorEvent |
 |Resource|Name of the resource |

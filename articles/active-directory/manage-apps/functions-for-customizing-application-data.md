@@ -175,7 +175,8 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 > [!NOTE]
 >1. This is a top-level function, it cannot be nested.
->2. This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+>2. This function cannot be applied to attributes that have a matching precedence. 	
+>3. This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
 
 
 **Parameters:**<br> 

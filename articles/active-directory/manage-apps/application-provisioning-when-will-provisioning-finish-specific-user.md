@@ -59,7 +59,7 @@ The provisioning audit logs record all the operations performed by the provision
 For more information on how to read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How long will it take to provision users?
-When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) at a regularly scheduled time interval, typically every 10 minutes.
+When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) at a regularly scheduled time interval, typically every 40 minutes.
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial sync or an incremental sync.
 

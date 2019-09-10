@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ---
@@ -43,19 +43,24 @@ Features are broken down on:
 
 Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
 
-To obtain a free trial key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
+You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 1. Passing the subscription key through a query string, see below as a Computer Vision API example:
 
-```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+    ```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
 
 1. Passing the subscription key can also be specified in the HTTP request header:
 
-```ocp-apim-subscription-key: <Your subscription key>```
+    ```ocp-apim-subscription-key: <Your subscription key>```
 
-1. When using the client library, the subscription key is passed in through the constructor of VisionServiceClient:
+1. When using the client library, the subscription key is passed in through the constructor of ComputerVisionClient, and the region is specified in a property of the client:
 
-```var visionClient = new VisionServiceClient("Your subscriptionKey");```
+    ```
+    var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
+    {
+        Endpoint = "https://westus.api.cognitive.microsoft.com"
+    }
+    ```
 
 ## Upload an image to the Computer Vision API service and get back tags, descriptions and celebrities
 
@@ -70,16 +75,16 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatur
 ```
 
 ```csharp
-using Microsoft.ProjectOxford.Vision;
-using Microsoft.ProjectOxford.Vision.Contract;
 using System.IO;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
-AnalysisResult analysisResult;
-var features = new VisualFeature[] { VisualFeature.Tags, VisualFeature.Description };
+ImageAnalysis imageAnalysis;
+var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
 
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.AnalyzeImageAsync(fs, features);
+  imageAnalysis = await visionClient.AnalyzeImageInStreamAsync(fs, features);
 }
 ```
 
@@ -88,17 +93,17 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ###### Tags only:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
-var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 ###### Description only:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.DescribeAsync(fs);
+  imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
 }
 ```
 

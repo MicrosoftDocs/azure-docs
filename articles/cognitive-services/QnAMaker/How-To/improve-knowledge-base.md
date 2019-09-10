@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 
@@ -51,7 +51,7 @@ It is important that QnA Maker gets explicit feedback about which of the answers
 
 ## Upgrade your runtime version to use active learning
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature. 
 
 ## Turn on active learning to see suggestions
 

@@ -74,7 +74,17 @@
   - name: Azure Serverless Community Library
     href: https://www.serverlesslibrary.net/
   - name: Azure Samples
-    href: /samples/browse/?products=azure-functions
+    items:
+    - name: C#
+      href: /samples/browse/?products=azure-functions&languages=csharp
+    - name: JavaScript
+      href: /samples/browse/?products=azure-functions&languages=javascript
+    - name: Java
+      href: /samples/browse/?products=azure-functions&languages=java
+    - name: Python
+      href: /samples/browse/?products=azure-functions&languages=python
+    - name: TypeScript
+      href: /samples/browse/?products=azure-functions&languages=typescript   
   - name: Azure CLI
     href: functions-cli-samples.md    
 - name: Concepts
@@ -240,6 +250,8 @@
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
     - name: Customize HTTP function endpoint
       href: functions-create-serverless-api.md
+    - name: Manage on-premises resources
+      href: functions-hybrid-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
