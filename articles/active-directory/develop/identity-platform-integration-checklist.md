@@ -1,6 +1,6 @@
 ---
-title: Integrate with Microsoft identity platform | Azure
-description: Learn about best practices and common oversights when integrating with the Microsoft identity platform (v2.0).
+title: Best practices for Microsoft identity platform | Azure
+description: Learn about best practices, recommendations, and common oversights when integrating with the Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,7 +17,7 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to learn about security best practices so I can integrate my application with Microsoft identity platform.
+#Customer intent: As an application developer, I want to learn about best practices so I can integrate my application with Microsoft identity platform.
 ---
 
 # Microsoft identity platform integration checklist

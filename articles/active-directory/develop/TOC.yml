@@ -83,6 +83,8 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
+    - name: Identity platform best practices
+      href: identity-platform-integration-checklist.md
     - name: Authentication basics
       href: authentication-scenarios.md
     - name: Authentication flows and app scenarios
@@ -214,9 +216,7 @@
         - name: Calling a web API
           href: scenario-mobile-call-api.md
         - name: Move to production
-          href: scenario-mobile-production.md
-      - name: Integration checklist
-        href: identity-platform-integration-checklist.md
+          href: scenario-mobile-production.md      
     - name: Microsoft Authentication Library (MSAL)
       items:
         - name: Overview
