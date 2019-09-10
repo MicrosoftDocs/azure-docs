@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Application provisioning in quarantine status
 
-The Azure AD provisioning service monitors the health of your configuration and places unhealthy apps in a "quarantine" state. If most or all of the calls made against the target system consistently fail because of an error, for example [invalid admin credentials](link), the provisioning job is marked as in quarantine.
+The Azure AD provisioning service monitors the health of your configuration and places unhealthy apps in a "quarantine" state. If most or all of the calls made against the target system consistently fail because of an error, for example invalid admin credentials, the provisioning job is marked as in quarantine.
 
 While in quarantine, the frequency of incremental cycles is gradually reduced to once per day. The provisioning job is removed from quarantine after all errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled (stops running).
 
