@@ -45,6 +45,8 @@ To configure an IP allowed list, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and co
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Empty | Provide a semi-colon separated list of IP addresses. Include the IP addresses of machines where service requests originate, like the NAS/VPN server. IP ranges and subnets are not supported. <br><br> For example, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
+Note: This registry key is not created by default by the installer and an error appears in the AuthZOptCh log when the service is restarted. This error in the log can be ignored, but if this registry key is created and left empty if not needed then the error message does not return.
+
 When a request comes in from an IP address that exists in the `IP_WHITELIST`, two-step verification is skipped. The IP list is compared to the IP address that is provided in the *ratNASIPAddress* attribute of the RADIUS request. If a RADIUS request comes in without the ratNASIPAddress attribute, the following warning is logged: "P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute."
 
 ## Next steps
