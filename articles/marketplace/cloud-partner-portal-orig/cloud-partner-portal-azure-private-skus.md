@@ -102,7 +102,7 @@ manual entry, the old list of subscription Ids with access to the SKU is
 not retained. A warning is displayed and the list is only overwritten
 upon saving the offer.
 
-Managing private subscriptions
+Managing private audiences
 -------------------------
 
 You can add or remove subscriptions to an existing private offer using the Cloud Partner Portal API without having to republish the offer. Depending on the number of audience members to update you can either:
