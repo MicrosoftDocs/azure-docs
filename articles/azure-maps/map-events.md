@@ -42,7 +42,7 @@ The following code adds Javascript map events to an HTML marker. It also highlig
 <iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The following table list all of the supported map class events.
+The following table lists all of the supported map class events.
 
 | Event             | Description |
 |-------------------|-------------|
@@ -78,7 +78,6 @@ The following table list all of the supported map class events.
 | pitchstart        | Fired whenever the map's pitch (tilt) begins a change as the result of either user interaction or methods.|
 | ready             | Fired when the map resoureces are loaded.|
 | render            | <p> Fired whenever the map is drawn to the screen, as the result of
-
 * a change to the map's position, zoom, pitch, or bearing
 * a change to the map's style
 * a change to a GeoJSON source
