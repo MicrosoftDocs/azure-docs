@@ -28,7 +28,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***Sorting by array properties*** ```.order().by(<array property>)``` isn't supported. Sorting is supported only by primitive types.
 
-* ***Non-primitive JSON types*** aren't supported. Use ```string```, ```number``` or ```true```/```false``` types. ```null``` values aren't supported. 
+* ***Non-primitive JSON types*** aren't supported. Use ```string```, ```number```, or ```true```/```false``` types. ```null``` values aren't supported. 
 
 * ***GraphSONv3*** serializer isn't available today but will become available in near future.
 
