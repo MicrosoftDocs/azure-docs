@@ -227,7 +227,7 @@ The container engine must be restarted for the changes to take effect.
 
 You can do so in the **createOptions** of each module. For example:
 
-```JSON
+```yml
 "createOptions": {
     "HostConfig": {
         "LogConfig": {
