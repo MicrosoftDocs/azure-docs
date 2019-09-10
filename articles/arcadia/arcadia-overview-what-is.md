@@ -1,13 +1,15 @@
 ---
-title: #Required; page title displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results.
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: #Required; your GitHub user alias, with correct capitalization.
-
-ms.service: #Required; service per approved list.
+title: What is Arcadia #Required; update as needed page title displayed in search results. Include the brand.
+description: #Required; Add article description that is displayed in search results.
+services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
+ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
 ms.topic: overview #Required
-ms.date: #Required; mm/dd/yyyy format.
-ms.author: #Required; microsoft alias of author; optional team alias.
+ms.subservice: design #Required will update once these are established.
+ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
+ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
+msreviewer: jrasnick
+manager: rothja #Required do not modify.
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
@@ -51,7 +53,7 @@ Create a new H2 for each task you list.
 ## Next steps
 
 <!---Some context for the following links goes here--->
-- [link to next logical step for the customer](quickstart-view-occupancy.md)
+<!--- [link to next logical step for the customer](quickstart-view-occupancy.md)--->
 
 <!--- Required:
 In Overview articles, provide at least one next step and no more than three.
