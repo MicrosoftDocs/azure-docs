@@ -1,25 +1,25 @@
 ---
-title: 'Create an Azure Private Link using Azure PowerShell| Microsoft Docs'
+title: 'Create an Azure private endpoint using Azure PowerShell| Microsoft Docs'
 description: Learn about Azure Private Link
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: kumud
 
 ---
-# Create Azure Private Link using Azure PowerShell
+# Create a private endpoint using Azure PowerShell
 A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using Azure PowerShell. Then, you can securely access the the storage account from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure private endpoint using Azure PowerShell. Then, you can securely access the storage account from the VM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
-Before you can create your private link, you must create a resource group host the virtual network and the Private Endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
+Before you can create your private link, you must create a resource group host the virtual network and the private endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
 
 ```azurepowershell
 
@@ -33,7 +33,7 @@ In this section, you create a virtual network and a subnet. Next, you associate 
 
 ### Create a virtual network
 
-Create a virtual network for your Private Endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myPEVNet*:
+Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVNet*:
  
 ```azurepowershell
 
@@ -46,11 +46,11 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### Add a subnet
 
-Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *peSubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following examples creates a subnet named *PESubnet* with the Private Endpoint network policy flag set to **Disabled**.
+Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name PESubnet ` 
+  -Name mySubnet ` 
   -AddressPrefix 10.0.0.0/24 `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
@@ -73,7 +73,7 @@ New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "westcentralus" `
-    -VirtualNetworkName "myVirtualNetwork" `
+    -VirtualNetworkName "myVNet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
     -PublicIpAddressName "myPublicIpAddress" `
@@ -98,14 +98,14 @@ Create a general-purpose v2 storage account with read-access geo-redundant stora
 ```azurepowershell
 $storageAccount = New-AzStorageAccount -ResourceGroupName "myResourceGroup" `
   -Name "mystorageaccount" `
-  -Location "WestUS" `
+  -Location "westcentralus" `
   -SkuName Standard_RAGRS `
   -Kind StorageV2 `
   -NetworkRuleSet (@{defaultAction="Deny"})
 ``` 
 
 
-## Create a Private Endpoint
+## Create a private endpoint
 
 Create a private endpoint for the storage account in your virtual network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
@@ -115,15 +115,15 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnect
   -PrivateLinkServiceId $storageAccount.Id ` 
   -GroupId "blob" 
  
-$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "myPEVNet"  
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "myVNet"  
  
 $subnet = $virtualNetwork ` 
   | Select -ExpandProperty subnets ` 
-  | Where-Object  {$_.Name -eq 'mypesubnet'}  
+  | Where-Object  {$_.Name -eq 'mysubnet'}  
  
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" ` 
   -Name "myPrivateEndpoint" ` 
-  -Location "WestUS" ` 
+  -Location "westcentralus" ` 
   -Subnet  $subnet` 
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
@@ -157,7 +157,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## Connect to a VM from the internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myPEVM* VM:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myVM* VM:
 
 ```azurepowershell
 Get-AzPublicIpAddress ` 
@@ -178,12 +178,12 @@ mstsc /v:<publicIpAddress>
 2. Enter the user name and password you specified when creating the VM.
   > [!NOTE]
   > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
-3. Select OK. 
-4. You may receive a certificate warning. If you do, select Yes or Continue. 
+3. Select **OK**. 
+4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
 ## Access storage account privately from the VM
 
-1. In the Remote Desktop of myPEVM, open PowerShell.
+1. In the Remote Desktop of myVM, open PowerShell.
 2. Enter `nslookup mystorageaccount.blob.core.windows.net`
     You'll receive a message similar to this:
     ```azurepowershell
@@ -194,19 +194,19 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
 3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
+4. Select **Storage accounts** with right-click.
 5. Select **Connect to an azure storage**.
 6. Select **Use a connection string**.
 7. Select **Next**.
 8. Enter the connection string by pasting the information previously copied.
 9. Select **Next**.
 10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
+11. Browse the Blob containers from *mystorageaccount*. 
 12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myPEVM*. 
+13. Close the remote desktop connection to *myVM*. 
 
 
-Additional options to access the Storage account:
+Additional options to access the storage account:
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
  
 - The AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 

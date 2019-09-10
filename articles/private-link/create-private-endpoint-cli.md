@@ -1,17 +1,17 @@
 ---
-title: 'Create an Azure Private Endpoint using Azure CLI| Microsoft Docs'
-description: Learn about Azure Private Endpoint
+title: 'Create an Azure private endpoint using Azure CLI| Microsoft Docs'
+description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: virtual-network
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: kumud
 
 ---
-# Create an Azure Private Endpoint using Azure CLI
-A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. In this Quickstart, you will learn how to create a VM on a virtual network, an Storage account with a private endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (an Azure storage account in this example). 
+# Create a private endpoint using Azure CLI
+A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. In this Quickstart, you will learn how to create a VM on a virtual network, an Azure storage account with a private endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure storage account in this example). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

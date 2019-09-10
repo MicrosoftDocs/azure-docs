@@ -1,19 +1,19 @@
 ---
-title: 'Create an Azure Private Endpoint using Azure portal| Microsoft Docs'
-description: Learn about Azure Private Endpoint
+title: 'Create an Azure private endpoint using Azure portal| Microsoft Docs'
+description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: virtual-network
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/09/2019
 ms.author: kumud
 
 ---
-# Create Azure Private Endpoint using Azure portal
+# Create a private endpoint using the Azure portal
 A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure private endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
 
 
 ## Sign in to Azure
@@ -121,14 +121,14 @@ In this section, you will create a private storage account and add a private end
     |Storage sub-resource|Leave the default **Blob**. |
     | **NETWORKING** |  |
     | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
-    | Subnet | Leave the default **default**. |
+    | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION**|  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
     | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
-9. When you see the Validation passed message, select **Create**. 
-10. Browse to the storage account resource that was just created.
+9. When you see the **Validation passed** message, select **Create**. 
+10. Browse to the storage account resource that you juts created.
 11. Select **Keys** from the left content menu.
 12. Select **Copy** on the connection string for key1.
  
