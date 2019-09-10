@@ -1,5 +1,5 @@
 ---
-title: Create custom analytic rules to detect suspicious threats with Azure Sentinel Preview| Microsoft Docs
+title: Create custom analytic rules to detect suspicious threats with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to Create custom analytic rules to detect suspicious threats with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -21,7 +21,7 @@ ms.author: rkarlin
 
 
 
-After you [connected your data sources](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard) to Azure Sentinel, you can create custom rules that can search for specific
+After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can create custom rules that can search for specific
 criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. This tutorial helps you create custom rules to detect threats with Azure Sentinel.
 
 This tutorial helps you detect threats with Azure Sentinel.
@@ -75,7 +75,7 @@ You create custom analytic rules to search for the types of threats and anomalie
 
 1. Click **Review** to review all the setting for your new alert rule and then click **Create** to initialize your alert rule. After the alert is created, a custom rule is added to the table under Active analytic rules. There, you can also see the number of matches for each rule - the alerts triggered. From this list you can enable, disable, or delete each rule. You can also right-select the ellipsis (...) at the end of the row for each alert to edit, disable, clone, show matches, or delete a rule. The **Analytics** page is a gallery of all your active alert rules, including templates you enable and alert rules you create based on templates.
 
-1. To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-investigate-cases), and remediate the threats.
+1. To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](tutorial-investigate-cases.md), and remediate the threats.
 
 > [!NOTE]
 > Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Refer to the [Microsoft Graph Security alerts documentation](https://aka.ms/graphsecurityreferencebetadocs) for further details and integration partners.
@@ -84,6 +84,5 @@ You create custom analytic rules to search for the types of threats and anomalie
 
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel.
 
-To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook).
+To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
 
-[Respond to threats](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook) to automate your responses to threats.

@@ -1,5 +1,5 @@
 ---
-title: Azure Sentinel Quickstart - Get started with Azure Sentinel Preview| Microsoft Docs
+title: Azure Sentinel Quickstart - Get started with Azure Sentinel| Microsoft Docs
 description: Azure Sentinel Quickstart - Get started with Azure Sentinel
 services: sentinel
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 9/23/2019
 ms.author: rkarlin
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 
 ---
 
-# Quickstart: Get started with Azure Sentinel Preview
+# Quickstart: Get started with Azure Sentinel
 
 
 
 
-In this quickstart you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you dashboards that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in dashboards or create a new dashboard easily, from scratch or based on an existing dashboard. 
+In this quickstart, you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you dashboards that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in dashboards or create a new dashboard easily, from scratch or based on an existing dashboard. 
 
 ## Get visualization
 
@@ -57,16 +57,16 @@ The main body of the overview page gives insight at a glance into the security s
 
 ## Use built-in dashboards<a name="dashboards"></a>
 
-Built-in dashboards provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in dashboards include Azure ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The dashboards are based on Azure Monitor Workbooks to provide you with enhanced cusomizability and flexibility in designing your own dashboard. For more information, see ())[../azure-monitor/app/usage-workbooks.md]
+Built-in dashboards provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in dashboards include Azure ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The dashboards are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own dashboard. For more information, see [Workbooks](../azure-monitor/app/usage-workbooks.md).
 
-1. Under **Settings**, select **Dashboards**. Under **Installed**, you can see all your installed dashboards. Under **All** you can see the whole gallery of built-in dashboards that are available for installation. 
+1. Under **Settings**, select **Dashboards**. Under **Installed**, you can see all your installed dashboards. Under **All**, you can see the whole gallery of built-in dashboards that are available for installation. 
 2. Search for a specific dashboard to see the whole list and description of what each offers. 
 3. Assuming you use Azure AD, to get up and running with Azure Sentinel, we recommend that you install at least the following dashboards:
    - **Azure AD**: Use either or both of the following:
        - **Azure AD sign-ins** analyzes sign-ins over time to see if there are anomalies. This dashboard provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
        - **Azure AD audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
 
-   - Add a dashboard for your firewall. For example, add the Palo Alto dashboard. The dashboard analyzes your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Dashboards provides you with information about trends in your traffic and lets you drill down into and filter results. 
+   - Add a dashboard for your firewall. For example, add the Palo Alto dashboard. The dashboard analyzes your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Dashboards provide you with information about trends in your traffic and let you drill down into and filter results. 
 
       ![Pal Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
@@ -121,7 +121,7 @@ Generate detections on the [data sources that you connected to Azure Sentinel](c
 
 When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
 
-1. [In the GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) go to the **Detections** folder and select the relevant folders.
+1. [In the GitHub community,](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) go to the **Detections** folder and select the relevant folders.
    ![relevant folders](./media/qs-get-visibility/detection-folders.png)
  
 3.	Go to the **Analytics** tab and select **add**.

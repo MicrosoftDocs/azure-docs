@@ -1,5 +1,5 @@
 ---
-title: Connect Azure ATP data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Azure ATP data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Azure ATP data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,18 +7,17 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# Connect data from Azure Advanced Threat Protection (ATP)
+# Connect data from Azure Advanced Threat Protection (ATP) - Preview
 
 
 
@@ -43,6 +42,9 @@ If Azure ATP is deployed and ingesting your data, the suspicious alerts can easi
 2. Click **Connect**.
 
 6. To use the relevant schema in Log Analytics for the Azure ATP alerts, search for **SecurityAlert**.
+
+> [!NOTE]
+> If the alerts are larger than 30 KB, Azure Sentinel stops displaying the Entities field in the alerts.
 
 ## Next steps
 In this document, you learned how to connect Azure Advanced Threat Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

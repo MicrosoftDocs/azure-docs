@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -27,8 +27,8 @@ Azure Sentinel assesses the configuration of your resources to identify security
 
 In addition to these roles, after you've enabled Azure Sentinel on your workspace, you will have three additional roles that can be assigned to admins on your workspace:
     - **Azure Sentinel reader**:  A user that belongs to this role has viewing rights to Azure Sentinel. The user can view incidents, and policies but cannot make changes.
-    - **Azure Sentinel incident manager**: A user that belongs to this role can read and perform actions on indicents.
-    - **Azure Sentinel contributor**: A user that belongs to this role can read and perform actions on indicents and create and delete analytic rules.
+    - **Azure Sentinel incident manager**: A user that belongs to this role can read and perform actions on incidents.
+    - **Azure Sentinel contributor**: A user that belongs to this role can read and perform actions on incidents and create and delete analytic rules.
 
 
 Alternatively, you can use the Log Analytics advanced role-based access control across the data in your Azure Sentinel workspace. This includes both Role-based access control per data type and resource-centric role-based access control. For more information on Log Analytics roles, see [Manage log data and workspaces in Azure Monitor](../azure-monitor/platform/manage-access.md)

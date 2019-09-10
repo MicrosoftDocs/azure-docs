@@ -1,5 +1,5 @@
 ---
-title: Useful resources when working with Azure Sentinel Preview| Microsoft Docs
+title: Useful resources when working with Azure Sentinel| Microsoft Docs
 description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/14/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# Useful resources for working with Azure Sentinel Preview
+# Useful resources for working with Azure Sentinel
 
 
 

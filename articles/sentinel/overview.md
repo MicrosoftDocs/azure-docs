@@ -1,5 +1,5 @@
 ---
-title: What is Azure Sentinel Preview?| Microsoft Docs
+title: What is Azure Sentinel?| Microsoft Docs
 description: Learn about Azure Sentinel, its key capabilities, and how it works.
 services: sentinel
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# What is Azure Sentinel Preview?
+# What is Azure Sentinel?
 
 
 

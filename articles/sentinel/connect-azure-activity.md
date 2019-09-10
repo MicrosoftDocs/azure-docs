@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Activity data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Azure Activity data to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Azure Activity data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---

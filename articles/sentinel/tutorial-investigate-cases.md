@@ -1,5 +1,5 @@
 ---
-title: Investigate incidents with Azure Sentinel Preview| Microsoft Docs
+title: Investigate incidents with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to investigate incidents with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# Tutorial: Investigate incidents with Azure Sentinel Preview
+# Tutorial: Investigate incidents with Azure Sentinel
 
 
 

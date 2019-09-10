@@ -1,5 +1,5 @@
 ---
-title: Connecting Azure Information Protection data to Azure Sentinel Preview| Microsoft Docs
+title: Connecting Azure Information Protection data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Azure Information Protection data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# Connect data from Azure Information Protection
+# Connect data from Azure Information Protection - Preview
 
 
 

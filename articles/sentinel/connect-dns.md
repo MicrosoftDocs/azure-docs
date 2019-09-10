@@ -1,5 +1,5 @@
 ---
-title: Connect DNS data in Azure Sentinel Preview| Microsoft Docs
+title: Connect DNS data in Azure Sentinel| Microsoft Docs
 description: Learn how to connect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# Connect your domain name server
+# Connect your domain name server - Preview
 
 
 

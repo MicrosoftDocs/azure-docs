@@ -1,5 +1,5 @@
 ---
-title: Connect Fortinet data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Fortinet data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Fortinet data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
 # Connect your Fortinet appliance
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 You can connect Azure Sentinel to any Fortinet appliance by saving the log files as Syslog Common Event Format (CEF). With the integration with Azure Sentinel, you can easily run analytics and queries across the log file data from Fortinet. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Connect Syslog data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Syslog data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Syslog data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,14 +7,13 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---

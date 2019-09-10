@@ -1,5 +1,5 @@
 ---
-title: Run a playbook in Azure Sentinel Preview| Microsoft Docs
+title: Run a playbook in Azure Sentinel| Microsoft Docs
 description: This article describes how to run a playbook in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 ---
 
-# Tutorial: Set up automated threat responses in Azure Sentinel Preview
+# Tutorial: Set up automated threat responses in Azure Sentinel
 
 
 
@@ -104,7 +104,7 @@ To automate responses:
 1. In the **Edit alert rule** page, under **Real-time automation**, choose the **Triggered playbook** you want to run when this alert rule is matched.
 1. Select **Save**.
 
-   ![real time automation](./media/tutorial-detect-threats/rt-configuration.png)
+   ![real-time automation](./media/tutorial-detect-threats/rt-configuration.png)
 
 
 

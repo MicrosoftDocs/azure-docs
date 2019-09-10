@@ -1,5 +1,5 @@
 ---
-title: Connect Windows security event data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Windows security event data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Windows security event data to Azure Sentinel.
 services: sentinel
 documentationcenter: na

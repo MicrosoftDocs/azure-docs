@@ -1,5 +1,5 @@
 ---
-title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
+title: Connect CEF data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -99,7 +99,7 @@ Make sure the Linux machine you use as a proxy is running one of the following o
 1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
 
 1. Run the following script on your proxy machine.
-   `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&& python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+   `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
 1. While the script is running, check to make sure you don't get any error or warning messages.
 
 
@@ -116,7 +116,7 @@ To use the relevant schema in Log Analytics for the CEF events, search for `Comm
 1. Before you run the script, we recommend that you send messages from your security solution to make sure they are being forwarded to the Syslog proxy machine you configured. 
 1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
 1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Log Analytics agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
- `wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&& python cef_troubleshoot.py  [WorkspaceID]`
+ `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 ## Next steps

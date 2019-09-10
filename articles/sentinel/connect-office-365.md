@@ -1,5 +1,5 @@
 ---
-title: Connect Office 365 data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Office 365 data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Office 365 data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,14 +7,13 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: ff7c862e-2e23-4a28-bd18-f2924a30899d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -30,7 +29,7 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/office365
 ## Prerequisites
 
 - You must be a global administrator or security administrator on your tenant
-- On your computer, from which you logged into Azure Sentinel to create the connection, make sure that port 4433 is open to web traffic.
+- On your computer, from which you logged into Azure Sentinel to create the connection, make sure that port 4433 is open to web traffic. This port can be closed again after the connection is successfully made.
 
 ## Connect to Office 365
 

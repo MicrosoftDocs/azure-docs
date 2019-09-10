@@ -1,5 +1,5 @@
 ---
-title: Connecting Azure Security Center data to Azure Sentinel Preview| Microsoft Docs
+title: Connecting Azure Security Center data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Azure Security Center data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
