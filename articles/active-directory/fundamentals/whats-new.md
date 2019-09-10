@@ -49,7 +49,7 @@ For more information about the workbooks, see [How to use Azure Monitor workbook
 
 ---
 
-### Improved search, filtering, and sorting for groups is available in the Azure AD portal (Public Preview)
+### Enhanced search, filtering, and sorting for groups is available in the Azure AD portal (Public Preview)
 
 **Type:** New feature  
 **Service category:** Group Management  
@@ -62,7 +62,7 @@ We're pleased to announce public preview availability of the enhanced groups-rel
 - New search capabilities for member and owner lists.
 - More accurate group counts for large groups.
 
-For more information, see [Manage groups in the Azure portal (Preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-members-owners-search).
+For more information, see [Manage groups in the Azure portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
 ---
 
