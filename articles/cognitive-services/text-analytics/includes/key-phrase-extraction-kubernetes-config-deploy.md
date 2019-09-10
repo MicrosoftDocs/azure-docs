@@ -114,7 +114,7 @@ ms.author: dapine
     kubectl get services
     ```
 
-    The output for the running status of the *sentiment* service in the pod:
+    The output for the running status of the *keyphrase* service in the pod:
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

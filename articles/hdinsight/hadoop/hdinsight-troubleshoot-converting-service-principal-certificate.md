@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.date: 07/31/2019
 ---
 
-# Scenario: Converting service principal certificate contents to base-64 encoded string format in Azure HDInsight
+# Converting service principal certificate contents to base-64 encoded string format in HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
