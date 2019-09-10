@@ -1,5 +1,5 @@
 ---
-title: Send custom events to web endpoint - Event Grid, Azure CLI | Microsoft Docs
+title: Send custom events with Event Grid and Azure CLI
 description: Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
 services: event-grid 
 keywords: 
@@ -8,7 +8,7 @@ ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.custom: seodec18
+ms.custom: seodec18, seo-javascript-september2019
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
