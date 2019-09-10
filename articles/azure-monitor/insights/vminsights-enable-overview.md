@@ -134,7 +134,7 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 | OS version | Kernel version |
 |:--|:--|
 | Ubuntu 18.04 | 5.0 (Azure) |
-| Ubuntu 18.04 | 4.15* |
+| Ubuntu 18.04 | 4.18*<br> 4.15* |
 | Ubuntu 16.04.3 | 4.15.* |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
