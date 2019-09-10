@@ -5,6 +5,7 @@
   - name: What is Arcadia
     href: arcadia-overview-what-is.md
   - name: Who can benefit from Arcadia
+    href: arcadia-overview-who-can-benefit-from-arcadia.md
 #- name: Release notes
 #  items:
 - name: Quick starts
@@ -18,7 +19,9 @@
 #  - name: BI Professional
 #    href: 
   - name: Data Scientist
-    href: arcadia-tutorial-predict-food-inspection-results.md 
+    items:
+    - name: Predict food inspection results
+      href: arcadia-tutorial-predict-food-inspection-results.md 
 #- name: Concepts
 #  items:
 #- name: How to
