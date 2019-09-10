@@ -8,13 +8,13 @@
   - name: Choose Blobs, Files, or Disks
     href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobs
-  href: /azure/storage/blobs/
+  href: ./blobs/index.yml
 - name: Data Lake Storage Gen2
-  href: /azure/storage/blobs/
+  href: ./blobs/index.yml
 - name: Files 
-  href: /azure/storage/files/
+  href: ./files/index.yml
 - name: Queues
-  href: /azure/storage/queues/ 
+  href: ./queues/index.yml
 - name: Tables
   href: ./tables/table-storage-overview.md
 - name: Disks
