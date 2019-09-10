@@ -58,7 +58,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.2
+* JIRA Core and Software: 6.4 to 8.2.4
 * JIRA Service Desk 3.0.0 to 4.2.1
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
