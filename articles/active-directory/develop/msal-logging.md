@@ -27,12 +27,12 @@ Microsoft Authentication Library (MSAL) apps to generate log messages that can h
 
 ## Logging levels
 
-MSAL's logger allows for several levels of detail to be capture:
+You can specify the level of detail to be captured by MSAL's logger:
 
-- **Error**: Indicates something has gone wrong and an error was generated. Use for debugging and identifying problems.
-- **Warning**: Events that are of question and the app needs more information on. There hasn't necessarily been an error or failure, but intended for diagnostic and pinpointing problems.
-- **Info**: MSAL will log events intended for informational purposes not necessarily intended for debugging.
-- **Verbose**: Default. MSAL will log a large amount of information and give full details into what library behavior.
+- **Error**: MSAL will log error information.
+- **Warning**: MSAL will log information that can be used to help diagnose problems.
+- **Info**: MSAL will log general information that isn't necessarily intended for debugging.
+- **Verbose**: This is the default logging level. MSAL will log full library behavior details.
 
 ## Personal and organizational data
 

@@ -27,9 +27,9 @@ This article describes the different authorization agents that the Microsoft Aut
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults.
 
-When using MSAL in your Android application, you can choose between using a browser, or the Android WebView, to launch the interactive sign-in experience.
+MSAL supports authorization using a `WebView`, or the system browser.  The following image shows how it looks using the `WebView`, and the system browser with and without CustomTabs:
 
-![login_ux_msal](./media/authorization-agents/sign-in-ui.jpg)
+![MSAL login examples](./media/authorization-agents/sign-in-ui.jpg)
 
 ## Single sign-in implications
 
@@ -73,7 +73,6 @@ The order of browsers in the browser list is determined by the operating system.
 
 > [!NOTE]
 > MSAL no longer always prefers Chrome if another browser is set as default. For example, on a device which has both Chrome and another browser pre-installed, MSAL will use the browser the user as set as the default.
-> Broker browsers: be aware that some browsers don't support the OAuth2.0 authorization code flow.
 
 ### Tested Browsers
 
