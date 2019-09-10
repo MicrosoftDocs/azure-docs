@@ -229,7 +229,7 @@ To work around this issue, you can try deleting your corrupted local connections
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tables
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Set the value in the Developer Tools to be `[]`.
+4. After saving your current connection names, set the value in the Developer Tools to be `[]`.
 
 (Optional) If you want to preserve the connections that aren't corrupted, you can perform step 5 to 7 to locate the corrupted connections.
 
@@ -261,7 +261,7 @@ Linux doesn't necessarily have a GUI tool for managing local credentials. You ma
 3. Look for entries starting with `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Delete these entries and add the connections back.
 
-If you still come across the error after doing these steps or you have any findings about why the connection data are corrupted, open an issue on our GitHub page.
+If you still come across this error after doing these steps, or if you'd like to share what you think corrupts the connections, [open an issue](https://github.com/microsoft/AzureStorageExplorer/issues) on our GitHub page.
 
 ## Issues with SAS URL
 
