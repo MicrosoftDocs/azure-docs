@@ -46,20 +46,20 @@ The following table lists all of the supported map class events.
 
 | Event             | Description |
 |-------------------|-------------|
-| boxzoomstart      | Fired when a "box zoom" interaction starts.|
 | boxzoomend        | Fired when a "box zoom" interaction ends.|
+| boxzoomstart      | Fired when a "box zoom" interaction starts.|
 | click             | Fired when a pointing device is pressed and released at the same point on the map.|
 | close             | Fired when the popup is closed manually or programatically.|
-| contextmenu       | Fired when the right button of the mouse is clicked or the context menu key is pressed within the map.|
-| dataadded         | Fired when objects are added to the datasource.|
-| dataremoved       | Fired when objects are removed from the datasource.|
-| datasourceupdated | Fired when the datasource object is updated.|
+| contextmenu       | Fired when the right button of the mouse is clicked.|
+| dataadded         | Fired when shapes are added to the DataSource.|
+| dataremoved       | Fired when shapes are removed from the DataSource.|
+| datasourceupdated | Fired when the DataSource object is updated.|
 | dblclick          | Fired when a pointing device is clicked twice at the same point on the map.|
-| drag              | Fired repeatedly during a "drag to pan" interaction.|
-| dragstart         | Fired when a "drag to pan" interaction starts.|
-| dragend           | Fired when a "drag to pan" interaction ends.|
+| drag              | Fired repeatedly during a "drag to pan" interaction on the map, popup, or HTML marker.|
+| dragend           | Fired when a "drag to pan" interaction ends on the map, popup, or HTML marker.|
+| dragstart         | Fired when a "drag to pan" interaction starts on the map, popup, or HTML marker.|
 | error             | Fired when an error occurs.|
-| keydown           | Fired when a key is pressed.|
+| keydown           | Fired when a key is pressed down.|
 | keypress          | Fired when a key that produces a typable character (an ANSI key) is pressed.|
 | keyup             | Fired when a key is released.|
 | layeradded        | Fired when a layer is added to the map.|
@@ -73,25 +73,25 @@ The following table lists all of the supported map class events.
 | moveend           | Fired just after the map completes a transition from one view to another, as the result of either user interaction or methods.|
 | movestart         | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods.|
 | open              | Fired when the popup is opened manually or programatically.|
-| pitch             | Fired whenever the map's pitch (tilt) changes as. the result of either user interaction or methods.|
+| pitch             | Fired whenever the map's pitch (tilt) changes as the result of either user interaction or methods.|
 | pitchend          | Fired immediately after the map's pitch (tilt) finishes changing as the result of either user interaction or methods.|
 | pitchstart        | Fired whenever the map's pitch (tilt) begins a change as the result of either user interaction or methods.|
-| ready             | Fired when the map resoureces are loaded.|
-| render            | <p> Fired whenever the map is drawn to the screen, as the result of <ul><li>a change to the map's position, zoom, pitch, or bearing</li><li>a change to the map's style</li><li>a change to a GeoJSON source</li><li>the loading of a vector tile, GeoJSON file, glyph, or sprite</li></ul></p>|
+| ready             | Fired when the minimum required map resources are loaded before the map is ready to be programmatically interacted with.|
+| render            | <p> Fired whenever the map is drawn to the screen, as the result of <ul><li>a change to the map's position, zoom, pitch, or bearing</li><li>a change to the map's style</li><li>a change to a DataSource source</li><li>the loading of a vector tile, GeoJSON file, glyph, or sprite</li></ul></p>|
 | resize            | Fired immediately after the map has been resized.|
 | rotate            | Fired repeatedly during a "drag to rotate" interaction.|
 | rotateend         | Fired when a "drag to rotate" interaction ends.|
 | rotatestart       | Fired when a "drag to rotate" interaction starts.|
 | shapechanged      | Fired when a shape object property is changed.|
-| sourceadded       | Fired when a datasource object is added to the map.|
-| sourceremoved     | Fired when a datasource object is removed from the map.|
+| sourceadded       | Fired when a DataSource or VectorTileSource is added to the map.|
+| sourceremoved     | Fired when a DataSource or VectorTileSource is removed from the map.|
 | styledata         | Fired when the map's style loads or changes.|
 | tokenacquired     | Fired when an AAD access token is obtained.|
 | touchcancel       | Fired when a touchcancel event occurs within the map.|
 | touchend          | Fired when a touchend event occurs within the map.|
 | touchmove         | Fired when a touchmove event occurs within the map.|
 | touchstart        | Fired when a touchstart event occurs within the map.|
-| wheel             | Fired when a wheel event occurs within the map.|
+| wheel             | Fired when a mouse wheel event occurs within the map.|
 | zoom              | Fired repeatedly during an animated transition from one zoom level to another, as the result of either user interaction or methods.|
 | zoomend           | Fired just after the map completes a transition from one zoom level to another, as the result of either user interaction or methods.|
 | zoomstart         | Fired just before the map begins a transition from one zoom level to another, as the result of either user interaction or methods.|
