@@ -112,7 +112,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
     Once the query has finished, the **QUERY** tab displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
 
-    ![HDInsight Hive view results](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-hive-views.png "HDInsight Hive view results")
+    ![HDInsight Hive view results](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive view results")
 
 6. Repeat step 4 and step 5 to run the following query:
 
