@@ -24,15 +24,15 @@ This article shows how to view the Azure AD DS health status and understand the 
 
 The health status for an Azure AD DS managed domain is viewed using the Azure portal. Information on the last backup time and synchronization with Azure AD can be seen, along with any alerts that indicate a problem with the managed domain's health. To view the health status for an Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select *Azure AD Domain Services*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**.
 1. Select your Azure AD DS managed domain, such as *contoso.com*.
 1. On the left-hand side of the Azure AD DS resource window, select **Health**. The following example screenshot shows a healthy Azure AD DS managed domain and the status of the last backup and Azure AD synchronization:
 
     ![Health page overview in the Azure portal showing the Azure Active Directory Domain Services status](./media/check-health/health-page.png)
 
-The *Last evaluated* timestamp of the health page shows when the Azure AD DS managed domain was last evaluated. The health of an Azure AD DS managed domain is evaluated every hour. If you make any changes to an Azure AD DS managed domain, wait until the next evaluation cycle to view the updated health status.
+The *Last evaluated* timestamp of the health page shows when the Azure AD DS managed domain was last checked. The health of an Azure AD DS managed domain is evaluated every hour. If you make any changes to an Azure AD DS managed domain, wait until the next evaluation cycle to view the updated health status.
 
-The status in the top right of your health page indicates the overall health of the Azure AD DS managed domain. The status factors all of the existing alerts on your domain. The following table details the available status indicators:
+The status in the top right indicates the overall health of the Azure AD DS managed domain. The status factors all of the existing alerts on your domain. The following table details the available status indicators:
 
 | Status | Icon | Explanation |
 | --- | :----: | --- |
@@ -58,17 +58,17 @@ The backup monitor checks that automated regular backups of the Azure AD DS mana
 
 | Detail value | Explanation |
 | --- | --- |
-| Never backed up | This state is normal for new Azure AD DS managed domains. The first backup is created 24 hours after the Azure AD DS managed domain is deployed. If this status persists, [open an Azure support request][azure-support]. |
+| Never backed up | This state is normal for new Azure AD DS managed domains. The first backup should be created 24 hours after the Azure AD DS managed domain is deployed. If this status persists, [open an Azure support request][azure-support]. |
 | Last backup was taken 1 to 14 days ago | This time range is the expected status for the backup monitor. Automated regular backups should occur in this period. |
 | Last backup was taken more than 14 days ago. | A timespan longer than two weeks indicates there's an issue with the automated regular backups. Active critical alerts may prevent the Azure AD DS managed domain from being backed up. Resolve any active alerts for the Azure AD DS managed domain. If the backup monitor doesn't then update the status to report a recent backup, [open an Azure support request][azure-support]. |
 
 #### Synchronization with Azure AD monitor
 
-An Azure AD DS managed domain regularly synchronizes with Azure Active Directory. The number of users and group objects, and the number of changes made in the Azure AD directory since the last sync, affects how long it takes to synchronize. If the Azure AD DS managed domain was last synchronized over three days ago, [open an Azure support request][azure-support].
+An Azure AD DS managed domain regularly synchronizes with Azure Active Directory. The number of users and group objects, and the number of changes made in the Azure AD directory since the last sync, affects how long it takes to synchronize. If the Azure AD DS managed domain was last synchronized over three days ago, check for and resolve any active alerts. If the synchronization monitor doesn't then update the status to show a recent sync, [open an Azure support request][azure-support].
 
 ### Alerts
 
-Alerts are generated for issues in an Azure AD DS managed domain that needs to be addressed for the service to run correctly. Each alert explains the problem and gives a URL that outlines specific steps to resolve the issue. For more information on the possible alerts and their resolutions, see [Troubleshooting alerts](troubleshoot-alerts.md).
+Alerts are generated for issues in an Azure AD DS managed domain that need to be addressed for the service to run correctly. Each alert explains the problem and gives a URL that outlines specific steps to resolve the issue. For more information on the possible alerts and their resolutions, see [Troubleshooting alerts](troubleshoot-alerts.md).
 
 Health status alerts are categorized into the following levels of severity:
 
