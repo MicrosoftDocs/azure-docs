@@ -93,14 +93,14 @@ The reverberation time of a given material in a room is inversely related to its
 
 ### For reference: Parts of the Materials tab
 ![The Acoustics Materials tab in Unity](media/materials-tab-detail.png)
-1. The **Materials** tab button, which is used to bring up this page.
-1. A brief description of what you can do by using this page.
-1. When this checkbox is selected, only materials used by objects that marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
-1. Use these options to change the order of the options when you click a drop-down menu in the Acoustics column (#6). Sort acoustic materials by **Name**. Or sort by **Absorptivity** from low to high.
-1. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** checkbox is selected (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Select a material here to select all objects in the scene that use that material.
-1. The acoustic material that the scene material has been assigned to. Select any item to change the acoustic material assigned to that scene material. To change the sorting order of these menus, use the **Sort Acoustics By:** options above (#4).
-1. The acoustic absorption coefficient of the material selected in the column to the left (#6). A value of 0 means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom."
-1.  For a material marked as "Custom" (in #7), the slider is no longer disabled. You can move the slider or type a value to assign the absorption coefficient.
+1. The **Materials** button that displays this tab.
+2. A brief description of what you can do by using this page.
+3. When this checkbox is selected, only materials used by objects that marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
+4. Use these options to change the order of the options when you click a drop-down menu in the Acoustics column (#6). Sort acoustic materials by **Name**. Or sort by **Absorptivity** from low to high.
+5. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** checkbox is selected (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Select a material here to select all objects in the scene that use that material.
+6. The acoustic material that the scene material has been assigned to. Select any item to change the acoustic material assigned to that scene material. To change the sorting order of these menus, use the **Sort Acoustics By:** options above (#4).
+7. The acoustic absorption coefficient of the material selected in the column to the left (#6). A value of 0 means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom."
+8.  For a material marked as "Custom" (in #7), the slider is no longer disabled. You can move the slider or type a value to assign the absorption coefficient.
 
 ## Calculate and review listener probe locations
 After you assign the materials, switch to the **Probes** tab. Select **Calculate** to place listener probe points for simulation.
@@ -135,16 +135,16 @@ The scene name is used to connect the scene to files that store the probe point 
 ![The Acoustics Probes tab in Unity](media/probes-tab-detail.png)
 
 1. The **Probes** tab button brings up this page.
-2. A brief description of what you can do on this tab.
-3. Use these options to set coarse or fine simulation resolution. Coarse is faster but has certain tradeoffs. For details, see [Bake Resolution](bake-resolution.md).
-4. Use this field to specify where to put the acoustics data files. Click the "**...**" button to access a folder picker. The default location is **Assets/AcousticsData**. An **Editor** subfolder will also be created under this location. For more information about data files, see [Data Files](#Data-Files), below.
-5. The prefix that's specified here is used to name the  data files for this scene. The default is "Acoustics_*[Scene Name]*".
-6. After the probes are calculated, the controls that we just described are disabled. Select  **Clear** button to erase the calculations and enable the controls so that you can recalculate with new settings.
-7. Select **Calculate** to voxelize the scene and calculate the probe point locations. This is done locally on your machine. It must be done before doing a bake.
+1. A brief description of what you can do on this tab.
+1. Use these options to set coarse or fine simulation resolution. Coarse is faster, but there are certain tradeoffs. For details, see [Bake resolution](bake-resolution.md).
+1. Use this field to specify where to put the acoustics data files. Click the "**...**" button to access a folder picker. The default location is *Assets/AcousticsData*. An *Editor* subfolder will also be created under this location. For more information about data files, see [Data files added by the bake process](#Data-Files), later in this article.
+1. The prefix that's specified here is used to name the  data files for this scene. The default is "Acoustics_*[Scene Name]*".
+1. After the probes are calculated, the controls that we just described are disabled. Select the **Clear** button to erase the calculations and enable the controls so that you can recalculate with new settings.
+1. Select **Calculate** to voxelize the scene and calculate the probe point locations. This is done locally on your machine. It must be done before doing a bake.
 
 In this version of Project Acoustics, probes can't be placed manually. You must use the automated process on the **Probes** tab.
 
-For more information on coarse versus fine resolution, see [Bake resolution](bake-resolution.md) .
+For more information about coarse versus fine resolution, see [Bake resolution](bake-resolution.md) .
 
 ## Bake your scene by using Azure Batch
 You can bake your scene with a compute cluster in the cloud by using the Azure Batch service. The Project Acoustics Unity plug-in connects directly to Azure Batch to instantiate, manage, and tear down an Azure Batch cluster for each bake. On the **Bake** tab, enter your Azure credentials, select a cluster machine type and size, and select **Bake**.
@@ -152,22 +152,22 @@ You can bake your scene with a compute cluster in the cloud by using the Azure B
 ### For reference: Parts of the Bake tab
 ![The Acoustics Bake tab in Unity](media/bake-tab-details.png)
 
-1. The **Bake** tab button that displays this page.
+1. The **Bake** button that displays this tab.
 1. A brief description of what you can do on this page.
-1. Fields where you enter your Azure Credentials, after your Azure account has been created. For more information, see [Create an Azure Batch account](create-azure-account.md).
+1. Fields where you enter your Azure credentials, after your Azure account is created. For more information, see [Create an Azure Batch account](create-azure-account.md).
 1. Docker image tag field for the acoustics toolset.
-1. Launch the Azure portal to manage your subscriptions, monitor usage and view billing information, and so on. 
+1. Launch the Azure portal to manage your subscriptions, monitor usage and view billing information, and so on.
 1. Azure batch compute node type to use for calculation. The node type must be supported by your Azure data center location. If you're not sure, leave as *Standard_F8s_v2*.
-1. Number of nodes to use for the calculation. This number affects the time to complete the bake. It's limited by your Azure Batch core allocation. The default allocation only allows for two 8-core nodes or one 16-core node, but it can be expanded. For more information about core allocation constraints, see [Create an Azure Batch account](create-azure-account.md).
-1. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost, but they may not always be available or may be preempted at any time.
-1. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You can't specify more nodes than there are probes.
-1. An estimate of the time that you job will take to run in the cloud. It doesn't include node startup time. After the job starts running, this field shows about how long it until you get back the results.
-2. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimate Azure bake cost](#Estimating-bake-cost) later in this article for more information about using this value.
-3. This message tells you where the results of the bake will be saved when the job is finished.
-4. (Advanced use only:) If you need to force Unity to forget about a bake that you submitted, for example if you downloaded the results by using another machine), select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *But this is not the same as canceling the job*. The job, if running, will continue to run in the cloud.
-5. Select the **Bake** button to submit the bake to the cloud. While a job is running, this button shows **Cancel Job** instead.
-6. Select to prepare for processing [acoustics simulation on your PC](#Local-bake).
-7. This area shows the status of the bake. When completed, it should show **Downloaded**.
+7. Number of nodes to use for the calculation. This number affects the time to complete the bake. It's limited by your Azure Batch core allocation. The default allocation only allows for two 8-core nodes or one 16-core node, but it can be expanded. For more information about core allocation constraints, see [Create an Azure Batch account](create-azure-account.md).
+8. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost, but they may not always be available or may be preempted at any time.
+9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You can't specify more nodes than there are probes.
+10. An estimate of the time that you job will take to run in the cloud. It doesn't include node startup time. After the job starts running, this field shows about how long it until you get back the results.
+11. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimate Azure bake cost](#Estimating-bake-cost) later in this article for more information about using this value.
+12. This message tells you where the results of the bake will be saved when the job is finished.
+13. (Advanced use only:) If you need to force Unity to forget about a bake that you submitted, for example if you downloaded the results by using another machine), select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *But this is not the same as canceling the job*. The job, if running, will continue to run in the cloud.
+14. Select the **Bake** button to submit the bake to the cloud. While a job is running, this button shows **Cancel Job** instead.
+15. Select to prepare for processing [acoustics simulation on your PC](#Local-bake).
+16. This area shows the status of the bake. When completed, it should show **Downloaded**.
 
 You can always get complete information about active jobs, compute pools, and storage in the [Azure portal](https://portal.azure.com).
 
