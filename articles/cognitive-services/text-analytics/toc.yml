@@ -19,17 +19,17 @@
     - name: REST API
       items: 
       - name: Using Java
-        href: includes/quickstarts-2/java.md
+        href: quickstarts/java.md
       - name: Using Python
-        href: includes/quickstarts-2/python.md
+        href: quickstarts/python.md
       - name: Using Node.js
-        href: includes/quickstarts-2/nodejs.md
+        href: quickstarts/nodejs.md
       - name: Using PHP
-        href: includes/quickstarts-2/php.md
+        href: quickstarts/php.md
       - name: Using Go
-        href: includes/quickstarts-2/php.md
+        href: quickstarts/php.md
       - name: Using Ruby
-        href: includes/quickstarts-2/php.md
+        href: quickstarts/php.md
 
 - name: Tutorials
   items:
