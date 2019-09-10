@@ -1,5 +1,5 @@
 ---
-title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
+title: Install on-premises data gateway - Azure Logic Apps
 description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 07/01/2019
 ---
 
 # Install on-premises data gateway for Azure Logic Apps
 
-Before you can connect to on-premises data sources from Azure Logic Apps, download and install the on-premises data gateway on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises (not in the cloud) and your logic apps. This article shows how you can download, install, and set up your on-premises data gateway.
+Before you can connect to on-premises data sources from Azure Logic Apps, download and install the on-premises data gateway on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises (not in the cloud) and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
-You can use the same gateway installation with other services, such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. Learn more about [how the data gateway works](#gateway-cloud-service).
+* [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+* [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+
+This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic.
 
 <a name="supported-connections"></a>
 
@@ -34,12 +39,7 @@ The gateway supports [on-premises connectors](../connectors/apis-list.md#on-prem
 * SQL Server
 * Teradata
 
-For information about how to use the gateway with other services, see these articles:
-
-* [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+Although the gateway alone doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 <a name="requirements"></a>
 
@@ -47,168 +47,166 @@ For information about how to use the gateway with other services, see these arti
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-  During gateway installation, you sign in to this account so you can associate the gateway installation with your Azure subscription. Later, you also use same account when you create an Azure resource for your gateway installation in the Azure portal.
+  * You must use the same Azure account to install and to administer the gateway. During installation, you use this Azure account to associate the gateway on your computer with an Azure subscription. Later, you use same Azure account when you create an Azure resource in the Azure portal for your gateway installation. 
+
+  * You must sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
+
+    > [!TIP]
+    > If you signed up for an Office 365 offering and didn't provide your work email address, 
+    > your address might look like `username@domain.onmicrosoft.com`. Your account is stored 
+    > within a tenant in an Azure Active Directory (Azure AD). In most cases, the User Principal 
+    > Name (UPN) for your Azure AD account is the same as your email address.
+    >
+    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated 
+    > with a Microsoft account, first [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md), 
+    > or use the default directory. Add a user with a password to the directory, then give that user access to your subscription. 
+    > You can then sign in during gateway installation with this username and password.
 
 * Here are requirements for your local computer:
 
   **Minimum requirements**
 
-  * .NET Framework 4.5.2
+  * .NET Framework 4.6
   * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
   **Recommended requirements**
 
   * 8-core CPU
   * 8 GB memory
-  * 64-bit version of Windows Server 2012 R2 (or later)
+  * 64-bit version of Windows Server 2012 R2 or later
+  * Solid-state drive (SSD) storage for spooling
 
   > [!NOTE]
   > The gateway doesn't support Windows Server 2016 Core.
 
-* **Important considerations**
+* **Related considerations**
 
-  * You can install the on-premises data gateway only on a local computer, not a domain controller. However, you don't have to install the gateway on the same computer as your data source. Also, you need only one gateway for all your data sources, so no need to install the gateway for each data source.
+  * You can install the on-premises data gateway only on a local computer, not a domain controller. However, you don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
 
     > [!TIP]
     > To minimize latency, you can install the gateway as close 
     > as possible to your data source, or on the same computer, 
     > assuming that you have permissions.
 
-  * Install the gateway on a computer that's connected to the internet, always turned on, and *doesn't* go to sleep. Otherwise, the gateway can't run. Also, performance might suffer over a wireless network.
+  * Install the gateway on a computer that's on a wired network, connected to the internet, always turned on, and doesn't go to sleep. Otherwise, the gateway can't run, and performance might suffer over a wireless network.
 
-  * During installation, you can only sign in with a [work or school account](../active-directory/sign-up-organization.md) that's managed by Azure Active Directory (Azure AD), for example, @contoso.onmicrosoft.com, and not an Azure B2B (guest) account or a personal Microsoft account, such as @hotmail.com or @outlook.com. Make sure you use the same sign-in account when you register your gateway installation in the Azure portal by creating a gateway resource. You can then select this gateway resource when you create the connection from your logic app to your on-premises data source. [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
+  * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
-  > [!TIP]
-  > If you signed up for an Office 365 offering 
-  > and didn't provide your actual work email, 
-  > you might have a sign-in address that looks 
-  > like this example: `username@domain.onmicrosoft.com` 
-  >
-  > To use a Microsoft account that has a 
-  > [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/), first 
-  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), 
-  > or use the default directory, with your Microsoft account. 
-  > Add a user with a password to the directory, 
-  > then give that user access to your subscription. 
-  > You can then sign in during gateway installation with this username and password.
+  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
 
-  * The region you select for your gateway installation determines the location where you later register your gateway in Azure by creating an Azure resource. When you create this gateway resource in Azure, you must select the *same* location as your gateway installation. The default region is the same location as your Azure AD tenant, which manages your Azure account, but you can change the location during gateway installation.
-
-  * If you already have a gateway that you set up with an installer earlier than version 14.16.6317.4, you can't change your gateway's location by running the latest installer. However, you can use the latest installer to set up a new gateway with the location you want instead.
-  
-    If you have a gateway installer that's earlier than version 14.16.6317.4, but you haven't installed your gateway yet, you can download and use the latest installer instead.
-
-## High availability support
-
-The on-premises data gateway supports high availability when you have more than one gateway installation and set them up as clusters. If you have an existing gateway when you go to create another gateway, you can optionally create high availability clusters. These clusters organize gateways into groups that can help avoid single points of failure. Also, all on-premises data gateway connectors now support high availability.
-
-To use the on-premises data gateway, review these requirements and considerations:
-
-* You must already have at least one gateway installation within the same Azure subscription as the primary gateway and the recovery key for that installation.
-
-* Your primary gateway must be running the gateway update from November 2017 or later.
-
-After meeting these requirements, when you create your next gateway, select **Add to an existing gateway cluster**, select the primary gateway for your cluster, and provide the recovery key for that primary gateway. For more information, see [High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
+  * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
 
 <a name="install-gateway"></a>
 
 ## Install data gateway
 
-1. [Download, save, and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
+1. [Download and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
 
-1. Accept the default installation path, or specify the location on your computer where you want to install the gateway.
+1. After the installer opens, select **Next**.
 
-1. Review and accept the terms of use and privacy statement, and then choose **Install**.
+   ![Installer intro](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
-   ![Accept terms of use and privacy statement](./media/logic-apps-gateway-install/accept-terms.png)
+1. Select **On-premises data gateway (recommended)**, which is standard mode, and then select **Next**.
 
-1. After the gateway successfully installs, provide the email address for your work or school account, and choose **Sign in**.
+   ![Select gateway mode](./media/logic-apps-gateway-install/select-gateway-mode.png)
+
+1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
+
+   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/accept-terms.png)
+
+1. After the gateway successfully installs, provide the email address for your organization account, and then select **Sign in**, for example:
 
    ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-1. Choose **Register a new gateway on this computer** > **Next**, which registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
+   You're now signed in to your account.
 
-   ![Register gateway](./media/logic-apps-gateway-install/register-new-gateway.png)
+1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
+
+   ![Register gateway](./media/logic-apps-gateway-install/register-gateway.png)
 
 1. Provide this information for your gateway installation:
 
-   * The name you want for your installation
-
-   * The recovery key you want to create, which must have at least eight characters
-
-     > [!IMPORTANT]
-     > Save and keep your recovery key in a safe place. 
-     > You need this key when you change the gateway's location, 
-     > or when you migrate, recover, or take over an existing gateway.
-
+   * A gateway name that's unique across your Azure AD tenant
+   * The recovery key, which must have at least eight characters, that you want to use
    * Confirmation for your recovery key
 
-     ![Set up gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Set up gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
 
-1. Check the region selected for the gateway cloud service and Azure Service Bus that's used by your gateway installation.
+   > [!IMPORTANT]
+   > Save and keep your recovery key in a safe place. 
+   > You need this key if you ever want to change the location, 
+   > move, recover, or take over a gateway installation.
+
+   Note the option to **Add to an existing gateway cluster**, which you select when you install additional gateways for [high-availability scenarios](#high-availability).
+
+1. Check the region for the gateway cloud service and [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
 
    ![Check region](./media/logic-apps-gateway-install/check-region.png)
 
-   > [!IMPORTANT]
-   > To change this region after you finish installing your gateway, 
-   > you need the recovery key for that gateway installation. 
-   > Also, you must uninstall and reinstall the gateway. 
-   > For more information, see 
-   > [Change location, migrate, recover, or take over existing gateway](#update-gateway-installation).
+1. To accept the default region, select **Configure**. However, if the default region isn't the one that's closest to you, you can change the region.
 
    *Why change the region for your gateway installation?*
 
-   For example, to reduce latency, you might change your gateway's region to the same region as your logic app. Or, you might select the region closest to your on-premises data source.    Your *gateway resource in Azure* and your logic app can have different locations.
-
-1. To accept the default region, choose **Configure**. Or, to change the default region, follow these steps:
+   For example, to reduce latency, you might change your gateway's region to the same region as your logic app. Or, you might select the region closest to your on-premises data source. Your *gateway resource in Azure* and your logic app can have different locations.
 
    1. Next to the current region, select **Change Region**.
 
       ![Change region](./media/logic-apps-gateway-install/change-region.png)
 
-   1. On the next page, open the **Select Region** list, select the region you want, and choose **Done**.
+   1. On the next page, open the **Select Region** list, select the region you want, and select **Done**.
 
       ![Select another region](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. After the confirmation page appears, choose **Close**.
-
-   The installer confirms that your gateway is now online and ready for use.
+1. Review the information in the final confirmation window. This example uses the same account for Logic Apps, Power BI, PowerApps, and Microsoft Flow, so the gateway is available for all these services. When you're ready, select **Close**.
 
    ![Finished gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-1. Now register your gateway in Azure by [creating an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
+1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
+
+<a name="high-availability"></a>
+
+## High availability support
+
+To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability. 
+
+* You must already have at least one gateway installation within the same Azure subscription as the primary gateway and the recovery key for that installation.
+
+* Your primary gateway must be running the gateway update from November 2017 or later.
+
+After you set up your primary gateway, when you go to install another gateway, select **Add to an existing gateway cluster**, select the primary gateway, which is the first gateway that you installed, and provide the recovery key for that gateway. For more information, see [High availability clusters for on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
 ## Change location, migrate, restore, or take over existing gateway
 
-If you must change your gateway's location, move your gateway installation to a new computer, recover a damaged gateway, or take ownership for an existing gateway, you need the recovery key that was provided during gateway installation. This action disconnects the old gateway.
+If you must change your gateway's location, move your gateway installation to a new computer, recover a damaged gateway, or take ownership for an existing gateway, you need the recovery key that was provided during gateway installation.
 
-1. From your computer's **Control Panel**, go to **Programs and Features**. In the programs list, select **On-premises data gateway**, and then choose **Uninstall**.
+1. Run the gateway installer on the computer that has the existing gateway. If you don't have the latest gateway installer, [download the latest gateway version](https://aka.ms/on-premises-data-gateway-installer).
 
-1. [Reinstall the on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer).
+   > [!NOTE]
+   > Before you restore the gateway on the computer that has the original gateway installation, 
+   > you must first uninstall the gateway on that computer. This action disconnects the original gateway.
+   > If you remove or delete a gateway cluster for any cloud service, you can't restore that cluster.
 
-1. After the installer opens, sign in with the same work or school account that was previously used to install the gateway.
+1. After the installer opens, sign in with the same Azure account that was used to install the gateway.
 
-1. Select **Migrate, restore, or takeover an existing gateway**, and then choose **Next**.
+1. Select **Migrate, restore, or takeover an existing gateway** > **Next**, for example:
 
    ![Select "Migrate, restore, or takeover an existing gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-1. Under **Available gateways** or **Available gateway clusters**, select the gateway installation you want to change. Enter the recovery key for the gateway installation.
+1. Select from the available clusters and gateways, and enter the recovery key for the selected gateway, for example:
 
-   ![Select primary gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Select gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-1. To change the region, select **Change Region** and the new region.
+1. To change the region, select **Change Region**, and select the new region.
 
-1. When you're done, choose **Configure**.
+1. When you're ready, select **Configure** so that you can finish your task.
 
 ## Configure proxy or firewall
 
-The on-premises data gateway creates an outbound connection to [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). If your work environment requires that traffic goes through a proxy to access the internet, this restriction might prevent the data gateway from connecting to the gateway cloud service. To determine whether your network uses a proxy, review this article at superuser.com:
+If your work environment requires that traffic goes through a proxy to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). For more information, see [Configure proxy settings for the on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-proxy).
 
-[How do I know what proxy server I'm using? (SuperUser.com)](https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using)
-
-To provide proxy information for your gateway, see [Configure proxy settings](https://docs.microsoft.com/power-bi/service-gateway-proxy). To check whether your proxy or firewall might block connections, confirm whether your machine can actually connect to the internet and the [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). From a PowerShell prompt, run this command:
+To check whether your proxy or firewall might block connections, confirm whether your computer can actually connect to the internet and Azure Service Bus. From a PowerShell prompt, run this command:
 
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
@@ -224,8 +222,7 @@ To provide proxy information for your gateway, see [Configure proxy settings](ht
 > test connectivity. Learn more about 
 > [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
-Your results should look similar to this example 
-with **TcpTestSucceeded** set to **True**:
+Your results should look similar to this example with **TcpTestSucceeded** set to **True**:
 
 ```text
 ComputerName           : watchdog.servicebus.windows.net
@@ -242,9 +239,11 @@ If **TcpTestSucceeded** is not set to **True**, your gateway might be blocked by
 
 The firewall might also block connections that the Azure Service Bus makes to the Azure datacenters. If this scenario happens, approve (unblock) all the IP addresses for those datacenters in your region. For those IP addresses, [get the Azure IP addresses list here](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a name="configure-ports"></a>
+
 ## Configure ports
 
-The gateway creates an outbound connection to [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. The gateway doesn't require inbound ports. Learn more about [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
+The gateway creates an outbound connection to Azure Service Bus and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. The gateway doesn't require inbound ports. Learn more about [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
 The gateway uses these fully qualified domain names:
 
@@ -265,57 +264,37 @@ In some cases, Azure Service Bus connections are made with IP addresses rather t
 
 ### Force HTTPS communication with Azure Service Bus
 
-Some proxies let traffic through only to ports 80 and 443. By default, communication with Azure Service Bus occurs on ports other than 443. You can force the gateway to communicate with the Azure Service Bus over HTTPS rather than direct TCP, but doing so can greatly reduce performance. To perform this task, follow these steps:
-
-1. Browse to the location for the on-premises data gateway client, which you can usually find here: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
-
-   Otherwise, to find the client location, open the Services console on the same computer, find **On-premises data gateway service**, and view the **Path to executable** property.
-
-1. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-1. Change the **ServiceBusSystemConnectivityModeString** value from **AutoDetect** to **Https**:
-
-   ```html
-   <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-      <value>Https</value>
-   </setting>
-   ```
+Some proxies let traffic through only to ports 80 and 443. By default, communication with Azure Service Bus occurs on ports other than 443. You can force the gateway to communicate with the Azure Service Bus over HTTPS rather than direct TCP, but doing so can greatly reduce performance. For more information, see [Force HTTPS communication with Azure Service Bus](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication#force-https-communication-with-azure-service-bus).
 
 <a name="windows-service-account"></a>
 
 ## Windows service account
 
-On the computer where you install the on-premises data gateway, the gateway runs as a Windows service account named "On-premises data gateway service". However, the gateway uses the "NT SERVICE\PBIEgwService" name for its "Log On As" account credentials. By default, the gateway has "Log on as a service" permissions on the computer where you install the gateway. The Windows service account for the gateway usually differs from the account you use for connecting to on-premises data sources, and from the work or school account you use for signing in to cloud services.
+By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service". However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its "Log On As" account credentials and has "Log on as a service" permissions.
 
-For you to create and maintain the gateway in the Azure portal, this Windows service account must have at least **Contributor** permissions. To check these permissions, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+> [!NOTE]
+> Your Windows service account differs from the account used for connecting to on-premises 
+> data sources and from the Azure account that you use when you sign in to cloud services.
 
 <a name="restart-gateway"></a>
 
 ## Restart gateway
 
-The data gateway runs as a Window service, so like any other Windows service, you can start and stop the gateway in various ways. For example, you can open a command prompt with elevated permissions on the computer where the gateway is running, and run either command:
+The data gateway runs as a Window service, so like any other Windows service, you can start and stop the gateway in various ways. For more information, see [Restart an on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
 
-* To stop the service, run this command:
-  
-  `net stop PBIEgwService`
+## Tenant-level administration
 
-* To start the service, run this command:
-  
-  `net start PBIEgwService`
-
-## Tenant level administration
-
-Currently, there's no single place where tenant administrators can manage all the gateways that other users have installed and configured. If you're a tenant administrator, you might want to have the users in your organization add you as an administrator for every gateway they install. This way, you can manage all the gateways in your organization through the Gateway Settings page or through [PowerShell commands](/data-integration/gateway/service-gateway-powershell-support).
+To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="gateway-cloud-service"></a>
 
-## How does the gateway work?
+## How the gateway works
 
 The data gateway facilitates quick and secure communication between your logic app, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between your logic app, the on-premises data gateway, and your data source on premises.
 
-The gateway works with firewalls and uses only outbound connections. All traffic originates as secure outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through the Azure Service Bus. This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
+The gateway works with firewalls and uses only outbound connections. All traffic originates as secure outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through Azure Service Bus. This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
 
-![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![Architecture for on-premises data gateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 These steps describe what happens when a user in the cloud interacts with an element that's connected to your on-premises data source:
 
