@@ -1,5 +1,5 @@
-- name: Azure Storage Documentation
-  href: /azure/storage/
+- name: Azure Blob storage documentation
+  href: /azure/storage/blobs/
 - name: Overview
   expanded: true
   items:
@@ -85,6 +85,8 @@
       href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Java
       href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Python
+      href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
