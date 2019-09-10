@@ -11,7 +11,7 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/03/2019
+  ms.date: 09/10/2019
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -44,7 +44,7 @@ conceptualContent:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
-        - url: /azure/cognitive-services/Custom-Vision-Service/
+        - url: ./Custom-Vision-Service/index.yml
           itemType: overview
           text: Custom Vision
         - url: ./face/index.yml
