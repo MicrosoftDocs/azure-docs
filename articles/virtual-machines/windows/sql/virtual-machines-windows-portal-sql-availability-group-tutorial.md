@@ -80,6 +80,9 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
 ### Set the Windows server failover cluster IP address
 
+  > [!NOTE]
+  > On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**. If you're using Windows Server 2019, skip any steps that refer to the cluster core name in this tutorial. You can create create a cluster network name using [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Review the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
+
 1. In **Failover Cluster Manager**, scroll down to **Cluster Core Resources** and expand the cluster details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as the machine itself, therefore it is a duplicate address.
 
 2. Right-click the failed **IP Address** resource, and then click **Properties**.
