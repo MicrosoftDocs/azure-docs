@@ -47,10 +47,10 @@ This built-in trigger creates a manually callable endpoint that can receive an i
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save the logic app and is used for calling your logic app |
-   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describe properties and values in the incoming HTTP request body |
+   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming HTTP request body |
    |||||
 
-1. In the **Request Body JSON Schema** box, optionally enter a JSON schema that describes the HTTP request body that's expected in the incoming request, for example:
+1. In the **Request Body JSON Schema** box, optionally enter a JSON schema that describes the HTTP request body in the incoming request, for example:
 
    ![Example JSON schema](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -141,7 +141,7 @@ This built-in trigger creates a manually callable endpoint that can receive an i
       }
       ```
 
-1. To specify additional properties, such as the expected method used for the request or a relative path, open the **Add new parameter** list, and select the parameters that you want to add.
+1. To specify additional properties, open the **Add new parameter** list, and select the parameters that you want to add.
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
@@ -149,11 +149,11 @@ This built-in trigger creates a manually callable endpoint that can receive an i
    | **Relative path** | `relativePath` | No | The relative path for the parameter that the logic app's endpoint URL can accept |
    |||||
 
-   This example adds the **Method** parameter:
+   This example adds the **Method** property:
 
    ![Add Method parameter](./media/connectors-native-reqres/add-parameters.png)
 
-   Now the **Method** parameter appears in the trigger so that you can select a method from the list.
+   The **Method** property appears in the trigger so that you can select a method from the list.
 
    ![Select method](./media/connectors-native-reqres/select-method.png)
 
