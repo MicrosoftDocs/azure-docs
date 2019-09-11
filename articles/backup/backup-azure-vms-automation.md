@@ -711,7 +711,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
     New-AzVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
-7. Push ADE extension. If it is not pushed, then the data disks will be marked as unencrypted. So this step needs to be mandatory executed
+7. Push ADE extension. If the ADE extensions are not pushed, then the data disks will be marked as unencrypted, so this step needs to be mandatory executed.
 
    * **For VM with Azure AD** - Use the following command to manually enable encryption for the data disks  
 
