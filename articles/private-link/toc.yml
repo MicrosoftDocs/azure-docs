@@ -27,9 +27,10 @@
 
 - name: How to
   items:
-
-  - name: Create a private link service - Azure PowerShell
+  - name: Create a private link service
     href: create-private-link-service-powershell.md
+  - name: Disable network policies for private endpoints
+    href: disable-private-endpoint-network-policy.md 
 
 - name: Reference
   items:
