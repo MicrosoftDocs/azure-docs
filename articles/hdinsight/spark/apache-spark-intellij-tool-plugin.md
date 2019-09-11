@@ -208,7 +208,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
 
 2. You also can unlink a cluster from **Azure Explorer**.
 
-   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
+   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
 
 ## Run a Spark Scala application on an HDInsight Spark cluster
 

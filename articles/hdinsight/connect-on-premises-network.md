@@ -63,7 +63,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
   
 2. From the left menu, navigate to **+ Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**.
 
-    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. From the __Basics__ tab, enter the following information:  
   
@@ -80,7 +80,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
     |Public inbound ports|Select **Allow selected ports**. Then select **SSH (22)** from the **Select inbound ports** drop-down list.|
 
-    ![Virtual machine basic configuration](./media/connect-on-premises-network/vm-basics.png)
+    ![Virtual machine basic configuration](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Leave other entries at the default values and then select the **Networking** tab.
 
@@ -105,7 +105,7 @@ Once the virtual machine has been created, you will receive a **Deployment succe
 
 2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
 
-   ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Public and private IP addresses](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### Install and configure Bind (DNS software)
 
