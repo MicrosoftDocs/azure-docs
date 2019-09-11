@@ -42,7 +42,7 @@ This built-in trigger creates a manually callable endpoint that can receive an i
 
    The Request trigger shows these properties:
 
-   ![Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
+   ![Request trigger](./media/connectors-native-reqres/request-trigger.png)
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
