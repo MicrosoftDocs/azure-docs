@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 03/22/2019
+ ms.date: 09/11/2019
  ms.author: spelluru
  ms.custom: include file
 ---

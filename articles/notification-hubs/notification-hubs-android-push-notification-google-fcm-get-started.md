@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/15/2019
+ms.date: 09/11/2019
 ms.author: jowargo
 ---
 
