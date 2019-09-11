@@ -11,17 +11,20 @@ ms.date: 09/09/2019
 ms.author: sagupt
 ---
 
-# Create activity log alerts for new recommendations 
+# Create Azure Advisor alerts on new recommendations 
 
 This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal and Azure Resource Manager templates. 
 
-Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on. You can also determine the types of recommendations by using these properties:
+Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on. 
+
+You can also determine the types of recommendations by using these properties:
 
 * Category
 * Impact level
 * Recommendation type
 
 You can also configure the action that will take place when an alert is triggered by:  
+
 * Selecting an existing action group
 * Creating a new action group
 
@@ -30,7 +33,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 > [!NOTE] 
 > Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
 
-## Create a recommendation alert from the Azure portal
+## In the Azure portal
 1. In the **portal**, select **Azure Advisor**.
 
     ![Azure Advisor in portal](./media/advisor-alerts/create1.png)
@@ -63,7 +66,9 @@ To learn more about action groups, see [Create and manage action groups](../azur
     ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
 
 
-## Create a recommendation alert and a new action group using an Azure Resource Manager template
+## With a Azure Resource Manager template
+
+This Resource Manager template creates an recommendation alert and a new action group.
 
 ```json
 {
@@ -160,7 +165,6 @@ To learn more about action groups, see [Create and manage action groups](../azur
 }
   ```
 
-
 ## Configure recommendation alerts to use a webhook
 This section shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 
 
@@ -219,7 +223,7 @@ When you set up your action group for this alert, you select if you would like t
 }
   ```
 
-If you do not use the Common schema, your payload will look like: 
+If you do not use the common schema, your payload looks like the following: 
 
 ```json
 {  
