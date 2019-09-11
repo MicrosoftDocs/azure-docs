@@ -13,7 +13,7 @@ ms.date: 07/01/2019
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-To access data sources on premises from your logic apps, create an on-premises data gateway resource in the Azure portal. Your logic apps can then use the [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). This article shows how to create your Azure gateway resource *after* you [download and install the gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). To learn more about how the gateway works, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+To access data sources on premises from your logic apps, create an on-premises data gateway resource in the Azure portal. Your logic apps can then use the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors). This article shows how to create your Azure gateway resource *after* you [download and install the gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > To connect to Azure virtual networks, consider creating an 
@@ -25,6 +25,27 @@ For information about how to use the gateway with other services, see these arti
 * [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+
+<a name="supported-connections"></a>
+
+## Supported data sources
+
+For Azure Logic Apps, the on-premises data gateway supports [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) for these data sources:
+
+* BizTalk Server 2016
+* File System
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* SharePoint Server
+* SQL Server
+* Teradata
+
+Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 ## Prerequisites
 
@@ -133,6 +154,13 @@ To create a different gateway resource, link your gateway installation to a diff
 <a name="faq"></a>
 
 ## Frequently asked questions
+
+**Q**: Why don't I see my gateway installation when I create the gateway resource in Azure? <br/>
+**A**: This issue can happen for these reasons:
+
+* Your gateway installation is already registered and claimed by another gateway resource in Azure. Gateway installations don't appear in the instances list after gateway resources are created for them. To check your gateway registrations in the Azure portal, review all your Azure resources with the **On-premises Data Gateways** type for *all* Azure subscriptions.
+
+* The Azure AD identity for the person who installed the gateway differs from the person who signed in to the Azure portal. Check that you're signed in with the same identity that installed the gateway.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
