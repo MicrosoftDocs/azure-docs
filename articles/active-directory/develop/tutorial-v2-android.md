@@ -57,7 +57,7 @@ This tutorial will create a new project. If you want to download the completed t
 4. Save the package name. You will enter it later into the Azure portal.
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
-7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `27`.
+7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `28`.
 
 ## Register your application
 
