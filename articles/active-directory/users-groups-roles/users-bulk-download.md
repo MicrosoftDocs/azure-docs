@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Download a list of users (preview) in Azure Active Directory portal
 
-Azure Active Directory (Azure AD) supports bulk user import (create)) operations.
+Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
 ## Bulk download service limits
 
