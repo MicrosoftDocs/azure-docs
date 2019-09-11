@@ -41,7 +41,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 
 1. [Connect to your cluster with SSH](hdinsight-hadoop-linux-use-ssh-unix.md). From the overview pane for your cluster in the Azure portal, select the **Secure Shell (SSH)** button.
 
-    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
+    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. Copy the displayed `ssh` command and paste it into your SSH client. Enter the ssh user password when prompted.
 
@@ -133,7 +133,7 @@ Open the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify tha
 
 3. The new user should be listed within the Users table. The Type is set to `LDAP` rather than  `Local`.
 
-    ![Users page](./media/hdinsight-sync-aad-users-to-cluster/users.png)
+    ![Users page](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## Log in to Ambari as the new user
 
