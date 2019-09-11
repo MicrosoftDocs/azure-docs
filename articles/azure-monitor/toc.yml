@@ -1035,8 +1035,6 @@
         href: insights/solutions-resources-views.md
       - name: Best practices
         href: insights/solutions-best-practices.md
-      - name: Collect monitoring data from a runbook
-        href: platform/runbook-datacollect.md
 - name: Reference
   items:
   - name: Service limits
