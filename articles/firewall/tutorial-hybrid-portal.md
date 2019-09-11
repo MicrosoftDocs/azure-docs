@@ -96,7 +96,7 @@ Now, create the VNet:
 4. For **Name**, type **VNet-Spoke**.
 5. For **Address space**, type **10.6.0.0/16**.
 6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Test-FW-RG**.
+7. For **Resource group**, select **FW-Hybrid-Test**.
 8. For **Location**, select the same location that you used previously.
 9. Under **Subnet**, for **Name** type **SN-Workload**.
 10. For **Address range**, type **10.6.0.0/24**.

@@ -18,7 +18,7 @@ For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters b
 
 Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen  displays an overview dashboard.
 
-![Ambari dashboard](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
+![Ambari dashboard](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 The Ambari web UI can be used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create an HDInsight cluster, upgrade services, manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
 
@@ -26,7 +26,7 @@ The Ambari web UI can be used to manage hosts, services, alerts, configurations,
 
 Configuration settings help tune a particular service. To modify a service's configuration settings, select the service from the **Services** sidebar (on the left), and then navigate to the **Configs** tab in the service detail page.
 
-![Services sidebar](./media/hdinsight-changing-configs-via-ambari/services-sidebar.png)
+![Services sidebar](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### Modify NameNode Java heap size
 
@@ -36,15 +36,15 @@ To modify the NameNode Java heap size:
 
 1. Select **HDFS** from the Services sidebar and navigate to the **Configs** tab.
 
-    ![HDFS configuration](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
+    ![HDFS configuration](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. Find the setting **NameNode Java heap size**. You can also use the **filter** text box to type and find a particular setting. Select the **pen** icon beside the setting name.
 
-    ![NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
+    ![NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. Type the new value in the text box, and then press **Enter** to save the change.
 
-    ![Edit NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Edit NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. The NameNode Java heap size is changed to 1 GB from 2 GB.
 
@@ -52,7 +52,7 @@ To modify the NameNode Java heap size:
 
 1. Save your changes by clicking on the green **Save** button on the top of the configuration screen.
 
-    ![Save changes](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![Save changes](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## Apache Hive optimization
 
@@ -67,11 +67,11 @@ Hive provides two execution engines: [Apache Hadoop MapReduce](https://hadoop.ap
 
 1. In the Hive **Configs** tab, type **execution engine** in the filter box.
 
-    ![Search execution engine](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
+    ![Search execution engine](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. The **Optimization** property's default value is **Tez**.
 
-    ![Optimization - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
+    ![Optimization - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### Tune mappers
 
@@ -88,7 +88,7 @@ For example, to set four mapper tasks for a data size of 128 MB, you would set b
 
 1. Set both parameters to **33,554,432** bytes (32 MB).
 
-    ![Tez grouping sizes](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
+    ![Tez grouping sizes](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
  
 These changes  affect all Tez jobs across the server. To get an optimal result, choose appropriate parameter values.
 
@@ -104,7 +104,7 @@ The `hive.exec.reducers.bytes.per.reducer` parameter specifies the number of byt
 
 1. To modify the parameter, navigate to the Hive **Configs** tab and find the **Data per Reducer** parameter on the Settings page.
 
-    ![Data per Reducer](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
+    ![Data per Reducer](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
  
 1. Select **Edit** to modify the value to 128 MB (134,217,728 bytes), and then press **Enter** to save.
 
@@ -122,7 +122,7 @@ A Hive query is executed in one or more stages. If the independent stages can be
  
 1.	To limit the number of jobs to run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
 
-    ![Hive exec parallel](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
+    ![Hive exec parallel](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 
 ### Enable vectorization
@@ -368,7 +368,7 @@ The HBase heap size specifies the maximum amount of heap to be used in megabytes
 
 1. Change the default value to 5,000 MB.
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 
 ### Optimize read-heavy workloads
