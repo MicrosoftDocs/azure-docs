@@ -37,28 +37,28 @@ To learn more about action groups, see [Create and manage action groups](../azur
 
 2. In the **Monitoring** section of the left menu, select **Alerts**. 
 
-    ![Alerts in Advisor](./media/advisor-alerts/create1.png)
+    ![Alerts in Advisor](./media/advisor-alerts/create2.png)
 
 3. Select **New Advisor Alert** 
 
     ![New Advisor alert](./media/advisor-alerts/create3.png)
 
-4. In the **Scope** section, select the subscription and optionally the resource group that you want to be alerted on. [Click here for a full screen image](./media/advisor-alerts/create4.png)
+4. In the **Scope** section, select the subscription and optionally the resource group that you want to be alerted on. 
 
     ![Advisor alert scope](./media/advisor-alerts/create4.png)
 
-5. In the condition section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select "Category and impact level". If you want to alert for all recommendations of a certain type, select "Recommendation type". 
+5. In the **Condition** section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select **Category and impact level**. If you want to alert for all recommendations of a certain type, select **Recommendation type**. 
     ![Azure Advisor alert condition](./media/advisor-alerts/create5.png)
 
 6. Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. 
 
     ![Advisor alert action group](./media/advisor-alerts/create6.png)
 
-7. In the action groups section, select "Add existing" to use an action group you already created or select "Create new" to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
+7. In the **action groups** section, select **Add existing** to use an action group you already created or select **Create new** to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
 
     ![Advisor alert add existing](./media/advisor-alerts/create7.png)
 
-8. In the Alert details section, give your alert a name and short description. If you want your alert to be enabled, leave **Enable rule upon creation** selection set to "Yes". Then select the resource group to save your alert to. This will not impact the targeting scope of the recommendation. 
+8. In the Alert details section, give your alert a name and short description. If you want your alert to be enabled, leave **Enable rule upon creation** selection set to **Yes**. Then select the resource group to save your alert to. This will not impact the targeting scope of the recommendation. 
 
     ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
 
@@ -161,13 +161,13 @@ To learn more about action groups, see [Create and manage action groups](../azur
   ```
 
 
-# Configure recommendation alerts to use a webhook
+## Configure recommendation alerts to use a webhook
 This section shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 
 
 You can set up alerts to be notified when you have a new Advisor recommendation on one of your resources. These alerts can notify you through email or text message, but they can also be used to integrate with your existing systems through a webhook. 
 
 
-## Using the Advisor recommendation alert payload
+### Using the Advisor recommendation alert payload
 If you want to integrate Advisor alerts into your own systems using a webhook, you will need to parse the JSON payload that is sent from the notification. 
 
 When you set up your action group for this alert, you select if you would like to use the common alert schema. If you select the common alert schema, your payload will look like: 
@@ -264,16 +264,16 @@ If you do not use the Common schema, your payload will look like:
 }
 ```
 
-In either schema, you can identify Advisor recommendation events by looking for **eventSource** is "Recommendation" and **operationName**  is "Microsoft.Advisor/recommendations/available/action".
+In either schema, you can identify Advisor recommendation events by looking for **eventSource** is `Recommendation` and **operationName**  is `Microsoft.Advisor/recommendations/available/action`.
 
 Some of the other important fields that you may want to use are: 
 
-* **alertTargetIDs** (common schema) or **resourceId** (legacy schema)
-* **recommendationType**
-* **recommendationName**
-* **recommendationCategory**
-* **recommendationImpact**
-* **recommendationResourceLink**
+* *alertTargetIDs* (in the common schema) or *resourceId* (legacy schema)
+* *recommendationType*
+* *recommendationName*
+* *recommendationCategory*
+* *recommendationImpact*
+* *recommendationResourceLink*
 
 
 ## Manage your alerts 
