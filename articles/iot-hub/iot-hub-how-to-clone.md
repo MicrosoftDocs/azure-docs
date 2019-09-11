@@ -15,7 +15,7 @@ ms.author: robinsh
 This article explores the options and methods you can look at to clone an IoT hub, and provides a recommended course of action. Why would you want to clone an IoT hub in a different region? One use for this is to migrate your hub from the Free or Basic tier to a Standard tier. 
 
 > [!NOTE]
-> Need examples on what the customer would use this for.
+> Need examples on what the customer would use this for. Not failover examples, but clone-a-hub examples. Jimaco had a good idea: upgrading from Free or Basic to standard. 
 
 To move a hub to a different region, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, but it can be in the same subscription.
 
@@ -27,9 +27,11 @@ To move a hub to a different region, you need a subscription with administrative
 
 * If all of your resources are in a resource group, use a resource group with a different name for the cloned version.
 
-* Data for the original IoT hub data is not migrated. This includes all telemetry messages, C2D commands, and job-related information such as schedules and history. Metrics and logging results are also not migrated. For data or messages routed to Azure Storage, you can leave the data in the original storage account, or transfer that data to a new storage account in the new region. For more information, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
+* Data for the original IoT hub data is not migrated. This includes telemetry messages, C2D commands, and job-related information such as schedules and history. Metrics and logging results are also not migrated. 
 
-* Data for Service Bus Topics and Queues and Event Hubs can not be migrated, as this is point-in-time data and is not stored long-term.
+* For data or messages routed to Azure Storage, you can leave the data in the original storage account, or transfer that data to a new storage account in the new region. For more information, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
+
+* Data for Service Bus Topics and Queues and Event Hubs can not be migrated, as this is point-in-time data and is not stored after the messages are processed.
 
 ## Routing 
 
@@ -90,7 +92,7 @@ This is the general method we recommend for moving an IoT Hub from one region to
    
    [include the template here]
 
-You have to make some changes before you can turn around and upload the template in a new region. 
+You have to make some changes before you can use the template to upload the template in a new region and create the new hub.
 
 1. Replace the [key values].
 
@@ -107,6 +109,9 @@ You have to make some changes before you can turn around and upload the template
 Now recreate the hub in the new location.
 
 ## Load template in to new region.
+
+> [!NOTE]
+> Add instructions for importing the RM template and creating the new hub here.
 
 Your hub is created and live. Now add the devices that were registered to the original hub.
 
@@ -146,6 +151,20 @@ The devices for the IoT Hub must be exported from the old hub and reimported to 
 
 > [!NOTE]
 > Do I need to migrate the device twins? 
+
+> [!NOTE]
+> Phil recommends putting in some validation and diagnostics steps to ensure that the process was successful. Other than comparing the original and new hub in the portal, what is recommended here? Make sure the hub is running and send some messages to it? I would think you'd want to run whatever you *used* to run, but since we took routing out of the mix, and that's one of the primary reasons people use hubs, I'm not sure that's a good idea. @jlian? Any input here?
+
+> [!NOTE]
+> Phil: Should there be any migration assessment steps included to determine readiness? Make sure of region dependencies for other backend Azure services? R:Not sure what that means about other services. These instructions are only for moving a basic IoT Hub.
+> Phil: Can you batch or phase migrate or is it all at once? What is the potential downtime? Can you migrate SKUs? 
+> R: You're migrating one hub, so I'm not sure "batch" migrating is really worth the trouble, unless I'm completely misunderstanding. No idea what "phase migrating" is. Potential downtime? One article says import is 100 devices per second. If we do a million, that's 1000000 / 100 = 10000 seconds, which is 167 minutes, or under 3 hours. Testing would be good -- I haven't tried this yet, as I want to get the code exactly right before I do.
+> R: Also, I don't know of any problems migrating skus if going from lower to higher. If going the other way, should we either disallow it, or count the devices to make sure the capacity of the new sku will be enough?
+> Phil: What happens if you are wired up through DPS? Consequences on your certificate scheme? 
+> R: I talked to Nicole about this. She said there is no diff between devices imported with Jobs framework and devices imported with DPS -- they are the same to the hub. So there shouldn't be a problem with that. Not sure what "the certificates scheme" impact is. 
+> Phil: what about your firewall handling a new DNS name for the hub? 
+> R: I have no idea. @jlian what is the impact here, and what changes are required to handle it? 
+
 
 ## Next steps
 
