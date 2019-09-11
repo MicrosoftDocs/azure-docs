@@ -1,5 +1,14 @@
+---
+title: 'Reference: Ubuntu DSVM'
+description: 'Details on tools included in the Ubuntu Data Science Virtual Machine'
+author: gvashishtha
+ms.author: gopalv
+ms.date: 9.11.2019
+ms.topic: reference
+---
 
-ls installed on the Data Science Virtual Machine for Linux
+
+## Tools installed on the Data Science Virtual Machine for Linux
 
 ### Deep learning libraries
 
