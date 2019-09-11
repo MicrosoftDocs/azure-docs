@@ -114,11 +114,11 @@ You can increase the Spark History Server memory by editing the `SPARK_DAEMON_ME
 
 You can do this from within the Ambari browser UI by selecting the Spark2/Config/Advanced spark2-env section.
 
-![Advanced spark2-env section](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+![Advanced spark2-env section](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
 Add the following property to change the Spark History Server memory from 1g to 4g: `SPARK_DAEMON_MEMORY=4g`.
 
-![Spark property](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+![Spark property](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 Make sure to restart all affected services from Ambari.
 

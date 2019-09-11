@@ -12,12 +12,12 @@ ms.devlang: java
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
 # Quickstart: Use Java to create and publish a function to Azure Functions
 
-This article guides you through using the Maven command-line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article instructs you how to build and publish a Java function to Azure functions with the Maven command-line tool. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

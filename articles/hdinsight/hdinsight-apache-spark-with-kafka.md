@@ -47,7 +47,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 2. Use the following information to populate the entries on the **Custom deployment** section:
    
-    ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
+    ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
    
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
@@ -69,7 +69,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 Once the resources have been created, a summary page appears.
 
-![Resource group summary for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Resource group summary for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
 
 > [!IMPORTANT]  
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
