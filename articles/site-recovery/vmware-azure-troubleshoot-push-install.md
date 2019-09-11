@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
+ms.date: 09/11/2019
 ---
 # Troubleshoot Mobility Service push installation issues
 
@@ -232,6 +232,8 @@ This is a runtime error and is caused due to insufficient memory to install VSS.
 This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+In case of failure, check if any antivirus program or other services are stuck in "Starting" state. This could retain the lock on database services. It will lead to failures in installing VSS provider. Ensure that no service is in a "Starting" state and then retry the above operation.
 
 ### VSS error -2147023841 [0x8007041F] - exit code 512
 
