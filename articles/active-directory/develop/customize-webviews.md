@@ -89,6 +89,7 @@ Additionally, MSAL supports passing in a custom `WKWebView` by setting the `MSAL
 
 For example:
 
+Objective-C
 ```objc
 UIViewController *myParentController = ...;
 WKWebView *myCustomWebView = ...;
@@ -98,6 +99,17 @@ webViewParameters.customWebview = myCustomWebView;
 MSALInteractiveTokenParameters *interactiveParameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"myscope"] webviewParameters:webViewParameters];
     
 [app acquireTokenWithParameters:interactiveParameters completionBlock:completionBlock];
+```
+Swift
+```swift
+let myParentController: UIViewController = ...
+let myCustomWebView: WKWebView = ...
+let webViewParameters = MSALWebviewParameters(parentViewController: myParentController)
+webViewParameters.webviewType = MSALWebviewType.wkWebView
+webViewParameters.customWebview = myCustomWebView
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: ["myscope"], webviewParameters: webViewParameters)
+
+app.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
 ```
 
 If you use a custom webview, notifications are used to indicate the status of the web content being displayed, such as:
