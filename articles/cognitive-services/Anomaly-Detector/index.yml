@@ -14,7 +14,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 09/05/2019
+  ms.date: 09/10/2019
   ms.author: aahi
 
 landingContent:
@@ -28,17 +28,18 @@ landingContent:
       links:
         - text: Anomaly Detector demo
           url: https://aka.ms/adDemo
-        - text: Algorithms used in anomaly detection (whitepaper)
-          url: https://arxiv.org/abs/1906.03821
     - linkListType: video
       links:
         - text: Introducing the Anomaly Detector API
           url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
         - text: Algorithms used by the Anomaly Detection API 
           url: https://www.youtube.com/embed/ERTaAnwCarM
+    - linkListType: reference
+      links:
+        - text: Algorithms used in anomaly detection (whitepaper)
+          url: https://arxiv.org/abs/1906.03821
 
-
-- title: "Get started: Detect Anomalies in your data"
+- title: "Detect Anomalies in your data"
   linkLists:
     - linkListType: quickstart
       links:
@@ -52,7 +53,7 @@ landingContent:
       links:
         - text: Visualize anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md
-        - text: Anomaly detection on streaming data using Azure Databricks
+        - text: Detect Anomalies in streaming data using Azure Databricks
           url: tutorials/batch-anomaly-detection-powerbi.md
     - linkListType: video
       links:
@@ -63,24 +64,24 @@ landingContent:
   linkLists:
     - linkListType: concept
       links:
-        - text: Adjust anomaly detection parameters for your data.
-          url: concepts/anomaly-detection-best-practices.md
-        - text: Optimize your anomaly detection results using best practices.
+        - text: Adjust anomaly detection modes and parameters for your data.
+          url: /how-to/identify-anomalies.md
+        - text: Use best practices to optimize your anomaly detection results.
           url: concepts/anomaly-detection-best-practices.md
     - linkListType: video
       links:
         - text: Anomaly Detector Best Practices
           url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices 
 
-- title: Container support
+- title: Use Docker Containers
   linkLists:
     - linkListType: how-to-guide
       links:
         - text: Install and run Anomaly Detector containers
           url: anomaly-detector-container-howto.md
-        - text: Configure containers
+        - text: Configure Anomaly Detector containers
           url: anomaly-detector-container-configuration.md
-        - text: Use container instances
+        - text: Deploy a container instance to Azure
           url: how-to/deploy-anomaly-detection-on-container-instances.md
     - linkListType: video
       links:
