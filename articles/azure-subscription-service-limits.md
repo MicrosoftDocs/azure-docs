@@ -86,7 +86,7 @@ In the following list of limits, a new table reflects any differences in limits 
   * [Load Balancer](#load-balancer)
   * [Network Watcher](#network-watcher-limits)
   * [Public IP address](#publicip-address)
-  * [Private Link](#private-link)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
