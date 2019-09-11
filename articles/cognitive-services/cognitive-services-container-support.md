@@ -96,6 +96,8 @@ Individual containers can have their own requirements, as well, including server
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
+[!INCLUDE [Cognitive Services container security](cognitive-services-container-security.md)]
+
 ## Next steps
 
 Learn about [container recipes](containers/container-reuse-recipe.md) you can use with the Cognitive Services.
@@ -112,7 +114,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
-
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
