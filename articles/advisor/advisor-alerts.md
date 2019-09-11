@@ -27,16 +27,17 @@ You can also configure the action that will take place when an alert is triggere
 
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md) 
 
->>NOTE: Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
+> [!NOTE] 
+> Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
 
 ## Create a recommendation alert from the Azure portal
 1. In the **portal**, select **Azure Advisor**.
 
-    ![Azure Advisor in portal](./media/advisor-alerts/create11.png)
+    ![Azure Advisor in portal](./media/advisor-alerts/create1.png)
 
 2. In the **Monitoring** section of the left menu, select **Alerts**. 
 
-    ![Alerts in Advisor](./media/advisor-alerts/create12.png)
+    ![Alerts in Advisor](./media/advisor-alerts/create1.png)
 
 3. Select **New Advisor Alert** 
 
