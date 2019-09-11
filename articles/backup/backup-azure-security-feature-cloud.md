@@ -20,7 +20,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 ### Supported regions
 
-Soft delete is currently supported in the West Central US region.
+Soft delete is currently supported in the West Central US region and East Asia.
 
 ### Soft delete for VMs
 
