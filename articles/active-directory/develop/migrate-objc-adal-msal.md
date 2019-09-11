@@ -146,6 +146,7 @@ MSAL, starting with version 0.3.0, provides support for brokered authentication 
 To enable broker for your application:
 
 1. Register a broker compatible redirect URI format for the application. The broker compatible redirect URI format is `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>` with your application's bundle ID. If you're migrating from ADAL and your application was already broker capable, there's nothing extra you need to do. Your previous redirect URI is fully compatible with MSAL, so you can skip to step 3.
+
 2. Add your application's redirect URI scheme to your info.plist file. For the default MSAL redirect URI, the format is `msauth.<app.bundle.id>`. For example:
 
     ```xml
@@ -166,21 +167,22 @@ To enable broker for your application:
     ```
 
 4. Add the following to your AppDelegate.m file to handle callbacks:
-
+Objective-C:
+    
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
     {
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     }
     ```
-
-```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
-}
-```
-
-
+    
+    Swift:
+    
+    ```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+    }
+    ```
 
 ### Business to business (B2B)
 
@@ -263,12 +265,16 @@ Add following schemes to your app's Info.plist under `LSApplicationQueriesScheme
 
 Add the following to your AppDelegate.m file:
 
+Objective-C:
+
 ```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
 {
     return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
 }
 ```
+
+Swift:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -285,6 +291,8 @@ This wasn't necessary in ADAL since it "swizzled" app delegate methods automatic
 
 You can create `MSALPublicClientApplication` using following code:
 
+Objective-C:
+
 ```objc
 NSError *error = nil;
 MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
@@ -294,10 +302,12 @@ MSALPublicClientApplication *application =
                                                      error:&error];
 ```
 
+Swift:
+
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
 do {
-	let application = try MSALPublicClientApplication(configuration: config)
+  let application = try MSALPublicClientApplication(configuration: config)
   // continue on with application
             
 } catch let error as NSError {
@@ -307,11 +317,15 @@ do {
 
 Then call the account management API to see if there are any accounts in the cache:
 
+Objective-C:
+
 ```objc
 NSString *accountIdentifier = nil /*previously saved MSAL account identifier */;
 NSError *error = nil;
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:&error];
 ```
+
+Swift:
 
 ```swift
 // definitions that need to be initialized
@@ -330,10 +344,14 @@ do {
 
 or read all of the accounts:
 
+Objective-C:
+
 ```objc
 NSError *error = nil;
 NSArray<MSALAccount *> *accounts = [application allAccounts:&error];
 ```
+
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -350,6 +368,8 @@ do {
 
 
 If an account is found, call the MSAL `acquireTokenSilent` API:
+
+Objective-C:
 
 ```objc
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"<your-resource-here>/.default"] account:account];
@@ -374,6 +394,8 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
     }
 }];
 ```
+
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!

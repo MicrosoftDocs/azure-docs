@@ -52,10 +52,14 @@ There are multiple scenarios where this is needed. For example:
 ```
 `MSALClaimsRequest` can be constructed from an NSString representation of JSON Claims request. 
 
+Objective-C:
+
 ```objc
 NSError *claimsError = nil;
 MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
+
+Swift:
 
 ```swift
 var requestError: NSError? = nil
@@ -67,6 +71,8 @@ let request = MSALClaimsRequest(jsonString: "{\"id_token\":{\"auth_time\":{\"ess
 
 It can also be modified by requesting additional specific claims:
 
+Objective-C:
+
 ```objc
 MSALIndividualClaimRequest *individualClaimRequest = [[MSALIndividualClaimRequest alloc] initWithName:@"custom_claim"];
 individualClaimRequest.additionalInfo = [MSALIndividualClaimRequestAdditionalInfo new];
@@ -75,11 +81,14 @@ individualClaimRequest.additionalInfo.value = @"myvalue";
 [request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
 ```
 
+Swift:
+
 ```swift
 let individualClaimRequest = MSALIndividualClaimRequest(name: "custom-claim")
-individualClaimRequest.additionalInfo = MSALIndividualClaimRequestAdditionalInfo()
-individualClaimRequest.additionalInfo?.essential = 1
-individualClaimRequest.additionalInfo?.value = "myvalue"
+let additionalInfo = MSALIndividualClaimRequestAdditionalInfo()
+additionalInfo.essential = 1
+additionalInfo.value = "myvalue"
+individualClaimRequest.additionalInfo = additionalInfo
 do {
   try request.requestClaim(individualClaimRequest, for: .idToken)
 } catch let error as NSError {
@@ -92,6 +101,8 @@ do {
 
 `MSALClaimsRequest` should be then set in the token parameters and provided to one of MSAL token acquisitions APIs:
 
+Objective-C:
+
 ```objc
 MSALPublicClientApplication *application = ...;
 MSALWebviewParameters *webParameters = ...;
@@ -102,6 +113,8 @@ parameters.claimsRequest = request;
     
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
+
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!

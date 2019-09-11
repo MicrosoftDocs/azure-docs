@@ -107,7 +107,9 @@ You can save this identifier to use in MSAL for account lookups with the `accoun
 
 If `homeAccountId` is not available or if you only have displayable identifier, you can use ADAL's `userId` for account lookup in MSAL. 
 
-1. In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback. If account is found, use the account in the acquireTokenSilent calls.
+In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback. If account is found, use the account in the acquireTokenSilent calls.
+
+Objective-C:
 
 ```objc
 NSString *msalIdentifier = @"previously.saved.msal.account.id";
@@ -127,6 +129,8 @@ else
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:account];
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
+
+Swift:
 
 ```swift
         
@@ -197,12 +201,16 @@ Because `homeAccountId` isn't available in older ADAL versions, you'd need to lo
 
 For example:
 
+Objective-C:
+
 
 ```objc
 MSALAccount *account = [application accountForUsername:@"adal.user.id" error:nil];;
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:account];
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
+
+Swift:
 
 ```swift
 do {
@@ -221,6 +229,8 @@ do {
 
 Alternatively, you can read all of the accounts, which will also read account information from ADAL:
 
+Objective-C:
+
 ```objc
 NSArray *accounts = [application allAccounts:nil];
     
@@ -235,11 +245,13 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
+Swift:
+
 ```swift
       
 do {
   let accounts = try application.allAccounts()
-  if accounts.count == 1 {
+  if accounts.count != 1 {
     // You might want to display an account picker to user in actual application
     // For this sample we assume there's only ever one account in cache
     return
@@ -248,7 +260,7 @@ do {
   let silentParameters = MSALSilentTokenParameters(scopes: ["user.read"], account: accounts[0])
   application.acquireTokenSilent(with: silentParameters) {
     (result: MSALResult?, error: Error?) in
-    // handle result  
+    // handle result or error  
   }  
 } catch let error as NSError { 
   // handle error
