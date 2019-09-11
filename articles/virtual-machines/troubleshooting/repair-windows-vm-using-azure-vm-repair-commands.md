@@ -22,7 +22,7 @@ ms.author: v-miegge
 
 If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform mitigation on the disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure VM repair commands to connect the disk to another Windows VM to fix any errors, then rebuild your original VM.
 
-> ![Important]
+> [!Important]
 > The scripts in this article only apply to the VMs that use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## Repair process overview
@@ -41,7 +41,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 
 ## Repair process example
 
-> ![Note]
+> [!Note]
 > 1. Outbound connectivity from the VM (port 443) is required for the script to run.
 > 2. Only one script may run at a time
 > 3. A running script cannot be cancelled
