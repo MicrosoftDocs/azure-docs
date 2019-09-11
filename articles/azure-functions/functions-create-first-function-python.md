@@ -66,12 +66,13 @@ A Functions project is the equivalent of a function app in Azure. It can have mu
 
 1. In the virtual environment, run the following command:
 
-```console
-func init MyFunctionProj
-```
+    ```console
+    func init MyFunctionProj
+    ```
+
 1. Select **python** as your worker runtime.
 
-    The command creates a _MyFunctionProj_. It contains these three files:
+    The command creates a _MyFunctionProj_ folder. It contains these three files:
 
     * `local.settings.json`: used to store app settings and connection strings when running locally. This file doesn't get published to Azure.
     * `requirements.txt`: contains the list of packages the system will install on publishing to Azure.
@@ -157,7 +158,7 @@ The function runs locally using the same Azure Functions runtime that is in Azur
 
     ![Test locally in the browser](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-1. Select Ctrl+C to shut down your function app
+1. Select Ctrl+C to shut down your function app.
 
 Now that you have run your function locally, you can create the function app and other required resources in Azure.
 

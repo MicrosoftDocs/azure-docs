@@ -45,11 +45,11 @@ In the application, provide your storage account name and account key to create 
 
 1. Open the *example.py* file from the Solution Explorer in your IDE.
 
-1. Replace the `accountname` and `accountkey` values with your storage account name and key. 
+1. Replace the `accountname` and `accountkey` values with your storage account name and key:
 
     ```python
     block_blob_service = BlockBlobService(
-            account_name='accountname', account_key='accountkey')
+        account_name='accountname', account_key='accountkey')
     ```
 
 1. Save and close the file.
@@ -64,13 +64,13 @@ This sample creates a test file in the *Documents* folder. The sample program up
     pip install azure-storage-blob
     ```
 
-1. Go to the sample application
+1. Go to the sample application:
 
     ```console
     cd storage-blobs-python-quickstart
     ```
 
-1. Run the sample.
+1. Run the sample:
 
     ```console
     python example.py
@@ -141,7 +141,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get the full file path by joining the directory name with the file name on your local drive. You can then upload the file to the specified path using the `create_blob_from_path` method. 
 
-The sample code creates a local file the system uses for the upload and download, storing the file the system uploads as *full_path_to_file* and the name of the blob as *local_file_name*. This example uploads the file to your container called `quickstartblobs`**`:
+The sample code creates a local file the system uses for the upload and download, storing the file the system uploads as *full_path_to_file* and the name of the blob as *local_file_name*. This example uploads the file to your container called `quickstartblobs`:
 
 ```python
 # Create a file in Documents to test the upload and download.
