@@ -139,7 +139,7 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 
 #### SUSE Linux 12 Enterprise Server
 
-| OS version | Kernel version
+| OS version | Kernel version |
 |:--|:--|
 |12 SP4 | 4.12.* (includes Azure-tuned kernel) |
 |12 SP3 | 4.4.* |
@@ -147,7 +147,7 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 
 #### Debian 
 
-| OS version | Kernel version
+| OS version | Kernel version |
 |:--|:--|
 | Debian 9 | 4.9 | 
 
