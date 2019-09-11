@@ -106,7 +106,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 + [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics to get a key and endpoint for your applications.
 
-+ [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code. If you prefer, you can start with the [Python quickstart](quickstarts/python.md) instead.
++ [Quickstart](quickstarts/text-analytics-sdk.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code. If you prefer, you can start with the [Python quickstart](quickstarts/python.md) instead.
 
 + See [what's new in the Text Analytics API](whats-new.md) for information on new releases and features.
 

@@ -18,7 +18,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 * [Ruby 2.5.5 or later](https://www.ruby-lang.org/)
 * The Text analytics [SDK for Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
  
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="RubyProject"></a>
 
@@ -394,9 +394,9 @@ Document ID: 4
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics With Power BI](../../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## See also
 
- [Text Analytics overview](../overview.md)  
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
+ [Text Analytics overview](../../overview.md)  
+ [Frequently asked questions (FAQ)](../../text-analytics-resource-faq.md)
