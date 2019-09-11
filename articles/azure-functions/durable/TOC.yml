@@ -5,7 +5,7 @@
   - name: About Azure Functions
     href: ../functions-overview.md
   - name: About Durable Functions
-    href: durable-functions-overview.md # TODO: redirect from durable-functions-concepts.md
+    href: durable-functions-overview.md
   - name: Serverless comparison
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
   - name: Preview features
@@ -37,12 +37,12 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=functions&sort=0&term=durable+
   - name: Azure CLI
     href: ../functions-cli-samples.md   
-- name: Patterns and concepts
+- name: Concepts
   items:
   - name: Function types
     href: durable-functions-types-features-overview.md
   - name: Orchestrations
-    href: durable-functions-orchestrations.md # TODO: redirect from durable-functions-checkpointing-and-replay.md
+    href: durable-functions-orchestrations.md
   - name: Orchestrator code constraints
     href: durable-functions-code-constraints.md
   - name: Sub-orchestrations

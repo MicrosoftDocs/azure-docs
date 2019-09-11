@@ -26,8 +26,6 @@ Several breaking changes are introduced in Durable Functions 2.0. Existing appli
 
 ### Host.json schema
 
-TODO: Move this into the correct location and add a link here
-
 The following snippet shows the new schema for host.json. The main changes to be aware of are the new subsections:
 
 * `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration
@@ -88,14 +86,19 @@ The following table represents the main changes:
 | DurableOrchestrationClientBase | IDurableOrchestrationClient |
 | DurableOrchestrationContextBase | IDurableOrchestrationContext |
 | DurableActivityContextBase | IDurableActivityContext |
+| OrchestrationClientAttribute | DurableClientAttribute |
 
 In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
 
 ## Entity functions
 
+Starting in Durable Functions v2.0.0-alpha, we've introduced a new [entity functions](durable-functions-entities.md) concept.
+
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-To learn more, see the [entity functions](durable-functions-entities.md) topic.
+Based on initial user feedback, we later added support for a class-based programming model for entities in Durable Functions v2.0.0-beta1.
+
+To learn more, see the [entity functions](durable-functions-entities.md) article.
 
 ## Durable HTTP
 
@@ -105,49 +108,7 @@ Starting in Durable Functions v2.0.0-beta2, we've introduced a new [Durable HTTP
 * Implements automatic client-side HTTP 202 status polling
 * Built-in support for [Azure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-A very simple example of an orchestrator function making an HTTP call:
-
-```csharp
-[FunctionName("CheckBing")]
-public static async Task RunOrchestrator(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    DurableHttpResponse res = await context.CallHttpAsync(HttpMethod.Get, new Uri("https://bing.com"));
-    if (res.StatusCode != HttpStatusCode.OK)
-    {
-        throw new ArgumentException($"Bing.com is down! {res.StatusCode}: {res.Content}");
-    }
-}
-```
-
-A more complex example of an orchestrator function making an ARM call to restart a VM:
-
-```csharp
-[FunctionName("RestartVm")]
-public static async Task RunOrchestrator(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    string subscriptionId = "mySubId";
-    string resourceGroup = "myRG";
-    string vmName = "myVM";
-    
-    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
-    // and attaches it to the outgoing Azure Resource Manager API call.
-    var restartRequest = new DurableHttpRequest(
-        HttpMethod.Post, 
-        new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
-        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net"));
-    DurableHttpResponse restartResponse = await context.CallHttpAsync(restartRequest);
-    if (restartResponse.StatusCode != HttpStatusCode.OK)
-    {
-        throw new ArgumentException($"Failed to restart VM: {restartResponse.StatusCode}: {restartResponse.Content}");
-    }
-}
-```
-
-A more complete example can be found in the [precompiled C# "RestartVMs" samples](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
-
-To learn more, see the [HTTP features](durable-functions-http-features.md) topic.
+To learn more, see the [HTTP features](durable-functions-http-features.md#consuming-http-apis) article.
 
 ## Alternate storage providers
 
