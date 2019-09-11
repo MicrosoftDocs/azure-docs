@@ -35,7 +35,7 @@ landingContent:
         links:
           - text: Run playbooks in Cloud Shell
             url: ansible-run-playbook-in-cloudshell.md
-          -text: Configure a dynamic inventory
+          - text: Configure a dynamic inventory
             url:  ansible-manage-azure-dynamic-inventories.md
 
   # Card
