@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
 
 
@@ -136,6 +136,18 @@ Unregister a SQL Server instance after you disable protection but before you del
 4. Right-click the protected server, and select **Unregister**.
 
    ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+### Modify policy
+Modify policy to change backup frequency or retention range.
+
+> [!NOTE]
+> Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
+
+In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
+
+  ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
+
 
 ## Re-register extension on the SQL Server VM
 
