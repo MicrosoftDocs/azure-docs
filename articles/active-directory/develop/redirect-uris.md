@@ -72,8 +72,9 @@ When migrating code that used the Azure AD Authentication Library (ADAL) to MSAL
             </array>
         </dict>
     </array>
-    ``` 
+    ```
     
+
 MSAL will verify if your redirect URI registers correctly, and return an error if it's not.
     
 * If you want to use universal links as a redirect URI, the `<scheme>` must be `https` and doesn't need to be declared in `CFBundleURLSchemes`. Instead, configure the app and domain per Apple's instructions at [Universal Links for Developers](https://developer.apple.com/ios/universal-links/) and call the `handleMSALResponse:sourceApplication:` method of `MSALPublicClientApplication` when your application is opened through a universal link.
@@ -81,6 +82,8 @@ MSAL will verify if your redirect URI registers correctly, and return an error i
 ## Use a custom redirect URI
 
 To use a custom redirect URI, pass the `redirectUri` parameter to `MSALPublicClientApplicationConfig` and pass that object to `MSALPublicClientApplication` when you initialize the object. If the redirect URI is invalid, the initializer will return `nil` and set the `redirectURIError`with additional information.  For example:
+
+Objective-C:
 
 ```objc
 MSALPublicClientApplicationConfig *config =
@@ -92,9 +95,27 @@ MSALPublicClientApplication *application =
         [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&redirectURIError];
 ```
 
+Swift:
+
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
+                                            redirectUri: "your-redirect-uri",
+                                              authority: authority)
+do {
+  let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
+```
+
+
+
 ## Handle the URL opened event
 
 Your application should call MSAL when it receives any response through URL schemes or universal links. Call the `handleMSALResponse:sourceApplication:` method of `MSALPublicClientApplication` when your application is opened. Here's an example for custom schemes:
+
+Objective-C:
 
 ```objc
 - (BOOL)application:(UIApplication *)app
@@ -105,6 +126,16 @@ Your application should call MSAL when it receives any response through URL sche
                                          sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
 }
 ```
+
+Swift:
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+```
+
+
 
 ## Next steps
 

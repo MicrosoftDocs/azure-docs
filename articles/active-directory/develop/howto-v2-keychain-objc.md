@@ -46,6 +46,8 @@ On macOS 10.15 onwards (macOS Catalina), MSAL uses keychain access group attribu
 
 If you'd like to use a different keychain access group, you can pass your custom group when creating `MSALPublicClientApplicationConfig` before creating `MSALPublicClientApplication`, like this:
 
+Objective-C:
+
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
                                                                                             redirectUri:@"your-redirect-uri"
@@ -60,12 +62,42 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
+
+
+Swift:
+
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
+                                            redirectUri: "your-redirect-uri",
+                                              authority: nil)
+config.cacheConfig.keychainSharingGroup = "custom-group"
+        
+do {
+  let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
+```
+
+
+
 ## Disable keychain sharing
 
 If you don't want to share SSO state between multiple apps, or use any keychain access group, disable keychain sharing by passing the application bundle ID as your keychainGroup:
 
+Objective-C:
+
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
+```
+
+Swift:
+
+```swift
+if let bundleIdentifier = Bundle.main.bundleIdentifier {
+    config.cacheConfig.keychainSharingGroup = bundleIdentifier
+}
 ```
 
 ## Handle -34018 error (failed to set item into keychain)

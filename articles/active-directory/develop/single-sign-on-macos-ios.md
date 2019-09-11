@@ -96,6 +96,8 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 
 Once you have the keychain entitlement enabled in each of your applications, and you're ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
 
+Objective-C:
+
 ```objc
 NSError *error = nil;
 MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<my-client-id>"];
@@ -103,6 +105,22 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
     
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
+
+Swift:
+
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
+config.cacheConfig.keychainSharingGroup = "my.keychain.group"
+        
+do {
+	let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
+```
+
+
 
 > [!WARNING]
 > When you share a keychain across your applications, any application can delete users or even all of the tokens across your application.
@@ -138,13 +156,23 @@ The following steps are how you enable SSO using an authentication broker for yo
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
+    Objective-C:
+    
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
     {
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     }
     ```
-
-## Next steps
+    
+    Swift:
+    
+    ```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+    }
+    ```
+    
+    Next steps
 
 Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

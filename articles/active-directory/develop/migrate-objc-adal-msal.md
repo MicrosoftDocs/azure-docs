@@ -1,4 +1,6 @@
 ---
+
+let application: MSALPublicClientApplication!
 title: Migrate apps to MSAL.ObjectiveC | Microsoft identity platform
 description: Learn about the differences between Microsoft Authentication Library for ObjectiveC (MSAL for iOS and macOS) and Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS and macOS.
 services: active-directory
@@ -146,6 +148,7 @@ MSAL, starting with version 0.3.0, provides support for brokered authentication 
 To enable broker for your application:
 
 1. Register a broker compatible redirect URI format for the application. The broker compatible redirect URI format is `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>` with your application's bundle ID. If you're migrating from ADAL and your application was already broker capable, there's nothing extra you need to do. Your previous redirect URI is fully compatible with MSAL, so you can skip to step 3.
+
 2. Add your application's redirect URI scheme to your info.plist file. For the default MSAL redirect URI, the format is `msauth.<app.bundle.id>`. For example:
 
     ```xml
@@ -166,11 +169,20 @@ To enable broker for your application:
     ```
 
 4. Add the following to your AppDelegate.m file to handle callbacks:
-
+Objective-C:
+    
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
     {
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+    }
+    ```
+    
+    Swift:
+    
+    ```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
     ```
 
@@ -255,12 +267,24 @@ Add following schemes to your app's Info.plist under `LSApplicationQueriesScheme
 
 For iOS only, add the following to your AppDelegate.m file:
 
+Objective-C:
+
 ```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
 {
     return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
 }
 ```
+
+Swift:
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+```
+
+
 
 This allows MSAL to handle responses from the broker and web component.
 This wasn't necessary in ADAL since it "swizzled" app delegate methods automatically. Adding it manually is less error prone and gives the application more control.
@@ -280,6 +304,8 @@ To enable token caching:
 
 You can create `MSALPublicClientApplication` using following code:
 
+Objective-C:
+
 ```objc
 NSError *error = nil;
 MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
@@ -289,7 +315,22 @@ MSALPublicClientApplication *application =
                                                      error:&error];
 ```
 
+Swift:
+
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
+do {
+  let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
+            
+} catch let error as NSError {
+  // handle error here
+}
+```
+
 Then call the account management API to see if there are any accounts in the cache:
+
+Objective-C:
 
 ```objc
 NSString *accountIdentifier = nil /*previously saved MSAL account identifier */;
@@ -297,14 +338,49 @@ NSError *error = nil;
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:&error];
 ```
 
+Swift:
+
+```swift
+// definitions that need to be initialized
+let application: MSALPublicClientApplication!
+let accountIdentifier: String! /*previously saved MSAL account identifier */
+
+do {
+  let account = try application.account(forIdentifier: accountIdentifier)
+  // continue with account usage
+} catch let error as NSError {
+  // handle error here
+}
+```
+
+
+
 or read all of the accounts:
+
+Objective-C:
 
 ```objc
 NSError *error = nil;
 NSArray<MSALAccount *> *accounts = [application allAccounts:&error];
 ```
 
+Swift:
+
+```swift
+let application: MSALPublicClientApplication!
+do {
+  let accounts = try application.allAccounts()
+  // continue with account usage
+} catch let error as NSError {
+  // handle error here
+}
+```
+
+
+
 If an account is found, call the MSAL `acquireTokenSilent` API:
+
+Objective-C:
 
 ```objc
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"<your-resource-here>/.default"] account:account];
@@ -312,7 +388,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters
                               completionBlock:^(MSALResult *result, NSError *error)
 {
-    if (!error)
+    if (result)
     {
         NSString *accessToken = result.accessToken;
         // Use your token
@@ -329,6 +405,39 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
     }
 }];
 ```
+
+Swift:
+
+```swift
+let application: MSALPublicClientApplication!
+let account: MSALAccount!
+        
+let silentParameters = MSALSilentTokenParameters(scopes: ["<your-resource-here>/.default"], 
+                                                 account: account)
+application.acquireTokenSilent(with: silentParameters) {
+  (result: MSALResult?, error: Error?) in
+  if let accessToken = result?.accessToken {
+     // use accessToken
+  }
+  else {
+    // Check the error
+    guard let error = error else {
+      assert(true, "callback should contain a valid result or error")
+      return
+    }
+    
+    let nsError = error as NSError
+    if (nsError.domain == MSALErrorDomain
+        && nsError.code == MSALError.interactionRequired.rawValue) {
+      // Interactive auth will be required
+    }
+                
+    // Other errors may require trying again later, or reporting authentication problems to the user
+  }
+}
+```
+
+
 
 ## Next steps
 
