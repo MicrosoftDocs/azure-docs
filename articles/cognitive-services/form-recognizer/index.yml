@@ -48,10 +48,6 @@ landingContent:
         links:
           - text: Using the .NET SDK
             url: quickstarts/dotnet-sdk.md
-          - text: Using the REST API (Python)
-            url: quickstarts/python-receipts.md
-          - text: Using the REST API (cURL)
-            url: quickstarts/curl-receipts.md
 
   - title: Build a training data set
     linkLists:

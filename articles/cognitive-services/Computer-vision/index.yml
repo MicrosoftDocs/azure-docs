@@ -43,14 +43,6 @@ landingContent:
             url: quickstarts-sdk/csharp-hand-text-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-          - text: Using the REST API (C#)
-            url: Quickstarts/csharp-hand-text.md
-          - text: Using the REST API (Python)
-            url: Quickstarts/python-hand-text.md
-          - text: Using the REST API (Java)
-            url: Quickstarts/java-hand-text.md
-          - text: Using the REST API (JavaScript)
-            url: Quickstarts/javascript-hand-text.md
 
 
   - title: Detect objects in images
