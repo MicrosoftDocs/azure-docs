@@ -210,49 +210,69 @@ Like any other Windows service, you can start and stop the gateway in various wa
 
 ## How the gateway works
 
-The data gateway facilitates quick and secure communication between your logic app, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between your logic app, the on-premises data gateway, and your data source on premises.
+Users in your organization can access on-premises data for which they already have authorized access. However, before these users can connect to your on-premises data source, you need to install and set up an on-premises data gateway. Usually, an admin is the person who installs and sets up a gateway. These actions might require Server Administrator permissions or special knowledge about your on-premises servers.
 
-The gateway works with firewalls and uses only outbound connections. All traffic originates as secure outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through Azure Service Bus. This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
+The gateway facilitates quick and secure communication behind-the-scenes-communication. This communication flows between a user in the cloud, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between the user, the gateway, and your on-premises data source.
+
+The gateway works with firewalls and uses only outbound connections. All traffic originates as secure outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview). This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
 
 ![Architecture for on-premises data gateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
-These steps describe what happens when a user in the cloud interacts with an element that's connected to your on-premises data source:
+> [!NOTE]
+> Depending on the cloud service, you might need to set up a data source for the gateway.
 
-1. The gateway cloud service creates a query, along with the encrypted credentials for the data source, and sends the query to the queue for the gateway to process.
+These steps describe what happens when you interact with an element that's connected to an on-premises data source:
 
-1. The gateway cloud service analyzes the query and pushes the request to the Azure Service Bus.
+1. The cloud service creates a query, along with the encrypted credentials for the data source. The service then sends the query and credentials to the gateway queue for processing.
 
-1. The on-premises data gateway polls the Azure Service Bus for pending requests.
+1. The gateway cloud service analyzes the query and pushes the request to Azure Service Bus.
 
-1. The gateway gets the query, decrypts the credentials, and connects to the data source with those credentials.
+1. Azure Service Bus sends the pending requests to the gateway.
 
-1. The gateway sends the query to the data source for execution.
+1. The gateway gets the query, decrypts the credentials, and connects to one or more data sources with those credentials.
+
+1. The gateway sends the query to the data source for running.
 
 1. The results are sent from the data source back to the gateway, and then to the gateway cloud service. The gateway cloud service then uses the results.
 
+### Authentication to on-premises data sources
+
+A stored credential is used to connect from the gateway to on-premises data sources. Regardless of the user, the gateway uses the stored credential to connect. There might be authentication exceptions for specific services, such as DirectQuery and LiveConnect for Analysis Services in Power BI.
+
+### Azure Active Directory
+
+Microsoft cloud services use [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the User Principal Name (UPN) for your account.
+
+### What is my UPN?
+
+If you're not a domain admin, you might not know your UPN. To find the UPN for your account, run the `whoami /upn` command from your workstation. Although the result looks like an email address, the result is the UPN for your local domain account.
+
+### Synchronize an on-premises Active Directory with Azure Active Directory
+
+The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account. 
+
+Here are ways that you can match your on-premises Active Directory accounts with Azure AD. 
+
+* Add accounts manually to Azure AD.
+
+  Create an account in the Azure portal or in the Microsoft 365 admin center. Make sure that the account name matches the UPN for the on-premises Active Directory account.
+
+* Synchronize local accounts to your Azure AD tenant by using the Azure Active Directory Connect tool.
+
+  The Azure AD Connect tool provides options for directory synchronization and authentication setup. These options include password hash sync, pass-through authentication, and federation. If you're not a tenant admin or a local domain admin, contact your IT admin to get Azure AD Connect set up. Azure AD Connect ensures that your Azure AD UPN matches your local Active Directory UPN. This matching helps if you're using Analysis Services live connections with Power BI or single sign-on (SSO) capabilities.
+
+  > [!NOTE]
+  > Synchronizing accounts with the Azure AD Connect tool creates new accounts in your Azure AD tenant.
+
 <a name="faq"></a>
 
-## Frequently asked questions and troubleshooting
+## FAQ and troubleshooting
 
 For more information, see these topics:
 
 * [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
 * [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
 * [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
-
-<a name="logs"></a>
-
-**Event logs**
-
-To find the event logs for the gateway, follow these steps:
-
-1. On the computer with the gateway installation, open the **Event Viewer**.
-
-1. Expand **Event Viewer (Local)** > **Applications and Services Logs**.
-
-1. Select **On-premises data gateway service**.
-
-   ![View event logs for gateway](./media/logic-apps-gateway-install/event-viewer.png)
 
 ## Next steps
 
