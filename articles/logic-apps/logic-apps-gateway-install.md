@@ -47,7 +47,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
   **Minimum requirements**
 
-  * .NET Framework 4.6
+  * .NET Framework 4.7.2
   * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
   **Recommended requirements**
