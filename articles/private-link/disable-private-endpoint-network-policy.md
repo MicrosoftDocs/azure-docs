@@ -15,7 +15,7 @@ Network policies like network security groups (NSG) are not supported for privat
  
 When using the portal to create a private endpoint, this setting is disabled as part of the create process. Deployment with other clients requires an additional step to change this property. You can disable the setting using the cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
  
-Below examples describe how to disable private endpoints network policies for a virtual network named *myVirtualNetwork* with a subnet named *default* hosted in a resource group named *myResourceGroup*.
+The following examples describe how to disable private endpoints network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
 
 ## Using Azure PowerShell
 This section describes how to disable subnet private endpoint policies using Azure PowerShell.

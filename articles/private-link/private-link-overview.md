@@ -42,11 +42,11 @@ Azure private link provides following benefits:
  
 - **Extend to your own services**: With Azure private link, you can leverage the same experience and functionality to render your own service privately in your customer VNets or your own VNets on Azure platform. Azure private link works across AD tenants and works on provider consumer model with approval call flow. Moreover, there is no requirement of non-overlapping address space as in VNet Peering.
 
-### What is Private Link service?
+## What is Private Link service?
 Private link service is a virtual networking resource, modeled as Network Interface card, in Service Provider's Virtual Network. This resource is applicable mainly in Microsoft partner Service and Customer own service scenarios. Service Provider needs to create this resource to let consumers consume the service privately over Azure private link.  The resource is tied to front-end IP configuration of a Standard Load Balancer. Private link service serves as a front end for the Service Provider's applications that are running behind the standard load balancer. Service consumers connect to private link service over Azure private link through private endpoints in consumer's virtual networks.
 
 ## What is private endpoint?
-Private Endpoint is a virtual networking resource, modeled as Network Interface card, in Service consumer's Virtual Network. Private Endpoints  get assigned a private IP from customer's VNet. private endpoint enables Azure customers to privately connect to supported Azure services through Azure private link. These services can include Azure PaaS, Microsoft Partner Services and customer owned Services. Supported Azure services are mapped inside the customer's VNet as private endpoint. Private endpoint is the entry point for service traffic over private link from Azure VNet resources. The traffic never leaves Microsoft Backbone. These are highly available instances and don’t impose any bandwidth restrictions on the Service traffic.
+Private Endpoint is a virtual networking resource, modeled as Network Interface card, in Service consumer's Virtual Network. Private Endpoints  get assigned a private IP from customer's VNet. private endpoint enables Azure customers to privately connect to supported Azure services through Azure private link. These services can include Azure PaaS, Microsoft partner services and customer owned services. Supported Azure services are mapped inside the customer's VNet as private endpoint. Private endpoint is the entry point for service traffic over private link from Azure VNet resources. The traffic never leaves Microsoft Backbone. These are highly available instances and don’t impose any bandwidth restrictions on the Service traffic.
  
 ![Azure Private Link Overview](./media/private-link-overview/private-link-overview.png)
 
@@ -70,7 +70,7 @@ For the most up-to-date notifications, check the [Azure Virtual Network updates 
 Azure private link is fully integrated with Azure Monitor.  All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. You can access following info on Azure Monitor: 
 - **Private endpoint**: Data processed by private endpoint  (IN/OUT)
  
-- **Private link service:
+- **Private link service**:
     - Data processed by private link service (IN/OUT)
     - NAT port availability  
  
@@ -78,10 +78,10 @@ Azure private link is fully integrated with Azure Monitor.  All events are integ
 For pricing details, see Azure private link pricing.
  
 ## FAQs  
-For FAQs, see Azure private link FAQs.
+For FAQs, see [Azure private link FAQs](private-link-faq.md).
  
 ## Limits  
-For limits, see Azure private link limits.
+For limits, see [Azure private link limits](../azure-subscription-service-limits.md#private-link-limits).
 
 ## Next steps
 - [Create a Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

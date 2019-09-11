@@ -39,6 +39,7 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Location | Select **WestCentralUS**.|
     | Subnet - Name | Enter *mySubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
+    |||
 1. Leave the rest as default and select **Create**.
 
 
@@ -67,6 +68,7 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Public inbound ports | Leave the default **None**. |
     | **SAVE MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
+    |||
 
 1. Select **Next: Disks**.
 
@@ -82,6 +84,7 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Public IP | Leave the default **(new) myVm-ip**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP** and **RDP**.|
+    ||
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
@@ -105,6 +108,7 @@ In this section, you will create a private storage account and add a private end
     | Performance| Leave the default **Standard**. |
     | Account kind | Leave the default **Storage (general purpose v2)**. |
     | Replication | Select **Read-access geo-redundant storage (RA-GRS)**. |
+    |||
   
 3. Select **Next: Networking**.
 4. In **Create a storage account - Networking**, connectivity method, select **Private endpoint**.
@@ -125,6 +129,7 @@ In this section, you will create a private storage account and add a private end
     | **PRIVATE DNS INTEGRATION**|  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
     | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
+    |||
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 9. When you see the **Validation passed** message, select **Create**. 
@@ -198,4 +203,4 @@ When you're done using the private endpoint, storage account and the VM, delete 
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
 
 ## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a private endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about private endpoint settings, see Manage private endpoints.
+In this Quickstart, you created a VM on a virtual network and storage account and a private endpoint. You connected to one VM from the internet and securely communicated to the storage account using private link. To learn more about private endpoint, see [What is Azure private endpoint?](private-endpoint-overview.md).

@@ -13,15 +13,10 @@ ms.author: kumud
 ---
 # What is Azure private endpoint?
 
-You can connect secure and privately to an Azure Service from your virtual network with a private endpoint. A private endpoint represents a unique network identifier that you can use to securely connect to an Azure Service. Traffic from your virtual network to the Private Link resource is secured by the platform from reaching other resources hosted on the same service.
+You can connect secure and privately to an Azure service from your virtual network with a private endpoint. A private endpoint represents a unique network identifier to securely connect to Azure service, traffic from your VNet to a private link resource is secured by the platform from reaching other resources hosted on the same service. 
  
 This article explains private endpoint concepts, to help you use them effectively. 
   
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
-
 ## Private endpoint properties 
  A private endpoint specifies the following properties: 
 
@@ -51,16 +46,16 @@ Here are some key details about private endpoints:
 
 
  
-## The Private Link resource 
+## Private link resource 
 A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types and regions for Preview: 
  
-- **Private Link Service**: Your own private link service or shared service, available in selected Azure regions. 
-- **Azure Storage**: Storage accounts with multiple target subresources available, Available in all Azure regions. 
+- **Private link service**: Your own private link service or shared service, available in selected Azure regions. 
+- **Azure storage**: Storage accounts with multiple target subresources available, Available in all Azure regions. 
 - **Azure Data Lake Service gen2**: ADLS gen2 is available using Storage accounts with blob subresource, Available in selected Azure regions. 
 - **Azure SQL Database**: Generally available in all Azure regions. 
 - **Azure SQL Data Warehouse**: Generally available in all Azure regions. 
  
-All private link resources shares a common behavior and experience for managing associated private endpoints. For details, see the following sections:
+All private link resources share a common behavior and experience for managing associated private endpoints. For details, see the following sections:
 - Network security for private endpoints.
 - Access to a private link resource using approval workflow.
 - DNS configuration.
@@ -86,9 +81,9 @@ The private link resource owner can perform the following actions over a private
 > Only a private endpoint in approved state is valid to send traffic on to a given private link resource. 
  
 ### DNS configuration 
-When connecting to a private link resource using a Fully Qualified Domain Name (FQDN) as part of the connection string, it's important to configure properly your DNS settings to resolve into the allocated private IP addresses, existing Azure Services might already have a DNS configuration to use when connecting over a public endpoint, this needs to be overridden to connect using your private endpoint. 
+When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to configure properly your DNS settings to resolve into the allocated private IP addresses, existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
-The network interface associated with the private endpoint contains the complete set of information required to configure your DNS including Fully Qualified Domain Name (FQDN) and private IP addresses allocated for a given private link resource. 
+The network interface associated with the private endpoint contains the complete set of information required to configure your DNS including fully qualified domain name (FQDN) and private IP addresses allocated for a given private link resource. 
  
 A given network interface can contain multiple private IP addresses (IPConfigurations), each as a corresponding private IP address and an array of FQDNs that must resolve into the same private IP address. 
  

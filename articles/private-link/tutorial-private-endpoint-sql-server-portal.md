@@ -46,6 +46,7 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Location | Select **WestCentralUS**.|
     | Subnet - Name | Enter *mySubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
+    |||
 1. Leave the rest as default and select **Create**.
 
 
@@ -74,6 +75,7 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Public inbound ports | Leave the default **None**. |
     | **SAVE MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
+    |||
 
 1. Select **Next: Disks**.
 
@@ -89,6 +91,8 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Public IP | Leave the default **(new) myVm-ip**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP** and **RDP**.|
+    |||
+
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
@@ -108,6 +112,7 @@ In this section, you will create a SQL database server in Azure.
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
     | Database name  | Enter *mydatabase*. If this name is taken, create a unique name. |
+    |||
 5. In **Server**, select **Create new**. 
 6. In **New server**, enter or select this information:
 
@@ -116,6 +121,7 @@ In this section, you will create a SQL database server in Azure.
     |Server name  | Enter *myserver*. If this name is taken, create a unique name.|
     | Server admin login| Enter an administrator name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
+    |||
     
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
@@ -138,6 +144,7 @@ In this section, you will create a private storage account and add a private end
     | **INSTANCE DETAILS** |  |
     | Name | Enter * myPrivateEndpoint*. If this name is taken, create a unique name. |
     |Region|Select **WestCentralUS**.|
+    |||
 5. Select **Next: Resource**.
 6. In **Create a private endpoint - Resource**, enter or select this information:
 
@@ -147,6 +154,7 @@ In this section, you will create a private storage account and add a private end
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.Sql/servers**. |
     |Target sub-resource |Select *myServer*|
+    |||
 7. Select **Next: Configuration**.
 8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
     | Setting | Value |
@@ -157,6 +165,7 @@ In this section, you will create a private storage account and add a private end
     |**PRIVATE DNS INTEGRATION**||
     |Integrate with private DNS zone |Select **Yes**. |
     |Private DNS Zone |Select *(New)privatelink.database.windows.net* |
+    |||
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
  
@@ -209,6 +218,7 @@ After you've created **myVm*, connect to it from the internet as follows:
     | User name | Enter a password provided during the SQL server creation. |
     |Password |Enter a password provided during the SQL server creation. |
     |Remember password|Select **Yes**.|
+    |||
 1. Select **Connect**.
 2. Browse databases from left menu.
 3. (Optionally) Create or query information from mydatabase.
@@ -221,4 +231,4 @@ When you're done using the private endpoint, storage account and the VM, delete 
 3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
-In this tutorial, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using private link. To learn more about private endpoint for SQL database, see SQL database private endpoints <<add link post publish>>.
+In this tutorial, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using private link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
