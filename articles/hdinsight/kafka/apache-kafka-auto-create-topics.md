@@ -36,7 +36,7 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
 
 5. In the Filter field, enter a value of `auto.create`. 
 
-    ![Image of the filter field](./media/apache-kafka-auto-create-topics/filter.png)
+    ![Image of the filter field](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     This filters the list of properties and displays the `auto.create.topics.enable` setting.
 

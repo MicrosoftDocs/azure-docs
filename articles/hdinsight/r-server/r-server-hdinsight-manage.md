@@ -1,6 +1,6 @@
 ---
 title: Manage ML Services cluster on HDInsight - Azure 
-description: Learn how to manage an ML Services cluster in Azure HDInsight.
+description: Learn how to manage various tasks on ML Services cluster in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -204,7 +204,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
    >
    >
 
-   ![Adding a script action](./media/r-server-hdinsight-manage/submitscriptaction.png)
+   ![Adding a script action](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Select **Create** to run the script. Once the script completes, the R packages are available on all worker nodes.
 
