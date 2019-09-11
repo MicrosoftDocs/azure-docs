@@ -29,8 +29,10 @@
   items:
   - name: Create a private link service
     href: create-private-link-service-powershell.md
-  - name: Disable network policies for private endpoints
-    href: disable-private-endpoint-network-policy.md 
+  - name: Disable network policies for a private endpoint
+    href: disable-private-endpoint-network-policy.md
+  - name: Disable network policies for a private link service
+    href: disable-private-link-service-network-policy.md
 
 - name: Reference
   items:
