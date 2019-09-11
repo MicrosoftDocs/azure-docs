@@ -6,10 +6,9 @@ metadata:
   description: Learn how to use Translator Text to translate text in multiple languages.
   services: cognitive-services
   author: swmachan
-  manager: Chris.Wendt
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 06/04/2019
   ms.author: swmachan

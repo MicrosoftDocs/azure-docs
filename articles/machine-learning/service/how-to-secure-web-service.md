@@ -73,7 +73,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-When you deploy to AKS, you can create a new AKS cluster or attach an existing one.
+When you deploy to AKS, you can create a new AKS cluster or attach an existing one. For more information on creating or attaching a cluster, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
   
 -  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)**.
 - If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Both return a configuration object that has an **enable_ssl** method.
@@ -226,9 +226,7 @@ For more information, see the following reference docs:
 
 ## Disable SSL
 
-To disable SSL for a model deployed to Azure Kubernetes Service, you can use the SDK or CLI:
-
-**Use the SDK**
+To disable SSL for a model deployed to Azure Kubernetes Service, create an `SslConfiguration` with `status="Disabled"`, then perform an update:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -242,12 +240,6 @@ aks_target = AksCompute(ws, clustername)
 ssl_configuration = SslConfiguration(status="Disabled")
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
-```
-
-**Use the CLI**
-
-```azurecli
- az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
 ```
 
 ## Next steps

@@ -1,7 +1,7 @@
 ---
 title: Full text search engine (Lucene) architecture - Azure Search
 description: Explanation of Lucene query processing and document retrieval concepts for full text search, as related to Azure Search.
-manager: jlembicz
+manager: nitinme
 author: yahnoosh
 services: search
 ms.service: search

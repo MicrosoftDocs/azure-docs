@@ -15,10 +15,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019
 
 ---
-# How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
+# Use the Java Message Service (JMS) with Azure Service Bus and AMQP 1.0
 The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform messaging applications.
 
 Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.

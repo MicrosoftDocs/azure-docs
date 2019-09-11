@@ -170,7 +170,7 @@ You can view content from a browser by using the public URL of the website.
 Find the URL by using the following command:
 
 ```powershell
- $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 

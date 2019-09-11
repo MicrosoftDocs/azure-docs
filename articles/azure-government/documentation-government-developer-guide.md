@@ -58,7 +58,7 @@ Navigate through the links below to get started using Azure Government.
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
-* [Connect with Azure SDK for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-multi-cloud?view=azure-python)
+* [Connect with Azure SDK for Python](/azure/python/python-sdk-azure-multi-cloud)
 
 ### Azure Government Video Library 
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 

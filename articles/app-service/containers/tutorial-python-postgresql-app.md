@@ -135,13 +135,13 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-Navigate to `http://localhost:8000` in a browser. You should see the message `No polls are available.`. 
+Go to `http://localhost:8000` in a browser. You should see the message `No polls are available.`. 
 
-Navigate to `http://localhost:8000/admin` and sign in using the admin user you created in the last step. Click **Add** next to **Questions** and create a poll question with some choices.
+Go to `http://localhost:8000/admin` and sign in using the admin user you created in the last step. Select **Add** next to **Questions** and create a poll question with some choices.
 
 ![Python Django application running locally](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Navigate to `http://localhost:8000` again and see the poll question displayed.
+Go to `http://localhost:8000` again and see the poll question displayed.
 
 The Django sample application stores user data in the database. If you are successful at adding a poll question, your app is writing data to the local PostgreSQL database.
 
@@ -264,13 +264,13 @@ Once the admin user is created, run the Django server.
 python manage.py runserver
 ```
 
-Navigate to `http://localhost:8000` in again. You should see the message `No polls are available.` again. 
+Go to `http://localhost:8000` in again. You should see the message `No polls are available.` again. 
 
-Navigate to `http://localhost:8000/admin` and sign in using the admin user you created, and create a poll question like before.
+Go to `http://localhost:8000/admin` and sign in using the admin user you created, and create a poll question like before.
 
 ![Python Django application running in locally](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Navigate to `http://localhost:8000` again and see the poll question displayed. Your app is now writing data to the database in Azure.
+Go to `http://localhost:8000` again and see the poll question displayed. Your app is now writing data to the database in Azure.
 
 ## Deploy to Azure
 
@@ -381,7 +381,7 @@ You should see the poll question that you created earlier.
 
 App Service detects a Django project in your repository by looking for a _wsgi.py_ in each subdirectory, which is created by `manage.py startproject` by default. When it finds the file, it loads the Django web app. For more information on how App Service loads Python apps, see [Configure built-in Python image](how-to-configure-python.md).
 
-Navigate to `<app-name>.azurewebsites.net` and sign in using same admin user you created. If you like, try creating some more poll questions.
+Go to `<app-name>.azurewebsites.net` and sign in using same admin user you created. If you like, try creating some more poll questions.
 
 ![Python Django application running in locally](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -395,7 +395,7 @@ Navigate to `<app-name>.azurewebsites.net` and sign in using same admin user you
 
 Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
-From the left menu, click **App Services**, then click the name of your Azure app.
+From the left menu, select **App Services**, then select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/tutorial-python-postgresql-app/app-resource.png)
 

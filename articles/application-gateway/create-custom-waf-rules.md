@@ -122,7 +122,7 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to block all requests from IP addresses in the range 198.168.5.4/24.
+You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
 In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 100.
 
@@ -135,7 +135,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -161,7 +161,7 @@ Here's the corresponding JSON:
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -171,11 +171,11 @@ Here's the corresponding JSON:
 ```
 
 Corresponding CRS rule:
-  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## Example 3
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures  both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.4/24 are blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures  both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are blocked.
 
 Logic: p **and** q
 
@@ -190,7 +190,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -225,7 +225,7 @@ Here's the corresponding JSON:
               "operator": "IPMatch", 
               "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -247,7 +247,7 @@ Here's the corresponding JSON:
 
 ## Example 4
 
-For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
+For this example, you want to block if the request is either outside of the IP address range *192.168.5.0/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
 
 Logic: **not** (p **and** q) = **not** p **or not** q.
 
@@ -262,7 +262,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -303,7 +303,7 @@ And the corresponding JSON:
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]

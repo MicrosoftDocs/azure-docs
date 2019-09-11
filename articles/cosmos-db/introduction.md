@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB. This globally-distributed multi-model 
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 07/23/2019
+ms.date: 09/01/2019
 ms.author: rimman
 
 ---
@@ -19,6 +19,11 @@ You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)
+
+You can also use the [Cosmos DB Bootstrap Program](https://azurecosmosdb.github.io/CosmosBootstrap/) to accelerate building or migrating your applications on Azure Cosmos DB. When you sign up for this program, the Azure Cosmos DB engineers are assigned to assist with your project and they can help you migrate your data to Azure Cosmos DB or building new apps on Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Sign up for the Cosmos DB bootstrap program](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale-out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 

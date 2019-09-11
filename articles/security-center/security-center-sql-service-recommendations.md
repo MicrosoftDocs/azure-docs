@@ -72,8 +72,7 @@ From this page, you can:
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following topics:
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 
 To learn more about Security Center, see the following topics:

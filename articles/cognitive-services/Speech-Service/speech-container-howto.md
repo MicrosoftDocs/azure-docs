@@ -20,8 +20,8 @@ The two speech containers are **speech-to-text** and **text-to-speech**.
 
 |Function|Features|Latest|
 |-|-|--|
-|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.1.3|
-|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
+|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.2.0|
+|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.2.0|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -96,10 +96,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text** in the 1.1.3 version of the container:
+The following table lists the supported locales for **speech-to-text** in the 1.2.0 version of the container:
 
 |Language locale|Tags|
 |--|--|
@@ -124,10 +124,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech** in the 1.1.0 version of the container:
+The following table lists the supported locales for **text-to-speech** in the 1.2.0 version of the container:
 
 |Language locale|Tags|Supported voices|
 |--|--|--|
