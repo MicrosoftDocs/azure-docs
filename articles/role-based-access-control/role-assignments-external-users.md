@@ -35,7 +35,7 @@ Here are a couple example scenarios when you might invite guest users to your or
 
 Native members of a directory (member users) have different permissions than users invited from another directory as a B2B collaboration guest (guest users). For example, members user can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-## Add a guest user to the directory
+## Add a guest user to a directory
 
 1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Enable B2B external collaboration and manage who can invite guests](../active-directory/b2b/delegate-invitations.md).
 
@@ -90,6 +90,34 @@ In RBAC, to grant access, you assign a role. To grant access to a guest user, yo
    After a few moments, the guest user will have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role for the selected scope.
 
    ![Role assignment for Virtual Machine Contributor](./media/role-assignments-external-users/access-control-role-assignments.png)
+
+## Remove a guest user from a directory
+
+Before you remove a guest user from a directory, you should first remove any role assignments for that guest user. Follow these steps to remove a guest user from a directory.
+
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where the guest user has a role assignment.
+
+1. Click the **Role assignments** tab to view all the role assignments.
+
+1. In the list of role assignments, add a checkmark next to the guest user with the role assignment you want to remove.
+
+   ![Remove role assignment](./media/role-assignments-external-users/remove-role-assignment-select.png)
+
+1. Click **Remove**.
+
+   ![Remove role assignment message](./media/role-assignments-external-users/remove-role-assignment.png)
+
+1. In the remove role assignment message that appears, click **Yes**.
+
+1. In the left navigation bar, click **Azure Active Directory** > **Users**.
+
+1. Click the guest user you want to remove.
+
+1. Click **Delete**.
+
+   ![Delete guest user](./media/role-assignments-external-users/delete-guest-user.png)
+
+1. In the delete message that appears, click **Yes**.
 
 ## Troubleshoot
 
