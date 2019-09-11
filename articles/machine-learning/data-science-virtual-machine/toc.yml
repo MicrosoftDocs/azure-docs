@@ -61,3 +61,9 @@
     href: https://stackoverflow.com/search?q=dsvm
   - name: R developer guide 
     href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+- name: Reference
+  items:
+  - name: Windows DSVM
+    href: reference-windows-vm.md
+  - name: Ubuntu DSVM
+    href: reference-ubuntu-vm.md
