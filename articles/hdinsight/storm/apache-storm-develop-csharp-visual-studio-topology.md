@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
 ---
+
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
 Learn how to create a C# Apache Storm topology by using the Azure Data Lake (Apache Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
@@ -560,7 +561,7 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
 1. In **Solution Explorer**, right-click the project, and select **Properties**. In the project properties, change the **Output type** to **Console Application**.
 
-    ![Screenshot of project properties, with Output type highlighted](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Screenshot of project properties, with Output type highlighted](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
