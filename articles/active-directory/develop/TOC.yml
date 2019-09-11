@@ -233,6 +233,8 @@
             href: msal-net-migration-ios-broker.md
         - name: Supported authentication flows
           href: msal-authentication-flows.md
+        - name: Single and multi account public client apps
+          href: single-multi-account.md
         - name: Acquire and cache tokens
           items:
           - name: Acquire and cache tokens
@@ -419,6 +421,8 @@
       href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Application manifest
       href: reference-app-manifest.md
+    - name: Android MSAL configuration file
+      href: msal-configuration.md
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes
