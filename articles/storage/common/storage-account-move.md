@@ -86,7 +86,7 @@ Azure requires that each Azure service has a unique name. The deployment could f
     Get-AzLocation | format-table 
     ```
 
-5. Lifecycle management policies do not automatically export with this template. If your storage account has lifecycle management policies, obtain these policies in json form from the [Azure portal Code view](storage-lifecycle-management-concepts.md#azure-portal-code-view) of the LifeCycle management settings. Then, add that json to the **properties** section of this template. 
+5. Lifecycle management policies do not automatically export with this template. If your storage account has lifecycle management policies, obtain these policies in json form from the [Azure portal Code view](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view) of the LifeCycle management settings. Then, add that json to the **properties** section of this template. 
 
     ```json
     "properties": {
