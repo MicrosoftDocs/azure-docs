@@ -40,6 +40,16 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage user profiles    
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Bulk operations (preview)
+      items:
+        - name: Download users (preview)
+          href: users-bulk-download.md
+        - name: Bulk import users (preview)
+          href: users-bulk-add.md
+        - name: Bulk delete users (preview)
+          href: users-bulk-delete.md
+        - name: Bulk restore users (preview)
+          href: users-bulk-restore.md
     - name: Share user accounts  
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
@@ -74,19 +84,21 @@
     items: 
     - name: Manage access with groups    
       href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage groups in the Azure portal    
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Search group and member lists (preview)    
+      href: groups-members-owners-search.md
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups PowerShell MSOnline    
       href: groups-settings-cmdlets.md
     - name: Manage group members    
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage group owners    
+    - name: Manage group owners
       href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage groups in groups    
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Add group access to SaaS apps    
+    - name: Create a group (Azure portal)    
+      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Add group access to SaaS apps
       href: groups-saasapps.md
     - name: Groups naming reference
       href: groups-naming-policy.md
@@ -94,7 +106,7 @@
       href: groups-lifecycle.md
     - name: Restore expired or deleted groups   
       href: groups-restore-deleted.md
-    - name: Manage group settings    
+    - name: Manage group settings
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
     - name: Set up group self-service    
       href: groups-self-service-management.md
