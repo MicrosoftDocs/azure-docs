@@ -10,9 +10,13 @@ ms.date: 08/07/2019
 ---
 
 # What is Private Link?
+
+> [!IMPORTANT]
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
+
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality go to https://docs.microsoft.com/en-us/azure/privatelink. A private endpoint resource maps to a specific private IP address within a specific Virtual Network(Vnet) and Subnet. 
 
-For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
+For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls did not address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
 
 ## Data Exfiltration prevention
 Data exfiltration - in context of Azure SQL Database - is when an authorized user, for example,  database admin is able extract data from one system - SQL Database owned by their organization - and move it another location/system outside the organization, for example,  SQL Database or storage account owned by a third party.
@@ -22,7 +26,7 @@ With Private Link, customers can now set up standard network access controls on 
 ## On-premises connectivity over private peering
 When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall via a [Server-level firewall rule](sql-database-server-level-firewall-rule.md). 
 
-With Private Link, customers can enable cross-premises access to the private endpoint using ER private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall.
+With Private Link, customers can enable cross-premises access to the private endpoint using Express Route (ER) private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall.
 
 ## How to set up Private Link for Azure SQL Database 
 Private endpoints(PEs) can be created as follows
@@ -121,6 +125,12 @@ To establish connectivity from on-premises, choose & implement one of the option
 - [Point-to-Site connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 - [Site-to-Site VPN connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
 - [ExpressRoute circuit](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+
+
+### Azure SQL Data Warehouse PolyBase 
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints or Service Endpoints or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps provided [here] ( missing link) . 
+
+Shape 
 
 ## Next steps
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
