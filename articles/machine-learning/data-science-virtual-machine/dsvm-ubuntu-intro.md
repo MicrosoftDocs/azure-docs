@@ -1,16 +1,15 @@
 ---
-title: Linux Ubuntu Quickstart
-titleSuffix: Azure Data Science Virtual Machine 
-description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
-services: machine-learning
+title: 'Quickstart: Create a Windows DSVM' 
+description: Configure and create a Data Science Virtual Machine for Linux (Unbtu) to do analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 09/10/2019
 
+#Customer intent: As a data scientist, I want to learn how to provision the Windows DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
