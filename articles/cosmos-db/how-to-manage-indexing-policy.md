@@ -214,7 +214,7 @@ Query #2:
     ORDER BY c.name DESC, c.age ASC
 ```
 
-This composite index will benefit Query #3 and Query #4 but is not required:
+This composite index will benefit Query #3 and Query #4 and optimize the filters:
 
 Query #3:
 
