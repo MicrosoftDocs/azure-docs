@@ -17,7 +17,7 @@ above subscriptions. You organize subscriptions into containers called "manageme
 apply your governance conditions to the management groups. All subscriptions within a management
 group automatically inherit the conditions applied to the management group. Management groups give
 you enterprise-grade management at a large scale no matter what type of subscriptions you might
-have.
+have. All subscriptions within a single management group must trust the same Azure Active Directory tenant.
 
 For example, you can apply policies to a management group that limits the regions available for
 virtual machine (VM) creation. This policy would be applied to all management groups,
