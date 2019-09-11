@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 # Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application. When you complete the instructions in this article, Application Insights will collect requests, dependencies, exceptions, performance counters, heartbeats, and logs from your ASP.NET Core application. 
+This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application. When you complete the instructions in this article, Application Insights will collect requests, dependencies, exceptions, performance counters, heartbeats, and logs from your ASP.NET Core application.
 
 The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp2.2`. You can apply these instructions to all ASP.NET Core applications.
 
@@ -29,6 +29,9 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **Web server**: IIS (Internet Information Server) or Kestrel. 
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
 * **IDE**: Visual Studio, VS Code, or command line.
+
+> [!NOTE]
+> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) version. This is the only version known to work well with ASP.NET Core 3.0.
 
 ## Prerequisites
 
@@ -135,7 +138,7 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 * SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
 * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
-* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get counters in Linux (and other non-Windows environments) is by using [EventCounters.](#EventCounter)
+* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get counters in Linux (and other non-Windows environments) is by using [EventCounters.](#eventcounter)
 
 ### EventCounter
 
@@ -304,7 +307,7 @@ The following automatic-collection modules are enabled by default. These modules
 * `QuickPulseTelemetryModule` - Collects telemetry for showing in Live Metrics portal.
 * `AppServicesHeartbeatTelemetryModule` - Collects heart beats (which are send as custom metrics), about Azure App Service environment where application is hosted.
 * `AzureInstanceMetadataTelemetryModule` -  Collects heart beats (which are send as custom metrics), about Azure VM environment where application is hosted.
-* `EventCounterCollectionModule` -  Collects [EventCounters.](#EventCounter). This is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
+* `EventCounterCollectionModule` -  Collects [EventCounters.](#eventcounter). This is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
