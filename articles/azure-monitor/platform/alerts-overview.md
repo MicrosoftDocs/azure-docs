@@ -36,7 +36,7 @@ The following are key attributes of an alert rule:
 
 **Signal**: Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.
 
-**Criteria**: A combination of Signal and Logic applied on a Target resource. Examples: 
+**Criteria**: A combination of signal and logic applied on a target resource. Examples: 
    - Percentage CPU > 70%
    - Server Response Time > 4 ms 
    - Result count of a log query > 100
@@ -45,7 +45,7 @@ The following are key attributes of an alert rule:
 
 **Alert Description**: A description for the alert rule configured by the user.
 
-**Severity** – The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+**Severity**: The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
    - Sev 0 = Critical
    - Sev 1 = Error
    - Sev 2 = Warning
