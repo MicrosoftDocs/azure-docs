@@ -38,7 +38,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 
     ![Alerts in Advisor](./media/advisor-alerts/create12.png)
 
-3. Select **New Advisor Alert** [Click here for a full screen image](./media/advisor-alert/create3.png)
+3. Select **New Advisor Alert** 
 
     ![New Advisor alert](./media/advisor-alerts/create3.png)
 
@@ -46,19 +46,18 @@ To learn more about action groups, see [Create and manage action groups](../azur
 
     ![Advisor alert scope](./media/advisor-alerts/create4.png)
 
-5. In the condition section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select "Category and impact level". If you want to alert for all recommendations of a certain type, select "Recommendation type". [Click here for a full screen image](./media/Advisor%20Alert/create5.png)
-
+5. In the condition section, select the method you want to use for configuring your alert. If you want to alert for all recommendations for a certain category and/or impact level, select "Category and impact level". If you want to alert for all recommendations of a certain type, select "Recommendation type". 
     ![Azure Advisor alert condition](./media/advisor-alerts/create5.png)
 
-6. Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. [Click here for a full screen image](./media/Advisor%20Alert/create6.png)
+6. Depending on the Configure by option that you select, you will be able to specify the criteria. If you want all recommendations, just leave the remaining fields blank. 
 
     ![Advisor alert action group](./media/advisor-alerts/create6.png)
 
-7. In the action groups section, select "Add existing" to use an action group you already created or select "Create new" to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). [Click here for a full screen image](./media/Advisor%20Alert/create7.png)
+7. In the action groups section, select "Add existing" to use an action group you already created or select "Create new" to set up a new [action group](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
 
     ![Advisor alert add existing](./media/advisor-alerts/create7.png)
 
-8. In the Alert details section, give your alert a name and short description. If you want your alert to be enabled, leave **Enable rule upon creation** selection set to "Yes". Then select the resource group to save your alert to. This will not impact the targeting scope of the recommendation. [Click here for a full screen image](./media/Advisor%20Alert/create8.png)
+8. In the Alert details section, give your alert a name and short description. If you want your alert to be enabled, leave **Enable rule upon creation** selection set to "Yes". Then select the resource group to save your alert to. This will not impact the targeting scope of the recommendation. 
 
     ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
 
@@ -284,7 +283,7 @@ From Azure Advisor, you can edit, delete, or disable and enable your recommendat
 
     ![Azure Advisor Banner](./media/advisor-alerts/create1.png)
 
-2. In the **Monitoring** section of the left menu, select **Alerts** [Click here for a full screen image](./media/Advisor%20Alert/create2.png)
+2. In the **Monitoring** section of the left menu, select **Alerts** 
 
     ![Azure Advisor Banner](./media/advisor-alerts/create2.png)
 
