@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 09/11/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -22,6 +22,10 @@ Using Azure Active Directory (Azure AD) portal, you can bulk download the list o
 
 > [!NOTE]
 > Azure AD bulk operations are a public preview feature of Azure AD and are available with any paid Azure AD license plan. For more information about preview use terms, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Bulk download service limits
+
+Each bulk activity to create a list of groups can run for up to one hour. This enables creation and download of a list of at least 300,000 groups.
 
 ## To download a list of groups
 
