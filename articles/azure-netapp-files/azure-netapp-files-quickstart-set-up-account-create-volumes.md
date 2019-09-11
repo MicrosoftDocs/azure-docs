@@ -47,6 +47,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 # [Portal](#tab/azure-portal)
 
+For registration steps using Portal, please open a Cloud Shell session as indicated above and follow these Azure CLI steps:
+
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
 # [PowerShell](#tab/azure-powershell)
@@ -280,7 +282,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     $vnet = New-AzVirtualNetwork -Name "myvnet1" -ResourceGroupName $resourceGroup -Location $location -AddressPrefix "10.7.0.0/16" -Subnet $subnet
     ```
 
-4. Create the volume by using the [New-AzNetAppFilesVolume](/powershell/module/az.network/new-aznetappfilesvolume) command.
+4. Create the volume by using the [New-AzNetAppFilesVolume](/powershell/module/az.netappfiles/new-aznetappfilesvolume) command.
    
     ```powershell-interactive
     $volumeSizeBytes = 1099511627776 # 100GiB
@@ -329,7 +331,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. Create the volume by using the [az netappfiles volume create](/cli/azure/netappfiles/pool#az-netappfiles-volume-create) command.
+3. Create the volume by using the [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) command.
    
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
