@@ -239,14 +239,14 @@ Optionally, if you want to preserve the connections that aren't corrupted, you c
 
 After going through all your connections, for all connections names that are not added back, you need to clear their corrupted data (if there is any) and add them back through normal steps using Storage Explorer.
 
-# [Windows](#tab/Windows):
+# [Windows](#tab/Windows)
 
 1. Open 'Credential Manager' by opening the Start menu and search for 'Credential Manager'.
 2. In the opened window, go to 'Windows Credentials'.
 3. Under 'Generic Credentials' look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Remove these entries and add the connections back.
 
-# [macOS](#tab/macOS):
+# [macOS](#tab/macOS)
 
 1. Open Spotlight (Command-Space bar) and search for 'Keychain Access'.
 2. Look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
