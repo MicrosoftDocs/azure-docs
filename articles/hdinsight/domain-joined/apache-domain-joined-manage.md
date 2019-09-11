@@ -4,7 +4,7 @@ description: Learn how to manage Azure HDInsight clusters with Enterprise Securi
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh 
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
