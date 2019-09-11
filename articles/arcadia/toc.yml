@@ -1,0 +1,37 @@
+- name: Arcadia Documentation
+#  href: index.md
+- name: Overview
+  items:
+  - name: What is Arcadia
+    href: arcadia-overview-what-is.md
+  - name: Who can benefit from Arcadia
+    href: arcadia-overview-who-can-benefit-from-arcadia.md
+#- name: Release notes
+#  items:
+- name: Quick starts
+  items:
+  - name: Getting started
+    items:
+    - name: Create a workspace
+      href: arcadia-quickstart-create-a-workspace.md
+- name: Tutorials
+  items:
+#  - name: BI Professional
+#    href: 
+  - name: Data Scientist
+    items:
+    - name: Predict food inspection results
+      href: arcadia-tutorial-predict-food-inspection-results.md 
+#- name: Concepts
+#  items:
+#- name: How to
+#  items:
+#- name: Reference
+#  items:
+#- name: Resources
+#  items:
+
+
+
+
+
