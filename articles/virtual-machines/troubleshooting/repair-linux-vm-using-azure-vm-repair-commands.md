@@ -22,7 +22,7 @@ ms.author: v-miegge
 
 If your Linux virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform mitigation on the disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure VM repair commands to connect the disk to another Linux VM to fix any errors, then rebuild your original VM.
 
-> ![Important]
+> [!Important]
 > The scripts in this article only apply to the VMs that use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## Repair process overview
