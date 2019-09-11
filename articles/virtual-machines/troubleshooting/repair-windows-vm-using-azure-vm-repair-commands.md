@@ -58,31 +58,44 @@ Select **Copy** to copy the blocks of code, then paste the code into the Cloud S
 If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run ``az --version`` to find the version. If you need to install or upgrade your Azure CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 2. If this is the first time you have used the *az vm repair* commands, add the vm-repair CLI extension.
- 
-``az extension add -n vm-repair``
+
+```azurepowershell-interactive
+az extension add -n vm-repair
+```
 
 If you have previously used the *az vm repair* commands, apply any updates to the vm-repair extension.
 
-``az extension update -n vm-repair``
+```azurepowershell-interactive
+az extension update -n vm-repair``
+```
 
 3. Run *az vm repair create*. This command will create a copy of the OS disk for the non-functional VM, create a repair VM, and attach the disk.
 
-``az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose``
+```azurepowershell-interactive
+az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose``
+```
 
 4. Run *az vm repair run*. This command will run the specified repair script on the attached disk via the repair VM.
 
-``az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose``
+```azurepowershell-interactive
+az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose``
+```
 
 5. Run *az vm repair restore*. This command will swap the repaired OS disk with the original OS disk of the VM.
 
-``az vm repair restore -g MyResourceGroup -n MyVM --verbose``
+```azurepowershell-interactive
+az vm repair restore -g MyResourceGroup -n MyVM --verbose``
+```
 
 ## Verify and enable boot diagnostics
 
 The following example enables the diagnostic extension on the VM named ``myVMDeployed`` in the resource group named ``myResourceGroup``:
 
-``Azure CLI
+Azure CLI
+
+```azurepowershell-interactive
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/``
+```
 
 ## Next steps
 
