@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 # Tutorial: Create an application with a Java API front-end service and a stateful back-end service on Azure Service Fabric
 
-This tutorial is part one of a series. When you are finished, you have a Voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires that you have a working Mac OSX or Linux developer machine. If you don't want to manually create the voting application, you can [download the source code for the completed application](https://github.com/Azure-Samples/service-fabric-java-quickstart) and skip ahead to [Walk through the voting sample application](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Also, consider following the [Quickstart for Java reliable services.](service-fabric-quickstart-java-reliable-services.md)
-
+This tutorial is part one of a series. When you are finished, you have a Voting application with a Java web front end that saves voting results in a stateful back-end service on Azure Service Fabric. This tutorial series requires that you have a working Mac OSX or Linux developer machine. If you don't want to manually create the voting application, you can [download the source code for the completed application](https://github.com/Azure-Samples/service-fabric-java-quickstart) and skip ahead to [Walk through the voting sample application](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Also, consider following the [Quickstart for Java reliable services.](service-fabric-quickstart-java-reliable-services.md).
 
 ![Voting App Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
