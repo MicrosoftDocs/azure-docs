@@ -77,7 +77,7 @@ Redeploy Wwise into your game even if you've already integrated Wwise. This step
 
 1. Confirm that you see a *Wwise* folder alongside the *ProjectAcoustics* folder. It contains the Wwise plug-in along with binaries for the mixer plug-in that you deployed in step 2.
 
-### 4. Extend Wwise's Unreal plug-in functionality
+### 4. Extend the Wwise Unreal plug-in functionality
 * The Project Acoustics Unreal plug-in requires that additional behavior be exposed from the Wwise Unreal plug-in API per [these guidelines](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html). We've included a batch file to automate the patching procedure. 
 
 * Inside `Plugins\ProjectAcoustics\Resources`, run `PatchWwise.bat`. The example image below uses our AcousticsGame sample project.
@@ -94,41 +94,41 @@ Redeploy Wwise into your game even if you've already integrated Wwise. This step
 
 ### 5. Build the game and check that Python is enabled
 
-1. Compile your game and make sure that it builds correctly. If it doesn't, check the previous steps carefully before you proceed. 
+1. Compile your game, and make sure that it builds correctly. If it doesn't, check the previous steps carefully before you proceed.
 
-1.  Open your project in Unreal Editor.
+1. Open your project in Unreal Editor.
 
     > [!NOTE]
     > **Engine plugin:** If using ProjectAcoustics as engine plugin, also ensure that it's enabled, listed under "built-in" plugins. 
 
-    You should see a new mode, which indicates Project Acoustics has been integrated.
+    You should see a new mode, which indicates that Project Acoustics has been integrated.
 
     ![Acoustics Mode Full in Unreal](media/acoustics-mode-full.png)
 
-1.  Confirm you have the Python plugin for Unreal enabled. This is required for the editor integration to function correctly.
+1.  Confirm you have the Python plug-in for Unreal enabled. This is required for the editor integration to function correctly.
 
-    ![Screenshot of enabling Python extensions in Unreal editor](media/ensure-python.png)
+    ![The Python extensions in Unreal editor enabled](media/ensure-python.png)
 
 ### 6. Wwise project setup
 
 An example Wwise project is included with the samples download. We recommend that you view it alongside these instructions. The screenshots later in this article are from this example project.
 
 #### Bus setup
-* The Project Acoustics Unreal plugin will look for the associated mixer plugin on a bus with this ***exact*** name: `Project Acoustics Bus`. Create a new audio bus with this name. The mixer plugin can work in various configurations, but for now we assume it will be used to do only reverb processing. This bus will carry the mixed reverb signal for all sources that use Acoustics. It can mix upstream into any bus mixing structure, an example is shown below, taken from our Wwise sample project included in the sample download.
+The Project Acoustics Unreal plugin will look for the associated mixer plug-in on a bus that has the exact name *Project Acoustics Bus*. Create a new audio bus with this name. The mixer plug-in can work in various configurations, but for now we assume it will be used to do only reverb processing. This bus will carry the mixed reverb signal for all sources that use Acoustics. It can mix upstream into any bus mixing structure. An example is shown here, from our Wwise sample project that's included in the sample download.
 
-    ![Screenshot of Wwise busses showing Project Acoustics Bus](media/acoustics-bus.png)
+    ![Wwise buses showing Project Acoustics Bus](media/acoustics-bus.png)
 
-* The channel configuration on the bus needs to be set to one of: `1.0, 2.0, 4.0, 5.1 or 7.1`. Other configs will result in no output on this bus.
+1. Set he channel configuration on the bus to 1.0, 2.0, 4.0, 5.1 or 7.1. ANy other setting will result in no output on this bus.
 
-    ![Screenshot of channel config options for Project Acoustics Bus](media/acoustics-bus-channel-config.png)
+    ![Channel config options for Project Acoustics Bus](media/acoustics-bus-channel-config.png)
 
-* Now go into the Project Acoustics bus details, and ensure you can see the Mixer Plug-in tab
+1. Now go into the Project Acoustics Bus details, and make sure that you can see the **Mixer Plug-in** tab.
 
-    ![Screenshot of Wwise showing how to enable the Mixer Plug-In tab for the Project Acoustics Bus](media/mixer-tab-enable.png)
+    ![Wwise with the Mixer Plug-In tab for the Project Acoustics Bus enabled](media/mixer-tab-enable.png)
 
-* Then go to the Mixer Plug-in tab and add the project acoustics mixer plug-in to the bus
+1. Then go to the **Mixer Plug-in** tab, and add the project acoustics mixer plug-in to the bus.
 
-    ![Screenshot of Wwise bus showing how to add the Project Acoustics Mixer Plugin](media/add-mixer-plugin.png)
+    ![How to add the Project Acoustics Mixer Plug-in in the Wwise bus](media/add-mixer-plugin.png)
 
 #### Actor-mixer hierarchy setup
 * For performance reasons, Project Acoustics applies audio DSP to all sources simultaneously. This requires the plugin to operate as a mixer plugin. Wwise requires mixer plugins to be on the output bus, though the output bus usually carries the dry output signal. Project Acoustics requires the dry signal be routed through aux busses while the wet signal is carried on the `Project Acoustics Bus`. The following process supports gradual migration to this signal flow.
