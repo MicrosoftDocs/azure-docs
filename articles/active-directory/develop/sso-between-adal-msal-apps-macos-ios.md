@@ -126,6 +126,12 @@ else
     account = [application accountForUsername:@"adal.user.id" error:nil];
 }
     
+if (!account)
+{
+  // Account not found.
+  return;
+}
+
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:account];
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
@@ -151,7 +157,7 @@ do {
     // handle result
   }  
 } catch let error as NSError {
-  // handle error
+  // handle error or account not found
 }
 ```
 
@@ -221,7 +227,7 @@ do {
     // handle result
   }   
 } catch let error as NSError { 
-  // handle error
+  // handle error or account not found
 }
 ```
 
@@ -234,11 +240,16 @@ Objective-C:
 ```objc
 NSArray *accounts = [application allAccounts:nil];
     
-if ([accounts count] != 1)
+if ([accounts count] == 0)
 {
-    // You might want to display an account picker to user in actual application
-    // For this sample we assume there's only ever one account in cache
-    return;
+  // No account found.
+  return; 
+}
+if ([accounts count] > 1)
+{
+  // You might want to display an account picker to user in actual application
+  // For this sample we assume there's only ever one account in cache
+  return;
 }
     ``
 MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc] initWithScopes:@[@"user.read"] account:accounts[0]];
@@ -251,7 +262,11 @@ Swift:
       
 do {
   let accounts = try application.allAccounts()
-  if accounts.count != 1 {
+  if accounts.count == 0 {
+    // No account found.
+    return
+  }
+  if accounts.count > 1 {
     // You might want to display an account picker to user in actual application
     // For this sample we assume there's only ever one account in cache
     return
