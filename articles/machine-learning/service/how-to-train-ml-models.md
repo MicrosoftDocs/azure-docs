@@ -112,7 +112,7 @@ Parameter | Description | Default
 `node_count`| Number of nodes to use for your training job. | `1`
 `process_count_per_node`| Number of processes (or "workers") to run on each node. In this case, you use the `2` GPUs available on each node.| `1`
 
-`distributed_training`| [MPIConfiguration ]('https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py') object for launching distributed training using MPI backend. The MPI implementation used by Azure Machine Learning is [Open MPI]('https://www.open-mpi.org/').  | `None`
+`distributed_training`| [MPIConfiguration ]('https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py') object for launching distributed training using MPI backend.  | `None`
 
 Finally, submit the training job:
 ```Python
