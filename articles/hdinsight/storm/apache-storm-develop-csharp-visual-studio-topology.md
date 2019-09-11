@@ -150,7 +150,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
    * **NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
 
-   * **Ack** (transactional topology only): Handles acknowledgements initiated by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
+   * **Ack** (transactional topology only): Handles acknowledgments initiated by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
 
    * **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a Fail method allows you to re-emit the tuple so that it can be processed again.
 
@@ -707,7 +707,7 @@ To view errors that have occurred in a running topology, use the following steps
 
 2. For the **Spout** and **Bolts**, the **Last Error** column contains information on the last error.
 
-3. Select the **Spout Id** or **Bolt Id** for the component that has an error listed. On the details page that is displayed, additional error information is listed in the **Errors** section at the bottom of the page.
+3. Select the **Spout ID** or **Bolt ID** for the component that has an error listed. On the details page that is displayed, additional error information is listed in the **Errors** section at the bottom of the page.
 
 4. To obtain more information, select a **Port** from the **Executors** section of the page, to see the Storm worker log for the last few minutes.
 
