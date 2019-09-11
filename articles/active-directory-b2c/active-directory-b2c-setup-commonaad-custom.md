@@ -1,5 +1,5 @@
 ---
-title: Set up sign-in for a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-in for a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -31,21 +31,22 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains organizational Azure AD tenant (contoso.com) by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
-4. Select **New application registration**.
-5. Enter a name for your application. For example, `Azure AD B2C App`.
-6. For the **Application type**, select `Web app / API`.
-7. For the **Sign-on URL**, enter the following URL in all lowercase letters, where `your-tenant` is replaced with the name of your Azure AD B2C tenant (fabrikamb2c.onmicrosoft.com):
+1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Select **New registration**.
+1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
+1. Select **Accounts in any organizational directory** for this application.
+1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-8. Click **Create**. Copy the **Application ID** to be used later.
-9. Select the application, and then select **Settings**.
-10. Select **Keys**, enter the key description, select a duration, and then click **Save**. Copy the value of the key that is displayed to be used later.
-11. Under **Settings**, select **Properties**, set **Multi-tenanted** to `Yes`, and then click **Save**
+    For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+
+1. Select **Register**. Record the **Application (client) ID** for use in a later step.
+1. Select **Certificates & secrets**, and then select **New client secret**.
+1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **VALUE** of the secret for use in a later step.
 
 ## Create a policy key
 
@@ -57,7 +58,7 @@ You need to store the application key that you created in your Azure AD B2C tena
 4. Select **Policy Keys** and then select **Add**.
 5. For **Options**, choose `Manual`.
 6. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key.
-7. In **Secret**, enter your application key that you previously recorded.
+7. In **Secret**, enter your application key that you recorded earlier.
 8. For **Key usage**, select `Signature`.
 9. Click **Create**.
 
@@ -73,51 +74,51 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
     ```XML
     <ClaimsProvider>
-      <Domain>commonaad</Domain>
-      <DisplayName>Common AAD</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="Common-AAD">
-          <DisplayName>Multi-Tenant AAD</DisplayName>
-          <Protocol Name="OpenIdConnect" />
-          <Metadata>
-            <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
-            <Item Key="METADATA">https://login.microsoftonline.com/common/.well-known/openid-configuration</Item>
-            <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
-            <Item Key="response_mode">form_post</Item>
-            <Item Key="HttpBinding">POST</Item>
-            <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
+        <Domain>Contoso</Domain>
+        <DisplayName>Login using Contoso</DisplayName>
+        <TechnicalProfiles>
+            <TechnicalProfile Id="Common-AAD">
+                <DisplayName>Multi-Tenant AAD</DisplayName>
+                <Description>Login with your Contoso account</Description>
+                <Protocol Name="OpenIdConnect"/>
+                <Metadata>
+                    <Item Key="METADATA">https://login.windows.net/common/.well-known/openid-configuration</Item>
+                    <!-- Update the Client ID below to the Application ID -->
+                    <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="response_types">code</Item>
+                    <Item Key="scope">openid</Item>
+                    <Item Key="response_mode">form_post</Item>
+                    <Item Key="HttpBinding">POST</Item>
+                    <Item Key="UsePolicyInRedirectUri">false</Item>
+                    <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
 
-            <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+                    <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+                    <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-            <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
-            <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
-          </Metadata>
-          <CryptographicKeys>
-            <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
-            <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret" />
-          </CryptographicKeys>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="unique_name" />
-          </OutputClaims>
-          <OutputClaimsTransformations>
-            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-          </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
-        </TechnicalProfile>
-      </TechnicalProfiles>
+                    <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+                    <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+                </Metadata>
+                <CryptographicKeys>
+                    <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret"/>
+                </CryptographicKeys>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid"/>
+                    <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
+                    <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+                    <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+                    <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
+                    <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+                </OutputClaims>
+                <OutputClaimsTransformations>
+                    <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+                    <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+                </OutputClaimsTransformations>
+                <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin"/>
+            </TechnicalProfile>
+        </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
