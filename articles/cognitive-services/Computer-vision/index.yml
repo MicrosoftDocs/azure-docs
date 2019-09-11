@@ -114,61 +114,61 @@ landingContent:
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
   
-  - title: Get image descriptions
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Image descriptions
-            url: concept-describing-images.md
-      - linkListType: quickstart
-        links:
-          - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
-          - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
-      - linkListType: tutorial
-        links:
-          - text: Generate metadata for images
-            url: tutorials/storage-lab-tutorial.md
-
-
-  - title: Use domain-specific models
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Domain-specific models
-            url: concept-detecting-domain-content.md
-      - linkListType: quickstart
-        links:
-          - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
-          - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
-
-  - title: Categorize images
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Image categorization
-            url: concept-categorizing-images.md
-      - linkListType: quickstart
-        links:
-          - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
-          - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
-  - title: Detect adult content
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Adult and racy content detection
-            url: concept-detecting-adult-content.md
-      - linkListType: quickstart
-        links:
-          - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
-          - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
+#  - title: Get image descriptions
+#    linkLists:
+#      - linkListType: concept
+#        links:
+#          - text: Image descriptions
+#            url: concept-describing-images.md
+#      - linkListType: quickstart
+#        links:
+#          - text: Using the Python SDK
+#            url: quickstarts-sdk/python-sdk.md
+#          - text: Using the Java SDK
+#            url: quickstarts-sdk/java-sdk.md
+#      - linkListType: tutorial
+#        links:
+#          - text: Generate metadata for images
+#            url: tutorials/storage-lab-tutorial.md
+#
+#
+#  - title: Use domain-specific models
+#    linkLists:
+#      - linkListType: concept
+#        links:
+#          - text: Domain-specific models
+#            url: concept-detecting-domain-content.md
+#      - linkListType: quickstart
+#        links:
+#          - text: Using the Python SDK
+#            url: quickstarts-sdk/python-sdk.md
+#          - text: Using the Java SDK
+#            url: quickstarts-sdk/java-sdk.md
+#
+#  - title: Categorize images
+#    linkLists:
+#      - linkListType: concept
+#        links:
+#          - text: Image categorization
+#            url: concept-categorizing-images.md
+#      - linkListType: quickstart
+#        links:
+#          - text: Using the Python SDK
+#            url: quickstarts-sdk/python-sdk.md
+#          - text: Using the Java SDK
+#            url: quickstarts-sdk/java-sdk.md
+#  - title: Detect adult content
+#    linkLists:
+#      - linkListType: concept
+#        links:
+#          - text: Adult and racy content detection
+#            url: concept-detecting-adult-content.md
+#      - linkListType: quickstart
+#        links:
+#          - text: Using the Python SDK
+#            url: quickstarts-sdk/python-sdk.md
+#          - text: Using the Java SDK
+#            url: quickstarts-sdk/java-sdk.md
   - title: Reference
     linkLists:
       - linkListType: reference
