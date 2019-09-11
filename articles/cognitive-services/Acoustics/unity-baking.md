@@ -155,23 +155,23 @@ You can bake your scene with a compute cluster in the cloud by using the Azure B
 1. The **Bake** button that displays this tab.
 1. A brief description of what you can do on this page.
 1. Fields where you enter your Azure credentials, after your Azure account is created. For more information, see [Create an Azure Batch account](create-azure-account.md).
-1. Docker image tag field for the acoustics toolset.
+1. The Docker image tag field for the acoustics toolset.
 1. Launch the Azure portal to manage your subscriptions, monitor usage and view billing information, and so on.
-1. Azure batch compute node type to use for calculation. The node type must be supported by your Azure data center location. If you're not sure, leave as *Standard_F8s_v2*.
-7. Number of nodes to use for the calculation. This number affects the time to complete the bake. It's limited by your Azure Batch core allocation. The default allocation only allows for two 8-core nodes or one 16-core node, but it can be expanded. For more information about core allocation constraints, see [Create an Azure Batch account](create-azure-account.md).
-8. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost, but they may not always be available or may be preempted at any time.
-9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You can't specify more nodes than there are probes.
-10. An estimate of the time that you job will take to run in the cloud. It doesn't include node startup time. After the job starts running, this field shows about how long it until you get back the results.
-11. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimate Azure bake cost](#Estimating-bake-cost) later in this article for more information about using this value.
-12. This message tells you where the results of the bake will be saved when the job is finished.
-13. (Advanced use only:) If you need to force Unity to forget about a bake that you submitted, for example if you downloaded the results by using another machine), select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *But this is not the same as canceling the job*. The job, if running, will continue to run in the cloud.
-14. Select the **Bake** button to submit the bake to the cloud. While a job is running, this button shows **Cancel Job** instead.
-15. Select to prepare for processing [acoustics simulation on your PC](#Local-bake).
-16. This area shows the status of the bake. When completed, it should show **Downloaded**.
+1. The Azure batch compute node type to use for calculation. The node type must be supported by your Azure data center location. If you're not sure, leave as *Standard_F8s_v2*.
+1. The number of nodes to use for the calculation. This number affects the time to complete the bake. It's limited by your Azure Batch core allocation. The default allocation only allows for two 8-core nodes or one 16-core node, but it can be expanded. For more information about core allocation constraints, see [Create an Azure Batch account](create-azure-account.md).
+1. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost, but they may not always be available or may be preempted at any time.
+1. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You can't specify more nodes than there are probes.
+1. An estimate of the time that you job will take to run in the cloud. It doesn't include node startup time. After the job starts running, this field shows about how long it until you get back the results.
+1. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimate Azure bake cost](#Estimating-bake-cost) later in this article for more information about using this value.
+1. This message tells you where the results of the bake will be saved when the job is finished.
+1. (Advanced use only:) This button forces Unity to forget about a bake that you submitted. For example, if you downloaded the results by using another machine), select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *Note that this is not the same as canceling the job*. The job, if running, will continue to run in the cloud.
+1. Select this button to submit the bake to the cloud. While a job is running, this button shows **Cancel Job** instead.
+1. Select this button to prepare for processing [acoustics simulation on your PC](#Local-bake).
+1. This area shows the status of the bake. When completed, it should show "Downloaded."
 
 You can always get complete information about active jobs, compute pools, and storage in the [Azure portal](https://portal.azure.com).
 
-While a job is running, the **Bake** button changes to **Cancel Job**. Use this button to cancel the job that's in progress. You'll be prompted to confirm before the job is canceled. Canceling a job can't be undone, no results will be available, and you'll still be charged for any Azure compute time used.
+While a job is running, the **Bake** button label changes to **Cancel Job**. Use this button to cancel the job that's in progress. You'll be prompted to confirm. Canceling a job can't be undone, no results will be available, and you'll still be charged for any Azure compute time used.
 
 After you've started a bake, you can close Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
 
@@ -183,7 +183,7 @@ For security, the Azure credentials are stored on your local machine and associa
 
     ![Unity bake job ID](media/unity-job-id.png)  
 
-2. Open the [Azure portal](https://portal.azure.com), navigate to the Batch account that was used for the bake, and select **Jobs**
+2. Open the [Azure portal](https://portal.azure.com), navigate to the Batch account that was used for the bake, and select **Jobs**.
 
     ![The Jobs link](media/azure-batch-jobs.png)  
 
@@ -198,7 +198,7 @@ For security, the Azure credentials are stored on your local machine and associa
 
 ### <a name="Estimating-bake-cost"></a> Estimate Azure bake cost
 
-To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration. Multiply that value by the hourly cost in your local currency of the **VM Node Type** you selected. But the result won't include the node time needed to get the nodes up and running. For example, say you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr. If the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher because of the extra time to get the nodes started. You can find the hourly node cost on the [Azure Batch pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page. (Select "Compute optimized" or "High performance compute" for the category.)
+To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration. Multiply that value by the hourly cost in your local currency for the **VM Node Type** that you selected. Note that the result won't include the node time needed to get the nodes up and running. For example, say you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr. If the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher because of the extra time to get the nodes started. You can find the hourly node cost at [Azure Batch pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page. (Select "Compute optimized" or "High performance compute" for the category.)
 
 ## <a name="Local-bake"></a> Bake your scene on your PC
 You can bake your scene on your own PC. This method can be useful for experimenting with acoustics for small scenes before you create an Azure Batch account. Note that acoustics simulation can take a long time depending on the size of the scene.
