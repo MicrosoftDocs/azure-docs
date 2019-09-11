@@ -85,7 +85,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
