@@ -93,7 +93,7 @@ The HTTP response mentioned previously is designed to help implement long-runnin
 3. The client polls the URL in the `Location` header. It continues to see HTTP 202 responses with a `Location` header.
 4. When the instance completes (or fails), the endpoint in the `Location` header returns HTTP 200.
 
-This protocol allows coordinating long-running processes with external clients or services that support polling an HTTP endpoint and following the `Location` header. The fundamental pieces are already built into the Durable Functions HTTP APIs.
+This protocol allows coordinating long-running processes with external clients or services that support polling an HTTP endpoint and following the `Location` header. Both the client and server implementations of this pattern are built into the Durable Functions HTTP APIs.
 
 > [!NOTE]
 > By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This capability makes it possible to embed a long-running durable function as part of a Logic Apps workflow. More details on Logic Apps support for asynchronous HTTP patterns can be found in the [Azure Logic Apps workflow actions and triggers documentation](../../logic-apps/logic-apps-workflow-actions-triggers.md).
