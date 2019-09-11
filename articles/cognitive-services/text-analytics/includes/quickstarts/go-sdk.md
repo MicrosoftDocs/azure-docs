@@ -6,15 +6,6 @@ ms.date: 09/05/2019
 ms.author: aahi
 ---
 
-Get started with the Text Analytics client library for Go. Follow these steps to install the package and try out the example code for basic tasks. 
-
-Use the Text Analytics client library for Go to perform:
-
-* Sentiment analysis
-* Language detection
-* Entity recognition
-* Key phrase extraction
-
 [Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Package (Github)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 ## Prerequisites

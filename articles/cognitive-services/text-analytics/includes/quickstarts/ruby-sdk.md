@@ -6,16 +6,13 @@ ms.date: 09/05/2019
 ms.author: aahi
 ---
 
+[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+
 <a name="HOLTop"></a>
-
-
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Ruby. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
-
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
 ## Prerequisites
 
-* [Ruby 2.5.5 or later](https://www.ruby-lang.org/)
+* The current version of [Ruby](https://www.ruby-lang.org/)
 * The Text analytics [SDK for Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
  
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]

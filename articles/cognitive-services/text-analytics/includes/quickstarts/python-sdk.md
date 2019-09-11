@@ -8,15 +8,6 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-Get started with the Text Analytics client library for Python. Follow these steps to install the package and try out the example code for basic tasks. 
-
-Use the Text Analytics client library for Python to perform:
-
-* Sentiment analysis
-* Language detection
-* Entity recognition
-* Key phrase extraction
-
 
 [Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 

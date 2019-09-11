@@ -8,15 +8,6 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-Get started with the Text Analytics client library for .Node.js. Follow these steps to install the package and try out the example code for basic tasks. 
-
-Use the Text Analytics client library for Node.js to perform:
-
-* Sentiment analysis
-* Language detection
-* Entity recognition
-* Key phrase extraction
-
 [Reference documentation](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## Prerequisites

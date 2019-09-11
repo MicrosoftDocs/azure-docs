@@ -8,15 +8,6 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-Get started with the Text Analytics client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
-
-Use the Text Analytics client library for .NET to perform:
-
-* Sentiment analysis
-* Language detection
-* Entity recognition
-* Key phrase extraction
-
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 > [!NOTE] 
