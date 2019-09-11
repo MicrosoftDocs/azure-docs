@@ -13,7 +13,7 @@ ms.date: 07/01/2019
 
 # Install on-premises data gateway for Azure Logic Apps
 
-Before you can connect to on-premises data sources from Azure Logic Apps, download and install the on-premises data gateway on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises (not in the cloud) and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
+Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the on-premises data gateway on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
 * [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
@@ -21,25 +21,6 @@ Before you can connect to on-premises data sources from Azure Logic Apps, downlo
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
 This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic.
-
-<a name="supported-connections"></a>
-
-The gateway supports [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) in Azure Logic Apps for these data sources:
-
-* BizTalk Server 2016
-* File System
-* IBM DB2  
-* IBM Informix
-* IBM MQ
-* MySQL
-* Oracle Database
-* PostgreSQL
-* SAP
-* SharePoint Server
-* SQL Server
-* Teradata
-
-Although the gateway alone doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 <a name="requirements"></a>
 
@@ -163,11 +144,18 @@ Although the gateway alone doesn't incur additional costs, the [Logic Apps prici
 
 1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
 
+## Check or adjust communication settings
+
+The on-premises data gateway depends on [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus. The gateway has several communication settings, which you can adjust. For more information, see these topics:
+
+* [Adjust communication settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
+* [Configure proxy settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+
 <a name="high-availability"></a>
 
 ## High availability support
 
-To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability. 
+To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability.
 
 * You must already have at least one gateway installation within the same Azure subscription as the primary gateway and the recovery key for that installation.
 
@@ -202,73 +190,13 @@ If you must change your gateway's location, move your gateway installation to a 
 
 1. When you're ready, select **Configure** so that you can finish your task.
 
-## Configure proxy or firewall
+## Tenant-level administration
 
-If your work environment requires that traffic goes through a proxy to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). For more information, see [Configure proxy settings for the on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-proxy).
+To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
 
-To check whether your proxy or firewall might block connections, confirm whether your computer can actually connect to the internet and Azure Service Bus. From a PowerShell prompt, run this command:
+<a name="restart-gateway"></a>
 
-`Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
-
-> [!NOTE]
-> This command only tests network connectivity 
-> and connectivity to the Azure Service Bus. 
-> The command doesn't do anything with the 
-> gateway or the gateway cloud service that 
-> encrypts and stores your credentials and gateway details. 
->
-> Also, this command is only available on Windows Server 2012 R2 or later, 
-> and Windows 8.1 or later. On earlier OS versions, you can use Telnet to 
-> test connectivity. Learn more about 
-> [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
-
-Your results should look similar to this example with **TcpTestSucceeded** set to **True**:
-
-```text
-ComputerName           : watchdog.servicebus.windows.net
-RemoteAddress          : 70.37.104.240
-RemotePort             : 5672
-InterfaceAlias         : vEthernet (Broadcom NetXtreme Gigabit Ethernet - Virtual Switch)
-SourceAddress          : 10.120.60.105
-PingSucceeded          : False
-PingReplyDetails (RTT) : 0 ms
-TcpTestSucceeded       : True
-```
-
-If **TcpTestSucceeded** is not set to **True**, your gateway might be blocked by a firewall. If you want to be comprehensive, replace the **ComputerName** and **Port** values with the values listed under [Configure ports](#configure-ports) in this article.
-
-The firewall might also block connections that the Azure Service Bus makes to the Azure datacenters. If this scenario happens, approve (unblock) all the IP addresses for those datacenters in your region. For those IP addresses, [get the Azure IP addresses list here](https://www.microsoft.com/download/details.aspx?id=41653).
-
-<a name="configure-ports"></a>
-
-## Configure ports
-
-The gateway creates an outbound connection to Azure Service Bus and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. The gateway doesn't require inbound ports. Learn more about [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
-
-The gateway uses these fully qualified domain names:
-
-| Domain names | Outbound ports | Description |
-| ------------ | -------------- | ----------- |
-| *.analysis.windows.net | 443 | HTTPS |
-| *.core.windows.net | 443 | HTTPS |
-| *.frontend.clouddatahub.net | 443 | HTTPS |
-| *.login.windows.net | 443 | HTTPS |
-| *.microsoftonline-p.com | 443 | Used for authentication depending on configuration. |
-| *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. |
-| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
-| *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) |
-| login.microsoftonline.com | 443 | HTTPS |
-||||
-
-In some cases, Azure Service Bus connections are made with IP addresses rather than fully qualified domain names. So, you might want to unblock the IP addresses for your data region in your firewall. To allow access for IP addresses rather than domains, you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). The IP addresses in this list are in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
-
-### Force HTTPS communication with Azure Service Bus
-
-Some proxies let traffic through only to ports 80 and 443. By default, communication with Azure Service Bus occurs on ports other than 443. You can force the gateway to communicate with the Azure Service Bus over HTTPS rather than direct TCP, but doing so can greatly reduce performance. For more information, see [Force HTTPS communication with Azure Service Bus](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication#force-https-communication-with-azure-service-bus).
-
-<a name="windows-service-account"></a>
-
-## Windows service account
+## Restart gateway
 
 By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service". However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its "Log On As" account credentials and has "Log on as a service" permissions.
 
@@ -276,15 +204,7 @@ By default, the gateway installation on your local computer runs as a Windows se
 > Your Windows service account differs from the account used for connecting to on-premises 
 > data sources and from the Azure account that you use when you sign in to cloud services.
 
-<a name="restart-gateway"></a>
-
-## Restart gateway
-
-The data gateway runs as a Window service, so like any other Windows service, you can start and stop the gateway in various ways. For more information, see [Restart an on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
-
-## Tenant-level administration
-
-To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+Like any other Windows service, you can start and stop the gateway in various ways. For more information, see [Restart an on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
@@ -312,107 +232,15 @@ These steps describe what happens when a user in the cloud interacts with an ele
 
 <a name="faq"></a>
 
-## Frequently asked questions
+## Frequently asked questions and troubleshooting
 
-### General
+For more information, see these topics:
 
-**Q**: Do I need a gateway for data sources in the cloud, such as Azure SQL Database? <br/>
-**A**: No, the gateway connects to on-premises data sources only.
-
-**Q**: Does the gateway have to be installed on the same machine as the data source? <br/>
-**A**: No, the gateway connects to the data source using the provided connection information. Consider the gateway as a client application in this sense. The gateway just needs the capability to connect to the server name that was provided.
-
-<a name="why-azure-work-school-account"></a>
-
-**Q**: Why must I use a work or school account to sign in? <br/>
-**A**: You can only use a work or school account when you install the on-premises data gateway. Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). Usually, your Azure AD account's user principal name (UPN) matches the email address.
-
-**Q**: Where are my credentials stored? <br/>
-**A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. The credentials are decrypted at the on-premises data gateway.
-
-**Q**: Are there any requirements for network bandwidth? <br/>
-**A**: Check that your network connection has good throughput. Every environment is different, and the amount of data sent can affect the results. To guarantee a throughput level between your on-premises data source and the Azure datacenters, try [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). To help gauge your throughput, try an external tool such as Azure Speed Test.
-
-**Q**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
-**A**: To reduce network latency, install the gateway as close to the data source as possible. If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. Also, consider proximity to Azure datacenters. For example, if your service uses the West US datacenter, and you have SQL Server hosted in an Azure VM, then you might want your Azure VM in the West US region too. This proximity minimizes latency and avoids egress charges on the Azure VM.
-
-**Q**: How are results sent back to the cloud? <br/>
-**A**: The results are sent through Azure Service Bus.
-
-**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
-**A**: No, the gateway uses outbound connections to Azure Service Bus.
-
-**Q**: What if I block outbound connections? What do I need to open? <br/>
-**A**: See the ports and hosts that the gateway uses.
-
-**Q**: What is the actual Windows service called? <br/>
-**A**: On the Services tab in Task Manager, the service name is "PBIEgwService", or Power BI Enterprise Gateway Service. In the Services console, the service name is "On-premises data gateway service". The Windows service uses "NT SERVICE\PBIEgwService" as the Service SID (SSID).
-
-**Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
-**A**: No, the Windows service must have a valid Windows account.
-
-### Disaster recovery
-
-**Q**: What options are available for disaster recovery? <br/>
-**A**: You can use the recovery key to restore or move a gateway. When you install the gateway, specify the recovery key.
-
-**Q**: What is the benefit of the recovery key? <br/>
-**A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
-
-## Troubleshooting
-
-This section addresses some common issues you might have while setting up and using the on-premises data gateway.
-
-**Q**: Why did my gateway installation fail? <br/>
-**A**: This issue can happen if the anti-virus software on the target computer is outdated. You can either update the anti-virus software or disable the anti-virus software but only during gateway installation, and then enable the software again.
-
-**Q**: Why don't I see my gateway installation when I create the gateway resource in Azure? <br/>
-**A**: This issue can happen for these reasons:
-
-* Your gateway installation is already registered and claimed by another gateway resource in Azure. Gateway installations don't appear in the instances list after gateway resources are created for them. To check your gateway registrations in the Azure portal, review all your Azure resources with the **On-premises Data Gateways** type for *all* Azure subscriptions.
-
-* The Azure AD identity for the person who installed the gateway differs from the person who signed in to the Azure portal. Check that you're signed in with the same identity that installed the gateway.
-
-[!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
-
-**Q**: Where are the gateway logs? <br/>
-**A**: See the [**Logs** section](#logs) later in this article.
-
-**Q**: How can I see what queries are being sent to the on-premises data source? <br/>
-**A**: You can enable query tracing, which includes the queries that are sent. Remember to change query tracing back to the original value when done troubleshooting. Leaving query tracing turned on creates larger logs.
-
-You can also look at tools that your data source has for tracing queries. For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
-
-### Outdated gateway version
-
-Many issues can surface when the gateway version becomes outdated. As good general practice, make sure you have the latest version. If you haven't updated the gateway for a month or longer, you might consider installing the latest version of the gateway, and see if you can reproduce the issue.
-
-### Error: Failed to add user to group. (-2147463168 PBIEgwService Performance Log Users)
-
-You might get this error if you try to install the gateway on a domain controller, which isn't supported. Make sure you deploy the gateway on a machine that isn't a domain controller.
+* [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
+* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
+* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 <a name="logs"></a>
-
-### Logs
-
-To help you troubleshoot, always start by collecting and reviewing the gateway logs. You have several ways for collecting the logs, but the simplest option after you install the gateway is through the gateway installer's user interface.
-
-1. On your computer, open the on-premises data gateway installer.
-
-1. On the left menu, select **Diagnostics**.
-
-1. Under **Gateway logs**, select **Export logs**.
-
-   ![Export logs from gateway installer](./media/logic-apps-gateway-install/export-logs.png)
-
-Here are other locations where you can find various logs:
-
-| Log type | Location |
-|----------|----------|
-| **Installer logs** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log |
-| **Configuration logs** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log |
-| **Enterprise gateway service logs** | C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*yyyymmdd*>.<*number*>.log |
-|||
 
 **Event logs**
 
@@ -425,86 +253,6 @@ To find the event logs for the gateway, follow these steps:
 1. Select **On-premises data gateway service**.
 
    ![View event logs for gateway](./media/logic-apps-gateway-install/event-viewer.png)
-
-### Review slow query performance
-
-If you find queries run slowly through the gateway, you can turn on additional logging that outputs queries and their durations. These logs might help you find which queries are slow or long running. To tune query performance, you might have to modify your data source, for example, adjust indexes for SQL Server queries.
-
-To determine the duration for a query, follow these steps:
-
-1. Browse to the same location as the gateway client, which you can usually find here: ```C:\Program Files\On-premises data gateway```
-
-   Otherwise, to find the client location, open the Services console on the same computer, find **On-premises data gateway service**, and view the **Path to executable** property.
-
-1. Open and edit these configuration files as described:
-
-   * **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-     In this file, change the **EmitQueryTraces** value from **false** to **true** so that your gateway can log queries sent from the gateway to a data source:
-
-     ```html
-     <setting name="EmitQueryTraces" serializeAs="String">
-        <value>true</value>
-     </setting>
-     ```
-
-     > [!IMPORTANT]
-     > Turning on the EmitQueryTraces setting might significantly increase 
-     > the log size based on gateway usage. After you finish reviewing the logs, 
-     > make sure you reset EmitQueryTraces to **false** again, 
-     > rather than leave this setting on for the long term.
-
-   * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
-
-     To have your gateway log verbose entries, including entries that show duration, change the **TracingVerbosity** value from **4** to **5** by performing either step:
-
-     * In this configuration file, change the **TracingVerbosity** value from **4** to **5**
-
-       ```html
-       <setting name="TracingVerbosity" serializeAs="String">
-          <value>5</value>
-       </setting>
-       ```
-
-     * Open the gateway installer, select **Diagnostics**, turn on **Additional logging**, and then choose **Apply**:
-
-       ![Turn on additional logging](./media/logic-apps-gateway-install/turn-on-additional-logging.png)
-
-     > [!IMPORTANT]
-     > Turning on the TracingVerbosity setting might significantly increase 
-     > the log size based on gateway usage. After you finish reviewing the logs, 
-     > make sure you turn off **Additional logging** in the gateway installer 
-     > or reset TracingVerbosity to **4** again in the configuration file, 
-     > rather than leave this setting on for the long term.
-
-1. To find the duration for a query, follow these steps:
-
-   1. [Export](#logs) and open the gateway log.
-
-   1. To find a query, search for an activity type, for example:
-
-      | Activity type | Description |
-      |---------------|-------------|
-      | MGEQ | Queries that run over ADO.NET |
-      | MGEO | Queries that run over OLEDB |
-      | MGEM | Queries that run from the Mashup engine |
-      |||
-
-   1. Note the second GUID, which is the Request ID.
-
-   1. Continue searching for the activity type until you find an entry named "FireActivityCompletedSuccessfullyEvent" that has a duration in milliseconds. Confirm the entry has the same Request ID, for example:
-
-      ```text
-      DM.EnterpriseGateway Verbose: 0 : 2016-09-26T23:08:56.7940067Z DM.EnterpriseGateway    baf40f21-2eb4-4af1-9c59-0950ef11ec4a    5f99f566-106d-c8ac-c864-c0808c41a606    MGEQ    21f96cc4-7496-bfdd-748c-b4915cb4b70c    B8DFCF12 [DM.Pipeline.Common.TracingTelemetryService] Event: FireActivityCompletedSuccessfullyEvent (duration=5004)
-      ```
-
-      > [!NOTE]
-      > The "FireActivityCompletedSuccessfullyEvent" entry is a verbose entry 
-      > and is not logged unless the "TracingVerbosity" setting is at level 5.
-
-### Trace traffic with Fiddler
-
-[Fiddler](https://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. You can review this traffic with the Power BI service from the client machine. This service might show errors and other related information.
 
 ## Next steps
 
