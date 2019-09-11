@@ -20,7 +20,9 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 ## Data Factory UI
 
-To create a tumbling window trigger in the Data Factory UI, open the **Triggers** tab and click **New**. Once the trigger configuration pane opens, select **Tumbling Window** and define your tumbling window trigger properties. Click **Save** once you are done.
+1. To create a tumbling window trigger in the Data Factory UI, select the **Triggers** tab, and then select **New**. 
+1. After the trigger configuration pane opens, select **Tumbling Window**, and then define your tumbling window trigger properties. 
+1. When you're done, select **Save**.
 
 ![Create a tumbling window trigger in the Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
