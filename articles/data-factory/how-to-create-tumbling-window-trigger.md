@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 09/11/2019
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -20,11 +20,12 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 ## Data Factory UI
 
-To create a tumbling window trigger in the Azure portal, select **Trigger > Tumbling window > Next**, and then configure the properties that define the tumbling window.
+To create a tumbling window trigger in the Data Factory UI, open the **Triggers** tab and click **New**. Once the trigger configuration pane opens, select **Tumbling Window** and define your tumbling window trigger properties. Click **Save** once you are done.
 
 ![Create a tumbling window trigger in the Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## Tumbling window trigger type properties
+
 A tumbling window has the following trigger type properties:
 
 ```
@@ -89,7 +90,7 @@ The following table provides a high-level overview of the major JSON elements th
 | **type** | The type of the trigger. The type is the fixed value "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Yes |
 | **runtimeState** | The current state of the trigger run time.<br/>**Note**: This element is \<readOnly>. | String | "Started," "Stopped," "Disabled" | Yes |
 | **frequency** | A string that represents the frequency unit (minutes or hours) at which the trigger recurs. If the **startTime** date values are more granular than the **frequency** value, the **startTime** dates are considered when the window boundaries are computed. For example, if the **frequency** value is hourly and the **startTime** value is 2017-09-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute," "hour"  | Yes |
-| **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "hour," the trigger recurs every 3 hours. | Integer | A positive integer. | Yes |
+| **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "hour," the trigger recurs every 3 hours. <br/>**Note**: The minimum window interval is 15 minutes. | Integer | A positive integer. | Yes |
 | **startTime**| The first occurrence, which can be in the past. The first trigger interval is (**startTime**, **startTime** + **interval**). | DateTime | A DateTime value. | Yes |
 | **endTime**| The last occurrence, which can be in the past. | DateTime | A DateTime value. | Yes |
 | **delay** | The amount of time to delay the start of data processing for the window. The pipeline run is started after the expected execution time plus the amount of **delay**. The **delay** defines how long the trigger waits past the due time before triggering a new run. The **delay** doesn’t alter the window **startTime**. For example, a **delay** value of 00:10:00 implies a delay of 10 minutes. | Timespan<br/>(hh:mm:ss)  | A timespan value where the default is 00:00:00. | No |
