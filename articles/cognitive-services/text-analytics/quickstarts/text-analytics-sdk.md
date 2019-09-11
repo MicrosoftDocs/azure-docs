@@ -16,12 +16,7 @@ zone_pivot_groups: text-analytics-programming-languages
 # Quickstart: Use the Text Analytics client library for detecting language
 
 > [!TIP]
-> Want to use the Text Analytics REST API instead? Use the following sample code on Github to quickly send REST requests in the following languages:
-> * [Java](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
-> * [Python](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
-> * [Ruby](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
-> * [Node.js](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
-> * [Go](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+> Want to use the Text Analytics REST API instead? Use these links to find sample code for sending REST requests in: [Java](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Python](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Ruby](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Node.js](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Go](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
 
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
