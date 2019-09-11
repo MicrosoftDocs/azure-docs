@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/10/2019
 ms.author: diberry
 ---
 
@@ -44,7 +44,7 @@ The migration process is available if you are the owner of any LUIS apps.
 
     For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it.
 
-    The email template includes the exact app Id and app name. 
+    The email template includes the exact app ID and app name. 
 
     ```html
     Dear Sir/Madam,
@@ -95,6 +95,10 @@ The migration process is available if you are the owner of any LUIS apps.
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
 Learn [how to add contributors](luis-how-to-collaborate.md). 
+
+## Troubleshooting errors with the migration process
+
+If you receive a `MissingSubscriptionRegistration` error in the LUIS portal with a red notification bar during the migration process, create a Cognitive Service resource in the [Azure portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Learn more about [causes of this error](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## Next steps
 
