@@ -18,50 +18,45 @@ Put something here.
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
-- For preview features, ensure that target subscription is whitelisted for the target regions
-
+- For preview features, ensure that target subscription is whitelisted for the target regions.
 
 ## Prepare and move
 
-The following steps show how to prepare the storage account for the move using an Resource Manager template, and move the storage account settings to the target region using the portal and a script.
+The following steps show how to prepare the storage account for the move using an Resource Manager template, and move the storage account settings to the target region using the portal.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+### Export the template
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
-    
-    ```azurepowershell-interactive
-    Connect-AzAccount
-    ```
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
-2. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+2. Select **All resources** and then select your storage account.
 
-    ```azurepowershell-interactive
-    Get-AzSubscription
-
-### Export the storage account template
-
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-2. Locate the resource group that contains the source storage account, and then click on it.
 3. Select > **Settings** > **Export template**.
+
 4. Choose **Download** in the **Export template** blade.
+
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+
    This zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-### Modify the storage account template 
+### Modify the template 
 
 Azure requires that each Azure service has a unique name. The deployment could fail if you entered a storage account name that already exists. To avoid this issue, you modify the template to use a template function call `uniquestring()` to generate a unique storage account name.
 
 1. In the Azure portal, select **Create a resource**.
+
 2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+
 3. Select **Template deployment**.
 
     ![Azure Resource Manager templates library](./media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Select **Create**.
+
 5. Select **Build your own template in the editor**.
+
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
  
-7. In the **parameters.json** file, set the default value of the storage account name in the .json file to a name of your choice for the target storage account. This example sets the default value of the storage account name to `mytargetaccount`.
+7. In the **template.json** file, set the default value of the storage account name in the .json file to a name of your choice for the target storage account. This example sets the default value of the storage account name to `mytargetaccount`.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -76,23 +71,22 @@ Azure requires that each Azure service has a unique name. The deployment could f
 
 4. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
 
-       ```json
-       "resources": [
-            {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[parameters('storageAccounts_mysourceaccount_name')]",
-            "location": "eastus"
-            }
-         ]          
-       ```
-    To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+    ```json
+    "resources": [{
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2019-04-01",
+         "name": "[parameters('storageAccounts_mysourceaccount_name')]",
+         "location": "eastus"
+         }]          
+    ```
+
+    To obtain region location codes, open a PowerShell window, and sign in to your Azure subscription by using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command. Then run the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
     ```
 
-5. Lifecycle management policies do not automatically export with this template. If your storage account has lifecycle management policies, you'll have to add them to this template manually. To do that, select > **Blob service** > **LifeCycle Management**, and then choose **Code View**. Copy and paste the code in that view into the **properties** section of the template json file and enclose that block with a policy block. This example adds a lifecycle management policy to the template:
+5. Lifecycle management policies do not automatically export with this template. If your storage account has lifecycle management policies, obtain these policies in json form from the [Azure portal Code view](storage-lifecycle-management-concepts.md#azure-portal-code-view) of the LifeCycle management settings. Then, add that json to the **properties** section of this template. 
 
     ```json
     "properties": {
@@ -125,19 +119,22 @@ Azure requires that each Azure service has a unique name. The deployment could f
     }
 
     ```
-To learn more, see [Azure Resource Manager template with lifecycle management policy](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-resource-manager-template-with-lifecycle-management-policy).
 
 6. Save the **template.json** file.
 
 ### Deploy the template
 
-    ```
-3. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
+1. Enter or select the property values:
 
-    ```azurepowershell-interactive
-    ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion  
-    ```
-### Add back settings that don't export with the template
+- **Subscription**: Select an Azure subscription.
+
+- **Resource group**: Select **Create new** and give the resource group a name.
+
+- **Location**: Select an Azure location.
+
+2. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
+
+### Add settings to the target storage account
 
 These settings don't export to a template, so you'll have to add them to your new account.
 
