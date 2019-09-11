@@ -96,7 +96,12 @@ Building forecasts is an integral part of any business, whether it’s revenue, 
 
 An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
-Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md).
+Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ## <a name="ensemble"></a> Ensemble models
 

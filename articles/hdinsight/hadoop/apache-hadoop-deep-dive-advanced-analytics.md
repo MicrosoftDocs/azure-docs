@@ -18,7 +18,7 @@ HDInsight provides the ability to obtain valuable insight from large amounts of 
 
 ## Advanced analytics process
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 After you've identified the business problem and have started collecting and processing your data, you need to create a model that represents the question you wish to predict. Your model will use one or more machine learning algorithms to make the type of prediction that best fits your business needs.  The majority of your data should be used to train your model, with the rest used to test or evaluate it. 
 
