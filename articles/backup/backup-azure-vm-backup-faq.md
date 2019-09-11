@@ -115,6 +115,12 @@ For Managed Disk Azure VM, restoring to the availability sets is enabled by prov
 ### How do we get faster restore performances?
 [Instant Restore](backup-instant-restore-capability.md) capability helps in faster backups and instant restores from the snapshots.
 
+### What happens when we change the key vault settings for the encrypted VM?
+
+After you change the KeyVault settings for the encrypted VM, then backups would continue to work with the new set of details. But after restore from an RP prior to the change, you will have to restore the secrets in some KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Operations like secret/key roll-over do not require this step and same KeyVault can be used after restore.
+
 ## Manage VM backups
 
 ### What happens if I modify a backup policy?
