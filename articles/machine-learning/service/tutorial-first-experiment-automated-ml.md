@@ -1,7 +1,7 @@
 ---
 title: Create your first automated machine learning experiment
 titleSuffix: Azure Machine Learning service
-description: Learn how to train and deploy a classification model with automated machine learning in the new Azure Machine Learning web experience.
+description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning's workspace landing page (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.date: 09/09/2019
 
 # Tutorial: Create your first classification model with automated machine learning
 
-In this tutorial, you learn how to create your first automated machine learning experiment in Azure Machine Learning's new workspace landing page (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create your first automated machine learning experiment through the workspace landing page (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -47,7 +47,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Create and run the experiment
 
-You complete the following experiment set-up and run steps in the new workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
 1. Sign in to the [workspace landing page](https://ml.azure.com/workspaceportal/).
 
