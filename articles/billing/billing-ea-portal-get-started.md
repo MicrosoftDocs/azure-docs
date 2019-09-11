@@ -108,7 +108,7 @@ Under Enrollment, the status shows **Active**.
 
 Only existing Azure enterprise administrators can create other enterprise admins.
 
-To create another enterprise admin:
+### Create another enterprise admin
 
 - Sign in to [Azure EA portal](https://ea.azure.com)  and navigate to **Manage** > **Enrollment Detail** and click **+ Add Administrator** in the top-right corner of the page.
 
@@ -233,7 +233,7 @@ To transfer account ownership for all subscriptions:
 4. Select an eligible account and then click **Next**.
 5. Confirm the transfer and click **Submit**.
 
-![](./media/billing-ea-portal-get-started/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+![Image showing the Change Account Owner symbol](./media/billing-ea-portal-get-started/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 To transfer account ownership for a single subscription:
 
@@ -242,6 +242,8 @@ To transfer account ownership for a single subscription:
 3. Click the transfer subscriptions symbol on the right. The symbol resembles a page.
 4. Select an eligible subscription and then click **Next**.
 5. Confirm the transfer and then click **Submit**.
+
+![Image showing the Transfer Subscriptions symbol](./media/billing-ea-portal-get-started/ea-transfer-subscriptions.png)
 
 Here's a video that shows Azure EA portal user management:
 
@@ -277,7 +279,7 @@ New subscriptions can take up to 24 hours to appear in the subscriptions list. A
 - [Edit subscription details](https://account.azure.com/Subscriptions)
 - [Manage subscription services](https://portal.azure.com/#home)
 
-## Transfer individual subscription to EA subscription
+## Transfer pay as you go subscription to EA subscription
 
 To transfer an individual subscription with pay-as-you-go rates to and EA subscription, you must create a new support request in the Azure portal. To create a support request, click **+ New support request** in the Help and Support area.
 
