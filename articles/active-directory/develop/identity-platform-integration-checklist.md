@@ -26,36 +26,34 @@ The Microsoft identity platform integration checklist is intended to guide you t
 
 If you’re just getting started, check out the [documentation](index.yml) to learn about authentication basics, application scenarios in Microsoft identity platform, and more.
 
-## Testing your integration
-
 Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
 
-### Basics
+## Basics
 
 |   |   |
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Read and understand the [Microsoft Platform Policies](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform. |
 
-### Ownership
+## Ownership
 
 |   |   |
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Make sure the information associated with the account you used to register and manage apps is up-to-date. |
 
-### Branding
+## Branding
 
 |   |   |
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Adhere to the [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md). |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Provide a meaningful name and logo for your application. This information appears on your application’s consent prompt. Make sure your name and logo are representative of your company/product so that users can make informed decisions. Ensure that you're not violating any trademarks. |
 
-### Privacy
+## Privacy
 
 |   |   |
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Provide links to your app's terms of service and privacy statement. |
 
-### Security
+## Security
 
 |   |   |
 |---|---|
@@ -67,15 +65,23 @@ Use the following checklist to ensure that your application is effectively integ
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](v1-permissions-and-consent.md#types-of-permissions). Only use application permissions if required; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](https://docs.microsoft.com/graph/permissions-reference). |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If you're securing an API using the Microsoft identity platform, carefully think through the permissions it should expose. Consider what's the right granularity for your solution and which permission(s) require admin consent. Check for expected permissions in the incoming tokens before making any authorization decisions. |
 
-### Implementation
+## Implementation
 
 |   |   |
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Use modern authentication solutions (OAuth 2.0, [OpenID Connect](v2-protocols-oidc.md)) to securely sign in users. |
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don’t implement the protocols yourself – use [Microsoft-supported authentication libraries](reference-v2-libraries.md) (MSAL, server middleware). Make sure you're using the latest version of the authentication library that you've integrated with. |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Don't program directly against protocols such as OAuth 2.0 and Open ID. Instead, leverage the [MSAL libraries](msal-overview.md). The MSAL libraries securely wrap security protocols in an easy to use library, and you get built-in support for Conditional Access scenarios, device-wide single sign on (SSO), and built-in token caching support. For more info, see the list of Microsoft supported [client libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) and [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) and the list of [compatible third-party client libraries](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>
+If you must hand code for the authentication protocols, you should follow a methodology such as [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Pay close attention to the security considerations in the standards specifications for each protocol.|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If the data your app requires is available through [Microsoft Graph](https://developer.microsoft.com/graph), request permissions for this data using the Microsoft Graph endpoint rather than the individual API. |
 
-### End-user experience
+## Microsoft Authentication Library (MSAL)
+|  |  |
+|---|---|
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Migrate existing apps from [Azure Active Directory Authentication Library (ADAL)](active-directory-authentication-libraries.md) to [Microsoft Authentication library](msal-overview.md). MSAL is Microsoft’s latest identity platform solution and is preferred to ADAL. It is available on .NET, Android, iOS, and the Universal Windows Platform. Read more about moving to the [MSAL.NET](msal-net-migration.md) and [MSAL.js](msal-compare-msal-js-and-adal-js.md) libraries.|
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Configure each platform using the application registration experience. In order for your application to take advantage of the Microsoft Authenticator or Microsoft Company Portal for single sign in, your app needs a “broker redirect URI” configured. This allows Microsoft to return control to your application after authentication. When configuring each platform the app registration experience will guide you through the process. Use the quickstart to download a working example. On iOS, use brokers and system webview whenever possible.|
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Keep one token cache per account (keyed by the account ID) for web apps and web APIs that use MSAL.NET. MSAL.NET provides custom token cache serialization in .NET Framework and .NET Core sub-platforms. Events are fired when the cache is accessed, apps can choose whether to serialize or deserialize the cache. On confidential client applications that handle users (web apps that sign-in users and call web APIs, and web APIs calling downstream web APIs), there can be many users and the users are processed in parallel. For security and performance reasons, our recommendation is to serialize one cache per user. Serialization events compute a cache key based on the identity of the processed user and serialize/deserialie a token cache for that user. For more information, read about [token cache serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).|
+
+## End-user experience
 
 |   |   |
 |---|---|
@@ -86,7 +92,7 @@ Use the following checklist to ensure that your application is effectively integ
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Register the full set of permissions that your app requires so admins can grant consent easily to their tenant. Use [incremental consent](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) at run time to help users understand why your app is requesting permissions that may concern or confuse users when requested on first start. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Implement a [clean single sign-out experience](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). It’s a privacy and a security requirement, and makes for a good user experience. |
 
-### Testing
+## Testing
 
 |   |   |
 |---|---|
