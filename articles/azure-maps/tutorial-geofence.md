@@ -31,7 +31,7 @@ In this tutorial you will learn, how to:
 
 ### Create an Azure Maps account 
 
-To complete the steps in this tutorial, you first need to see [manage account and keys](how-to-manage-account-keys.md) to create and manage your account subscription with S1 pricing tier.
+To complete the steps in this tutorial, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the instructions in [get primary key](./tutorial-search-location.md#getkey) to get the primary "subscription" key for your account.
 
 ## Upload geofences
 

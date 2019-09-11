@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the Route Service SDK
 
 ## Prerequisites
 
-Before you proceed, follow the steps in the previous tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey).
+Before you proceed, follow the steps in the previous tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the primary "subscription" key for your account](./tutorial-search-location.md#getkey).
 
 <a id="getcoordinates"></a>
 

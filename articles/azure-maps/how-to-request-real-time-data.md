@@ -24,7 +24,7 @@ In this article you will learn how to:
 
 ## Prerequisites
 
-To make any calls to the Azure Maps public transit APIs, you need a Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).
+To make any calls to the Azure Maps public transit APIs, you need a Maps account and key. For information on creating an account, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) and to retrieve a primary "subscription" key for your account see [get primary key](./tutorial-search-location.md#getkey).
 
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 
