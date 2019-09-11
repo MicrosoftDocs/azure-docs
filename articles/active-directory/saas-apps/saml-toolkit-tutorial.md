@@ -85,9 +85,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	1. In the **Reply URL** text box, type a URL:
     `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
-   ![The Certificate download link](common/metadataxml.png)
+   ![The Certificate download link](common/rawcert.png)
 
 1. On the **Set up Azure AD SAML Toolkit** section, copy the appropriate URL(s) based on your requirement.
 
@@ -117,7 +117,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
-	1. Click **Choose File** and upload the **Federation metadata XML** file which you have downloaded from the Azure portal.
+	1. Click **Choose File** and upload the **Certificate (Raw)** file which you have downloaded from the Azure portal.
 
 	1. Click **Create**.
 
