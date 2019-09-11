@@ -14,58 +14,6 @@ ms.date: 09/10/2019
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
-The Data Science Virtual Machine (DSVM) for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with machine learning, including deep learning, on Azure. Deep learning tools include:
-
-* [Caffe](https://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity.
-* [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe.
-* [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
-* [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface.
-* [Keras](https://keras.io/): A high-level neural network API in Python for TensorFlow, Microsoft Cognitive Toolkit, and Theano.
-* [MXNet](https://mxnet.io/): A flexible, efficient deep learning library with many language bindings.
-* [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks.
-* [PyTorch](https://pytorch.org/): A high-level Python library with support for dynamic networks.
-* [TensorFlow](https://www.tensorflow.org/): An open-source library for machine intelligence from Google.
-* [Theano](http://deeplearning.net/software/theano/): A Python library for defining, optimizing, and efficiently evaluating mathematical expressions that involve multidimensional arrays.
-* [Torch](http://torch.ch/): A scientific computing framework with wide support for machine learning algorithms.
-* CUDA, cuDNN, and the NVIDIA driver.
-* Many sample Jupyter notebooks.
-
-All libraries are the GPU versions, though they also run on the CPU.
-
-The Data Science Virtual Machine for Linux also contains popular tools for data science and development activities, including:
-
-* Microsoft Machine Learning Server with Microsoft R Open.
-* Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries.
-* JuliaPro, a curated distribution of Julia language with popular scientific and data analytics libraries.
-* Standalone Spark instance and single-node Hadoop (HDFS, Yarn).
-* JupyterHub, a multiuser Jupyter notebook server that supports R, Python, PySpark, and Julia kernels.
-* Azure Storage Explorer.
-* Azure CLI for managing Azure resources.
-* Machine learning tools:
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system that supports techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool that provides fast and accurate boosted tree implementation.
-  * [Rattle](https://togaware.com/rattle/): A graphical tool that makes getting started with data analytics and machine learning in R easy.
-  * [LightGBM](https://github.com/Microsoft/LightGBM): A fast, distributed, high-performance gradient boosting framework.
-* Azure SDK in Java, Python, Node.js, Ruby, and PHP.
-* Libraries in R and Python for use in Azure Machine Learning and other Azure services.
-* Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, vim).
-
-Doing data science involves iterating on a sequence of tasks:
-
-1. Finding, loading, and pre-processing data
-1. Building and testing models
-1. Deploying the models for consumption in intelligent applications
-
-Data scientists use various tools to complete these tasks. It can be time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
-
-The Data Science Virtual Machine for Linux can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and Node.js that are also pre-installed.
-
-There are no software charges for this DSVM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision. For more information about compute fees, see the [VM listing page in Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
-
-## Other versions of the Data Science Virtual Machine
-
-A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](provision-vm.md) image is also available.
-
 ## Prerequisites
 
 Before you can create a Data Science Virtual Machine for Linux, you must have an Azure subscription. You can [get an Azure free trial](https://azure.microsoft.com/free/).
