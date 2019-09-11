@@ -78,11 +78,11 @@ Samples that demonstrate how to use exception filters are available in the [Azur
 
 Some issues arise even when an error is not present. For example, consider a failure that occurs in the middle of an execution. In this case, if a function doesn’t complete execution, the offset pointer is never progressed. If the pointer doesn't advance, then any instance that runs after a failed execution continues to read the same messages. This situation provides an "at-least-once" guarantee.
 
-Being assured that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the principles of idempotency.
+The assurance that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the principles of idempotency.
 
 ## Stop and restart execution
 
-While a few errors may be acceptable, what if your app encounters significant failures? You may want to stop triggering on events until the system reaches a healthy state. Being able to pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
+While a few errors may be acceptable, what if your app experiences significant failures? You may want to stop triggering on events until the system reaches a healthy state. Having the opportunity pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
 
 There are two pieces required to implement a circuit breaker in an event process:
 
@@ -91,11 +91,11 @@ There are two pieces required to implement a circuit breaker in an event process
 
 Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Table Storage, a Redis cache, or any other account that is accessible by a collection of functions.
 
-To manage the circuit state, Azure Logic Apps is a natural fit to manage the workflow, but many other services may be appropriate as well. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
+Azure Logic Apps is a natural fit to manage the workflow to manage the circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
 
 ### Define a failure threshold across instances
 
-To account for dynamic scaling (where multiple instances are processing events simultaneously), persisting shared external state is needed to monitor the health of the circuit.
+To account for multiple instances processing events simultaneously, persisting shared external state is needed to monitor the health of the circuit.
 
 A rule you may choose to implement might enforce that:
 
@@ -122,4 +122,12 @@ Using this approach, no messages are lost, all messages are processed in order, 
 
 ## Resources
 
-https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing
+- [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
+
+## Next steps
+
+For more information, see the following resources:
+
+- [Azure Functions error handling](./functions-bindings-error-pages.md)
+- [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
+- [Create a function that integrates with Azure Logic Apps](./functions-twitter-email.md)
