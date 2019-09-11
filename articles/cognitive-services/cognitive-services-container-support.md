@@ -96,8 +96,6 @@ Individual containers can have their own requirements, as well, including server
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
-[!INCLUDE [cognitive-services-container-security](cognitive-services-container-security.md)]
-
 ## Next steps
 
 Learn about [container recipes](containers/container-reuse-recipe.md) you can use with the Cognitive Services.
