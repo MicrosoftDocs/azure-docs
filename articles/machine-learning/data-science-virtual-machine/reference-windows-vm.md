@@ -1,7 +1,7 @@
 ---
 title: 'Reference: Windows DSVM'
 description: 'Details on tools included in the Windows Data Science VM'
-authoer: gvashishtha
+author: gvashishtha
 ms.author: gopalv
 ms.date: 9.11.2019
 ms.topic: reference
