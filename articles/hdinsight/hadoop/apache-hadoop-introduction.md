@@ -26,6 +26,10 @@ Apache Hadoop MapReduce is a software framework for writing jobs that process va
 
 * **Reducer**: Consumes tuples emitted by the Mapper and performs a summary operation that creates a smaller, combined result from the Mapper data
 
+A basic word count MapReduce job example is illustrated in the following diagram:	
+
+ ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
+
 The output of this job is a count of how many times each word occurred in the text.
 
 * The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a word occurs of the word is followed by a 1. The output is sorted before sending it to reducer.
@@ -50,5 +54,3 @@ For examples of using Hadoop streaming with HDInsight, see the following documen
 ## Next steps
 
 * [Create Apache Hadoop cluster in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
