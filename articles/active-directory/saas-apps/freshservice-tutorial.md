@@ -54,7 +54,6 @@ To configure the integration of Freshservice into Azure AD, you need to add Fres
 1. In the **Add from the gallery** section, type **Freshservice** in the search box.
 1. Select **Freshservice** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Freshservice
 
 Configure and test Azure AD SSO with Freshservice using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Freshservice.
@@ -93,9 +92,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. You need to generate the SHA-256 fingerprint to get SSO working. It can be generated through the following [link](https://www.samltool.com/fingerprint.php) and perform the steps:
+1. Freshservice requires SHA-256 fingerprint to get SSO working. To get SHA-256 fingerprint, perform the following steps :
 
     ![FingerPrint](./media/freshservice-tutorial/ic790821.png "FingerPrint")
+
+    1. Open the [link](https://www.samltool.com/fingerprint.php) in different web browser.
 
     1. Open downloaded certificate (Base64) file in the Notepad and paste content in the **X.509 cert** textbox.
 
