@@ -83,7 +83,7 @@ First, you build a simulated on-premises product catalog system.  This project i
 
 ### Create the project
 
-1. Using administrator privileges, start Microsoft Visual Studio. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
+1. Start Microsoft Visual Studio as an administrator. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
 1. In Visual Studio, select **Create a new project**.
 1. In **Create a new project**, select **Console App (.NET Framework)** for C# and select **Next**.
 1. Name the project *ProductsServer* and select **Create**.
@@ -236,7 +236,7 @@ In this section, you build a simple ASP.NET application that displays data retri
 
 ### Create the project
 
-1. Ensure that Visual Studio is running with administrator privileges.
+1. Ensure that Visual Studio is running as administrator.
 1. In Visual Studio, select **Create a new project**.
 1. In **Create a new project**, select **ASP.NET Web Application (.NET Framework)** for C# and select **Next**.
 1. Name the project *ProductsPortal* and select **Create**.
@@ -427,7 +427,7 @@ To test the application locally, in Visual Studio press **F5**. The on-premises 
 
 Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
-Close both applications before proceeding to the next step.
+Close both applications before proceeding to the next section.
 
 ## Deploy the ProductsPortal project to an Azure web app
 
@@ -469,7 +469,7 @@ The product inventory lists data retrieved from the product service on-premises 
    > The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
    >
 
-1. In the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
+In the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
     ![Updated output][38]
 
@@ -485,7 +485,7 @@ Advance to the following tutorial:
 [NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/configure-productsserver.png
-[13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
+[13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/install-nuget-service-bus-productsserver.png
 [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
 [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/choose-web-application-template.png
 [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/add-class-productsportal.png

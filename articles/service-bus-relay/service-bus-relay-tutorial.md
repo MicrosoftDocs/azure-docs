@@ -60,7 +60,7 @@ The service contract specifies what operations the service supports. Operations 
 
 ### Create a relay contract with an interface
 
-1. Using administrator privileges, start Microsoft Visual Studio. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
+1. Start Microsoft Visual Studio as an administrator. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
 1. In Visual Studio, select **Create a new project**.
 1. In **Create a new project**, choose **Console App (.NET Framework)** for C# and select **Next**.
 1. Name the project *EchoService* and select **Create**.
@@ -742,7 +742,7 @@ namespace Microsoft.ServiceBus.Samples
 1. Select **OK** to close **Property Pages**.
 1. Press **F5** to run both projects.
 1. Both console windows open and prompt you for the namespace name. The service must run first, so in the **EchoService** console window, enter the namespace and then press **Enter**.
-1. Next, the console prompts you for your SAS key. Enter the SAS key and press ENTER.
+1. Next, the console prompts you for your SAS key. Enter the SAS key and press Enter.
 
     Here is example output from the console window. The values here are just examples.
 

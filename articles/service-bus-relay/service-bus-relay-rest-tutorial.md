@@ -53,7 +53,7 @@ The primary difference between a WCF contract and a REST-style contract is the a
 
 ### To create a contract with an interface
 
-1. Using administrator privileges, start Microsoft Visual Studio. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
+1. Start Microsoft Visual Studio as an administrator. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
 1. In Visual Studio, select **Create a new project**.
 1. In **Create a new project**, choose **Console App (.NET Framework)** for C# and select **Next**.
 1. Name the project *ImageListener*. Use the default **Location**, and then select **Create**.
