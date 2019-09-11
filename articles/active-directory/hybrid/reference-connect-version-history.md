@@ -75,6 +75,11 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Improved diagnostics and troubleshooting around group policies that do not allow the ADSync service to start when initially installed.
 - Fixed a bug where display name for a Windows computer was written incorrectly.
 - Fix a bug where OS type for a Windows computer was written incorrectly.
+- Fixed a bug where non-Windows 10 computers were syncing unexpectedly. Note that the effect of this change is that non-Windows-10 computers that were previously synced will now be deleted. This does not affect any features as the sync of Windows computers is only used for Hybrid Azure AD domain join, which only works for Windows-10 devices. 
+- Fix a bug where display name for a Windows computer was written incorrectly.
+- Fix a bug where OS type for a Windows computer was written incorrectly.
+- Added several new (internal) cmdlets to the ADSync PowerShell module.
+
 
 ## 1.3.21.0
 >[!IMPORTANT]
