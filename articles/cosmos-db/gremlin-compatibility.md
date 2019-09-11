@@ -18,11 +18,11 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 ## Unsupported features
 
-* ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use ```GremlinClient.SubmitAsync()``` and pass traversal as a text string. Support for Bytecode should be available in near future.
+* ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use ```GremlinClient.SubmitAsync()``` and pass traversal as a text string.
 
-* ***```property(set, 'xyz', 1)```*** set cardinality isn't supported today. Support for set property cardinality will be enabled in the future. Use ```property(list, 'xyz', 1)``` today.
+* ***```property(set, 'xyz', 1)```*** set cardinality isn't supported today. Use ```property(list, 'xyz', 1)``` instead.
 
-* ***```match()```*** allows querying graphs using declarative pattern matching. This capability isn't available and there are no plans to support it in Azure Cosmos DB Graph engine.
+* ***```match()```*** allows querying graphs using declarative pattern matching. This capability isn't available.
 
 * ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
 
@@ -30,7 +30,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***Non-primitive JSON types*** aren't supported. Use ```string```, ```number```, or ```true```/```false``` types. ```null``` values aren't supported. 
 
-* ***GraphSONv3*** serializer isn't available today but will become available in near future.
+* ***GraphSONv3*** serializer isn't available today.
 
 * ***Transactions*** aren't supported because of distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
 
