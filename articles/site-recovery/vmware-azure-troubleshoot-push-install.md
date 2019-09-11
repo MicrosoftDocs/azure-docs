@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
+ms.date: 09/11/2019
 ---
 # Troubleshoot Mobility Service push installation issues
 
