@@ -39,15 +39,15 @@ landingContent:
         - text: Algorithms used in anomaly detection (whitepaper)
           url: https://arxiv.org/abs/1906.03821
 
-- title: "Detect Anomalies in your data"
+- title: "Detect anomalies in your data"
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Using C#
+        - text: Using the C# client library
           url: quickstarts/detect-data-anomalies-csharp-sdk.md
-        - text: Using Python
+        - text: Using the Python client library
           url: quickstarts/detect-data-anomalies-python-sdk.md
-        - text: Using Java
+        - text: Using Java and the REST API
           url: quickstarts/detect-data-anomalies-java.md
     - linkListType: tutorial
       links:
@@ -60,7 +60,7 @@ landingContent:
         - text: Anomaly detection on streaming data using Azure Databricks
           url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
 
-- title: Optimize your anomaly detection results
+- title: Optimize your detection results
   linkLists:
     - linkListType: concept
       links:
@@ -70,10 +70,10 @@ landingContent:
           url: concepts/anomaly-detection-best-practices.md
     - linkListType: video
       links:
-        - text: Anomaly Detector Best Practices
+        - text: Anomaly Detector best practices
           url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices 
 
-- title: Use Docker Containers
+- title: Use Docker containers
   linkLists:
     - linkListType: how-to-guide
       links:
