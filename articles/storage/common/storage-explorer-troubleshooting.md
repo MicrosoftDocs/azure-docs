@@ -254,7 +254,7 @@ After going through all your connections, for all connections names that are not
 
 # [Linux](#tab/Linux)
 
-Local credential management varies depending on Linux distribution. If your Linux distribution doesn't provide a built-in GUI tool for local credential management, you can install a third-party software to manage your local credentials. For example, you can use [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), an open-source GUI tool for managing Linux local credentials.
+Local credential management varies depending on Linux distribution. If your Linux distribution doesn't provide a built-in GUI tool for local credential management, you can install a third-party tool to manage your local credentials. For example, you can use [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), an open-source GUI tool for managing Linux local credentials.
 
 1. Open your local credential management tool, find your saved credentials.
 2. Look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
