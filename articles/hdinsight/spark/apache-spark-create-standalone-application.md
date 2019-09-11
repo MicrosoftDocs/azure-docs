@@ -174,27 +174,27 @@ Perform the following steps to install the Scala plugin:
 
     2. From the **Project Structure** window, navigate to **Artifacts** > **the plus symbol +** > **JAR** > **From modules with dependencies...**.
 
-        ![Create JAR](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![Create JAR1](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
     3. In the **Create JAR from Modules** window, select the folder icon in the **Main Class** text box.
 
     4. In the **Select Main Class** window, select the class that appears by default and then select **OK**.
 
-        ![Create JAR](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![Create JAR2](./media/apache-spark-create-standalone-application/create-jar-2.png)
 
     5. In the **Create JAR from Modules** window, ensure the **extract to the target JAR** option is selected, and then select **OK**.  This setting creates a single JAR with all dependencies.
 
-        ![Create JAR](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![Create JAR3](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
     6. The **Output Layout** tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application, you are creating here, you can remove all but the last one (**SparkSimpleApp compile output**). Select the jars to delete and then select the negative symbol **-**.
 
-        ![Create JAR](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![Create JAR4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
 
         Ensure sure the **Include in project build** checkbox is selected, which ensures that the jar is created every time the project is built or updated. Select **Apply** and then **OK**.
 
     7. To create the jar, navigate to **Build** > **Build Artifacts** > **Build**. The project will compile in about 30 seconds.  The output jar is created under **\out\artifacts**.
 
-        ![Create JAR](./media/apache-spark-create-standalone-application/output.png)
+        ![output](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## Run the application on the Apache Spark cluster
 
