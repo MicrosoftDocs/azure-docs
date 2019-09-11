@@ -59,6 +59,8 @@ The .tar.gz installation may work on other distributions, but only ones listed a
 
 For more help installing Storage Explorer on Linux, see the [Troubleshooting Guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
+---
+
 ## Download and install
 
 [Download and install Storage Explorer](https://www.storageexplorer.com)
