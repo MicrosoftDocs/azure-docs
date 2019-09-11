@@ -63,7 +63,7 @@ Azure Blockchain Development Kit uses Truffle to compile the smart contracts.
 Truffle uses migration scripts to deploy your contracts to an Ethereum network. Migrations are JavaScript files located in the project's **migrations** directory.
 
 1. To deploy your smart contract, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu.
-1. Choose your Azure Blockchain consortium network under **From truffle-config.js**. The consortium blockchain network was added to the project's Truffle configuration file when you created the project.
+1. Choose your Azure Blockchain consortium network in the command palette. The consortium blockchain network was added to the project's Truffle configuration file when you created the project.
 1. Choose **Generate mnemonic**. Choose a filename and save the mnemonic file in the project folder. For example, `myblockchainmember.env`. The mnemonic file is used to generate an Ethereum private key for your blockchain member.
 
 Azure Blockchain Development Kit uses Truffle to execute the migration script to deploy the contracts to the blockchain.
@@ -129,7 +129,7 @@ Smart contract functions can return the current value of state variables. Let's 
     The function returns the message stored in a state variable based on the current state of the contract.
 
 1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu to compile the changes to the smart contract.
-1. To deploy, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu.
+1. To deploy, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu. When prompted, choose your Azure Blockchain consortium network in the command palette.
 1. Next, create a script using to call the **getMessage** function. Create a new file in the root of your Truffle project and name it `getmessage.js`. Add the following Web3 JavaScript code to the file.
 
     ```javascript
