@@ -198,7 +198,7 @@ For security, the Azure credentials are stored on your local machine and associa
 
 ### <a name="Estimating-bake-cost"></a> Estimate Azure bake cost
 
-To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration. Multiply that value by the hourly cost in your local currency for the **VM Node Type** that you selected. Note that the result won't include the node time needed to get the nodes up and running. For example, say you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr. If the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher because of the extra time to get the nodes started. You can find the hourly node cost at [Azure Batch pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page. (Select "Compute optimized" or "High performance compute" for the category.)
+To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration. Multiply that value by the hourly cost in your local currency for the **VM Node Type** that you selected. Note that the result won't include the node time needed to get the nodes up and running. For example, say you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr. If the **Estimated Compute Cost** is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher because of the extra time to get the nodes started. You can find the hourly node cost at [Azure Batch pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux). (Select "Compute optimized" or "High performance compute" as the category.)
 
 ## <a name="Local-bake"></a> Bake your scene on your PC
 You can bake your scene on your own PC. This method can be useful for experimenting with acoustics for small scenes before you create an Azure Batch account. Note that acoustics simulation can take a long time depending on the size of the scene.
@@ -208,45 +208,45 @@ You can bake your scene on your own PC. This method can be useful for experiment
 * [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) to run Docker
 
 As an example, in our testing on an 8-core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB of RAM: 
-* A small scene with 100 probes can take about 2 hours for a coarse bake or 32 hours for a fine bake.
-* A medium-sized scene with 1,000 probes can take about 20 hours for a coarse bake or 21 days for a fine bake.
+* A small scene with 100 probes took about 2 hours for a coarse bake or 32 hours for a fine bake.
+* A medium-sized scene with 1,000 probes took about 20 hours for a coarse bake or 21 days for a fine bake.
 
 ### Set up Docker
 Install and configure Docker on the PC that will process the simulation:
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the **Advanced** options, and configure resources to have at least 8 GB of RAM. The more CPUs that you can allocate to Docker, the faster the bake will complete.  
+2. Open Docker settings, navigate to the **Advanced** options, and configure resources to have at least 8 GB of RAM. The more CPUs that you can allocate to Docker, the faster the bake will complete.  
 ![Sample Docker settings](media/docker-settings.png)
 1. Navigate to "Shared Drives" and turn on sharing for the drive that's used for processing.  
 ![Docker shared drive options](media/docker-shared-drives.png)
 
 ### Run local bake
-1. Select the **Prepare Local Bake** button on the **Bake** tab, and select a folder location to save the input files and execution scripts. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
-2. Launch the simulation by using the *runlocalbake.bat* script on Windows or the *runlocalbake.sh* script on MacOS. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation.
-3. After the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure that Unity recognizes this as a binary file, append ".bytes" to the file extension name (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, share this file to assist with diagnosis.
+1. Select the **Prepare Local Bake** button on the **Bake** tab, and select a folder location to save the input files and execution scripts. You can then run the bake on any machine as long as it meets the minimum hardware requirements and you install  Docker by copying the folder to that machine.
+1. Launch the simulation by using the *runlocalbake.bat* script on Windows or the *runlocalbake.sh* script on MacOS. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation.
+3. After the simulation has finished, copy the resulting *.ace* file back to your Unity project. To make sure that Unity recognizes it as a binary file, append ".bytes" to the file extension name (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, share this file to assist with diagnosis.
 
 ## <a name="Data-Files"></a> Data files added by the bake process
 
 The following four data files are created during the bake process. One contains the simulation results and ships with your title. The others store Unity Editor-related data.
 
 Simulation result:
-* **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**: This is the runtime lookup table. It contains the simulation results and voxelized acoustic scene elements. You can change the name and location and name of this file on the **Probes** Tab.
+* *Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes*: This is the runtime lookup table. It contains the simulation results and voxelized acoustic scene elements. You can change the name and location and name of this file on the **Probes** Tab.
 
    *Be careful not to delete the simulation result file. It isn't recoverable except by rebaking the scene.*
 
 Editor data files:
-* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: This file stores the data that you enter in fields in the Acoustics UI. The location and name of this file can't be changed.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].Fox**: This file stores the voxelized acoustics geometry and the material properties that are computed by using the **Calculate** button on the **Probes** tab. You can change the location and name of this file on the **Probes** tab.
-* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: This file stores simulation parameters that are computed by using the **Calculate** button on the **Probes** tab. You can change the location and name of this file on the **Probes** tab.
+* *Assets/Editor/[SceneName]\_AcousticsParameters.asset*: This file stores the data that you enter in fields in the Acoustics UI. The location and name of this file can't be changed.
+* *Assets/AcousticsData/Editor/Acoustics_[SceneName].Fox*: This file stores the voxelized acoustics geometry and the material properties that are computed when you select the **Calculate** button on the **Probes** tab. You can change the location and name of this file on the **Probes** tab.
+* *Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml*: This file stores simulation parameters that are computed when you select the **Calculate** button. You can change the location and name of this file on the **Probes** tab.
 
 ## Set up the acoustics lookup table
 Drag the **Project Acoustics** prefab from the project panel into your scene:
 
 ![The Acoustics prefab in Unity](media/acoustics-prefab.png)
 
-Select the **ProjectAcoustics** Game Object, and go to its inspector panel. Specify the location of your bake result (the .ACE file, in **Assets/AcousticsData**) by dragging it into the Acoustics Manager script or by selecting the circle button next to the text box.
+Select the **ProjectAcoustics** game object, and go to its inspector panel. Specify the location of your bake result (the .ace file, in *Assets/AcousticsData*) by dragging it into the Acoustics Manager script or by selecting the circle button next to the text box.
 
-The Acoustics Manager prefab in Unity](media/acoustics-manager.png) 
+The Acoustics Manager prefab in Unity](media/acoustics-manager.png)
 
 ## Next steps
 * Explore the [design controls for Unity](unity-workflow.md)
-* Explore the [Project Acoustics design concepts](design-process.md)
+* Explore [Project Acoustics design concepts](design-process.md)
