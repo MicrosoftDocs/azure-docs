@@ -274,8 +274,8 @@
           href: role-based-access-control.md  
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
-        - name: Security attributes
-          href: cosmos-db-security-attributes.md
+        - name: Built-in security controls
+          href: cosmos-db-security-controls.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
@@ -471,6 +471,8 @@
           href: graph-execution-profile.md
         - name: Use resource tokens
           href: how-to-use-resource-tokens-gremlin.md
+        - name: Use regional endpoints
+          href: how-to-use-regional-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
@@ -696,11 +698,11 @@
       - name: Application logging with Logic Apps
         href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
         maintainContext: true 
-    - name : Monitor with Metrics
+    - name : Monitor with metrics
       items:
       - name: View metrics from Cosmos DB account 
         href: use-metrics.md
-      - name: View Metrics from Azure Monitor
+      - name: View metrics from Azure Monitor
         href: cosmos-db-azure-monitor-metrics.md
       - name: Monitor SLAs
         href: monitor-accounts.md

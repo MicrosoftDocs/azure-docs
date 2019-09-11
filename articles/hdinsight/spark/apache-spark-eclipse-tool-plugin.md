@@ -81,7 +81,7 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
 
 1. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
+   ![unlinked cluster](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
 
 ## Set up a Spark Scala project for an HDInsight Spark cluster

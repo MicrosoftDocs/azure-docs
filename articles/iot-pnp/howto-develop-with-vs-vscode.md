@@ -124,6 +124,7 @@ To build the device code together with the device C SDK using CMake in a Linux e
     ```cmd\sh
     cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON ..
     cmake --build .
+    ```
 
 1. After the build succeeds, run the application specifying the IoT Hub device connection string as parameter.
 
@@ -241,6 +242,7 @@ The following steps show you how to build the device code together with the devi
     ```bash
     cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DOPENSSL_ROOT_DIR:PATH=/usr/local/opt/openssl ..
     cmake --build .
+    ```
 
 1. After the build succeeds, run the application specifying the IoT Hub device connection string as parameter.
 
