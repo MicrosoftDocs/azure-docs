@@ -1,6 +1,6 @@
 ---
-title: Use smart contracts on Azure Blockchain Service
-description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and execute a function via a transaction.
+title: Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service
+description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
 services: azure-blockchain
 
 author: PatAltimore
@@ -13,7 +13,7 @@ ms.reviewer: chrisseg
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute smart contract functions on a consortium blockchain network.
 ---
 
-# Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service
+# Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts
 
 In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use Truffle to execute a smart contract function via a transaction.
 

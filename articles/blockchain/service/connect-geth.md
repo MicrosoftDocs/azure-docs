@@ -22,7 +22,7 @@ Geth is a Go Ethereum client you can use to attach to a Geth instance on an Azur
 ## Prerequisites
 
 * Install [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
-* [Create an Azure Blockchain member](create-member.md)
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
 
 ## Get the Geth connection string
 
@@ -66,4 +66,4 @@ You can find the Geth connection string in the Azure portal.
 In this quickstart, you used the Geth client to attach to a Geth instance on an Azure Blockchain Service transaction node. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service](send-transaction.md)
+> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
