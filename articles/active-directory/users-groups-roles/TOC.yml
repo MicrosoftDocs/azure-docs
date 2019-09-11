@@ -94,7 +94,17 @@
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage group owners
       href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage groups in groups    
+    - name: Bulk operations (preview)
+      items:
+      - name: Bulk import members (preview)
+        href: groups-bulk-import-members.md
+      - name: Bulk download members (preview)
+        href: groups-bulk-download-members.md
+      - name: Bulk remove members (preview)
+        href: groups-bulk-remove-members.md
+      - name: Bulk download a groups list (preview)
+        href: groups-bulk-download.md
+    - name: Manage groups in groups
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
