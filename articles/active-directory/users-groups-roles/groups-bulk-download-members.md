@@ -24,7 +24,7 @@ Using Azure Active Directory (Azure AD) portal, you can bulk download the member
 
 ## Bulk download service limits
 
-Each bulk activity to create a list of group members can run for up to one hour. This enables creation and download of a list of at least 500,000 members.
+Each bulk activity to download a list of group members can run for up to one hour. This enables you to download of a list of at least 500,000 members.
 
 ## To bulk download group membership
 
