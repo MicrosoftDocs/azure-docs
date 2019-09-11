@@ -43,11 +43,11 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 1. Click **OK** to create the Azure Blob container.
 1. Open the new `hotels-review` container, click **Upload**, and  select the **HotelReviews-Free.csv** file you downloaded in the first step.
 
-    ![Upload the data](media/kstore-create-portal/upload-command-bar.png "Upload the hotel reviews")
+    ![Upload the data](media/knowledge-store-create-portal/upload-command-bar.png "Upload the hotel reviews")
 
 1. Click **Upload** to import the CSV file into Azure Blob Storage. The new container will appear.
 
-    ![Create the Azure Blob container](media/kstore-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
+    ![Create the Azure Blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
 
 ### Get the Azure Storage account connection string
 
@@ -76,7 +76,7 @@ In this wizard step, you will create a data source from the Azure Blob with your
 1. For **Container name**, enter `hotel-reviews`.
 1. Click **Next: Add cognitive search (Optional)**.
 
-      ![Create a data source object](media/kstore-create-portal/hotel-reviews-ds.png "Create a data source object")
+      ![Create a data source object](media/knowledge-store-create-portal/hotel-reviews-ds.png "Create a data source object")
 
 ## Add cognitive search (Import data wizard)
 
@@ -92,7 +92,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
     + **Detect language**
     + **Detect sentiment**
 
-      ![Create a skillset](media/kstore-create-portal/hotel-reviews-ss.png "Create a skillset")
+      ![Create a skillset](media/knowledge-store-create-portal/hotel-reviews-ss.png "Create a skillset")
 
 1. Expand **Save enrichments to knowledge store**
 1. Enter the **Storage account Connection String** that you saved in a previous step.
@@ -101,7 +101,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
     + **Pages**
     + **Key phrases**
 
-    ![Configure knowledge store](media/kstore-create-portal/hotel-reviews-ks.png "Configure knowledge store")
+    ![Configure knowledge store](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configure knowledge store")
 
 1. Click **Next: Customize target index**.
 
@@ -117,7 +117,7 @@ In this wizard step, you will configure an index for optional full-text search q
 
     Your index should look similar to the following image. Because the list is long, not all fields are visible in the image.
 
-    ![Configure an index](media/kstore-create-portal/hotel-reviews-idx.png "Configure an index")
+    ![Configure an index](media/knowledge-store-create-portal/hotel-reviews-idx.png "Configure an index")
 
 1. Click **Next: Create an indexer**.
 
@@ -140,11 +140,11 @@ Now that you have enriched your data using cognitive services and projected the 
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [View in Storage Explorer](kstore-view-storage-explorer.md)
+> [View in Storage Explorer](knowledge-store-view-storage-explorer.md)
 
 To learn how to connect this knowledge store to Power BI, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](kstore-connect-powerbi.md)
+> [Connect to Power BI](knowledge-store-connect-powerbi.md)
 
 If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer. Deleting the indexer resets the free daily transaction counter back to zero.

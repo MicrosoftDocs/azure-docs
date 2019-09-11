@@ -1782,7 +1782,7 @@
     },
     {
       "source_path": "articles/search/knowledge-store-connect-powerbi.md",
-      "redirect_url": "/azure/search/kstore-create-portal",
+      "redirect_url": "/azure/search/knowledge-store-create-portal",
       "redirect_document_id": true
     },
     {

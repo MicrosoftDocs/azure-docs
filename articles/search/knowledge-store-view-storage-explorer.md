@@ -16,11 +16,11 @@ ms.author: v-lilei
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure portal. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](kstore-create-portal.md).
+In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure portal. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md).
 
 ## Prerequisites
 
-+ Follow the steps in [Create a knowledge store in Azure portal](kstore-create-portal.md) to create the sample knowledge store used in this walkthrough.
++ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) to create the sample knowledge store used in this walkthrough.
 
 + You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
@@ -34,15 +34,15 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 Select any table to view the enriched data, including key phrases sentiment scores, latitude and longitude location data and more.
 
-   ![View tables in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
+   ![View tables in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
 
 To change the data type for any table value or to change individual values in your table, click **Edit**. When you change the data type for any column in one table row, it will be applied to all rows.
 
-   ![Edit table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
+   ![Edit table in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Edit table in Storage Explorer")
 
 To run queries, click **Query** on the command bar and enter your conditions.  
 
-   ![Query table in Storage Explorer](media/kstore-view-storage-explorer/storage-explorer-query-table.png "Query table in Storage Explorer")
+   ![Query table in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Query table in Storage Explorer")
 
 ## Clean up
 
@@ -57,7 +57,7 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn how to connect this knowledge store to Power BI, see the following article.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](kstore-connect-powerbi.md)
+> [Connect to Power BI](knowledge-store-connect-powerbi.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
