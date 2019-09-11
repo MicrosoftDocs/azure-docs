@@ -135,15 +135,13 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 * SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
 * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
-* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux.
-
-This article will be updated when performance counter support in Linux is added.
+* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get counters in Linux (and other non-Windows environments) is by using [EventCounters.](#EventCounter)
 
 ### EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), which is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box including CLR Counters about GC Stats, Process Memory/CPU, ASP.NET Core counters like Requests/Sec etc.
+[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box including CLR Counters about GC Stats, Process Memory/CPU, ASP.NET Core counters like Requests/Sec etc.
 
-SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and can be found either in Metrics Explorer or using Analytics query. The name of the counter will be "Category|Counter"
+SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and these counters can be queries either in Metrics Explorer or using Analytics query under PerformanceCounter table. The name of the counter will be "Category|Counter"
 
 |Category | Counter|
 |---------------|-------|
@@ -234,6 +232,7 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor which is a TelemetryProcessor which sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
 |RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
 
+See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
 ### Sampling
 
@@ -305,7 +304,7 @@ The following automatic-collection modules are enabled by default. These modules
 * `QuickPulseTelemetryModule` - Collects telemetry for showing in Live Metrics portal.
 * `AppServicesHeartbeatTelemetryModule` - Collects heart beats (which are send as custom metrics), about Azure App Service environment where application is hosted.
 * `AzureInstanceMetadataTelemetryModule` -  Collects heart beats (which are send as custom metrics), about Azure VM environment where application is hosted.
-* `EventCounterCollectionModule` -  Collects EventCounters. This is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
+* `EventCounterCollectionModule` -  Collects [EventCounters.](#EventCounter). This is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
