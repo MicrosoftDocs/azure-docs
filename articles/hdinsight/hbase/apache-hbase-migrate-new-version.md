@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
 ---
+
 # Migrate an Apache HBase cluster to a new version
 
 This article discusses the steps required to update your Apache HBase cluster on Azure HDInsight to a newer version.
@@ -174,7 +175,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 5. To ensure that any recent data in the memstore is flushed, run the previous script again.
 6. Sign in to [Apache Ambari](https://ambari.apache.org/) on the old cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) and stop the HBase services. When you prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
-	![In Ambari, click Services > HBase > Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+	![In Ambari, click Services > HBase > Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
 	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 

@@ -9,8 +9,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-
 ---
+
 # Bulk load data into Apache Phoenix using psql
 
 [Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database built on [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix provides SQL-like queries over HBase. Phoenix uses JDBC drivers to enable users to create, delete, and alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, to create low-latency applications on top of HBase. Phoenix adds co-processors to support running client-supplied code in the address space of the server, executing the code co-located with the data. This minimizes client/server data transfer.  To work with data using Phoenix in HDInsight, first create tables and then load data into them.
@@ -25,7 +25,7 @@ Bulk loading with MapReduce is used for much larger data volumes, typically in p
 
 Before you start loading data, verify that Phoenix is enabled and that query timeout settings are as expected.  Access your HDInsight cluster [Apache Ambari](https://ambari.apache.org/) dashboard, select HBase, and then the Configuration tab.  Scroll down to verify that Apache Phoenix is set to `enabled` as shown:
 
-![Apache Phoenix HDInsight Cluster Settings](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
+![Apache Phoenix HDInsight Cluster Settings](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### Use `psql` to bulk load tables
 
