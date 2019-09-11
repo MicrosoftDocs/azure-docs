@@ -1,6 +1,6 @@
 ---
 title: Poor performance in Apache Hive LLAP queries in Azure HDInsight
-description:  Queries in Apache Hive LLAP are executing slower than expected.
+description: Queries in Apache Hive LLAP are executing slower than expected in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft

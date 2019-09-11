@@ -279,6 +279,8 @@
       href: connector-informix.md
     - name: Jira
       href: connector-jira.md
+    - name: JSON format
+      href: format-json.md
     - name: Magento
       href: connector-magento.md
     - name: MariaDB
