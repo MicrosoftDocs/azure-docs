@@ -385,7 +385,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
    
     The Azure Resource Manager template is located at **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. It creates the following resources:
     
@@ -414,7 +414,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
       | SSH User Name | The SSH user to create for the clusters. |
       | SSH Password | The password for the SSH user. |
    
-      ![Picture of the template parameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Picture of the template parameters](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
