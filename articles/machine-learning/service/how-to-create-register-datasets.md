@@ -106,7 +106,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 #### Workspace landing page 
 
-Sign in to the [workspace landing page](https://ml.azure.com) to create a a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
+Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
 
 The following animation shows how to create a dataset in the workspace landing page. 
 
@@ -146,6 +146,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> Datasets created via the workspace landing page are automatically registered to the workspace. 
+
 ## Version datasets
 
 You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning: 
@@ -153,7 +156,7 @@ You can register a new dataset under the same name by creating a new version. Da
 * When you are applying different data preparation or feature engineering approaches.
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
