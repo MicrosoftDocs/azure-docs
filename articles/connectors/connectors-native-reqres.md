@@ -209,7 +209,6 @@ Your logic app keeps the incoming request open only for one minute. Assuming tha
    | Status Code | `statusCode` | Yes | The HTTP status code to return |
    | Headers | `headers` | No | A JSON object that describes any response headers to include.  |
    | Body | `body` | No | The response body |
-   | 
    |||||
 
 1. To specify additional properties, such as a JSON schema for the response, open the **Add new parameter** list, and select the parameters that you want to add.
