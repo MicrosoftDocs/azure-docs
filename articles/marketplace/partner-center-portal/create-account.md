@@ -79,6 +79,9 @@ If you're already enrolled in the Microsoft Partner Network, use this section to
 
 Make sure to have your Microsoft Partner Network account information handy.
 
+>[!Important]
+>If you have an account in the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) that has been moved to Partner Center, you do not need to create a new account. See [Publishers moving from CPP](#publishers-moving-from-cpp) for more information.
+
 ### Sign into Partner Center with your work account
 
 Sign into [Partner Center](https://partner.microsoft.com/) with your Microsoft Partner Network account so you link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign into Partner Center with their work account usernames and passwords.
