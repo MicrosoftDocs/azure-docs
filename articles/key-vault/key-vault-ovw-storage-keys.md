@@ -6,7 +6,7 @@ services: key-vault
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
 # Customer intent: As a developer, I want to use Azure Key Vault for secure management of my storage credentials and shared access signature tokens.
 ---
