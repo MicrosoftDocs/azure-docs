@@ -27,8 +27,6 @@
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java
-        href: storage-quickstart-blobs-java-v10.md
       - name: Node.js
         href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
@@ -87,6 +85,8 @@
       href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Java
       href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Python
+      href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
@@ -147,6 +147,8 @@
         href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Performance and scalability checklist
         href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Latency in Blob storage
+        href: storage-blobs-latency.md
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data migration
@@ -482,6 +484,36 @@
         href: /rest/api/storagerp
       - name: Import/Export
         href: /rest/api/storageimportexport
+    - name: AzCopy v10
+      items:
+      - name: azcopy
+        href: ../common/storage-ref-azcopy.md
+      - name: azcopy copy
+        href: ../common/storage-ref-azcopy-copy.md
+      - name: azcopy doc
+        href: ../common/storage-ref-azcopy-doc.md
+      - name: azcopy env
+        href: ../common/storage-ref-azcopy-env.md
+      - name: azcopy jobs
+        href: ../common/storage-ref-azcopy-jobs.md
+      - name: azcopy jobs list
+        href: ../common/storage-ref-azcopy-jobs-list.md
+      - name: azcopy jobs resume
+        href: ../common/storage-ref-azcopy-jobs-resume.md
+      - name: azcopy jobs show
+        href: ../common/storage-ref-azcopy-jobs-show.md
+      - name: azcopy list
+        href: ../common/storage-ref-azcopy-list.md
+      - name: azcopy login
+        href: ../common/storage-ref-azcopy-login.md
+      - name: azcopy logout
+        href: ../common/storage-ref-azcopy-logout.md
+      - name: azcopy make
+        href: ../common/storage-ref-azcopy-make.md
+      - name: azcopy remove
+        href: ../common/storage-ref-azcopy-remove.md
+      - name: azcopy sync
+        href: ../common/storage-ref-azcopy-sync.md
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -585,8 +617,6 @@
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java
-        href: storage-quickstart-blobs-java-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
   - name: Tutorials

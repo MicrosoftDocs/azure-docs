@@ -7,7 +7,7 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
 ---

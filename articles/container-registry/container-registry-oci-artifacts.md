@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2019
+ms.date: 08/30/2019
 ms.author: stevelas
 ms.custom: 
 ---
@@ -131,12 +131,12 @@ Here is an artifact!
 
 ## Remove the artifact (optional)
 
-To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the repository and any artifact you stored there:
+To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the artifact you stored there:
 
 ```azurecli
 az acr repository delete \
     --name myregistry \
-    --repository samples/artifact
+    --image samples/artifact:1.0
 ```
 
 ## Next steps

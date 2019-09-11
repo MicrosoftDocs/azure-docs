@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -139,7 +139,7 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Select **View all applications**
 1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
 1. Under **Manage**, select **User settings**.
-1. Under **LinkedIn account connections**, select **No**, then select **Save**.
+1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.

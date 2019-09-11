@@ -83,13 +83,13 @@ This is the `MSALAccount` interface providing those identifiers:
 @end
 ```
 
-### ADAL getting SSO from MSAL
+### SSO from MSAL to ADAL
 
-If you have two applications, and user first signs into an MSAL based app, you can get SSO in ADAL by saving the `username` from the `MSALAccount` object and passing it to your ADAL-based app as `userId`. ADAL can then find the account information silently with the `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API.
+If you have an MSAL app and an ADAL app, and the user first signs into the MSAL-based app, you can get SSO in the ADAL app by saving the `username` from the `MSALAccount` object and passing it to your ADAL-based app as `userId`. ADAL can then find the account information silently with the `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API.
 
-### MSAL getting SSO from ADAL
+### SSO from ADAL to MSAL
 
-If you have two applications, and user first signs into an ADAL based app, or for migration from ADAL to MSAL, you can use ADAL user identifiers for account lookups in MSAL. 
+If you have an MSAL app and an ADAL app, and the user first signs into the ADAL-based app, you can use ADAL user identifiers for account lookups in MSAL. This also applies when migrating from ADAL to MSAL.
 
 #### ADAL's homeAccountId
 
@@ -105,7 +105,7 @@ You can save this identifier to use in MSAL for account lookups with the `accoun
 
 #### ADAL's `userId`
 
-If `homeAccountId` is not available or if you only have displayable identifier, you can use ADAL's `userId` for account lookup in MSAL. 
+If `homeAccountId` is not available, or you only have the displayable identifier, you can use ADAL's `userId` to lookup the account in  MSAL.
 
 In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback. If account is found, use the account in the acquireTokenSilent calls.
 

@@ -29,7 +29,7 @@ This article will show you how to configure your Microsoft authentication librar
 `MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Modern authentication directly against Active Directory Federation Services (AD FS) is not supported by MSAL (see [ADFS for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers) for details). MSAL supports talking to Azure AD, which itself is federated with AD FS.
+> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers) for details). ADFS is supported through federation.
 
 ## Change the default authority
 
@@ -41,18 +41,26 @@ To work with B2C, the [Microsoft Authentication Library (MSAL)](reference-v2-lib
 
 To support an arbitrary URL format for B2C, `MSALB2CAuthority` can be set with an arbitrary URL, like this:
 
+Objective-C
 ```objc
-NSError *b2cAuthorityError = nil;
 NSURL *authorityURL = [NSURL URLWithString:@"arbitrary URL"];
 MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authorityURL
-                                                                 error:&b2cAuthorityError];
+                                                                     error:&b2cAuthorityError];
+```
+Swift
+```swift
+guard let authorityURL = URL(string: "arbitrary URL") else {
+    // Handle error
+    return
+}
+let b2cAuthority = try MSALB2CAuthority(url: authorityURL)
 ```
 
-All B2C authorities that don't use the default B2C authority format must be declared as known authorities. 
-Known authorities list represents all authorities that application trusts and is expecting to use in their application. 
+All B2C authorities that don't use the default B2C authority format must be declared as known authorities.
 
 Add each different B2C authority to the known authorities list even if authorities only differ in policy.
 
+Objective-C
 ```objc
 MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientApplicationConfig alloc]
                                                                initWithClientId:@"your-client-id"
@@ -60,12 +68,19 @@ MSALPublicClientApplicationConfig *b2cApplicationConfig = [[MSALPublicClientAppl
                                                                authority:b2cAuthority];
 b2cApplicationConfig.knownAuthorities = @[b2cAuthority];
 ```
+Swift
+```swift
+let b2cApplicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: b2cAuthority)
+b2cApplicationConfig.knownAuthorities = [b2cAuthority]
+```
+
+When your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each policy. 
 
 To configure a B2C application, set `@property MSALAuthority *authority` with an instance of `MSALB2CAuthority` in `MSALPublicClientApplicationConfig` before creating `MSALPublicClientApplication`, like this:
 
+Objective-C
 ```ObjC
     // Create B2C authority URL
-    NSError *b2cAuthorityError = nil;
     NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy"];
     
     MSALB2CAuthority *b2cAuthority = [[MSALB2CAuthority alloc] initWithURL:authorityURL
@@ -83,7 +98,6 @@ To configure a B2C application, set `@property MSALAuthority *authority` with an
                                                                    authority:b2cAuthority];
 
     // Initialize MSALPublicClientApplication
-    NSError *error = nil;
     MSALPublicClientApplication *b2cApplication =
     [[MSALPublicClientApplication alloc] initWithConfiguration:b2cApplicationConfig error:&error];
     
@@ -93,36 +107,34 @@ To configure a B2C application, set `@property MSALAuthority *authority` with an
         return;
     }
 ```
+Swift
+```swift
+do{
+    // Create B2C authority URL
+    guard let authorityURL = URL(string: "https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy") else {
+        // Handle error
+        return
+    }
+    let b2cAuthority = try MSALB2CAuthority(url: authorityURL)
 
-When your app requests a new policy, the authority URL needs to be changed because the authority URL is different for each B2C policy. Applying a policy (for example letting the end user edit their profile or reset their password) is done by calling MSAL's `acquireTokenWithParameters:completionBlock:` API. 
+    // Create MSALPublicClientApplication configuration
+    let b2cApplicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: b2cAuthority)
 
-```ObjC
-    NSURL *profilePolicyURL = [NSURL URLWithString:@"https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfilePolicy"];
-    
-    NSError *policyError = nil;
-    MSALB2CAuthority *editProfileAuthority = [[MSALB2CAuthority alloc] initWithURL:profilePolicyURL error:&policyError];
-    
-    UIViewController *parentController = nil /* fill in this with an actual value */;
-    MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithParentViewController:parentController];
-    MSALInteractiveTokenParameters *policyParameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"myb2cscope"]
-                                                                                            webviewParameters:webParameters];
-    policyParameters.authority = editProfileAuthority;
-    
-    [b2cApplication acquireTokenWithParameters:policyParameters
-                               completionBlock:^(MSALResult * _Nullable result, NSError * _Nullable error)
-    {
-            // Handle result
-    }];
+    // Initialize MSALPublicClientApplication
+    let b2cApplication = try MSALPublicClientApplication(configuration: b2cApplicationConfig)
+} catch {
+    // Handle error
+}
 ```
 
 ### Sovereign clouds
 
-If your app runs in a national cloud, you may need to change the authority URL in the `MSALPublicClientApplication`. The following example sets the authority URL to work with the German AAD cloud:
+If your app runs in a sovereign cloud, you may need to change the authority URL in the `MSALPublicClientApplication`. The following example sets the authority URL to work with the German AAD cloud:
 
+Objective-C
 ```objc
-    NSError *sovereignError = nil;
     NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.de/common"];
-    MSALAuthority *sovereignAuthority = [MSALAuthority authorityWithURL:authorityURL error:&sovereignError];
+    MSALAuthority *sovereignAuthority = [MSALAuthority authorityWithURL:authorityURL error:&authorityError];
     
     if (!sovereignAuthority)
     {
@@ -130,13 +142,13 @@ If your app runs in a national cloud, you may need to change the authority URL i
         return;
     }
     
-    MSALPublicClientApplicationConfig *sovereignConfig = [[MSALPublicClientApplicationConfig alloc]
+    MSALPublicClientApplicationConfig *applicationConfig = [[MSALPublicClientApplicationConfig alloc]
                                                                initWithClientId:@"your-client-id"
                                                                redirectUri:@"your-redirect-uri"
                                                                authority:sovereignAuthority];
     
     
-    MSALPublicClientApplication *sovereignApplication = [[MSALPublicClientApplication alloc] initWithConfiguration:sovereignConfig error:&sovereignError];
+    MSALPublicClientApplication *sovereignApplication = [[MSALPublicClientApplication alloc] initWithConfiguration:applicationConfig error:&error];
     
     
     if (!sovereignApplication)
@@ -145,14 +157,28 @@ If your app runs in a national cloud, you may need to change the authority URL i
         return;
     }
 ```
+Swift
+```swift
+do{
+    guard let authorityURL = URL(string: "https://login.microsoftonline.de/common") else {
+        //Handle error
+        return
+    }
+    let sovereignAuthority = try MSALAuthority(url: authorityURL)
+            
+    let applicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: sovereignAuthority)
+            
+    let sovereignApplication = try MSALPublicClientApplication(configuration: applicationConfig)
+} catch {
+    // Handle error
+}
+```
 
-You may need to pass different scopes to each national cloud. Which scopes to send depends on the resource that you're using. For example, you might use `"https://graph.microsoft.com/user.read"` in worldwide cloud, and `"https://graph.microsoft.de/user.read"` in German cloud.
-
-Learn more about [national clouds](authentication-national-cloud.md)
+You may need to pass different scopes to each sovereign cloud. Which scopes to send depends on the resource that you're using. For example, you might use `"https://graph.microsoft.com/user.read"` in worldwide cloud, and `"https://graph.microsoft.de/user.read"` in German cloud.
 
 ### Signing a user into a specific tenant
 
-When the tenantId in the authority URL is set to `common` (e.g. `https://login.microsoftonline.com/common`),   the user will be signed into their home tenant. However, some apps may need to sign the user into a different tenant and some apps only work with a single tenant.
+When the authority URL is set to `"login.microsoftonline.com/common"`, the user will be signed into their home tenant. However, some apps may need to sign the user into a different tenant and some apps only work with a single tenant.
 
 To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority. For example:
 
@@ -160,10 +186,10 @@ To sign the user into a specific tenant, configure `MSALPublicClientApplication`
 
 The following shows how to sign a user into a specific tenant:
 
+Objective-C
 ```objc
-    NSError *error = nil;
     NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4"];
-    MSALAuthority *tenantedAuthority = [MSALAuthority authorityWithURL:authorityURL error:&error];
+    MSALAADAuthority *tenantedAuthority = [[MSALAADAuthority alloc] initWithURL:authorityURL error:&authorityError];
     
     if (!tenantedAuthority)
     {
@@ -172,9 +198,9 @@ The following shows how to sign a user into a specific tenant:
     }
     
     MSALPublicClientApplicationConfig *applicationConfig = [[MSALPublicClientApplicationConfig alloc]
-                                                            initWithClientId:@"your-client-id"
-                                                            redirectUri:@"your-redirect-uri"
-                                                            authority:tenantedAuthority];
+                                                               initWithClientId:@"your-client-id"
+                                                               redirectUri:@"your-redirect-uri"
+                                                               authority:tenantedAuthority];
     
     MSALPublicClientApplication *application =
     [[MSALPublicClientApplication alloc] initWithConfiguration:applicationConfig error:&error];
@@ -185,12 +211,22 @@ The following shows how to sign a user into a specific tenant:
         return;
     }
 ```
-
-### Only sign in organizational or personal accounts
-
-If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any AAD organization or a Microsoft personal account (MSA). 
-
-If you want to restrict login to AAD accounts only, you need to use `https://login.microsoftonline.com/organizations` as authority. If you only want to sign in with Microsoft personal accounts, you need to use `https://login.microsoftonline.com/consumers` as authority.
+Swift
+```swift
+do{
+    guard let authorityURL = URL(string: "https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4") else {
+        //Handle error
+        return
+    }    
+    let tenantedAuthority = try MSALAADAuthority(url: authorityURL)
+            
+    let applicationConfig = MSALPublicClientApplicationConfig(clientId: "your-client-id", redirectUri: "your-redirect-uri", authority: tenantedAuthority)
+            
+    let application = try MSALPublicClientApplication(configuration: applicationConfig)
+} catch {
+    // Handle error
+}
+```
 
 ## Supported authorities
 

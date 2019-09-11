@@ -2,7 +2,7 @@
 title: Language detection cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search

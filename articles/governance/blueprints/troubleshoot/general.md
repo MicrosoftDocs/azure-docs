@@ -7,7 +7,6 @@ ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Troubleshoot errors using Azure Blueprints
 
@@ -71,7 +70,7 @@ To pass a function through as a parameter, escape the entire string with `[` suc
 parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to
 treat the value as a string when processing the blueprint. Blueprints then places the function on
 the artifact allowing it to be dynamic as expected. For more information, see
-[Template file structure - syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
+[Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/template-expressions.md).
 
 ## Next steps
 

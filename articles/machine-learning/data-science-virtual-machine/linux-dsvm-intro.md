@@ -1,25 +1,18 @@
 ---
-title: Create a CentOS Linux Data Science Virtual Machine
-titleSuffix: Azure
+title: 'Quickstart: Create a CentOS Linux'
+titleSuffix: Azure Data Science Virtual Machine 
 description: Create and configure a Linux Data Science Virtual Machine in Azure for analytics and machine learning.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: vijetaj
 
 ---
-# Provision a Linux CentOS Data Science Virtual Machine in Azure
+# Quickstart: Set up a Linux CentOS Data Science Virtual Machine in Azure
 
 The Linux Data Science Virtual Machine (DSVM) is a CentOS-based Azure virtual machine. The Linux DSVM comes with a collection of preinstalled tools that you can use for data analytics and machine learning. 
 

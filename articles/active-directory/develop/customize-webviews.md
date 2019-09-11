@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # How to: Customize browsers and WebViews for iOS/macOS
 
-Web browsers are required for interactive authentication. The Microsoft Authentication Library (MSAL) on iOS uses a system web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. Using the system browser has the significant advantage of sharing the SSO state with other applications and with web applications.
+A web browser is required for interactive authentication. On iOS, the Microsoft Authentication Library (MSAL) uses a system web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. Using the system browser has the significant advantage of sharing the Single Sign ON (SSO) state with other applications and with web applications.
 
 You can change the experience by customizing the configuration to other options for displaying web content, such as:
 
@@ -50,10 +50,10 @@ By default, MSAL will dynamically detect iOS version and select the recommended 
 | iOS 11 | SFAuthenticationSession |
 | iOS 10 | SFSafariViewController |
 
-Developer can also select a different kind of a system browser for MSAL:
+Developers can also select a different system browser for MSAL apps:
 
-- `SFAuthenticationSession` is an iOS 11 version of `ASWebAuthenticationSession`.
-- `SFSafariViewController` is more general purpose and provides an interface for browsing the web and can be used for login purposes as well. In iOS 9 and 10, cookies and other website data are shared with Safari, but not in iOS 11 and later.
+- `SFAuthenticationSession` is the iOS 11 version of `ASWebAuthenticationSession`.
+- `SFSafariViewController` is more general purpose and provides an interface for browsing the web and can be used for login purposes as well. In iOS 9 and 10, cookies and other website data are shared with Safari--but not in iOS 11 and later.
 
 ## In-app browser
 
@@ -71,7 +71,7 @@ The browser you use impacts the SSO experience because of how they share cookies
 | **SFSafariViewController** | System | iOS10 | N/A | Yes | iOS only |  w/ Safari instances
 | **WKWebView**  | In-app | iOS8 and up | macOS 10.10 and up | No | iOS and macOS | No**
 
-** For SSO to work, tokens need to be shared between apps which requires a token cache or broker application such as Microsoft Authenticator for iOS.
+** For SSO to work, tokens need to be shared between apps. This requires a token cache, or broker application, such as Microsoft Authenticator for iOS.
 
 ## Change the default browser for the request
 
@@ -89,6 +89,7 @@ Additionally, MSAL supports passing in a custom `WKWebView` by setting the `MSAL
 
 For example:
 
+Objective-C
 ```objc
 UIViewController *myParentController = ...;
 WKWebView *myCustomWebView = ...;
@@ -98,6 +99,17 @@ webViewParameters.customWebview = myCustomWebView;
 MSALInteractiveTokenParameters *interactiveParameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"myscope"] webviewParameters:webViewParameters];
     
 [app acquireTokenWithParameters:interactiveParameters completionBlock:completionBlock];
+```
+Swift
+```swift
+let myParentController: UIViewController = ...
+let myCustomWebView: WKWebView = ...
+let webViewParameters = MSALWebviewParameters(parentViewController: myParentController)
+webViewParameters.webviewType = MSALWebviewType.wkWebView
+webViewParameters.customWebview = myCustomWebView
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: ["myscope"], webviewParameters: webViewParameters)
+
+app.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
 ```
 
 If you use a custom webview, notifications are used to indicate the status of the web content being displayed, such as:

@@ -444,7 +444,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](./concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).

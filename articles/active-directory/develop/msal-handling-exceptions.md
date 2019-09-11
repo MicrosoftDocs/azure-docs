@@ -52,6 +52,7 @@ For example, `MSALInternalErrorBrokerResponseNotReceived` means that user didn't
 
 The following Objective-C sample code demonstrates best practices for handling some common error conditions:
 
+Objective-C
 ```ObjC
     MSALInteractiveTokenParameters *interactiveParameters = ...;
     MSALSilentTokenParameters *silentParameters = ...;
@@ -65,7 +66,6 @@ The following Objective-C sample code demonstrates best practices for handling s
         {
             // Use result.accessToken
             NSString *accessToken = result.accessToken;
-            NSLog(@"accessToken: %@", accessToken);
             return;
         }
         
@@ -94,15 +94,6 @@ The following Objective-C sample code demonstrates best practices for handling s
                                                   completionBlock:weakCompletionBlock];
                     
                     // Otherwise, instead, handle error fittingly to the application context
-                    break;
-                }
-                    
-                case MSALErrorWorkplaceJoinRequired:
-                {
-                    // You may want to ask the user to work place join the device
-                    // (open Authenticator app -> Settings -> Device Registration).
-                    // Handling of this error is optional.
-                    
                     break;
                 }
                     
@@ -157,6 +148,93 @@ The following Objective-C sample code demonstrates best practices for handling s
         // or reporting authentication problems to the user.
         NSLog(@"Failed with error %@", error);
     };
+    
+    // Acquire token silently
+    [application acquireTokenSilentWithParameters:silentParameters
+                                  completionBlock:completionBlock];
+
+     // or acquire it interactively.
+     [application acquireTokenWithParameters:interactiveParameters
+                             completionBlock:completionBlock];
+```
+
+Swift
+```swift
+    let interactiveParameters: MSALInteractiveTokenParameters = ...
+    let silentParameters: MSALSilentTokenParameters = ...
+            
+    var completionBlock: MSALCompletionBlock!
+    completionBlock = { (result: MSALResult?, error: Error?) in
+                
+        if let result = result
+        {
+            // Use result.accessToken
+            let accessToken = result.accessToken
+            return
+        }
+
+        guard let error = error as NSError? else { return }
+
+        if error.domain == MSALErrorDomain, let errorCode = MSALError(rawValue: error.code)
+        {
+            switch errorCode
+            {
+                case .interactionRequired:
+                    // Interactive auth will be required
+                    application.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
+
+                case .serverDeclinedScopes:
+                    let grantedScopes = error.userInfo[MSALGrantedScopesKey]
+                    let declinedScopes = error.userInfo[MSALDeclinedScopesKey]
+
+                    if let scopes = grantedScopes as? [String] {
+                        silentParameters.scopes = scopes
+                        application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
+                    }
+                        
+                    case .serverProtectionPoliciesRequired:
+                        // Integrate the Intune SDK and call the
+                        // remediateComplianceForIdentity:silent: API.
+                        // Handle this error only if you integrated Intune SDK.
+                        // See more info here: https://aka.ms/intuneMAMSDK
+                        break
+                        
+                    case .userCanceled:
+                       // The user cancelled the web auth session.
+                       // You may want to ask the user to try again.
+                       // Handling of this error is optional.
+                       break
+                        
+                    case .internal:
+                        // Log the error, then inspect the MSALInternalErrorCodeKey
+                        // in the userInfo dictionary.
+                        // Display generic error message to the end user
+                        // More detailed information about the specific error
+                        // under MSALInternalErrorCodeKey can be found in MSALInternalError enum.
+                        print("Failed with error \(error)");
+                        
+                    default:
+                        print("Failed with unknown MSAL error \(error)")
+            }
+        }
+                
+        // Handle no internet connection.
+        if error.domain == NSURLErrorDomain && error.code == NSURLErrorNotConnectedToInternet
+        {
+            print("No internet connection.")
+            return
+        }
+                
+        // Other errors may require trying again later,
+        // or reporting authentication problems to the user.
+        print("Failed with error \(error)");    
+    }
+   
+    // Acquire token silently
+    application.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
+ 
+    // or acquire it interactively.
+    application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
 ## .NET exceptions
@@ -314,7 +392,7 @@ Interactively acquiring the token prompts the user and gives them the opportunit
 
 When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claimsRequest` field of the `AuthenticationParameters.ts` class to satisfy the appropriate policy. 
 
-See [Requesting Additional Claims]() for more detail.
+See [Requesting Additional Claims](active-directory-optional-claims.md) for more detail.
 
 ### MSAL for iOS and macOS
 

@@ -58,7 +58,7 @@ The MSAL public API reflects a few key differences between Azure AD v1.0 and the
 
 `ADAuthenticationContext` is the first object an ADAL app creates. It represents an instantiation of ADAL. Apps create a new instance of `ADAuthenticationContext` for each Azure Active Directory cloud and tenant (authority) combination. The same `ADAuthenticationContext` can be used to get tokens for multiple public client applications.
 
-In MSAL, the main interaction is through an `MSALPublicClientApplication` object, which is designed after [OAuth 2.0 Public Client](https://tools.ietf.org/html/rfc6749#section-2.1). One instance of `MSALPublicClientApplication` can be used to interact with multiple AAD clouds, and tenants, without needing to create a new instance for each authority. For most apps, one `MSALPublicClientApplication` instance is sufficient.
+In MSAL, the main interaction is through an `MSALPublicClientApplication` object, which is modeled after [OAuth 2.0 Public Client](https://tools.ietf.org/html/rfc6749#section-2.1). One instance of `MSALPublicClientApplication` can be used to interact with multiple AAD clouds, and tenants, without needing to create a new instance for each authority. For most apps, one `MSALPublicClientApplication` instance is sufficient.
 
 ### Scopes instead of resources
 
@@ -244,7 +244,7 @@ You can add MSAL SDK to your app using your preferred package management tool. S
 
 ### Update your app's Info.plist file
 
-Add your application's redirect URI scheme to your info.plist file. For ADAL broker compatible apps, it should be there already. The default MSAL redirect URI scheme will be in the format: `msauth.<app.bundle.id>`.  
+For iOS only, add your application's redirect URI scheme to your info.plist file. For ADAL broker compatible apps, it should be there already. The default MSAL redirect URI scheme will be in the format: `msauth.<app.bundle.id>`.  
 
 ```xml
 <key>CFBundleURLSchemes</key>
@@ -265,7 +265,7 @@ Add following schemes to your app's Info.plist under `LSApplicationQueriesScheme
 
 ### Update your AppDelegate code
 
-Add the following to your AppDelegate.m file:
+For iOS only, add the following to your AppDelegate.m file:
 
 Objective-C:
 
@@ -288,6 +288,17 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 This allows MSAL to handle responses from the broker and web component.
 This wasn't necessary in ADAL since it "swizzled" app delegate methods automatically. Adding it manually is less error prone and gives the application more control.
+
+### Enable token caching
+
+By default, MSAL caches your app's tokens in the iOS or macOS keychain. 
+
+To enable token caching:
+1. Ensure your application is properly signed
+2. Go to your Xcode Project Settings > **Capabilities tab** > **Enable Keychain Sharing**
+3. Click **+** and enter a following **Keychain Groups** entry:
+3.a For iOS, enter `com.microsoft.adalcache`
+3.b For macOS enter `com.microsoft.identity.universalstorage`
 
 ### Create MSALPublicClientApplication and switch to its acquireToken and acquireTokeSilent calls
 

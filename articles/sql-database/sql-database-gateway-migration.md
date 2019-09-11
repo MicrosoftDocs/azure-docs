@@ -35,11 +35,11 @@ The first round of traffic migration to newer Gateways  is scheduled for **Octob
 - East Asia
 
 The traffic migration will change the public IP address that DNS resolves for your SQL Database.
-You will be impacted if you have
+You will be impacted if you have:
 - Hard coded the IP address for any particular Gateway in your on-premises firewall
 - Any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the Gateway IP addresses
 
-You will not be impacted if you have 
+You will not be impacted if you have :
 - Redirection as the connection policy
 - Connections to SQL Database from inside Azure and using Service Tags
 - Connections made using supported versions of JDBC Driver for SQL Server will see no impact. For supported JDBC versions, see [Download Microsoft JDBC Driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

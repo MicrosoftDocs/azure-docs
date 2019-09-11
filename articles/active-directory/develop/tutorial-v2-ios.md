@@ -46,7 +46,9 @@ This tutorial is applicable to both iOS and macOS apps. Note that some steps are
 - XCode version 10.x or greater is required to build the app in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). You can use a dependency manager or add the library manually. The instructions below show you how.
 
-This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
+This tutorial will create a new project. If you want to download the completed tutorial instead, download the code:
+- [iOS sample code](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [macOS sample code](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 ## Create a new project
 
@@ -141,7 +143,7 @@ var webViewParamaters : MSALWebviewParameters?
 
 Modify the value assigned to `kClientID`to be your Application ID. This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
-## [iOS only step] Configure URL schemes
+## For iOS only, configure URL schemes
 
 In this step, you will register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.
 
@@ -164,7 +166,7 @@ In Xcode, open `Info.plist` as a source code file, and add the following inside 
 </array>
 ```
 
-## [macOS only step] Configure App Sandbox
+## For macOS only, configure App Sandbox
 
 1. Go to your Xcode Project Settings > **Capabilities tab** > **App Sandbox**
 2. Select **Outgoing Connections (Client)** checkbox. 
@@ -329,7 +331,7 @@ func initWebViewParams() {
     }
 ```
 
-### [iOS only step] Handle the sign-in callback
+### For iOS only, handle the sign-in callback
 
 Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
 
@@ -554,12 +556,14 @@ To add sign-out capability, add the following code inside the `ViewController` c
 
 By default, MSAL caches your app's tokens in the iOS or macOS keychain. 
 
-For iOS only, to enable token caching:
-1. Go to your Xcode Project Settings > **Capabilities tab** > **Enable Keychain Sharing**
-2. Click **+** and enter `com.microsoft.adalcache` as a **Keychain Groups** entry.
+To enable token caching:
+1. Ensure your application is properly signed
+2. Go to your Xcode Project Settings > **Capabilities tab** > **Enable Keychain Sharing**
+3. Click **+** and enter a following **Keychain Groups** entry:
+3.a For iOS, enter `com.microsoft.adalcache`
+3.b For macOS enter `com.microsoft.identity.universalstorage`
 
 ### Add helper methods
-
 Add the following helper methods to the `ViewController` class to complete the sample.
 
 ### iOS UI:
