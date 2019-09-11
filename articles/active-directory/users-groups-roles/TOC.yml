@@ -74,8 +74,8 @@
     items: 
     - name: Manage access with groups    
       href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage groups in the Azure portal    
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Search group and member lists (preview)    
+      href: groups-members-owners-search.md
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups PowerShell MSOnline    
@@ -86,7 +86,9 @@
       href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage groups in groups    
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Add group access to SaaS apps    
+    - name: Create a group (Azure portal)    
+      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Add group access to SaaS apps
       href: groups-saasapps.md
     - name: Groups naming reference
       href: groups-naming-policy.md
