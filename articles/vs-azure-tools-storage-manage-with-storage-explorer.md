@@ -59,9 +59,6 @@ The .tar.gz installation may work on other distributions, but only ones listed a
 
 For more help installing Storage Explorer on Linux, see the [Troubleshooting Guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
-The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
-
-
 ## Download and install
 
 [Download and install Storage Explorer](https://www.storageexplorer.com)
@@ -118,7 +115,7 @@ You can attach to a resource in Storage Explorer using different options:
 
 3. Select the **Add a resource via Azure Active Directory (Azure AD)** option and click **Next**.
 
-4. Select the Azure Account and subscription that has access to the Storage resource you want to attach to. Click **Next**.
+4. Select the Azure Account and tenant that has access to the Storage resource you want to attach to. Click **Next**.
 
 5. Choose the resource type you want to attach, and then enter the information needed to connect. The inputs on this page will change depending on what type of resource you're adding. Make sure to choose the correct type of resource. Once you've filled in the required information, click **Next**.
 
