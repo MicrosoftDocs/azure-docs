@@ -31,14 +31,12 @@ This article contains recommendations and best practices for managing applicatio
 | Require user assignment  | By default, users can access to your enterprise applications without being assigned to them. However, if the application exposes roles, or if you want the application to appear on a user’s access panel, require user assignment. (See [Developer guidance for integrating applications](https://docs.microsoft.com/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications).)  | 
 | Deploy the My Apps access panel to your users | The [access panel](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences) at `https://myapps.microsoft.com` is a web-based portal that provides users with a single point of entry for their assigned cloud-based applications. As additional capabilities like group management and self-service password reset are added, users can find them in the access panel. See [Plan an access panel deployment](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan).
 | Use group assignment  | If included in your subscription, assign groups to an application so you can delegate ongoing access management to the group owner. (See [Developer guidance for integrating applications](https://docs.microsoft.com/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications).)   | 
+| Establish a process for managing certificates | The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. |
 
 ## Provisioning recommendations
 | Recommendation | Comments |
 | --- | --- |
 | Use tutorials to set up provisioning with cloud apps | Check the [List of SaaS app tutorials](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for step-by-step guidance for configuring provisioning for the gallery app you want to add. |
-| Use Azure AD provisioning service to support other identity providers | The Azure AD provisioning service uses SCIM. If you want to support other SCIM-compliant IdPs, use the Azure AD provisioning service so the IdP can connect to your SCIM endpoint. (See [Plan for automatic provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-automatic-provisioning-multi-tenant-apps).) |
-Use Privileged Identity Management (PIM) | Use [Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) to manage your roles to provide additional auditing, control, and access review for users with directory permissions. |
-| Establish a process for managing certificates | The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. |
 
 ## Application Proxy recommendations
 | Recommendation | Comments |
