@@ -2,9 +2,15 @@
 title: 'Reference: Windows DSVM'
 description: 'Details on tools included in the Windows Data Science VM'
 author: gvashishtha
+ms.service: machine-learning
+ms.subservice: data-science-vm
+
 ms.author: gopalv
-ms.date: 9.11.2019
+ms.date: 09/11/2019
 ms.topic: reference
+
+
+
 ---
 
 # Windows Data Science Virtual Machine Reference
