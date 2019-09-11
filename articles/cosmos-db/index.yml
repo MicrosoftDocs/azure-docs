@@ -279,7 +279,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Store and access graph data
-            url: learn/modules/store-access-data-cosmos-graph-api/
+            url: /learn/modules/store-access-data-cosmos-graph-api/
 
   # Card
   - title: Build an app with Table API account
