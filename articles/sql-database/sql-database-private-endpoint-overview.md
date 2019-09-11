@@ -128,9 +128,9 @@ To establish connectivity from on-premises, choose & implement one of the option
 
 
 ### Azure SQL Data Warehouse PolyBase 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints or Service Endpoints or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps provided [here] ( missing link) . 
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints or Service Endpoints or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps provided [here] (https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#impact-of-using-vnet-service-endpoints-with-azure-storage) . 
 
-Shape 
+
 
 ## Next steps
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
