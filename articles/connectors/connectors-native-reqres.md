@@ -16,7 +16,7 @@ tags: connectors
 
 # Respond to HTTP requests by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that react and respond in real time to events that are sent over HTTP. For example, you can have your logic app:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond in real time to HTTP requests. For example, you can have your logic app:
 
 * Respond to an HTTP request for data in an on-premises database.
 * Trigger a workflow when an external webhook event happens.
@@ -30,9 +30,9 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 <a name="add-request"></a>
 
-## Add the Request trigger
+## Add a Request trigger
 
-This built-in trigger creates an endpoint that waits for and receives an incoming request over HTTP. When this event happens, the trigger fires and runs the logic app.
+This built-in trigger creates a manually callable endpoint that can receive an incoming HTTP request. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
@@ -40,7 +40,17 @@ This built-in trigger creates an endpoint that waits for and receives an incomin
 
    ![Select HTTP request trigger](./media/connectors-native-reqres/select-request-trigger.png)
 
-1. For the **Request Body JSON Schema** box, you can optionally enter a JSON schema that describes the HTTP request body that's expected in the incoming request, for example:
+   The Request trigger shows these properties:
+
+   ![Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
+
+   | Property name | JSON property name | Required | Description |
+   |---------------|--------------------|----------|-------------|
+   | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save the logic app and is used for calling your logic app |
+   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describe properties and values in the incoming HTTP request body |
+   |||||
+
+1. In the **Request Body JSON Schema** box, optionally enter a JSON schema that describes the HTTP request body that's expected in the incoming request, for example:
 
    ![Example JSON schema](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -133,6 +143,12 @@ This built-in trigger creates an endpoint that waits for and receives an incomin
 
 1. To specify additional properties, such as the expected method used for the request or a relative path, open the **Add new parameter** list, and select the parameters that you want to add.
 
+   | Property name | JSON property name | Required | Description |
+   |---------------|--------------------|----------|-------------|
+   | **Method** | `method` | No | The method that the incoming request must use to call the logic app |
+   | **Relative path** | `relativePath` | No | The relative path for the parameter that the logic app's endpoint URL can accept |
+   |||||
+
    This example adds the **Method** parameter:
 
    ![Add Method parameter](./media/connectors-native-reqres/add-parameters.png)
@@ -143,12 +159,9 @@ This built-in trigger creates an endpoint that waits for and receives an incomin
 
 1. Now, add another action as the next step in your workflow. Under the trigger, select **Next step** so that you can find the action that you want to add.
 
-   For example, you can respond to the request by [adding a Response action](#add-response), which is described later in this topic.
+   For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this topic.
 
-   > [!NOTE]
-   > If you don't include and define a Response action in your logic app workflow, 
-   > your logic app immediately returns a `202 ACCEPTED` response to the caller. 
-   > You can use the Response action to customize a response.
+   Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**. 
 
@@ -162,8 +175,8 @@ This built-in trigger creates an endpoint that waits for and receives an incomin
 
 Here's more information about the outputs from the Request trigger:
 
-| Property name | Data type | Description |
-|---------------|-----------|-------------|
+| JSON property name | Data type | Description |
+|--------------------|-----------|-------------|
 | `headers` | Object | A JSON object that describes the headers from the request |
 | `body` | Object | A JSON object that describes the body content from the request |
 ||||
@@ -172,9 +185,9 @@ Here's more information about the outputs from the Request trigger:
 
 ## Add a Response action
 
-You can use the Response action to customize a response but only in a logic app workflow that's triggered by an HTTP request. You can add the Response action at any point in your workflow.
+You can use the Response action to respond with a payload (data) to an incoming HTTP request but only in a logic app that's triggered by an HTTP request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. However, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller. 
+Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
 
@@ -194,7 +207,7 @@ Your logic app keeps the incoming request open only for one minute. Assuming tha
 
    In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
 
-   For example, in the **Headers** field, include `Content-Type` as the key name and set the key value to `application/json`, as mentioned earlier in this topic. For the **Body** field, you can select the trigger body from the dynamic content list.
+   For example, for the **Headers** box, include `Content-Type` as the key name, and set the key value to `application/json` as mentioned earlier in this topic. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
    ![Response action details](./media/connectors-native-reqres/response-details.png)
 
@@ -204,14 +217,14 @@ Your logic app keeps the incoming request open only for one minute. Assuming tha
 
    Here is more information about the properties that you can set in the Response action. 
 
-   | Display name | Property name | Required | Description |
-   |--------------|---------------|----------|-------------|
-   | Status Code | `statusCode` | Yes | The HTTP status code to return |
-   | Headers | `headers` | No | A JSON object that describes any response headers to include.  |
-   | Body | `body` | No | The response body |
+   | Property name | JSON property name | Required | Description |
+   |---------------|--------------------|----------|-------------|
+   | **Status Code** | `statusCode` | Yes | The HTTP status code to return in the response |
+   | **Headers** | `headers` | No | A JSON object that describes one or more headers to include in the response |
+   | **Body** | `body` | No | The response body |
    |||||
 
-1. To specify additional properties, such as a JSON schema for the response, open the **Add new parameter** list, and select the parameters that you want to add.
+1. To specify additional properties, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**. 
 
