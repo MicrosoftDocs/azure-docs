@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/03/2019
+ms.date: 09/11/2019
 ms.author: abpati
 ms.custom: aaddev 
 ---
@@ -33,7 +33,6 @@ When you've completed the guide, your application will accept sign-ins of person
 
 To run this sample, you will need:
 
-- An internet connection.
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https:/pythonhosted.org/Flask-Session/), [requests](https://2.python-requests.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
@@ -43,11 +42,7 @@ To run this sample, you will need:
 >
 > ## Register and download your quickstart app
 >
-> You have two options to start your quickstart application:
->
-> 1. Express: [Option 1: Register and auto configure your app and then download your code sample.](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
->
-> 1. Manual: [Option 2: Register and manually configure your application and code sample.](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> You have two options to start your quickstart application: express (Option 1), and manual (Option 2)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
