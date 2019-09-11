@@ -30,6 +30,9 @@ We'll walk through the following starter queries:
 > - [List all storage accounts with specific tag value](#list-specific-tag)
 > - [Show aliases for a virtual machine resource](#show-aliases)
 > - [Show distinct values for a specific alias](#distinct-alias-values)
+> - [Show unattached managed disks](#unattached-managed-disks)
+> - [Show unassociated public IPs](#unassociated-public-ips)
+> - [Show unassociated network security groups](#unassociated-nsgs)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -346,6 +349,61 @@ az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' |
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
+```
+
+## <a name="unattached-managed-disks"/>Show unattached managed disks
+
+This query returns managed disks that are not attached to a virtual machine.
+
+```kusto
+where type =~ "microsoft.compute/disks"
+| where managedBy == ""
+| project name, resourceGroup, sku = sku.name, size = toint(properties.diskSizeGB)
+| sort by size desc
+```
+
+```azurecli-interactive
+az graph query -q "where type =~ 'microsoft.compute/disks' | where managedBy == '' | project name, resourceGroup, sku = sku.name, size = toint(properties.diskSizeGB) | sort by size desc"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'microsoft.compute/disks' | where managedBy == '' | project name, resourceGroup, sku = sku.name, size = toint(properties.diskSizeGB) | sort by size desc"
+```
+
+## <a name="unassociated-public-ips"/>Show unassociated public IPs
+
+This query returns public IP addresses that are not associated.
+
+```kusto
+where type =~ "microsoft.network/publicipaddresses"
+| where isnull(properties.ipConfiguration.id)
+```
+
+```azurecli-interactive
+az graph query -q "where type =~ 'microsoft.network/publicipaddresses' | where isnull(properties.ipConfiguration.id)"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'microsoft.network/publicipaddresses' | where isnull(properties.ipConfiguration.id)"
+```
+
+## <a name="unassociated-nsgs"/>Show unassociated network security groups
+
+This query returns Network Security Groups (NSGs) that are not associated to a network interface or subnet.
+
+```kusto
+where type =~ "microsoft.network/networksecuritygroups"
+| where isnull(properties.networkInterfaces) and isnull(properties.subnets)
+| project name, resourceGroup
+| sort by name asc
+```
+
+```azurecli-interactive
+az graph query -q "where type =~ 'microsoft.network/networksecuritygroups' | where isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'microsoft.network/networksecuritygroups' | where isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
 ## Next steps
