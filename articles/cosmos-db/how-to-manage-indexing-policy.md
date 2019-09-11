@@ -333,6 +333,9 @@ In Azure Cosmos DB, the indexing policy can be updated using any of the below me
 
 An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
 
+> [!NOTE]
+> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. During re-indexing, queries may return partial results as the index is being updated.
+
 ## Use the Azure portal
 
 Azure Cosmos containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.

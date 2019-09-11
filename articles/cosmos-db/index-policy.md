@@ -111,6 +111,9 @@ When defining a composite index, you specify:
 
 - The order (ascending or descending).
 
+> [!NOTE]
+> When adding a composite index, as with other index types, queries may return inconsistent results as the index is being updated.
+
 ### ORDER BY queries on multiple properties:
 
 The following considerations are used when using composite indexes for queries with an `ORDER BY` clause with two or more properties:
