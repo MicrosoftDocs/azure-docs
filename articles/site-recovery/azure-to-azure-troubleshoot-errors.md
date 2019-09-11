@@ -174,7 +174,7 @@ This problem happens most frequently during reprotection, when you have failed o
 
 If you're using a custom DNS, make sure that the DNS server is accessible from the disaster-recovery region. To find out whether you have a custom DNS, on the VM, go to *disaster recovery network* > **DNS servers**.
 
-![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+![Custom DNS server list](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
 Try accessing the DNS server from the virtual machine. If the server is not accessible, make it accessible either by failing over the DNS server or by creating the line of site between the DR network and the DNS.
 
@@ -270,14 +270,14 @@ To make the replication status of the VM healthy again, you can choose either to
 1. Go to **Replicated Items** > *VM name* > **Disks**.
 1. Select the unprotected disk, and then select **Enable replication**:
 
-    ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+    ![Enable replication on VM disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
 #### To dismiss the warning
 
 1. Go to **Replicated items** > *VM name*.
 1. Select the warning in the **Overview** section, and then select **OK**.
 
-    ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
+    ![Dismiss new-disk warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 
 ## Remove the virtual machine from the vault completed with information (error code 150225)
 
@@ -298,7 +298,7 @@ You can ignore this warning if you never intend to protect this virtual machine 
 
 1. Remove the lock from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
-    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+    ![Remove lock from VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 
 1. Download the script to [remove a stale Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
@@ -323,7 +323,7 @@ A stale configuration can occur on an Azure VM if you enabled replication for th
 
 1. Remove the lock from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
-    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+    ![Remove lock from VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 
 1. Download the script to [remove a stale Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
@@ -356,7 +356,7 @@ You might not see the VM that you want to enable for replication if a stale Site
 
 1. Remove the lock, if any, from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
-    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+    ![Remove lock from VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 
 1. Download the script to [remove a stale Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
@@ -425,7 +425,7 @@ Set the COM+ System Application and Volume Shadow Copy services to automatic or 
 1. Open the Services console in Windows.
 1. Make sure the COM+ System Application and Volume Shadow Copy services are not set to **Disabled** as their **Startup Type**.
 
-    ![Com+ or Volume Shadow Copy startup type](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+    ![Check startup type of COM+ System Application and Volume Shadow Copy services](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## Unsupported managed-disk size (error code 150172)
 
