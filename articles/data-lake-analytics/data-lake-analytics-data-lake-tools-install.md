@@ -47,7 +47,7 @@ Download and install [Microsoft Azure Data Lake and Stream Analytics Tools for V
 * The **Server Explorer** > **Azure** node contains a **Data Lake Analytics** node.
 * The **Tools** menu has a **Data Lake** item.
 
-## Next Steps
+## Next steps
 
 * To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
