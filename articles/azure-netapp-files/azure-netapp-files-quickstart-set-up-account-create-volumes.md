@@ -47,7 +47,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 # [Portal](#tab/azure-portal)
 
-For registration steps using Portal, please open a Cloud Shell session as indicated above and follow these Azure CLI steps:
+For registration steps using Portal, open a Cloud Shell session as indicated above and follow these Azure CLI steps:
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -302,7 +302,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Defining some variables for later usa.
+1. Defining some variables for later usage.
     
     ```azurecli-interactive
     VNET_NAME="myvnet1"
