@@ -54,7 +54,7 @@ The downloadable configuration is just an example; modify it to suit your own ne
 
 ### Sample installation
 
-Fill in the correct parameters on the first three lines, then execute this script as root:
+Fill in the correct values for the variables on the first three lines:
 
 ```bash
 # Set your Azure VM diagnostic parameters correctly below
