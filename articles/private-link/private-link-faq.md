@@ -35,8 +35,6 @@ Additional definitions:
 |   |         |         | 
 
 
-### What SLAs are supported? 
-TBD
 ### How can I access control my PaaS resources over private link? 
  
 Today, we don't offer any ACL-ing mechanism on the Azure service side to protect the resource from traffic coming from  private endpoint over private link. However, there are 2 mechanisms with which PaaS resources admin can secure the resources over private Link: 
@@ -111,3 +109,5 @@ Yes. Private endpoints can connect to private link services or Azure PaaS across
  
 ### Can private endpoint connect to Azure PaaS resources across Azure regions? 
 Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
+##  Next steps
+- Learn about [Azure private link](private-link-overview.md)

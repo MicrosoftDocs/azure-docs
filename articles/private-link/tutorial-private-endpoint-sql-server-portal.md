@@ -1,5 +1,5 @@
 ---
-title: 'Connect privately to a SQL server in Azure using Azure portal'
+title: 'Connect privately to a SQL Server in Azure using Azure portal'
 description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
@@ -157,6 +157,7 @@ In this section, you will create a private storage account and add a private end
     |||
 7. Select **Next: Configuration**.
 8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
+
     | Setting | Value |
     | ------- | ----- |
     |**NETWORKING**| |
@@ -166,6 +167,7 @@ In this section, you will create a private storage account and add a private end
     |Integrate with private DNS zone |Select **Yes**. |
     |Private DNS Zone |Select *(New)privatelink.database.windows.net* |
     |||
+
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
  

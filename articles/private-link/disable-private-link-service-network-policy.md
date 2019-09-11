@@ -1,5 +1,5 @@
 ---
-title: 'disable network policies for private link service NAT IP '
+title: 'Disable network policies for private link service NAT IP '
 description: Learn how to disable network policies for private endpoints.
 services: virtual-network
 author: KumudD

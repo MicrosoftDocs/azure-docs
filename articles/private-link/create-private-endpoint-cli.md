@@ -65,7 +65,7 @@ az storage account create \
     --encryption blob \ 
     --default-action Deny 
  ```
-Note the storage account ID, similar to  "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount". You will use the storage account ID in the next step. 
+Note the storage account ID is similar to  */subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount*. You will use the storage account ID in the next step. 
 ## Create the private endpoint 
 Create a private endpoint for the storage account in your virtual network: 
 ```azurecli-interactive
@@ -156,7 +156,7 @@ In this section, you will create a virtual network to host the Azure storage acc
 12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
 13. Close the remote desktop connection to *myVM*. 
 
-Additional options to access the Storage account: (*What is the purpose of this section? Can this section be removed?*)
+Additional options to access the storage account:
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
  
 - The AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 

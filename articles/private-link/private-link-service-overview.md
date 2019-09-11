@@ -13,12 +13,8 @@ ms.author: kumud
 
 Using Azure private link technology, you can create your own private link service in your virtual network (VNet). You can deliver this service privately to your customers by mapping it to private endpoint inside your customer's VNet. This article explains private link service concepts to help you use them effectively. 
 
-## Workflow
+## Lifecycle of private link service 
 
-A complete workflow for private link service is shown below:
-
-![Private link service workflow](./media/private-link-service-overview/workflow.png)
- 
 ### Create your private link service
 - Choose a name, location, VNet for your service.  
 - Create either an internal load balancer (ILB) or a public load balancer. 
@@ -43,7 +39,7 @@ A private link service specifies the following properties:
 |Property |Explanation  |
 |---------|---------|
 |Provisioning State (provisioningState)  |A read-only property listing the current provisioning state for private link service. Applicable provisioning states are: "Deleting; Failed; Succeeded; Updating". When the provisioning state is "Succeeded", you have successfully provisioned your private link service         |
-|Alias (alias)     | Alias is a globally unique read-only string for your service. It helps you mask the personally identifiable information for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.          |
+|Alias (alias)     | Alias is a globally unique read-only string for your service. It helps you mask the customer data for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.          |
 |Visibility (visibility)     | Visibility is the property that controls the exposure settings for your private link service. Service Providers can choose to limit the exposure to their service to subscriptions with RBAC permissions, restricted set of subscriptions, or all Azure subscriptions.          |
 |Auto Approval (autoApproval)    |   Auto-Approval controls the automated access to the private link service. The subscriptions specified in auto-approval list will be approved automatically when connection is requested from private endpoints in those subscriptions.          |
 |FQDN (fqdns)    |   FQDN stands for Fully Qualified Domain Name. Service Provider can share service’s FQDNs at the time of creation. These will be propagated to consumers at time of connection. Consumers can use these FQDNs to configure their DNS to resolve to private endpoint on their side. The alias is used for connection request, not FQDN. FQDNs are for DNS configurations.      |
@@ -68,7 +64,7 @@ A private link service specifies the following properties:
 - Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, Service Providers can assign up to eight NAT IPs per private link service. With each NAT IP, you can assign more ports for your TCP connections and thus scale out. Once you add multiple NAT IP to private link service, you can't delete the NAT IPs. This is done to ensure that active connections are not impacted while deleting the NAT IPs.
 
 ### Alias
-**Alias** is a globally unique name for your Service. It helps you mask the PII information for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate an alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.  
+**Alias** is a globally unique name for your Service. It helps you mask the customer data for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate an alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.  
 Alias is composed of three parts: *Prefix*.*GUID*.*Suffix* 
 - Prefix is the Service Name. You can pick you own prefix. Once "Alias" is created, you can't change it, so select your prefix appropriately.  
 - GUID will be provided by platform. This will help make name globally unique. 

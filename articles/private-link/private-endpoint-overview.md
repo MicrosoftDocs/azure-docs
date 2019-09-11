@@ -9,7 +9,6 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: kumud
-
 ---
 # What is Azure private endpoint?
 
@@ -127,7 +126,6 @@ The following table includes a list of known limitation when using private endpo
 |Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>-App Service Plan.</br><br>Azure Container Instance.</br>       |   No mitigation during preview.       |
 |    |         |         |
-
 
 ## Next steps
 - [Create a private endpoint using the Azure portal](create-private-endpoint-portal.md)
