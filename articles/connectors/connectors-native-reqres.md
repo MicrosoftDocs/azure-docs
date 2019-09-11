@@ -192,7 +192,7 @@ Your logic app keeps the incoming request open only for one minute. Assuming tha
 
 1. Add any values that are required for the response message. 
 
-   In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Note that properties from the schema specified in the earlier example now appear in the dynamic content list.
+   In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
 
    For example, in the **Headers** field, include `Content-Type` as the key name and set the key value to `application/json`, as mentioned earlier in this topic. For the **Body** field, you can select the trigger body from the dynamic content list.
 
