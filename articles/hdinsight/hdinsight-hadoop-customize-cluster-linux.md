@@ -352,7 +352,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 6. You can also select the ellipsis, **...**, to the right of entries on the script actions section to perform actions.
 
-    ![Script actions, ellipsis](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![Script actions, ellipsis](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### Azure PowerShell
 
@@ -439,7 +439,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
 3. Find the entries that have **run\_customscriptaction** in the **Operations** column. These entries are created when the script actions run.
 
-    ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     To view the **STDOUT** and **STDERR** output, select the **run\customscriptaction** entry and drill down through the links. This output is generated when the script runs and might have useful information.
 
@@ -449,7 +449,7 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
 * The storage logs are available at `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Script action logs](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     Under this directory, the logs are organized separately for **headnode**, **worker node**, and **zookeeper node**. See the following examples:
 

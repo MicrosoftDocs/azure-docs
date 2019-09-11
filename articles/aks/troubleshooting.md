@@ -128,3 +128,12 @@ Based on the output of the cluster status:
 * If the cluster is in any provisioning state other than *Succeeded* or *Failed*, wait until the operation (*Upgrading / Updating / Creating / Scaling / Deleting / Migrating*) terminates. When the previous operation has completed, re-try your latest cluster operation.
 
 * If the cluster has a failed upgrade, follow the steps outlined [I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## I'm receiving errors that my service principal was not found when I try to create a new cluster without passing in an existing one.
+
+When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to fully propagate the new service principal in a reasonable time in order to have the cluster succeed in creation. When this propagation takes too long, the cluster will fail validation to create as it cannot find an available service principal to do so. 
+
+Use the following workarounds for this:
+1. Use an existing service principal which has already propagated across regions and exists to pass into AKS at cluster create time.
+2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
+3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.

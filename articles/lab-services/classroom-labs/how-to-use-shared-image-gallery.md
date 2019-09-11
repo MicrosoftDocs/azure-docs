@@ -36,8 +36,11 @@ After a shared image gallery is attached, a lab account admin or a teacher can s
 3. Check the status on the lab tile. 
 
     ![Status of the save image operation](../media/how-to-use-shared-image-gallery/save-image-status.png)
+4. Confirm that the operation is successful.
 
- You can also upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
+    ![Save image operation is successful](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+
+You can also upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared image gallery overview](../../virtual-machines/windows/shared-images.md). 
 
 ## Use an image from the shared image gallery
 A teacher/professor can pick a custom image available in the shared image gallery for the template during new lab creation.
