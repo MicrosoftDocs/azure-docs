@@ -67,7 +67,7 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
    If you select the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
 
-    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
+    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Submit queries")
 
 ### Hive application
 
@@ -111,11 +111,11 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 6. From the toolbar, select the **HDInsight Cluster** that you want to use for this query. Select **Submit** to run the statements as a Hive job.
 
-   ![Submit bar](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![Submit bar](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
 
-   ![job summary displaying a completed job](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![job summary displaying a completed job](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
 8. Use the **Job Output** link to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
 
