@@ -132,11 +132,44 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 Support for [performance counters](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core is limited:
 
-   * SDK versions 2.4.1 and later collect performance counters if the application is running in Web Apps (Windows).
-   * SDK versions 2.7.0-beta3 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
-   * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
- 
+* SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
+* SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
+* For applications targeting the .NET Framework, all versions of the SDK support performance counters.
+* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux.
+
 This article will be updated when performance counter support in Linux is added.
+
+### EventCounter
+
+[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), which is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box including CLR Counters about GC Stats, Process Memory/CPU, ASP.NET Core counters like Requests/Sec etc.
+
+SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and can be found either in Metrics Explorer or using Analytics query. The name of the counter will be "Category|Counter"
+
+|Category | Counter|
+|---------------|-------|
+|System.Runtime | cpu-usage |
+|System.Runtime | working-set |
+|System.Runtime | gc-heap-size |
+|System.Runtime | gen-0-gc-count |
+|System.Runtime | gen-1-gc-count |
+|System.Runtime | gen-2-gc-count |
+|System.Runtime | time-in-gc |
+|System.Runtime | gen-0-size |
+|System.Runtime | gen-1-size |
+|System.Runtime | gen-2-size |
+|System.Runtime | loh-size |
+|System.Runtime | alloc-rate |
+|System.Runtime | assembly-count |
+|System.Runtime | exception-count |
+|System.Runtime | threadpool-thread-count |
+|System.Runtime | monitor-lock-contention-count |
+|System.Runtime | threadpool-queue-length |
+|System.Runtime | threadpool-completed-items-count |
+|System.Runtime | active-timer-count |
+|Microsoft.AspNetCore.Hosting | requests-per-second |
+|Microsoft.AspNetCore.Hosting | total-requests |
+|Microsoft.AspNetCore.Hosting | current-requests |
+|Microsoft.AspNetCore.Hosting | failed-requests |
 
 ### ILogger logs
 
@@ -192,7 +225,15 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
     }
 ```
 
-For more information, see the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs).
+Full List of settings in `ApplicationInsightsServiceOptions`
+|Setting | Description | Default
+|---------------|-------|-------
+|EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
+|EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
+|EnableHeartbeat | Enable/Disable Heartbeats feature | true
+|AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor which is a TelemetryProcessor which sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
+|RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
+
 
 ### Sampling
 
@@ -254,16 +295,17 @@ You can add custom telemetry processors to `TelemetryConfiguration` by using the
 
 ### Configuring or removing default TelemetryModules
 
-Application Insights uses telemetry modules to [automatically collect useful information](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies) about specific workloads without requiring additional configuration.
+Application Insights uses telemetry modules to automatically collect useful telemetry about specific workloads without requiring manual tracking by user.
 
 The following automatic-collection modules are enabled by default. These modules are responsible for automatically collecting telemetry. You can disable or configure them to alter their default behavior.
 
-* `RequestTrackingTelemetryModule`
-* `DependencyTrackingTelemetryModule`
-* `PerformanceCollectorModule`
-* `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
-* `AzureInstanceMetadataTelemetryModule`
+* `RequestTrackingTelemetryModule` - Collects RequestTelemetry from incoming web requests.
+* `DependencyTrackingTelemetryModule` - Collects DependencyTelemetry from outgoing http calls and sql calls.
+* `PerformanceCollectorModule` - Collects Windows PerformanceCounters.
+* `QuickPulseTelemetryModule` - Collects telemetry for showing in Live Metrics portal.
+* `AppServicesHeartbeatTelemetryModule` - Collects heart beats (which are send as custom metrics), about Azure App Service environment where application is hosted.
+* `AzureInstanceMetadataTelemetryModule` -  Collects heart beats (which are send as custom metrics), about Azure VM environment where application is hosted.
+* `EventCounterCollectionModule` -  Collects EventCounters. This is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
@@ -281,6 +323,15 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
                         {
                             module.EnableW3CHeadersInjection = true;
                         });
+
+        // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+        services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+                            (module, o) =>
+                            {
+                                module.Counters.Clear();
+                                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+                            }
+                        );
 
         // The following removes PerformanceCollectorModule to disable perf-counter collection.
         // Similarly, any other default modules can be removed.
