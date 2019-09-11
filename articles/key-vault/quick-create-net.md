@@ -152,7 +152,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate to your key vault
 
-This .NET quickstart relies on environment variables to store credentials that should not but put in code. 
+This .NET quickstart relies on environment variables to store credentials that should not be put in code. 
 
 Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
 
@@ -174,7 +174,7 @@ Assign these environment variables to strings in your code, and then authenticat
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [SetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires the URL of your key vault, which is in the form `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. It also requires a name for the secret -- we're using "mySecret".  You may wish to assign these strings to a variables for resue.
+Now that your application is authenticated, you can put a secret into your keyvault using the [SetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires the URL of your key vault, which is in the form `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. It also requires a name for the secret -- we're using "mySecret".  You may wish to assign these strings to a variables for reuse.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 
