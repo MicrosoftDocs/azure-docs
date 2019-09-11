@@ -73,7 +73,7 @@ Numeric outputs also make it possible to use common machine learning methods, in
 1. Connect the dataset that contains the text you want to analyze.
 
     > [!TIP]
-    > Because feature hashing does not perform lexical operations such as stemming or truncation, you can sometimes get better results by doing text preprocessing before you apply feature hashing. 
+    > Because feature hashing does not perform lexical operations such as stemming or truncation, you can sometimes get better results by preprocessing text before you apply feature hashing. 
 
 1. Set **Target columns** to the text columns that you want to convert to hashed features. Keep in mind that:
 
