@@ -231,7 +231,7 @@ To work around this issue, you can try deleting your corrupted local connections
         * `StorageExplorer_CustomConnections_Tables_v1`
 4. After saving your current connection names, set the value in the Developer Tools to be `[]`.
 
-Optionally, if you want to preserve the connections that aren't corrupted, you can perform the following steps to locate the corrupted connections.
+If you want to preserve the connections that aren't corrupted, you can perform the following steps to locate the corrupted connections. If you don't mind losing all existing connections, you can skip the following steps and follow the platform specific instructions to clear your connection data.
 
 1. From the text editor, re-add each connection name back to the Developer Tools and check whether the connection is still working.
 2. If a connection is working properly, it is not corrupted and you can safely leave it there. If a connection is not working, remove its value from the Developer Tools and record it so you can add it back later.
