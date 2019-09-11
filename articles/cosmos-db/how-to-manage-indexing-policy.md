@@ -167,7 +167,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 
 ## Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that perform a filter or JOIN and have an ORDER BY clause on different properties.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a filter and have an ORDER BY clause on different properties.
 
 ### Composite index defined for (name asc, age desc):
 
@@ -203,7 +203,7 @@ Query #1:
 ```sql
     SELECT *
     FROM c
-    ORDER BY name ASC, age DESC
+    ORDER BY c.name ASC, c.age DESC
 ```
 
 Query #2:
@@ -211,7 +211,7 @@ Query #2:
 ```sql
     SELECT *
     FROM c
-    ORDER BY name DESC, age ASC
+    ORDER BY c.name DESC, c.age ASC
 ```
 
 This composite index will benefit Query #3 and Query #4 but is not required:
@@ -230,7 +230,7 @@ Query #4:
 ```sql
 SELECT *
 FROM c
-WHERE c.name = "Tim" and c.age > 18
+WHERE c.name = "Tim" AND c.age > 18
 ```
 
 ### Composite index defined for (name ASC, age ASC) and (name ASC, age DESC):

@@ -24,7 +24,7 @@ Azure Cosmos DB supports two indexing modes:
 - **Consistent**: If a container's indexing policy is set to Consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
 - **None**: If a container's indexing policy is set to None, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
 
-Additionally, you should set the **automatic** property in the indexing policy to **true**. Setting this property to true allows Azure Cosmos DB to automatically index documents as they are written.
+Additionally you should set the **automatic** property in the indexing policy to **true**. Setting this property to true allows Azure Cosmos DB to automatically index documents as they are written.
 
 ## Including and excluding property paths
 
@@ -103,7 +103,7 @@ Azure Cosmos DB, by default, will not create any spatial indexes. If you would l
 
 ## Composite indexes
 
-Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality or range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
+Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
 
 When defining a composite index, you specify:
 
@@ -159,7 +159,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 
 This query will be more efficient with a composite index on (name ASC, age ASC). However, the query would not utilize a composite index on (age ASC, name ASC) because the equality filters must be defined first in the composite index.
 
-The following considerations are used when using composite indexes for queries with filters on multiple properties
+The following considerations are used when creating composite indexes for queries with filters on multiple properties
 
 - The properties in the query's filter should match those in composite index. If a property is in the composite index but is not included in the query as a filter, the query will not utilize the composite index.
 - If a query has additional properties in the filter that were not defined in a composite index, then a combination of composite and range indexes will be used to evaluate the query. This will require fewer RU's than exclusively using range indexes.
@@ -210,10 +210,10 @@ Query using composite index:
 SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
 ```
 
-The following considerations are used when using composite indexes to optimize a query with a filter and ORDER BY clause:
+The following considerations are used when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
 
-* If the query filters on properties, these should be included first in the ORDER BY clause.
-* If you do not define a composite index on a query with an equality filter on one property and a separate ORDER BY clause using different properties, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the properties in the `ORDER BY` clause have a high cardinality.
+* If the query filters on properties, these should be included first in the `ORDER BY` clause.
+* If you do not define a composite index on a query with a filter on one property and a separate `ORDER BY` clause using a different property, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the property in the `ORDER BY` clause has a high cardinality.
 * All considerations for creating composite indexes for `ORDER BY` queries with multiple properties as well as queries with filters on multiple properties still apply.
 
 

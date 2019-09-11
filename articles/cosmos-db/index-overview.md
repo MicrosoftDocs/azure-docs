@@ -135,7 +135,7 @@ For example, consider the following query: `SELECT location FROM location IN com
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, a multi `ORDER BY` query *always* needs a composite index.
+> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, an `ORDER BY` query which orders by multiple properties *always* needs a composite index.
 
 ## Next steps
 
