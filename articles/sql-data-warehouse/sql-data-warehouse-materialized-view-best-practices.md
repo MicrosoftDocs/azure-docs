@@ -17,13 +17,13 @@ Materialized views in Azure SQL Data Warehouse allow for enhanced query performa
 
 
 ## Materialized views vs. standard views
-Azure SQL Data Warehouse supports standard views and materialized views.  Both are virtual tables created with SELECT expressions and presented to queries as logical tables.  Views encapsulate the complexity of common data computation and add an abstraction layer to computation changes so there's no need to rewrite queries.  
+Azure SQL Data Warehouse supports standard and materialized views.  Both are virtual tables created with SELECT expressions and presented to queries as logical tables.  Views encapsulate the complexity of common data computation and add an abstraction layer to computation changes so there's no need to rewrite queries.  
 
 A standard view computes its data each time when the view is used.  There's no data stored on disk. People typically use standard views as a tool that helps organize the logical objects and queries in a database.  To use a standard view, a query needs to make direct reference to it. 
 
-A materialized view pre-computes, stores, and maintains its data Azure SQL Data Warehouse just like a table.  There's no recomputation needed each time when a materialized view is used.  That's why queries that use all or subset of the data in materialized views can get faster performance.  Even better,  queries can use a materialized view without making direct reference to it, so there is no need for application code change.  
+A materialized view pre-computes, stores, and maintains its data in Azure SQL Data Warehouse just like a table.  There's no recomputation needed each time when a materialized view is used.  That's why queries that use all or subset of the data in materialized views can get faster performance.  Even better,  queries can use a materialized view without making direct reference to it, so there is no need to change application code.  
 
-Most of the requirements on a standard view still apply to a materialized view. For details on materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
+Most of the requirements on a standard view still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
 
 
 
@@ -40,55 +40,52 @@ Most of the requirements on a standard view still apply to a materialized view. 
 
 A properly designed materialized view can provide following benefits:
 
-- Reduce the execution time for complex queries with JOINs and aggregations. The more complex the query, the higher the potential for execution-time saving. The most benefit is gained when the computation cost is high and the resulting data set is small.  
+- Reduce the execution time for complex queries with JOINs and aggregate functions. The more complex the query, the higher the potential for execution-time saving. The most benefit is gained when the computation cost of a query is high and the resulting data set is small.  
 
-- The data warehouse optimizer can automatically use existing materialized views to improve the execution plan.  This process is transparent to end users providing  better query performance.   No query code changes are required to reference a materialized view.   
+- The optimizer in Azure SQL Data Warehouse can automatically use deployed materialized views to improve query execution plans.  This process is transparent to users providing faster query performance and does not require queries to make direct reference to the materialized views. 
 
-- Require low maintenance.  A materialized view stores data in two places, including a clustered columnstore index storing the initial data at view creation and a delta store storing the incremental data changes. All data changes from base tables are automatically added to the delta store in a synchronous manner.  A background process (tuple mover) periodically moves data from the delta store to the columnstore index.   This design allows queries to get the same result set from a materialized view as what they would get from the base tables.
-- The data distribution in a materialized view can be different from the base tables.  
-- Data materialized views get the same high availability and resiliency benefits as regular tables.  
+- Require low maintenance on the views.  A materialized view stores its data in two places, including a clustered columnstore index for the initial data at the view creation time and a delta store storing the incremental data changes.  All data changes from the base tables are automatically added to the delta store in a synchronous manner.  A background process (tuple mover) periodically moves the data from the delta store to the view's columnstore index.  This design allows querying materialized views to return the same data as directly querying the base tables. 
+- The data in a materialized view can be distributed differently from the base tables.  
+- Data in materialized views gets the same high availability and resiliency benefits as data in regular tables.  
  
-Comparing to other data warehouse providers, materialized views implemented in Azure data warehouse also provide the following additional values: 
+Comparing to other data warehouse providers, the materialized views implemented in Azure SQL Data Warehouse also provide the following additional benefits: 
 
-- Automatic and synchronous data refresh with data changes in base tables. No user action is needed.
+- Automatic and synchronous data refresh with data changes in base tables. No user action is required. 
 - Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
-- Materialized view recommendation support for a query.  See [EXPLAIN (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest).
+- The support for query-specific materialized view recommendation.  See [EXPLAIN (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest).
 
 ## Common scenarios  
 
 Materialized views are typically used in following scenarios: 
 
-**Complex analytical queries against large data in size**
+**Need to improve the performance of complex analytical queries against large data in size**
 
-Executing analytical queries with aggregates and table joins usually involves expensive operations such as shuffles and joins.  That's why those queries take longer time to complete.  If all or subset of the query results is frequently used in your workload, consider creating materialized views to store the data so there's no recomputation when other queries need this data.  
+Complex analytical queries typically use more aggregation functions and table joins, so there are more compute-heavy operations such as shuffles and joins in their execution.  That's why those queries take longer time to complete, specially on large tables.  Users can crecate materialized views for the data returned from the common computations of queries, so there's no recomputation needed when this data is needed by queries, allowing lower compute cost and faster query response. 
+
 **Need faster performance with no or minimum query changes**
 
-Schema and query changes in data warehouses are typically kept to a minimum to support regular ETL operations and reporting.  Consider using materialized views for faster response from certain queries, if the performance gain can offset the incurred cost in storage and view maintenance.  In comparison to other tuning options such as scaling and statistics management, creating and using materialized views is a less impactful change in production with much higher potential gain in performance: 
+Schema and query changes in data warehouses are typically kept to a minimum to support regular ETL operations and reporting.  People can use materialized views for query performance tuning, if the cost incurred by the views can be offset by the query performance gain.  In comparison to other tuning options such as scaling and statistics management, creating and using materialized views is a less impactful change in production with a much higher potential gain in performance: 
 
-- Creating or maintaining a materialized view does not impact queries executing against its base tables.
-- Query optimizer can automatically use deployed materialized views without the view being referenced in the query itself.   This capability reduces the need for query change in performance tuning. 
+- Creating or maintaining materialized views does not impact the queries running against the base tables.
+- The query optimizer can automatically use the deployed materialized views without direct view reference in a query. This capability reduces the need for query change in performance tuning. 
 
 **Need different data distribution strategy for faster query performance**
 
-Azure data warehouse is a distributed massively parallel processing (MPP) system.   Data in a data warehouse table is distributed across 60 nodes using one of three [distribution strategies](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute) (hash, round_robin, or replicated).  The distribution strategy can only be specified at the table creation time and stays unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin distributions.  You can choose a distribution strategy that is different from base tables but optimal to queries leveraging the views the most.
+Azure data warehouse is a distributed massively parallel processing (MPP) system.   Data in a data warehouse table is distributed across 60 nodes using one of three [distribution strategies](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute) (hash, round_robin, or replicated).  The data distribution is specified at the table creation time and stays unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that is different from the base tables but optimal for the performance of queries that use the views most.  
 
-**Need to reduce compute cost without impacting query performance**
-
-Complex analytical queries typically use more computational resources due to expensive query execution operations such as joins and shuffles.  The compute cost increases fast as queries are executed frequently.  Creating materialized views in this case allows applicable queries to retrieve data directly from the view instead of having to reprocess the query each time against base tables, hence  reducing queries’ compute usage and execution time. 
- 
 ## Design guidance 
 
-Here is general guidance on using materialized views to improve query performance:
+Here is the general guidance on using materialized views to improve query performance:
 
 **Design for your workload**
 
-- Before you begin to create materialized views, it is important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and size of resulting data.  
+- Before you begin to create materialized views, it's important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and the size of resulting data.  
 
-- Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by query optimizer.  Since these recommendations are query-specific, a view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the performance of the workload.
+- Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by the query optimizer.  Since these recommendations are query-specific, a materialized view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the workload's performance.  
 
-**Be aware of the tradeoff between faster queries and cost incurred from materialized views** 
+**Be aware of the tradeoff between faster queries and the cost** 
 
-- For each materialized view, there is a cost for storage and view maintenance by tuple mover. Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  Run this query for the list of materialized view in a database: 
+- For each materialized view, there's a storage cost and a cost for the view maintenance by the tuple mover. There is one tuple mover per Azure SQL Data Warehouse server instance.  When there are too many materialized views, the tuple mover's workload will increase and the performance of queries that leverage materialized views could degrade if tuple mover can't move data to index segments fast enough.  Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  Run this query for the list of materialized view in a database: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
@@ -98,7 +95,7 @@ JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 
 Options to reduce the number of materialized views: 
 
-- Identify common data sets frequently used by the complex queries in your workload.  Create materialized views to store the data sets as building blocks for optimizer to create execution plans. 
+- Identify common data sets frequently used by the complex queries in your workload.  Create materialized views to store those data sets so the optimizer can use them as building blocks when creating execution plans.  
 
 - Drop the materialized views that have low usage or are no longer needed.  A disabled materialized view is not maintained but it still incurs storage cost.  
 
@@ -128,19 +125,19 @@ GROUP BY A, C
 
 **Not all performance tuning requires query change**
 
-The data warehouse optimizer can automatically use deployed materialized views to improve query performance.  Since this support is transparent to users and also applies to queries that don't reference the views or use  aggregates unsupported by materialized views, there is no need for query changes.  You can check a query's estimated execution plan to confirm if a materialized view is used.  
+The data warehouse optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used.  
 
 **Monitor materialized views** 
 
-A materialized view is stored in data warehouse just like a table with clustered columnstore index (CCI).  Reading data from a materialized view includes scanning the index and apply changes from delta store.  When the number of rows in delta store is too high, resolving a query from a materialized view could take longer than querying directly against the base tables.  To avoid performance degradation,  it’s a good practice to run [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) to monitor the view’s overhead_ratio (total_rows / base_view_row).  If the overhead_ratio is too high, consider to rebuild the materialized view so all rows in the delta store are moved to columnstore index.  
+A materialized view is stored in the data warehouse just like a table with clustered columnstore index (CCI).  Reading data from a materialized view includes scanning the index and applying changes from the delta store.  When the number of rows in the delta store is too high, resolving a query from a materialized view can take longer than directly querying the base tables.  To avoid query performance degradation,  it’s a good practice to run [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) to monitor the view’s overhead_ratio (total_rows / base_view_row).  If the overhead_ratio is too high, consider to rebuild the materialized view so all rows in the delta store are moved to the columnstore index.  
 
 **Materialized view and result set caching**
 
-These two features are introduced in Azure data warehouse around the same time for query performance tuning.  Result set caching is mainly used for getting high query concurrency and fast response from repetitive queries against static data.  To use the cached result, the cache requesting query's form must match with the query that produced the cache and the cached result must apply to the entire query.  Materialized views allow data changes in base tables.  Data in materialized views can be applied to a piece of a query.  This support allows the same materialized views to be used by different queries sharing some computation  for faster performance.
+These two features are introduced in Azure SQL Data Warehouse around the same time for query performance tuning.  Result set caching is mainly used for getting high  concurrency and fast response from repetitive queries against static data.  To use the cached result, the form of the cache requesting query must match with the query that produced the cache.  In addition, the cached result must apply to the entire query.  Materialized views allow data changes in the base tables.  Data in materialized views can be applied to a piece of a query.  This support allows the same materialized views to be used by different queries that share some computation for faster performance.
 
 ## Example
 
-This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores.  Identify preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY. 
+This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores, identify the preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY. 
 
 ```sql
 WITH year_total AS (
