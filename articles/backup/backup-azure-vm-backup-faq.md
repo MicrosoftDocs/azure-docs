@@ -117,7 +117,7 @@ For Managed Disk Azure VM, restoring to the availability sets is enabled by prov
 
 ### What happens when we change the key vault settings for the encrypted VM?
 
-After you change the KeyVault settings for the encrypted VM, then backups would continue to work with the new set of details; However after the restore from an Restore Point prior to the change, you will have to restore the secrets in some KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+After you change the KeyVault settings for the encrypted VM, backups would continue to work with the new set of details; However after the restore from an recovery point prior to the change, you would have to restore the secrets in some KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
 
 Operations like secret/key roll-over do not require this step and same KeyVault can be used after restore.
 
