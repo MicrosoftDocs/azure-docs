@@ -34,6 +34,10 @@ landingContent:
         links:
           - text: Release notes
             url: https://docs.azuredatabricks.net/release-notes/index.html
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Databricks
+            url: https://docs.microsoft.com/learn/modules/intro-to-azure-databricks
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -54,7 +58,7 @@ landingContent:
         links:
           - text: Azure Resource Manager template
             url: /azure/templates/microsoft.databricks/workspaces
-  - title: Integrate Databricks
+  - title: Architect Azure solutions
     linkLists:
       - linkListType: tutorial
         links:
@@ -88,6 +92,10 @@ landingContent:
             url: vnet-injection-sql-server.md
   - title: Stream data
     linkLists:
+      - linkListType: learn
+        links: 
+          - text: Work with streaming data in Azure Databricks
+            url: https://docs.microsoft.com/learn/modules/streaming-in-azure-databricks/
       - linkListType: tutorial
         links:
           - text: Stream data using Event Hubs
@@ -96,6 +104,12 @@ landingContent:
             url: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
   - title: Guides for developers
     linkLists:
+      - linkListType: learn
+        links:
+          - text: Deep learning with Azure Databricks
+            url: https://docs.microsoft.com/learn/modules/deep-learning-in-azure-databricks
+          - text: Perform text analytics
+            url: https://docs.microsoft.com/learn/modules/perform-text-analytics-with-azure-databricks
       - linkListType: reference
         links:
           - text: Databricks REST API
