@@ -28,7 +28,7 @@ This article requires that you are running the Azure CLI version 2.0.65 or later
 
 ### Install aks-preview CLI extension
 
-To use the cluster autoscaler, you need the *aks-preview* CLI extension version 0.4.4 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
+To use the cluster autoscaler, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -86,7 +86,7 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --enable-vmss \
+  --vm-set-type VirtualMachineScaleSets \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3

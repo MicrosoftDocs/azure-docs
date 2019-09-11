@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 This index provides links to "Built-in security controls" articles. A security control is a quality or feature of an Azure service that contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
 
-Built-in security control articles are available for the following service:
+Built-in security control articles are available for the following services:
 
 - [API Management](../../api-management/api-management-security-controls.md)
 - [Azure App Service](../../app-service/app-service-security-controls.md)
