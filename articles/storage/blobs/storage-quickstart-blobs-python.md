@@ -2,9 +2,8 @@
 title: Azure Quickstart - Create a blob in object storage with Python | Microsoft Docs
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 author: mhopkins-msft
- 
 ms.author: mhopkins
-ms.date: 08/29/2019
+ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -12,7 +11,7 @@ ms.topic: quickstart
 
 # Quickstart: Upload, download, and list blobs with Python
 
-In this quickstart, you see how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are simply objects that can hold any amount of text or binary data (such as images, documents, streaming media, archive data, etc.), and are distinct in Azure Storage from file shares, schemaless tables, and message queues. (For more information, see [Introduction to Azure Storage](/azure/storage/common/storage-introduction).)
+In this quickstart, you see how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are simply objects that can hold any amount of text or binary data including: images, documents, streaming media, archive data, and so on. They're distinct in Azure Storage from file shares, schema-less tables, and message queues. For more info, see [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -23,9 +22,11 @@ In this quickstart, you see how to use Python to upload, download, and list bloc
 Make sure you have the following additional prerequisites installed:
 
 * [Python](https://www.python.org/downloads/)
+
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 
 ## Download the sample application
+
 The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) in this quickstart is a basic Python application.  
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
@@ -39,60 +40,89 @@ This command clones the *Azure-Samples/storage-blobs-python-quickstart* reposito
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
-In the application, provide your storage account name and account key to create a `BlockBlobService` object. Open the *example.py* file from the Solution Explorer in your IDE. Replace the `accountname` and `accountkey` values with your account name and key. 
 
-```python
-block_blob_service = BlockBlobService(
-    account_name='accountname', account_key='accountkey')
-```
+In the application, provide your storage account name and account key to create a `BlockBlobService` object.
+
+1. Open the *example.py* file from the Solution Explorer in your IDE.
+
+1. Replace the `accountname` and `accountkey` values with your storage account name and key. 
+
+    ```python
+    block_blob_service = BlockBlobService(
+            account_name='accountname', account_key='accountkey')
+    ```
+
+1. Save and close the file.
 
 ## Run the sample
+
 This sample creates a test file in the *Documents* folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
 
-First, install the dependencies by running `pip install`:
+1. Install the dependencies:
 
-```python
+    ```console
     pip install azure-storage-blob
-```
+    ```
 
-Next, run the sample. You’ll see messages similar to the following output:
+1. Go to the sample application
+
+    ```console
+    cd storage-blobs-python-quickstart
+    ```
+
+1. Run the sample.
+
+    ```console
+    python example.py
+    ```
+
+    You’ll see messages similar to the following output:
   
-```output
-Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
+    ```output
+    Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
-Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
+    Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
-List blobs in the container
-         Blob name: QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
+    List blobs in the container
+             Blob name: QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
-Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
-```
-Before you continue, look in your *Documents* folder for the two files. You can open them and see they're the same.
+    Downloading blob to     C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
+    ```
 
-You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+1. Before you continue, go to your **Documents** folder and check for the two files.
 
-After you've verified the files, press any key to finish the demo and delete the test files. Now that you know what the sample does, open the *example.py* file to look at the code. 
+    * QuickStart_\<universally-unique-identifier\>
+    * QuickStart_\<universally-unique-identifier\>_DOWNLOADED
 
-## Understand the sample code
+1. You can open them and see they're the same.
 
-Let’s walk through the sample code to understand how it works.
+    You can also use a tool like the [Azure Storage Explorer](https://storageexplorer.com). It's good for viewing the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that lets you access your storage account info. 
+
+1. After you've looked at the files, press any key to finish the demo and delete the test files.
+
+Now that you know what the sample does, open the *example.py* file to look at the code.
+
+## Learn about the sample code
+
+Let’s walk through the sample code to learn how it works.
 
 ### Get references to the storage objects
+
 First, you create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
 
 * Instantiate the **BlockBlobService** object, which points to the Blob service in your storage account. 
 
-* Instantiate the **CloudBlobContainer** object, which represents the container you're accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
+* Instantiate the **CloudBlobContainer** object, which represents the container you're accessing. The system uses containers to organize your blobs like you use folders on your computer to organize your files.
 
 Once you have the Cloud Blob container, instantiate the **CloudBlockBlob** object that points to the specific blob that you're interested in. You can then upload, download, and copy the blob as you need.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about container and blob names, see [Naming and referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
+In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. You'll call the container `quickstartblobs`. 
 
 ```python
-# Create the BlockBlockService that is used to call the Blob service for the storage account.
+# Create the BlockBlockService that the system uses to call the Blob service for the storage account.
 block_blob_service = BlockBlobService(
     account_name='accountname', account_key='accountkey')
 
@@ -104,13 +134,14 @@ block_blob_service.create_container(container_name)
 block_blob_service.set_container_acl(
     container_name, public_access=PublicAccess.Container)
 ```
+
 ### Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart.  
+Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what you'll use in this quickstart.  
 
 To upload a file to a blob, get the full file path by joining the directory name with the file name on your local drive. You can then upload the file to the specified path using the `create_blob_from_path` method. 
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as *full_path_to_file* and the name of the blob as *local_file_name*. The following example uploads the file to your container called **quickstartblobs**.
+The sample code creates a local file the system uses for the upload and download, storing the file the system uploads as *full_path_to_file* and the name of the blob as *local_file_name*. This example uploads the file to your container called `quickstartblobs`**`:
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -133,7 +164,7 @@ block_blob_service.create_blob_from_path(
 
 There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the `create_blob_from_stream` method rather than `create_blob_from_path`. 
 
-Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files that back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
+Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files that back IaaS VMs. The system uses append blobs for logging, like when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
 ### List the blobs in a container
 
@@ -149,8 +180,9 @@ for blob in generator:
 
 ### Download the blobs
 
-Download blobs to your local disk using the `get_blob_to_path` method. 
-The following code downloads the blob uploaded in a previous section. *_DOWNLOADED* is added as a suffix to the blob name so you can see both files on local disk. 
+
+Download blobs to your local disk using the `get_blob_to_path` method.
+The following code downloads the blob uploaded in a previous section. The system adds *\_DOWNLOADED* as a suffix to the blob name so you can see both files on local disk.
 
 ```python
 # Download the blob(s).
@@ -171,9 +203,10 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+
 ## Resources for developing Python applications with blobs
 
-For more information about Python development with Blob storage, see these additional resources:
+For more about Python development with Blob storage, see these additional resources:
 
 ### Binaries and source code
 
@@ -181,8 +214,8 @@ For more information about Python development with Blob storage, see these addit
 
 ### Client library reference and samples
 
-- For more information about the Python client library, see the [Python API reference](https://docs.microsoft.com/python/api/overview/azure/storage).
-- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) written using the Python client library.
+- For more about the Python client library, see the [Azure Storage libraries for Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Explore [blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) written using the Python client library.
 
 ## Next steps
  
@@ -191,4 +224,4 @@ In this quickstart, you learned how to transfer files between a local disk and A
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](./storage-python-how-to-use-blob-storage.md)
  
-For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
