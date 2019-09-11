@@ -55,7 +55,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 4. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster intellij](./media/apache-domain-joined-manage/unlink.png)
+   ![unlinked cluster intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## Use Eclipse to link to domain joined cluster
 
@@ -78,7 +78,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 4. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster eclipse](./media/apache-domain-joined-manage/unlink.png)
+   ![unlinked cluster eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## Access the clusters with Enterprise Security Package.
 
