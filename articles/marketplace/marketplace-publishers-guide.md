@@ -47,7 +47,7 @@ Upsell and cross-sell your solutions by addressing customer problems after you m
 
 Get insights on the performance of your listings through the insights and analytics that are available to you through the Marketplace. Get more information about campaign performance, orders and payouts, and how to maximize campaign activities for your solution.
 
-### Marketplace go-to-market benefits 
+### Commercial marketplace benefits 
 
 New listings in the Marketplace are eligible for a diverse set of free benefits to help partners grow their business in the Marketplace. These benefits fall into the following categories: 
 
@@ -59,7 +59,7 @@ New listings in the Marketplace are eligible for a diverse set of free benefits 
 
 After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience.  See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
-For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/en-us/azure/marketplace/gtm-your-marketplace-benefits).
 
 ## Next steps
 
