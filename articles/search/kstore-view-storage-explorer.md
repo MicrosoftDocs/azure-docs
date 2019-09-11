@@ -1,6 +1,6 @@
 ---
-title: 'View a knowledge store with Storage Explorer'
-description: View in Storage Explorer for analysis and exploration.  
+title: 'View a knowledge store in Storage Explorer - Azure Search'
+description: View and analyze an Azure Search knowledge store in the Azure portal's Storage Explorer.  
 
 author: lisaleib
 services: search
@@ -11,7 +11,7 @@ ms.date: 09/03/2019
 ms.author: v-lilei
  
 ---
-# Connect a knowledge store to Storage Explorer
+# View a knowledge store in Storage Explorer
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
@@ -24,7 +24,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 + You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
-## Connect with Azure Storage
+## View, edit and query a knowledge store in Storage Explorer
 
 1. In the Azure portal, open the storage account that you used to create the knowledge store.
 
@@ -54,7 +54,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-To learn how to connect this knowledge store to Power BI, see the following walkthrough.
+To learn how to connect this knowledge store to Power BI, see the following article.
 
 > [!div class="nextstepaction"]
 > [Connect to Power BI](kstore-connect-powerbi.md)

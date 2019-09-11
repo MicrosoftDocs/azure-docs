@@ -1,6 +1,6 @@
 ---
-title: 'Create a knowledge store in the Azure portal'
-description: Create a knowledge store using the Import data wizard in the Azure portal.
+title: 'Create a knowledge store in the Azure portal - Azure Search'
+description: Create a knowledge store for persisting enrichments from cognitive search pipeline, using the Import data wizard in the Azure portal.
 
 author: lisaleib
 services: search
