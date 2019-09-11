@@ -20,9 +20,9 @@
 
 - name: Concepts
   items:
-  - name: What is a private endpoint?
+  - name: Private endpoint
     href: private-endpoint-overview.md
-  - name: What is private link service?
+  - name: Private link service
     href: private-link-service-overview.md    
 
 - name: How to

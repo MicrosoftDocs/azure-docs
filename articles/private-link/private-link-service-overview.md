@@ -50,7 +50,7 @@ A private link service specifies the following properties:
 |||
 
 
-## Details
+### Details
 - Private link service can be accessed from approved private endpoints in the same region. The private endpoint can though be reached from  the same Virtual Network, regionally peered VNets, globally peered VNets and on premises using VPN or Express Route connections private. 
  
 - When creating a private link service, a network interface will also be created for the lifecycle of the resource, this interface is not manageable by the customer  
@@ -63,7 +63,7 @@ A private link service specifies the following properties:
  
 - Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, Service Providers can assign up to eight NAT IPs per private link service. With each NAT IP, you can assign more ports for your TCP connections and thus scale out. Once you add multiple NAT IP to private link service, you can't delete the NAT IPs. This is done to ensure that active connections are not impacted while deleting the NAT IPs.
 
-### Alias
+## Alias
 **Alias** is a globally unique name for your Service. It helps you mask the customer data for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate an alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.  
 Alias is composed of three parts: *Prefix*.*GUID*.*Suffix* 
 - Prefix is the Service Name. You can pick you own prefix. Once "Alias" is created, you can't change it, so select your prefix appropriately.  
@@ -71,7 +71,7 @@ Alias is composed of three parts: *Prefix*.*GUID*.*Suffix*
 - Suffix will be appended by Azure: *region*.azure.privatelinkservice 
 Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice  
 
-### Control service exposure 
+## Control service exposure 
 Private link service provides you rich set of options for controlling the exposure of your service the "Visibility" settings.  You can make the service private for consumption from different VNets you own (RBAC permissions only), restrict the exposure to limited set of subscriptions that you trust or make it public so that all Azure subscriptions can request connections on the private link service.  Only consumers that you expose your service to can request a connection through different Azure clients. Having access to Alias info doesn’t provide the ability to request connection. Your visibility settings decide whether a consumer can request a connection to your service or not. If the consumer's subscription falls within your visibility scope settings and has the correct alias, the consumer can request a connection. Following options are provided for your visibility settings:   
 - Visibility: Role Base Access Control Only: 
     - Intake parameter: {}. 
@@ -85,7 +85,7 @@ Private link service provides you rich set of options for controlling the exposu
     - Intake parameter:  {sub1, sub2, sub3}.  
     - Exposed to customer with RBAC permissions and to user subscriptions in your selected list. 
     - Costumers not in visibility list will not be able to find the service even with alias information.
-### Control service access 
+## Control service access 
  
 Consumers having exposure (controlled by visibility setting) to your private link service can create a private endpoint in their VNets and request a connection to your private link service. The private endpoint connection will be created in "Pending" state on the private link service object. The service provider is responsible for acting on the connection request. You can either approve the connection, reject the connection, or delete the connection. Only connections that are approved can send traffic to private link service.  
 The action of approving the connections can be automated by using auto-approval property on the private link service. Auto-Approval is an ability for Service Providers to pre-approve set of subscriptions for automated access to their service. Customers will need to share their subscriptions offline for Service providers to add to auto-approval list. Auto-approval is a subset of visibility array.  Visibility controls the exposure settings whereas auto-approval controls the approval settings for your service. If a customer requests a connection from a subscription in auto-approval list, the connection will be automatically approved and connection will be established. Service providers don’t need to manually approve the request anymore. On the other hand, if a customer requests a connection from a subscription in visibility array and not in auto-approval array, the request will reach service provider but service provider has to manually approve the connections.

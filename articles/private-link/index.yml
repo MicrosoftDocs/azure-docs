@@ -26,7 +26,7 @@ landingContent:
             url: private-link-overview.md      
 
   # Card (optional)
-  - title: Get started
+  - title: Connect to an Azure service
     linkLists:
       - linkListType: concept
         links:
@@ -40,20 +40,20 @@ landingContent:
         links:
           - text: Connect privately to a SQL server
             url: tutorial-private-endpoint-sql-server-portal.md
-           
 
   # Card (optional)
-  - title: Create a private link service
+  - title: Build your own private link service
     linkLists:
       - linkListType: concept
         links:
           - text: What is private link service?
             url: private-link-service-overview.md
       
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
           - text: Create a private link service
             url: create-private-link-service-powershell.md   
+  
   # Card
   - title: Reference
     linkLists:

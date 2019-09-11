@@ -1,5 +1,5 @@
 ---
-title: 'Disable network policies for private endpoints'
+title: 'Disable network policies for private endpoints in Azure'
 description: Learn how to disable network policies for private endpoints.
 services: virtual-network
 author: KumudD
