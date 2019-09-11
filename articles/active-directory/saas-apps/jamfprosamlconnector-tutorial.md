@@ -58,8 +58,8 @@ Configure and test Azure AD SSO with Jamf Pro by using a test user called B.Simo
 
 In this section, you configure and test Azure AD SSO with Jamf Pro.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** so your users can use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD SSO with B.Simon.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** so that your users can use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD SSO with the B.Simon account.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** so that B.Simon can use Azure AD SSO.
 1. **[Configure Jamf Pro SSO](#configure-jamf-pro-sso)** to configure the SSO settings on the application side.
     1. **[Create a Jamf Pro test user](#create-jamf-pro-test-user)** to have a counterpart of B.Simon in Jamf Pro that's linked to the Azure AD representation of the user.
@@ -77,15 +77,13 @@ In this section, you enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you want to configure the application in **IdP-initiated** mode, type the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL by using the following formula:
+    a. In the **Identifier** text box, type a URL that uses the following formula:
     `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. In the **Reply URL** text box, type a URL by using the following formula:
+    b. In the **Reply URL** text box, type a URL that uses the following formula:
     `https://<subdomain>.jamfcloud.com/saml/SSO`
 
-1. Select **Set additional URLs** and perform the following step if you want to configure the application in **SP-initiated** mode:
-
-    In the **Sign-on URL** text box, type a URL by using the following formula:
+1. Select **Set additional URLs**. If you want to configure the application in **SP-initiated** mode, in the **Sign-on URL** text box, type a URL that uses the following formula:
     `https://<subdomain>.jamfcloud.com`
 
 	> [!NOTE]
@@ -162,7 +160,7 @@ In this section, you grant B.Simon access to Jamf Pro.
 
 	e. Select **Metadata URL** from the **IDENTITY PROVIDER METADATA SOURCE** dropdown menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied from the Azure portal.
 
-7. On the same page, scroll down to the **User Mapping** section. Then, perform the following steps.	
+7. On the same page, scroll down to the **User Mapping** section. Then, do the following steps.	
 
 	![The User Mapping section of the Single Sign-On page in Jamf Pro.](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -172,7 +170,7 @@ In this section, you grant B.Simon access to Jamf Pro.
 
 	c. Paste the value `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in the **IDENTITY PROVIDER GROUP ATTRIBUTE NAME** field.
 
-	d. Select **Allow users to bypass the Single Sign-On authentication**. As a result, users will not be redirected to the Identity Provider sign-in page for authentication and can sign in to Jamf Pro directly instead. When a user tries to access Jamf Pro via the Identity Provider, IdP-initiated SSO authentication and authorization occurs.
+	d. Select **Allow users to bypass the Single Sign-On authentication**. As a result, users won't be redirected to the Identity Provider sign-in page for authentication and can sign in to Jamf Pro directly instead. When a user tries to access Jamf Pro via the Identity Provider, IdP-initiated SSO authentication and authorization occurs.
 
 	e. Select **Save**.
 
