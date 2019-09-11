@@ -1,0 +1,70 @@
+### YamlMime:Landing
+
+title: Private Link documentation
+summary: Learn how to use Azure Private Link. 
+metadata:
+  title: Private Link Documentation - Quickstarts, How to guides, and API references
+  description: Learn how to use Azure Private Link service. Quickstarts, tutorials, show you how to deploy a Private Link service.
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 09/06/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure private link
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is private link?
+            url: private-link-overview.md      
+
+  # Card (optional)
+  - title: Connect to an Azure service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is a private endpoint?
+            url: private-endpoint-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a private endpoint
+            url: create-private-endpoint-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Connect privately to a SQL server
+            url: tutorial-private-endpoint-sql-server-portal.md
+
+  # Card (optional)
+  - title: Build your own private link service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is private link service?
+            url: private-link-service-overview.md
+      
+      - linkListType: how-to-guide
+        links:
+          - text: Create a private link service
+            url: create-private-link-service-powershell.md   
+  
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network
+          - text: Azure PowerShell
+            url: /powershell/module/az.network
+          - text: REST
+            url: /rest/api/virtualnetwork/privatelinkservices           
+                
+
+
