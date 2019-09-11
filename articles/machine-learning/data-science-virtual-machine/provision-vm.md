@@ -14,6 +14,8 @@ ms.date: 09/10/2019
 #Customer intent: As a data scientist, I want to learn how to provision the Windows DSVM so that I can move my existing workflow to the cloud.
 ---
 
+# Quickstart: Set up the Data Science Virtual Machine for Windows
+
 To create a Microsoft Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
 
 ## Create your DSVM
