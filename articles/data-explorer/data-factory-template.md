@@ -36,19 +36,19 @@ The **ControlTableDataset** indicates what data will be copied from source to de
 
 Example of SQL Server source table format:
     
-    ```sql   
-    CREATE TABLE control_table (
-        PartitionId int,
-        SourceQuery varchar(255),
-        ADXTableName varchar(255)
-    );
-    ```
+```sql   
+CREATE TABLE control_table (
+PartitionId int,
+SourceQuery varchar(255),
+ADXTableName varchar(255)
+);
+```
     
-        |Property  |Description  | Example
-        |---------|---------| ---------|
-        |PartitionId   |   copy order | 1  |  
-        |SourceQuery   |   query that indicates which data will be copied during the pipeline runtime | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-        |ADXTableName  |  destination table name | MyAdxTable       |  
+|Property  |Description  | Example
+|---------|---------| ---------|
+|PartitionId   |   copy order | 1  |  
+|SourceQuery   |   query that indicates which data will be copied during the pipeline runtime | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|ADXTableName  |  destination table name | MyAdxTable       |  
 
 If your **ControlTableDataset** is in a different format, create a comparable **ControlTableDataset** for your format.
 

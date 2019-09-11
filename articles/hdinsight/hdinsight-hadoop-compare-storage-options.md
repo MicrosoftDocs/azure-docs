@@ -123,7 +123,7 @@ If you choose to secure your storage account with the **Firewalls and virtual ne
 
 The following diagram provides an abstract view of the HDInsight architecture of Azure Storage:
 
-![Diagram showing how Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Diagram showing how Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage Architecture")
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
