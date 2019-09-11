@@ -136,7 +136,7 @@ The following commands use the public IoT Plug and Play model repository. To use
 List interfaces in the public IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface list --login
+az iot pnp interface list
 ```
 
 Show an interface in the public IoT Plug and Play model repository:
