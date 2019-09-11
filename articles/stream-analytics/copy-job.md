@@ -1,6 +1,6 @@
 ---
-title: Copy or backup Azure Stream Analytics jobs 
-description: This article describes how to copy or backup an Azure Stream Analytics jobs.
+title: Copy or back up Azure Stream Analytics jobs 
+description: This article describes how to copy or back up an Azure Stream Analytics job.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ---
 
-# Copy or backup Azure Stream Analytics jobs
+# Copy or back up Azure Stream Analytics jobs
 
-You can copy or backup your deployed Azure Stream Analytics jobs using Visual Studio Code or Visual Studio. 
+You can copy or back up your deployed Azure Stream Analytics jobs using Visual Studio Code or Visual Studio. 
 
 # Before you begin
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
