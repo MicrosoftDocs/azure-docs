@@ -42,9 +42,9 @@ You take the following steps in this tutorial:
 
 To complete this tutorial, you need the following prerequisites:
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2019.
-- Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
+* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2019.
+* Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
 
 ## How Azure Relay helps with hybrid solutions
 
@@ -93,15 +93,15 @@ First, you build a simulated on-premises product catalog system.  This project i
    ![Configure your new project][11]
 
 1. In **Solution Explorer**, right-click the **ProductsServer** project, then select **Manage NuGet Packages**.
-1. Select **Browse**, then search for and choose **WindowsAzure.ServiceBus**. Select **Install**, and accept the terms of use.
+1. Select **Browse**, then search for and choose *WindowsAzure.ServiceBus*. Select **Install**, and accept the terms of use.
 
    ![Select NuGet package][13]
 
    The required client assemblies are now referenced.
 
 1. Add a new class for your product contract. In **Solution Explorer**, right-click the **ProductsServer** project and select **Add** > **Class**.
-1. In **Name**, type the name *ProductsContract.cs* and select **Add**.
-1. In `ProductsContract.cs`, replace the namespace definition with the following code, which defines the contract for the service.
+1. In **Name**, enter the name *ProductsContract.cs* and select **Add**.
+1. In *ProductsContract.cs*, replace the namespace definition with the following code, which defines the contract for the service.
 
     ```csharp
     namespace ProductsServer
@@ -138,7 +138,7 @@ First, you build a simulated on-premises product catalog system.  This project i
     }
     ```
 
-1. In `Program.cs`, replace the namespace definition with the following code, which adds the profile service and the host for it.
+1. In *Program.cs*, replace the namespace definition with the following code, which adds the profile service and the host for it.
 
     ```csharp
     namespace ProductsServer
@@ -193,7 +193,7 @@ First, you build a simulated on-premises product catalog system.  This project i
     }
     ```
 
-1. In **Solution Explorer**, double-click **App.config** to open `App.config` in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element (but still within `<system.ServiceModel>`), add the following XML code. Be sure to replace `yourServiceNamespace` with the name of your namespace, and `yourKey` with the SAS key you retrieved earlier from the portal:
+1. In **Solution Explorer**, double-click **App.config** to open *App.config* in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element, but still within `<system.ServiceModel>`, add the following XML code. Be sure to replace `yourServiceNamespace` with the name of your namespace, and `yourKey` with the SAS key you retrieved earlier from the portal:
 
     ```xml
     <system.serviceModel>
@@ -219,7 +219,7 @@ First, you build a simulated on-premises product catalog system.  This project i
 
     The error caused by `transportClientEndpointBehavior` is just a warning and isn't a blocking issue for this example.
 
-1. Still in `App.config`, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
+1. Still in *App.config*, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
 
     ```xml
     <appSettings>
@@ -229,7 +229,7 @@ First, you build a simulated on-premises product catalog system.  This project i
     </appSettings>
     ```
 
-1. Press **Ctrl**+**Shift**+**B** or from the **Build** menu, select **Build Solution** to build the application and verify the accuracy of your work so far.
+1. Press Ctrl+Shift+B or select **Build** > **Build Solution** to build the application and verify the accuracy of your work so far.
 
 ## Create an ASP.NET application
 
@@ -258,7 +258,7 @@ In this section, you build a simple ASP.NET application that displays data retri
 
 ### Modify the web application
 
-1. In the `Product.cs` file in Visual Studio, replace the existing namespace definition with the following code:
+1. In the *Product.cs* file in Visual Studio, replace the existing namespace definition with the following code:
 
    ```csharp
 	// Declare properties for the products inventory.
@@ -273,8 +273,8 @@ In this section, you build a simple ASP.NET application that displays data retri
 	}
     ```
 
-1. In **Solution Explorer**, expand **Controllers**, then double-click **HomeController.cs** to open `HomeController.cs` in Visual Studio.
-1. In `HomeController.cs`, replace the existing namespace definition with the following code:
+1. In **Solution Explorer**, expand **Controllers**, then double-click **HomeController.cs** to open *HomeController.cs* in Visual Studio.
+1. In *HomeController.cs*, replace the existing namespace definition with the following code:
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -296,13 +296,13 @@ In this section, you build a simple ASP.NET application that displays data retri
     }
     ```
 
-1. In **Solution Explorer**, expand **Views** > **Shared**, then double-click **_Layout.cshtml** to open `_Layout.cshtml` in the Visual Studio editor.
+1. In **Solution Explorer**, expand **Views** > **Shared**, then double-click **_Layout.cshtml** to open *_Layout.cshtml* in the Visual Studio editor.
 1. Change all occurrences of `My ASP.NET Application` to *Northwind Traders Products*.
 1. Remove the **Home**, **About**, and **Contact** links. In the following example, delete the highlighted code.
 
     ![Delete the generated list items][41]
 
-1. In **Solution Explorer**, expand **Views** > **Home**, then double-click **Index.cshtml** to open `Index.cshtml` in the Visual Studio editor. Replace the entire contents of the file with the following code:
+1. In **Solution Explorer**, expand **Views** > **Home**, then double-click **Index.cshtml** to open *Index.cshtml* in the Visual Studio editor. Replace the entire contents of the file with the following code:
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -338,7 +338,7 @@ In this section, you build a simple ASP.NET application that displays data retri
    </table>
    ```
 
-1. To verify the accuracy of your work so far, you can press **Ctrl+Shift+B** to build the project.
+1. To verify the accuracy of your work so far, you can press Ctrl+Shift+B to build the project.
 
 ### Run the app locally
 
@@ -357,13 +357,13 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 1. If it isn't already open, in Visual Studio reopen the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 1. Similar to the step in the [Create an On-Premises Server](#create-an-on-premises-server) section, add the NuGet package to the project references. In **Solution Explorer**, right-click the **ProductsPortal** project, then select **Manage NuGet Packages**.
-1. Search for **WindowsAzure.ServiceBus** and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
+1. Search for *WindowsAzure.ServiceBus* and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
 1. In **Solution Explorer**, right-click the **ProductsPortal** project, then select **Add** > **Existing Item**.
-1. Navigate to the `ProductsContract.cs` file from the **ProductsServer** console project. Highlight `ProductsContract.cs`. Select the down arrow next to **Add**, then choose **Add as Link**.
+1. Navigate to the *ProductsContract.cs* file from the **ProductsServer** console project. Highlight *ProductsContract.cs*. Select the down arrow next to **Add**, then choose **Add as Link**.
 
    ![Add as a link][24]
 
-1. Now open the `HomeController.cs` file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This code enables the client to call the on-premises service, returning the result of the call.
+1. Now open the *HomeController.cs* file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace `yourServiceNamespace` with the name of your service namespace, and `yourKey` with your SAS key. This code enables the client to call the on-premises service, returning the result of the call.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -406,7 +406,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
    ```
 
 1. In **Solution Explorer**, right-click the **ProductsPortal** solution. Make sure to right-click the solution, not the project. Select **Add** > **Existing Project**.
-1. Navigate to the **ProductsServer** project, then double-click the **ProductsServer.csproj** solution file to add it.
+1. Navigate to the **ProductsServer** project, then double-click the *ProductsServer.csproj* solution file to add it.
 1. **ProductsServer** must be running to display the data on **ProductsPortal**. In **Solution Explorer**, right-click the **ProductsPortal** solution and select **Properties** to display **Property Pages**.
 1. Select **Common Properties** > **Startup Project** and choose **Multiple startup projects**. Ensure that **ProductsServer** and **ProductsPortal** appear, in that order, and that the **Action** for both is **Start**.
 
@@ -439,7 +439,6 @@ The next step is to republish the Azure Web app **ProductsPortal** front end:
    > [!NOTE]
    > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
    >
-   >
 
 1. Copy the URL of the deployed web app. You'll need the URL later. You can also obtain this URL from the **Azure App Service Activity** window in Visual Studio:
 
@@ -469,7 +468,6 @@ The product inventory lists data retrieved from the product service on-premises 
 
    > [!IMPORTANT]
    > The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
-   >
    >
 
 1. In the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you see the server app display a message when `GetProducts()` from **ProductsServer** is called.
