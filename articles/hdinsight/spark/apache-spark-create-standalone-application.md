@@ -194,7 +194,7 @@ Perform the following steps to install the Scala plugin:
 
     7. To create the jar, navigate to **Build** > **Build Artifacts** > **Build**. The project will compile in about 30 seconds.  The output jar is created under **\out\artifacts**.
 
-        ![output](./media/apache-spark-create-standalone-application/output.png)
+        ![output](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## Run the application on the Apache Spark cluster
 
