@@ -20,7 +20,7 @@ Put something here.
 - Ensure that the services and features that your account uses are supported in the target region.
 - For preview features, ensure that target subscription is whitelisted for the target regions.
 
-## Prepare and move
+## Prepare
 
 The following steps show how to prepare the storage account for the move using an Resource Manager template, and move the storage account settings to the target region using the portal.
 
@@ -85,7 +85,8 @@ Azure requires that each Azure service has a unique name. The deployment could f
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
     ```
-### Save and deploy the template
+
+## Move
 
 1. Save the **template.json** file.
 
@@ -123,29 +124,11 @@ After the deployment, if you wish to start over or discard the target storage ac
 
 To commit the changes and complete the move of a storage account, delete the source storage account.
 
-# [Portal](#tab/azure-portal)
-
-To remove a storage account by using the Azure portal:
-
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts*** to display the list of your storage accounts.
+
 2. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
+
 3. Select **Delete**, and confirm.
-
-# [PowerShell](#tab/azure-powershell)
-
-To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) command:
-
-```powershell
-Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To remove the resource group and its associated resources, including the new storage account, use the [az storage account delete](/cli/azure/storage/account#az-storage-account-delete) command.
-
-```azurecli-interactive
-az storage account delete --name storage-account-name
-```
 
 ## Next steps
 
