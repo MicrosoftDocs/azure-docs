@@ -20,8 +20,6 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning, and the RESTful API enables you to easily integrate the service into your applications and processes.
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner]
-
 ## Features
 
 With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time. 
@@ -74,9 +72,13 @@ After signing up:
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
+## Join the Anomaly Detector community
+
+* Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
+* See selected [user generated content](user-generated-content.md)
+
 ## Next steps
 
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](quickstarts/detect-data-anomalies-csharp.md)
-* Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
 * The Anomaly Detector API [online demo](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
 * The Anomaly Detector [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
