@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the Route Service SDK
 
 ## Prerequisites
 
-Before you proceed, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
+Before you proceed, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 <a id="getcoordinates"></a>
 
