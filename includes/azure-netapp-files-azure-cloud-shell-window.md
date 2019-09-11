@@ -21,5 +21,3 @@ ms.custom: include file
     ```azurecli-interactive
     az provider register --namespace Microsoft.NetApp --wait  
     ```
-
-    The registration process can take some time to complete.
