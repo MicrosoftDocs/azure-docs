@@ -56,4 +56,21 @@ Open Visual Studio by using the desktop icon or the **Start** menu. Search for p
 
 A plug-in called Azure Machine Learning for Visual Studio Code also integrates with Azure Machine Learning and helps you rapidly build AI applications.
 
+## Important directories on the VM
+
+| Item | Directory |
+| --- | --- |
+| Jupyter Notebook server configurations | C:\ProgramData\jupyter |
+| Jupyter Notebook samples home directory | C:\dsvm\notebooks and c:\users\\<username\>\notebooks |
+| Other samples | C:\dsvm\samples |
+| Anaconda, default: Python 3.6 | C:\Anaconda |
+| Anaconda Python 2.7 environment | C:\Anaconda\envs\python2 |
+| Microsoft Machine Learning Server (standalone) for Python | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
+| Default R instance, Machine Learning Server (standalone) | C:\Program Files\Microsoft\ML Server\R_SERVER |
+| SQL Server Machine Learning Services in-database instance directory | C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
+| Miscellaneous tools | C:\dsvm\tools |
+
+> [!NOTE]
+> On the Windows Server 2012 edition of the DSVM and the Windows Server 2016 edition before March 2018, the default Anaconda environment is Python 2.7. The secondary environment is Python 3.5, located at C:\Anaconda\envs\py35.
+
 
