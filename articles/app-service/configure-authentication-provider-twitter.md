@@ -22,17 +22,17 @@ ms.custom: seodec18
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This topic shows you how to configure Azure App Service to use Twitter as an authentication provider.
+This article shows how to configure Azure App Service to use Twitter as an authentication provider.
 
-To complete the procedure in this topic, you must have a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to <a href="https://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
+To complete the procedure in this article, you need a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to [twitter.com].
 
 ## <a name="register"> </a>Register your application with Twitter
 
-1. Sign in to the [Azure portal], and navigate to your application. Copy your **URL**. You will use it to configure your Twitter app.
+1. Sign in to the [Azure portal], and go to your application. Copy your **URL**. You'll use it to configure your Twitter app.
 1. Go to the [Twitter Developers] website, sign in with your Twitter account credentials, and select **Create New App**.
-1. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, type the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
-1. At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. The application details are displayed.
-1. Click the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
+1. Enter a **Name** and a **Description** for your new app. In the **Website** field, paste your application's **URL**. In the **Callback URL** field, enter the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure to use  the HTTPS scheme.
+1. At the bottom the page, read and accept the terms. Select **Create your Twitter application**. The application details are displayed.
+1. Select the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
 1. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**.
    
    > [!NOTE]
@@ -41,11 +41,14 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 ## <a name="secrets"> </a>Add Twitter information to your application
 
-1. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
-1. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
-1. Click **Twitter**. Paste in the App ID and App Secret values that you obtained previously. Then click **OK**.
+1. Go to your application in the [Azure portal]. 
+1. Select **Settings**, and then **Authentication / Authorization**.
+1. Make sure that the **Authentication / Authorization** feature is enabled. Switch it **On** if necessary.
+1. Select **Twitter**.
+1. Paste in the App ID and App Secret values that you obtained previously.
+1. Select **OK**.
    
-   ![][1]
+   ![Screenshot of Mobile App Twitter Settings][1]
    
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
@@ -58,7 +61,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 You are now ready to use Twitter for authentication in your app.
 
-## <a name="related-content"> </a>Related Content
+## <a name="related-content"> </a>Next steps
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
@@ -69,5 +72,6 @@ You are now ready to use Twitter for authentication in your app.
 <!-- URLs. -->
 
 [Twitter Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+[twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
 [Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
