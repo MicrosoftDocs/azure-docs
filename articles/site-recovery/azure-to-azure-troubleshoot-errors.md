@@ -56,7 +56,7 @@ If you're in a disconnected environment, follow the standard Windows update proc
 
 To verify that the issue is resolved, go to login.microsoftonline.com from a browser in your VM.
 
-For more information, see  [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).
+For more information, see [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).
 
 #### Linux
 
@@ -187,7 +187,7 @@ The connection to Office 365 authentication and identity IP4 endpoints can't be 
 #### Fix the problem
 
 Site Recovery requires access to Office 365 IP ranges for authentication.
-If you're using Azure network security group (NSG) rules or firewall proxy to control outbound network connectivity on the VM, be sure you allow communication to Office 365 IP ranges. Create an NSG rule based on an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags), allowing access to all IP addresses corresponding to Azure AD. If new addresses are added to Azure AD in the future, you must create new NSG rules.
+If you're using Azure NSG rules or firewall proxy to control outbound network connectivity on the VM, be sure you allow communication to Office 365 IP ranges. Create an NSG rule based on an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags), allowing access to all IP addresses corresponding to Azure AD. If new addresses are added to Azure AD in the future, you must create new NSG rules.
 
 > [!NOTE]
 > If VMs are behind a *Standard* internal load balancer, the load balancer by default does not have access to Office 365 IP ranges (that is, login.microsoftonline.com). Either change the internal load balancer type to *Basic* or create outbound access as described in the article [Configure load balancing and outbound rules](https://aka.ms/lboutboundrulescli).
@@ -254,7 +254,7 @@ Make sure that the data disks are initialized, and then retry the operation.
 
 If the problem persists, contact support.
 
-## One or more disk(s) are available for protection (error code 153039)
+## One or more disks are available for protection (error code 153039)
 
 ### Possible causes
 
@@ -265,7 +265,7 @@ If the problem persists, contact support.
 
 To make the replication status of the VM healthy again, you can choose either to protect the disks or to dismiss the warning.
 
-#### To protect the disk(s)
+#### To protect the disks
 
 1. Go to **Replicated Items** > *VM name* > **Disks**.
 1. Select the unprotected disk, and then select **Enable replication**:
@@ -289,12 +289,12 @@ You can ignore this warning if you never intend to protect this virtual machine 
 > If you don't do the cleanup:
 >
 > - When you enable replication by means of the Recovery Services vault, the virtual machine won't be listed.
-> - If you try to protect the VM by using **Virtual machine** > **Settings** > **Disaster Recovery**, the operation will fail with the message "Replication cannot be enabled because of the existing stale resource links on the VM".
+> - If you try to protect the VM by using **Virtual machine** > **Settings** > **Disaster Recovery**, the operation will fail with the message "Replication cannot be enabled because of the existing stale resource links on the VM."
 
 ### Fix the problem
 
 > [!NOTE]
-> Site Recovery doesn't delete the source virtual machine or impact it in any way while you perform these steps.
+> Site Recovery doesn't delete the source virtual machine or affect it in any way while you perform these steps.
 
 1. Remove the lock from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
@@ -302,7 +302,7 @@ You can ignore this warning if you never intend to protect this virtual machine 
 
 1. Download the script to [remove a stale Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
-1. If asked for Azure credentials, provide them, and then verify that the script runs without any failures.
+1. If you're asked for Azure credentials, provide them. Then verify that the script runs without any failures.
 
 ## Replication can't be enabled because of stale resource links on the VM (error code 150226)
 
@@ -319,7 +319,7 @@ A stale configuration can occur on an Azure VM if you enabled replication for th
 ### Fix the problem
 
 > [!NOTE]
-> Site Recovery doesn't delete the source virtual machine or impact it in any way while you perform these steps.
+> Site Recovery doesn't delete the source virtual machine or affect it in any way while you perform these steps.
 
 1. Remove the lock from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
@@ -327,7 +327,7 @@ A stale configuration can occur on an Azure VM if you enabled replication for th
 
 1. Download the script to [remove a stale Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
-1. If asked for Azure credentials, provide them, and then verify that the script runs without any failures.
+1. If you're asked for Azure credentials, provide them. Then verify that the script runs without any failures.
 
 ## Unable to see the Azure VM or resource group for the selection in the "Enable replication" job
 
@@ -352,7 +352,7 @@ You might not see the VM that you want to enable for replication if a stale Site
 ### Fix the problem
 
 > [!NOTE]
-> Make sure to update the "AzureRM.Resources" module before using the script mentioned in this section.  Site Recovery doesn't delete the source virtual machine or impact it in any way while you perform these steps.
+> Make sure to update the "AzureRM.Resources" module before using the script mentioned in this section.  Site Recovery doesn't delete the source virtual machine or affect it in any way while you perform these steps.
 
 1. Remove the lock, if any, from the VM or VM resource group. For example, in the following image, the resource lock on the VM named "MoveDemo" must be deleted:
 
@@ -360,7 +360,7 @@ You might not see the VM that you want to enable for replication if a stale Site
 
 1. Download the script to [remove a stale Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Run the script, which is called Cleanup-stale-asr-config-Azure-VM.ps1. Supply the subscription ID, VM Resource Group, and VM name as parameters.
-1. If asked for Azure credentials, provide them, and then verify that the script runs without any failures.
+1. If you're asked for Azure credentials, provide them. Then verify that the script runs without any failures.
 
 ## Unable to select a virtual machine for protection
 
@@ -397,15 +397,15 @@ If the source VM is part of a virtual network, and another VM from the same virt
 
 ### Cause 2: You previously protected the VM by using Site Recovery, and then you disabled the replication
 
-- Disabling replication of a VM doesn't delete the network mapping. The mapping must be deleted from the Recovery Services vault where the VM was protected. Go to *Recovery Services vault* > **Site Recovery Infrastructure** > **Network Mapping**.
+Disabling replication of a VM doesn't delete the network mapping. The mapping must be deleted from the Recovery Services vault where the VM was protected. Go to *Recovery Services vault* > **Site Recovery Infrastructure** > **Network Mapping**.
 
-  ![Delete network mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+![Delete network mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
-- The target network that was configured during the disaster-recovery setup can be changed after the initial setup, after the VM is protected:
+The target network that was configured during the disaster-recovery setup can be changed after the initial setup, after the VM is protected:
 
-  ![Modify network mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+![Modify network mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
 
-- Note that changing network mapping affects all protected VMs that use that same network mapping.
+Note that changing network mapping affects all protected VMs that use that same network mapping.
 
 ## COM+ or Volume Shadow Copy service error (error code 151025)
 
@@ -445,7 +445,7 @@ Make sure that the disk size is within the supported size range, and then retry 
 
 ### Possible cause
 
-The Linux GRUB configuration files (/boot/grub/menu.lst", /boot/grub/grub.cfg, /boot/grub2/grub.cfg, or /etc/default/grub) might specify the actual device names instead of UUID values for the *root* and *resume* parameters. Site Recovery requires UUIDs because device names can change. Upon reboot, a VM might not come up with the same name on failover, resulting in problems.
+The Linux GRUB configuration files (/boot/grub/menu.lst", /boot/grub/grub.cfg, /boot/grub2/grub.cfg, or /etc/default/grub) might specify the actual device names instead of UUID values for the *root* and *resume* parameters. Site Recovery requires UUIDs because device names can change. Upon restart, a VM might not come up with the same name on failover, resulting in problems.
 
 The following examples are lines from GRUB files where device names (shown in bold) appear instead of the required UUIDs:
 
@@ -495,7 +495,7 @@ The GRUB configuration files (/boot/grub/menu.lst, /boot/grub/grub.cfg, /boot/gr
 
     > kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto **rd_LVM_LV=rootvg/lv_root**  KEYBOARDTYPE=pc KEYTABLE=us **rd_LVM_LV=rootvg/lv_swap** rd_NO_DM rhgb quiet
 
-In each example, the portion in bold shows that the GRUB has to detect two LVM devices with the names "root" and "swap" from the volume group "rootvg".
+In each example, the portion in bold shows that the GRUB has to detect two LVM devices with the names "root" and "swap" from the volume group "rootvg."
 
 ### Fix the problem
 
@@ -503,12 +503,12 @@ If the LVM device doesn't exist, either create it or remove the corresponding pa
 
 ## A Site Recovery Mobility Service update finished with warnings (error code 151083)
 
-The Site Recovery Mobility Service has many components, one of which is called the filter driver. The filter driver is loaded into system memory only during system reboot. Whenever a Mobility Service update includes filter driver changes, the machine is updated but you still see a warning that some fixes require a reboot. The warning appears because the filter driver fixes can take effect only when the new filter driver is loaded, which happens only during a reboot.
+The Site Recovery Mobility Service has many components, one of which is called the filter driver. The filter driver is loaded into system memory only during system restart. Whenever a Mobility Service update includes filter driver changes, the machine is updated but you still see a warning that some fixes require a restart. The warning appears because the filter driver fixes can take effect only when the new filter driver is loaded, which happens only during a restart.
 
 > [!NOTE]
-> This is only a warning. Existing replication continues to work even after the new agent update. You can choose to reboot whenever you want the benefits of the new filter driver, but the old filter driver keeps working if you don't reboot.
+> This is only a warning. Existing replication continues to work even after the new agent update. You can choose to restart whenever you want the benefits of the new filter driver, but the old filter driver keeps working if you don't restart.
 >
-> Apart from the filter driver, the benefits of any other enhancements and fixes in the Mobility Service update take effect without requiring a reboot.  
+> Apart from the filter driver, the benefits of any other enhancements and fixes in the Mobility Service update take effect without requiring a restart.  
 
 ## Protection couldn't be enabled because the replica managed disk already exists, without expected tags, in the target resource group (error code 150161)
 
