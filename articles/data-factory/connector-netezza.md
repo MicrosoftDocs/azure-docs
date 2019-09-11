@@ -20,6 +20,9 @@ ms.author: jingwang
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Netezza. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
+>[!TIP]
+>For data migration scenario from Netezza to Azure, learn more from [Use Azure Data Factory to migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md).
+
 ## Supported capabilities
 
 You can copy data from Netezza to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

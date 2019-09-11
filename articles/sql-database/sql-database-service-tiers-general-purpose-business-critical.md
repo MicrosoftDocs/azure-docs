@@ -20,6 +20,26 @@ Azure SQL Database is based on SQL Server database engine architecture that's ad
 - [Business critical](sql-database-service-tier-business-critical.md), which is designed for low-latency workloads with one readable replica.
 - [Hyperscale](sql-database-service-tier-hyperscale.md), which is designed for very large databases (up to 100 TB) with multiple readable replicas.
 
+The following table describes the key differences between service tiers. Note that service tier characteristics might be different in Single Database and Managed Instance.
+
+| | Resource type | General Purpose |  Hyperscale | Business Critical |
+|:---:|:---:|:---:|:---:|:---:|
+| **Best for** |All|  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements and the ability to auto-scale storage and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
+|  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
+| **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
+| |Managed instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
+| **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
+| **Database size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
+| | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
+| | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
+| | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
+|**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
+|**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7 days, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
+|**In-memory OLTP** | | N/A | Available | N/A |
+|**Built-in read-only replicas**| | 0 | 1 | 0 - 4 |
+
 This article discusses storage and backup considerations for the general purpose and business critical service tiers in the vCore-based purchasing model.
 
 > [!NOTE]

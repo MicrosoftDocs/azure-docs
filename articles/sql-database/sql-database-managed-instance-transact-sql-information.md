@@ -196,7 +196,7 @@ The default instance collation is `SQL_Latin1_General_CP1_CI_AS` and can be spec
 
 ### Compatibility levels
 
-- Supported compatibility levels are 100, 110, 120, 130, and 140.
+- Supported compatibility levels are 100, 110, 120, 130, 140 and 150.
 - Compatibility levels below 100 aren't supported.
 - The default compatibility level for new databases is 140. For restored databases, the compatibility level remains unchanged if it was 100 and above.
 
@@ -334,7 +334,7 @@ A managed instance can't access file shares and Windows folders, so the followin
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### Database Mail (db_mail)
- - `sp_send_dbmail` cannot send atachments using @file_attachments parameter. Local file system and extental shares or Azure blob Storage are not accessible form this procedure.
+ - `sp_send_dbmail` cannot send attachments using @file_attachments parameter. Local file system and extental shares or Azure blob Storage are not accessible form this procedure.
  - See the known issues related to `@query` parameter and authentication.
  
 ### DBCC
