@@ -49,7 +49,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Printed and handwritten text recognition
+          - text: Object detection
             url: concept-object-detection.md
       - linkListType: quickstart
         links:

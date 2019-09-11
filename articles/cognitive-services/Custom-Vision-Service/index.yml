@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: What is Custom Vision?
             url: home.md
-      - linkListType: overview
+      - linkListType: video
         links:
           - text: Train and identify unique images
             url: https://channel9.msdn.com/Shows/AI-Show/Azure-Custom-Vision-How-to-Train-and-Identify-Unique-Designs-or-Image-Content
