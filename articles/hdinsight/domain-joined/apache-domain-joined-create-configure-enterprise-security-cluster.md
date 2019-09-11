@@ -66,7 +66,7 @@ Overview: In this section, you will create the users that will have access to th
 
     1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **User**.
 
-        ![Create new Active Directory User](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-user.png)
+        ![Create new Active Directory User](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
     1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**.
 
@@ -80,7 +80,7 @@ Overview: In this section, you will create the users that will have access to th
 
 1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **Group**. Create `HDIUserGroup` as a new Group.
 
-    ![Create new Active Directory Group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-group.png)
+    ![Create new Active Directory Group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
     ![create new group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
