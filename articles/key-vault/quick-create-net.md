@@ -152,7 +152,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate to your key vault
 
-This .NET quickstart relies on environment variables to store credentials that should not but put in code. 
+This .NET quickstart relies on environment variables to store credentials that should not be put in code. 
 
 Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
 

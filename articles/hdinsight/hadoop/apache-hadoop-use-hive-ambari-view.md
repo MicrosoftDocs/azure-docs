@@ -106,7 +106,7 @@ The __Jobs__ tab displays a history of Hive queries.
 
 You can use the __Tables__ tab to work with tables within a Hive database.
 
-![Image of the tables tab](./media/apache-hadoop-use-hive-ambari-view/tables.png)
+![Image of the tables tab](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## Saved queries
 
