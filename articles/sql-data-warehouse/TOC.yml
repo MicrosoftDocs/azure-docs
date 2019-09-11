@@ -129,10 +129,16 @@
         href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
     - name: Materialized view
       items:
+      - name: Performance tuning guidance  
+        href: sql-data-warehouse-performance-tuning-with-materialized-views.md
       - name: Create
         href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
       - name: Alter
         href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+    - name: Ordered clustered columnstore index
+      items:
+      - name: Performance tuning guidance  
+        href: sql-data-warehouse-performance-tuning-with-ordered-CCI.md
     - name: Result set caching
       href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
