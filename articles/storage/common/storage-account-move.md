@@ -56,7 +56,7 @@ Azure requires that each Azure service has a unique name. The deployment could f
 
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
  
-7. In the **template.json** file, set the default value of the storage account name in the .json file to a name of your choice for the target storage account. This example sets the default value of the storage account name to `mytargetaccount`.
+7. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -85,46 +85,11 @@ Azure requires that each Azure service has a unique name. The deployment could f
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
     ```
+### Save and deploy the template
 
-5. Lifecycle management policies do not automatically export with this template. If your storage account has lifecycle management policies, obtain these policies in json form from the [Azure portal Code view](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view) of the LifeCycle management settings. Then, add that json to the **properties** section of this template. 
+1. Save the **template.json** file.
 
-    ```json
-    "properties": {
-        "policy": {
-            "rules": [ 
-                {
-                    "enabled": true,
-                    "name": "myrule",
-                    "type": "Lifecycle",
-                    "definition": {
-                        "actions": {
-                            "baseBlob": {
-                                "tierToCool": {
-                                    "daysAfterModificationGreaterThan": 200
-                                },
-                                "delete": {
-                                    "daysAfterModificationGreaterThan": 300
-                                }
-                            }
-                        },
-                        "filters": {
-                            "blobTypes": [
-                                "blockBlob"
-                            ]
-                        }
-                    }
-                }
-            ]
-        }
-    }
-
-    ```
-
-6. Save the **template.json** file.
-
-### Deploy the template
-
-1. Enter or select the property values:
+2. Enter or select the property values:
 
 - **Subscription**: Select an Azure subscription.
 
@@ -132,40 +97,54 @@ Azure requires that each Azure service has a unique name. The deployment could f
 
 - **Location**: Select an Azure location.
 
-2. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
+3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
 ### Add settings to the target storage account
 
 These settings don't export to a template, so you'll have to add them to your new account.
 
+- Lifecycle management policies. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view).
+
 - Static websites. See [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md).
+
 - Event subscriptions. See [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md).
+
 - Alerts. See [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md).
 
 If you set up a Content Delivery Network (CDN) in the source account, just change the origin of your existing CDN to the static website or blob URL in your new account. See [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md).
 
 ### Move data to the new storage account
 
-Put AzCopy steps in here.
+See [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
 
-## Discard 
+## Discard or Clean up
 
-After the deployment, if you wish to start over or discard the storage account in the target, delete the resource group that was created in the target and the moved storage account will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+After the deployment, if you wish to start over or discard the target storage account, you can delete it. 
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name <resource-group-name>
+To commit the changes and complete the move of a storage account, delete the source storage account.
+
+# [Portal](#tab/azure-portal)
+
+To remove a storage account by using the Azure portal:
+
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts*** to display the list of your storage accounts.
+2. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
+3. Select **Delete**, and confirm.
+
+# [PowerShell](#tab/azure-powershell)
+
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) command:
+
+```powershell
+Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
 ```
 
-## Clean up
+# [Azure CLI](#tab/azure-cli)
 
-To commit the changes and complete the move of the storage account, delete the source storage account or resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) or [Remove-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccount?view=azps-2.6.0):
+To remove the resource group and its associated resources, including the new storage account, use the [az storage account delete](/cli/azure/storage/account#az-storage-account-delete) command.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name <resource-group-name>
-```
-
-``` azurepowershell-interactive
-Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-name>
+```azurecli-interactive
+az storage account delete --name storage-account-name
 ```
 
 ## Next steps
