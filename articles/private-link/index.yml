@@ -49,7 +49,7 @@ landingContent:
           - text: What is private link service?
             url: private-link-service-overview.md
       
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
           - text: Create a private link service
             url: create-private-link-service-powershell.md   
