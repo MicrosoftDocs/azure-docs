@@ -204,7 +204,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
    >
    >
 
-   ![Adding a script action](./media/r-server-hdinsight-manage/submitscriptaction.png)
+   ![Adding a script action](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Select **Create** to run the script. Once the script completes, the R packages are available on all worker nodes.
 

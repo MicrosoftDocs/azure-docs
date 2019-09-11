@@ -72,7 +72,7 @@ Alerts other than **OK** cause the **# alerts** entry at the top of the page to 
 
 Alerts are organized into several default groups, which can be viewed from the **Alerts** page.
 
-![alerts page](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![alerts page](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 You can manage the groups by using the **Actions** menu and selecting **Manage Alert Groups**.
 
@@ -88,11 +88,11 @@ Finally, selecting __Manage Alert Settings__ from the __Actions__ menu allows yo
 
 The **Metrics** tab of the dashboard contains a series of widgets that make it easy to monitor the status of your cluster at a glance. Several widgets, such as **CPU Usage**, provide additional information when clicked.
 
-![dashboard with metrics](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![dashboard with metrics](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 The **Heatmaps** tab displays metrics as colored heatmaps, going from green to red.
 
-![dashboard with heatmaps](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![dashboard with heatmaps](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 For more information on the nodes within the cluster, select **Hosts**. Then select the specific node you are interested in.
 
@@ -138,7 +138,7 @@ Working with users, groups, and permissions are supported when using a [domain j
 
 The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these steps.
 
-![hosts page](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![hosts page](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > Adding, decommissioning, and recommissioning a host should not be used with HDInsight clusters.

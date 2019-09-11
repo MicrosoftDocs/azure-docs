@@ -38829,6 +38829,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/analysis-services/analysis-services-compat-level.md",
+      "redirect_url": "https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
       "redirect_document_id": false

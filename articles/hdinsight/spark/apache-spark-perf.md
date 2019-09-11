@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ---
 
-# Optimize Apache Spark jobs
+# Optimize Apache Spark jobs in HDInsight
 
 Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, due to improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
 
