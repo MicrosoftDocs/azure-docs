@@ -38,7 +38,6 @@ The series is divided into the following topics:
         - [Data Storage](data-storage.md)
         - [Serverless Compute](serverless-compute.md)
         - [Azure Storage](azure-storage.md)
-        - Mobile App Backend
         - Secure and Manage apps 
     - [Code Hosting Services](code-hosting-services.md)
     - DevOps    
