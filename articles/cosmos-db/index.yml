@@ -362,19 +362,3 @@ landingContent:
             url: cassandra-migrate-cosmos-db-blitzz.md 
           - text: Migrate 100’s TBs of data
             url: migrate-cosmosdb-data.md 
-
-  # Card
-  - title: Built-in analytics with Apache Spark
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Spark and Jupyter notebooks support 
-            url: spark-api-introduction.md
-          - text: Lambda architecture
-            url: lambda-architecture.md
-      - linkListType: how-to-guide
-        links:
-          - text: Use Cosmos DB to Spark connector
-            url: spark-connector.md
-          - text: Use Cosmos DB with Apache Kafka
-            url: /hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcosmos-db%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json.md      
