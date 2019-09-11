@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2018
+ms.date: 09/12/2019
 ms.author: spelluru
 
 ---
@@ -23,7 +23,7 @@ This tutorial describes how to build an Azure Relay host application that expose
 
 The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Azure Relay. For more information, see [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) and [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services).
 
-You take the following steps in this tutorial:
+You do the following tasks in this tutorial:
 
 > [!div class="checklist"]
 >
@@ -49,7 +49,7 @@ To begin using the relay features in Azure, you must first create a service name
 
 When you create a WCF REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) attribute must be applied to each interface, and the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) doesn't have the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), that method isn't exposed. The code used for these tasks is shown in the example following the procedure.
 
-The primary difference between a WCF contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). This property enables you to map a method in your interface to a method on the other side of the interface. This example uses the [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) attribute to link a method to HTTP GET. This approach enables Service Bus to accurately retrieve and interpret commands sent to the interface.
+The primary difference between a WCF contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). This property enables you to map a method in your interface to a method on the other side of the interface. This example uses the [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) attribute to link a method to `HTTP GET`. This approach enables Service Bus to accurately retrieve and interpret commands sent to the interface.
 
 ### To create a contract with an interface
 
@@ -65,8 +65,8 @@ The primary difference between a WCF contract and a REST-style contract is the a
 
     This step adds references to Service Bus and *System.ServiceModel.dll*. This package automatically adds references to the Service Bus libraries and the WCF `System.ServiceModel`.
 
-1. Explicitly add a reference to `System.ServiceModel.Web.dll` to the project. In **Solution Explorer**, right-click **References** under the project folder. and select **Add Reference**.
-1. In **Add Reference**, select **Framework** on the left side and enter *System.ServiceModel.Web* in **Search**. Select the **System.ServiceModel.Web** check box, then click **OK**.
+1. Explicitly add a reference to `System.ServiceModel.Web.dll` to the project. In **Solution Explorer**, right-click **References** under the project folder, and select **Add Reference**.
+1. In **Add Reference**, select **Framework** and enter *System.ServiceModel.Web* in **Search**. Select the **System.ServiceModel.Web** check box, then click **OK**.
 
 Next, make the following code changes to the project:
 
@@ -169,7 +169,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Implement the REST-based WCF service contract
 
-To create a REST-style WCF Relay service, first create the contract, which is defined by using an interface. The next step is to implement the interface. This procedure involves creating a class named `ImageService` that implements the user-defined `IImageContract` interface. After you implement the contract, you then configure the interface using an *App.config* file. The configuration file contains necessary information for the application. This information includes the name of the service, the name of the contract, and the type of protocol that is used to communicate with the relay service. The code used for these tasks is provided in the example following the procedure.
+To create a REST-style WCF Relay service, first create the contract, which is defined by using an interface. The next step is to implement the interface. This procedure involves creating a class named `ImageService` that implements the user-defined `IImageContract` interface. After you implement the contract, you then configure the interface by using an *App.config* file. The configuration file contains necessary information for the application. This information includes the name of the service, the name of the contract, and the type of protocol that is used to communicate with the relay service. The code used for these tasks is provided in the example following the procedure.
 
 As with the previous steps, there's little difference between implementing a REST-style contract and a WCF Relay contract.
 
@@ -202,7 +202,7 @@ As with the previous steps, there's little difference between implementing a RES
 
     The rest of this tutorial assumes that the name of the image is *image.jpg*. If you have a different file, you must rename the image, or change your code to compensate.
 
-1. To make sure that the running service can find the image file, in **Solution Explorer** right-click the image file, then choose **Properties**. In the **Properties** pane, set **Copy to Output Directory** to **Copy if newer**.
+1. To make sure that the running service can find the image file, in **Solution Explorer** right-click the image file, then choose **Properties**. In **Properties**, set **Copy to Output Directory** to **Copy if newer**.
 
 1. Use the procedure in [#to-create-a-contract-with-an-interface](#to-create-a-contract-with-an-interface) to add a reference to the *System.Drawing.dll* assembly to the project.
 
@@ -252,7 +252,7 @@ As with the previous steps, there's little difference between implementing a RES
 
 ### To define the configuration for running the web service on Service Bus
 
-1. In **Solution Explorer**, double-click **App.config** to open *App.config* in the Visual Studio editor.
+1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor.
 
     The *App.config* file includes the service name, endpoint, and binding. The endpoint is the location Azure Relay exposes for clients and hosts to communicate with each other. The binding is the type of protocol that is used to communicate. The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
 
@@ -506,11 +506,11 @@ This section describes how to run a web service using a console application with
 
 Still in `Main()`, create the web service host, using the URI address created earlier in this section.
   
-    ```csharp
-    WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
-    ```
+```csharp
+WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
+```
 
-    The service host is the WCF object that instantiates the host application. This example passes it the type of host you want to create (an `ImageService`), and also the address at which you want to expose the host application.
+The service host is the WCF object that instantiates the host application. This example passes it the type of host you want to create, which is an `ImageService`, and also the address at which you want to expose the host application.
 
 ### To run the web service host
 
@@ -540,7 +540,7 @@ Still in `Main()`, create the web service host, using the URI address created ea
 
 ### Example of the service contract and implementation
 
-The following example includes the service contract and implementation from previous steps in the tutorial and hosts the service in a console application. Compile the following code into an executable named ImageListener.exe.
+The following example includes the service contract and implementation from previous steps in the tutorial and hosts the service in a console application. Compile the following code into an executable named *ImageListener.exe*.
 
 ```csharp
 using System;

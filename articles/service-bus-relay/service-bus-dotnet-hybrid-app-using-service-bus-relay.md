@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 09/12/2019
 ms.author: spelluru
 
 ---
@@ -21,10 +21,8 @@ ms.author: spelluru
 
 This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. You create an application that uses multiple Azure resources up and running in the cloud.
 
-* How to create or adapt an existing web service for consumption by a
-  web solution.
-* How to use the Azure Windows Communication Foundation (WCF) Relay service to share data between
-  an Azure application and a web service hosted elsewhere.
+* How to create or adapt an existing web service for consumption by a web solution.
+* How to use the Azure Windows Communication Foundation (WCF) Relay service to share data between an Azure application and a web service hosted elsewhere.
 
 You take the following steps in this tutorial:
 
@@ -93,7 +91,7 @@ First, you build a simulated on-premises product catalog system.  This project i
    ![Configure your new project][11]
 
 1. In **Solution Explorer**, right-click the **ProductsServer** project, then select **Manage NuGet Packages**.
-1. Select **Browse**, then search for and choose *WindowsAzure.ServiceBus*. Select **Install**, and accept the terms of use.
+1. Select **Browse**, then search for and choose **WindowsAzure.ServiceBus**. Select **Install**, and accept the terms of use.
 
    ![Select NuGet package][13]
 
@@ -193,7 +191,7 @@ First, you build a simulated on-premises product catalog system.  This project i
     }
     ```
 
-1. In **Solution Explorer**, double-click **App.config** to open *App.config* in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element, but still within `<system.ServiceModel>`, add the following XML code. Be sure to replace `yourServiceNamespace` with the name of your namespace, and `yourKey` with the SAS key you retrieved earlier from the portal:
+1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element, but still within `<system.ServiceModel>`, add the following XML code. Be sure to replace `yourServiceNamespace` with the name of your namespace, and `yourKey` with the SAS key you retrieved earlier from the portal:
 
     ```xml
     <system.serviceModel>
@@ -217,7 +215,8 @@ First, you build a simulated on-premises product catalog system.  This project i
     </system.serviceModel>
     ```
 
-    The error caused by `transportClientEndpointBehavior` is just a warning and isn't a blocking issue for this example.
+    > [!NOTE]
+    > The error caused by `transportClientEndpointBehavior` is just a warning and isn't a blocking issue for this example.
 
 1. Still in *App.config*, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
 
@@ -273,7 +272,7 @@ In this section, you build a simple ASP.NET application that displays data retri
 	}
     ```
 
-1. In **Solution Explorer**, expand **Controllers**, then double-click **HomeController.cs** to open *HomeController.cs* in Visual Studio.
+1. In **Solution Explorer**, expand **Controllers**, then double-click **HomeController.cs** to open the file in Visual Studio.
 1. In *HomeController.cs*, replace the existing namespace definition with the following code:
 
     ```csharp
@@ -296,13 +295,13 @@ In this section, you build a simple ASP.NET application that displays data retri
     }
     ```
 
-1. In **Solution Explorer**, expand **Views** > **Shared**, then double-click **_Layout.cshtml** to open *_Layout.cshtml* in the Visual Studio editor.
+1. In **Solution Explorer**, expand **Views** > **Shared**, then double-click **_Layout.cshtml** to open the file in the Visual Studio editor.
 1. Change all occurrences of `My ASP.NET Application` to *Northwind Traders Products*.
-1. Remove the **Home**, **About**, and **Contact** links. In the following example, delete the highlighted code.
+1. Remove the `Home`, `About`, and `Contact` links. In the following example, delete the highlighted code.
 
     ![Delete the generated list items][41]
 
-1. In **Solution Explorer**, expand **Views** > **Home**, then double-click **Index.cshtml** to open *Index.cshtml* in the Visual Studio editor. Replace the entire contents of the file with the following code:
+1. In **Solution Explorer**, expand **Views** > **Home**, then double-click **Index.cshtml** to open the file in the Visual Studio editor. Replace the entire contents of the file with the following code:
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -355,7 +354,7 @@ Your application should appear, running in a browser.
 
 The next step is to hook up the on-premises products server with the ASP.NET application.
 
-1. If it isn't already open, in Visual Studio reopen the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
+1. If it isn't already open, in Visual Studio, open the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 1. Similar to the step in the [Create an On-Premises Server](#create-an-on-premises-server) section, add the NuGet package to the project references. In **Solution Explorer**, right-click the **ProductsPortal** project, then select **Manage NuGet Packages**.
 1. Search for *WindowsAzure.ServiceBus* and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
 1. In **Solution Explorer**, right-click the **ProductsPortal** project, then select **Add** > **Existing Item**.
@@ -460,7 +459,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
 ## Run the application
 
-Press **F5** to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown here:
+Press **F5** to build and run the application. The on-premises server, which is the **ProductsServer** console application, should start first, then the **ProductsPortal** application should start in a browser window, as shown here:
 
    ![Run the web app on Azure][1]
 

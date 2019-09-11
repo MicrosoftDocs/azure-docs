@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2018
+ms.date: 09/12/2019
 ms.author: spelluru
 
 ---
@@ -185,7 +185,7 @@ Creating an Azure relay requires that you first create the contract, which is de
 
 The configuration file is similar to a WCF configuration file. It includes the service name, endpoint, and binding. The endpoint is the location Azure Relay exposes for clients and hosts to communicate with each other. The binding is the type of protocol that is used to communicate. The main difference is that this configured service endpoint refers to a [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) binding, which isn't part of the .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) is one of the bindings defined by the service.
 
-1. In **Solution Explorer**, double-click **App.config** to open the *App.config* file in the Visual Studio editor.
+1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor.
 1. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
 1. Within the `<system.serviceModel>` tags, add a `<services>` element. You can define multiple relay applications in a single configuration file. However, this tutorial defines only one.
 
@@ -334,11 +334,11 @@ For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoServ
     }
     ```
 
-    As stated in the previously, you could have declared multiple services and endpoints in the configuration file. If you had, this code would traverse the configuration file and search for every endpoint to which it should apply your credentials. However, for this tutorial, the configuration file has only one endpoint.
+    As stated previously, you could have declared multiple services and endpoints in the configuration file. If you had, this code would traverse the configuration file and search for every endpoint to which it should apply your credentials. However, for this tutorial, the configuration file has only one endpoint.
 
 ### Open the service host
 
-1. Still in `Main()`, add the following lin to open the service.
+1. Still in `Main()`, add the following line to open the service.
 
     ```csharp
     host.Open();
@@ -513,7 +513,7 @@ namespace Microsoft.ServiceBus.Samples
 
 In this step, you create an *App.config* file for a basic client application that accesses the service created previously in this tutorial. This *App.config* file defines the contract, binding, and name of the endpoint. The code used for these tasks is provided in the example following the procedure.
 
-1. In **Solution Explorer**, in the **EchoClient** project, double-click **App.config** to open *App.config* in the Visual Studio editor.
+1. In **Solution Explorer**, in the **EchoClient** project, double-click **App.config** to open the file in the Visual Studio editor.
 2. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
 3. Within the `system.serviceModel` element, add a `<client>` element.
 
@@ -756,7 +756,7 @@ namespace Microsoft.ServiceBus.Samples
 
     `Press [Enter] to exit`
 
-1. In the **EchoClient** console window, enter the same information that you entered previously for the service application. Follow the previous steps to enter the same service namespace and SAS key values for the client application.
+1. In the **EchoClient** console window, enter the same information that you entered previously for the service application. Enter the same service namespace and SAS key values for the client application.
 1. After entering these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
 
     `Enter text to echo (or [Enter] to exit):`
