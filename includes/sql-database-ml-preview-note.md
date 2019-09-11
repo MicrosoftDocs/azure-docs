@@ -1,7 +1,7 @@
 ---
 author: garyericson
 ms.service: sql-database
-ms.component: machine-learning  
+ms.subservice: machine-learning  
 ms.topic: include
 ms.date: 04/10/2019
 ms.author: garye

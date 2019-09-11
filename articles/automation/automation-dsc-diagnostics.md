@@ -34,6 +34,7 @@ To start sending your Automation State Configuration reports to Azure Monitor lo
 - An Azure Automation account. For more information, see [Getting Started with Azure Automation](automation-offering-get-started.md)
 - A Log Analytics workspace with an **Automation & Control** service offering. For more information, see [Get started with Azure Monitor logs](../log-analytics/log-analytics-get-started.md).
 - At least one Azure Automation State Configuration node. For more information, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md)
+- The [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) module, version 2.7.0.0 or greater. For installation steps, see [View DSC logs on your Node](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
 
 ## Set up integration with Azure Monitor logs
 
@@ -104,8 +105,8 @@ the alert rule.
 1. From the Log Analytics workspace Overview page, click **Logs**.
 1. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
-   Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
+   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.
+   Automation account name can be derived from the Resource field in the search of DscNodeStatusData.
 1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Create an alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### Find failed DSC resources across all nodes
@@ -118,10 +119,10 @@ To find all instances of DSC resources that failed.
 
 ### View historical DSC node status
 
-Finally, you may want to visualize your DSC node status history over time.  
+Finally, you may want to visualize your DSC node status history over time.
 You can use this query to search for the status of your DSC node status over time.
 
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`
 
 This will display a chart of the node status over time.
 
@@ -197,7 +198,7 @@ By sending your Automation State Configuration data to Azure Monitor logs, you c
 into the status of your Automation State Configuration nodes by:
 
 - Setting up alerts to notify you when there is an issue
-- Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.  
+- Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
 
 Azure Monitor logs provides greater operational visibility to your Automation State Configuration data
 and can help address incidents more quickly.

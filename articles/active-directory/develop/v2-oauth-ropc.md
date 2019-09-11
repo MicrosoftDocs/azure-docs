@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -35,19 +35,19 @@ Microsoft identity platform supports the [resource owner password credential (RO
 
 The following diagram shows the ROPC flow.
 
-![ROPC flow](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagram showing the resource owner password credential flow](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## Authorization request
 
-The ROPC flow is a single request&mdash;it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
+The ROPC flow is a single request: it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
 
 > [!TIP]
 > Try executing this request in Postman!
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
-// Line breaks and spaces are for legibility only.
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -63,10 +63,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant that you want to log the user into. This can be in GUID or friendly name format. This parameter can't be set to `common` or `consumers`, but may be set to `organizations`. |
+| `client_id` | Required | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. | 
 | `grant_type` | Required | Must be set to `password`. |
 | `username` | Required | The user's email address. |
 | `password` | Required | The user's password. |
 | `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. In an interactive flow, the admin or the user must consent to these scopes ahead of time. |
+| `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included. | 
+| `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials.md) for more details. | 
 
 ### Successful authentication response
 
@@ -101,8 +104,7 @@ If the user hasn't provided the correct username or password, or the client hasn
 | Error | Description | Client action |
 |------ | ----------- | -------------|
 | `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` error will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser. |
-| `invalid_request` | The request was improperly constructed | The grant type isn't supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` instead. |
-| `invalid_client` | The app is improperly set up | This can happen if the `allowPublicClient` property isn't set to true in the [application manifest](reference-app-manifest.md). The `allowPublicClient` property is needed because the ROPC grant doesn't have a redirect URI. Azure AD can't determine if the app is a public client application or a confidential client application unless the property is set. ROPC is only supported for public client apps. |
+| `invalid_request` | The request was improperly constructed | The grant type isn't supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` or a tenant ID instead. |
 
 ## Learn more
 

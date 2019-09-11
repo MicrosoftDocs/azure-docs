@@ -24,7 +24,7 @@
   - name: Create Ruby app
     href: quickstart-ruby.md
   - name: Run custom container
-    href: quickstart-docker-go.md
+    href: quickstart-docker.md
   - name: Create multi-container app
     href: quickstart-multi-container.md
 - name: Tutorials
@@ -65,8 +65,6 @@
     href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Concepts
   items:
-  - name: How App Service works
-    href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service plans
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
@@ -152,7 +150,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Scale out to multiple instances
       href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: High density hosting
@@ -195,6 +193,8 @@
     href: ../../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Migration Assistant guides
+    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices
     href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Samples

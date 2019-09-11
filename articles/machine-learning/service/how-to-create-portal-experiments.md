@@ -1,22 +1,23 @@
 ---
-title: Create and explore experiments in Portal
+title: Use Azure's automated ML interface to train & deploy models
 titleSuffix: Azure Machine Learning service
-description: Learn how to create and manage automated machine learning experiments in portal
+description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's new workspace landing page.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: tsikiksr
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/2019
+ms.date: 09/09/2019
 
 ---
 
-# Create and explore automated machine learning experiments in the Azure portal (Preview)
 
- In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+# Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)
+
+ In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's new workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -24,77 +25,83 @@ ms.date: 05/02/2019
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 ## Get started
 
-Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (Preview) section.
 
-![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
+1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
- If this is your first time doing any experiments with Automated Machine Learning, you'll see the following:
+1. Select your subscription and workspace. 
 
-![Azure portal experiment landing page](media/how-to-create-portal-experiments/landing-page.png)
+1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
 
-Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+[![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
-![Azure portal experiment dashboard](media/how-to-create-portal-experiments/dashboard.png)
+ If this is your first time doing any experiments, you'll see the **Get started** screen. 
 
-## Create an experiment
+Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
-Select the Create Experiment button to populate the following form.
+## Create and run experiment
 
-![Create experiment form](media/how-to-create-portal-experiments/create-exp-name-compute.png)
+1. Select **Create Experiment** and populate the form.
 
-1. Enter your experiment name.
+1. Enter a unique experiment name.
 
-1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 3.
+1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 4.
 
-1. Select the Create a new compute button to open the below pane, and configure your compute context for this experiment.
-
-    ![Create new compute for experiment](media/how-to-create-portal-experiments/create-new-compute.png)
+1. Select **Create a new compute** to configure your compute context for this experiment.
 
     Field|Description
     ---|---
     Compute name| Enter a unique name that identifies your compute context.
     Virtual machine size| Select the virtual machine size for your compute.
     Additional settings| *Min node*: Enter the minimum number of nodes for your compute. The minimum number of nodes for AML compute is 0. To enable data profiling, you must have 1 or more nodes. <br> *Max node*: Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    
+    Select **Create**. Creation of a new compute can take a few minutes.
 
-      To start the creation of your new compute, select **Create**. This can take a few moments.
+    >[!NOTE]
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](#profile) for more details).
 
-      >[!NOTE]
-      > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
+1. Select a dataset from your storage container, or create one by uploading a file from your local computer to the container. Public preview only supports local file uploads and Azure blob storage accounts.
 
-1. Select a storage account for your data. Public preview only supports local file uploads and Azure Blob Storage accounts.
+    >[!Important]
+    > Requirements for training data:
+    >* Data must be in tabular form.
+    >* The value you want to predict (target column) must be present in the data.
 
-1. Select a storage container.
+    1. To create a new dataset from a file on your local compute, select **Browse** and then select the file. 
 
-1. Select a data file from your storage container, or upload a file from your local computer to the container.
+    1. Give your dataset a unique name and provide an optional description. 
 
-    ![Select data file for experiment](media/how-to-create-portal-experiments/select-file.png)
+    1. Select **Next** to upload it to the default storage container that's automatically created with your workspace or choose a storage container that you want to use for the experiment. 
 
-1. Use the preview and profile tabs to further configure your data for this experiment.
+    1. Review the **Settings and preview** form for accuracy. The form is intelligently populated based on the file type. 
 
-    1. On the Preview tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column.
+        Field| Description
+        ----|----
+        File format| Defines the layout and type of data stored in a file.
+        Delimiter| One or more characters for specifying the boundary between separate, independent regions in plain text or other data streams.
+        Encoding| Identifies what bit to character schema table to use to read your dataset.
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.
+        Skip rows | Indicates how many, if any, rows are skipped in the dataset.
+    
+        Select **Next**.
 
-        ![Data preview](media/how-to-create-portal-experiments/data-preview.png)
-
-    1. On the Profile tab, you can view the [data profile](#profile) by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
-
-        ![Data profile tab](media/how-to-create-portal-experiments/data-profile.png)
-
-        >[!NOTE]
-        > The following error message will appear if your compute context is **not** profiling enabled: *Data profiling is only available for compute targets that are already running*.
+    1. The **Schema** form is intelligently populated based on the selections in the **Settings and preview** form. Here configure the data type for each column, review the column names, and select which columns to **Not include** for your experiment. 
+            
+        Select **Next.**
 
 1. Select the training job type: classification, regression, or forecasting.
 
-1. Select target column. The column which you would like to do the predictions on.
+1. Select target column; this is the column that you would like to do predictions on.
 
 1. For forecasting:
     1. Select time column: This column contains the time data to be used.
+
     1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
-1. (Optional) Advanced settings: additional settings you can use to better control the training job.
+1. (Optional) Advanced settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Advanced settings|Description
     ------|------
@@ -105,48 +112,35 @@ Select the Create Experiment button to populate the following form.
     Concurrency| Select the multi-core limits you would like to use when using multi-core compute.
     Blocked algorithm| Select algorithms you want to exclude from the training job.
 
-   ![Advanced settings form](media/how-to-create-portal-experiments/advanced-settings.png)
-
-> [!NOTE]
-> For more information on fields, click the information tool tip.
-
 <a name="profile"></a>
 
-### Data profiling
+## Data profiling & summary stats
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
-* **Feature**: name of the column which is being summarized.
+>[!NOTE]
+> Blank entries appear for features with irrelevant types.
 
-* **Profile**: an in-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
-
-* **Type distribution**: an in-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
-
-* **Type**: the inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
-
-* **Min**: the minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
-
-* **Max**: the maximum value of the column. Like "min," blank entries appear for features with irrelevant types.
-
-* **Count**: the total number of missing and non-missing entries in the column.
-
-* **Not missing count**: the number of entries in the column which are not missing. Note that empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-
-* **Quantiles** (at 0.1, 1, 5, 25, 50, 75, 95, 99, and 99.9% intervals): the approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
-
-* **Mean**: the arithmetic mean of the column. Blank entries appear for features with irrelevant types.
-
-* **Standard deviation**: the standard deviation of the column. Blank entries appear for features with irrelevant types.
-
-* **Variance**: the variance of the column. Blank entries appear for features with irrelevant types.
-
-* **Skewness**: the skewness of the column. Blank entries appear for features with irrelevant types.
-
-* **Kurtosis**: the kurtosis of the column. Blank entries appear for features with irrelevant types.
+Statistic|Description
+------|------
+Feature| Name of the column that is being summarized.
+Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
+Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
+Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
+Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
+Max| Maximum value of the column. 
+Count| Total number of missing and non-missing entries in the column.
+Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
+Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
+Mean| Arithmetic mean or average of the column.
+Standard deviation| Measure of the amount of dispersion or variation of this column's data.
+Variance| Measure of how far spread out this column's data is from its average value. 
+Skewness| Measure of how different this column's data is from a normal distribution.
+Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
 <a name="preprocess"></a>
 
-### Advanced preprocessing
+## Advanced preprocessing options
 
 When configuring your experiments, you can enable the advanced setting `Preprocess`. Doing so means that the following data preprocessing and featurization steps are performed automatically.
 
@@ -164,79 +158,56 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 
 ## Run experiment and view results
 
-To run the experiment, click Start. The experiment preparing process takes a couple of minutes.
+Select **Start** to run your experiment. The experiment preparing process takes a couple of minutes.
 
 ### View experiment details
 
-Once the experiment preparation phase is done, you'll see the Run Detail screen. This gives you a full list of the models created. By default, the model that scores the highest based on your parameters is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
+Once the experiment preparation phase is done, you'll see the Run Detail screen begin to populate. This screen gives you a full list of the models created. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
 
 Training jobs can take a while for each pipeline to finish running.
 
-![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)
+[![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### View training run details
 
-Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-track-experiments.md#understanding-automated-ml-charts).
+Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-understand-automated-ml.md).
 
-![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
+[![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
-## Deploy model
+## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
 
 Automated ML helps you with deploying the model without writing code:
 
-1. You have a few options for deployment. 
-    1. If you want to deploy the best model based on the metric criteria you set for the experiment, select **Deploy Best Model** from the **Run Detail** page.
+1. You have a couple options for deployment. 
 
-        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button.png)
+    + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
-    1. If you want to deploy a specific model iteration, drill down on the model to open its specific run detail page and select **Deploy Model**.
+    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
 
-        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button2.png)
+1. Populate the **Deploy Model** pane.
 
-1. First step is to register the model into the service. Select "Register model" and wait for the registration process to complete.
+    Field| Value
+    ----|----
+    Deployment name| Enter a unique name for your deployment.
+    Deployment description| Enter a description to better identify what this deployment is for.
+    Scoring script| Autogenerate or upload your own scoring file. [Learn more about scoring script](how-to-deploy-and-where.md#script)
+    Environment script| Autogenerate or upload your own environment file.
+    >[!Important]
+    > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
 
-    ![Deploy model blade](media/how-to-create-portal-experiments/deploy-model-blade.png)
+1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
-1. Once the model is registered, you'll be able to download the scoring script (scoring.py) and the environment script (condaEnv.yml) to be used during deployment.
+    The following message appears when deployment successfully completes.
 
-1. When the scoring script and the environment script are downloaded, go to the **Assets** blade of the left navigation pane and select **Models**.
+    ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-    ![Navigation pane models](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Select the model you registered, and select "Create image".
-
-    You can identify the model by its description, which will include the run ID, iteration number, in the following format: *<Run_ID>_<Iteration_number>_Model*
-
-    ![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
-
-1. Enter a name for the image. 
-1. Select the **Browse** button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
-
-1. Select the **Browse** button next to the "Conda File" box to upload the environment file (condaEnv.yml) you previously downloaded.
-
-    You can use your own scoring script and conda file, as well as upload additional files. [Learn more about scoring script](how-to-deploy-and-where.md#script).
-
-      >[!Important]
-      > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
-
-    ![Create image](media/how-to-create-portal-experiments/create-image.png)
-
-1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
-1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment". [Learn more about deployments](how-to-deploy-and-where.md).
-
-    There are 2 options for deployment.
-     + Azure Container Instance (ACI) - This is used more for testing purpose rather than operational deployment at scale. Make sure to fill in the values for at least one core for  _CPU Reserve Capacity_, and at least one gigabyte (GB) for _Memory Reserve Capacity_
-     + Azure Kubernetes Service (AKS)) - This option is for deployment at scale. You will need to have an AKS based compute ready.
-
-     ![Images: Create deployment](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. When done, select **Create**. Deploying the model can take several minutes for each pipeline to finish running.
-
-1. That's it! You have an operational web service to generate predictions.
+Now you have an operational web service to generate predictions!
 
 ## Next steps
 
+* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
+* [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

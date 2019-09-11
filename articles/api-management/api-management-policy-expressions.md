@@ -11,7 +11,6 @@ ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
@@ -89,19 +88,19 @@ The following table lists the .NET Framework types and their members that are al
 |System.Byte|All|
 |System.Char|All|
 |System.Collections.Generic.Dictionary<TKey, TValue>|All|
-|System.Collections.Generic.HashSet<T>|All|
-|System.Collections.Generic.ICollection<T>|All|
+|System.Collections.Generic.HashSet\<T>|All|
+|System.Collections.Generic.ICollection\<T>|All|
 |System.Collections.Generic.IDictionary<TKey, TValue>|All|
-|System.Collections.Generic.IEnumerable<T>|All|
-|System.Collections.Generic.IEnumerator<T>|All|
-|System.Collections.Generic.IList<T>|All|
-|System.Collections.Generic.IReadOnlyCollection<T>|All|
+|System.Collections.Generic.IEnumerable\<T>|All|
+|System.Collections.Generic.IEnumerator\<T>|All|
+|System.Collections.Generic.IList\<T>|All|
+|System.Collections.Generic.IReadOnlyCollection\<T>|All|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|All|
-|System.Collections.Generic.ISet<T>|All|
+|System.Collections.Generic.ISet\<T>|All|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|All|
-|System.Collections.Generic.List<T>|All|
-|System.Collections.Generic.Queue<T>|All|
-|System.Collections.Generic.Stack<T>|All|
+|System.Collections.Generic.List\<T>|All|
+|System.Collections.Generic.Queue\<T>|All|
+|System.Collections.Generic.Stack\<T>|All|
 |System.Convert|All|
 |System.DateTime|(Constructor), Add, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, Millisecond, Minute, MinValue, Month, Now, Parse, Second, Subtract, Ticks, TimeOfDay, Today, ToString, UtcNow, Year|
 |System.DateTimeKind|Utc|
@@ -211,7 +210,7 @@ A variable named `context` is implicitly available in every policy [expression](
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> For more information about context.LastError, see [Error handling](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody)<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Headers](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
+|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody) or `null` if request does not have a body.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Headers](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated request header values or `defaultValue` if the header is not found.|
 |<a id="ref-context-response"></a>context.Response|Body: [IMessageBody](#ref-imessagebody)<br /><br /> [Headers](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated response header values or `defaultValue` if the header is not found.|
@@ -219,7 +218,7 @@ A variable named `context` is implicitly available in every policy [expression](
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods are used to read a request and response message bodies in a specified type `T`. By default the method uses the original message body stream and renders it unavailable after it returns. To avoid that by having the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`. Go [here](api-management-transformation-policies.md#SetBody) to see an example.|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods are used to read a request and response message bodies in a specified type `T`. By default the method uses the original message body stream and renders it unavailable after it returns. To avoid that by having the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`. Go [here](api-management-transformation-policies.md#SetBody) to see an example.|
 |<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [Query](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|

@@ -88,11 +88,11 @@ HDInsight [script actions](hdinsight-hadoop-customize-cluster-linux.md) run scri
 
 The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which are not) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following is an example log file.
 
-![HDInsight log file example](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![HDInsight log file example](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### Access the Hadoop log files
 
-HDInsight stores its log files both in the cluster file system and in Azure storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure storage using any of the tools that can access and download data from Azure storage. Examples are [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
+HDInsight stores its log files both in the cluster file system and in Azure storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure storage using any of the tools that can access and download data from Azure storage. Examples are [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
 
 Hadoop runs the work of the jobs as *task attempts* on various nodes in the cluster. HDInsight can initiate speculative task attempts, terminating any other task attempts that do not complete first. This generates significant activity that is logged to the controller, stderr, and syslog log files on-the-fly. In addition, multiple task attempts are running simultaneously, but a log file can only display results linearly.
 
@@ -143,7 +143,7 @@ After you determine which log files can be deleted, you can adjust logging param
 
 For certain log files, you can use a lower-priced log file archiving approach. For Azure Resource Manager  activity logs, you can explore this approach using the Azure portal.  Set up archiving of the ARM logs by selecting the **Activity Log**' link in the Azure portal for your HDInsight instance.  On the top of the Activity Log search page, select the **Export** menu item to open the **Export activity log** pane.  Fill in the subscription, region, whether to export to a storage account, and how many days to retain the logs. On this same pane, you can also indicate whether to export to an event hub. 
 
-![Export Log Files](./media/hdinsight-log-management/archive.png)
+![Export Log Files](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 Alternatively, you can script log archiving with PowerShell.  For an example PowerShell script, see [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 

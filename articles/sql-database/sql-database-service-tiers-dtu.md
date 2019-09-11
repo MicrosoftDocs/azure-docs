@@ -10,12 +10,11 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 5/10/2019
+ms.date: 09/06/2019
 ---
 # Service tiers in the DTU-based purchase model
 
-Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes without downtime. Single databases and elastic pools are billed hourly based on service tier and compute size.
+Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
 > SQL Database managed instance does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
@@ -32,7 +31,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |Uptime SLA|99.99%|99.99%|99.99%|
 |Backup retention|7 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|
-|IO throughput (approximate) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
+|IO throughput (approximate) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |Columnstore indexing |N/A|S3 and above|Supported|
 |In-memory OLTP|N/A|N/A|Supported|

@@ -1,199 +1,194 @@
 ---
-title: Multi-turn conversations
+title: Multi-turn conversations - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back and forth conversation where the previous question's context influences the next question and answer.
+description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article 
-ms.date: 06/12/2019
+ms.topic: conceptual
+ms.date: 06/26/2019
 ms.author: diberry
-#
 ---
 
 # Use follow-up prompts to create multiple turns of a conversation
 
 Use follow-up prompts and context to manage the multiple turns, known as _multi-turn_, for your bot from one question to another.
 
-Watch the following demonstration video to see how it is done.
+To see how multi-turn works, view the following demonstration video:
 
-[![](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample).
+[![Multi-turn conversation in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## What is a multi-turn conversation?
 
-Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with **follow-up prompts**.
+Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user might ask a question that needs to be filtered or refined to determine the correct answer. You make this flow through the questions possible by presenting the user with *follow-up prompts*.
 
-When the user asks the question, QnA Maker returns the answer _and_ any follow-up prompts. This allows you to present the follow-up questions as choices. 
+When a user asks a question, QnA Maker returns the answer _and_ any follow-up prompts. This response allows you to present the follow-up questions as choices. 
 
 ## Example multi-turn conversation with chat bot
 
-A chat bot manages the conversation with the user, question by question, to determine the final answer.
+With multi-turn, a chat bot manages a conversation with a user to determine the final answer, as shown in the following image:
 
-![Within the conversational flow, manage conversation state in a multi-turn dialog system by providing prompts within the answers presented as options to continue the conversation.](../media/conversational-context/conversation-in-bot.png)
+![A multi-turn dialog with prompts that guide a user through a conversation](../media/conversational-context/conversation-in-bot.png)
 
-In the preceding image, the user entered `My account`. The knowledge base has 3 linked QnA pairs. The user needs to select from one of the three choices to refine the answer. In the knowledge base, the question (#1), has three follow-up prompts, presented in the chat bot as three choices (#2). 
+In the preceding image, a user has started a conversation by entering **My account**. The knowledge base has three linked question-and-answer pairs. To refine the answer, the user selects one of the three choices in the knowledge base. The question (#1), has three follow-up prompts, which are presented in the chat bot as three options (#2). 
 
-When the user selects a choice (#3), then the next list of refining choices (#4) is presented. This can continue (#5) until the correct and final answer (#6) is determined.
+When the user selects an option (#3), the next list of refining options (#4) is presented. This sequence continues (#5) until the user determines the correct, final answer (#6).
 
-The preceding image has **Enable multi-turn** selected in order to displayed prompts. 
+> [!NOTE]
+> In the preceding image, the **Enable multi-turn** check box has been selected to ensure that the prompts are displayed. 
 
-### Using multi-turn in a bot
+### Use multi-turn in a bot
 
-You need to change your client application to manage the contextual conversation. You will need to add [code to your bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting) to see the prompts.  
+To manage the contextual conversation, change your client application by [adding code to your bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Adding the code enables users to see the prompts.  
 
 ## Create a multi-turn conversation from a document's structure
 
-When you create a knowledge base, you will see an optional check-box to enable multi-turn extraction. 
+When you create a knowledge base, the **Populate your KB** section displays an **Enable multi-turn extraction from URLs, .pdf or .docx files** check box. 
 
-![When you create a knowledge base, you will see an optional check-box to enable multi-turn extraction.](../media/conversational-context/enable-multi-turn.png)
+![Check box for enabling multi-turn extraction](../media/conversational-context/enable-multi-turn.png)
 
-If you select this option, when you import a document, the multi-turn conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you. 
+When you select this option for an imported document, the multi-turn conversation can be implied from the document structure. If that structure exists, QnA Maker creates the follow-up prompt that pairs questions and answers for you as part of the import process. 
 
-Multi-turn structure can only be inferred from URLs, PDF, or DOCX files. 
+Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Because of the size of this PDF file, the QnA Maker resource requires a **Search pricing tier** of **B** (15 indexes) or greater. 
 
-The following image of a Microsoft Surface [PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) is meant to be used as a manual. Due to the size of this PDF file, the Azure QnA Maker resource requires the Search pricing tier of B (15 indexes) or greater. 
+![![Example of structure in a user manual](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-![![If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import.](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+When you import the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
 
-When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
-
-1. In **Step 1**, select **Create a knowledge base** from the top navigation.
-1. In **Step 2**, create or use an existing QnA service. Make sure to use a QnA service with a Search service of B (15 indexes) or higher because the Surface Manual PDF file is too large for a smaller tier.
-1. In **Step 3**, enter a name for your knowledge base, such as `Surface manual`.
-1. In **Step 4**, select **Enable multi-turn extraction from URLs, .pdf or .docx files.** Select the URL for the Surface Manual
-
-    ```text
-    https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf
-    ```
+1. In QnA Maker, select **Create a knowledge base**.
+1. Create or use an existing QnA Maker service. In the preceding Microsoft Surface example, because the PDF file is too large for a smaller tier, use a QnA Maker service with a **Search service** of **B** (15 indexes) or greater.
+1. Enter a name for your knowledge base, such as **Surface manual**.
+1. Select the **Enable multi-turn extraction from URLs, .pdf or .docx files** check box. 
+1. Select the Surface manual URL, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf**.
 
 1. Select the **Create your KB** button. 
 
-    Once the knowledge is created, a view of the question and answer pairs displays.
+    After the knowledge base is created, a view of the question-and-answer pairs is displayed.
 
 ## Show questions and answers with context
 
-Reduce the question and answer pairs displayed to just those with contextual conversations. 
+Reduce the displayed question-and-answer pairs to only those with contextual conversations. 
 
-1. Select **View options**, then select **Show context (PREVIEW)**. The list shows question and answer pairs containing follow-up prompts. 
+Select **View options**, and then select **Show context (PREVIEW)**. The list displays question-and-answer pairs that contain follow-up prompts. 
 
-    ![Filter question and answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
+![Filter question-and-answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
 
-2. The multi-turn context displays in the first column.
+The multi-turn context is displayed in the first column.
 
-    ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![![The "Context (PREVIEW)" column](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-    In the preceding image, #1 indicates bold text in the column, which signifies the current question. The parent question is the top item in the row. Any questions below are the linked question and answer pairs. These items are selectable so you can immediately go to the other context items. 
+In the preceding image, **#1** indicates bold text in the column, which signifies the current question. The parent question is the top item in the row. Any questions below it are the linked question-and-answer pairs. These items are selectable, so that you can immediately go to the other context items. 
 
-## Add existing QnA pair as follow-up prompt
+## Add an existing question-and-answer pair as a follow-up prompt
 
-The original question of `My account` has follow-up prompts such as `Accounts and signing in`. 
+The original question, **My account**, has follow-up prompts, such as **Accounts and signing in**. 
 
-![The original question of `My account` correctly returns the `Accounts and signing in` answer and already has the follow-up prompts linked.](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
+![The "Accounts and signing in" answers and follow-up prompts](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
-Add a follow-up prompt to an existing QnA pair that isn't currently linked. Because the question isn't linked to any QnA pair, the current view setting needs to change.
+Add a follow-up prompt to an existing question-and-answer pair that isn't currently linked. Because the question isn't linked to any question-and-answer pair, the current view setting needs to be changed.
 
-1. To link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair. For the Surface manual, search for `Sign out` to reduce the list.
-1. In the row for `Signout`, select **Add follow-up prompt**  from the **Answer** column.
-1. In the **Follow-up prompt (PREVIEW)** pop-up window, enter the following:
+1. To link an existing question-and-answer pair as a follow-up prompt, select the row for the question-and-answer pair. For the Surface manual, search for **Sign out** to reduce the list.
+1. In the row for **Signout**, in the **Answer** column, select **Add follow-up prompt**.
+1. In the fields in the **Follow-up prompt (PREVIEW)** pop-up window, enter the following values:
 
     |Field|Value|
     |--|--|
-    |Display text|`Turn off the device`. This is custom text you choose to display in the follow-up prompt.|
-    |Context-only|Selected. This answer will only be returned if the question specifies context.|
-    |Link to Answer|Enter `Use the sign-in screen` to find the existing QnA pair.|
+    |Display text|Enter **Turn off the device**. This is custom text to display in the follow-up prompt.|
+    |Context-only| Select this check box. An answer is returned only if the question specifies context.|
+    |Link to answer|Enter **Use the sign-in screen** to find the existing question-and-answer pair.|
 
 
-1.  One match is returned. Select this answer as the follow-up, then select **Save**. 
+1.  One match is returned. Select this answer as the follow-up, and then select **Save**. 
 
-    ![Search the Follow-up prompt's Link to Answer dialog for an existing answer, using the text of the answer.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+    ![The "Follow-up prompt (PREVIEW)" page](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
-1. Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
+1. After you've added the follow-up prompt, select **Save and train** in the top navigation.
   
 ### Edit the display text 
 
-When a follow-up prompt is created, and an existing QnA pair is selected as the **Link to Answer**, you can enter new **Display text**. This text does not replace the existing question, and it does not add a new alternate question. It is separate from those values. 
+When a follow-up prompt is created, and an existing question-and-answer pair is entered as the **Link to Answer**, you can enter new **Display text**. This text doesn't replace the existing question, and it doesn't add a new alternate question. It is separate from those values. 
 
 1. To edit the display text, search for and select the question in the **Context** field.
-1. On that question's row, select the follow-up prompt in the answer column. 
-1. Select the display text you want to edit, then select **Edit**.
+1. In the row for that question, select the follow-up prompt in the answer column. 
+1. Select the display text you want to edit, and then select **Edit**.
 
-    ![Select the display text you want to edit, then select Edit.](../media/conversational-context/edit-existing-display-text.png)
+    ![The Edit command for the display text](../media/conversational-context/edit-existing-display-text.png)
 
-1. The **Follow-up prompt** pop-up allows you to change the existing display text. 
-1. When you are done editing the display text, select **Save**. 
-1. Remember to select **Save and train** in the top navigation.
+1. In the **Follow-up prompt** pop-up window, change the existing display text. 
+1. When you're done editing the display text, select **Save**. 
+1. In the top navigation bar, **Save and train**.
 
 
 <!--
 
-## To find best prompt answer, add metadata to follow-up prompts 
+## To find the best prompt answer, add metadata to follow-up prompts 
 
-If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
+If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
 
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
 
-1. For the two follow-up QnA pairs, add metadata to each one:
+1. Add metadata to each of the two follow-up question-and-answer pairs:
 
     |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"Feature":"all"|
-    |`Feedback on an existing feature`|"Feature":"one"|
+    |*Feedback on a QnA Maker service*|"Feature":"all"|
+    |*Feedback on an existing feature*|"Feature":"one"|
     
-    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Save and train. 
+1. Select **Save and train**. 
 
-    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
 
 -->
 
-## Add new QnA pair as follow-up prompt
+## Add a new question-and-answer pair as a follow-up prompt
 
-Add a new QnA pair to the knowledge base. The QnA pair should be linked to an existing question as a follow-up prompt.
+When you add a new question-and-answer pair to the knowledge base, each pair should be linked to an existing question as a follow-up prompt.
 
-1. From the knowledge base's toolbar, search for and select the existing QnA pair for `Accounts and Signing In`. 
+1. On the knowledge base toolbar, search for and select the existing question-and-answer pair for **Accounts and signing in**. 
 
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
-1. The **Follow-up prompt (PREVIEW)**, create a new follow-up prompt by entering the following values: 
+1. Under **Follow-up prompt (PREVIEW)**, create a new follow-up prompt by entering the following values: 
 
-    |Text field|Value|
+    |Field|Value|
     |--|--|
-    |**Display Text**|`Create a Windows Account`. This is custom text you choose to display in the follow-up prompt.|
-    |**Context-only**|Selected. This answer will only be returned if the question specifies context.|
-    |**Link to answer**|Enter the following text as the answer:<br>`[Create](https://account.microsoft.com/) a Windows account with a new or existing email account.`<br>When you save and train the database, this text will be converted into |
+    |Display text|*Create a Windows Account*. The custom text to display in the follow-up prompt.|
+    |Context-only|Select this check box. This answer is returned only if the question specifies context.|
+    |Link to answer|Enter the following text as the answer:<br>*[Create](https://account.microsoft.com/) a Windows account with a new or existing email account*.<br>When you save and train the database, this text will be converted. |
     |||
 
-    ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
+    ![Create a new prompt question and answer](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Select **Create new** then select **Save**. 
+1. Select **Create new**, and then select **Save**. 
 
-    This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicates a follow-up prompt relationship. 
+    This action creates a new question-and-answer pair and links the selected question as a follow-up prompt. The **Context** column, for both questions, indicates a follow-up prompt relationship. 
 
-1. Change the **View options** to [show context](#show-questions-and-answers-with-context).
+1. Select **View options**, and then select [**Show context (PREVIEW)**](#show-questions-and-answers-with-context).
 
-    The new question shows how it is linked.
+    The new question shows how it's linked.
 
-    ![Create a new follow-up prompt ](../media/conversational-context/new-qna-follow-up-prompt.png)
+    ![Create a new follow-up prompt](../media/conversational-context/new-qna-follow-up-prompt.png)
 
-    The parent question shows the new question as one of its choices.
+    The parent question displays a new question as one of its choices.
 
-    ![![The Context column, for both questions, indicates a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![![The Context column, for both questions, indicates a follow-up prompt relationship](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Once you have added the follow-up prompt, remember to select **Save and train** in the top navigation.
+1. After you've added the follow-up prompt, select **Save and train** in the top navigation bar.
 
-## Enable multi-turn when testing follow-up prompts
+## Enable multi-turn during testing of follow-up prompts
 
-When testing the question with follow-up prompts in the **Test** pane, select **Enable multi-turn**, and enter your question. The response includes the follow-up prompts.
+When you test the question with follow-up prompts in the **Test** pane, select **Enable multi-turn**, and then enter your question. The response includes the follow-up prompts.
 
-![When testing the question in the Test pane, the response includes the follow-up prompts.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
+![The response includes the follow-up prompts](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
-If you don't enable multi-turn, the answer will be returned but follow-up prompts are not returned.
+If you don't enable multi-turn, the answer is returned but follow-up prompts are not returned.
 
-## JSON request to return initial answer and follow-up prompts
+## A JSON request to return an initial answer and follow-up prompts
 
 Use the empty `context` object to request the answer to the user's question and include follow-up prompts. 
 
@@ -207,9 +202,9 @@ Use the empty `context` object to request the answer to the user's question and 
 }
 ```
 
-## JSON response to return initial answer and follow-up prompts
+## A JSON response to return an initial answer and follow-up prompts
 
-The previous section requested an answer and any follow-up prompts to `Accounts and signing in`. The response includes the prompt information, located at `answers[0].context`, include the text to display to the user. 
+The preceding section requested an answer and any follow-up prompts to **Accounts and signing in**. The response includes the prompt information, which is located at *answers[0].context*, and the text to display to the user. 
 
 ```JSON
 {
@@ -225,55 +220,35 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Use the sign-in screen"
-                    },
-                    {
-                        "displayOrder": 1,
-                        "qnaId": 17,
-                        "qna": null,
-                        "displayText": "Use Windows Hello to sign in"
-                    },
-                    {
-                        "displayOrder": 2,
-                        "qnaId": 18,
-                        "qna": null,
-                        "displayText": "Sign out"
-                    },
-                    {
-                        "displayOrder": 0,
-                        "qnaId": 79,
-                        "qna": null,
-                        "displayText": "Create a Windows Account"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
             "questions": [
                 "Sign out"
             ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start , and right-click your name. Then select Sign out. ",
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start, and right-click your name. Then select Sign out. ",
             "score": 38.01,
             "id": 18,
             "source": "product-manual.pdf",
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -287,15 +262,14 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
 }
 ```
 
-The `promptsToAdd` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow, then send the selected value to QnA Maker in the following request. 
+The `prompts` array provides text in the `displayText` property and the `qnaId` value. You can show these answers as the next displayed choices in the conversation flow and then send the selected `qnaId` back to QnA Maker in the following request. 
 
 <!--
 
@@ -303,11 +277,11 @@ The `promptsToDelete` array provides the ...
 
 -->
 
-## JSON request to return non-initial answer and follow-up prompts
+## A JSON request to return a non-initial answer and follow-up prompts
 
-Fill the `context` object to include previous context.
+Fill the `context` object to include the previous context.
 
-In the following JSON request, the current question is `Use Windows Hello to sign in` and the previous question was `Accounts and signing in`. 
+In the following JSON request, the current question is *Use Windows Hello to sign in* and the previous question was *accounts and signing in*. 
 
 ```JSON
 {
@@ -323,7 +297,7 @@ In the following JSON request, the current question is `Use Windows Hello to sig
 }
 ``` 
 
-##  JSON response to return non-initial answer and follow-up prompts
+##  A JSON response to return a non-initial answer and follow-up prompts
 
 The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in the `context` property of the first item in the `answers` object:
 
@@ -341,8 +315,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         },
         {
@@ -356,15 +329,14 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -378,23 +350,22 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
 }
 ```
 
-## Query the knowledge base with the QnA ID
+## Query the knowledge base with the QnA Maker ID
 
-In the initial question's response, any follow-up prompts and its associated `qnaId` is returned. Now that you have the ID, you can pass this in the follow-up prompt's request body. If the request body contains the `qnaId`, and the context object (which contains the previous QnA properties), then GenerateAnswer will return the exact question by ID, instead of using the ranking algorithm to find the answer by the question text. 
+In the initial question's response, any follow-up prompts and its associated `qnaId` is returned. Now that you have the ID, you can pass this in the follow-up prompt's request body. If the request body contains the `qnaId`, and the context object (which contains the previous QnA Maker properties), then GenerateAnswer will return the exact question by ID, instead of using the ranking algorithm to find the answer by the question text. 
 
-## Displaying prompts and sending context in the client application 
+## Display prompts and send context in the client application 
 
-You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query. 
+You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts aren't automatically displayed in the client applications. You can display the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Maker ID and the user query, and pass them in the [context object of the GenerateAnswer API](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) for the next user query. 
 
-## Display order supported in API
+## Display order is supported in the Update API
 
 The [display text and display order](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
@@ -404,9 +375,19 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 -->
 
+## Create knowledge base with multi-turn prompts with the Create API
+
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
+
+
+## Add or delete multi-turn prompts with the Update API
+
+You can add or delete multi-turn prompts using the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array. 
+
+
 ## Next steps
 
-Learn more about contextual conversations from the [Dialog sample](https://aka.ms/qnamakermultiturnsample) or learn more [conceptual bot design for multi-turn conversations](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Learn more about contextual conversations from this [dialog sample](https://aka.ms/qnamakermultiturnsample) or learn more about [conceptual bot design for multi-turn conversations](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrate a knowledge base](../Tutorials/migrate-knowledge-base.md)

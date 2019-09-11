@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
 ---
 
@@ -55,7 +55,7 @@ We provide additional services to help you prepare scripts for recording. Contac
 
 **Q: Are my requests throttled?**
 
-**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Text to Speech](text-to-speech.md). 
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Text to Speech](text-to-speech.md).
 
 ## Next steps
 

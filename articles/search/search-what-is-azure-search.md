@@ -1,27 +1,33 @@
 ---
-title: What is Azure Search service - Azure Search
-description: Azure Search is a fully managed hosted cloud search service from Microsoft. Review feature descriptions, a development workflow, how Azure Search compares to other Microsoft search products, and how to get started.
-manager: cgronlun
+title: Introduction to Azure Search - Azure Search
+description: Azure Search is a fully managed hosted cloud search service from Microsoft. Review feature descriptions, the development workflow, comparisons to other Microsoft search products, and how to get started.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 09/03/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Query execution is over a user-defined index.
 
-+ Build a search index containing only your data, sourced from multiple content types and platforms. 
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search.
+![Azure Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search architecture")
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
+
+## When to use Azure Search
+
+Azure Search is well suited for the following application scenarios:
+
++ Consolidation of heterogeneous content types into a private, single, searchable index. Queries are always over an index that you create and load with documents, and the index always resides in the cloud on your Azure Search service. You can populate an index with streams of JSON documents from any source or platform. Alternatively, for content sourced on Azure, you can use an *indexer* to pull data into an index. Index definition and management/ownership is a key reason for using Azure Search.
+
++ Easy implementation of search-related features. Azure Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
+
++ Indexing unstructured text, or extracting text and information from image files. The [cognitive search](cognitive-search-concept-intro.md) feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
+
++ Linguistic requirements satisfied using the custom and language analyzers of Azure Search. If you have non-English content, Azure Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics.
 
 <a name="feature-drilldown"></a>
 
@@ -76,7 +82,9 @@ The pull model retrieves data from external data sources. It's supported through
 The push model is provided through the SDK or REST APIs, used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 
 ### Step 4: Search
-After populating an index, you can [issue search queries](/rest/api/searchservice/Search-Documents) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
+After populating an index, you can [issue search queries](search-query-overview.md) to your service endpoint using simple HTTP requests with [REST API](/rest/api/searchservice/Search-Documents) or the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations).
+
+Step through [Create your first search app](tutorial-csharp-create-first-app.md) to build and then extend a web page that collects user input and handles results. You can also use [Postman for interactive REST](search-get-started-postman.md) calls or the built-in [Search Explorer](search-explorer.md) in Azure portal to query an existing index.
 
 ## How it compares
 
@@ -95,6 +103,7 @@ Key strengths include:
 + Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
 + Azure scale, reliability, and world-class availability
++ AI processing of raw data to make it more searchable, including text from images, or finding patterns in unstructured content.
 + Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
 + [Core features common to search-centric apps](#feature-drilldown): scoring, faceting, suggestions, synonyms, geo-search, and more.
 
@@ -128,7 +137,7 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 3. Move forward with code using either the .NET or REST API:
 
    + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main workflow in managed code.  
-   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-fiddler.md).
+   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-get-started-postman.md).
 
 ## Watch this video
 

@@ -11,6 +11,7 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
+ROBOTS: NOINDEX
 ---
 
 # API

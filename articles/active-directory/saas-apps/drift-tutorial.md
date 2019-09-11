@@ -87,11 +87,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	d. In the **Sign-on URL** text box, type a URL:
     `https://start.drift.com`
 
-6. Your Drift application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+6. Your Drift application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
-7. In addition to above, Drift application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table: 
+7. In addition to above, Drift application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table: 
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |    

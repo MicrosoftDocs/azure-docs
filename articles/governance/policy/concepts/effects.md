@@ -7,7 +7,6 @@ ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand Azure Policy effects
 
@@ -15,14 +14,15 @@ Each policy definition in Azure Policy has a single effect. That effect determin
 the policy rule is evaluated to match. The effects behave differently if they are for a new
 resource, an updated resource, or an existing resource.
 
-There are currently six effects that are supported in a policy definition:
+These effects are currently supported in a policy definition:
 
-- Append
-- Audit
-- AuditIfNotExists
-- Deny
-- DeployIfNotExists
-- Disabled
+- [Append](#append)
+- [Audit](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [Deny](#deny)
+- [DeployIfNotExists](#deployifnotexists)
+- [Disabled](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (preview)
 
 ## Order of evaluation
 
@@ -41,6 +41,8 @@ Resource Provider when a resource doesn't meet the designed governance controls 
 
 After the Resource Provider returns a success code, **AuditIfNotExists** and **DeployIfNotExists**
 evaluate to determine if additional compliance logging or action is required.
+
+There currently isn't any order of evaluation for the **EnforceRegoPolicy** effect.
 
 ## Disabled
 
@@ -404,6 +406,62 @@ not, then a deployment to enable is executed.
                     }
                 }
             }
+        }
+    }
+}
+```
+
+## EnforceRegoPolicy
+
+This effect is used with a policy definition *mode* of `Microsoft.ContainerService.Data`. It's used
+to pass admission control rules defined with [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)
+to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy for Kubernetes](rego-for-aks.md) is in Public Preview and only supports built-in
+> policy definitions.
+
+### EnforceRegoPolicy evaluation
+
+The Open Policy Agent admission controller evaluates any new request on the cluster in real-time.
+Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+
+### EnforceRegoPolicy properties
+
+The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
+Rego admission control rule.
+
+- **policyId** [required]
+  - A unique name passed as a parameter to the Rego admission control rule.
+- **policy** [required]
+  - Specifies the URI of the Rego admission control rule.
+- **policyParameters** [optional]
+  - Defines any parameters and values to pass to the rego policy.
+
+### EnforceRegoPolicy example
+
+Example: Rego admission control rule to allow only the specified container images in AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
         }
     }
 }

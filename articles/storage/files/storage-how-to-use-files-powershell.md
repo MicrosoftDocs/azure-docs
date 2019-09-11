@@ -1,7 +1,6 @@
 ---
 title: Quickstart for managing Azure file shares with Azure PowerShell
 description: Use this quickstart to learn to manage Azure file shares using Azure PowerShell.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart

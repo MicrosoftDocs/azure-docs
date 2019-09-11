@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Apache Hadoop clusters using Resource Manager - Azure HDInsight'
+title: 'Quickstart: Create Apache Hadoop clusters Resource Manager - Azure HDInsight'
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Resource Manager template
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 ms.service: hdinsight
@@ -18,7 +18,7 @@ In this quickstart, you learn how to create an Apache Hadoop cluster in Azure HD
 
 Similar templates can be viewed at [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). The template reference can be found [here](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).  You can also create a cluster using the [Azure portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  
 
-Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
+Currently HDInsight comes with [seven different cluster types](../hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -77,4 +77,4 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 In this quickstart, you learned how to create an Apache Hadoop cluster in HDInsight using a Resource Manager template. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Interactive Query on HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

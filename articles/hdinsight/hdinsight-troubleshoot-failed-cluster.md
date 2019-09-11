@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot a slow or failing job on a HDInsight cluster - Azure HDInsight
-description: Diagnose and troubleshoot a slow or failing HDInsight cluster.
+description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: troubleshooting
+ms.date: 08/15/2019
 ---
 
 # Troubleshoot a slow or failing job on a HDInsight cluster
@@ -49,7 +49,7 @@ Important cluster information includes:
 
 The Azure portal can provide this information:
 
-![HDInsight Azure portal Information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![HDInsight Azure portal Information](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
 You can also use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
@@ -92,7 +92,7 @@ You can request that Microsoft increase the number of HDInsight resources availa
 #### Check the release version
 
 Compare the cluster version with the latest HDInsight release. Each   HDInsight release includes improvements such as new applications, features, patches, and bug
-fixes. The issue that is affecting your cluster may have been fixed in the latest release version. If possible, re-run your cluster using the latest version of HDInsight and associated libraries such as Apache HBase, Apache Spark, and others.
+fixes. The issue that is affecting your cluster may have been fixed in the latest release version. If possible, rerun your cluster using the latest version of HDInsight and associated libraries such as Apache HBase, Apache Spark, and others.
 
 #### Restart your cluster services
 
@@ -116,7 +116,7 @@ One common scenario for Apache Hive, Apache Pig, or Apache Sqoop jobs failing is
 
 #### BadGateway (502 status code)
 
-This is a generic message from gateway nodes, and is the most common failure status code. One possible cause for this is  the WebHCat service being down on the active head node. To check for this possibility, use the following CURL command:
+This code is a generic message from gateway nodes, and is the most common failure status codes. One possible cause for this is  the WebHCat service being down on the active head node. To check for this possibility, use the following CURL command:
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -247,12 +247,12 @@ For detailed instructions on optimizing performance configurations for most scen
 
 ## Step 7: Reproduce the failure on a different cluster
 
-To help diagnose the source of a cluster error, start a new cluster with the same configuration and then resubmit the failed job's steps one by one. Check the results of each step before processing the next one. This method gives you the opportunity to correct and re-run a single failed step. This method also has the advantage of  only loading your input data once.
+To help diagnose the source of a cluster error, start a new cluster with the same configuration and then resubmit the failed job's steps one by one. Check the results of each step before processing the next one. This method gives you the opportunity to correct and rerun a single failed step. This method also has the advantage of  only loading your input data once.
 
 1. Create a new test cluster with the same configuration as the failed cluster.
 2. Submit the first job step to the test cluster.
 3. When the step completes processing, check for errors in the step log files. Connect to the test cluster's master node and view the log files there. The step log files only  appear after the step runs for some time, finishes, or fails.
-4. If the first step succeeded, run the next step. If there were errors, investigate the error in the log files. If it was an error in your code, make the correction and re-run the step.
+4. If the first step succeeded, run the next step. If there were errors, investigate the error in the log files. If it was an error in your code, make the correction and rerun the step.
 5. Continue until all steps run without error.
 6. When you are done debugging the test cluster, delete it.
 

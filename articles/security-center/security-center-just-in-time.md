@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/17/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
 
 ---
@@ -50,9 +50,9 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 | To enable a user to: | Permissions to set|
 | --- | --- |
-| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  On the scope of a subscription or Resource Group that is associated with the VM: ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` On the scope of a subscription or Resource Group or VM: ```Microsoft.Compute/virtualMachines/write``` | 
+| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> On the scope of a subscription or Resource Group or VM: <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
 | ||
-|Request JIT access to a VM | *Assign these actions to the user:*  On the scope of a subscription or Resource Group that is associated with the VM:  ```Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/initiate/action``` On the scope of a Subscription or Resource Group or VM: ```Microsoft.Compute/virtualMachines/read``` |
+|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  On the scope of a Subscription or Resource Group or VM:<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
 
 
 ## Configure JIT on a VM

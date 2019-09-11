@@ -121,7 +121,7 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 
     ![Activity output details view](media/load-sap-bw-data/activity-output-details.png)
 
-## Do an incremental copy from SAP BW Open Hub
+## Incremental copy from SAP BW Open Hub
 
 > [!TIP]
 > See [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn how the SAP BW Open Hub connector in Data Factory copies incremental data from SAP BW. This article can also help you understand basic connector configuration.

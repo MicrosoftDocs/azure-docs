@@ -1,4 +1,14 @@
-To reference the Azure Functions 2.x default bindings, open the *host.json* file and update contents to match the following code.
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 05/27/2019
+ms.author: glenga
+---
+
+The easiest way to install binding extensions is to enable [extension bundles](../articles/azure-functions/functions-bindings-register.md#extension-bundles). When you enable bundles, a predefined set of extension packages is automatically installed.
+
+To enable extension bundles, open the host.json file and update its contents to match the following code:
 
 ```json
 {

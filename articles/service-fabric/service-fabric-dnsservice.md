@@ -3,7 +3,7 @@ title: Azure Service Fabric DNS service | Microsoft Docs
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: vturecek
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # DNS Service in Azure Service Fabric

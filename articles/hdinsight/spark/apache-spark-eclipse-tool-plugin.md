@@ -55,13 +55,13 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
    ![Select Subscriptions dialog box](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 1. On the **Azure Explorer** tab, expand **HDInsight** to see the HDInsight Spark clusters under your subscription.
    
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
+   ![HDInsight Spark clusters in Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
 1. You can further expand a cluster name node to see the resources (for example, storage accounts) associated with the cluster.
    
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
 ## Link a cluster
-You can link a normal cluster by using the Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as user1@contoso.com.
+You can link a normal cluster by using the Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as `user1@contoso.com`.
 
 1. Select **Link a cluster** from **Azure Explorer**.
 
@@ -81,7 +81,7 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
 
 1. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
+   ![unlinked cluster](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
 
 ## Set up a Spark Scala project for an HDInsight Spark cluster
@@ -229,16 +229,16 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
        
 2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
 
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+    ![HDInsight Spark clusters in Azure Explorer role reader](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
 3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and password.
 
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+    ![HDInsight Spark clusters in Azure Explorer link](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
 4. If the cluster is linked successfully, HDInsight will be refreshed.
    The stage of the cluster will become linked.
   
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+    ![HDInsight Spark clusters in Azure Explorer linked](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
@@ -248,7 +248,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
    
 2. Click **Link this cluster** to link cluster.
    
-    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+    ![HDInsight Spark clusters in Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
 ### Link cluster from Spark Submission window
 
@@ -256,23 +256,23 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 2. Right click the package. Then select **Submit Spark Application to HDInsight**.
    
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+   ![HDInsight Spark clusters in Azure Explorer submit](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
 3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can click **Link this cluster** to link cluster.
    
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   ![HDInsight Spark clusters in Azure Explorer link this](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### View Storage Accounts
 
 * For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
      
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+   ![HDInsight Spark clusters in Azure Explorer storage](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+   ![HDInsight Spark clusters in Azure Explorer denied](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
 * For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
      
-   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+   ![HDInsight Spark clusters in Azure Explorer denied2](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
 ## Known problems
 When link a cluster, I would suggest you to provide credential of storage.
@@ -281,9 +281,9 @@ When link a cluster, I would suggest you to provide credential of storage.
 
 There are two modes to submit the jobs. If storage credential is provided, batch mode will be used to submit the job. Otherwise, interactive mode will be used. If the cluster is busy, you might get the error below.
 
-![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "eclipse get error when cluster busy")
 
-![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
+![eclipse get error when cluster busy yarn](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "eclipse get error when cluster busy yarn")
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

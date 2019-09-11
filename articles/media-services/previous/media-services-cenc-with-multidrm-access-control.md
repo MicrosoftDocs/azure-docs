@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;kilroyh;yanmf;juliako
+ms.author: willzhan
+ms.reviewer: kilroyh;yanmf;juliako
 
 ---
 # Design of a content protection system with access control using Azure Media Services 

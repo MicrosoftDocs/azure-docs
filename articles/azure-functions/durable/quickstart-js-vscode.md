@@ -8,10 +8,10 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: azfuncdf, cotresne, glenga
+ms.author: glenga
+ms.reviewer: azfuncdf, cotresne
 ---
 
 # Create your first durable function in JavaScript

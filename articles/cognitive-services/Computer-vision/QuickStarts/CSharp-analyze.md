@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Analyze a local image using the REST API and C# in Computer Vision
+# Quickstart: Analyze a local image using the Computer Vision REST API and C#
 
 In this quickstart, you will analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual feature information based on image content.
 
@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 
@@ -33,9 +33,6 @@ To create the sample in Visual Studio, do the following steps:
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
     1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
     1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
-1. Replace the code in `Program.cs` with the following code, and then make the following changes in code where needed:
-    1. Replace the value of `subscriptionKey` with your subscription key.
-    1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
 1. Run the program.
 1. At the prompt, enter the path to a local image.
 
@@ -51,19 +48,13 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze";
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        
+        // the Analyze method endpoint
+        const string uriBase = endpoint + "vision/v2.0/analyze";
 
         static void Main()
         {
@@ -241,10 +232,6 @@ A successful response is returned in JSON. The sample application parses and dis
     }
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the Visual Studio solution. To do so, open File Explorer, navigate to the folder in which you created the Visual Studio solution, and delete the folder.
 
 ## Next steps
 

@@ -3,9 +3,10 @@ title: Content trust in Azure Container Registry
 description: Learn how enable content trust for your Azure container registry, and push and pull signed images.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ---
@@ -168,7 +169,7 @@ As stated in the `docker push` output when you push your first trusted image, th
 ~/.docker/trust/private
 ```
 
-Back up your root and repository keys by compressing them in an archive and storing it securely offline (such as on a USB storage device). For example, in Bash:
+Back up your root and repository keys by compressing them in an archive and storing it in a secure location. For example, in Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -189,7 +190,9 @@ To disable content trust for your registry, navigate to the registry in the Azur
 
 ## Next steps
 
-See [Content trust in Docker][docker-content-trust] for additional information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered more in-depth in the Docker documentation.
+* See [Content trust in Docker][docker-content-trust] for additional information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered more in-depth in the Docker documentation.
+
+* See the [Azure Pipelines](/azure/devops/pipelines/build/content-trust) documentation for an example of using content trust when you build and push a Docker image.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

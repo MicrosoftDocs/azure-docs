@@ -45,13 +45,17 @@
       href: functions-add-output-binding-storage-queue-python.md
     - name: Storage - portal
       href: functions-integrate-storage-queue-output-binding.md
+    - name: Storage - Visual Studio Code
+      href: functions-add-output-binding-storage-queue-vs-code.md
+    - name: Storage - Visual Studio
+      href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
-  - name: Create a serverless API
-    href: functions-create-serverless-api.md
-  - name: Create an OpenAPI definition
+  - name: Develop Python functions with VS Code
+    href: tutorial-vs-code-serverless-python.md
+  - name: OpenAPI definition for serverless APIs
     href: functions-openapi-definition.md
   - name: Connect to a Virtual Network
     href: functions-create-vnet.md
@@ -59,6 +63,8 @@
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
     href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr  
+  - name: Machine learning with TensorFlow
+    href: functions-machine-learning-tensorflow.md 
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
@@ -68,7 +74,17 @@
   - name: Azure Serverless Community Library
     href: https://www.serverlesslibrary.net/
   - name: Azure Samples
-    href: https://azure.microsoft.com/resources/samples/?service=functions
+    items:
+    - name: C#
+      href: /samples/browse/?products=azure-functions&languages=csharp
+    - name: JavaScript
+      href: /samples/browse/?products=azure-functions&languages=javascript
+    - name: Java
+      href: /samples/browse/?products=azure-functions&languages=java
+    - name: Python
+      href: /samples/browse/?products=azure-functions&languages=python
+    - name: TypeScript
+      href: /samples/browse/?products=azure-functions&languages=typescript   
   - name: Azure CLI
     href: functions-cli-samples.md    
 - name: Concepts
@@ -114,8 +130,10 @@
       href: functions-reference-powershell.md
     - name: Python
       href: functions-reference-python.md
+    - name: TypeScript
+      href: functions-reference-node.md#typescript
   - name: Diagnostics
-    href: ../app-service/overview-diagnostics.md
+    href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies
@@ -136,6 +154,8 @@
       href: functions-test-a-function.md
     - name: Develop and debug locally
       href: functions-develop-local.md
+    - name: Visual Studio Code development
+      href: functions-develop-vs-code.md
     - name: Visual Studio development
       href: functions-develop-vs.md
     - name: Core Tools development
@@ -164,6 +184,8 @@
     items:
     - name: Continuous deployment
       href: functions-continuous-deployment.md
+    - name: Deployment slots
+      href: functions-deployment-slots.md
     - name: Build and deploy using Azure Pipelines
       href: functions-how-to-azure-devops.md
     - name: Zip deployment
@@ -190,6 +212,7 @@
       href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
+    displayName: App Insights, Application Insights, logs, logging
   - name: Secure
     items:
     - name: Buy SSL cert
@@ -224,12 +247,12 @@
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow
       href: app-service-export-api-to-powerapps-and-flow.md
-    - name: Call a function from PowerApps
-      href: functions-powerapps-scenario.md
-    - name: Call a function from Microsoft Flow 
-      href: functions-flow-scenario.md
     - name: Use a managed identity
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
+    - name: Customize HTTP function endpoint
+      href: functions-create-serverless-api.md
+    - name: Manage on-premises resources
+      href: functions-hybrid-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
@@ -252,8 +275,10 @@
       items: 
       - name: Functions 1.x
         href: functions-bindings-cosmosdb.md
+        displayName: Azure Cosmos DB
       - name: Functions 2.x
         href: functions-bindings-cosmosdb-v2.md
+        displayName: Azure Cosmos DB
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs

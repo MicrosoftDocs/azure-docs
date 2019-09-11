@@ -11,6 +11,7 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Build an Entity Linking app with C#

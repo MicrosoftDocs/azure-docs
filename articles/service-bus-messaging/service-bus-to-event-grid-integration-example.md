@@ -231,7 +231,7 @@ In this section, you'll learn how to receive and process messages after you rece
         ![Get publish profile for the function](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. Save the file to your project's folder. 
 4. In Visual Studio, right-click **SBEventGridIntegration**, and then select **Publish**. 
-5. Select *Start** on the **Publish** page. 
+5. Select **Start** on the **Publish** page. 
 6. On the **Pick a publish target** page, do the following steps, select **Import Profile**. 
 
     ![Visual Studio - Import Profile button](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)

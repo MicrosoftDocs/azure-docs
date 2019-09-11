@@ -1,13 +1,13 @@
 ---
 title: Azure Backup support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: raynew
+ms.date: 07/02/2019
+ms.author: dacurwin
 ---
 
 # Support matrix for Azure VM backup
@@ -39,7 +39,7 @@ Enable backup when you create a Windows Azure VM | Supported for: <br/><br/> - W
 Enable backup when you create a Linux VM | Supported for:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Back up a VM that's shutdown/offline VM | Supported.<br/><br/> Snapshot is crash-consistent only, not app-consistent.
 Back up disks after migrating to managed disks | Supported.<br/><br/> Backup will continue to work. No action is required.
-Back up managed disks after enabling resource group lock | Not supported.<br/><br/> Azure Backup can't delete the older resource points, and backups will start to fail when the maximum limit of restore points is reached.
+Back up managed disks after enabling resource group lock | Not supported.<br/><br/> Azure Backup can't delete the older restore points, and backups will start to fail when the maximum limit of restore points is reached.
 Modify backup policy for a VM | Supported.<br/><br/> The VM will be backed up by using the schedule and retention settings in new policy. If retention settings are extended, existing recovery points are marked and kept. If they're reduced, existing recovery points will be pruned in the next cleanup job and eventually deleted.
 Cancel a backup job	| Supported during snapshot process.<br/><br/> Not supported when the snapshot is being transferred to the vault.
 Back up the VM to a different region or subscription |	Not supported.
@@ -126,7 +126,6 @@ Restore across subscription/region/zone. | Not supported.
 Restore to an existing VM | Use replace disk option.
 Restore disk with storage account enabled for Azure Storage Service Encryption (SSE) | Not supported.<br/><br/> Restore to an account that doesn't have SSE enabled.
 Restore to mixed storage accounts |	Not supported.<br/><br/> Based on the storage account type, all restored disks will be either premium or standard, and not mixed.
-Restore to storage account by using zone-redundant storage (ZRS) | Supported (for VM that are backed-up after Jan 2019 and where [availability zone](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available)
 Restore VM directly to an availability set | For managed disks, you can restore the disk and use the availability set option in the template.<br/><br/> Not supported for unmanaged disks. For unmanaged disks, restore the disk, and then create a VM in the availability set.
 Restore backup of unmanaged VMs after upgrading to managed VM| Supported.<br/><br/> You can restore disks, and then create a managed VM.
 Restore VM to restore point before the VM was migrated to managed disks | Supported.<br/><br/> You restore to unmanaged disks (default), convert the restored disks to managed disk, and create a VM with the managed disks.
@@ -139,34 +138,32 @@ Restore VM in different virtual network |	Supported.<br/><br/> The virtual netwo
 **Compute** | **Support**
 --- | ---
 VM size |	Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Learn more.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Back up VMs in [availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
-Back up VMs in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) |	Not supported.
+Back up VMs in [availability sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
 Back up VMs that are deployed with [Hybrid Use Benefit (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Supported.
 Back up VMs that are deployed in a [scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |	Not supported.
 Back up VMs that are deployed from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS). We do not restore the Azure Marketplace VMs backed as VMs, as these needs purchase information but only as Disks.
 Back up VMs that are deployed from a custom image (third-party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure	| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup does not provide data and application consistency across multiple VMs.
-Backup with [Diagnostic Settings](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option then the restore fails.
+Backup with [Diagnostic Settings](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
+Restore of Zone-pinned VMs | Supported (for VM that is backed-up after Jan 2019 and where [availability zone](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone which is pinned in VMs. However, if the zone is unavailable, restore fails.
+Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they are restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 
 
 ## VM storage support
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports disk sizes up to 4 TB.
-Data disk size | Individual disk can be up to 4095 GB.<br/><br/> If your vaults are running the latest version of Azure Backup (known as Instant Restore), disk sizes up to 4 TB are supported. [Learn more](backup-instant-restore-capability.md).  
-Storage type | Standard HDD, standard SSD, premium SSD. <br/><br/> Standard SSD is supported if your vaults are upgraded to the latest version of Azure VM backup (known as Instant Restore). [Learn more](backup-instant-restore-capability.md).
+Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports disk sizes up to 4 TB.<br/><br/>To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, refer to this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Data disk size | Individual disk can be up to 4095 GB.<br/><br/>To sign up for limited public preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, refer to this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | Not supported.<br/><br/> If you're running the latest version of Azure VM backup (known as [Instant Restore](backup-instant-restore-capability.md)), you can exclude disks with Write Accelerator enabled from backup.
+Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the Disks with Write Accelerator enabled during backup. Since they are not backed up, you will not be able to Restore these disks from Recovery-Points of the VM.
 Back up deduplicated disks | Not supported.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
-
-> [!NOTE]
-> Resizing of disk is not recommended by Azure Backup.
 
 
 ## VM network support

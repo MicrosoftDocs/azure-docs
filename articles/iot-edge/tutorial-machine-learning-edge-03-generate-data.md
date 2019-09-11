@@ -116,9 +116,9 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device.
 
-1. You can view the messages being sent to the hub by right-clicking on any device and selecting **Start Monitoring D2C Message**. The messages will show in the output pane in Visual Studio Code.
+1. You can view the messages being sent to the hub by right-clicking on any device and selecting **Start Monitoring Built-in Event Endpoint**. The messages will show in the output pane in Visual Studio Code.
 
-1. Stop monitoring by clicking in the **Azure IoT Hub Toolkit** output pane and choose **Stop Monitoring D2C Message**.
+1. Stop monitoring by clicking in the **Azure IoT Hub Toolkit** output pane and choose **Stop Monitoring Built-in Event Endpoint**.
 
 1. Let the application run to completion, which takes a few minutes.
 
@@ -148,7 +148,7 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 1. Click into one of those folders to find data files labeled **00** and **01** corresponding to the partition.
 
-1. The files are written in [Avro](http://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render correctly.
+1. The files are written in [Avro](https://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render correctly.
 
 1. There is no need to try to read or interpret the data right now; we will do it in next article.
 

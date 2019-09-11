@@ -4,7 +4,7 @@ description: Learn detailed steps to create and manage an SSH public and private
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep

@@ -32,7 +32,7 @@ Some of the operations supported by the Hive Warehouse Connector are:
 
 Follow these steps to setup the Hive Warehouse Connector between a Spark and Interactive Query cluster in Azure HDInsight:
 
-1. Create a HDInsight Spark 4.0 cluster using the Azure portal with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md#existingvnet).
+1. Create a HDInsight Spark 4.0 cluster using the Azure portal with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 1. Create a HDInsight Interactive Query (LLAP) 4.0 cluster using the Azure portal with the same storage account and Azure virtual network as the Spark cluster.
 1. Copy the contents of the `/etc/hosts` file on headnode0 of your Interactive Query cluster to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. View the contents of the updated file with `cat /etc/hosts`. The output should look something like what is shown in the screenshot below.
 
@@ -45,7 +45,7 @@ Follow these steps to setup the Hive Warehouse Connector between a Spark and Int
 
         ![Spark2 Ambari configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `@llap0`
+    1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **hive.llap.daemon.service.hosts** under ** Advanced hive-interactive-site**. For example, `@llap0`
 
     1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like URI below. `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
 
@@ -113,7 +113,7 @@ To start a spark-shell session, do the following steps:
 
 ### Connecting and running queries on Enterprise Security Package (ESP) clusters
 
-The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [An introduction to Apache Hadoop security with Enterprise Security Package](../domain-joined/apache-domain-joined-introduction.md).
+The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 1. Follow the initial steps 1 and 2 under [Connecting and running queries](#connecting-and-running-queries).
 1. Type `kinit` and login with a domain user.
@@ -223,11 +223,11 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
 1. Apply a column masking policy that only shows the last four characters of the column.  
     1. Go to the Ranger Admin UI at `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Click on the Hive service for your cluster under **Hive**.
-        ![demo table before applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Click on the **Masking** tab and then **Add New Policy**
-        ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        ![hive policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
-                ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                ![create policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. View the table's contents again. After applying the ranger policy, we can see only the last four characters of the column.
 
     ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

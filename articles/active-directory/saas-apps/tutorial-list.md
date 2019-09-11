@@ -42,7 +42,7 @@ To find more tutorials, use the table of contents on the left.
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
-| ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Console](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
+| ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Console](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Role bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - User Provisioning](google-apps-provisioning-tutorial.md) |
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - User Provisioning](salesforce-provisioning-tutorial.md) |

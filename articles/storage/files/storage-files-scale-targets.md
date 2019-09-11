@@ -1,10 +1,9 @@
 ---
 title: Azure Files scalability and performance targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
@@ -29,15 +28,17 @@ The parent resource for an Azure file share is an Azure storage account. A stora
 
 ## Azure Files scale targets
 
-### Premium scale targets
+There are three categories of limitations to consider for Azure Files: storage accounts, shares, and files.
 
-There are three categories of limitations to consider for premium file shares: storage accounts, shares, and files.
+For example: With premium file shares, a single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, if you have three files in one share, the maximum IOPS you can get from that share is 15,000.
 
-For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the maximum IOPS you can get from that share is 15,000.
+### Standard storage account limits
+
+See the [Azure storage account scale targets](#azure-storage-account-scale-targets) section for these limits.
 
 ### Premium FileStorage account limits
 
-Premium file shares are provisioned in a special storage account called **filestorage (preview)**. This account has slightly different scale targets than the storage account used for standard file shares. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for FileStorage accounts is only achievable if there is only one share per FileStorage account.

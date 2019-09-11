@@ -4,7 +4,7 @@ description: Learn about creating and managing Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -12,7 +12,7 @@ ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn

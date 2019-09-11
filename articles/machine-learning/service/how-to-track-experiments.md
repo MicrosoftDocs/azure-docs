@@ -1,25 +1,28 @@
 ---
 title: Log metrics during training runs
 titleSuffix: Azure Machine Learning service
-description: Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run. You can track your experiments and monitor metrics to enhance the model creation process. 
+description: You can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the logged results of a run.  
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
-
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 07/11/2019
 
 ms.custom: seodec18
 ---
 
-# Log metrics during training runs in Azure Machine Learning
+# Track machine learning training metrics with Azure Machine Learning
 
-In this article, learn how to add logging to your training script, submit an experiment run, monitor the run, and view the results of a run in Azure Machine Learning service. Enhance the model creation process, by tracking your experiments and monitoring metrics. 
+Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning service.
 
-## List of training metrics 
+> [!NOTE]
+> Azure Machine Learning service may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+
+## Available metrics to track
 
 The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -36,7 +39,7 @@ The following metrics can be added to a run while training an experiment. To vie
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
 
-## Start logging metrics
+## Choose a logging option
 
 If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
@@ -45,15 +48,13 @@ If you want to track or monitor your experiment, you must add code to start logg
 ## Set up the workspace
 Before adding logging and submitting an experiment, you must set up the workspace.
 
-1. Load the workspace. To learn more about setting the workspace configuration, follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk).
+1. Load the workspace. To learn more about setting the workspace configuration, see [workspace configuration file](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
    import azureml.core
   
-   ws = Workspace(workspace_name = <<workspace_name>>,
-               subscription_id = <<subscription_id>>,
-               resource_group = <<resource_group>>)
+   ws = Workspace.from_config()
    ```
   
 ## Option 1: Use start_logging
@@ -89,34 +90,36 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
    ```python
-   # Get an experiment object from Azure Machine Learning
-   experiment = Experiment(workspace = ws, name = "train-within-notebook")
-  
-   # Create a run object in the experiment
-   run = experiment.start_logging()# Log the algorithm parameter alpha to the run
-   run.log('alpha', 0.03)
-
-   # Create, fit, and test the scikit-learn Ridge regression model
-   regression_model = Ridge(alpha=0.03)
-   regression_model.fit(data['train']['X'], data['train']['y'])
-   preds = regression_model.predict(data['test']['X'])
-
-   # Output the Mean Squared Error to the notebook and to the run
-   print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-   run.log('mse', mean_squared_error(data['test']['y'], preds))
-
-   # Save the model to the outputs directory for capture
-   joblib.dump(value=regression_model, filename='outputs/model.pkl')
-
-   # Take a snapshot of the directory containing this notebook
-   run.take_snapshot('./')
-
-   # Complete the run
-   run.complete()
-  
+    # Get an experiment object from Azure Machine Learning
+    experiment = Experiment(workspace=ws, name="train-within-notebook")
+    
+    # Create a run object in the experiment
+    run =  experiment.start_logging()
+    # Log the algorithm parameter alpha to the run
+    run.log('alpha', 0.03)
+    
+    # Create, fit, and test the scikit-learn Ridge regression model
+    regression_model = Ridge(alpha=0.03)
+    regression_model.fit(data['train']['X'], data['train']['y'])
+    preds = regression_model.predict(data['test']['X'])
+    
+    # Output the Mean Squared Error to the notebook and to the run
+    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+    run.log('mse', mean_squared_error(data['test']['y'], preds))
+    
+    # Save the model to the outputs directory for capture
+    model_file_name = 'outputs/model.pkl'
+    
+    joblib.dump(value = regression_model, filename = model_file_name)
+    
+    # upload the model file explicitly into artifacts 
+    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
+    
+    # Complete the run
+    run.complete()
    ```
 
-The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
+    The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
 
 ## Option 2: Use ScriptRunConfig
 
@@ -193,35 +196,36 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 3. Configure a user-managed local environment.
 
    ```python
-   from azureml.core.runconfig import RunConfiguration
-
+   from azureml.core import Environment
+    
    # Editing a run configuration property on-fly.
-   run_config_user_managed = RunConfiguration()
-
-   run_config_user_managed.environment.python.user_managed_dependencies = True
-
+   user_managed_env = Environment("user-managed-env")
+    
+   user_managed_env.python.user_managed_dependencies = True
+    
    # You can choose a specific Python environment by pointing to a Python path 
-   #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
 
    ```python
    from azureml.core import ScriptRunConfig
-  
-   experiment = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
-   run = experiment.submit(src)
+    
+   exp = Experiment(workspace=ws, name="train-on-local")
+   src = ScriptRunConfig(source_directory='./', script='train.py')
+   src.run_config.environment = user_managed_env
+   run = exp.submit(src)
    ```
 
 ## Manage a run
 
-The [Start, monitor and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
+The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
 
 ## View run details
 
-### Monitor run with Jupyter notebook widgets
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a Jupyter notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+### Monitor run with Jupyter notebook widget
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 1. View the Jupyter widget while waiting for the run to complete.
 
@@ -230,7 +234,13 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
    RunDetails(run).show()
    ```
 
-   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/widgets.PNG)
+   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
+
+You can also get a link to the same display in your workspace.
+
+```python
+print(run.get_portal_url())
+```
 
 2. **[For automated machine learning runs]** To access the charts from a previous run. Replace `<<experiment_name>>` with the appropriate experiment name:
 
@@ -252,22 +262,23 @@ To view further details of a pipeline click on the Pipeline you would like to ex
 ### Get log results upon completion
 
 Model training and monitoring occur in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. 
-  
+
+
 ### Query run metrics
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## View the experiment in the Azure portal
+## View the experiment in the Azure portal or your [workspace landing page (preview)](https://ml.azure.com)
 
-When an experiment has finished running, you can browse to the recorded experiment run record. You can do access the history in two ways:
+When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history in two ways:
 
 * Get the URL to the run directly ```print(run.get_portal_url())```
 * View the run details by submitting the name of the run (in this case, ```run```). This way points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
-  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page.png)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
@@ -282,156 +293,6 @@ There are various ways to use the logging APIs to record different types of metr
 |Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 
-<a name="auto"></a>
-## Understanding automated ML charts
-
-After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. 
-
-Learn more about:
-+ [Charts and curves for classification models](#classification)
-+ [Charts and graphs for regression models](#regression)
-+ [Model explain ability](#model-explain-ability-and-feature-importance)
-
-
-### View the run charts
-
-1. Go to your workspace. 
-
-1. Select **Experiments** in the leftmost panel of your workspace.
-
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
-
-1. Select the experiment you are interested in.
-
-   ![Experiment list](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
-
-1. In the table, select the Run Number.
-
-   ![Experiment run](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
-
-1. In the table, select the Iteration Number for the model that you would like to explore further.
-
-   ![Experiment model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
-
-
-
-### Classification
-
-For every classification model that you build by using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
-+ [Confusion matrix](#confusion-matrix)
-+ [Precision-Recall chart](#precision-recall-chart)
-+ [Receiver operating characteristics (or ROC)](#roc)
-+ [Lift curve](#lift-curve)
-+ [Gains curve](#gains-curve)
-+ [Calibration plot](#calibration-plot)
-
-#### Confusion matrix
-
-A confusion matrix is used to describe the performance of a classification model. Each row displays the instances of the true class, and each column represents the instances of the predicted class. The confusion matrix shows the correctly classified labels and the incorrectly classified labels for a given model.
-
-For classification problems, Azure Machine Learning automatically provides a confusion matrix for each model that is built. For each confusion matrix, automated ML will show the correctly classified labels as green, and incorrectly classified labels as red. The size of the circle represents the number of samples in that bin. In addition, the frequency count of each predicted label and each true label is provided in the adjacent bar charts. 
-
-Example 1: A classification model with poor accuracy
-![A classification model with poor accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
-
-Example 2: A classification model with high accuracy (ideal)
-![A classification model with high accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
-
-
-#### Precision-recall chart
-
-With this chart, you can compare the precision-recall curves for each model to determine which model has an acceptable relationship between precision and recall for your particular business problem. This chart shows Macro Average Precision-Recall, Micro Average Precision-Recall, and the precision-recall associated with all classes for a model.
-
-The term Precision represents that ability for a classifier to label all instances correctly. Recall represents the ability for a classifier to find all instances of a particular label. The precision-recall curve shows the relationship between these two concepts. Ideally, the model would have 100% precision and 100% accuracy.
-
-Example 1: A classification model with low precision and low recall
-![A classification model with low precision and low recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
-
-Example 2: A classification model with ~100% precision and ~100% recall (ideal)
-![A classification model high precision and recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
-
-#### ROC
-
-Receiver operating characteristic (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high bias, as it will not show the false positive labels.
-
-Example 1: A classification model with low true labels and high false labels
-![Classification model with low true labels and high false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
-
-Example 2: A classification model with high true labels and low false labels
-![a classification model with high true labels and low false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
-
-#### Lift curve
-
-You can compare the lift of the model built automatically with Azure Machine Learning to the baseline in order to view the value gain of that particular model.
-
-Lift charts are used to evaluate the performance of a classification model. It shows how much better you can expect to do with a model compared to without a model. 
-
-Example 1: Model performs worse than a random selection model
-![A classification model that does worse than a random selection model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
-
-Example 2: Model performs better than a random selection model
-![A classification model that performs better](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
-
-#### Gains curve
-
-A gains chart evaluates the performance of a classification model by each portion of the data. It shows for each percentile of the data set, how much better you can expect to perform compared against a random selection model.
-
-Use the cumulative gains chart to help you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This information provides another way of looking at the results in the accompanying lift chart.
-
-Example 1: A classification model with minimal gain
-![a classification model with minimal gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
-
-Example 2: A classification model with significant gain
-![A classification model with significant gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
-
-#### Calibration plot
-
-For all classification problems, you can review the calibration line for micro-average, macro-average, and each class in a given predictive model. 
-
-A calibration plot is used to display the confidence of a predictive model. It does this by showing the relationship between the predicted probability and the actual probability, where “probability” represents the likelihood that a particular instance belongs under some label. A well calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over-confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability.
-
-Example 1: A more well-calibrated model
-![ more well-calibrated model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
-
-Example 2: An over-confident model
-![An over-confident model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
-
-### Regression
-For every regression model, you build using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
-+ [Predicted vs. True](#pvt)
-+ [Histogram of residuals](#histo)
-
-<a name="pvt"></a>
-
-#### Predicted vs. True
-
-Predicted vs. True shows the relationship between a predicted value and its correlating true value for a regression problem. This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the accuracy of a predictive model.
-
-After each run, you can see a predicted vs. true graph for each regression model. To protect data privacy, values are binned together and the size of each bin is shown as a bar graph on the bottom portion of the chart area. You can compare the predictive model, with the lighter shade area showing error margins, against the ideal value of where the model should be.
-
-Example 1: A regression model with low accuracy in predictions
-![A regression model with low accuracy in predictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
-
-Example 2: A regression model with high accuracy in its predictions
-![A regression model with high accuracy in its predictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
-
-<a name="histo"></a>
-
-#### Histogram of residuals
-
-A residual represents an observed y – the predicted y. To show a margin of error with low bias, the histogram of residuals should be shaped as a bell curve, centered around 0. 
-
-Example 1: A regression model with bias in its errors
-![SA regression model with bias in its errors](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
-
-Example 2: A regression model with more even distribution of errors
-![A regression model with more even distribution of errors](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
-
-### Model explain-ability and feature importance
-
-Feature importance gives a score that indicates how valuable each feature was in the construction of a model. You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
-
-![Feature Explain ability](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:

@@ -1,15 +1,15 @@
 ---
 title: Manage and monitor Azure VM backups by using the Azure Backup service
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
-services: backup
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: sogup
+ms.author: dacurwin
 ---
-# Manage Azure VM backups
+# Manage Azure VM backups with Azure Backup service
 
 This article describes how to manage Azure virtual machines (VMs) that are backed up by using the [Azure Backup service](backup-overview.md). The article also summarizes the backup information you can find on the vault dashboard.
 
@@ -97,25 +97,36 @@ To track the job's progress, on the vault dashboard, select the **Backup Jobs** 
 
 There are two ways to stop protecting a VM:
 
-- Stop all future backup jobs and delete all recovery points. In this case, you won't be able to restore the VM.
-- Stop all future backup jobs and keep the recovery points. Although you'll need to pay to keep the recovery points in the vault, you'll be able to restore the VM if needed. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+* **Stop protection and retain backup data**. This option will stop all future backup jobs from protecting your VM; however, Azure Backup service will retain the recovery points that have been backed up.  You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the VM if needed. If you decide to resume VM protection, then you can use *Resume backup* option.
+* **Stop protection and delete backup data**. This option will stop all future backup jobs from protecting your VM and delete all the recovery points. You won't be able to restore the VM nor use *Resume backup* option.
 
 >[!NOTE]
 >If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
 >
 
-To stop protection for a VM:
+### Stop protection and retain backup data
+
+To stop protection and retain data of a VM:
 
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
-2. Choose whether to retain or delete the backup data, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
+2. Choose **Retain Backup Data**, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
 
-    ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Retain Backup data](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     A notification lets you know that the backup jobs have been stopped.
+A notification lets you know that the backup jobs have been stopped.
+
+### Stop protection and delete backup data
+
+To stop protection and delete data of a VM:
+
+1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
+2. Choose **Delete Backup Data**, and confirm your selection as needed. Enter the name of the backup item and add a comment if you want.
+
+    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## Resume protection of a VM
 
-If you keep backup data when you stop the VM, you can later resume protection. If you delete the backup data, you can't resume protection.
+If you had chosen [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection, then you can use **Resume backup**. This option is not available if you choose [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option or [Delete backup data](#delete-backup-data).
 
 To resume protection for a VM:
 
@@ -128,23 +139,25 @@ To resume protection for a VM:
 
 ## Delete backup data
 
-You can delete a VM's backup data during the **Stop backup** job or after the backup job finishes. Before you delete backup data, keep these details in mind:
+There are two ways to delete a VM's backup data:
 
-- It might be a good idea to wait days or weeks before you delete the recovery points.
-- Unlike the process for restoring recovery points, when you delete backup data, you can't choose specific recovery points to delete. If you delete your backup data, you delete all associated recovery points.
+- From the vault item dashboard, select Stop backup and follow the instructions for [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option.
 
-After you stop or disable the VM's backup job, you can delete the backup data:
+  ![Select Stop backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- From the vault item dashboard, select Delete backup data. This option is enabled if you had chosen to [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection
 
-1. On the [vault item dashboard](#view-vms-on-the-dashboard), select **Delete backup data**.
+  ![Select Delete backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Select Delete backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - On the [vault item dashboard](#view-vms-on-the-dashboard), select **Delete backup data**.
+  - Type the name of the backup item to confirm that you want to delete the recovery points.
 
-1. Type the name of the backup item to confirm that you want to delete the recovery points.
+    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Confirm that you want to delete the recovery points](./media/backup-azure-manage-vms/item-verification-box.png)
+  - To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
-1. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
+  > [!NOTE]
+  > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
 
 ## Next steps
 - Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).

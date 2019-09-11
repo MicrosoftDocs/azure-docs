@@ -1,6 +1,6 @@
 ---
 title: Use Curl to export data with Apache Sqoop in Azure HDInsight
-description: Learn how to remotely submit Apache Sqoop jobs to HDInsight using Curl.
+description: Learn how to remotely submit Apache Sqoop jobs to Azure HDInsight using Curl.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -110,4 +110,4 @@ For other HDInsight articles involving curl:
 * [Create Apache Hadoop clusters using the Azure REST API](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 * [Run Apache Hive queries with Apache Hadoop in HDInsight using REST](apache-hadoop-use-hive-curl.md)
 * [Run MapReduce jobs with Apache Hadoop on HDInsight using REST](apache-hadoop-use-mapreduce-curl.md)
-* [Run Apache Pig jobs with Apache Hadoop on HDInsight using cURL](apache-hadoop-use-pig-curl.md)
+

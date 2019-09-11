@@ -15,11 +15,12 @@ In this document, learn the basics of managing and monitoring [Apache Storm](htt
 
 ## Prerequisites
 
-* **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster
+* An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
-* (Optional) **Familiarity with SSH and SCP**: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Optional) **Visual Studio**: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Optional) Familiarity with SSH and SCP: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* (Optional) Visual Studio: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     One of the following versions of Visual Studio:
 

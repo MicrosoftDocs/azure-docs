@@ -174,3 +174,6 @@ To add more stuff to your map, see:
 
 > [!div class="nextstepaction"]
 > [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Display feature information](display-feature-information-android.md)

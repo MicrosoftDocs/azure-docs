@@ -3,14 +3,14 @@ title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely through SS
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 ms.service: hdinsight
-author: hrasheed
-ms.author: hrasheed-msft
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
 ---
-# Debug Apache Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
+# Debug Apache Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
 
 This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to debug applications remotely on an HDInsight cluster. To debug your project, you can also view the [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
@@ -112,7 +112,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
 1. Click the **Disconnect** button that the submission logs not appear in the left panel. However, it is still running on the backend.
 
-   ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
+   ![Remote run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
 
 

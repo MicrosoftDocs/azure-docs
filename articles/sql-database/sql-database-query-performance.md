@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Query Performance Insight for Azure SQL Database

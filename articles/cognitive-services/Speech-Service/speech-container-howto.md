@@ -1,5 +1,5 @@
 ---
-title: Install Speech containers
+title: Install Speech containers - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.  
 services: cognitive-services
@@ -20,8 +20,8 @@ The two speech containers are **speech-to-text** and **text-to-speech**.
 
 |Function|Features|Latest|
 |-|-|--|
-|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.1.1|
-|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
+|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.2.0|
+|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.2.0|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -33,7 +33,7 @@ You must meet the following prerequisites before using Speech containers:
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Speech resource |In order to use these containers, you must have:<br><br>An Azure _Speech_ resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages. They are both required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 ## Request access to the container registry
 
@@ -61,8 +61,8 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 core<br>2 GB memory  | 4 core<br>4 GB memory  |
-|cognitive-services-text-to-speech | 1 core, 0.5 GB memory| 2 core, 1 GB memory |
+|cognitive-services-speech-to-text | 2 core<br>2-GB memory  | 4 core<br>4-GB memory  |
+|cognitive-services-text-to-speech | 1 core, 0.5-GB memory| 2 core, 1-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -96,10 +96,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.0.0-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text** in the 1.1.1 version of the container:
+The following table lists the supported locales for **speech-to-text** in the 1.2.0 version of the container:
 
 |Language locale|Tags|
 |--|--|
@@ -124,10 +124,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech** in the 1.1.0 version of the container:
+The following table lists the supported locales for **text-to-speech** in the 1.2.0 version of the container:
 
 |Language locale|Tags|Supported voices|
 |--|--|--|
@@ -164,7 +164,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required but not used billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
@@ -175,8 +175,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Speech Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Speech Overview page.|
+|{API_KEY} | This key is used to start the container, and is available on the Azure portal's Speech Keys page.  |
+|{ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Speech Overview page.|
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -186,8 +186,8 @@ Replace these parameters with your own values in the following example `docker r
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### Speech-to-text
@@ -196,8 +196,8 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 This command:
@@ -227,13 +227,13 @@ By default, the Speech SDK uses online speech services. To use the container, yo
 
 Change from using this Azure-cloud initialization call:
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 to this call using the container endpoint:
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");
@@ -257,7 +257,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ### Text-to-speech
 
-The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+The container provides REST endpoint APIs that can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
@@ -289,7 +289,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Container images are downloaded from the private container registry in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Speech containers by specifying the host URI of the container.
-* You must specify billing information when instantiating a container.
+* You're required to provide billing information when instantiating a container.
 
 > [!IMPORTANT]
 >  Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.

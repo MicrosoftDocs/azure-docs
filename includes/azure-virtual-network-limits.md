@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 06/13/2019
+ ms.date: 06/25/2019
  ms.author: anavin
  ms.custom: include file
 
@@ -25,6 +25,8 @@ The following limits apply only for networking resources managed through **Azure
 | Private IP addresses per virtual network |65,536 |
 | Private IP addresses per network interface |256 |
 | Private IP addresses per virtual machine |256 |
+| Public IP addresses per network interface |256 |
+| Public IP addresses per virtual machine |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000 |
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
@@ -45,7 +47,7 @@ The following limits apply only for networking resources managed through **Azure
 | --- | --- | --- |
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 200 for Standard.|Contact support. |
+| Public IP addresses - static | 1,000 for Standard.|Contact support. |
 | Public IP prefix length | /28 | Contact support. |
 
 #### <a name="load-balancer"></a>Load balancer limits
@@ -71,8 +73,8 @@ The following limits apply only for networking resources managed through Azure R
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Virtual networks |50 |100 |
-| Local network sites |20 |Contact support. |
+| Virtual networks |100 |100 |
+| Local network sites |20 |50 |
 | DNS servers per virtual network |20 |20 |
 | Private IP addresses per virtual network |4,096 |4,096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
@@ -80,8 +82,8 @@ The following limits apply only for networking resources managed through Azure R
 | NSG rules per NSG |1,000 |1,000 |
 | User-defined route tables |200 |200 |
 | User-defined routes per route table |400 |400 |
-| Public IP addresses (dynamic) |5 |Contact support |
-| Reserved public IP addresses |20 |Contact support |
+| Public IP addresses (dynamic) |500 |500 |
+| Reserved public IP addresses |500 |500 |
 | Public VIP per deployment |5 |Contact support |
 | Private VIP (internal load balancing) per deployment |1 |1 |
 | Endpoint access control lists (ACLs) |50 |50 |

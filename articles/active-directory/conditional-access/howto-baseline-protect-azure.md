@@ -29,38 +29,25 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 Once this policy is enabled in a tenant, all users logging into Azure management resources will be challenged with multi-factor authentication. If the user is not registered for MFA, the user will be required to register using the Microsoft Authenticator App in order to proceed.
 
-![Require MFA for Azure Resource Manager](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
-
-To perform interactive sign-in using [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+To perform interactive sign-in using [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-When run, this cmdlet will present a token string. To sign in, copy this string and paste it into [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in a browser. Your PowerShell session will be authenticated to connect to Azure.
+When run, this cmdlet will present a token string. To sign in, copy this string and paste it into [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in a browser. Your PowerShell session will be authenticated to connect to Azure.
 
-To perform interactive sign-in using [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), Run the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
+To perform interactive sign-in using [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), Run the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
 ```azurecli
 az login
 ```
 
-If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser page and follow the instructions on the command line to enter an authorization code after navigating to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in your browser. Afterwards, sign in with your account credentials in the browser.
+If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser page and follow the instructions on the command line to enter an authorization code after navigating to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in your browser. Afterwards, sign in with your account credentials in the browser.
 
 ## Deployment considerations
 
 Because the **Require MFA for service management** policy applies to all Azure Resource Manager users, several considerations need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication.
-
-### User exclusions
-
-This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts:
-
-* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
-   * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
-   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
-* Users who do not have or will not be able to use a smart phone.
-   * This policy requires users to register for MFA using the Microsoft Authenticator app.
 
 ## Enable the baseline policy
 
@@ -68,17 +55,16 @@ The policy **Baseline policy: Require MFA for service management (preview)** com
 
 To enable this policy and protect your administrators:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Require MFA for service management (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
-1. Click **Save**.
+1. Click **Save**.
 
 ## Next steps
 
 For more information, see:
 
 * [Conditional Access baseline protection policies](concept-baseline-protection.md)
-* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
+* [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 * [What is Conditional Access in Azure Active Directory?](overview.md)

@@ -1,8 +1,8 @@
 ---
 title: Configure Spark settings - Azure HDInsight 
-description: How to configure Spark for an Azure HDInsight cluster.
-author: maxluk
-ms.author: maxluk
+description: How to view and configure Apache Spark settings for an Azure HDInsight cluster
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -51,7 +51,7 @@ The example shown above overrides several default values for five Spark configur
 
 ## View cluster configuration settings
 
-Verify the current HDInsight cluster configuration settings before you perform performance optimization on the cluster. Launch the HDInsight Dashboard from the Azure portal by clicking the **Dashboard** link on the Spark cluster pane. Log in with the cluster administrator's username and password.
+Verify the current HDInsight cluster configuration settings before you perform performance optimization on the cluster. Launch the HDInsight Dashboard from the Azure portal by clicking the **Dashboard** link on the Spark cluster pane. Sign in with the cluster administrator's username and password.
 
 The Apache Ambari Web UI appears, with a dashboard view of key cluster resource utilization metrics.  The Ambari Dashboard shows you the Apache Spark configuration, and other services that you have installed. The Dashboard includes a **Config History** tab, where you can view configuration information for all installed services, including Spark.
 

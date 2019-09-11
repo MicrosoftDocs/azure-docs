@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ---
 
@@ -30,8 +30,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Hadoop and YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
 | Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
 | Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
-| Apache Hive and HCatalog | - | 1.2.1 | 1.2.1 | 1.2.1 | 1.2.1 | 0.14.0 |
-| Apache Hive | 3.1.0 | 2.1.0 | - | - | - | - |
+| Apache Hive | 3.1.0 | 2.1.0, 1.2.1 | - | - | - | - |
 | Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
 | Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
 | Apache HBase | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
@@ -83,7 +82,7 @@ The following table lists the versions of HDInsight that are **not** available i
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (Non-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |June 28, 2018 |Yes |No |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |June 28, 2018 |Yes |No |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |March 29, 2016 |December 29, 2016 |January 9, 2018 |Yes |No |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |December 2, 2015 |June 27, 2016 |July 31, 2018 |Yes |No |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |December 2, 2015 |June 27, 2016 |July 31, 2017 |Yes |No |
@@ -106,7 +105,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
     For more information, see:
 
-    - [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md)
+    - [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md)
     - [Plan Azure domain-joined Apache Hadoop clusters in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
     - [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
     - [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
@@ -172,60 +171,7 @@ The section provides links to release notes for the Hortonworks Data Platform di
 
 ## Default node configuration and virtual machine sizes for clusters
 
-The following tables list the default virtual machine (VM) sizes for HDInsight clusters.  This chart is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters.
-
-> [!IMPORTANT]  
-> If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
-
-* All supported regions except Brazil South and Japan West:
-
-|Cluster type|Hadoop|HBase|Interactive Query|Storm|Spark|ML Server|Kafka|
-|---|---|---|---|---|---|---|---|
-|Head: default VM size|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|Head: recommended VM sizes|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|Worker: default VM size|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 with 2 S30 disks per broker|
-|Worker: recommended VM sizes|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|ZooKeeper: default VM size||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|ZooKeeper: recommended VM sizes||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|ML Services: default VM size||||||D4 v2||
-|ML Services: recommended VM size||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
-
-* Brazil South and Japan West only (no v2 sizes):
-
-  | Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D12 |D12  | D13 |A3 |D12 |D12 |
-  | Head: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Worker: default VM size |D4 |D4  |  D14 |D3 |D13 |D4 |
-  | Worker: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | ZooKeeper: default VM size | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | ZooKeeper: recommended VM sizes | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-  | ML Services: default VM sizes | | | | | |D4 |
-  | ML Services: recommended VM sizes | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
-
-> [!NOTE]
-> - Head is known as *Nimbus* for the Storm cluster type.
-> - Worker is known as *Supervisor* for the Storm cluster type.
-> - Worker is known as *Region* for the HBase cluster type.
+For more information on which virtual machine SKUs to select for your cluster, see [Azure HDInsight cluster configuration details](hdinsight-supported-node-configuration.md).
 
 ## Next steps
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

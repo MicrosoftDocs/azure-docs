@@ -46,7 +46,10 @@ In this example, trace context is propagated according to the [HTTP Protocol for
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -117,7 +120,10 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 The HTTP Protocol for Correlation also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
 
 ## Queue instrumentation
-While there is [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) to pass correlation details with HTTP request, every queue protocol has to define how the same details are passed along the queue message. Some queue protocols (such as AMQP) allow passing additional metadata and some others (such Azure Storage Queue) require the context to be encoded into the message payload.
+While there are [W3C Trace Context](https://www.w3.org/TR/trace-context/) and [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) to pass correlation details with HTTP request, every queue protocol has to define how the same details are passed along the queue message. Some queue protocols (such as AMQP) allow passing additional metadata and some others (such Azure Storage Queue) require the context to be encoded into the message payload.
+
+> [!NOTE]
+> * **Cross-component tracing is not supported for queues yet** With HTTP, if your producer and consumer send telemetry to different Application Insights resources, Transaction Diagnostics Experience and Application Map show transactions and map end-to-end. In case of queues this is not supported yet. 
 
 ### Service Bus Queue
 Application Insights tracks Service Bus Messaging calls with the new [Microsoft Azure ServiceBus Client for .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) version 3.0.0 and higher.
@@ -135,7 +141,8 @@ public async Task Enqueue(string payload)
     // StartOperation is a helper method that initializes the telemetry item
     // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
-    operation.Telemetry.Type = "Queue";
+    
+    operation.Telemetry.Type = "Azure Service Bus";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
@@ -172,7 +179,7 @@ public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
     // It might also make sense to get the name from the message.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
@@ -203,20 +210,7 @@ public async Task Process(BrokeredMessage message)
 The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests.
-Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. If you don't have it, add it programmatically as described in [Filtering and Preprocessing in the Azure Application Insights SDK](../../azure-monitor/app/api-filtering-sampling.md).
-
-If you configure Application Insights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+It is configured by default on ASP.NET and ASP.NET Core applications, with other kinds of applicaiton, you can refer to [console applications documentation](../../azure-monitor/app/console.md)
 
 You also might want to correlate the Application Insights operation ID with the Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -234,7 +228,7 @@ The `Enqueue` operation is the child of a parent operation (for example, an inco
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
-    operation.Telemetry.Type = "Queue";
+    operation.Telemetry.Type = "Azure queue";
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
     // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
@@ -280,38 +274,18 @@ To reduce the amount of telemetry your application reports or if you don't want 
 #### Dequeue
 Similarly to `Enqueue`, an actual HTTP request to the Storage queue is automatically tracked by Application Insights. However, the `Enqueue` operation presumably happens in the parent context, such as an incoming request context. Application Insights SDKs automatically correlate such an operation (and its HTTP part) with the parent request and other telemetry reported in the same scope.
 
-The `Dequeue` operation is tricky. The Application Insights SDK automatically tracks HTTP requests. However, it doesn't know the correlation context until the message is parsed. It's not possible to correlate the HTTP request to get the message with the rest of the telemetry.
-
-In many cases, it might be useful to correlate the HTTP request to the queue with other traces as well. The following example demonstrates how to do it:
+The `Dequeue` operation is tricky. The Application Insights SDK automatically tracks HTTP requests. However, it doesn't know the correlation context until the message is parsed. It's not possible to correlate the HTTP request to get the message with the rest of the telemetry especially when more than one message is received.
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
-    var telemetry = new DependencyTelemetry
-    {
-        Type = "Queue",
-        Name = "Dequeue " + queue.Name
-    };
-
-    telemetry.Start();
-
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>("dequeue " + queue.Name);
+    operation.Telemetry.Type = "Azure queue";
+    operation.Telemetry.Data = "Dequeue " + queue.Name;
+    
     try
     {
         var message = await queue.GetMessageAsync();
-
-        if (message != null)
-        {
-            var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
-
-            // If there is a message, we want to correlate the Dequeue operation with processing.
-            // However, we will only know what correlation ID to use after we get it from the message,
-            // so we will report telemetry after we know the IDs.
-            telemetry.Context.Operation.Id = payload.RootId;
-            telemetry.Context.Operation.ParentId = payload.ParentId;
-
-            // Delete the message.
-            return payload;
-        }
     }
     catch (StorageException e)
     {
@@ -323,8 +297,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     finally
     {
         // Update status code and success as appropriate.
-        telemetry.Stop();
-        telemetryClient.Track(telemetry);
+        telemetryClient.StopOperation(operation);
     }
 
     return null;
@@ -339,7 +312,8 @@ In the following example, an incoming message is tracked in a manner similarly t
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
+    
     // It might also make sense to get the name from the message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
@@ -374,8 +348,15 @@ When you instrument message deletion, make sure you set the operation (correlati
 - Stop the `Activity`.
 - Use `Start/StopOperation`, or call `Track` telemetry manually.
 
+### Dependency Types
+
+Application Insights uses dependency type to cusomize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure-monitor/app/transaction-diagnostics):
+- `Azure queue` for Azure Storage Queues
+- `Azure Event Hubs` for Azure Event Hubs
+- `Azure Service Bus` for Azure Service Bus
+
 ### Batch processing
-With some queues, you can dequeue multiple messages with one request. Processing such messages is presumably independent and belongs to the different logical operations. In this case, it's not possible to correlate the `Dequeue` operation to particular message processing.
+With some queues, you can dequeue multiple messages with one request. Processing such messages is presumably independent and belongs to the different logical operations. It's not possible to correlate the `Dequeue` operation to a particular message being processed.
 
 Each message should be processed in its own asynchronous control flow. For more information, see the [Outgoing dependencies tracking](#outgoing-dependencies-tracking) section.
 
@@ -491,9 +472,17 @@ public async Task RunAllTasks()
 }
 ```
 
+## ApplicationInsights operations vs System.Diagnostics.Activity
+`System.Diagnostics.Activity` represents the distributed tracing context and is used by frameworks and libraries to create and propagate context inside and outside of the process and correlate telemetry items. Activity works together with `System.Diagnostics.DiagnosticSource` - the notification mechanism between the framework/library to notify about interesting events (incoming or outgoing requests, exceptions, etc).
+
+Activities are first-class citizens in Application Insights and automatic dependency and request collection relies heavily on them along with `DiagnosticSource` events. If you create Activity in your application - it would not result in Application Insights telemetry being created. Application Insights needs to receive DiagnosticSource events and know the events names and payloads to translate Activity into telemetry.
+
+Each Application Insights operation (request or dependency) involves `Activity` - when `StartOperation` is called, it creates Activity underneath. `StartOperation` is the recommended way to track request or dependency telemetries manually and ensure everything is correlated.
+
 ## Next steps
 
 - Learn the basics of [telemetry correlation](correlation.md) in Application Insights.
+- Check out how correlated data powers [Transaction Diagnostics Experience](/azure-monitor/app/transaction-diagnostics) and [Application Map](/azure-monitor/app/app-map).
 - See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
 - Report custom [events and metrics](../../azure-monitor/app/api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.

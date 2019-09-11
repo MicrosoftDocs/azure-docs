@@ -2,7 +2,7 @@
 title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview) - Azure Search 
 description: Supplement server-side encryption over indexes and synonym maps in Azure Search through keys that you create and manage in Azure Key Vault.
 author: NatiNimni
-manager: jlembicz
+manager: nitinme
 ms.author: natinimn
 services: search
 ms.service: search
@@ -17,7 +17,7 @@ ms.custom:
 >
 > This feature is not available for free services. You must use a billable search service created on or after 2019-01-01. There is no portal support at this time.
 
-By default, Azure Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). 
+By default, Azure Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). 
 You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.
 
 Server-side encryption is supported through integration with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
@@ -36,7 +36,7 @@ The following services are used in this example.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-+ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
 
 ## 1 - Enable key recovery
 
@@ -237,4 +237,4 @@ To create an AAD application in the portal:
 If you are unfamiliar with Azure security architecture, review the [Azure Security documentation](https://docs.microsoft.com/azure/security/), and in particular, this article:
 
 > [!div class="nextstepaction"]
-> [Data encryption-at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+> [Data encryption-at-rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

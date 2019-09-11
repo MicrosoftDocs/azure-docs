@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -76,6 +76,10 @@ Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', 
 
 For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
+### Names of files/blobs within an asset
+
+The names of files/blobs within an asset must follow both the [blob name requirements](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) and the [NTFS name requirements](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). The reason for these requirements is the files can get copied from blob storage to a local NTFS disk for processing.
+
 ## Long-running operations
 
 The operations marked with `x-ms-long-running-operation` in the Azure Media Services [swagger files](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) are long running operations. 
@@ -84,21 +88,26 @@ For details about how to track asynchronous Azure operations, see [Async operati
 
 Media Services has the following long-running operations:
 
-* Create LiveEvent
-* Update LiveEvent
-* Delete LiveEvent
-* Start LiveEvent
-* Stop LiveEvent
-* Reset LiveEvent
-* Create LiveOutput
-* Delete LiveOutput
-* Create StreamingEndpoint
-* Update StreamingEndpoint
-* Delete StreamingEndpoint
-* Start StreamingEndpoint
-* Stop StreamingEndpoint
-* Scale StreamingEndpoint
+* [Create Live Events](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Update Live Events](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Delete Live Event](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Start Live Event](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Stop LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
+  Use the `removeOutputsOnStop` parameter to delete all associated Live Outputs when stopping the event.  
+* [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Create LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Delete LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Create StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Update StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Delete StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Start StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Stop StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Scale StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
+
+Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
 
 ## SDKs
 

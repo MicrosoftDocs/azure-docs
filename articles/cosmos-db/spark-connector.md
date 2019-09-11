@@ -41,15 +41,16 @@ The following snippet shows how to create a Spark DataFrame to read from Cosmos 
 ```python
 # Read Configuration
 readConfig = {
-  "Endpoint" : "https://doctorwho.documents.azure.com:443/",
-  "Masterkey" : "YOUR-KEY-HERE",
-  "Database" : "DepartureDelays",
-  "Collection" : "flights_pcoll",
-  "query_custom" : "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'" // Optional
+    "Endpoint": "https://doctorwho.documents.azure.com:443/",
+    "Masterkey": "YOUR-KEY-HERE",
+    "Database": "DepartureDelays",
+    "Collection": "flights_pcoll",
+    "query_custom": "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'" // Optional
 }
 
 # Connect via azure-cosmosdb-spark to create Spark DataFrame
-flights = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**readConfig).load()
+flights = spark.read.format(
+    "com.microsoft.azure.cosmosdb.spark").options(**readConfig).load()
 flights.count()
 ```
 
@@ -82,15 +83,16 @@ The following snippet shows how to write a data frame to Cosmos DB in PySpark.
 ```python
 # Write configuration
 writeConfig = {
- "Endpoint" : "https://doctorwho.documents.azure.com:443/",
- "Masterkey" : "YOUR-KEY-HERE",
- "Database" : "DepartureDelays",
- "Collection" : "flights_fromsea",
- "Upsert" : "true"
+    "Endpoint": "https://doctorwho.documents.azure.com:443/",
+    "Masterkey": "YOUR-KEY-HERE",
+    "Database": "DepartureDelays",
+    "Collection": "flights_fromsea",
+    "Upsert": "true"
 }
 
 # Write to Cosmos DB from the flights DataFrame
-flights.write.format("com.microsoft.azure.cosmosdb.spark").options(**writeConfig).save()
+flights.write.format("com.microsoft.azure.cosmosdb.spark").options(
+    **writeConfig).save()
 ```
 
 And the same code snippet in Scala:
@@ -118,24 +120,24 @@ The following snippet shows how to connect to and read from Azure Cosmos DB Chan
 ```python
 # Read Configuration
 readConfig = {
-  "Endpoint" : "https://doctorwho.documents.azure.com:443/",
-  "Masterkey" : "YOUR-KEY-HERE",
-  "Database" : "DepartureDelays",
-  "Collection" : "flights_pcoll",
-  "ReadChangeFeed" : "true",
-  "ChangeFeedQueryName" : "Departure-Delays",
-  "ChangeFeedStartFromTheBeginning" : "false",
-  "InferStreamSchema" : "true",
-  "ChangeFeedCheckpointLocation" : "dbfs:/Departure-Delays"
+    "Endpoint": "https://doctorwho.documents.azure.com:443/",
+    "Masterkey": "YOUR-KEY-HERE",
+    "Database": "DepartureDelays",
+    "Collection": "flights_pcoll",
+    "ReadChangeFeed": "true",
+    "ChangeFeedQueryName": "Departure-Delays",
+    "ChangeFeedStartFromTheBeginning": "false",
+    "InferStreamSchema": "true",
+    "ChangeFeedCheckpointLocation": "dbfs:/Departure-Delays"
 }
 
 
 # Open a read stream to the Cosmos DB Change Feed via azure-cosmosdb-spark to create Spark DataFrame
 changes = (spark
-.readStream
-.format("com.microsoft.azure.cosmosdb.spark.streaming.CosmosDBSourceProvider")
-.options(**readConfig)
-.load())
+           .readStream
+           .format("com.microsoft.azure.cosmosdb.spark.streaming.CosmosDBSourceProvider")
+           .options(**readConfig)
+           .load())
 ```
 And the same code snippet in Scala:
 
@@ -169,22 +171,22 @@ The following snippet shows how to write a data frame to Cosmos DB in PySpark.
 ```python
 # Write configuration
 writeConfig = {
- "Endpoint" : "https://doctorwho.documents.azure.com:443/",
- "Masterkey" : "YOUR-KEY-HERE",
- "Database" : "DepartureDelays",
- "Collection" : "flights_fromsea",
- "Upsert" : "true",
- "WritingBatchSize" : "500",
- "CheckpointLocation" : "/checkpointlocation_write1"
+    "Endpoint": "https://doctorwho.documents.azure.com:443/",
+    "Masterkey": "YOUR-KEY-HERE",
+    "Database": "DepartureDelays",
+    "Collection": "flights_fromsea",
+    "Upsert": "true",
+    "WritingBatchSize": "500",
+    "CheckpointLocation": "/checkpointlocation_write1"
 }
 
 # Write to Cosmos DB from the flights DataFrame
 changeFeed = (changes
- .writeStream
- .format("com.microsoft.azure.cosmosdb.spark.streaming.CosmosDBSinkProvider")
- .outputMode("append")
- .options(**writeconfig)
- .start())
+              .writeStream
+              .format("com.microsoft.azure.cosmosdb.spark.streaming.CosmosDBSinkProvider")
+              .outputMode("append")
+              .options(**writeconfig)
+              .start())
 ```
 
 And the same code snippet in Scala:

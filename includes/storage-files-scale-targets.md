@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ---
-| Resource | Standard file shares | Premium file shares (preview) |
+| Resource | Standard file shares | Premium file shares |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | No minimum; pay as you go | 100 GiB; provisioned |
 | Maximum size of a file share | 5 TiB (GA), 100 TiB (preview) | 100 TiB |

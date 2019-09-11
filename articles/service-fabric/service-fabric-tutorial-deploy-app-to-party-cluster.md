@@ -3,7 +3,7 @@ title: Deploy a Service Fabric app to a cluster in Azure | Microsoft Docs
 description: Learn how to deploy an application to a cluster from Visual Studio.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft 
+author: athinanthny 
 manager: msfussell 
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
-ms.author: aljo,mikhegn
+ms.date: 07/22/2019
+ms.author: mikhegn
 ms.custom: mvc
 
 ---

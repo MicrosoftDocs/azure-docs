@@ -1,6 +1,6 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight using Azure portal 
-description: Learn how to create and manage HDInsight clusters using the Azure portal.
+description: Learn how to create and manage Azure HDInsight clusters using the Azure portal.
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -148,7 +148,7 @@ You are also charged for an HDInsight cluster, even when it is not in use. Since
 There are many ways you can program the process:
 
 * User Azure Data Factory. See [Create on-demand Linux-based Apache Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
-* Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data-linux.md).
+* Use Azure PowerShell.  See [Analyze flight delay data](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
 * Use Azure CLI. See [Manage Azure HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
 * Use HDInsight .NET SDK. See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

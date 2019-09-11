@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 The Azure AD provisioning service runs an initial provisioning cycle against the source system and target system, followed by periodic incremental cycles. When you configure provisioning for an app, you can check the current status of the provisioning service and see when a user will be able to access an app.
 
-## View the provisioning progress bar (preview)
+## View the provisioning progress bar
 
  On the **Provisioning** page for an app, you can view the status of the Azure AD provisioning service. The **Current Status** section at the bottom of the page shows whether a provisioning cycle has started provisioning user accounts. You can watch the progress of the cycle, see how many users and groups have been provisioned, and see how many roles are created.
 
@@ -59,7 +59,7 @@ The provisioning audit logs record all the operations performed by the provision
 For more information on how to read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How long will it take to provision users?
-When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) at a regularly scheduled time interval, typically every 10 minutes.
+When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) at a regularly scheduled time interval, typically every 40 minutes.
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial sync or an incremental sync.
 

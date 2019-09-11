@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 
 ---
 # Configure a web application firewall rate limit rule using Azure PowerShell

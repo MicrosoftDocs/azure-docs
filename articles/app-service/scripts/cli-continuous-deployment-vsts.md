@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create app and deploy continuously from Azure R
 description: Azure CLI Script Sample - Create an app with continuous deployment from Azure Repos
 services: app-service\web
 documentationcenter: 
-author: msangapu
+author: msangapu-msft
 manager: jeconnoc
 editor: 
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: jeconnoc
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---

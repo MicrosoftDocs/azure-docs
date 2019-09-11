@@ -1,5 +1,5 @@
 ---
-title: Cluster setup for Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase, or R Server - Azure HDInsight
+title: Cluster setup for Apache Hadoop, Spark, Kafka, HBase, or R Server - Azure
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 author: hrasheed-msft
@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/15/2019
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -44,7 +44,8 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 * [Resource group name](#resource-group-name)
 * [Cluster types and configuration](#cluster-types) 
-* Cluster login and SSH username
+* [Cluster name](#cluster-name)
+* [Cluster login and SSH username](#cluster-login-and-ssh-username)
 * [Location](#location)
 
 ## Resource group name
@@ -71,12 +72,31 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+## Cluster name
+
+HDInsight cluster names have the following restrictions:
+- Allowed characters: a-z, 0-9, A-Z 
+- Max length: 59
+- Reserved names: apps
+- The cluster naming scope is for all Azure, across all subscriptions. So the cluster name must be unique worldwide.
+- First 6 characters must be unique within a VNET
 
 ## Cluster login and SSH username
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
 * HTTP user: The default username is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user: Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+The HTTP username has the following restrictions:
+- Allowed special characters: _ and @ 
+- Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
+- Max length: 20
+
+The SSH username has the following restrictions:
+- Allowed special characters: _ and @ 
+- Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
+- Max length: 64
+- Reserved names: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
@@ -130,7 +150,7 @@ Custom cluster setup builds on the Quick create settings, and adds the following
  
 ## Enterprise security package
 
-For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 ![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -224,13 +244,14 @@ For more information, see [Customize HDInsight clusters using Bootstrap](hdinsig
 ## Advanced settings: Extend clusters with a virtual network
 If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
-For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](hdinsight-extend-hadoop-virtual-network.md).
+For more information on using an Azure virtual network with HDInsight, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
-For an example of using two cluster types within an Azure virtual network, see [Use Apache Spark Structured Streaming with Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+For an example of using two cluster types within an Azure virtual network, see [Use Apache Spark Structured Streaming with Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 
 ## Next steps
 
+- [Troubleshoot cluster creation failures with Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 - [What are HDInsight, the Apache Hadoop ecosystem, and Hadoop clusters?](hadoop/apache-hadoop-introduction.md)
 - [Get started using Apache Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)

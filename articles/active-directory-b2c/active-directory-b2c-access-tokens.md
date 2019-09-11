@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 # Request an access token in Azure Active Directory B2C
 
-An *access token* contains claims that you can use in Azure Active Directory (Azure AD) B2C to identify the granted permissions to your APIs. When calling a resource server, an access token must be present in the HTTP request. An access token is denoted as **access_token** in the responses from Azure AD B2C. 
+An *access token* contains claims that you can use in Azure Active Directory (Azure AD) B2C to identify the granted permissions to your APIs. When calling a resource server, an access token must be present in the HTTP request. An access token is denoted as **access_token** in the responses from Azure AD B2C.
 
 This article shows you how to request an access token for a web application and web API. For more information about tokens in Azure AD B2C, see the [overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
@@ -63,13 +63,13 @@ In the following example, you replace these values:
 - `<application-ID>` - The application identifier of the web application that you registered to support the user flow.
 - `<redirect-uri>` - The **Redirect URI** that you entered when you registered the client application.
 
-```
+```HTTP
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
 &scope=https://tenant-name>.onmicrosoft.com/api/read
-&response_type=code 
+&response_type=code
 ```
 
 The response with the authorization code should be similar to this example:
@@ -80,9 +80,9 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 After successfully receiving the authorization code, you can use it to request an access token:
 
-```
+```HTTP
 POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
-Host: https://<tenant-name>.b2clogin.com
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
@@ -95,7 +95,7 @@ grant_type=authorization_code
 
 You should see something similar to the following response:
 
-```
+```JSON
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -109,7 +109,7 @@ You should see something similar to the following response:
 
 When using https://jwt.ms to examine the access token that was returned, you should see something similar to the following example:
 
-```
+```JSON
 {
   "typ": "JWT",
   "alg": "RS256",

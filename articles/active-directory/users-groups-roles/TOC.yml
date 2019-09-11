@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Users, groups, licensing, and roles
+  - name: Azure AD users, groups, licensing, and roles
     href: directory-overview-user-model.md
 - name: Quickstarts
   items:
@@ -10,6 +10,8 @@
     href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Grant permission for unlimited app registrations
+    href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
   - name: Set groups naming policy    
@@ -21,7 +23,7 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Delegate Azure AD admin roles    
+  - name: Delegate Azure AD admin roles
     href: roles-concept-delegation.md
   - name: Compare default user permissions    
     href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -38,6 +40,16 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage user profiles    
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Bulk operations (preview)
+      items:
+        - name: Download users (preview)
+          href: users-bulk-download.md
+        - name: Bulk import users (preview)
+          href: users-bulk-add.md
+        - name: Bulk delete users (preview)
+          href: users-bulk-delete.md
+        - name: Bulk restore users (preview)
+          href: users-bulk-restore.md
     - name: Share user accounts  
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
@@ -68,23 +80,25 @@
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Manage groups    
+  - name: Manage groups
     items: 
     - name: Manage access with groups    
       href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage groups in the Azure portal    
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Search group and member lists (preview)    
+      href: groups-members-owners-search.md
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups PowerShell MSOnline    
       href: groups-settings-cmdlets.md
     - name: Manage group members    
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage group owners    
+    - name: Manage group owners
       href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage groups in groups    
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Add group access to SaaS apps    
+    - name: Create a group (Azure portal)    
+      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Add group access to SaaS apps
       href: groups-saasapps.md
     - name: Groups naming reference
       href: groups-naming-policy.md
@@ -92,7 +106,7 @@
       href: groups-lifecycle.md
     - name: Restore expired or deleted groups   
       href: groups-restore-deleted.md
-    - name: Manage group settings    
+    - name: Manage group settings
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
     - name: Set up group self-service    
       href: groups-self-service-management.md
@@ -100,7 +114,9 @@
       items: 
       - name: Create a dynamic group    
         href: groups-create-rule.md
-      - name: Dynamic group rules    
+      - name: Update a membership rule
+        href: groups-update-rule.md  
+      - name: Dynamic group rules & syntax  
         href: groups-dynamic-membership.md
       - name: Change group membership type  
         href: groups-change-type.md
@@ -112,7 +128,7 @@
       href: licensing-groups-resolve-problems.md
     - name: Change users to group licensing    
       href: licensing-groups-migrate-users.md
-    - name: Changes licenses for a user    
+    - name: Change licenses for a user    
       href: licensing-groups-change-licenses.md
     - name: Additional scenarios    
       href: licensing-group-advanced.md
@@ -126,13 +142,25 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
-    - name: Assign roles with PowerShell
-      href: roles-assign-powershell.md
-    - name: Delegate app admin roles
-      href: roles-delegate-app-roles.md
+    - name: Custom roles preview
+      items:
+      - name: Custom roles preview
+        href: roles-custom-overview.md
+      - name: Create custom role
+        href: roles-create-custom.md
+      - name: View custom role assignments
+        href: roles-view-assignments.md
+      - name: Assign roles in Azure AD admin center
+        href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      - name: Assign custom roles in PowerShell
+        href: roles-assign-powershell.md
+      - name: Custom role preview permissions
+        href: roles-custom-available-permissions.md
+      - name: Delegate app admin permissions
+        href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
-    - name: Microsoft 365 roles   
+    - name: Microsoft 365 roles
       href: roles-m365-workload-docs.md
     - name: Administrator role security    
       items:   

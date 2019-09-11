@@ -5,14 +5,14 @@
  author: dsk-2015
  ms.service: digital-twins
  ms.topic: include
- ms.date: 12/17/2018
+ ms.date: 08/16/2019
  ms.author: dkshir
  ms.custom: include file
 ---
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. From the left pane, select **Create a resource**. Search for **digital twins**, and select **Digital Twins (preview)**. Select **Create** to start the deployment process.
+1. From the left pane, select **Create a resource**. Search for **digital twins**, and select **Digital Twins**. Select **Create** to start the deployment process.
 
    ![Selections for creating a new Digital Twins instance](./media/create-digital-twins-portal/create-digital-twins.png)
 

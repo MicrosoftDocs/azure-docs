@@ -4,6 +4,7 @@ description: This article explains how to register a service application in Azur
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen

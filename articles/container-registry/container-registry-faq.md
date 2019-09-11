@@ -3,11 +3,11 @@ title: Azure Container Registry - frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 services: container-registry
 author: sajayantony
-manager: jeconnoc
+manager: gwallace
 
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 07/02/2019
 ms.author: sajaya
 ---
 
@@ -23,18 +23,19 @@ This article addresses frequently asked questions and known issues about Azure C
 - [How do I get admin credentials for a container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [How do I get admin credentials in a Resource Manager template?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Firewall rules are updated successfully but they do not take effect](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) that you can use to create a registry.
+Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
-See the documentation for [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
+See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
 
 ### How do I get admin credentials for a container registry?
 
@@ -86,6 +87,11 @@ The error is seen when the user has permissions on a registry but doesn't have R
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### Firewall rules are updated successfully but they do not take effect
+
+It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
+
 
 ## Registry operations
 
@@ -242,8 +248,9 @@ With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have 
 
 Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## Diagnostics
+## Diagnostics and health checks
 
+- [Check health with `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
@@ -252,16 +259,30 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
+### Check health with `az acr check-health`
+
+To troubleshoot common environment and registry issues, see [Check the health of an Azure container registry](container-registry-check-health.md).
+
 ### docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 
  - If this error is a transient issue, then retry will succeed.
- - If `docker pull` fails continuously, then there could be a problem with the docker daemon. The problem can generally be mitigated by restarting the docker daemon. 
- - If you continue to see this issue after restarting docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, try a command such as `ping www.bing.com`.
- - You should always have a retry mechanism on all docker client operations.
+ - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
+ - If you continue to see this issue after restarting Docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run the following command to test endpoint connectivity. The minimum `az acr` version that contains this connectivity check command is 2.2.9. Upgrade your Azure CLI if you are using an older version.
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - You should always have a retry mechanism on all Docker client operations.
 
-### docker push succeeds but docker pull fails with error: unauthorized: authentication required
+### Docker pull is slow
+Use [this](http://www.azurespeed.com/Azure/Download) tool to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
 
-This error can happen with the Red Hat version of docker daemon, where `--signature-verification` is enabled by default. You can check the docker daemon options for Red Hat Enterprise Linux (RHEL) or Fedora by running the following command:
+### Docker push is slow
+Use [this](http://www.azurespeed.com/Azure/Upload) tool to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
+
+### Docker push succeeds but docker pull fails with error: unauthorized: authentication required
+
+This error can happen with the Red Hat version of the Docker daemon, where `--signature-verification` is enabled by default. You can check the Docker daemon options for Red Hat Enterprise Linux (RHEL) or Fedora by running the following command:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -281,12 +302,12 @@ unauthorized: authentication required
 ```
 
 To resolve the error:
-1. Add the option `--signature-verification=false` to the docker daemon configuration file `/etc/sysconfig/docker`. For example:
+1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. Restart the docker daemon service by running the following command:
+2. Restart the Docker daemon service by running the following command:
 
   ```bash
   sudo systemctl restart docker.service
@@ -294,9 +315,9 @@ To resolve the error:
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
-### Enable and get the debug logs of the docker daemon	
+### Enable and get the debug logs of the Docker daemon	
 
-Start `dockerd` with the `debug` option. First, create the docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
+Start `dockerd` with the `debug` option. First, create the Docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
 
 ```json
 {	
@@ -384,7 +405,7 @@ curl $redirect_url
 
 ### Why does the Azure portal not list all my repositories or tags? 
 
-If you are using the Microsoft Edge browser, you can see at most 100 repositories or tags listed. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
 
 ### How do I collect http traces on Windows?
 
@@ -436,86 +457,6 @@ This setting also applies to the `az acr run` command.
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## Error references for `az acr check-health`
-
-### DOCKER_COMMAND_ERROR
-
-This error means that docker client for CLI could not be found, which precludes finding docker version, evaluating docker daemon status and ensuring docker pull command can be run.
-
-*Potential solutions*: installing docker client; adding docker path to the system variables.
-
-### DOCKER_DAEMON_ERROR
-
-This error means that the docker daemon status is unavailable, or that it could not be reached using the CLI. This means that docker operations (e.g., login, pull) will be unavailable through the CLI.
-
-*Potential solutions*: Restart docker daemon, or validate that it is properly installed.
-
-### DOCKER_VERSION_ERROR
-
-This error means that CLI was not able to run the command `docker --version`.
-
-*Potential solutions*: try running the command manually, make sure you have the latest CLI version, and investigate the error message.
-
-### DOCKER_PULL_ERROR
-
-This error means that the CLI was not able to pull a sample image to your environment.
-
-*Potential solutions*: validate that all components necessary to pull an image are running properly.
-
-### HELM_COMMAND_ERROR
-
-This error means that helm client could not be found by the CLI, which precludes other helm operations.
-
-*Potential solutions*: verify that helm client is installed, and that its path is added to the system environment variables.
-
-### HELM_VERSION_ERROR
-
-This error means that the CLI was unable to determine the Helm version installed. This can happen if the Azure CLI version (or if the helm version) being used is obsolete.
-
-*Potential solutions*: update to the latest Azure CLI version or to the recommended helm version; run the command manually and investigate the error message.
-
-### CONNECTIVITY_DNS_ERROR
-
-This error means that the DNS for the given registry login server was pinged but did not respond to it, which means it is unavailable. This can indicate some connectivity issues. This can also mean that the registry does not exist, that the user does not have the permissions on the registry (to retrieve its login server properly), or that the target registry is in a different cloud than the one being used in the Azure CLI.
-
-*Potential solutions*: validate connectivity; verify spelling of the registry, and that registry exists; verify that the user has the right permissions on it and that the registry's cloud is the same that is being used on Azure CLI.
-
-### CONNECTIVITY_FORBIDDEN_ERROR
-
-This means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This means that users don't have access to the registry, most likely due to a VNET configuration.
-
-*Potential solutions*: remove VNET rules or add the current client IP to the allowed list.
-
-### CONNECTIVITY_CHALLENGE_ERROR
-
-This error means that the challenge endpoint of the target registry did not issue a challenge.
-
-*Potential solutions*: try again after some time. If error persists, please open am issue at https://aka.ms/acr/issues.
-
-### CONNECTIVITY_AAD_LOGIN_ERROR
-
-This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support AAD login.
-
-*Potential solutions*: try other way of logging in, e.g., admin credentials. In case the user wants to log in with AAD support, please open am issue at https://aka.ms/acr/issues.
-
-### CONNECTIVITY_REFRESH_TOKEN_ERROR
-
-This means that the registry login server did not respond with a refresh token, which means that the access to the target registry was denied. This can happen if the user does not have the right permissions on the registry or if the user credentials for Azure CLI are obsolete.
-
-*Potential solutions*: verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens and credentials.
-
-### CONNECTIVITY_ACCESS_TOKEN_ERROR
-
-This means that the registry login server did not respond with an access token, which means that the access to the target registry was denied. This can happen if the user does not have the right permissions on the registry or if the user credentials for Azure CLI are obsolete.
-
-*Potential solutions*: verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens and credentials.
-
-### LOGIN_SERVER_ERROR
-
-This means that the CLI was unable to find the login server of the given registry, and no default suffix was found for the current cloud. This can happen if the registry does not exist, if the user does not have the right permissions on the registry, if the registry's cloud and the current Azure CLI cloud do not match, or if the Azure CLI version is obsolete.
-
-*Potential solutions*: verify that the spelling is correct and that the registry exist; verify if user has the right permissions on the registry, and that the clouds of the registry and the CLI environment match; update Azure CLI to the latest version.
 
 ## Next steps
 

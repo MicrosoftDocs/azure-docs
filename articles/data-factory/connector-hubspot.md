@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
 
 ---
@@ -94,11 +94,12 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
     "name": "HubspotDataset",
     "properties": {
         "type": "HubspotObject",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

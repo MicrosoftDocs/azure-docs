@@ -30,7 +30,7 @@ The **B2C** category in audit logs contains the following types of activities:
 |Activity type |Description  |
 |---------|---------|
 |Authorization |Activities concerning the authorization of a user to access B2C resources (for example, an administrator accessing a list of B2C policies)         |
-|Directory |Activities related to directory attributes retrieved when an administrator signs in using the Azure Portal |
+|Directory |Activities related to directory attributes retrieved when an administrator signs in using the Azure portal |
 |Application | CRUD operations on B2C applications |
 |Key |CRUD operations on keys stored in B2C key container |
 |Resource |CRUD operations on B2C resources (for example, policies and identity providers)
@@ -40,35 +40,35 @@ The **B2C** category in audit logs contains the following types of activities:
 > For user object CRUD activities, refer to the **Core Directory** category.
 
 ## Example activity
-The example below shows the data captured when a user signs in with an external identity provider:
-    ![Audit Logs - Example](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+The example below shows the data captured when a user signs in with an external identity provider:  
+    ![Example of Audit Log Activity Details page in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 The activity details panel contains the following relevant information:
 
 |Section|Field|Description|
 |-------|-----|-----------|
 | Activity | Name | Which activity took place. For example, "Issue an id_token to the application" (which concludes the actual user sign-in). |
-| Initiated By (Actor) | ObjectId | The **Object ID** of the B2C application that the user is signing in to (this identifier is not visible in the Azure Portal but it's accessible via the Graph API for example). |
+| Initiated By (Actor) | ObjectId | The **Object ID** of the B2C application that the user is signing in to (this identifier is not visible in the Azure portal but it's accessible via the Graph API for example). |
 | Initiated By (Actor) | Spn | The **Application ID** of the B2C application that the user is signing in to. |
 | Target(s) | ObjectId | The **Object ID** of the user that is signing in. |
 | Additional Details | TenantId | The **Tenant ID** of the Azure AD B2C tenant. |
 | Additional Details | PolicyId | The **Policy ID** of the user flow (policy) being used to sign the user in. |
 | Additional Details | ApplicationId | The **Application ID** of the B2C application that the user is signing in to. |
 
-## Accessing audit logs through the Azure Portal
+## Accessing audit logs through the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com). Make sure you are in your B2C directory.
 2. Click on **Azure Active Directory** in the favorites bar on the left
-    
-    ![Audit Logs - AAD button](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Azure Active Directory button highlighted in left-hand portal menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Under **Activity**, click on **Audit Logs**
 
-    ![Audit Logs - Logs section](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Audit Logs button highlighted in Activity section of menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. In the **Category** dropbox, select **B2C**
 3. Click on **Apply**
 
-    ![Audit Logs - Category](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Category and Apply button highlighted in Audit Log filter](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 You will see a list of activities logged over the last seven days.
 - Use the **Activity Resource Type** dropdown to filter by the activity types outlined above

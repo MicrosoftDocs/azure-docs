@@ -2,7 +2,7 @@
 title: Quickstart to view groups and members - Azure Active Directory| Microsoft Docs
 description: Instructions about how to search for and view your organization's groups and their assigned members.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: "it-pro, seodec18, seo-update-azuread-jan"
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
@@ -48,7 +48,7 @@ Create a new group, named _MDM policy - West_. For more information about creati
 3. Select **Create**.
 
 ## Create a new user
-Create a new user, named _Alain Charon_. A user must exist before being added as a group member. For more information about creating a user, see [How to add or delete users](add-users-azure-active-directory.md).
+Create a new user, named _Alain Charon_. A user must exist before being added as a group member. Check the "Custom domain names" tab first to get the verified domain name in which to create users. For more information about creating a user, see [How to add or delete users](add-users-azure-active-directory.md).
 
 1. Select **Azure Active Directory**, **Users**, and then select **New user**.
 

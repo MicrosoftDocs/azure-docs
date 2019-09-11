@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-manager: craigg
 ms.date: 04/18/2019
 ---
 # SQL Database resource limits for Azure SQL Database server
@@ -38,6 +37,9 @@ This article provides an overview of the SQL Database resource limits for a SQL 
 > As the number of databases approaches the limit per SQL Database server, the following can occur:
 > - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
+
+### Storage size
+- For single databases rources please refer to either [DTU-based resource limits](sql-database-dtu-resource-limits-single-databases.md) or [vCore-based resource limits](sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
 
 ## What happens when database resource limits are reached
 

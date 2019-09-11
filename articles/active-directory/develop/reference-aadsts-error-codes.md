@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,12 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > [!NOTE]
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
 >
-> This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.  
+> This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.
+
+## Lookup current error code information
+Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
+
+Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "16000".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## AADSTS error codes
 
@@ -190,6 +195,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90019 | MissingTenantRealm - Azure AD was unable to determine the tenant identifier from the request. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - The principal name format is not valid, or does not meet the expected `name[/host][@realm]` format. The principal name is required, host and realm are optional and may be set to null. |
 | AADSTS90023 | InvalidRequest - The authentication service request is not valid. |
+| AADSTS9002313 | InvalidRequest - Request is malformed or invalid. - The issue here is because there was something wrong with the request to a certain endpoint. The suggestion to this issue is to get a fiddler trace of the error occurring and looking to see if the request is actually properly formatted or not. |
 | AADSTS90024 | RequestBudgetExceededError - A transient error has occurred. Try again. |
 | AADSTS90033 | MsodsServiceUnavailable - The Microsoft Online Directory Service (MSODS) is not available. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - An unexpected, non-retryable error from the WCF service hosted by MSODS has occurred. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
@@ -211,6 +217,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
+| AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - The value must be a valid absolute URI. |
 | AADSTS90107 | InvalidXml - The request is not valid. Make sure your data doesn't have invalid characters.|
@@ -260,6 +267,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
 
 ## Next steps
 

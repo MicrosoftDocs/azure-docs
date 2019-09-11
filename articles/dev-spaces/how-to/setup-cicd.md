@@ -7,7 +7,7 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"
 ms.topic: "conceptual"
-manager: yuvalm
+manager: gwallace
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---

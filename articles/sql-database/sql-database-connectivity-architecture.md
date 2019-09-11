@@ -1,17 +1,16 @@
 ---
-title: Directing Azure traffic to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
-description: This document explains the Azcure SQL onnectivity architecture for database connections from within Azure or from outside of Azure.
+title: Azure SQL Database and SQL Data Warehouse Connectivity Architecture | Microsoft Docs
+description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
-manager: craigg
-ms.date: 04/03/2019
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
+ms.date: 07/02/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -51,48 +50,53 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 ## Azure SQL Database gateway IP addresses
 
-To connect to an Azure SQL database from on-premises resources, you need to allow outbound network traffic to the Azure SQL Database gateway for your Azure region. Your connections only go via the gateway when connecting in `Proxy` mode, which is the default when connecting from on-premises resources.
+The table below lists the IP Addresses of Gateways by region. To connect to an Azure SQL Database, you need to allow network traffic to & from **all** Gateways for the region.
 
-The following table lists the primary and secondary IPs of the Azure SQL Database gateway for all data regions. For some regions, there are two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover address is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure SQL Database to accept connections.
+Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
 
-| Region Name | Primary IP address | Secondary IP address |
-| --- | --- |--- |
-| Australia East | 13.75.149.87 | 40.79.161.1 |
-| Australia South East | 191.239.192.109 | 13.73.109.251 |
-| Brazil South | 104.41.11.5 | |
-| Canada Central | 40.85.224.249 | |
-| Canada East | 40.86.226.166 | |
-| Central US | 23.99.160.139 | 13.67.215.62 |
-| China East 1 | 139.219.130.35 | |
-| China East 2 | 40.73.82.1 | |
-| China North 1 | 139.219.15.17 | |
-| China North 2 | 40.73.50.0 | |
-| East Asia | 191.234.2.139 | 52.175.33.150 |
-| East US 1 | 191.238.6.43 | 40.121.158.30 |
-| East US 2 | 191.239.224.107 | 40.79.84.180 * |
-| France Central | 40.79.137.0 | 40.79.129.1 |
-| Germany Central | 51.4.144.100 | |
-| Germany North East | 51.5.144.179 | |
-| India Central | 104.211.96.159 | |
-| India South | 104.211.224.146 | |
-| India West | 104.211.160.80 | |
-| Japan East | 191.237.240.43 | 13.78.61.196 |
-| Japan West | 191.238.68.11 | 104.214.148.156 |
-| Korea Central | 52.231.32.42 | |
-| Korea South | 52.231.200.86 |  |
-| North Central US | 23.98.55.75 | 23.96.178.199 |
-| North Europe | 191.235.193.75 | 40.113.93.91 |
-| South Central US | 23.98.162.75 | 13.66.62.124 |
-| South East Asia | 23.100.117.95 | 104.43.15.0 |
-| UK South | 51.140.184.11 | |
-| UK West | 51.141.8.11| |
-| West Central US | 13.78.145.25 | |
-| West Europe | 191.237.232.75 | 40.68.37.158 |
-| West US 1 | 23.99.34.75 | 104.42.238.205 |
-| West US 2 | 13.66.226.202 | |
-||||
 
-\* **NOTE:** *East US 2* has also a tertiary IP address of `52.167.104.0`.
+| Region Name          | Gateway IP Addresses |
+| --- | --- |
+| Australia Central    | 20.36.105.0 |
+| Australia Central2   | 20.36.113.0 |
+| Australia East       | 13.75.149.87, 40.79.161.1 |
+| Australia South East | 191.239.192.109, 13.73.109.251 |
+| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| Canada Central       | 40.85.224.249      |
+| Canada East          | 40.86.226.166      |
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| China East           | 139.219.130.35     |
+| China East 2         | 40.73.82.1         |
+| China North          | 139.219.15.17      |
+| China North 2        | 40.73.50.0         |
+| East Asia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 | 
+| France Central       | 40.79.137.0, 40.79.129.1 |
+| Germany Central      | 51.4.144.100       |
+| Germany North East   | 51.5.144.179       |
+| India Central        | 104.211.96.159     |
+| India South          | 104.211.224.146    |
+| India West           | 104.211.160.80     |
+| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Japan West           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
+| Korea Central        | 52.231.32.42       |
+| Korea South          | 52.231.200.86      |
+| North Central US     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| North Europe         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| South Africa North   | 102.133.152.0      |
+| South Africa West    | 102.133.24.0       |
+| South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| South East Asia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| UAE Central          | 20.37.72.64        |
+| UAE North            | 65.52.248.0        |
+| UK South             | 51.140.184.11      |
+| UK West              | 51.141.8.11        |
+| West Central US      | 13.78.145.25       |
+| West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| West US              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| West US 2            | 13.66.226.202      |
+|                      |                    |
 
 ## Change Azure SQL Database connection policy
 
@@ -105,10 +109,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
-
-> [!IMPORTANT]
-> This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to change the connection policy.
 
@@ -131,20 +132,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-The following CLI script shows how to change the connection policy.
+### Azure CLI in a bash shell
+
+> [!IMPORTANT]
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+The following CLI script shows how to change the connection policy in a bash shell.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### Azure CLI from a Windows command prompt
+
+> [!IMPORTANT]
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## Next steps

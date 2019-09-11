@@ -23,7 +23,7 @@ Custom policies are configuration files that define the behavior of your Azure A
 
 | | User flows | Custom policies |
 |-|-------------------|-----------------|
-| Target users | All application developers with or without identity expertise. | Identity pros, systems integrators, consultants, and in-house identity teams. They are comfortable with OpenIDConnect flows and understand identity providers and claims-based authentication. |
+| Target users | All application developers with or without identity expertise. | Identity pros, systems integrators, consultants, and in-house identity teams. They are comfortable with OpenID Connect flows and understand identity providers and claims-based authentication. |
 | Configuration method | Azure portal with a user-friendly user-interface (UI). | Directly editing XML files and then uploading to the Azure portal. |
 | UI customization | Full UI customization including HTML, CSS and JavaScript.<br><br>Multilanguage support with Custom strings. | Same |
 | Attribute customization | Standard and custom attributes. | Same |
@@ -46,12 +46,12 @@ User flows in Azure AD B2C follow the three-file pattern depicted above, but the
 The customer identity and access management (CIAM) service in Azure includes:
 
 - A user directory that is accessible by using Microsoft Graph and which holds user data for both local accounts and federated accounts.
-- Access to the **Identity Experience Framework** that orchestrates trust between users and entities and passes claims between them to complete an identity or access management task. 
+- Access to the **Identity Experience Framework** that orchestrates trust between users and entities and passes claims between them to complete an identity or access management task.
 - A security token service (STS) that issues ID tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validates them to protect resources.
 
 Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task. For example, sign in a user, register a new user, or reset a password. The Identity Experience Framework and a policy (also called a user journey or a trust framework policy) establishes multi-party trust and explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
 
-The Identity Experience Framework is a fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities in standard protocol formats such as OpenIDConnect, OAuth, SAML, WSFed, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences that support HTML and CSS.
+The Identity Experience Framework is a fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, WSFed, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences that support HTML and CSS.
 
 A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, and user journey orchestration steps, among other elements. A custom policy is accessible as one or several XML files that are executed by the Identity Experience Framework when invoked by a relying party. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 

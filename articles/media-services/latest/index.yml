@@ -55,34 +55,22 @@ sections:
     className: cardsM
     columns: 1
     items:
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>The tutorial uploads a local video file, encodes the file, and streams the encoded content.<p/>
+    - html: <p>The tutorial uploads a local video file, encodes the file, and streams the encoded content.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
       title: Encode uploaded file and stream video
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>The tutorial explains how to set up for a live event. It then shows how to use .NET to create a pass-through type of a live event.</p>
+    - html: <p>The tutorial explains how to set up for a live event. It then shows how to create a pass-through type of a live event.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
       title: Broadcast  live
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>This tutorial shows you how to analyze videos with Azure Media Services API.</p>
+    - html: <p>This tutorial shows you how to analyze videos with Azure Media Services API.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
       title: Analyze your video
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with AES-128.</p>
+    - html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with AES-128.</p>
       href: /azure/media-services/latest/protect-with-aes128
       title: Encrypt dynamically with AES-128
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with multi-DRM (PlayReady, Widevine, and FairPlay).</p>
+    - html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with multi-DRM (PlayReady, Widevine, and FairPlay).</p>
       href: /azure/media-services/latest/protect-with-drm
       title: Encrypt dynamically with multi-DRM
-    - image:
-        src: media/index/rest.svg
-      html: <p>The tutorial shows how to encode a remote file based on URL and stream the video.</p>
+    - html: <p>The tutorial shows how to encode a remote file based on URL and stream the video.</p>
       href: /azure/media-services/latest/stream-files-tutorial-with-rest
       title: Encode remote file and stream video 
 - title: Samples

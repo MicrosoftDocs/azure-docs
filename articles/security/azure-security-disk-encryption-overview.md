@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+ms.date: 09/05/2019
 
 ms.custom: seodec18
 ---
@@ -54,7 +54,7 @@ It also supports the following scenarios for VMs when they're enabled in Microso
    > [!NOTE]
    > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption supported operating systems: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
-* Enabling encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016.
+* Enabling encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016. Storage Spaces Direct (S2D) isn't supported yet.
 * Back up and restoration of encrypted VMs for both key encryption key (KEK) and non-KEK scenarios.
 
 Azure Disk Encryption does not work for the following scenarios, features, and technology:
@@ -68,6 +68,9 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 * Azure Files (shared file system).
 * Network File System (NFS).
 * Dynamic volumes.
+* Windows Server containers, which create dynamic volumes for each container.
+* Ephemeral OS disks.
+* Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, CephFS, etc
 
 ## Encryption features
 

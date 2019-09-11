@@ -1,6 +1,6 @@
 ---
 title: Cluster capacity planning in Azure HDInsight 
-description: 'How to specify an HDInsight cluster for capacity and performance.'
+description: Identify key questions for capacity and performance planning of an Azure HDInsight cluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -58,7 +58,7 @@ For a 48-node cluster, we recommend 4 to 8 storage accounts. Although there may 
 
 ## Choose a cluster type
 
-The cluster type determines the workload your HDInsight cluster is configured to run, such as [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), or [Apache Spark](https://spark.apache.org/). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
+The cluster type determines the workload your HDInsight cluster is configured to run, such as [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), or [Apache Spark](https://spark.apache.org/). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
 
 ## Choose the VM size and type
 
@@ -80,7 +80,7 @@ A cluster's scale is determined by the quantity of its VM nodes. For all cluster
 
 Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores), but may also add to the total amount of memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically, using simulated workloads or canary queries.
 
-You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed. For more information, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
+You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed. The [Autoscale feature](hdinsight-autoscale-clusters.md) allows you automatically scale your cluster based upon predetermined metrics and timings. For more information on scaling your clusters manually, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
 
 ### Cluster lifecycle
 
@@ -92,7 +92,7 @@ You are charged for a cluster's lifetime. If there are only specific times that 
 
 ### Isolate cluster job errors
 
-Sometimes errors can occur due to the parallel execution of multiple maps and reduce components on a multi-node cluster. To help isolate the issue, try distributed testing by running concurrent multiple jobs on a single-node cluster, then expand this approach to run multiple jobs concurrently on clusters containing more than one node. To create a single-node HDInsight cluster in Azure, use the *advanced* option.
+Sometimes errors can occur due to the parallel execution of multiple maps and reduce components on a multi-node cluster. To help isolate the issue, try distributed testing by running concurrent multiple jobs on a single worker node cluster, then expand this approach to run multiple jobs concurrently on clusters containing more than one node. To create a single-node HDInsight cluster in Azure, use the *Custom(size,settings,apps)* option  and use a value of 1 for *Number of Worker nodes* in the **Cluster size** section when provisioning a new cluster in the portal.
 
 You can also install a single-node development environment on your local computer and test the solution there. Hortonworks provides a single-node local development environment for Hadoop-based solutions that is useful for initial development, proof of concept, and testing. For more information, see [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 

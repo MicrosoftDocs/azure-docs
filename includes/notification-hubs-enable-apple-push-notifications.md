@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- services: notification-hubs
- author: spelluru
- ms.service: notification-hubs
- ms.topic: include
- ms.date: 08/28/2018
- ms.author: spelluru
- ms.custom: include file
+title: include file
+description: include file
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 08/28/2018
+ms.author: spelluru
+ms.custom: include file
 ---
 ## Generate the certificate-signing request file
 

@@ -25,7 +25,7 @@ Below are a list of functions within each category:
 
 | Function group | Operations |
 |---------|----------|
-| Mathematical functions | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
+| Mathematical functions | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, RAND, SIN, TAN |
 | Type-checking functions | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | String functions | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | Array functions | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE |
@@ -61,9 +61,9 @@ Here’s a table of supported built-in mathematical functions.
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[SIGN](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Returns the absolute (positive) value of the specified numeric expression.  
@@ -550,13 +550,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **Arguments**  
-  
-- `numeric_expression`  
-  
-   Is a numeric expression.  
-  
+   
   **Return Types**  
   
   Returns a numeric expression.  
@@ -694,7 +688,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a> RAND
+ Returns a randomly generated numeric value from [0,1).
+ 
+ **Syntax**  
   
+```  
+RAND ()  
+```  
+
+  **Return Types**  
+  
+  Returns a numeric expression.  
+  
+  **Examples**  
+  
+  The following example returns a randomly generated numeric value.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> SIGN  
  Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.  
   

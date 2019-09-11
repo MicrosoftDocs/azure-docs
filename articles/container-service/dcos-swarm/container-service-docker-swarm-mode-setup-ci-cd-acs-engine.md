@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
-ms.author: diegomrtnzg
+ms.author: dimart
 ms.custom: mvc
 ---
 
@@ -248,6 +248,6 @@ Now that you are done with the configuration, it's time to test this new CI/CD p
 
 ## Next steps
 
-* For more information about CI/CD with Azure DevOps, see the [Azure DevOps Build overview](https://www.visualstudio.com/docs/build/overview).
+* For more information about CI/CD with Azure DevOps, see the [Azure Pipelines Documentation](/azure/devops/pipelines/?view=azure-devops) article.
 * For more information about ACS Engine, see the [ACS Engine GitHub repo](https://github.com/Azure/acs-engine).
 * For more information about Docker Swarm mode, see the [Docker Swarm mode overview](https://docs.docker.com/engine/swarm/).

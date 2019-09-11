@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/2/2019
 ms.author: mayg
 
 ---
@@ -73,6 +73,13 @@ Over an above ensuring that there are no connectivity, bandwidth or time sync re
         - Azure Site Recovery VSS Provider
         - VDS service
 
+- If you are running SQL or Exchange workloads, check the logs of these application writers for failures. Frequent errors and their resolution are captured in following articles:
+    -  [Auto-Close option of SQL Server database is set to TRUE](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 throwing a non-retryable error](https://support.microsoft.com/help/4504103)
+    - [Known issue in SQL Server 2016 and 2017](https://support.microsoft.com/help/4493364)
+    - [Common issue with Exchange Servers 2013 and 2016](https://support.microsoft.com/help/4037535)
+
+
 ### Source machines with high churn [error 78188]
 
 Possible Causes:
@@ -81,7 +88,13 @@ Possible Causes:
 
 To resolve the issue:
 - Ensure that the target storage account type (Standard or Premium) is provisioned as per the churn rate requirement at source.
+- If you are already replicating to a Premium managed disk (asrseeddisk type), ensure that the size of the disk supports the observed churn rate as per Site Recovery limits. You can increase the size of the asrseeddisk if required. Follow the below steps:
+    - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
+    - Navigate to this replica managed disk
+    - You may see a banner on the Overview blade saying that a SAS URL has been generated. Click on this banner and cancel the export. Ignore this step if you do not see the banner.
+    - As soon as the SAS URL is revoked, go to Configuration blade of the Managed Disk and increase the size so that ASR supports the observed churn rate on source disk
 - If the observed churn is temporary, wait for a few hours for the pending data upload to catch up and to create recovery points.
+- If the disk contains non-critical data like temporary logs, test data etc., consider moving this data elsewhere or completely exclude this disk from replication
 - If the problem continues to persist, use the Site Recovery [deployment planner](site-recovery-deployment-planner.md#overview) to help plan replication.
 
 ### Source machines with no heartbeat [error 78174]

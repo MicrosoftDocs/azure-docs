@@ -4,13 +4,13 @@ description: Azure PowerShell Script Sample - Encrypt a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure

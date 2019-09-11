@@ -2,13 +2,13 @@
 title: Run Virtual Kubelet in an Azure Kubernetes Service (AKS) cluster
 description: Learn how to use Virtual Kubelet with Azure Kubernetes Service (AKS) to run Linux and Windows containers on Azure Container Instances.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Use Virtual Kubelet with Azure Kubernetes Service (AKS)

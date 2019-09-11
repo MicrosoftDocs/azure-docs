@@ -2,12 +2,12 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster in the portal
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -44,6 +44,8 @@ To create an AKS cluster, complete the following steps:
      Select **Next: Scale** when complete.
 
 2. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next:Authentication**.
+> [!CAUTION]
+> Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) for mitigations.
 3. On the **Authentication** page, configure the following options:
    - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
    - Enable the option for Kubernetes role-based access controls (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.

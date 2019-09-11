@@ -24,13 +24,13 @@ ms.author: mbullwin
 
 *I'm experiencing data loss randomly.*
 
-* Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Check for any known issues in Telemetry Channel [Github repo](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *I'm experiencing data loss in Console App or on Web App when app is about to stop.*
 
-* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetrychannels) used.
+* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetry-channels) used.
 
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
@@ -212,7 +212,9 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 ### .NET Core
 
-1. Install the [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsights`
+1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsights`
+
+The latest version of Microsoft.ApplicationInsights.AspNetCore is 2.7.1, and it refers to Microsoft.ApplicationInsights version 2.10. Hence the version of Microsoft.AspNet.ApplicationInsights.HostingStartup to be installed should be 2.10.0
 
 2. Modify `ConfigureServices` method in your `Startup.cs` class.:
 

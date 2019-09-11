@@ -72,7 +72,9 @@ Every VM contains a temporary disk, which is not a managed disk. The temporary d
 
 ## Managed disk snapshots
 
-A managed disk snapshot is a read-only full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB.  
+A managed disk snapshot is a read-only crash-consistent full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. 
+
+Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). For example, if the used data size of a snapshot is 10 GiB, the usage report will show 10 GiB/(31 days x 24 hours) = 0.013441 GiB as the consumed quantity.
 
 To learn more about how to create snapshots with managed disks, see the following resources:
 

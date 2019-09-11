@@ -1,10 +1,9 @@
 ---
 title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
@@ -20,7 +19,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
 * At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run directly on the Windows Server instance you are registering. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+* The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -34,17 +33,25 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     > If you plan to use the Server Registration UI, rather than registering directly from PowerShell, you must use PowerShell 5.1.
 
 * If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
-* The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* The Az.StorageSync module, which is currently installed independently of the Az module:
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > If you are installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags or the installation will fail. For example, if installing .NET 4.8, the command would look like the following:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > The Az.StorageSync module is now installed automatically when you install the Az PowerShell module.
 
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
 
 # [Portal](#tab/azure-portal)
+> [!Note]  
+> You can skip this step if you're deploying Azure File Sync on Windows Server Core.
+
 1. Open Server Manager.
 2. Click **Local Server**:  
     !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -57,18 +64,23 @@ For each server that you intend to use with Azure File Sync, including each serv
 To disable the Internet Explorer Enhanced Security Configuration, execute the following from an elevated PowerShell session:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -77,7 +89,7 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
 
 > [!Note]
-> The Storage Sync Service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
+> The Storage Sync Service inherits access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
 
 # [Portal](#tab/azure-portal)
 To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *Create a resource* and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
@@ -95,7 +107,14 @@ When you are finished, select **Create** to deploy the Storage Sync Service.
 Replace **<Az_Region>**, **<RG_Name>**, and **<my_storage_sync_service>** with your own values, then use the following cmds to create and deploy a Storage Sync Service:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into
@@ -140,7 +159,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
 
 > [!Important]  
-> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
+> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must be registered to work with Azure File Sync.
 
 We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
@@ -213,7 +232,7 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ---
 
 ## Create a sync group and a cloud endpoint
-A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
+A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on a  registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
 
 A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that will not sync to other endpoints. Do not use or delete it!
 
@@ -332,6 +351,20 @@ if ($cloudTieringDesired) {
 
 ---
 
+## Configure firewall and virtual network settings
+
+### Portal
+If you'd like to configure your Azure File sync to work with firewall and virtual network settings, do the following:
+
+1. From the Azure portal, navigate to the storage account you want to secure.
+1. Select the **Firewalls and virtual networks** button on the left menu.
+1. Select **Selected networks** under **Allow access from**.
+1. Make sure your servers IP or virtual network is listed under the appropriate section.
+1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
+1. Select **Save** to save your settings.
+
+![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
  
@@ -343,20 +376,20 @@ The recommended steps to onboard on Azure File Sync for the first with zero down
 6. After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
 7. Create new file shares on each of the remaining servers.
 8. Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
-9. Let Azure File Sync agent to do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
+9. Let Azure File Sync agent do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
 10. Ensure sync completes and test your topology as desired. 
 11. Redirect users and applications to this new share.
 12. You can optionally delete any duplicate shares on the servers.
  
 If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
  
-1. Ensure that data on any of the server can't change during the onboarding process.
-2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB e.g. Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can't be used for pre-seeding.
+1. Ensure that data on any of the servers can't change during the onboarding process.
+2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB for example, Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can't be used for pre-seeding.
 3. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
 4. Let sync finish reconciliation process on all endpoints. 
 5. Once reconciliation is complete, you can open shares for changes.
  
-Please be aware that currently, pre-seeding approach has a few limitations - 
+Currently, pre-seeding approach has a few limitations - 
 - Full fidelity on files is not preserved. For example, files lose ACLs and timestamps.
 - Data changes on the server before sync topology is fully up and running can cause conflicts on the server endpoints.  
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.

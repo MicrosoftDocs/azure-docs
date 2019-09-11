@@ -5,7 +5,7 @@ description: Learn about data modeling in NoSQL databases, differences between m
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.custom: rimman
 
@@ -38,7 +38,7 @@ The guiding premise when normalizing data is to **avoid storing redundant data**
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
     JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
+    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
 Updating a single person with their contact details and addresses requires write operations across many individual tables.
@@ -412,3 +412,6 @@ Just as there is no single way to represent a piece of data on a screen, there i
 To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
 
 To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](sql-api-partition-data.md).
+
+To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
+Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).
