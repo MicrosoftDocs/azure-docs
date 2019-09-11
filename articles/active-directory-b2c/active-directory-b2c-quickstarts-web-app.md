@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Set up sign in for an ASP.NET application using Azure Active Directory B2C | Microsoft Docs
+title: Quickstart - Set up sign in for an ASP.NET application using Azure Active Directory B2C
 description: Run a sample ASP.NET web app that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    These two projects are in the sample solution:
+    There are two projects are in the sample solution:
 
     - **TaskWebApp** - A web application that creates and edits a task list. The web application uses the **sign-up or sign-in** user flow to sign up or sign in users.
     - **TaskService** - A web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web application.
@@ -53,7 +53,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
     The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter.
 
-2. Azure AD B2C presents a custom sign-in page for a fictitious brand called Wingtip Toys for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
+2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
     ![Sign In or Sign Up page showing identity provider buttons](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
