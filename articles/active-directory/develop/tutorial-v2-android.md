@@ -45,7 +45,7 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 
 ## Prerequisites
 
-* This tutorial requires Android Studio version 16 or later (19+ is recommended).
+* This tutorial requires Android Studio version 3.5.
 
 ## Create a project
 
@@ -55,15 +55,16 @@ This tutorial will create a new project. If you want to download the completed t
 2. Select **Basic Activity** and select **Next**.
 3. Name your application.
 4. Save the package name. You will enter it later into the Azure portal.
-5. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
-6. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `27`.
+5. Change the language from **Kotlin** to **Java**.
+6. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
+7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `28`.
 
 ## Register your application
 
 1. Go to the [Azure portal](https://aka.ms/MobileAppReg).
 2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New registration**.
 3. Enter a **Name** for your app and then, without setting a Redirect URI, click **Register**.
-4. In the **Manage** section of the pane that appears, select **Authentication** > **+ Add a platform** > **Android**.
+4. In the **Manage** section of the pane that appears, select **Authentication** > **+ Add a platform** > **Android**. (You may have to select "Switch to the new experience" near the top of the blade to see this section)
 5. Enter your project's Package Name. If you downloaded the code, this value is `com.azuresamples.msalandroidapp`.
 6. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash.** and copy the KeyTool command to use for your platform.
 
@@ -79,8 +80,8 @@ This tutorial will create a new project. If you want to download the completed t
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste the MSAL Configuration that you saved earlier. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
-4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below. This entry allows Microsoft to call back to your application after it completes the authentication:
+3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste the MSAL Configuration that you saved earlier. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
+4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -110,7 +111,7 @@ This tutorial will create a new project. If you want to download the completed t
 ### Create the app's UI
 
 1. In the Android Studio project window, navigate to **app** > **src** > **main** > **res** > **layout** and open **activity_main.xml** and open the **Text** view.
-2. Change the activity layout, for example: `<androidx.coordinatorlayout.widget.CoordinatorLayout` to `<androidx.coordinatorlayout.widget.LinearLayout`.
+2. Change the activity layout, for example: `<androidx.coordinatorlayout.widget.CoordinatorLayout` to `<androidx.coordinatorlayout.widget.DrawerLayout`. 
 3. Add the `android:orientation="vertical"` property to the `LinearLayout` node.
 4. Paste the following code into the `LinearLayout` node, replacing the current content:
 
@@ -178,7 +179,7 @@ This tutorial will create a new project. If you want to download the completed t
 ### Use MSAL
 
 Now make changes inside `MainActivity.java` to add and use MSAL in your app.
-In the Android Studio project window, navigate to **app** > **src** > **main** > **java** > **com.example.msal**, and open `MainActivity.java`.
+In the Android Studio project window, navigate to **app** > **src** > **main** > **java** > **com.example.(your app)**, and open `MainActivity.java`.
 
 #### Required imports
 
