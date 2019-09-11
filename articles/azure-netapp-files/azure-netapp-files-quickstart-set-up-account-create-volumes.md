@@ -37,6 +37,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+---
+
 ## Register for Azure NetApp Files and NetApp Resource Provider
 
 > [!NOTE]
@@ -64,6 +66,8 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 # [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+---
 
 ## Create a NetApp account
 
@@ -147,6 +151,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+---
 
 ## Set up a capacity pool
 
@@ -208,6 +213,8 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+---
 
 ## Create NFS volume for Azure NetApp Files
 
@@ -344,6 +351,8 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --protocol-types "NFSv3"
     ```
 
+---
+
 ## Clean up resources
 
 # [Portal](#tab/azure-portal)
@@ -396,6 +405,7 @@ When you are done and if you want to, you can delete the resource group. The act
     az group delete \
         --name $RESOURCE_GROUP
     ```
+---
 
 ## Next steps  
 
