@@ -442,7 +442,7 @@ ___
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Comparison less operator. Same as < operator
-* ``lesser(12 < 24) -> true``
+* ``lesser(12, 24) -> true``
 * ``'abcd' < 'abc' -> false``
 ___
 ### <code>lesserOrEqual</code>
