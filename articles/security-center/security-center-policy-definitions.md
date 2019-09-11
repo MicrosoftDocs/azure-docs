@@ -2,16 +2,11 @@
 title: Azure policy definitions monitored in Azure Security Center | Microsoft Docs
 description: Azure policy definitions monitored in Azure Security Center.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
+
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: "v-mohabe"
 ---
@@ -42,9 +37,9 @@ To learn about the built-in policies that are monitored by Security Center, see 
 |Diagnostics logs in Key Vault should be enabled|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Diagnostics logs in Event Hub should be enabled|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Diagnostics logs in Azure Data Lake Store should be enabled|Audit enabling of logs and keep them up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
-|Diagnostics logs in Data Lake Analytics should be enabled|Audit enabling of logs and  keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
+|Diagnostics logs in Data Lake Analytics should be enabled|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Storage accounts should be migrated to new AzureRM resources|Use Azure Resource Manager for your storage accounts to provide security enhancements. These include: <br>- Stronger access control (RBAC)<br>- Better auditing<br>- Azure Resource Manager-based deployment and governance<br>- Access to managed identities<br>- Access to Azure Key Vault for secrets<br>- Azure AD-based authentication<br>- Support for tags and resource groups for easier security management|
-|Virtual machines should be migrated to new AzureRM resources|Use Azure Resource Manager for your virtual machines to provide security enhancements.  These include: <br>- Stronger access control (RBAC)<br>- Better auditing<br>- Azure Resource Manager-based deployment and governance<br>- Access to managed identities<br>- Access to Azure Key Vault for secrets<br>- Azure AD-based authentication<br>- Support for tags and resource groups for easier security management|
+|Virtual machines should be migrated to new AzureRM resources|Use Azure Resource Manager for your virtual machines to provide security enhancements. These include: <br>- Stronger access control (RBAC)<br>- Better auditing<br>- Azure Resource Manager-based deployment and governance<br>- Access to managed identities<br>- Access to Azure Key Vault for secrets<br>- Azure AD-based authentication<br>- Support for tags and resource groups for easier security management|
 |Metric alert rules should be configured on Batch accounts|Audit configuration of metric alert rules on Azure Batch accounts to enable the required metric.|
 |Diagnostic logs in Batch accounts should be enabled|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Encryption should be enabled on Automation account variables|It's important to enable encryption of Azure Automation account variable assets when you store sensitive data.|
