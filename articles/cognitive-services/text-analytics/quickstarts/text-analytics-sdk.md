@@ -15,32 +15,46 @@ zone_pivot_groups: text-analytics-programming-languages
 
 # Quickstart: Use the Text Analytics client library for detecting language
 
+> [!TIP]
+> Want to use the Text Analytics REST API instead? Use the following sample code on Github to quickly send REST requests in the following languages:
+> * [Java](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+> * [Python](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+> * [Ruby](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+> * [Node.js](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+> * [Go](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts-2/csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts-2/python-sdk.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts-2/nodejs-sdk.md)]
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
 
-[!INCLUDE [Go quickstart](../includes/quickstarts-2/go-sdk.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
 
 ::: zone-end
 
+::: zone pivot="programming-language-ruby"
+
+[!INCLUDE [Ruby quickstart](../includes/quickstarts/ruby-sdk.md)]
+
+::: zone-end
 
 ## Clean up resources
 

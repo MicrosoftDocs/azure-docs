@@ -27,6 +27,8 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+  - id: programming-language-ruby
+    title: Ruby
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
   prompt: Choose a Text Analytics feature offering
