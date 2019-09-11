@@ -1,12 +1,11 @@
 ---
-title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure | Microsoft Docs
+title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure 
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/10/2019
 ms.author: raynew
 ---
 
@@ -130,6 +129,7 @@ Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
 Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
+Modifying storage account | No. The target Azure storage account can't be modified after enabling replication. To modify, disable and then reenabled disaster recovery. | No
 
 
 ## Azure compute features
