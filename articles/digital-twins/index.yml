@@ -29,7 +29,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Digital Twins introduction
-            url: https://www.youtube.com/embed/TvN_NxpgyzQ
+            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
 
   - title: Get started
     linkLists:
@@ -63,7 +63,7 @@ landingContent:
           - text: Create user-defined functions
             url: how-to-user-defined-functions.md
 
-  - title: API Reference
+  - title: API reference
     linkLists:
       - linkListType: reference
         links:
