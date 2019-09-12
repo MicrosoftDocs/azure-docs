@@ -13,11 +13,11 @@ ms.reviewer: dineshm
 
 # Move an Azure Storage account to another region
 
-You can move a storage account to another region. First, export the storage account template. Then, modify the template and deploy it to the region of your choice. 
+You can move a storage account to another region. To accomplish this, deploy a copy of your storage account to another region. Then, move over your data. 
+
+This article shows you how to move a storage account by using the Azure portal or PowerShell. You'll export the storage account template. Then, modify the template and deploy it to the region of your choice. 
 
 Some settings won't automatically export to a template, so you'll have to make some changes to the storage account after you deploy it. 
-
-This article shows you how to move a storage account by using the Azure portal or PowerShell.  
 
 ## Prerequisites
 
@@ -27,15 +27,13 @@ This article shows you how to move a storage account by using the Azure portal o
 
 ## Prepare
 
-The following steps show how to prepare the storage account for the move using an Resource Manager template, and move the storage account settings to the target region using the portal.
+First, export a Resource Manager template for the storage account. Then, save that template to your local computer so that you can edit it. 
 
 ### Export the template
 
-To export the template by using Azure portal:
-
 # [Portal](#tab/azure-portal)
 
-To remove a resource group using the Azure portal:
+To export the template by using Azure portal:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
@@ -51,7 +49,7 @@ To remove a resource group using the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-The following steps show how to prepare the storage account for the move using an Resource Manager template, and move the storage account settings to the target region using the portal and a script.
+To export the template by using PowerShell:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -87,6 +85,8 @@ The following steps show how to prepare the storage account for the move using a
 ---
 
 ### Modify the template 
+
+Modify the template by changing the storage account name and region.
 
 # [Portal](#tab/azure-portal)
 
@@ -163,6 +163,8 @@ The following steps show how to prepare the storage account for the move using a
 
 ## Move
 
+Deploy the template.
+
 # [Portal](#tab/azure-portal)
 
 1. Save the **template.json** file.
@@ -208,7 +210,9 @@ These settings don't export to a template, so you'll have to add them to your ne
 
 - Alerts. See [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md).
 
-If you set up a Content Delivery Network (CDN) in the source account, just change the origin of your existing CDN to the static website or blob URL in your new account. See [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md).
+- Content Delivery Network (CDN). 
+
+  If you set up a Content Delivery Network (CDN) in the source account, just change the origin of your existing CDN to the static website or blob URL in your new account. See [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md).
 
 ### Move data to the new storage account
 
