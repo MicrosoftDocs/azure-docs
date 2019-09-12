@@ -37,7 +37,7 @@ SQLite was originally designed in 2000 for the U.S. Navy, to support serverless 
 
 The module can take up to three datasets as inputs. When you reference the datasets connected to each input port, you must use the names `t1`, `t2`, and `t3`. The table number indicates the index of the input port.  
   
-The remaining parameter is a SQL query, which uses the SQLite syntax. This module supports all standard statements of the SQLite syntax. For a list of unsupported statements, see the [Technical Notes](#bkmk_Notes) section.
+The remaining parameter is a SQL query, which uses the SQLite syntax. This module supports all standard statements of the SQLite syntax. For a list of unsupported statements, see the [Technical Notes](#technical-notes) section.
 
 ### General syntax and usage
   
