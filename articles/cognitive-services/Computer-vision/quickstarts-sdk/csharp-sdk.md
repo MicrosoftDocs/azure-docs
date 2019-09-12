@@ -20,7 +20,7 @@ Use the Computer Vision client library for .NET to:
 * Analyze an image for tags, text description, faces, adult content, and more.
 * Recognize printed and handwritten text with the Batch Read API.
 
-[Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## Prerequisites
 
@@ -71,8 +71,6 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 In the application's **Program** class, create variables for your resource's Azure endpoint and key.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_vars)]
-
-And add main..?
 
 ### Install the client library
 
@@ -265,7 +263,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (.NET)](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
+>[Computer Vision API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
 * [What is the Computer Vision API?](../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).
