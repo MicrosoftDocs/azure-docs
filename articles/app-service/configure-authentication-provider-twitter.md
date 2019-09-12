@@ -34,20 +34,20 @@ To complete the procedure in this article, you need a Twitter account that has a
 1. At the bottom the page, read and accept the terms. Select **Create your Twitter application**. The application details are displayed.
 1. Select the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
 1. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**.
-   
+
    > [!NOTE]
    > The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
    >
 
 ## <a name="secrets"> </a>Add Twitter information to your application
 
-1. Go to your application in the [Azure portal]. 
+1. Go to your application in the [Azure portal].
 1. Select **Settings**, and then **Authentication / Authorization**.
 1. Make sure that the **Authentication / Authorization** feature is enabled. Switch it **On** if necessary.
 1. Select **Twitter**.
-1. Paste in the App ID and App Secret values that you obtained previously.
+1. Paste in the app's `API Key` and `API Secret` values that you obtained previously.
 1. Select **OK**.
-   
+
    ![Screenshot of Mobile App Twitter Settings][1]
    
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
@@ -62,6 +62,7 @@ To complete the procedure in this article, you need a Twitter account that has a
 You are now ready to use Twitter for authentication in your app.
 
 ## <a name="related-content"> </a>Next steps
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
