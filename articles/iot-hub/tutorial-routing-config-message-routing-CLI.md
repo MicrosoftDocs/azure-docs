@@ -233,7 +233,7 @@ az servicebus queue authorization-rule create \
   --queue-name $sbQueueName \
   --resource-group $resourceGroup \
   --rights Listen Manage Send \
-  --subscription $subscriptionID
+  --subscriptionID $subscriptionID
 ```
 
 Now use the authorization rule to retrieve the connection string to the Service Bus queue.
