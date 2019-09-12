@@ -41,6 +41,11 @@ ms.author: sngun
 > [!NOTE]
 > If you are using .NET Framework, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
+### <a name="2.6.0"/>2.6.0
+
+* Added PortReusePolicy to ConnectionPolicy
+* Fixed ntdll!RtlGetVersion TypeLoadException issue when SDK is used in a UWP app
+
 ### <a name="2.5.1"/>2.5.1
 
 * SDK’s System.Net.Http version now matches what is defined in the NuGet package.
@@ -381,6 +386,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.6.0](#2.6.0) |August 30, 2019 |--- |
 | [2.5.1](#2.5.1) |July  02, 2019 |--- |
 | [2.4.1](#2.4.1) |June  20, 2019 |--- |
 | [2.4.0](#2.4.0) |May  05, 2019 |--- |
