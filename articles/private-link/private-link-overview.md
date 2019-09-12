@@ -1,5 +1,5 @@
 ---
-title: WHat is Azure private link?
+title: What is Azure private link?
 description: Learn about Azure private link.
 services: virtual-network
 author: KumudD
