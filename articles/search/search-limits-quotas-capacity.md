@@ -56,11 +56,13 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 ## Document limits 
 
-As of October 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
+As of October 2018, there are no longer any document limits<sup>1</sup> for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
 
 To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. The number of documents is bound by an underlying lucene limit. It's hard to precisely determine the limit as it depends on factors like number of complex collections and number of internal subindexes, the index is split in. For indexes without any complex collections, it is roughly around 25 billion. but Using complex collections can significantly lower this limit.
 
 ### Regions previously having document limits
 
