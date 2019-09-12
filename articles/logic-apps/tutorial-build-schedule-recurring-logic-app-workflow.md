@@ -347,7 +347,7 @@ To create other logic apps that use the **Recurrence** trigger, check out these 
 
 ## Clean up resources
 
-When no longer needed, delete the resource group that contains your logic app and related resources. 
+When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources. 
 
 1. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app.
 
