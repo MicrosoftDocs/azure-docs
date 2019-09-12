@@ -31,7 +31,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
-> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) version. This is the only version known to work well with ASP.NET Core 3.0.
+> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) version or higher. This is the only version known to work well with ASP.NET Core 3.0. Also, Visual Studio based onboarding is not yet supported for ASP.NET Core 3.0 apps.
 
 ## Prerequisites
 
@@ -138,13 +138,13 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 * SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
 * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
-* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get counters in Linux (and other non-Windows environments) is by using [EventCounters.](#eventcounter)
+* SDK Versions 2.8.0-beta3 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](#eventcounter)
 
 ### EventCounter
 
 [EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box including CLR Counters about GC Stats, Process Memory/CPU, ASP.NET Core counters like Requests/Sec etc.
 
-SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and these counters can be queries either in Metrics Explorer or using Analytics query under PerformanceCounter table. The name of the counter will be "Category|Counter"
+SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
 
 |Category | Counter|
 |---------------|-------|
@@ -227,6 +227,7 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
 ```
 
 Full List of settings in `ApplicationInsightsServiceOptions`
+
 |Setting | Description | Default
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
@@ -379,6 +380,8 @@ If you want to disable telemetry conditionally and dynamically, you may resolve 
     }
 ```
 
+Please note that the above does not prevent any auto-collection modules from collecting telemetry. Only the sending of telemetry to Application Insights gets disabled with the above approach. If a particular auto-collection module is not desired, its best to [remove the telemetry module](#configuring-or-removing-default-telemetrymodules)
+
 ## Frequently asked questions
 
 ### How can I track telemetry that's not automatically collected?
@@ -414,6 +417,8 @@ For more information about custom data reporting in Application Insights, see [A
 
 Yes, enabling Application Insights with this method is valid. This technique is used in Visual Studio onboarding and in the Web Apps extensions. However, we recommend using `services.AddApplicationInsightsTelemetry()` because it provides overloads to control some configuration. Both methods do the same thing internally, so if you don't need to apply custom configuration, you can call either method.
 
+`IWebHostBuilder` is replaced with `IHostBuilder` in ASP.NET Core 3.0, and to avoid confusion, Application Insights version 2.8.0-beta3 onwards is marking the UseApplicationInsights() method as obsolete, and will be removed in the next major version.
+
 ### I'm deploying my ASP.NET Core application to Web Apps. Should I still enable the Application Insights extension from Web Apps?
 
 If the SDK is installed at build time as shown in this article, you don't need to enable the [Application Insights extension](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) from the App Service portal. Even if the extension is installed, it will back off when it detects that the SDK is already added to the application. If you enable Application Insights from the extension, you don't have to install and update the SDK. But if you enable Application Insights by following instructions in this article, you have more flexibility because:
@@ -423,6 +428,7 @@ If the SDK is installed at build time as shown in this article, you don't need t
        * All publish modes, including self-contained or framework dependent.
        * All target frameworks, including the full .NET Framework.
        * All hosting options, including Web Apps, VMs, Linux, containers, Azure Kubernetes Service, and non-Azure hosting.
+       * All .NET Core versions including preview versions.
    * You can see telemetry locally when you're debugging from Visual Studio.
    * You can track additional custom telemetry by using the `TrackXXX()` API.
    * You have full control over the configuration.
