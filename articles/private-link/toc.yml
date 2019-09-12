@@ -6,7 +6,7 @@
     href: private-link-overview.md
 - name: Quickstarts
   items:
-  - name: Create a private endpoint
+  - name: Create a Private Endpoint
     items: 
     - name: Azure portal
       href: create-private-endpoint-portal.md
@@ -14,7 +14,7 @@
       href: create-private-endpoint-cli.md
     - name: Azure PowerShell
       href: create-private-endpoint-powershell.md
-  - name: Create a private link service
+  - name: Create a Private Link service
     items:
     - name: Azure PowerShell
       href: create-private-link-service-powershell.md
@@ -28,18 +28,18 @@
 
 - name: Concepts
   items:
-  - name: Private endpoint
+  - name: Private Endpoint
     href: private-endpoint-overview.md
-  - name: Private link service
+  - name: Private Link Service
     href: private-link-service-overview.md    
 
 - name: How to
   items:
-  - name: Create a private link service
+  - name: Create a Private Link Service
     href: create-private-link-service-powershell.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
-  - name: Disable network policies for a private link service
+  - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md
 
 - name: Reference

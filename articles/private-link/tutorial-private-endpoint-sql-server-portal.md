@@ -12,7 +12,7 @@ ms.author: kumud
 ---
 # Connect privately to a SQL server in Azure using Azure portal
 
-You can connect privately to any private link resource using a private endpoint from your virtual network. These resources can be in the same region or different regions. Once the private endpoint is created, the private link resource will become available to communicate over the private IP addresses allocated with the same latency and bandwidth as if the resource were access over a public endpoint.
+You can connect privately to any Private Link resource using a private endpoint from your virtual network. These resources can be in the same region or different regions. Once the private endpoint is created, the Private Link resource will become available to communicate over the private IP addresses allocated with the same latency and bandwidth as if the resource were access over a public endpoint.
 
 In this tutorial, you will learn how to: 
 > [!div class="checklist"]
@@ -28,11 +28,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a VM
-In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource (a SQL server in Azure in this example).
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource (a SQL server in Azure in this example).
 
 ### Create the virtual network
 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your private link resource.
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 1. In **Create virtual network**, enter or select this information:
@@ -131,8 +131,8 @@ In this section, you will create a SQL database server in Azure.
 ## Create a private endpoint
 In this section, you will create a private storage account and add a private endpoint to it. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private link center (Preview)**.
-2. In **Private link center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
+2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
 1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
 
@@ -233,4 +233,4 @@ When you're done using the private endpoint, storage account and the VM, delete 
 3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
-In this tutorial, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using private link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+In this tutorial, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
