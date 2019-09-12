@@ -36,10 +36,6 @@ To allow applications from Azure to connect to your Azure Database for PostgreSQ
 
 ![Configure Allow access to Azure services in the portal](media/concepts-firewall-rules/allow-azure-services.png)
 
-## Programmatically managing firewall rules
-In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
-See also [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
-
 ## Troubleshooting the database server firewall
 Consider the following points when access to the Microsoft Azure Database for PostgreSQL Server service does not behave as you expect:
 
@@ -58,5 +54,4 @@ For example, using a JDBC client, the following error may appear.
 
 ## Next steps
 For articles on creating server-level and database-level firewall rules, see:
-* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
-* [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
+* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-hyperscale-manage-firewall-using-portal.md)
