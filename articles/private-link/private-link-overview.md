@@ -59,7 +59,7 @@ For more information about Private Link service, see [What is Private Endpoint?]
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  | Azure Data Lake Service Gen2        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  |  Azure SQL Database         | Azure Public Cloud Regions         |   Preview      |
-||Azure SQL Datawarehouse|Azure Public Cloud Regions|Preview|
+||Azure SQL Data Warehouse|Azure Public Cloud Regions|Preview|
 
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network). 

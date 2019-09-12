@@ -6,7 +6,7 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 09/12/2019
 ms.author: kumud
 
 ---
@@ -91,7 +91,7 @@ $privateLinkService = New-AzPrivateLinkService `
 -ServiceName $plsName `
 -ResourceGroupName $rgName `
 -Location $location `
--LoadBalancerFrontendIpConfiguration $fe`
+-LoadBalancerFrontendIpConfiguration $frontendIP`
 -IpConfiguration $IPConfig 
 ```
 
@@ -136,12 +136,15 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peNam
 ### Get private endpoint
 Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
 
-```azurepowershell  
+```azurepowershell
+
 # Get Private Endpoint and its IP Address 
 $pe =  Get-AzPrivateEndpoint `
 -Name $peName `
 -ResourceGroupName $rgName  `
--ExpandResource networkinterfaces $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
+-ExpandResource networkinterfaces
+
+$pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
  ```
   
 ### Approve the private endpoint connection

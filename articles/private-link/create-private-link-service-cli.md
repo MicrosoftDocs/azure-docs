@@ -117,8 +117,8 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-You can get the *private-connection-resource-id* with `az network private-link-service show` on private link service. The id will look like:   
-/subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename*> 
+You can get the *private-connection-resource-id* with `az network private-link-service show` on private link service. The ID will look like:   
+/subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## Show private link service connections 
  
