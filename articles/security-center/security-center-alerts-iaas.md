@@ -3,17 +3,13 @@ title: Threat detection for VMs and servers in Azure Security Center | Microsoft
 description: This topic presents the VM and server alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: "v-mohabe"
+ms.date: 07/02/2019
+ms.author: memildin
 ---
 # Threat detection for VMs and servers in Azure Security Center
 

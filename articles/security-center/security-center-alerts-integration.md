@@ -3,17 +3,13 @@ title: Integration of Azure security products in Azure Security Center| Microsof
 description: This topic presents Azure security products that have been integrated with Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: "v-mohabe"
+ms.date: 07/02/2019
+ms.author: memildin
 ---
 # Integration of Azure security products in Azure Security Center
 

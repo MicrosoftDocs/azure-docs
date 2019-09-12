@@ -4,8 +4,6 @@ description: This document helps you to use Azure Security Center to manage secu
 services: security-center
 author: memildin
 manager: rkarlin
-editor: ''
-
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019

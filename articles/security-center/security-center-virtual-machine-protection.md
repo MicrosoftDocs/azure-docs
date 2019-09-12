@@ -3,10 +3,8 @@ title: Protecting your machines and applications in Azure Security Center  | Mic
 description: This document addresses recommendations in Security Center that help you protect your virtual machines and computers and your web apps and App Service environments.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # Protecting your machines and applications in Azure Security Center
@@ -81,7 +79,7 @@ To view the recommendation details, click the name of the missing update from th
 
 
 > [!NOTE]
-> The security recommendations here are the same as those under the **Recommendations** tile. See [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) for more information about how to resolve recommendations.
+> The security recommendations here are the same as those under the **Recommendations** tile. For more information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 >
 >
 
@@ -104,6 +102,7 @@ There are four types of icons represented in this list:
 The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the filters to search the list by **Resource type** and by **Severity**.
 
 To drill down into the security recommendations for each VM, click on the VM.
+Here you see the security details for the VM or computer. At the bottom, you can see the recommended action and the severity of each issue.
 ![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### Cloud services

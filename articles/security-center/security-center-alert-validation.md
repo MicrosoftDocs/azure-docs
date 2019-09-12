@@ -3,18 +3,16 @@ title: Alert validation (EICAR test file) in Azure Security Center | Microsoft D
 description: This document helps you to validate the security alerts in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  7/02/2019
-ms.author: rkarlin
+ms.date:  07/02/2019
+ms.author: memildin
 
 ---
 # Alert validation (EICAR test file) in Azure Security Center

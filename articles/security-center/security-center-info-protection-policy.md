@@ -3,10 +3,8 @@ title: Customizing the SQL information protection policy in Azure Security Cente
 description: Learn how to customize information protection policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Customize the SQL information protection policy in Azure Security Center (Preview)

@@ -3,8 +3,8 @@ title: Endpoint protection solutions discovery and health assessment in Azure Se
 description: How the endpoint protection solutions are discovered and identified as healthy.
 services: security-center 
 documentationcenter: na
-author: monhaber 
-manager: barbkess 
+author: memildin 
+manager: rkarlin 
 
 ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
-ms.author: v-mohabe
+ms.author: memildin
 ---
 
 # Endpoint protection assessment and recommendations in Azure Security Center

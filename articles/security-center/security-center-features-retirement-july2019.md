@@ -100,11 +100,11 @@ We removed the **Go to security events map** button and the per-workspace dashbo
 
 ![Security alerts map - button][10]
 
-When you select the **Go to security events map** button, you open the threat intelligence dashboard. We retired the threat intelligence dashboard.
+When you select the **Go to security events map** button, it opened the (now retired) threat intelligence dashboard.
 
 ![Threat intelligence dashboard][11]
 
-When you choose a workspace to view its threat intelligence dashboard, you open the security alerts map (preview) screen in Log Analytics. We retired this screen.
+When you choose a workspace to view its threat intelligence dashboard, you opened the (now retired) security alerts map (preview) screen in Log Analytics.
 
 ![Security alerts map in Log Analytics][12]
 

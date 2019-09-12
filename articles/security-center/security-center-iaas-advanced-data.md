@@ -3,9 +3,9 @@ title: Advanced Data Security for IaaS in Azure Security Center | Microsoft Docs
 description: " Learn how to enable advanced data security for IaaS in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
+
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 
 # Advanced data security for SQL servers on Azure Virtual Machines (Public Preview)

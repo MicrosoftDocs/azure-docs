@@ -3,10 +3,8 @@ title: Remediate recommendations in Azure Security Center  | Microsoft Docs
 description: This document explains how to remediate recommendations in Azure Security Center to help you protect your Azure resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # Remediate recommendations in Azure Security Center

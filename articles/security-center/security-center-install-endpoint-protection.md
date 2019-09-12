@@ -3,10 +3,8 @@ title: Manage endpoint protection issues with Azure Security Center | Microsoft 
 description: Learn how to manage endpoint protection issues in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Manage endpoint protection issues with Azure Security Center
