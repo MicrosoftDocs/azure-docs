@@ -1781,6 +1781,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/knowledge-store-connect-powerbi.md",
+      "redirect_url": "/azure/search/knowledge-store-create-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-rest-api.md",
       "redirect_url": "/azure/search/search-get-started-powershell",
       "redirect_document_id": false
@@ -5117,7 +5122,7 @@
     },
     {
       "source_path": "articles/azure-functions/durable-functions-checkpointing-and-replay.md",
-      "redirect_url": "/azure/azure-functions/durable/durable-functions-checkpointing-and-replay",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
     },
     {
@@ -5238,6 +5243,16 @@
     {
       "source_path": "articles/azure-functions/durable-functions-webjobs-sdk.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-webjobs-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-concepts.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-checkpointing-and-replay.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
     },
     {
@@ -37721,11 +37736,6 @@
     {
       "source_path": "articles/azure-monitor/platform/collect-azure-metrics-logs.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
-      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
       "redirect_document_id": false
     },
     {
