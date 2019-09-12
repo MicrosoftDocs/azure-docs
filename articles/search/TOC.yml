@@ -248,7 +248,7 @@
     - name: View with Storage Explorer
       href: knowledge-store-view-storage-explorer.md
     - name: Connect with Power BI
-      href: knowledge-store-connect-powerbi.md
+      href: knowledge-store-connect-power-bi.md
   - name: Query data
     items:
     - name: Create a basic query

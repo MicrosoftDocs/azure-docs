@@ -1,6 +1,6 @@
 ---
-title: 'View a knowledge store in Storage Explorer - Azure Search'
-description: View and analyze an Azure Search knowledge store in the Azure portal's Storage Explorer.  
+title: 'View a knowledge store with Storage Explorer - Azure Search'
+description: View and analyze an Azure Search knowledge store with the Azure portal's Storage Explorer.  
 
 author: lisaleib
 services: search
@@ -57,7 +57,7 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn how to connect this knowledge store to Power BI, see the following article.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](knowledge-store-connect-power-bi.md)
+> [Connect with Power BI](knowledge-store-connect-power-bi.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 

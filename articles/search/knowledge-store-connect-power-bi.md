@@ -1,6 +1,6 @@
 ---
-title: 'Connect to a knowledge store with Power BI'
-description: Connect with Power BI for analysis and exploration.
+title: 'Connect to a knowledge store with Power BI - Azure Search'
+description: Connect a Azure Search knowledge store with Power BI for analysis and exploration.
 
 author: lisaleib
 services: search
@@ -11,7 +11,7 @@ ms.date: 09/03/2019
 ms.author: v-lilei
  
 ---
-# Connect a knowledge store to Power BI
+# Connect a knowledge store with Power BI
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
@@ -20,7 +20,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 ## Prerequisites
 
-+ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
++ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
 + [Install Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
@@ -100,7 +100,7 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [View in Storage Explorer](knowledge-store-view-storage-explorer.md)
+> [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
