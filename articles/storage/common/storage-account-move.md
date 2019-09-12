@@ -56,16 +56,34 @@ The following steps show how to prepare the storage account for the move using a
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
     
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
 
-2. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to move.
 
    ```azurepowershell-interactive
-   Get-AzSubscription
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
    ```
+
+3. Export the template of your source storage account. These commands save a json template to your current directory.
+
+   ```azurepowershell-interactive
+   $resource = Get-AzResource `
+     -ResourceGroupName <resource-group-name> `
+     -ResourceName <storage-account-name> `
+     -ResourceType Microsoft.Storage/storageAccounts
+   Export-AzResourceGroup `
+     -ResourceGroupName <resource-group-name> `
+     -Resource $resource.ResourceId
+   ```
+
 ---
 
 ### Modify the template 
@@ -85,7 +103,7 @@ The following steps show how to prepare the storage account for the move using a
 5. Select **Build your own template in the editor**.
 
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
- 
+
 7. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
     
     ```json
@@ -97,19 +115,17 @@ The following steps show how to prepare the storage account for the move using a
             "type": "String"
         }
     },
-    ``` 
-
-4. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
+ 
+8. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
     ```json
     "resources": [{
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2019-04-01",
          "name": "[parameters('storageAccounts_mysourceaccount_name')]",
-         "location": "eastus"
+         "location": "centralus"
          }]          
     ```
-
     To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
 # [PowerShell](#tab/azure-powershell)
@@ -163,12 +179,21 @@ The following steps show how to prepare the storage account for the move using a
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
+1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
 
    ```azurepowershell-interactive
-   ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion  
+   Get-AzSubscription
    ```
 
+2. Use these commands to deploy your template:
+
+   ```azurepowershell-interactive
+   $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+   New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"  
+   ```
 ---
 
 ### Add settings to the target storage account
@@ -187,7 +212,9 @@ If you set up a Content Delivery Network (CDN) in the source account, just chang
 
 ### Move data to the new storage account
 
-Use AzCopy. See [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
+AzCopy v10 is a command-line tool that presents easy-to=use commands that are optimized for performance.
+
+For specific guidance, see [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
 
 ---
 
@@ -202,7 +229,9 @@ To commit the changes and complete the move of a storage account, delete the sou
 To remove a storage account by using the Azure portal:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts*** to display the list of your storage accounts.
+
 2. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
+
 3. Select **Delete**, and confirm.
 
 # [PowerShell](#tab/azure-powershell)
