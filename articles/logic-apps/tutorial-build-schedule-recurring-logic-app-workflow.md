@@ -1,6 +1,6 @@
 ---
 title: Build schedule-based automated workflows - Azure Logic Apps
-description: Tutorial - How to create a schedule-based, recurring, automated workflow by using Azure Logic Apps
+description: Tutorial - Create a schedule-based, recurring, automated workflow by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,21 +13,19 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ---
 
-# Check traffic on a schedule with Azure Logic Apps
+# Tutorial: Create automated, schedule-based, recurring workflows by using Azure Logic Apps
 
-Azure Logic Apps helps you automate workflows that run on a schedule. This tutorial shows how you can build a [logic app](../logic-apps/logic-apps-overview.md) with a scheduler trigger that runs every weekday morning and checks the travel time, including traffic, between two places. If the time exceeds a specific limit, the logic app sends email with the travel time and the extra time necessary for your destination.
+This tutorial shows how to build a [logic app](../logic-apps/logic-apps-overview.md) and automate a recurring workflow that runs on a schedule. Specifically, this example logic app runs every weekday morning and checks the travel time, including traffic, between two places. If the time exceeds a specific limit, the logic app sends email with the travel time and the extra time necessary for your destination.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn how to 
 
 > [!div class="checklist"]
-> * Create a blank logic app. 
-> * Add a trigger that works as a scheduler for your logic app.
-> * Add an action that gets the travel time for a route.
-> * Add an action that creates a variable, 
-> converts the travel time from seconds to minutes, 
-> and saves that result in the variable.
+> * Create a blank logic app.
+> * Add a Recurrence trigger that specifies the schedule for your logic app.
+> * Add a Bing Maps action that gets the travel time for a route.
+> * Add an action that creates a variable, converts the travel time from seconds to minutes, and stores that result in the variable.
 > * Add a condition that compares the travel time against a specified limit.
-> * Add an action that sends email if the travel time exceeds the limit.
+> * Add an action that sends you email if the travel time exceeds the limit.
 
 When you're done, your logic app looks like this workflow at a high level:
 
@@ -37,7 +35,7 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This quickstart uses an Outlook.com account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+* An email account from an email provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This quickstart uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
 
 * To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
@@ -264,12 +262,12 @@ Now, add an action that emails you when the travel time exceeds your limit. This
 
 1. In the condition's **If true** branch, select **Add an action**.
 
-1. Under **Choose an action**, select **Standard**. In the search box, enter "send email". The list returns many results, so select the email connector first, for example:
+1. Under **Choose an action**, select **Standard**. In the search box, enter "send email". The list returns many results, so first select the email connector that you want, for example:
 
    ![Select email connector](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-   * For personal Microsoft accounts, select **Outlook.com**.
    * For Azure work or school accounts, select **Office 365 Outlook**.
+   * For personal Microsoft accounts, select **Outlook.com**.
 
 1. When the connector's actions appear, select "send email action" that you want to use, for example:
 
