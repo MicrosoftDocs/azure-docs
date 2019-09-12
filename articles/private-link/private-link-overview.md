@@ -42,10 +42,10 @@ Azure private link provides following benefits:
 
 ## Private link service
 Private link service is a virtual networking resource, modeled as Network Interface card, in Service Provider's Virtual Network. This resource is applicable mainly in Microsoft partner Service and Customer own service scenarios. Service Provider needs to create this resource to let consumers consume the service privately over Azure private link.  The resource is tied to front-end IP configuration of a Standard Load Balancer. Private link service serves as a front end for the Service Provider's applications that are running behind the standard load balancer. Service consumers connect to private link service over Azure private link through private endpoints in consumer's virtual networks.
-For more information about Private link service, see [What is private link service](private-link-overview.md)
+For more information about Private link service, see [What is private link service?](private-link-service-overview.md).
 ## Private endpoint
 Private Endpoint is a virtual networking resource, modeled as Network Interface card, in Service consumer's Virtual Network. Private Endpoints  get assigned a private IP from customer's virtual network. private endpoint enables Azure customers to privately connect to supported Azure services through Azure private link. These services can include Azure PaaS, Microsoft partner services and customer owned services. Supported Azure services are mapped inside the customer's virtual network as private endpoint. Private endpoint is the entry point for service traffic over private link from Azure virtual network resources. The traffic never leaves Microsoft Backbone. These are highly available instances and don’t impose any bandwidth restrictions on the Service traffic.
-For more information about Private link service, see [What is private endpoint?](private-endpoint-overview.md)
+For more information about Private link service, see [What is private endpoint?](private-endpoint-overview.md).
 
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 ## Availability 
