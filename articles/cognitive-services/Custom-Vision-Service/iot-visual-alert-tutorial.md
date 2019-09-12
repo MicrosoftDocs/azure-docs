@@ -15,10 +15,9 @@ ms.author: pafarley
 
 # Tutorial: IoT Visual Alert sample
 
-This sample illustrates how to use Azure Custom Vision to train a device with a camera to detect specific visual states. You can run this detection pipeline offline directly on the device through an ONNX model exported from Custom Vision.
+This sample app illustrates how to use Azure Custom Vision to train a device with a camera to detect specific visual states. You can run this detection pipeline offline directly on a device by using an ONNX model exported from the Custom Vision service.
 
-A visual state could be something like an empty room or a room with people, an empty driveway or a driveway with a truck, etc. In this case below, you can see
-it in action detecting when a banana or an apple is placed in front of the camera.
+A visual state describes the content of an image: an empty room or a room with people; an empty driveway or a driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
 
 ![Animation of a UI labeling fruit in front of the camera](./media/iot-visual-alert-tutorial/scoring.gif)
 
@@ -33,47 +32,41 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
 * IoT Hub and Custom Vision resources
-* Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can run the app directly from your PC as well.
-   * If you need help setting up a new device, see [Setting up your device](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup) on the Windows IoT documentation. For Raspberry Pi 2s and 3s, you can do it easily directly from the IoT Dashboard app, while for a device such as DrangonBoard, you will need to flash it using the [eMMC method](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices).
+* Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can also run the app directly from your PC.
+   * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices).  If you need help setting up a new device, see [Setting up your device](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
 
-## Application structure
+## About the app
 
-This applicaiton runs in a continuous loop, following a state machine with four states:
+The IoT Visual Alerts apps runs in a continuous loop, switching between four different states as appropriate:
 
-* **No Model**: A no-op state. The app will sleep for one second and check again.
-* **Capturing Training Images**: In this state, the app captures a picture and uploads it as a training image to the target Custom Vision project. The app then sleeps for 500ms and repeats the procedure until the set maximum number of images are captured.
-* **Waiting For Trained Model**: In this state, the app calls the Custom Vision API every second to check whether the target project contains a trained iteration. When it finds one, it exports the corresponding ONNX model to a local file and switches to the **Scoring** state.
+* **No Model**: A no-op state. The app will continually sleep for one second and check the camera.
+* **Capturing Training Images**: In this state, the app captures a picture and uploads it as a training image to the target Custom Vision project. The app then sleeps for 500ms and repeats the procedure until the set maximum number of images are captured. Then it initiates the training of the Custom Vision model.
+* **Waiting For Trained Model**: In this state, the app calls the Custom Vision API every second to check whether the target project contains a trained iteration. When it finds one, it downloads the corresponding ONNX model to a local file and switches to the **Scoring** state.
 * **Scoring**: In this state, the app uses Windows ML to evaluate a single frame from the camera against the exported ONNX model. The resulting image classification is displayed on the screen and sent as a message to the IoT Hub. The app then sleeps for one second before scoring a new frame.
 
-## Source code structure
+## Understand source code structure
 
 The following files handle the main functionality of the app.
 
 | File | Description |
 |-------------|-------------|
-| [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | XAML UI for the demo UI. It hosts the web camera control and contains the several labels used for status updates.|
-| [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Code behind for the XAML UI for the demo. It contains the state machine processing code.|
+| [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | This file defines the XAML user interface. It hosts the web camera control and contains the labels used for status updates.|
+| [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | This code controls the behavior of the XAML UI. It contains the state machine processing code.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | This is a wrapper class that facilitates integration with the Custom Vision Service.|
-| [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | This is a wrapper class that facilitates integration with Windows ML for loading an ONNX model and scoring images against it.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | This is a wrapper class that facilitates integration with IoT Hub.|
+| [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | This is a wrapper class that facilitates integration with Windows ML for loading the ONNX model and scoring images against it.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | This is a wrapper class that facilitates integration with IoT Hub for uploading scoring results to Azure.|
 
 ## Setup
 
-1. Clone or download the IoTVisualAlerts sample on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts).
-1. Open the solution IoTVisualAlerts.sln in Visual Studio
-1. **Custom Vision setup**:
-    * In CustomVision\CustomVisionServiceWrapper.cs, update ```ApiKey = "{The training key for your Custom Vision Service instance}"``` 
-      with your api key.
-    * In CustomVision\CustomVisionServiceWrapper.cs, update ```Endpoint = "https://westus2.api.cognitive.microsoft.com"``` with the 
-      corresponding endpoint for your key.
-    * In CustomVision\CustomVisionServiceWrapper.cs, update ```targetCVSProjectGuid = "{Your Custom Vision Service target project id}"``` 
-      with the corresponding Guid for the Custom Vision project that should be used by the app during the visual state learning 
-      workflow. **Important:** This needs to be a Compact image classification project, since we will be exporting the model to ONNX later.
-1. **IoT Hub setup**:
-    * In IoTHub\IotHubWrapper.cs, update ```s_connectionString = "Enter your device connection string here"``` with the proper 
-      connection string for your device. Using the Azure portal, load up your IoT Hub instance, click on IoT devices under Explorers, click on
-      your target device (or create one if needed), and find the connection string under Primary Connection String. The format should be similar
-      to ```HostName={your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}```
+1. Clone or download the [IoTVisualAlerts sample](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts) on GitHub.
+1. Open the solution _IoTVisualAlerts.sln_ in Visual Studio
+1. Set up the Custom Vision project:
+    1. In the _CustomVision\CustomVisionServiceWrapper.cs_ script, update the `ApiKey` variable with your training key.
+    1. Then update the `Endpoint` variable with the endpoint URL associated with your key.
+    1. Update the `targetCVSProjectGuid` variable with the corresponding ID for the Custom Vision project that you want to use. **Important:** This needs to be a Compact image classification project, since we will be exporting the model to ONNX later.
+1. Set up IoT Hub setup:
+    1. In the _IoTHub\IotHubWrapper.cs_ script, update the `s_connectionString` variable with the proper connection string for your device. 
+    1. Using the Azure portal, load your IoT Hub instance, click on **IoT devices** under **Explorers**, click on your target device (or create one if needed), and find the connection string under **Primary Connection String**. The format should be similar to `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}```
 
 ## Run the sample
 
