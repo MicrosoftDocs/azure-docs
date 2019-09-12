@@ -210,6 +210,58 @@ If you receive this error message, it's possible that you don't have the needed 
 
 If you do see the account keys, file an issue on GitHub so we can help you resolve the issue.
 
+## Error occurred while adding new connection: TypeError: Cannot read property 'version' of undefined
+
+If you receive this error message when trying to add a custom connection, it's possible that the connection data stored in the local credential manager is corrupted.
+To work around this issue, you can try deleting your corrupted local connections and then re-adding them.
+
+1. Start Storage Explorer. In the top menu, go to Help → Toggle Developer Tools.
+2. In the opened window, go to Application tab → Local Storage (left hand side) → file://
+3. Depending on what type of connections you are having issue with, look for its key and copy its value to a text editor. The value is an array of your custom connection names.
+    * Storage accounts
+        * `StorageExplorer_CustomConnections_Accounts_v1`
+    * Blob containers
+        * `StorageExplorer_CustomConnections_Blobs_v1`
+        * `StorageExplorer_CustomConnections_Blobs_v2`
+    * File Shares
+        * `StorageExplorer_CustomConnections_Files_v1`
+    * Queues
+        * `StorageExplorer_CustomConnections_Queues_v1`
+    * Tables
+        * `StorageExplorer_CustomConnections_Tables_v1`
+4. After saving your current connection names, set the value in the Developer Tools to be `[]`.
+
+If you want to preserve the connections that aren't corrupted, you can perform the following steps to locate the corrupted connections. If you don't mind losing all existing connections, you can skip the following steps and follow the platform specific instructions to clear your connection data.
+
+1. From the text editor, re-add each connection name back to the Developer Tools and check whether the connection is still working.
+2. If a connection is working properly, it is not corrupted and you can safely leave it there. If a connection is not working, remove its value from the Developer Tools and record it so you can add it back later.
+3. Repeat until you have examined all your connections.
+
+After going through all your connections, for all connections names that are not added back, you need to clear their corrupted data (if there is any) and add them back through normal steps using Storage Explorer.
+
+# [Windows](#tab/Windows)
+
+1. Open 'Credential Manager' by opening the Start menu and search for 'Credential Manager'.
+2. In the opened window, go to 'Windows Credentials'.
+3. Under 'Generic Credentials' look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+4. Remove these entries and add the connections back.
+
+# [macOS](#tab/macOS)
+
+1. Open Spotlight (Command-Space bar) and search for 'Keychain Access'.
+2. Look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Delete these entries and add the connections back.
+
+# [Linux](#tab/Linux)
+
+Local credential management varies depending on Linux distribution. If your Linux distribution doesn't provide a built-in GUI tool for local credential management, you can install a third-party tool to manage your local credentials. For example, you can use [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), an open-source GUI tool for managing Linux local credentials.
+
+1. Open your local credential management tool, find your saved credentials.
+2. Look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Delete these entries and add the connections back.
+
+If you still come across this error after doing these steps, or if you'd like to share what you think corrupts the connections, [open an issue](https://github.com/microsoft/AzureStorageExplorer/issues) on our GitHub page.
+
 ## Issues with SAS URL
 
 If you're connecting to a service using a SAS URL and experiencing this error:

@@ -114,7 +114,7 @@ This operation will return a series of key / value pairs.
 }
 ```
 
-Take note of the clientId, clientSecret, subscriptionId, and tenantId, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
+Take note of the clientId and clientSecret, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
 
 You will also need the appID of the service principal. You can find it by running [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) with the `--show-mine` parameter:
 
@@ -160,10 +160,6 @@ Before you build and run your app, use the `setx` command to set the `akvClientI
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
