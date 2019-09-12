@@ -8,18 +8,22 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 09/19/2019
 ---
 
 # Authenticate and access resources with managed identities in Azure Logic Apps
 
 To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Your logic app can use managed identities only with connectors that support managed identities. Currently, these connectors are supported:
 
-* [*System-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work): HTTP, Azure Functions, and Azure API Management built-in connectors
+* [*System-assigned* identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work): HTTP, Azure Functions, and Azure API Management built-in connectors
 
-  Currently, you can currently have up to 100 logic app workflows with system-assigned managed identities in each Azure subscription.
+  Currently, you can have up to 100 logic app workflows with system-assigned identities in each Azure subscription per region.
 
-* [*User-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work): 
+* [*User-assigned* identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work): 
+
+  Currently, you can have up to 100 logic app workflows with user-assigned identities in each Azure subscription per region.
+
+Each logic app can use either a system-assigned identity or user-assigned identity, but not both.
 
 This article shows how to set up and use both kinds of managed identities for your logic app. 
 
@@ -56,7 +60,7 @@ You don't have to manually create system-assigned managed identities. To set up 
 
 1. Under **System assigned** > **Status**, select **On**. Then, select **Save** > **Yes**.
 
-   ![Turn on managed identity setting](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![Turn on managed identity setting](./media/create-managed-service-identity/turn-on-system-assigned-identity.png)
 
    Your logic app now has a system-assigned managed identity registered in Azure Active Directory:
 
@@ -136,7 +140,11 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 1. In the [Azure portal](https://portal.azure.com), on the main Azure menu, select **Create a resource**. In the search box, enter "user assigned managed identity", and select **User Assigned Managed Identity**. On the next page, select **Create**.
 
-1. Provide this information about your user-assigned managed identity, and then select **Create**.
+   ![Find user-assigned managed identity](./media/create-managed-service-identity/find-user-assigned-identity.png)
+
+1. Provide information about your user-assigned managed identity, and then select **Create**, for example:
+
+   ![Create user-assigned managed identity](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -246,7 +254,7 @@ To remove a system-assigned managed identity for your logic app through the Azur
 
 1. Under **System assigned** > **Status**, select **Off**. Then, select **Save** > **Yes**.
 
-   ![Turn off managed identity setting](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![Turn off managed identity setting](./media/create-managed-service-identity/turn-off-system-assigned-identity.png)
 
 ### Deployment template
 
