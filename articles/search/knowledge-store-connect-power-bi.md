@@ -1,6 +1,6 @@
 ---
 title: 'Connect to a knowledge store with Power BI - Azure Search'
-description: Connect a Azure Search knowledge store with Power BI for analysis and exploration.
+description: Connect an Azure Search knowledge store with Power BI for analysis and exploration.
 
 author: lisaleib
 services: search
@@ -16,7 +16,7 @@ ms.author: v-lilei
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Power Query in the Power BI Desktop app. Tp create the knowledge store sample used in this walkthrough see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md).
+In this article, you'll learn how to connect and explore a knowledge store using Power Query in the Power BI Desktop app. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 1. If prompted, enter the storage account key.
 
-1. Select the Document, KeyPhrases, and Pages tables. These are Azure table projections of the hotel reviews sample data, enriched by the cognitive services you selected when you ran the Import Data wizard.
+1. Select the *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases*, and *hotelReviewsSsPages* tables. These tables are Azure table projections of the hotel reviews sample data and include the cognitive service enrichments that were selected when the knowledge store was created.
 
 1. Click **Load**.
 
@@ -46,29 +46,30 @@ In this article, you'll learn how to connect and explore a knowledge store using
 
 1. Select *hotelReviewsSsDocument*, and then remove the *PartitionKey*, *RowKey*, and *Timestamp* columns. 
 
-     ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
+   ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
 
 1. Click the icon with opposing arrows at the upper right side of the table to expand the *Content*. When the list of columns appears, select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
 
-    ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
+   ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
 
 1. Change the data type for the following columns by clicking the  ABC-123 icon at the top left of the column.
 
    + For *content.latitude* and *Content.longitude*, select **Decimal Number**.
    + For *Content.reviews_date* and *Content.reviews_dateAdded*,  select **Date/Time**.
 
-    ![Change data types](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Change data types")
+   ![Change data types](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Change data types")
 
-1. Select *hotelReviewsSsPages*, and then repeat steps 2-3.
+1. Select *hotelReviewsSsPages*, and then repeat steps 9 and 10 to delete the columns and expand the *Content*.
 1. Change the data type for *Content.SentimentScore* to **Decimal Number**.
-1. Select *hotelReviewsSsKeyPhrases* and repeat steps 2-3. There are no data type modifications for this table.
+1. Select *hotelReviewsSsKeyPhrases* and repeat steps 9 and 10 to delete the columns and expand the *Content*. There are no data type modifications for this table.
 
 1. On the command bar, click **Close and Apply**.
 
 1. Click on the Model tile on the left navigation pane and validate that Power BI shows relationships between all three tables.
-1. Double-click each relationship and make sure that the **Cross-filter direction** is set to **Both**.  This enables your visuals to refresh when a filter is applied.
 
    ![Validate relationships](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validate relationships")
+
+1. Double-click each relationship and make sure that the **Cross-filter direction** is set to **Both**.  This enables your visuals to refresh when a filter is applied.
 
 <!-- ## Try with larger data sets
 
@@ -97,7 +98,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
+To learn how to explore this knowledge store using Storage Explorer, see the following article.
 
 > [!div class="nextstepaction"]
 > [View with Storage Explorer](knowledge-store-view-storage-explorer.md)

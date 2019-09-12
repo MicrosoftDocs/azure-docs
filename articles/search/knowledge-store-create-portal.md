@@ -94,7 +94,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 
       ![Create a skillset](media/knowledge-store-create-portal/hotel-reviews-ss.png "Create a skillset")
 
-1. Expand **Save enrichments to knowledge store**
+1. Expand **Save enrichments to knowledge store**.
 1. Enter the **Storage account Connection String** that you saved in a previous step.
 1. Select these **Azure table projections**:
     + **Documents**
@@ -109,7 +109,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 
 In this wizard step, you will configure an index for optional full-text search queries. The wizard will sample your data source to infer fields and data types. You only need to select the attributes for your desired behavior. For example, the **Retrievable** attribute will allow the search service to return a field value while the **Searchable** will enable full text search on the field.
 
-1. For **Index name**, enter `hotel-reviews-idx`*`.
+1. For **Index name**, enter `hotel-reviews-idx`.
 1. For attributes, make these selections:
     + Select **Retrievable** for all fields.
     + Select **Filterable** and **Facetable** for these fields: *Sentiment*, *Language*, *Keyphrases*
@@ -147,4 +147,4 @@ To learn how to connect this knowledge store to Power BI, see the following walk
 > [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)
 
-If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer. Deleting the indexer resets the free daily transaction counter back to zero.
+If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idxr* indexer. Deleting the indexer resets the free daily transaction counter back to zero.
