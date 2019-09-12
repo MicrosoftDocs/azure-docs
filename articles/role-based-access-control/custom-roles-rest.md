@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -52,9 +52,10 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{filter}* with the role type.
 
@@ -76,9 +77,10 @@ To get information about a custom role by its display name, use the [Role Defini
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{filter}* with the display name for the role.
 
@@ -102,9 +104,10 @@ To get information about a custom role by its unique identifier, use the [Role D
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the role definition.
 
@@ -140,7 +143,10 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/providers/Microsoft.Management/managementGroups/{groupId1}",
+          "/providers/Microsoft.Management/managementGroups/{groupId2}",
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}"
         ]
       }
     }
@@ -150,15 +156,18 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
 1. Within the request body, in the `assignableScopes` property, replace *{roleDefinitionId}* with the GUID identifier.
 
-1. Replace *{subscriptionId}* with your subscription identifier.
+1. If assignable scope is a management group, replace *{groupId}* instances with your management group identifiers.
+
+1. If assignable scope is a subscription, replace *{subscriptionId}* instances with your subscription identifiers.
 
 1. In the `actions` property, add the operations that the role allows to be performed.
 
@@ -193,6 +202,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
+          "/providers/Microsoft.Management/managementGroups/marketing-group",
           "/subscriptions/00000000-0000-0000-0000-000000000000"
         ]
       }
@@ -215,9 +225,10 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
@@ -241,7 +252,10 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/providers/Microsoft.Management/managementGroups/{groupId1}",
+          "/providers/Microsoft.Management/managementGroups/{groupId2}",
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}"
         ]
       }
     }
@@ -277,6 +291,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
+          "/providers/Microsoft.Management/managementGroups/marketing-group",
           "/subscriptions/00000000-0000-0000-0000-000000000000"
         ]
       }
@@ -299,9 +314,10 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
     | Scope | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 

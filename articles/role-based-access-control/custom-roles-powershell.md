@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -69,7 +69,7 @@ If the selected subscription isn't in the `AssignableScopes` of the role, the cu
 To list a custom role definition, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). This is the same command as you use for a built-in role.
 
 ```azurepowershell
-Get-AzRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role_name> | ConvertTo-Json
 ```
 
 ```Example
@@ -104,7 +104,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 The following example lists just the actions of the role:
 
 ```azurepowershell
-(Get-AzRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role_name>).Actions
 ```
 
 ```Example
@@ -290,6 +290,42 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
+```
+
+The following example adds a management group to the assignable scopes of the *Virtual Machine Operator* custom role.
+
+```azurepowershell
+Get-AzManagementGroup
+
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
+$role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/{groupId1}")
+Set-AzRoleDefinition -Role $role
+```
+
+```Example
+PS C:\> Get-AzManagementGroup
+
+Id          : /providers/Microsoft.Management/managementGroups/marketing-group
+Type        : /providers/Microsoft.Management/managementGroups
+Name        : marketing-group
+TenantId    : 99999999-9999-9999-9999-999999999999
+DisplayName : Marketing group
+
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/marketing-group")
+PS C:\> Set-AzRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111,
+                   /subscriptions/22222222-2222-2222-2222-222222222222,
+                   /providers/Microsoft.Management/managementGroups/marketing-group}
 ```
 
 ### Update a custom role with a JSON template

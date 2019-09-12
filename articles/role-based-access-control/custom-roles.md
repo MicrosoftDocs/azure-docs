@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
@@ -51,9 +51,9 @@ The following shows what a custom role looks like as displayed in JSON format. T
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
-    "/subscriptions/{subscriptionId1}",
-    "/subscriptions/{subscriptionId2}",
-    "/subscriptions/{subscriptionId3}"
+    "/providers/Microsoft.Management/managementGroups/{groupId1}",
+    "/providers/Microsoft.Management/managementGroups/{groupId2}",
+    "/subscriptions/{subscriptionId1}"
   ]
 }
 ```
@@ -96,7 +96,7 @@ A custom role has the following properties.
 | `NotActions` | No | String[] | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
 | `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. For custom roles, you currently cannot set `AssignableScopes` to the root scope (`"/"`) or a management group scope. For more information, see [AssignableScopes](role-definitions.md#assignablescopes) and [Organize your resources with Azure management groups](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. For custom roles, you currently cannot set `AssignableScopes` to the root scope (`"/"`). For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
 ## Who can create, delete, update, or view a custom role
 
