@@ -56,7 +56,7 @@ conceptualContent:
         - url: ./ink-recognizer/index.yml
           itemType: overview
           text: Ink Recognizer (Preview)
-        - url: ./video-indexer/index.yml
+        - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer   
     - title: Language
