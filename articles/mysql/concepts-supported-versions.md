@@ -28,7 +28,7 @@ Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.6/
 
 Bug fix release: 5.7.26
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) to learn about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 8.0
 
@@ -37,7 +37,7 @@ Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/
 
 Bug fix release: 8.0.15
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) to learn about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) to learn more about improvements and fixes in this version.
 
 ## Managing updates and upgrades
 The service automatically manages patching for bug fix version updates. For example, 5.7.20 to 5.7.21.  
