@@ -66,7 +66,7 @@ The following files handle the main functionality of the app.
     1. Update the `targetCVSProjectGuid` variable with the corresponding ID for the Custom Vision project that you want to use. **Important:** This needs to be a Compact image classification project, since we will be exporting the model to ONNX later.
 1. Set up IoT Hub setup:
     1. In the _IoTHub\IotHubWrapper.cs_ script, update the `s_connectionString` variable with the proper connection string for your device. 
-    1. Using the Azure portal, load your IoT Hub instance, click on **IoT devices** under **Explorers**, click on your target device (or create one if needed), and find the connection string under **Primary Connection String**. The format should be similar to `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}```
+    1. Using the Azure portal, load your IoT Hub instance, click on **IoT devices** under **Explorers**, click on your target device (or create one if needed), and find the connection string under **Primary Connection String**. The string has three parts in following format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
 
 ## Run the sample
 
