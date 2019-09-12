@@ -67,7 +67,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-Storage account | Site Recovery now supports the use of a storage account with role-based access control (RBAC) enabled. [Learn more](storage/common/storage-account-manage.md#access-control) about access control for storage accounts. 
+Storage account | Site Recovery now supports the use of a storage account with role-based access control (RBAC) enabled. [Learn more](../storage/common/storage-account-manage.md#access-control) about access control for storage accounts. 
 
 
 ## Updates (August 2019)
