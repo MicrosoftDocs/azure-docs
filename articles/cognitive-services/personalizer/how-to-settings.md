@@ -63,7 +63,7 @@ The latest model, trained from Reward API calls from every active event, isn't a
 
 High model update frequencies are useful for situations where you want to closely track changes in user behaviors. Examples include sites that run on live news, viral content, or live product bidding. You could use a 15-minute frequency in these scenarios. For most use cases, a lower update frequency is effective. One-minute update frequencies are useful when debugging an application's code using Personalizer, doing demos, or interactively testing machine learning aspects.
 
-![Model update frequency sets how often a new Personalizer model is retrained.](media/settings/configure-model-update-frequency-settings.png)
+![Model update frequency sets how often a new Personalizer model is retrained.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 After changing this setting, make sure to select **Save**.
 
