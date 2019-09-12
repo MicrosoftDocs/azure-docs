@@ -142,7 +142,7 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 
 ### EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box including CLR Counters about GC Stats, Process Memory/CPU, ASP.NET Core counters like Requests/Sec etc.
+[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, ASP.NET Core counters etc.
 
 SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
 
@@ -233,7 +233,7 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 |EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
 |EnableHeartbeat | Enable/Disable Heartbeats feature | true
-|AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor which is a TelemetryProcessor which sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
+|AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
 |RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
@@ -308,7 +308,7 @@ The following automatic-collection modules are enabled by default. These modules
 * `QuickPulseTelemetryModule` - Collects telemetry for showing in Live Metrics portal.
 * `AppServicesHeartbeatTelemetryModule` - Collects heart beats (which are send as custom metrics), about Azure App Service environment where application is hosted.
 * `AzureInstanceMetadataTelemetryModule` -  Collects heart beats (which are send as custom metrics), about Azure VM environment where application is hosted.
-* `EventCounterCollectionModule` -  Collects [EventCounters.](#eventcounter). This is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
+* `EventCounterCollectionModule` -  Collects [EventCounters.](#eventcounter). This module is a new feature and is available in SDK Version 2.8.0-beta3 and higher.
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
@@ -380,7 +380,7 @@ If you want to disable telemetry conditionally and dynamically, you may resolve 
     }
 ```
 
-Please note that the above does not prevent any auto-collection modules from collecting telemetry. Only the sending of telemetry to Application Insights gets disabled with the above approach. If a particular auto-collection module is not desired, its best to [remove the telemetry module](#configuring-or-removing-default-telemetrymodules)
+Note that the above does not prevent any auto collection modules from collecting telemetry. Only the sending of telemetry to Application Insights gets disabled with the above approach. If a particular auto collection module is not desired, its best to [remove the telemetry module](#configuring-or-removing-default-telemetrymodules)
 
 ## Frequently asked questions
 
