@@ -51,7 +51,7 @@ By adding the parameters to your AppSource URL, you can review the effectiveness
 
 ## Next steps
 
-Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/en-us/azure/marketplace/gtm-your-marketplace-benefits).
+Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
 

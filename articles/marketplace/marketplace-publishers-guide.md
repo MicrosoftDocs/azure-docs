@@ -59,7 +59,7 @@ New listings in the Marketplace are eligible for a diverse set of free benefits 
 
 After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience.  See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
-Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/en-us/azure/marketplace/gtm-your-marketplace-benefits).
+Learn more about your [commercial marketplace benefits](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## Next steps
 

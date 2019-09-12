@@ -49,7 +49,7 @@ The storefront where your offer will be presented, Azure Marketplace and/or AppS
 
 ## Choose a publishing option
 
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/en-us/azure/marketplace/gtm-your-marketplace-benefits).  Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).  Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|

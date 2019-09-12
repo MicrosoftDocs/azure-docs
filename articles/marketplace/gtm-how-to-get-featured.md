@@ -15,7 +15,7 @@ ms.author: ellacroi
 
 Azure Marketplace and AppSource have **featured apps** sections, where you can get your app featured:
 
-* First, if you have a TRIAL or TRANSACTION offer, you can use your “category promotion” benefit through [commercial marketplace benefits](https://docs.microsoft.com/en-us/azure/marketplace/gtm-your-marketplace-benefits).
+* First, if you have a TRIAL or TRANSACTION offer, you can use your “category promotion” benefit through [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * Second, review the list of best practices and criteria below to earn a spot.
 
 The featured apps selection algorithm generates a score to an app by Microsoft, just like a person’s credit score in the US.  The weekly selection of featured apps will be based on a calculation of app and service performance.
@@ -41,7 +41,7 @@ Your GTM support also includes a full library of self-help templates, web conten
 
 ## Next steps
 
-Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/en-us/azure/marketplace/gtm-your-marketplace-benefits).
+Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
 
