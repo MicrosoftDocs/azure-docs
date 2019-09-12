@@ -104,3 +104,9 @@ landingContent:
             url: luis-get-started-node-get-intent.md 
           - text: With Python using REST
             url: luis-get-started-python-get-intent.md
+  - title: Developing with Language Understanding
+    linkLists:   
+      - linkListType: reference
+        links: 
+          - text: With C# .NET SDK
+            url: sdk-csharp-quickstart-query-prediction-endpoint.md
