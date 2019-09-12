@@ -56,26 +56,26 @@ az vm create \
 ## Create a storage account 
 Create a general-purpose storage account with the az storage account create command. The general-purpose storage account can be used for all four services: blobs, files, tables, and queues. 
 ```azurecli-interactive
-az storage account create \ 
-    --name mystorageaccount \ 
-    --resource-group myResourceGroup \ 
-    --location westus \ 
-    --sku Standard_LRS \ 
-    --kind StorageV2 \ 
-    --encryption blob \ 
-    --default-action Deny 
+az storage account create \
+    --name mystorageaccount \
+    --resource-group myResourceGroup \
+    --location westus \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --encryption blob \
+    --default-action Deny
  ```
 Note the storage account ID is similar to  */subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount*. You will use the storage account ID in the next step. 
 ## Create the private endpoint 
 Create a private endpoint for the storage account in your virtual network: 
 ```azurecli-interactive
-$privateEndpoint = az network private-endpoint create \ 
-    --name myPrivateEndpoint \ 
-    --resource-group myResourceGroup \ 
-    --vnet-name myVirtualNetwork  \ 
-    --subnet mySubnet \ 
-    --private-connection-resource-id "<Storage account Id>" \ 
-    --group-ids blob \ 
+$privateEndpoint = az network private-endpoint create \
+    --name myPrivateEndpoint \
+    --resource-group myResourceGroup \
+    --vnet-name myVirtualNetwork \ 
+    --subnet mySubnet \
+    --private-connection-resource-id "<Storage account Id>" \
+    --group-ids blob \
     --connection-name myConnection 
  ```
 ## Configure the private DNS zone 
