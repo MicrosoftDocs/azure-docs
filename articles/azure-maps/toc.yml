@@ -27,7 +27,7 @@
       href: tutorial-geofence.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
-    - name: EV routing with minimum range (python)
+    - name: Electric Vehicle Routing using Azure Notebooks (Python)
       href: tutorial-ev-routing.md
 - name: Concepts
   items:
