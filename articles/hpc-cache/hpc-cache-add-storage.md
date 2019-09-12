@@ -22,13 +22,15 @@ You can add storage targets while creating your Azure HPC Cache, or afterward. T
 
 Use the **Storage targets** tab of the cache creation wizard to define storage at the same time you create the cache instance.
 
-![screenshot of storage targets page](media/create-targets.png)
+![screenshot of storage targets page](media/hpc-cache-storage-targets-pop.png)
 
 Click the **Add storage target** link to add storage.
 
 ## Add storage targets from the cache
 
 From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar. The storage target page lists all existing targets and gives a link to add a new one.
+
+![screenshot of the storage targets link on the sidebar, under the heading Configure, which is between the category headings Settings and Monitoring](media/hpc-cache-storage-targets-sidebar.png)
 
 ## Add a new Azure Blob storage target
 
@@ -46,8 +48,6 @@ To define an Azure Blob container, enter this information.
 * **Storage container** - Select the Blob container for this target.
 
 * **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
-
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
 
 When finished, click **OK** to add the storage target.
 
