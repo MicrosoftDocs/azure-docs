@@ -7,6 +7,12 @@
     href: Home.md
 - name: Quickstarts
   items:
+  - name: Using the .NET SDK
+    href: quickstarts-sdk/csharp-sdk.md
+  - name: Using the Python SDK
+    href: quickstarts-sdk/python-sdk.md
+  - name: Using the Java SDK
+    href: quickstarts-sdk/java-sdk.md
   - name: Using the REST API
     items:
     - name: Analyze a remote image
@@ -75,12 +81,6 @@
       items:
       - name: Python
         href: QuickStarts/python-domain.md
-  - name: Using the .NET SDK
-    href: quickstarts-sdk/csharp-sdk.md
-  - name: Using the Python SDK
-    href: quickstarts-sdk/python-sdk.md
-  - name: Using the Java SDK
-    href: quickstarts-sdk/java-sdk.md
 - name: Tutorials
   items:
   - name: Generate metadata for images
