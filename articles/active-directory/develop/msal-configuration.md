@@ -1,71 +1,73 @@
 ---
-title: Understanding the Android MSAL configuration file | Azure
-description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in an Azure AD tenant, and is used to facilitate callbacks, JTW and more.
+title: Understand  the Android MSAL configuration file | Azure
+description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rwike77
-manager: CelesteDG
+author: shoatman
+manager: nadima
 editor: ''
-ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
-ms.author: ryanwi
+ms.date: 09/12/2019
+ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: sureshja
+ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
 ---
 
-# Android MSAL configuration file
+# Android Microsoft Authentication Library (MSAL) configuration file
 
-To get started configuring your app, you'll want to become familiar with the MSAL configuration json file.  MSAL ships with a default configuration which is supplemented by whatever you provide if your configuration.  
+MSAL ships with a default configuration JSON file that defines settings that allow your app to interact with the Microsoft identity platform.
 
-## Configuration Settings
+This article will help you understand the various settings in the configuration file and how to specify the configuration file to use in your MSAL-based app.
 
-### General 
-| Property        | Data Type  | Required | Notes |
-| ------------- |-------------|-------------|-------------|
-| client_id      | String | Yes | Your apps Client ID from https://apps.dev.microsoft.com |
-| redirect_uri   | String | Yes | Your apps Redirect URI from https://apps.dev.microsoft.com |
-| authorities | List\<Authority> | No | The list of authorities your app needs |
-| authorization_user_agent | AuthorizationAgent (enum) | No | Read more in the SSO wiki article, Options: DEFAULT, BROWSER, WEBVIEW |
-| http | HttpConfiguration | No | HTTP configurations like connect and read timeout |
-| logging | LoggingConfiguration | No | Level of detail logger captures, Optional configs: pii_enabled (boolean), log_level ([values](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/java/com/microsoft/identity/client/Logger.java#L81)) |
+## Configuration settings
+
+### General settings
+
+| Property | Data Type | Required | Notes |
+|-----------|------------|-------------|-------|
+| `client_id` | String | Yes | Your app's Client ID from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Yes | Your app's Redirect URI from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | List\<Authority> | No | The list of authorities your app needs |
+| `authorization_user_agent` | AuthorizationAgent (enum) | No | Possible values: `DEFAULT`, `BROWSER`, `WEBVIEW` |
+| `http` | HttpConfiguration | No | HTTP configuration for connecting, read timeout, and so on. |
+| `logging` | LoggingConfiguration | No | Specifies the level of logging detail. Optional configurations include: `pii_enabled` which takes a boolean value, and `log_level` which takes `ERROR`, `WARNING`, `INFO`, or `VERBOSE`. |
 
 ### client_id
-The client id or app id created when you registered your application.
+
+The client id or app id that was created when you registered your application.
 
 ### redirect_uri
-The redirect URI you registered when you registered your application.
 
->Note: If you want to use the broker please refer to the following <TBD LINK> to ensure that you are using the correct format of redirect uri to support operation with the broker.
+The redirect URI you registered when you registered your application. If the redirect URI is to a broker app, please refer to [Redirect URI for public client apps](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) to ensure that you are using the correct redirect URI format for your broker app.
 
 ### authorities
 
-Authorities is a list of authorities that are known to you and trusted by you.  MSAL also queries Microsoft to get a list of Clouds and Authorities known to Microsoft. In this list of authorities you specify the type of the authority and optional additional parameters include "audience" which aligns to the audience of your application in your app registration.
+The list of authorities that are known and trusted by you. In addition to the authorities listed here, MSAL also queries Microsoft to get a list of clouds and authorities known to Microsoft. In this list of authorities, specify the type of the authority and any additional optional parameters such as `"audience"` which should align with the audience of your app based on your app's registration. The following is an example list of authorities:
 
 ```javascript
-//Example AzureAD and Personal Microsoft Account
+// Example AzureAD and Personal Microsoft Account
 {
     "type": "AAD",
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true //Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
 },
-//Example AzureAD My Organization
+// Example AzureAD My Organization
 {
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenandId": "contoso.com" // Here you need to provide your specific tenant id
+        "tenantId": "contoso.com" // Provide your specific tenant id here
     }
 },
-//Example AzureAD Multiple Organizations
+// Example AzureAD Multiple Organizations
 {
     "type": "AAD",
     "audience": {
@@ -79,100 +81,96 @@ Authorities is a list of authorities that are known to you and trusted by you.  
         "type": "PersonalMicrosoftAccount"
     }
 }
-
-
 ```
 
-#### AAD Authority & Audience - Mapping to Microsoft Identity Platform Endpoints
+#### Map AAD authority & audience to Microsoft identity platform endpoints
 
-| Type | Audience                           | Tenant Id   | Authority_Url          | Resulting Endpoint                                                              | Notes                                                                                                                                                                                                                                                                                                       |
-|------|------------------------------------|-------------|------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AAD  | AzureADandPersonalMicrosoftAccount |             |                        | https://login.microsoftonline.com/common                                        | Common is a tenant alias for the account's "home".  A specific Azure Active Directory tenant or the Microsoft account system.                                                                                                                                                                               |
-| AAD  | AzureADMyOrg                       | contoso.com |                        | https://login.microsoftonline.com/contoso.com                                   | Only accounts which are present in the contoso.com will be able to acquire a token. Any verified domain or the tenant GUID may be used as the the tenant id.                                                                                                                                                |
-| AAD  | AzureADMultipleOrgs                |             |                        | https://login.microsoftonline.com/organizations                                 | Only Azure Active Directory accounts will be able to be used with this endpoint.  Microsoft accounts can be members of organizations.  In order to acquire a token using a Microsoft account for a resource in an organization you need to specify the organizational tenant from which you want the token. |
-| AAD  | PersonalMicrosoftAccount           |             |                        | https://login.microsoftonline.com/consumers                                     | Only Microsoft accounts will be able to be used with this endpoint.                                                                                                                                                                                                                                         |
-| B2C  |                                    |             | See Resulting Endpoint | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Only accounts which are present in the contoso.onmicrosoft.com tenant will be able to acquire a token.  In this example the B2C policy is part of the Authority URL path.                                                                                                                                   |
-NOTE: Authority validation no longer something that can be enabled and disabled in MSAL.  Authorities are either known to you as the developer as specified via configuration or known to Microsoft via metadata.  If MSAL receives a request for a token to an unknown authority an MsalClientException of type "UnknownAuthority" will result.
+| Type | Audience | Tenant Id | Authority_Url | Resulting Endpoint | Notes |
+|------|------------|------------|----------------|----------------------|---------|
+| AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` is a tenant alias for where the account resides such as a specific Azure Active Directory tenant or the Microsoft account system. |
+| AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the the tenant id. |
+| AAD | AzureADMultipleOrgs | | | https://login.microsoftonline.com/organizations | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
+| AAD | PersonalMicrosoftAccount | | | https://login.microsoftonline.com/consumers | Only Microsoft accounts can use this endpoint. |
+| B2C | | | See Resulting Endpoint | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Only accounts which are present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
 
-#### Authority Properties
-| Property        | Data Type  | Required | Notes |
-| ------------- |-------------|-------------|-------------|
-| type      | String | Yes | Mirrors the audience or account type your app targets, Options: AAD, B2C |
-| audience   | Object | No | Only applies to type=AAD, specifies the identity your app targets, mirror your app registration configuration|
-| authority_url | String | Yes | Required if and only if type=B2C, indicates the authority url or policy your app should use  |
-| default | boolean | Yes | If one or more authority is specified, a single default=true is required.  |
+> [!NOTE]
+> Authority validation cannot be enabled and disabled in MSAL.
+> Authorities are either known to you as the developer as specified via configuration or known to Microsoft via metadata.
+> If MSAL receives a request for a token to an unknown authority, an `MsalClientException` of type `UnknownAuthority` results.
 
+#### Authority properties
+
+| Property | Data type  | Required | Notes |
+|-----------|-------------|-----------|--------|
+| `type` | String | Yes | Mirrors the audience or account type your app targets. Possible values: `AAD`, `B2C` |
+| `audience` | Object | No | Only applies when type=`AAD`. Specifies the identity your app targets. Use the value from your app registration |
+| `authority_url` | String | Yes | Required only when type=`B2C`. Specifies the authority URL or policy your app should use  |
+| `default` | boolean | Yes | A single `"default":true` is required when one or more authorities is specified. |
 
 #### Audience Properties
-| Property        | Data Type  | Required | Notes |
-| ------------- |-------------|-------------|-------------|
-| type      | String | Yes | Indicates the audience your app wants to target, Options: AzureADandPersonalMicrosoftAccount, PersonalMicrosoftAccount, AzureADMultipleOrgs, or AzureADMyOrg |
-| tenant_id   | String | Yes | Required if and only if type=AzureADMyOrg. Optional for other type values. This can be a tenant domain (e.g. contoso.com) or a tenant ID (e.g. 72f988bf-86f1-41af-91ab-2d7cd011db46)|
+
+| Property | Data Type  | Required | Notes |
+|-----------|-------------|------------|-------|
+| `type` | String | Yes | Specifies the audience your app wants to target. Possible values: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
+| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
 
 ### authorization_user_agent
 
-Indicates whether to use embedded webview or the default browser on the device when signing an account in or authorizing access to a resource.  
+Indicates whether to use an embedded webview, or the default browser on the device, when signing in an account or authorizing access to a resource.
 
-Possible settings include:
-- DEFAULT (Prefers use of system browser.  Will default back to embedded web view if no other reliable browser is available on the device)
-- WEBVIEW - Uses the embedded web view
-- BROWSER - Uses the default browser on the device.
+Possible values:
+- `DEFAULT`: Prefers the system browser. Uses the embedded web view if a browser isn't available on the device.
+- `WEBVIEW`: Use the embedded web view.
+- `BROWSER`: Uses the default browser on the device.
 
 ### multiple_clouds_supported
 
-Some clients may wish to support multiple national clouds.  If your client is aware of how to operate in these environments you can specify "true" for this boolean setting.  Doing so will result in the Microsoft Identity Platform redirecting to the correct national cloud during authorization and token redemption automatically.  You will be able to determine the national cloud of the signed in account by examining the resulting authority associated with the AuthenticationResult.  The AuthenticationResult does not provide the national cloud specific endpoint address of the resource for which you request a token. 
+For clients that support multiple national clouds, specify `true`. The Microsoft identity platform will then automatically redirect to the correct national cloud during authorization and token redemption. You can determine the national cloud of the signed-in account by examining the authority associated with the `AuthenticationResult`. Note that the `AuthenticationResult` doesn't provide the national cloud specific endpoint address of the resource for which you request a token.
 
 ### broker_redirect_uri_registered
 
-A boolean indicating whether you are using a Microsoft Identity broker compatible in broker redirect URI.  See <TODO add link to broker redirect URIs>.  If you don't want to use the broker within your app set this to false.  
+A boolean that indicates whether you are using a Microsoft Identity broker compatible in-broker redirect URI. See <TODO add link to broker redirect URIs>.
+Set to `false` if you don't want to use the broker within your app.
 
-> Note: If you are using the AAD Authority with Audience "MicrosoftPersonalAccount" the broker will not be used.
+> Note: If you are using the AAD Authority with Audience set to `"MicrosoftPersonalAccount"`, the broker won't be used.
 
 ### http
 
-Configure global settings for HTTP timeouts:
+Configure global settings for HTTP timeouts, such as:
 
-#### http Properties
-
-| Property        | Data Type  | Required | Notes |
-| ------------- |-------------|-------------|-------------|
-| connect_timeout      | int | No | Time in milliseconds |
-| read_timeout   | int | No | Time in milliseconds|
-
+| Property | Data type | Required | Notes |
+| ---------|-----------|------------|--------|
+| `connect_timeout` | int | No | Time in milliseconds |
+| `read_timeout` | int | No | Time in milliseconds |
 
 ### logging
 
-Configure global settings for logging:
+The following global settings are for logging:
 
-#### logging Properties
-| Property        | Data Type  | Required | Notes |
-| ------------- |-------------|-------------|-------------|
-| pii_enabled      | boolean | No | Indicates whether to emit PII |
-| log_level   | boolean | No | Indicates the level of the log messages that you want to have outputted.|
-| logcat_enabled | boolean | No | Indicates whether to output to log cat as well as via the logging interface  |
-
-
-### shared_device_mode_supported
-
-The Microsoft Identity platform will soon allow devices to be placed into a shared mode.  This boolean indicates whether or not your app knows how to operate in this environment.  Apps that wish to be compatible with shared device mode and learn more here. <TODO Add link>
+| Property | Data Type  | Required | Notes |
+| ----------|-------------|-----------|---------|
+| `pii_enabled`  | boolean | No | Whether to emit PII |
+| `log_level`   | boolean | No | Which log messages to output |
+| `logcat_enabled` | boolean | No | Whether to output to log cat in addition to the logging interface |
 
 ### account_mode
 
-MSAL introduces the ability to control how many accounts are allowed to be used within your app at a time.  Possible settings include:
+Specifies how many accounts can be used within your app at a time. The possible values are:
 
-- MULTIPLE (Default)
-- SINGLE
+- `MULTIPLE` (Default)
+- `SINGLE`
 
->NOTE: If you attempt to construct a PublicClientApplication; Single or MultipleAccount that does not align with this setting an exception will occur.
+Constructing a `PublicClientApplication` using an account mode that doesn't match this setting will result in an exception.
 
-See: for more information on single account vs multiple account public client applications.
+See [Single and multiple account apps](single-multi-account.md) for more information about the differences between single and multiple accounts.
 
 ### browser_safelist
 
-This is an allow list of browsers that we know are compatible with MSAL.  These are browsers that correctly handle redirects to custom intents.  You can add to this list as needed.  The default is provided in the default configuration below.
+An allow-list of browsers that are compatible with MSAL. These browsers correctly handle redirects to custom intents. You can add to this list. The default is provided in the default configuration shown below.
+``
+## The default MSAL configuration file
 
-## Default Configuration
-The following is the default MSAL configuration that ships with the library.  This configuration will be supplemented by what you provide and in all cases may be overridden by the values that your provide.
+The default MSAL configuration that ships with MSAL is shown below. This configuration can be supplemented by values that you provide. The values you provide override any defaults.
 
 ```javascript
 {
@@ -316,15 +314,12 @@ The following is the default MSAL configuration that ships with the library.  Th
     }
   ]
 }
-
 ```
+## Example basic configuration
 
-
-## Example Basic Configuration
+The following example illustrates a basic configuration that specifies the client id, redirect URI, whether a broker redirect is registered, and a list of authorities.
 
 ```javascript
-
-  
 {
   "client_id" : "4b0db8c2-9f26-4417-8bde-3f0e3656f8e0",
   "redirect_uri" : "msauth://com.microsoft.identity.client.sample.local/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
@@ -339,27 +334,15 @@ The following is the default MSAL configuration that ships with the library.  Th
     }
   ]
 }
-
 ```
 
-## Using Configuration
+## How to use a configuration file
 
-### 1. Create your configuration 
-
-   The configuration object is JSON and lives in a file alongside your app. Feel free to drop it anywhere in your app, but we recommend creating your custom configuration in `res/raw/auth_config.json`.  Use the information above to create your configuration file.
-
-### 2. Tell MSAL where to find your configuration file
-
-   Next, you need to tell MSAL where to look for your configuration. This is done in the construction of a `PublicClientApplication`, for example:
+1. Create a configuration file. The configuration object is JSON and is defined in a file alongside your app. We recommend that you create your custom configuration file in `res/raw/auth_config.json`. But you can put it anywhere that you wish.
+2. Tell MSAL where to look for your configuration when you construct the `PublicClientApplication`. For example:
 
    ```java
    //On Worker Thread
    IMultipleAccountPublicClientApplication sampleApp = null; 
    sampleApp = new PublicClientApplication.createMultipleAccountPublicClientApplication(getApplicationContext(), R.raw.auth_config);
    ```
-
-
-
-
-
-
