@@ -22,10 +22,6 @@ Using Azure Active Directory (Azure AD) portal, you can add a large number of me
 > [!NOTE]
 > Azure AD bulk operations are a public preview feature of Azure AD and are available with any paid Azure AD license plan. For more information about preview use terms, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Bulk import service limits
-
-Each bulk activity to import a list of group members can run for up to one hour. This enables importation of a list of at least 40,000 members.
-
 ## To bulk import group members
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk import members of groups they own.
@@ -52,6 +48,10 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
    ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-import-members/bulk-center.png)
 
 For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+
+## Bulk import service limits
+
+Each bulk activity to import a list of group members can run for up to one hour. This enables importation of a list of at least 40,000 members.
 
 ## Next steps
 

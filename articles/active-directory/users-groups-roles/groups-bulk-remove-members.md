@@ -22,10 +22,6 @@ Using Azure Active Directory (Azure AD) portal, you can remove a large number of
 > [!NOTE]
 > Azure AD bulk operations are a public preview feature of Azure AD and are available with any paid Azure AD license plan. For more information about preview use terms, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Bulk removal service limits
-
-Each bulk activity to remove a list of group members from can run for up to one hour. This enables removal of a list of at least 40,000 members.
-
 ## To bulk remove group members
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
@@ -52,6 +48,10 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
    ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-remove-members/bulk-center.png)
 
 For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+
+## Bulk removal service limits
+
+Each bulk activity to remove a list of group members from can run for up to one hour. This enables removal of a list of at least 40,000 members.
 
 ## Next steps
 
