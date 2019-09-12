@@ -49,12 +49,23 @@ First, you'll create a group for your guest users who all are from a single part
    * Select **Security** as the group type
    * Enter `Guest users Contoso` as the name and description for the group
    * Change **Membership type** to **Dynamic User**
-   * Select **Add dynamic query**
-  
-4. Select **Advanced rule**, and in the **Advanced rule** box, enter:
-   `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
-5. Select **Add query** to close the blade.
-6. On the **Group** blade, select **Create** to create the group.
+   
+4. Select **Owners** and in the **Add Owners** blade search for any desired owners. Click on the desired owners to add to the selection.
+5. Click **Select** to close the **Add Owners** blade.  
+6. Select **Edit dynamic query**, and in the **Dynamic user members** box.
+7. On the **Dynamic membership rules** blade:
+
+   * In the **Property** field, click on the existing value and select **userType**. 
+   * Verify that the **Operator** field has **Equals** selected.  
+   * Select the **Value** field and enter **Guest**. 
+   * Click the **Add Expression** hyperlink to add another line
+   * In the **And/Or** field, select **And**
+   * In the **Property** field, select **companyName**
+   * Verify that the **Operator** field has **Equals** selected
+   * In the **Value** field, enter **Contoso**
+   * Click **Save** to close the **Dynamic membership rules** blade
+   
+8. On the **Group** blade, select **Create** to create the group.
 
 ## Assign licenses
 
