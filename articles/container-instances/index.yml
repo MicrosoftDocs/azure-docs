@@ -24,7 +24,7 @@ landingContent:
             url: container-instances-overview.md
           - text: Container groups
             url: container-instances-container-groups.md
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: FAQ
             url: container-instances-faq.md
