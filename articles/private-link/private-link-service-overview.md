@@ -13,10 +13,12 @@ ms.author: kumud
 
 Using Azure private link technology, you can create your own private link service in your virtual network (VNet). You can deliver this service privately to your customers by mapping it to private endpoint inside your customer's VNet. This article explains private link service concepts to help you use them effectively. 
 
-## Lifecycle of private link service 
+## Workflow
+
+![Private link service workflow](media/private-link-service-overview/workflow-private-link-service.png)
 
 ### Create your private link service
-- Choose a name, location, VNet for your service.  
+- Choose a name, location, virtual network for your service.  
 - Create either an internal load balancer (ILB) or a public load balancer. 
     > [!NOTE]
     > Azure private link service is only supported on Standard Load Balancer. 
@@ -96,13 +98,13 @@ The following table lists known limitations when using private link service:
 
 |Limitation |Description |Mitigation |
 |---------|---------|---------|
-|No support for IPv6    | Private link service doesn’t support IPv6 traffic.         |  Use Private Link Service for IPv4 traffic only        |
-|No support for non TCP-traffic     | Private link service doesn’t support non-TCP  traffic.         |Use Private Link Service for IPv4 traffic only          |
-|No support for classic VNets     |   Private link service can be created only in Azure Resource Manager VNets.      |    Use Azure Resource Manager VNets for private link.      |
-|No support for deploying private link service using Basic Load Balancer.       |    Private link service can't be associated with the basic load balancer.       |     Use Standard Load Balancer for creating your private link service.     |
-|No support for cross region scenarios for private link service    |   Connecting to a private link service (your own) from a private endpoint in different region is not supported.      |    Private link service and private endpoint need to be in the same region during Preview.      |
-|No support for multiple Standard Load Balancers running same private link service     |  Private link service is tied to a single load balancer. You can't have multiple load balancers running same private link service.        |    No mitigation during Preview.      |
-|No support for multiple private link services using same backend pool    |   Multiple private link services can't use the same backend pool.        | Each private link service should have a dedicated backend pool.          |
+|Support only for IPv4    | Private link service doesn’t support IPv6 traffic.         |  Use Private Link Service for IPv4 traffic only        |
+|Support only for TCP-traffic     | Private link service doesn’t support non-TCP  traffic.         |Use Private Link Service for IPv4 traffic only          |
+|Support only for Azure Resource Manager virtual networks      |   Private link service can be created only in Azure Resource Manager VNets.      |    Use Azure Resource Manager VNets for private link.      |
+|Support for deploying private link service using Standard Load Balancer.       |    Private link service can't be associated with the basic load balancer.       |     Use Standard Load Balancer for creating your private link service.     |
+|Support for same region scenarios for private link service    |   Connecting to a private link service (your own) from a private endpoint in different region is not supported.      |    Private link service and private endpoint need to be in the same region during Preview.      |
+|Supports a single Standard Load Balancer running same private link service     |  Private link service is tied to a single load balancer. You can't have multiple load balancers running same private link service.        |    No mitigation during Preview.      |
+|Supports a single private link service using same backend pool    |   Multiple private link services can't use the same backend pool.        | Each private link service should have a dedicated backend pool.          |
 |    |         |         |
 
 

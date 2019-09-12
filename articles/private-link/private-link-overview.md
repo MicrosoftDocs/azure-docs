@@ -46,8 +46,10 @@ For more information about Private link service, see [What is private link servi
 ## Private endpoint
 Private Endpoint is a virtual networking resource, modeled as Network Interface card, in Service consumer's Virtual Network. Private Endpoints  get assigned a private IP from customer's virtual network. private endpoint enables Azure customers to privately connect to supported Azure services through Azure private link. These services can include Azure PaaS, Microsoft partner services and customer owned services. Supported Azure services are mapped inside the customer's virtual network as private endpoint. Private endpoint is the entry point for service traffic over private link from Azure virtual network resources. The traffic never leaves Microsoft Backbone. These are highly available instances and don’t impose any bandwidth restrictions on the Service traffic.
 For more information about Private link service, see [What is private endpoint?](private-endpoint-overview.md)
+
+![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 ## Availability 
- The following table lists the services/regions that the Azure Private Link service is available:
+ The following table lists the services/regions that the Azure private link service is available:
 
 
 |Scenario  |Supported services   |Availability regions |Time of availability   |
