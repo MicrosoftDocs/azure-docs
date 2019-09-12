@@ -25,7 +25,9 @@ SQL Database enables you to easily define and scale performance within two diffe
 > [!NOTE]
 > For relevant terms and their definitions, see the [SQL Database terms glossary](sql-database-glossary-terms.md).
 
-Azure SQL Database provides the following deployment options for a SQL database:
+## Deployment models
+
+Azure SQL Database provides the following deployment options for an Azure SQL database:
 
 ![Diagram of deployment options](./media/sql-database-technical-overview/deployment-options.png)
 
@@ -49,12 +51,19 @@ You can build your first app on a small, single database at a low cost per month
 
 *Dynamic scalability* is different from *autoscale*. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. The single database option supports manual dynamic scalability, but not autoscale. For a more automatic experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. Another option is to use scripts that can help automate scalability for a single database. For an example, see [Use PowerShell to monitor and scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-### Purchasing models, service tiers, compute sizes, and storage amounts
+### Purchasing models
 
 SQL Database offers two purchasing models:
-- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount of memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see the "Frequently asked questions" section later in this article.
-
+- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount of memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
 - The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, and IO resources in three service tiers, to support light to heavy database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
+- The [Serverless model](sql-database-serverless.md) that automatically scales compute based on workload demand, and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed, and automatically resumes databases when activity returns.
+
+### Service tiers
+
+Azure SQL Database offers three service tiers that are designed for different types of applications:
+- [General Purpose/Standard](sql-database-service-tier-general-purpose.md) service tier designed for common workloads. Offers budget oriented balanced compute and storage options.
+- [Business Critical/Premium](sql-database-service-tier-business-critical.md) service tier designed for OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.
+- [HyperScale](sql-database-service-tier-hyperscale.md) service tier designed for very large OLTP database and the ability to auto-scale storage and scale compute fluidly.	
 
 ### Elastic pools to maximize resource utilization
 

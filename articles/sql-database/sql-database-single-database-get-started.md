@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ---
 # Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI
 
@@ -24,8 +24,8 @@ For all steps in this quickstart, sign in to the [Azure portal](https://portal.a
 
 A single database can either be created in the provisioned or serverless (preview) compute tier.
 
-- A single database in the provisioned compute tier has a defined amount of pre-allocated compute resources plus a set of memory and storage resources using one of two [purchasing models](sql-database-purchase-models.md).
-- A single database in the serverless compute tier has a range of compute resources that are auto-scaled plus a specified amount of memory per core, and a specified amount of storage resources and is only available in the [vCore-based purchasing models](sql-database-service-tiers-vcore.md).
+- A single database in the provisioned compute tier is pre-allocated a fixed amount of compute resources including CPU and memory using one of two [purchasing models](sql-database-purchase-models.md).
+- A single database in the serverless compute tier has a range of compute resources including CPU and memory that are auto-scaled and is only available in the [vCore-based purchasing models](sql-database-service-tiers-vcore.md).
 
 When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
 

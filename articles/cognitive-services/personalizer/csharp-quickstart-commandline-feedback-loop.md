@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: diberry
 #Customer intent: 
 
@@ -44,6 +44,8 @@ After you get a key from your trial subscription or resource, create two [enviro
 
 * `PERSONALIZER_RESOURCE_KEY` for the resource key.
 * `PERSONALIZER_RESOURCE_ENDPOINT` for the resource endpoint.
+
+In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
 
 ### Change the model update frequency
 
