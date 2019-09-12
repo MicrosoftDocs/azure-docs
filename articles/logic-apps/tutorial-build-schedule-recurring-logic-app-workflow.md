@@ -339,7 +339,7 @@ If you don't get any emails, check your email's junk folder. Your email junk fil
 
 Congratulations, you've now created and run a schedule-based recurring logic app. 
 
-To create other logic apps that use the **Schedule - Recurrence** trigger, check out these templates, which available after you create a logic app:
+To create other logic apps that use the **Recurrence** trigger, check out these templates, which available after you create a logic app:
 
 * Get daily reminders sent to you.
 * Delete older Azure blobs.
@@ -347,9 +347,15 @@ To create other logic apps that use the **Schedule - Recurrence** trigger, check
 
 ## Clean up resources
 
-When no longer needed, delete the resource group that contains your logic app and related resources. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app. Select **Delete resource group**. Enter the resource group name as confirmation, and select **Delete**.
+When no longer needed, delete the resource group that contains your logic app and related resources. 
 
-!["Overview" > "Delete resource group"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+1. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app.
+
+1. On the resource group menu, select **Overview** > **Delete resource group**. 
+
+   !["Overview" > "Delete resource group"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+
+1. Enter the resource group name as confirmation, and select **Delete**.
 
 ## Next steps
 
