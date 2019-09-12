@@ -63,7 +63,7 @@ landingContent:
     - linkListType: concept
       links:
         - text: Adjust anomaly detection modes and parameters for your data.
-          url: /how-to/identify-anomalies.md
+          url: how-to/identify-anomalies.md
         - text: Use best practices to optimize your anomaly detection results.
           url: concepts/anomaly-detection-best-practices.md
     - linkListType: video
@@ -109,7 +109,7 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2089915
         - text: Node.js SDK
           url: https://go.microsoft.com/fwlink/?linkid=2090788
-        - text: Azure powershell
+        - text: Azure PowerShell
           url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
           url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
