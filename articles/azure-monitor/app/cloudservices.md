@@ -166,12 +166,12 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Run your app, and sign in to Azure. 
 
-1. Open the Application Insights resources that you created.  
-    Individual data points are displayed in [Search](../../azure-monitor/app/diagnostic-search.md), and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). 
+1. Open the Application Insights resources that you created. Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
 If there is no data, do the following:
+
 1. To view individual events, open the [Search][diagnostic] tile.
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
