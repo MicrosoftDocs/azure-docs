@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 09/12/2019
 ms.author: roiyz
 ---
 
@@ -53,22 +53,22 @@ Troubleshooting information for each extension can be found in the **Troubleshoo
 
 | Namespace | Troubleshooting |
 |-----------|-----------------|
-| Microsoft.Azure.Monitoring.DependencyAgent | [Azure Monitor Dependency for Linux](agent-dependency-linux.md#troubleshoot-and-support) |
-| Microsoft.Azure.Monitoring.DependencyAgent | [Azure Monitor Dependency for Windows](agent-dependency-windows.md#troubleshoot-and-support) |
-| AzureDiskEncryptionForLinux | [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
-| AzureDiskEncryption | [Azure Disk Encryption for Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
-| Microsoft.Compute.CustomScriptExtension | [Custom Script for Windows](custom-script-windows.md#troubleshoot-and-support) |
-| Microsoft.OSTCExtensions/DSCForLinux | [Desired State Configuration for Linux](dsc-linux.md#troubleshoot-and-support) |
-| Microsoft.Powershell.DSC | [Desired State Configuration for Windows](dsc-windows.md#troubleshoot-and-support) |
-| Microsoft.HpcCompute/NvidiaGpuDriverLinux | [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
-| Microsoft.HpcCompute/NvidiaGpuDriverWindows | [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
-| Microsoft.Azure.Security/IaaSAntimalware | [Antimalware Extension for Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
-| Microsoft.EnterpriseCloud.Monitoring/OmsAgentForLinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
-| Microsoft.EnterpriseCloud.Monitoring/OmsAgentForWindows | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
-| Stackify.LinuxAgent.Extension/StackifyLinuxAgentExtension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| VMAccessForLinux/Microsoft.OSTCExtensions | [VMAccess for Linux](vmaccess.md#troubleshoot-and-support) |
-| Microsoft.RecoveryServices/VMSnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
-| Microsoft.RecoveryServices/VMSnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
+| microsoft.azure.monitoring.dependencyagent.dependencyagentlinux | [Azure Monitor Dependency for Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| microsoft.azure.monitoring.dependencyagent.dependencyagentwindows | [Azure Monitor Dependency for Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| microsoft.azure.security.azurediskencryptionforlinux | [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| microsoft.azure.security.azurediskencryption | [Azure Disk Encryption for Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| microsoft.compute.customscriptextension | [Custom Script for Windows](custom-script-windows.md#troubleshoot-and-support) |
+| microsoft.ostcextensions.customscriptforlinux | [Desired State Configuration for Linux](dsc-linux.md#troubleshoot-and-support) |
+| microsoft.powershell.dsc | [Desired State Configuration for Windows](dsc-windows.md#troubleshoot-and-support) |
+| microsoft.hpccompute.nvidiagpudriverlinux | [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| microsoft.hpccompute.nvidiagpudriverwindows | [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| microsoft.azure.security.iaasantimalware | [Antimalware Extension for Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
+| microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
+| stackify.linuxagent.extension.stackifylinuxagentextension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux.microsoft.ostcextensions | [Reset password (VMAccess) for Linux](vmaccess.md#troubleshoot-and-support) |
+| microsoft.recoveryservices.vmsnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| microsoft.recoveryservices.vmsnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## Next steps
