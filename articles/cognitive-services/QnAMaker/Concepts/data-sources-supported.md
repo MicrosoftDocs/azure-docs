@@ -198,6 +198,19 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 
 *QnA Maker doesn't process the image in any way. It is the client application's role to render the image. 
 
+In addition, when you want to import a HTML file with Update/Replace Knowledgebase REST API, you might want to know there are the following conversion rules.
+
+| In a HTML text  | In a JSON given to Update/Replace Knowledgebase REST APIs  | Markdown formats registered in a KB |
+|-----------|---------|-------------------------|
+|CR LF | \r\n | \n (\r\n is not a markdown format, so is converted to \n.) |
+| LF | \n |      \n           |
+| &lt;br&gt; | &lt;br&gt; (Without an escape character) | \n\n |
+|      | \&lt;br\&gt; (With escape characaters) | &lt;br&gt; |
+
+If you don't want to convert the original HTML format text, you can do with the following ways in JSON:
+- Convert the html tags '<' to '\&lt;' and '>' to '\&gt;'. 
+- Convert '\r\n' to '\\\\r\\\\n' and '\t' to '\\\\t'.
+
 ## Editing your knowledge base locally
 
 Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally. 
