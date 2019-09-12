@@ -1,6 +1,6 @@
 ---
 title: Automatically scale Azure HDInsight clusters (preview)
-description: Use the HDInsight Autoscale feature to automatically scale clusters
+description: Use the Azure HDInsight Autoscale feature to automatically Apache Hadoop scale clusters
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -79,7 +79,7 @@ To enable the Autoscale feature with load-based scaling, complete the following 
     * **Minimum** number of worker nodes.  
     * **Maximum** number of worker nodes.  
 
-    ![Enable worker node load-based autoscale option](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Enable worker node load-based autoscale](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it is created. The minimum number of worker nodes must be greater than zero.
 
@@ -97,7 +97,7 @@ To enable the Autoscale feature with schedule-based scaling, complete the follow
 1. Edit the time the condition should take effect and the number of nodes that the cluster should be scaled to.
 1. Add more conditions if needed.
 
-    ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    ![Enable worker node schedule-based creation](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
 The number of nodes must be between 1 and the number of worker nodes that you entered before adding conditions.
 
@@ -105,7 +105,7 @@ The number of nodes must be between 1 and the number of worker nodes that you en
 
 For both load-based and schedule-based scaling, select the VM type for worker nodes by clicking **Worker node size** and **Head node size**. After you choose the VM type for each node type, you can see the estimated cost range for the whole cluster. Adjust the VM types to fit your budget.
 
-![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
+![Enable worker node schedule-based autoscale node size](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 Your subscription has a capacity quota for each region. The total number of cores of your head nodes combined with the maximum number of worker nodes can’t exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
 
@@ -183,7 +183,7 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 #### Using the Azure portal
 To enable Autoscale on a running cluster, select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
 
-![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![Enable worker node schedule-based autoscale running cluster](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
 #### Using the REST API
 To enable or disable Autoscale on a running cluster using the REST API, make a POST request to the Autoscale endpoint as shown in the code snippet below:
@@ -225,7 +225,7 @@ The running jobs will continue to run and finish. The pending jobs will wait to 
 
 The cluster status listed in the Azure portal can help you monitor Autoscale activities.
 
-![Enable worker node load-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+![Enable worker node load-based autoscale cluster status](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
 
 All of the cluster status messages that you might see are explained in the list below.
 
@@ -245,7 +245,7 @@ You can view the cluster scale-up and scale-down history as part of the cluster 
 
 Select **Metrics** under **Monitoring**. Then click **Add metric** and **Number of Active Workers** from the **Metric** dropdown box. Click the button in the upper right to change the time range.
 
-![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+![Enable worker node schedule-based autoscale metric](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 
 ## Next steps

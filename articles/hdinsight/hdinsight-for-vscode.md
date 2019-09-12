@@ -51,7 +51,7 @@ To open a work folder and to create a file in Visual Studio Code, follow these s
 
 2. In **Explorer** view, select the **HDexample** folder, and then select the **New File** icon next to the work folder:
 
-   ![New file](./media/hdinsight-for-vscode/new-file.png)
+   ![New file](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. Name the new file by using either the `.hql` (Hive queries) or the `.py` (Spark script) file extension. This example uses **HelloWorld.hql**.
 
@@ -126,7 +126,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 3. Review the **OUTPUT** view. This view shows your linked cluster (or clusters) and all the clusters under your Azure subscription:
 
-    ![Set a default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result.png)
+    ![Set a default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## Set the default cluster
 
@@ -275,7 +275,7 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
 
 + The project settings:
 
-    ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+    ![Livy configuration](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
     >For the **driverMemory** and **executorMemory** settings, set the value and unit. For example: 1g or 1024m.
@@ -404,7 +404,7 @@ When submitting job to an HDInsight cluster, you're prompted to link the cluster
   >
   >You can use `Spark / Hive: List Cluster` to check the linked cluster:
   >
-  >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result.png)
+  >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## Azure Data Lake Storage Gen2
 

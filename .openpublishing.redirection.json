@@ -2576,11 +2576,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/storage/storage-security-attributes.md",
-      "redirect_url": "/azure/storage",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage-sas.md",
       "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
       "redirect_document_id": false
@@ -3662,7 +3657,7 @@
     },
     {
       "source_path": "articles/dotnet-sdk.md",
-      "redirect_url": "https://docs.microsoft.com/azure/dotnet",
+      "redirect_url": "https://docs.microsoft.com/dotnet/azure",
       "redirect_document_id": false
     },
     {
@@ -4427,7 +4422,12 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-regions.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-regions",
+      "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-regions.md",
+      "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
       "redirect_document_id": false
     },
     {
@@ -4968,6 +4968,16 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-portal.md",
+      "redirect_url": "/azure/application-gateway/create-url-route-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-url-route-overview.md",
+      "redirect_url": "/azure/application-gateway/url-route-overview",
       "redirect_document_id": false
     },
     {
@@ -10803,11 +10813,6 @@
     {
       "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md",
       "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-manage-use-java-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/dotnet/index.md",
-      "redirect_url": "https://docs.microsoft.com/azure/dotnet/",
       "redirect_document_id": false
     },
     {
@@ -28305,9 +28310,104 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/storage-security-attributes.md",
+      "redirect_url": "/azure/storage/common/storage-security-controls",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/common-security-attributes.md",
-      "redirect_url": "/azure/security/fundamentals/common-security-attributes",
+      "redirect_url": "/azure/security/fundamentals/security-controls",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/api-management-security-attributes.md",
+      "redirect_url": "/azure/api-management/api-management-security-controls",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/app-service-security-attributes.md",
+      "redirect_url": "/azure/app-service/app-service-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/azure-resource-manager-security-attributes.md",
+      "redirect_url": "/azure/azure-resource-manager/azure-resource-manager-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-security-attributes.md",
+      "redirect_url": "/azure/backup/backup-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/cosmos-db-security-attributes.md",
+      "redirect_url": "/azure/cosmos-db/cosmos-db-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/event-hubs-security-attributes.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-security-attributes.md",
+      "redirect_url": "/azure/expressroute/expressroute-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/key-vault-security-attributes.md",
+      "redirect_url": "/azure/key-vault/key-vault-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-security-attributes.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-messaging-security-attributes.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-relay/service-bus-relay-security-attributes.md",
+      "redirect_url": "/azure/service-bus-relay/service-bus-relay-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-security-attributes.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-security-attributes.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-security-attributes.md",
+      "redirect_url": "/azure/storage/common/storage-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/virtual-machines-linux-security-attributes.md",
+      "redirect_url": "/azure/virtual-machines/linux/virtual-machines-linux-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/virtual-machines-windows-security-attributes.md",
+      "redirect_url": "/azure/virtual-machines/windows/virtual-machines-windows-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-security-attributes.md",
+      "redirect_url": "/azure/vpn-gateway/vpn-gateway-security-controls",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/quick-encrypt-vm-powershell.md",
@@ -37624,6 +37724,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
+      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/runbook-datacollect.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38721,6 +38831,11 @@
     {
       "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/analysis-services-compat-level.md",
+      "redirect_url": "https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
       "redirect_document_id": false
     },
     {
@@ -41633,7 +41748,7 @@
 	},
 	{
 		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
-		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
 		"redirect_document_id": false
 	  },
     {
