@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
 ---
+
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
 Learn how to create a C# Apache Storm topology by using the Azure Data Lake (Apache Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
@@ -149,7 +150,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
    * **NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
 
-   * **Ack** (transactional topology only): Handles acknowledgements initiated by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
+   * **Ack** (transactional topology only): Handles acknowledgments initiated by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
 
    * **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a Fail method allows you to re-emit the tuple so that it can be processed again.
 
@@ -560,7 +561,7 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
 1. In **Solution Explorer**, right-click the project, and select **Properties**. In the project properties, change the **Output type** to **Console Application**.
 
-    ![Screenshot of project properties, with Output type highlighted](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Screenshot of project properties, with Output type highlighted](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
@@ -706,7 +707,7 @@ To view errors that have occurred in a running topology, use the following steps
 
 2. For the **Spout** and **Bolts**, the **Last Error** column contains information on the last error.
 
-3. Select the **Spout Id** or **Bolt Id** for the component that has an error listed. On the details page that is displayed, additional error information is listed in the **Errors** section at the bottom of the page.
+3. Select the **Spout ID** or **Bolt ID** for the component that has an error listed. On the details page that is displayed, additional error information is listed in the **Errors** section at the bottom of the page.
 
 4. To obtain more information, select a **Port** from the **Executors** section of the page, to see the Storm worker log for the last few minutes.
 

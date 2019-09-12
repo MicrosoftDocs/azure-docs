@@ -224,7 +224,7 @@ landingContent:
             url: ./storm/apache-storm-overview.md
       - linkListType: quickstart
         links:
-          - text: Create and Apache Storm topology
+          - text: Create an Apache Storm topology
             url: ./storm/apache-storm-quickstart.md      
       - linkListType: tutorial
         links:

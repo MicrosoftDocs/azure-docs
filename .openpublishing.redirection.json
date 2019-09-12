@@ -5117,7 +5117,7 @@
     },
     {
       "source_path": "articles/azure-functions/durable-functions-checkpointing-and-replay.md",
-      "redirect_url": "/azure/azure-functions/durable/durable-functions-checkpointing-and-replay",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
     },
     {
@@ -5238,6 +5238,16 @@
     {
       "source_path": "articles/azure-functions/durable-functions-webjobs-sdk.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-webjobs-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-concepts.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-checkpointing-and-replay.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
     },
     {
@@ -37729,6 +37739,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/runbook-datacollect.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -41743,7 +41758,7 @@
 	},
 	{
 		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
-		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
 		"redirect_document_id": false
 	  },
     {
