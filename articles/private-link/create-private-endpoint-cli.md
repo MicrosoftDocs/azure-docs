@@ -10,7 +10,7 @@ ms.author: kumud
 
 ---
 # Create a private endpoint using Azure CLI
-A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. In this Quickstart, you will learn how to create a VM on a virtual network, an Azure storage account with a private endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure storage account in this example). 
+Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link Resources. In this Quickstart, you will learn how to create a VM on a virtual network, a SQL Database Server with a Private Endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure storage account in this example). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -18,14 +18,14 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Create a resource group
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *westcentralus* location:
+Before you can create any resource, you have to create a resource group to host the Virtual Network. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *westcentralus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
 
-## Create a virtual network
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *mySubnet*:
+## Create a Virtual Network
+Create a Virtual Network with [az network vnet create](/cli/azure/network/vnet). This example creates a default Virtual Network named *myVirtualNetwork* with one subnet named *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -53,55 +53,66 @@ az vm create \
 ```
  Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
-## Create a storage account 
-Create a general-purpose storage account with the az storage account create command. The general-purpose storage account can be used for all four services: blobs, files, tables, and queues. 
+## Create a SQL Database Server 
+Create a SQL Database Server with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+Azure CLICopyTry It 
 ```azurecli-interactive
-az storage account create \
-    --name mystorageaccount \
-    --resource-group myResourceGroup \
-    --location westus \
-    --sku Standard_LRS \
-    --kind StorageV2 \
-    --encryption blob \
-    --default-action Deny
- ```
+# Create a logical server in the resource group 
+az sql server create \ 
+    --name "myserver"\ 
+    --resource-group myResourceGroup \ 
+    --location WestUS \ 
+    --admin-user "sqladmin" \ 
+    --admin-password "CHANGE_PASSWORD_1" 
+ 
+# Create a database in the server with zone redundancy as false 
+az sql db create \ 
+    --resource-group myResourceGroup  \ 
+    --server myserver \ 
+    --name mySampleDatabase \ 
+    --sample-name AdventureWorksLT \ 
+    --edition GeneralPurpose \ 
+    --family Gen4 \ 
+    --capacity 1 
+```
+
+Note the SQL Server ID is similar to /subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver. You will use the SQL Server ID in the next step. 
 Note the storage account ID is similar to  */subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount*. You will use the storage account ID in the next step. 
-## Create the private endpoint 
-Create a private endpoint for the storage account in your virtual network: 
+
+## Create the Private Endpoint 
+Create a private endpoint for the storage account in your Virtual Network: 
 ```azurecli-interactive
-$privateEndpoint = az network private-endpoint create \
-    --name myPrivateEndpoint \
-    --resource-group myResourceGroup \
-    --vnet-name myVirtualNetwork \ 
-    --subnet mySubnet \
-    --private-connection-resource-id "<Storage account Id>" \
-    --group-ids blob \
-    --connection-name myConnection 
+az network private-endpoint create \  
+    --name myPrivateEndpoint \  
+    --resource-group myResourceGroup \  
+    --vnet-name myVirtualNetwork  \  
+    --subnet mySubnet \  
+    --private-connection-resource-id "<SQL Server ID>" \  
+    --group-ids sqlServer \  
+    --connection-name myConnection  
  ```
-## Configure the private DNS zone 
-Create a private DNS zone for storage blob domain and create an association link with the virtual network. 
+## Configure the Private DNS Zone 
+Create a Private DNS Zone for storage blob domain and create an association link with the Virtual Network. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
-   --name  "privatelink.blob.core.windows.net" 
+   --name  "privatelink.database.windows.net" 
 az network private-dns link vnet create --resource-group myResourceGroup \ 
-   --zone-name  "privatelink.blob.core.windows.net"\ 
+   --zone-name  "privatelink.database.windows.net"\ 
    --name MyDNSLink \ 
    --virtual-network myVirtualNetwork \ 
    --registration-enabled false 
+
+#Query for the network interface ID  
+az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id'
  
-$networkInterfaceId  = az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' 
  
-$networkInterface = az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json | ConvertFrom-Json 
+az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
+# Copy the content for privateIPAddress and FQDN matching the SQL server name 
  
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
-foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
-Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-$recordName = $fqdn.split('.',2)[0] 
-$dnsZone = $fqdn.split('.',2)[1] 
-az network private-dns record-set a create --name $recordName --zone-name privatelink.blob.core.windows.net --resource-group myResourceGroup 
-az network private-dns record-set a add-record --record-set-name $recordName --zone-name privatelink.blob.core.windows.net --resource-group myResourceGroup -a $ipconfig.properties.privateIPAddress  
-} 
-} 
+ 
+#Create DNS records 
+az network private-dns record-set a create --name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup  
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## Connect to a VM from the internet
@@ -129,32 +140,41 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access storage account privately from the VM
+## Access DQL Database Server privately from the VM
 
-In this section, you will create a virtual network to host the Azure storage account and configure it with a private endpoint.
-
+In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net`
-    You'll receive a message similar to this:
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mystorageaccount123123.privatelink.blob.core.windows.net
-    Address:  10.0.0.5
-    Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+2. Enter nslookup myserver.database.windows.net 
+You'll receive a message similar to this: 
+
+Azure PowerShellCopy 
+Server:  UnKnown 
+Address:  168.63.129.16 
+Non-authoritative answer: 
+Name:    myserver.privatelink.database.windows.net 
+Address:  10.0.0.5 
+Aliases:  myserver.database.windows.net 
+3. Install SQL Server Management Studio 
+4. In Connect to server, enter or select this information: 
+
+Setting 
+Value 
+Server type 
+Select Database Engine. 
+Server name 
+Select myserver.database.windows.net 
+Username 
+Enter a username provided during creation. 
+Password 
+Enter a password provided during creation. 
+Remember password 
+Select Yes. 
+
+5. Select **Connect**.
+6. Browse **Databases** from left menu.
+7. (Optionally) Create or query information from *mydatabase*
+8. Close the remote desktop connection to *myVm*.
 
 Additional options to access the storage account:
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
@@ -163,10 +183,11 @@ Additional options to access the storage account:
 
 
 ## Clean up resources 
-When you're done using the private endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes 
+```
 
 ## Next steps
 - Learn more about [Azure Private Link](private-link-overview.md)
