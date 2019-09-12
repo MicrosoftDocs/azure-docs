@@ -54,9 +54,9 @@ Private link service requires a NAT IP from any subnet of your choice  within a 
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name MySubnet --disable-private-link-service-network-policies true 
 ```
  
-### Create a private link service  
+## Create a private link service  
  
-Create a private link service using standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/az-network-private-link-service-create). This example creates a private link service named *myPLS* using Standard Load Balancer named *myLoadBalancer* in resource group named *myResourceGroup*. 
+Create a private link service using Standard Load Balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/az-network-private-link-service-create). This example creates a private link service named *myPLS* using Standard Load Balancer named *myLoadBalancer* in resource group named *myResourceGroup*. 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -95,7 +95,7 @@ az network vnet subnet create \
 --address-prefixes 10.0.0.0/24 
 ```   
 ## Disable private endpoint network policies on subnet 
-Private Endpoint can be created in any subnet of your choice within a virtual network. Currently, we don’t support network policies on private endpoints.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable private endpoint network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update). 
+Private endpoint can be created in any subnet of your choice within a virtual network. Currently, we don’t support network policies on private endpoints.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable private endpoint network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update). 
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -117,7 +117,7 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-You can get the private-connection-resource-id through az network private-link-service show on private link service. The id will look like:   
+You can get the *private-connection-resource-id* with `az network private-link-service show` on private link service. The id will look like:   
 /subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename*> 
  
 ## Show private link service connections 
