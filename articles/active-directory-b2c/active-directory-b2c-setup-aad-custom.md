@@ -28,7 +28,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your tenant.
+1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
@@ -49,15 +49,15 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. On the Overview page, select **Identity Experience Framework**.
-4. Select **Policy keys** and then select **Add**.
-5. For **Options**, choose `Manual`.
-6. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key.
-7. In **Secret**, enter your client secret that you recorded earlier.
-8. For **Key usage**, select `Signature`.
-9. Select **Create**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Under **Policies**, select **Identity Experience Framework**.
+1. Select **Policy keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key when it's created, so its reference in the XML in following section is to *B2C_1A_ContosoAppSecret*.
+1. In **Secret**, enter your client secret that you recorded earlier.
+1. For **Key usage**, select `Signature`.
+1. Select **Create**.
 
 ## Add a claims provider
 
@@ -65,7 +65,7 @@ If you want users to sign in by using Azure AD, you need to define Azure AD as a
 
 You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
-1. Open the *TrustFrameworkExtensions.xml*.
+1. Open the *TrustFrameworkExtensions.xml* file.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
 3. Add a new **ClaimsProvider** as follows:
 
@@ -125,33 +125,33 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 1. Update the value for **Description**.
 1. Azure AD uses the OpenID Connect protocol, so make sure that the value for **Protocol** is `OpenIdConnect`.
 1. Set value of the **METADATA** to `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, where `your-AD-tenant-name` is your Azure AD tenant name. For example, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Open your browser and go to the **METADATA** URL that you just updated, look for the **issuer** object, copy and paste the value into the value for **ProviderName** in the XML file.
+1. Open your browser and go to the **METADATA** URL that you just updated, look for the **issuer** object, and then copy and paste the value into the value for **ProviderName** in the XML file.
 1. Set **client_id** to the application ID from the application registration.
-1. Under **CryptographicKeys**, Update the value for **StorageReferenceId** to the policy key that you defined. For example, `ContosoAppSecret`.
+1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_ContosoAppSecret`.
 
 ### Upload the extension file for verification
 
 By now, you have configured your policy so that Azure AD B2C knows how to communicate with your Azure AD directory. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
 
 1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
-3. Click **Upload**.
+1. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
+1. Click **Upload**.
 
 ## Register the claims provider
 
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
+At this point, the identity provider has been set up, but it's not yet available in any of the sign-up/sign-in pages. To make it available, create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
-2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-5. Rename the ID of the user journey. For example, `SignUpSignInContoso`.
+1. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
+1. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
+1. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
+1. Rename the ID of the user journey. For example, `SignUpSignInContoso`.
 
 ### Display the button
 
-The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
+The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in page. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
 2. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
 
     ```XML
@@ -163,7 +163,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Azure AD to receive a token. Link the button to an action by linking the technical profile for your Azure AD claims provider:
 
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
+1. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
@@ -171,28 +171,28 @@ Now that you have a button in place, you need to link it to an action. The actio
 
     Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `ContosoProfile`.
 
-3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
+1. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
 ## Create an Azure AD B2C application
 
-Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application, for example *testapp1*.
-6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
-7. Click **Create**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Applications**, and then select **Add**.
+1. Enter a name for the application, for example *testapp1*.
+1. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
+1. Select **Create**.
 
 ## Update and test the relying party file
 
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInContoso.xml*.
-2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
-3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_contoso`
-4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInContoso).
-5. Save your changes, upload the file, and then select the new policy in the list.
-6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
-
+1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
+1. Update the value of **PublicPolicyUri** with a URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_contoso`
+1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier. For example, *SignUpSignInContoso*.
+1. Save your changes and upload the file.
+1. Under **Custom policies**, select the new policy in the list.
+1. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by selecting **Run now**.

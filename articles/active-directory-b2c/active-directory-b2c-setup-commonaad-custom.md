@@ -52,15 +52,15 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. On the Overview page, select **Identity Experience Framework**.
-1. Select **Policy Keys** and then select **Add**.
+1. Under **Policies**, select **Identity Experience Framework**.
+1. Select **Policy keys** and then select **Add**.
 1. For **Options**, choose `Manual`.
 1. Enter a **Name** for the policy key. For example, `AADAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key when it's created, so its reference in the XML in following section is to *B2C_1A_AADAppSecret*.
-1. In **Secret**, enter your application key that you recorded earlier.
+1. In **Secret**, enter your client secret that you recorded earlier.
 1. For **Key usage**, select `Signature`.
-1. Click **Create**.
+1. Select **Create**.
 
 ## Add a claims provider
 
@@ -68,7 +68,7 @@ If you want users to sign in by using Azure AD, you need to define Azure AD as a
 
 You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
-1. Open the *TrustFrameworkExtensions.xml*.
+1. Open the *TrustFrameworkExtensions.xml* file.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
 3. Add a new **ClaimsProvider** as follows:
 
@@ -122,7 +122,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 4. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
 5. Under the **TechnicalProfile** element, update the value for **DisplayName**. This value is displayed on the sign-in button on your sign-in screen.
-6. Set **client_id** to the application ID from the Azure AD mulity-tenant app registration.
+6. Set **client_id** to the application ID from the Azure AD multi-tenant app registration.
 
 ### Restrict access
 
@@ -131,7 +131,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 You need to update the list of valid token issuers and restrict access to a specific list of Azure AD tenant users who can sign in. To obtain the values, you need to look at the metadata for each of the specific Azure AD tenants that you would like to have users sign in from. The format of the data looks like the following: `https://login.windows.net/your-tenant/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name (contoso.com or any other Azure AD tenant).
 
-1. Open your browser and go to the **METADATA** URL and look for the **issuer** object and copy its value. It should look like the following: `https://sts.windows.net/tenant-id/`.
+1. Open your browser and go to the **METADATA** URL, look for the **issuer** object, and then copy its value. It should look like the following: `https://sts.windows.net/tenant-id/`.
 2. Copy and paste the value for the **ValidTokenIssuerPrefixes** key. You can add multiple by separating them using a comma. An example of this is commented in the sample XML above.
 
 ### Upload the extension file for verification
