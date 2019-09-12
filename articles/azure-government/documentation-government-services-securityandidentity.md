@@ -59,6 +59,9 @@ Geo-enrichment and the threat intelligence option are not available.
 - **UEBA for Azure resources**  
 Integration with Microsoft Cloud App Security for user and entity behavior analytics on Azure resources is not available.
 
+- **Advanced threat detection**  
+Azure Security Center Standard tier in Azure Government does not support threat detection for App Service or Storage accounts. 
+
 ### Server protection
 
 - **OS Security Configuration**  

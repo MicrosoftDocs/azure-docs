@@ -132,8 +132,8 @@
       href: service-fabric-application-and-service-security.md
     - name: Service Fabric Cluster security
       href: service-fabric-cluster-security.md
-    - name: Azure Common Security Attributes
-      href: service-fabric-security-attributes.md
+    - name: Built-in security controls
+      href: service-fabric-security-controls.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications

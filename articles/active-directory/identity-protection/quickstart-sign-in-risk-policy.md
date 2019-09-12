@@ -34,7 +34,7 @@ To complete the scenario in this tutorial, you need:
 
 - **Access to an Azure AD Premium P2 edition** - Azure AD Identity Protection is an Azure AD Premium P2 feature. 
 - **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../reports-monitoring/concept-risk-events.md).  
+- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk detections](../reports-monitoring/concept-risk-events.md).  
 - **A test account called Alain Charon** - If you don't know how to create a test account, see [Add a new user](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## Test your sign-in 
@@ -48,7 +48,7 @@ The goal of this step is to make sure that your test account can access your ten
 
 ## Create your Conditional Access policy 
 
-The scenario in this quickstart uses a sign-in from a Tor Browser to generate a detected **Sign-ins from anonymous IP addresses** risk event. The risk level of this risk event is medium. To respond to this risk event, you set the sign-in risk condition to medium. 
+The scenario in this quickstart uses a sign-in from a Tor Browser to generate a detected **Sign-ins from anonymous IP addresses** risk detection. The risk level of this risk detection is medium. To respond to this risk detection, you set the sign-in risk condition to medium. 
 
 This section shows how to create the required sign-in risk Conditional Access policy. In your policy, set:
 

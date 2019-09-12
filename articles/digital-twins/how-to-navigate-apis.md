@@ -6,7 +6,7 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
 ---
 
@@ -87,6 +87,7 @@ The following list shows some examples of navigation through the [/devices](http
 
 
 ## OData support
+
 Most of the APIs that return collections, such as a GET call on /spaces, support the following subset of the generic [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) system query options:  
 
 * **$filter**
@@ -94,11 +95,12 @@ Most of the APIs that return collections, such as a GET call on /spaces, support
 * **$top**
 * **$skip** - If you intend to display the entire collection, you should request it as a whole set in a single call, and then perform paging in your application. 
 
-Note that other query options, such as $count, $expand, $search, are not supported.
+> [!NOTE]
+> Some OData options (such as query options **$count**, **$expand**, and **$search**) are not presently supported.
 
 ### Examples
 
-The following list shows some examples of queries using OData’s system query options:
+The following list depicts several queries with valid OData syntax:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -107,9 +109,10 @@ The following list shows some examples of queries using OData’s system query o
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
-
 ## Next steps
 
-To learn some common API query patterns, read [How to query Azure Digital Twins APIs for common tasks](how-to-query-common-apis.md).
+To learn some common API query patterns, read [How to query Azure Digital Twins APIs for common tasks](./how-to-query-common-apis.md).
 
 To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).
+
+To review OData syntax and available comparison operators, read [OData comparison operators in Azure Search](../search/search-query-odata-comparison-operators.md).

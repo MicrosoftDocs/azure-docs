@@ -1,13 +1,15 @@
 ---
 title: Upgrade HDInsight cluster to a newer version -Azure 
-description: Learn how to Upgrade HDInsight cluster to a newer version.
+description: Learn guidelines to upgrade your Azure HDInsight cluster to a newer version.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
+ms.reviewer: jasonh 
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
 ---
+
 # Upgrade HDInsight cluster to a newer version
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be upgraded to latest version. 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
@@ -18,7 +20,7 @@ Follow the below guidelines to upgrade your HDInsight cluster versions.
 ## Upgrade tasks
 The workflow to upgrade HDInsight Cluster is as follows.
 
-![Upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
+![Upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
 2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

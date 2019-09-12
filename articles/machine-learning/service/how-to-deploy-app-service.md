@@ -262,8 +262,8 @@ print(response.json())
 
 ## Next steps
 
-* For more information on configuring your Web App, see the [App Service on Linux](/azure/app-service/containers/) documentation.
-* For more information on scaling, see [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* For more information on SSL support, see [Use an SSL certificate in your Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
-* For more information on authentication, see [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
+* Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
+* Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Use an SSL certificate in your Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

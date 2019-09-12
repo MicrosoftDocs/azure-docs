@@ -21,7 +21,7 @@ In this quickstart, you'll use MetaMask to connect to an Azure Blockchain Servic
 
 ## Prerequisites
 
-* [Create an Azure Blockchain member](create-member.md)
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
 * Install [MetaMask browser extension](https://metamask.io)
 * Generate a MetaMask [wallet](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time)
 
@@ -140,7 +140,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
 ## Next steps
 
-In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to deploy and send a transaction using Truffle.
+In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Send a transaction](send-transaction.md)
+> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)

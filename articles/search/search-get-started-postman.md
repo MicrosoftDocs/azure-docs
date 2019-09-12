@@ -1,5 +1,5 @@
 ---
-title: 'REST Quickstart: Create, load, and query indexes using Postman - Azure Search'
+title: 'Quickstart: Create a search index in Postman using REST APIs - Azure Search'
 description: Learn how to call the Azure Search REST APIs using Postman and sample data and definitions.
 author: HeidiSteen
 manager: nitinme
@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 07/11/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ---
 

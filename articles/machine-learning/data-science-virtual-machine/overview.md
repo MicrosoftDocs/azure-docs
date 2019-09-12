@@ -1,21 +1,15 @@
 ---
-title: Introduction to the Azure Data Science Virtual Machine for Linux and Windows | Microsoft Docs
+title: What is the Azure Data Science Virtual Machine
 description: Key analytics scenarios and components for Windows and Linux Data Science Virtual Machines.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-
-ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: vijetaj
 
 ---
 
