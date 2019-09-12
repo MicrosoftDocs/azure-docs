@@ -119,8 +119,7 @@ For information about nested templates, see [Using linked templates with Azure R
 ## Next steps
 
 * For information about the properties in template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* For an introduction to the Resource Manager service, including its management features, see [Azure Resource Manager overview](resource-group-overview.md).
-* Resource Manager analyzes dependencies to ensure resources are created in the correct order. You can explicitly set a dependency to make sure one resource is deployed before another resource. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
+* To explicitly set dependencies so one reesource is deployed before another resource, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 * You can add a resource to your template and optionally deploy it. For more information, see [Conditional deployment in Resource Manager templates](conditional-resource-deployment.md).
 * Rather than repeating blocks of JSON many times in your template, you can specify more than one instance of a variable, property, or resource. For more information, see [Resource, property, or variable iteration in Azure Resource Manager templates](resource-group-create-multiple.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
