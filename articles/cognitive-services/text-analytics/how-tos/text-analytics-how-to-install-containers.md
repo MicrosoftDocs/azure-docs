@@ -68,6 +68,24 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 # [Key Phrase Extraction](#tab/keyphrase)
 
+[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
+
+# [Language Detection](#tab/language)
+
+[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
+
+# [Sentiment Analysis](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
+
+***
+
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
+### Docker pull for the Text Analytics containers
+
+# [Key Phrase Extraction](#tab/keyphrase)
+
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
 # [Language Detection](#tab/language)
@@ -79,8 +97,6 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
 ***
-
-[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## How to use the container
 
