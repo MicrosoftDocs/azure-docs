@@ -106,7 +106,7 @@ This rowset is now ready for import into Azure Search.
 
  ## Use a complex collection for the "many" side of a one-to-many relationship
 
-On the Azure Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section matches the index schema provided below.
+On the Azure Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section generally corresponds to the index schema provided below (we cut some fields for brevity).
 
 The following example is similar to the example in [How to model complex data types](search-howto-complex-data-types.md#creating-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it is composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
 
