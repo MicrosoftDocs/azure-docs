@@ -112,7 +112,7 @@
     - name: Get answer using metadata
       href: How-To/metadata-generateanswer-usage.md  
       displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
-    - name: Create bot enabled with knowledge base
+    - name: Create bot with QnA Maker and LUIS
       href: Tutorials/integrate-qnamaker-luis.md
     - name: Create a knowledge base in a different language
       href: How-To/language-knowledge-base.md

@@ -61,15 +61,15 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
     a. From the main menu, select **6** to run diagnostic tests.
 
-    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. From the Diagnostic Tests menu, select **A**. When prompted, enter the password that you provided for the local admin user.
 
-    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Verify that the output shows that overall health is a pass.
 
-    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 
