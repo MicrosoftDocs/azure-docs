@@ -80,7 +80,9 @@ If you are managing a Virtual Machine Scale Set, see the example template
 ### PowerShell
 
 The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode)
-cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
+cmdlet can be used to onboard virtual machines in Azure by using PowerShell.
+However, this is currently only implemented for machines running Windows (the cmdlet
+only triggers the Windows extension).
 
 ### Registering virtual machines across Azure subscriptions
 
