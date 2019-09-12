@@ -48,16 +48,16 @@ Get [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview), and [perform y
 
 ## Migration
 
-Depending on the [storage types](#ssis-has-four-storage-types-for-packages) of source SSIS packages and the migration destination of database workloads, the steps to migrate  **SSIS packages** and **SQL Server Agent jobs** that schedule SSIS package executions may vary. There are two scenarios:
+Depending on the [storage types](#four-storage-types-for-ssis-packages) of source SSIS packages and the migration destination of database workloads, the steps to migrate  **SSIS packages** and **SQL Server Agent jobs** that schedule SSIS package executions may vary. There are two scenarios:
 
-- [**Azure SQL Database managed instance** as database workload destination](#azure-sql-database-managed-instance-mi-as-database-workload-destination)
+- [**Azure SQL Database managed instance** as database workload destination](#azure-sql-database-managed-instance-as-database-workload-destination)
 - [**Azure SQL Database** as database workload destination](#azure-sql-database-as-database-workload-destination)
 
 ### **Azure SQL Database managed instance** as database workload destination
 
 | **Package storage type** |How to batch-migrate SSIS packages|How to batch-migrate SSIS jobs|
 |-|-|-|
-|SSISDB|[Migrate **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrate SSIS jobs to Azure SQL Database managed instance agent](scenario-ssis-migration-ssisdb-mi.md#redeploy-sql-server-agent-jobs-to-azure-sql-database-managed-instance)|
+|SSISDB|[Migrate **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrate SSIS jobs to Azure SQL Database managed instance agent](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-azure-sql-database-managed-instance-agent)|
 |File System|Redeploy them to file shares/Azure Files via dtinstall/dtutil/manual copy, or to keep in file systems to access via VNet/Self-Hosted IR. For more info, see [dtutil utility](https://docs.microsoft.com/en-us/sql/integration-services/dtutil-utility).|Convert them into ADF pipelines/activities/triggers via scripts/SSMS/ADF portal. For more info, see [SSMS scheduling feature](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Export them to file systems/file shares/Azure Files via SSMS/dtutil. For more info, see [Exporting SSIS packages](https://docs.microsoft.com/en-us/sql/integration-services/import-and-export-packages-ssis-service).|Convert them into ADF pipelines/activities/triggers via scripts/SSMS/ADF portal. For more info, see [SSMS scheduling feature](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Package Store|Export them to file systems/file shares/Azure Files via SSMS/dtutil or redeploy them to file shares/Azure Files via dtinstall/dtutil/manual copy or keep them in file systems to access via VNet/Self-Hosted IR. For more info, see dtutil utility. For more info, see [dtutil utility](https://docs.microsoft.com/en-us/sql/integration-services/dtutil-utility).|Convert them into ADF pipelines/activities/triggers via scripts/SSMS/ADF portal. For more info, see [SSMS scheduling feature](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
