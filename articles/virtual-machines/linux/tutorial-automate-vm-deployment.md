@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
 
@@ -112,7 +112,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--cust
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVM \
+    --name myAutomatedVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -182,7 +182,7 @@ vm_secret=$(az vm secret format --secret "$secret")
 ### Create cloud-init config to secure NGINX
 When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can use an updated cloud-init config from the previous example.
 
-Create a file named *cloud-init-secured.txt* and paste the following configuration. Again, if you use the Cloud Shell, create the cloud-init config file there and not on your local machine. Use `sensible-editor cloud-init-secured.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+Create a file named *cloud-init-secured.txt* and paste the following configuration. If you use the Cloud Shell, create the cloud-init config file there and not on your local machine. For example, type `sensible-editor cloud-init-secured.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
