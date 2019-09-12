@@ -216,7 +216,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* [Viasat](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits?toc=%2fazure%2fexpressroute%2ftoc.json)
+* [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## Connectivity through additional service providers
 
