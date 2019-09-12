@@ -29,7 +29,7 @@ You can link a normal cluster by using Apache Ambari managed username, also link
    
 3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
 
-   ![linked cluster](./media/apache-domain-joined-manage/linked-cluster.png "linked cluster")
+   ![linked cluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "linked cluster")
 
 4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
 
@@ -66,7 +66,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 2. Enter **Cluster Name**, **User Name** and **Password**, then click OK button to link cluster. Optionally, enter Storage Account, Storage Key and then select Storage Container for storage explorer to work in the left tree view
    
-   ![link cluster dialog eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![link cluster dialog eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
