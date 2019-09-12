@@ -55,6 +55,8 @@ If you want to set the resource group or the location where your data is stored,
 
 ![Screenshot of Register your app with Application Insights page](./media/asp-net/00005-register-ed.png)
 
+ Select **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > Confirm that you have the latest stable release of the Application Insights SDK.
+
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
 > If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/monitor-performance-live-website-now.md).

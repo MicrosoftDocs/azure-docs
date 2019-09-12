@@ -5,7 +5,7 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 07/16/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ---
 
@@ -59,7 +59,7 @@ Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/poo
 
 ## Pool compute node errors
 
-Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes that can't be used.
+Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes that can't be used. In addition to common node errors, knowing the current [job state](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) is useful for troubleshooting.
 
 ### Start task failures
 
@@ -113,7 +113,7 @@ The Batch agent process that runs on each pool node can provide log files that m
 
 ### Node disk full
 
-The temporary drive for a pool node VM is used by Batch for job files, task files, and shared files. 
+The temporary drive for a pool node VM is used by Batch for job files, task files, and shared files.
 
 - Application packages files
 - Task resource files

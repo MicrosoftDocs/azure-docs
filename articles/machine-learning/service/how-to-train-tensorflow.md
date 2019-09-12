@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 08/10/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
 
 # Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
@@ -212,6 +212,7 @@ Azure Machine Learning service supports two methods of distributed training in T
 To use Horovod, specify an [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) object for the `distributed_training` parameter in the TensorFlow constructor. This  parameter ensures that Horovod library is installed for you to use in your training script.
 
 ```Python
+from azureml.core.runconfig import MpiConfiguration
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor

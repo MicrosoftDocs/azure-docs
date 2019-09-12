@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Tutorial: Manage app groups for Windows Virtual Desktop Preview
@@ -19,7 +19,11 @@ In this tutorial, learn how to:
 > * Create a RemoteApp group.
 > * Grant access to RemoteApp programs.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## Create a RemoteApp group
 

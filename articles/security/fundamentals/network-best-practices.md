@@ -110,7 +110,7 @@ Azure network security appliances can deliver better security than what network-
 To find available Azure virtual network security appliances, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security.”
 
 ## Deploy perimeter networks for security zones
-A [perimeter network](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (also known as a DMZ) is a physical or logical network segment that provides an additional layer of security between your assets and the internet. Specialized network access control devices on the edge of a perimeter network allow only desired traffic into your virtual network.
+A [perimeter network](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (also known as a DMZ) is a physical or logical network segment that provides an additional layer of security between your assets and the internet. Specialized network access control devices on the edge of a perimeter network allow only desired traffic into your virtual network.
 
 Perimeter networks are useful because you can focus your network access control management, monitoring, logging, and reporting on the devices at the edge of your Azure virtual network. A perimeter network is where you typically enable distributed denial of service (DDoS) prevention, intrusion detection/intrusion prevention systems (IDS/IPS), firewall rules and policies, web filtering, network antimalware, and more. The network security devices sit between the internet and your Azure virtual network and have an interface on both networks.
 

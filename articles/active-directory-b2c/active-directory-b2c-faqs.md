@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Azure Active Directory B2C
-description: Frequently asked questions (FAQ) about Azure Active Directory B2C.
+title: Frequently asked questions (FAQ) for Azure Active Directory B2C
+description: Answers to frequently asked questions about Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -33,17 +33,15 @@ Azure AD B2C can't be used to authenticate users for Microsoft Office 365. Azure
 
 In an Azure AD tenant, users that belong to the tenant sign-in with an email address of the form `<xyz>@<tenant domain>`. The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
 
-In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, click **Identity providers** and then select **Username** under Local accounts.
+In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, select **Identity providers**, select **Local account**, and then select **Username**.
 
 User accounts for applications must always be created through a sign-up user flow, sign-up or sign-in user flow, or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 
-We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
+We currently support several social identity providers including Amazon, Facebook, GitHub (preview), Google, LinkedIn, Microsoft Account (MSA), QQ (preview), Twitter, WeChat (preview), and Weibo (preview). We evaluate adding support for other popular social identity providers based on customer demand.
 
-Azure AD B2C has also added support for [custom policies](active-directory-b2c-overview-custom.md). These custom policies allow a developer to create their own policy with any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML.
-
-Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C also supports [custom policies](active-directory-b2c-overview-custom.md). Custom policies allow you to create your own policy for any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML. Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 
@@ -122,9 +120,9 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview. We provide translations for 36 languages, and you can override any string to suit your needs.
 
-### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from login.microsoftonline.com to login.contoso.com?
+### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
-Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab in the Azure portal does not accomplish this goal.
+Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab in the Azure portal does not accomplish this goal. However, with b2clogin.com, we offer a [neutral top level domain](b2clogin.md), and thus the external appearance can be implemented without the mention of Microsoft.
 
 ### How do I delete my Azure AD B2C tenant?
 
@@ -141,7 +139,7 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Select **View all applications**
 1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
 1. Under **Manage**, select **User settings**.
-1. Under **LinkedIn account connections**, select **No**, then select **Save**.
+1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.

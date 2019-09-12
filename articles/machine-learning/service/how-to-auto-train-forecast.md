@@ -141,10 +141,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> For the cross-validation (CV) procedure, time-series data can violate the basic statistical assumptions of the canonical K-Fold cross-validation strategy, so
-> automated machine learning implements a rolling origin validation procedure to create cross-validation folds for time-series data. To use this procedure, specify the
-> `n_cross_validations` parameter in the `AutoMLConfig` object. You can bypass validation and use your own validation sets with the `X_valid` and `y_valid` parameters.
+See the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ### View feature engineering summary
 
@@ -205,4 +207,4 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 ## Next steps
 
 * Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
-* View the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) reference documentation.
+* View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.

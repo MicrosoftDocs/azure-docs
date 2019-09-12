@@ -22,7 +22,7 @@ You install a small instrumentation package in your application, and set up an A
 
 You can instrument not only the web service application, but also any background components, and the JavaScript in the web pages themselves. 
 
-![Application Insights instrumentation in your app sends telemetry to your Application Insights resource.](./media/app-insights-overview/01-scheme.png)
+![Application Insights instrumentation in your app sends telemetry to your Application Insights resource.](./media/app-insights-overview/diagram.png)
 
 In addition, you can pull in telemetry from the host environments such as performance counters, Azure diagnostics, or Docker logs. You can also set up web tests that periodically send synthetic requests to your web service.
 
@@ -133,12 +133,6 @@ Get started at development time with:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
-
-## Videos
-
-- External video: [configuring Application Insights with an ASP.NET application](https://www.youtube.com/watch?v=blnGAVgMAfA).
-- External video: [configuring Application Insights with ASP.NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- External video: [configuring Application Insights with ASP.NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

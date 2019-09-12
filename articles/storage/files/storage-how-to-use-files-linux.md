@@ -35,9 +35,11 @@ ms.subservice: files
 | Ubuntu Server | 14.04+ | 16.04+ |
 | RHEL | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
+| Debian | 8+ | 9+<sup>*</sup> |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+<sup>*</sup>Usage of a backported kernel might be required. You can install it with `sudo apt-get install linux-image-cloud-amd64`.
 
 If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
 

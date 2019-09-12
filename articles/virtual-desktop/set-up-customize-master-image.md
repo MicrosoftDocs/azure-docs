@@ -86,7 +86,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
 
 ### Configure Windows Defender
 
@@ -107,7 +107,7 @@ To configure remote session policies:
 1. Navigate to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
 2. In the panel on the right side, select the **Set time limit for active but idle Remote Desktop Services sessions** policy.
 3. After the modal window appears, change the policy option from **Not configured** to **Enabled** to activate the policy.
-4. In the drop-down menu beneath the policy option, set the amount of time to **4 hours**.
+4. In the drop-down menu beneath the policy option, set the amount of time to **3 hours**.
 
 You can also configure remote session policies manually by running the following commands:
 
@@ -117,7 +117,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fRese
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### Set up time zone redirection
@@ -222,5 +222,5 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
-- [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
+- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)

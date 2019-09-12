@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/30/2019	
+ms.date: 08/19/2019	
 ms.author: tomfitz
 ---
 | Resource | Default limit | Maximum limit |
@@ -11,7 +11,7 @@ ms.author: tomfitz
 | Deployments per resource group in the deployment history |800<sup>1</sup> |800 |
 | Resources per deployment |800 |800 |
 | Management locks per unique scope |20 |20 |
-| Number of tags per resource or resource group |15 |15 |
+| Number of tags per resource or resource group |50 |50 |
 | Tag key length |512 |512 |
 | Tag value length |256 |256 |
 

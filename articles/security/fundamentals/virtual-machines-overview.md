@@ -75,7 +75,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 
 Learn more:
 
-* [Get Started with WDATP](/windows/security/threat-protection/windows-defender-atp/get-started)  
+* [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
 * [Overview of WDATP capabilities](/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## Hardware security module

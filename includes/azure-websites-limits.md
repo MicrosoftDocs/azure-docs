@@ -10,7 +10,7 @@ ms.author: jroth
 | [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup>|
 | [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
-| [Scale out](../articles/app-service/web-sites-scale.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated<sup>3</sup>|100 dedicated<sup>4</sup>|
+| [Scale out](../articles/app-service/manage-scale-up.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated<sup>3</sup>|100 dedicated<sup>4</sup>|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | CPU time (5 minutes)<sup>6</sup> |3 minutes |3 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | CPU time (day)<sup>6</sup> |60 minutes |240 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |
@@ -25,7 +25,7 @@ ms.author: jroth
 | Integrated load balancer | |X |X |X |X |X<sup>9</sup> |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Scheduled backups](../articles/app-service/manage-backup.md) | | | | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) |
-| [Autoscale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
+| [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |

@@ -30,7 +30,7 @@ Packet capture requires the following connectivity:
 * Inbound and outbound connectivity to 169.254.169.254
 * Inbound and outbound connectivity to 168.63.129.16
 
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. 
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. Similarly, adding user-defined traffic routes to your network may prevent connectivity to the above mentioned IPs and ports. Please ensure they are reachable. 
 
 ## Start a packet capture
 

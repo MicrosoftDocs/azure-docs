@@ -27,7 +27,7 @@ Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This 
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL data warehouse. To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
+* An existing SQL Data Warehouse. To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have this. For installation instructions and options, see [Installing Visual Studio and SSDT][Installing Visual Studio and SSDT].
 * The fully qualified SQL server name. To find this, see [Connect to SQL Data Warehouse][Connect to SQL Data Warehouse].
 

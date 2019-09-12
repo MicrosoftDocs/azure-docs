@@ -5,7 +5,7 @@
  author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
- ms.date: 08/12/2019
+ ms.date: 08/16/2019
  ms.author: alinast
  ms.custom: include file
 ---
@@ -36,7 +36,7 @@
 
    e. Select **Done** in the **Add API access** pane.
 
-   f. In the **Required permissions** pane, select the **Grant permissions** button, and accept the acknowledgement that appears. If the permission is not granted for this API, contact your administrator.
+   f. In the **Required permissions** pane, select the **Grant permissions** button, and accept the acknowledgment that appears. If the permission is not granted for this API, contact your administrator.
 
       ![Required permissions pane](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 

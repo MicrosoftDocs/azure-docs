@@ -144,7 +144,7 @@ featureFlags:
                                                             .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt="">
                                                             Python</a>
                                                     </li>
@@ -377,7 +377,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/welcome">
-                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
@@ -857,6 +857,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                <p>Cognitive Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -1154,6 +1160,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-pnp/">
+                                                <img src="media/index/cloud-check.svg" alt="" />
+                                                <p>IoT Plug and Play</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT solution accelerators</p>
@@ -1388,6 +1400,12 @@ featureFlags:
                                             <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>Billing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1881,12 +1899,6 @@ featureFlags:
                                             <a href="/azure/azure-signalr/">
                                                 <img src="media/index/azure-signalr.svg" alt="" />
                                                 <p>Azure SignalR Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/lighthouse/">
-                                                <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2756,6 +2768,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3001,6 +3032,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Easily run containers with a single command</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3950,6 +4000,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-pnp/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-check.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Plug and Play</h3>
+                                                    <p>Connect devices to your IoT solution without writing any device code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -4689,6 +4758,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Billing</h3>
                                                     <p>Learn how to read/understand the usage and bill for your Azure subscription</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>Manage customer resources at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5858,25 +5946,6 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/lighthouse/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Lighthouse</h3>
-                                                    <p>Manage customer resources at scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -6295,10 +6364,10 @@ featureFlags:
                                                     Azure for Python Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/python/azure">Get started</a>
+                                                    <a href="/azure/python">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API reference</a>
+                                                    <a href="/python/api/?view=azure-python">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6319,7 +6388,7 @@ featureFlags:
                                                     Azure for Node.js Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Get started</a>
+                                                    <a href="/azure/javascript/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API reference</a>

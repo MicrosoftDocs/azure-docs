@@ -1,11 +1,11 @@
 ---
 title: Apache Phoenix connectivity issues in Azure HDInsight
-description: Apache Phoenix connectivity issues in Azure HDInsight
+description: Connectivity issues between Apache HBase and Apache Phoenix in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
+ms.date: 08/14/2019
 ---
 
 # Scenario: Apache Phoenix connectivity issues in Azure HDInsight
@@ -18,11 +18,11 @@ Unable to connect to Apache HBase with Apache Phoenix. Reasons may vary.
 
 ## Cause: Incorrect IP
 
-Incorrect IP of active zookeeper node.
+Incorrect IP of active Zookeeper node.
 
 ### Resolution
 
-The IP of active zookeeper node can be identified from Ambari UI, by following the links to **HBase -> Quick Links -> ZK*** **(Active) -> Zookeeper Info**. Correct as needed.
+The IP of the active Zookeeper node can be identified from the Ambari UI by following the links to **HBase** > **Quick Links** > **ZK (Active)** > **Zookeeper Info**. Correct the IP as needed.
 
 ---
 
@@ -30,27 +30,27 @@ The IP of active zookeeper node can be identified from Ambari UI, by following t
 
 When running commands such as `!tables`, you receive an error message similar to:
 
-```
+```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
 When running commands such as `count 'SYSTEM.CATALOG'`, you receive an error message similar to:
 
-```
+```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
 ```
 
 ### Resolution
 
-Restart the HMaster service on all the zookeeper nodes from Ambari UI.
+From the Apache Ambari UI, complete the following steps to restart the HMaster service on all ZooKeeper nodes:
 
-1. Go to **HBase -> Active HBase Master** link in summary section of HBase.
+1. From the **Summary** section of HBase, go to **HBase** > **Active HBase Master**.
 
-1. In **Components** section, restart the HBase Master service.
+1. From the **Components** section, restart the HBase Master service.
 
-1. Repeat the above steps for remaining **Standby HBase Master** services.
+1. Repeat these steps for all remaining **Standby HBase Master** services.
 
-It can take up-to 5 minutes for HBase Master service to stabilize and finish the recovery. Once the `SYSTEM.CATALOG` table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
+It can take up to five minutes for the HBase Master service to stabilize and finish the recovery. After the `SYSTEM.CATALOG` table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
 
 ## Next steps
 

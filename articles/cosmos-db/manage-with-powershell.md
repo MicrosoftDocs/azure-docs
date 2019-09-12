@@ -41,7 +41,7 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 
 ### <a id="create-account"></a> Create an Azure Cosmos account
 
-This command creates an Azure Cosmos DB database account with [multiple-regions][distribute-data-globally], bounded-staleness [consistency policy](consistency-levels.md).
+This command creates an Azure Cosmos database account with [multiple-regions][distribute-data-globally], bounded-staleness [consistency policy](consistency-levels.md).
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -107,7 +107,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a> Update an Azure Cosmos account
 
-This command allows you to update your Azure Cosmos DB database account properties. Properties that can be updated include the following:
+This command allows you to update your Azure Cosmos database account properties. Properties that can be updated include the following:
 
 * Adding or removing regions
 * Changing default consistency policy
@@ -242,6 +242,7 @@ For the example below, assume the account has a current failover priority of `We
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"

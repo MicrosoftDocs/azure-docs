@@ -5,7 +5,7 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
 ---
 
@@ -128,13 +128,13 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Select the **Network Manager** icon (up-arrow/down-arrow), then select **Edit Connections**.
+2. Select **Settings** , then select **Network**.
 
    ![edit connections](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Click the **Add** button to create a new connection.
+3. Click the **+** button to create a new connection.
 
    ![add a connection](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Select **IPsec/IKEv2 (strongswan)** from the drop-down menu, and then click **Create**. You can rename your connection in this step.
+4. Select **IPsec/IKEv2 (strongSwan)** from the  menu, and double-click. You can name your connection in this step.
 
    ![choose a connection type](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Open the **VpnSettings.xml** file from the **Generic** folder contained in the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with 'azuregateway' and ending with '.cloudapp.net'.
@@ -143,8 +143,8 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
 6. Paste this name into the **Address** field of your new VPN connection in the **Gateway** section. Next, select the folder icon at the end of the **Certificate** field, browse to the **Generic** folder, and select the **VpnServerRoot** file.
 7. In the **Client** section of the connection, for **Authentication**, select **Certificate/private key**. For **Certificate** and **Private key**, choose the certificate and the private key that were created earlier. In **Options**, select **Request an inner IP address**. Then, click **Add**.
 
-   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Click the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. Click to initiate the connection.
+   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Turn the connection **On**.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 

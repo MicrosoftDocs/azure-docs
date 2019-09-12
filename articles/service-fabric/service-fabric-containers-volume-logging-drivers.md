@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Azure Files Volume Driver (Preview) | Microsoft Docs
+title: Service Fabric Azure Files Volume Driver (GA) | Microsoft Docs
 description: Service Fabric supports using Azure Files to backup volumes from your container. This is currently in preview.
 services: service-fabric
 author: athinanthny
@@ -12,10 +12,12 @@ ms.author: atsenthi
 ---
 
 # Service Fabric Azure Files Volume Driver
-The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers. This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
+The Azure Files volume plugin, a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers is now **GA (Generally Available)**.
+
+This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
 
 > [!NOTE]
-> Version 6.5.516.9494 of the Azure Files volume plugin is a preview release that is available with this document. As a preview release, it is **not** supported for use in production environments.
+> Version 6.5.661.9590 of the Azure Files volume plugin is a GA(Generally available) release. 
 >
 
 ## Prerequisites
@@ -114,11 +116,11 @@ The Service Fabric application that provides the volumes for your containers can
 4. Create the application, paying close attention to the **ListenPort** application parameter value. This value is the port on which the Azure Files volume plugin listens for requests from the Docker daemon. Ensure that the port provided to the application matches the VolumePluginPorts in the ClusterManifest and does not conflict with any other port that the cluster or your applications uses.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590   -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -131,11 +133,11 @@ Follow steps 1-3 from the [above.](/azure/service-fabric/service-fabric-containe
  The default service instance count for the Azure Files volume plugin application is -1, which means that there is an instance of the service deployed to each node in the cluster. However, when deploying the Azure Files volume plugin application on a local development cluster, the service instance count should be specified as 1. This can be done via the **InstanceCount** application parameter. Therefore, the command for creating the Azure Files volume plugin application on a local development cluster is:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 
 ## Configure your applications to use the volume

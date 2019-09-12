@@ -11,7 +11,7 @@ keywords: ''
 
 ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

@@ -21,7 +21,9 @@ To launch Azure Cloud Shell:
 To run the code in this article in Azure Cloud Shell:
 
 1. Launch Cloud Shell.
-1. Select the **Copy** button on a code block to copy the code. 
-1. Paste the code into the Cloud Shell session with **Ctrl**+**Shift**+**V** on Windows and Linux, or **Cmd**+**Shift**+**V** on macOS. 
-1. Press **Enter** to run the code.
 
+1. Select the **Copy** button on a code block to copy the code.
+
+1. Paste the code into the Cloud Shell session with **Ctrl**+**Shift**+**V** on Windows and Linux, or **Cmd**+**Shift**+**V** on macOS.
+
+1. Press **Enter** to run the code.

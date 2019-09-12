@@ -2,14 +2,12 @@
 title: Service limits for tiers and skus - Azure Search
 description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Service limits in Azure Search
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
@@ -120,6 +118,15 @@ Maximum running times exist to provide balance and stability to the service as a
 <sup>4</sup> Maximum of 30 skills per skillset.
 
 <sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
+
+## Synonym limits
+
+The maximum number of synonym maps allowed varies by pricing tier. Each rule can have up to 20 expansions, where an expansion is an equivalvent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
+
+| Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
+| Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## Queries per second (QPS)
 

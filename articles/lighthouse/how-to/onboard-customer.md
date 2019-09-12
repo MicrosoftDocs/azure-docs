@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure delegated resource managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -15,7 +15,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
 
-You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements and receive recognition. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Note that you'll need to perform this association separately for each customer tenant in which you're managing resources. 
 
 > [!NOTE]
 > Customers can be onboarded automatically when they purchase a managed services offer (public or private) that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here with an offer published to Azure Marketplace.
@@ -56,63 +56,8 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-
-## Ensure the customer's subscription is registered for onboarding
-
-Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. The customer can register a subscription by following the steps outlined in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
-
-The customer can confirm that the subscription is ready for onboarding in one of the following ways.
-
-### Azure portal
-
-1. In the Azure portal, select the subscription.
-1. Select **Resource providers**.
-1. Confirm that **Microsoft.ManagedServices** shows as **Registered**.
-
-### PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-This should return results similar to the following:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-This should return results similar to the following:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> When onboarding a subscription (or one or more resource groups within a subscription) using the process described here, the **Microsoft.ManagedServices** resource provider will be registered for that subscription.
 
 ## Define roles and permissions
 
@@ -124,8 +69,6 @@ To make management easier, we recommend using Azure AD user groups for each role
 > Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner and any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. The User Access Administrator built-in role is supported for limited use as described below. Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are also not supported.
 
 In order to define authorizations, you'll need to know the ID values for each user, user group, or service principal to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them in one of the following ways.
-
-
 
 ### PowerShell
 

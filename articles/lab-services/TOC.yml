@@ -72,7 +72,7 @@
   items:
   - name: Classroom labs
     items: 
-    - name: Create and configure lab accounts
+    - name: Create and configure lab accounts (lab account owner)
       items:
       - name: Create and manage lab accounts
         href: classroom-labs/how-to-manage-lab-accounts.md
@@ -82,7 +82,7 @@
         href: classroom-labs/how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
         href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-    - name: Create, configure, and use classroom labs
+    - name: Create and configure classroom labs (instructor)
       items:        
       - name: Create and manage classroom labs
         href: classroom-labs/how-to-manage-classroom-labs.md
@@ -90,8 +90,6 @@
         href: classroom-labs/how-to-create-manage-template.md
       - name: Configure and control usage
         href: classroom-labs/how-to-configure-student-usage.md      
-      - name: Access classroom labs
-        href: classroom-labs/how-to-use-classroom-lab.md
       - name: Create and manage schedules
         href: classroom-labs/how-to-create-schedules.md
       - name: Create an environment with multiple VMs inside a template VM
@@ -102,6 +100,14 @@
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
       - name: Set or reset passwords for virtual machines 
         href: classroom-labs/how-to-set-virtual-machine-passwords.md
+    - name: Connect to VMs in classroom labs (student)
+      items:        
+      - name: Access classroom labs
+        href: classroom-labs/how-to-use-classroom-lab.md
+      - name: Use remote desktop connection for Linux VMs
+        href: classroom-labs/how-to-use-remote-desktop-linux-student.md                
+      - name: Set or reset passwords for virtual machines 
+        href: classroom-labs/how-to-set-virtual-machine-passwords-student.md        
   - name: DevTest Labs
     items:
     - name: Configure a lab
@@ -120,6 +126,8 @@
         href: configure-lab-remote-desktop-gateway.md
       - name: Post announcement in a lab
         href: devtest-lab-announcements.md
+      - name: Enable browser connection on VMs
+        href: enable-browser-connection-lab-virtual-machines.md        
       - name: Configure cost management
         href: devtest-lab-configure-cost-management.md
       - name: Send autoshutdown notifications
@@ -166,6 +174,8 @@
         href: devtest-lab-use-resource-manager-template.md
       - name: Create a VM using an image from shared image gallery
         href: add-vm-use-shared-image.md
+      - name: Connect to your VM through a browser
+        href: connect-virtual-machine-through-browser.md           
       - name: Start or stop a VM using PowerShell or CLI
         href: use-command-line-start-stop-virtual-machines.md
       - name: Restart a VM
@@ -253,6 +263,10 @@
         href: integrate-environments-devops-pipeline.md
       - name: Use DevTest Labs in Azure Pipelines build and release pipelines
         href: use-devtest-labs-build-release-pipelines.md
+    - name: Extend DevTest Labs
+      items:
+      - name: Use Azure Functions to extend DevTest Labs
+        href: extend-devtest-labs-azure-functions.md
     - name: Report usage of labs
       href: report-usage-across-multiple-labs-subscriptions.md        
     - name: DevTest Labs in the enterprise

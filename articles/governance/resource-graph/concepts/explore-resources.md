@@ -1,21 +1,18 @@
 ---
 title: Explore your Azure resources
-description: Learn to use the Resource Graph query language to explore your resources and discover how they are connected.
+description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/23/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Explore your Azure resources with Resource Graph
 
 Azure Resource Graph provides the ability to explore and discover your Azure resources quickly and
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
 about the properties that make up your Azure resources.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Explore virtual machines
 
@@ -275,21 +272,29 @@ The JSON results are structured similar to the following example:
 
 ## Explore virtual machines to find public IP addresses
 
-This Azure CLI set of queries first finds and stores all the network interfaces (NIC) resources
-connected to virtual machines. Then it uses the list of NICs to find each IP address resource that
-is a public IP address and store those values. Finally, it provides a list of the public IP
+This set of queries first finds and stores all the network interfaces (NIC) resources connected to
+virtual machines. Then the queries use the list of NICs to find each IP address resource that is a
+public IP address and store those values. Finally, the queries provide a list of the public IP
 addresses.
 
 ```azurecli-interactive
-# Use Resource Graph to get all NICs and store in the 'nic' variable
+# Use Resource Graph to get all NICs and store in the 'nics.txt' file
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
 
 # Review the output of the query stored in 'nics.txt'
 cat nics.txt
 ```
 
-Use the `nics.txt` file in the next query to get the related network interface resources details
-where there's a public IP address attached to the NIC.
+```azurepowershell-interactive
+# Use Resource Graph to get all NICs and store in the $nics variable
+$nics = Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+
+# Review the output of the query stored in the variable
+$nics.nic
+```
+
+Use the file (Azure CLI) or variable (Azure PowerShell) in the next query to get the related network
+interface resources details where there's a public IP address attached to the NIC.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -299,12 +304,25 @@ az graph query -q="where type =~ 'Microsoft.Network/networkInterfaces' | where i
 cat ips.txt
 ```
 
-Last, use the list of public IP address resources stored in `ips.txt` to get the actual public IP
-address from them and display.
+```azurepowershell-interactive
+# Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
+$ips = Search-AzGraph -Query "where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+
+# Review the output of the query stored in the variable
+$ips.publicIp
+```
+
+Last, use the list of public IP address resources stored in the file (Azure CLI) or variable (Azure
+PowerShell) to get the actual public IP address from the related object and display.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
 az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
+```
+
+```azurepowershell-interactive
+# Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
+Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
 ## Next steps

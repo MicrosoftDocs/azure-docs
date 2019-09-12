@@ -3,7 +3,7 @@ title: How to configure the change feed processor start time - Azure Cosmos DB
 description: Learn how to configure the change feed processor to start reading from a specific date and time
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
 ---
@@ -41,13 +41,12 @@ The change feed processor will be initialized and start reading changes from the
 ## Additional resources
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## Next steps
 
-You can now proceed to learn more about change feed in the following articles:
+You can now proceed to learn more about change feed processor in the following articles:
 
-* [Overview of change feed](change-feed.md)
-* [Ways to read change feed](read-change-feed.md)
-* [Using change feed processor](change-feed-processor.md)
+* [Overview of change feed processor](change-feed-processor.md)
+* [Using the change feed estimator](how-to-use-change-feed-estimator.md)

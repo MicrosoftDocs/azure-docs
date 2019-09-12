@@ -173,7 +173,7 @@ Currently for Azure Government customers, the only way to enable Application Ins
     `Variable name: AzureGraphApiVersion`
     `Variable value: 2014-04-01`
 
-3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-core) depending on your project type.
+3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](#aspnet-core) depending on your project type.
 
 ### Snapshot Debugger
 
@@ -208,7 +208,7 @@ In order to send data from Application Insights to the Azure Government region, 
 </ApplicationInsights>
 ```
 
-### .NET Core
+### ASP.NET Core
 
 Modify the appsettings.json file in your project as follows to adjust the main endpoint:
 
@@ -224,16 +224,70 @@ Modify the appsettings.json file in your project as follows to adjust the main e
 The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values for all endpoint values via code, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel; //place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.us/QuickPulseService.svc");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" }); 
+   services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" });
 
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
+   services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
 
     //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+```
+
+### Azure Functions
+
+Please install following packages into your Function project:
+
+- Microsoft.ApplicationInsights version 2.10.0
+- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
+- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
+
+And also add (or modify) the startup code for your Function application:
+
+```csharp
+[assembly: FunctionsStartup(typeof(Example.Startup))]
+namespace Example
+{
+  class Startup : FunctionsStartup
+  {
+      public override void Configure(IFunctionsHostBuilder builder)
+      {
+          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
+                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
+          if (quickPulseFactory != null)
+          {
+              builder.Services.Remove(quickPulseFactory);
+          }
+
+          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
+          if (appIdFactory != null)
+          {
+              builder.Services.Remove(appIdFactory);
+          }
+
+          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
+          if (channelFactory != null)
+          {
+              builder.Services.Remove(channelFactory);
+          }
+
+          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
+              new QuickPulseTelemetryModule
+              {
+                  QuickPulseServiceEndpoint = "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
+              });
+
+          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" });
+
+          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
+      }
+  }
+}
 ```
 
 ### Java

@@ -366,6 +366,12 @@ When you select the AWS tile in the Access Panel, you should be automatically si
    Multiple AWS tenants (represented by `servicePrincipals`) can be added to Azure AD from the gallery for provisioning. There's a known issue, however, with not being able to automatically write all of the imported roles from the multiple AWS `servicePrincipals` used for provisioning into the single `servicePrincipal` used for SSO. 
    
    As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where SSO is configured.
+ 
+* Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
+
+  * Roles must have exactly one saml-provider defined in AWS
+
+  * The combined length of the role ARN and the saml-provider ARN for a role being imported must be 119 characters or less
 
 ## Additional resources
 

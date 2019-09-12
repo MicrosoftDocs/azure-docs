@@ -10,7 +10,6 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm

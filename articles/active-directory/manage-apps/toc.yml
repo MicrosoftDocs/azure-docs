@@ -1,4 +1,4 @@
-  - name: Application Management Documentation
+  - name: Application management documentation
     href: index.yml
   - name: Overview
     expanded: true
@@ -29,6 +29,8 @@
         items:
         - name: Get started with app integration
           href: plan-an-application-integration.md
+        - name: Plan an access panel deployment
+          href: access-panel-deployment-plan.md
         - name: Guidance for developers
           href: developer-guidance-for-integrating-applications.md
       - name: Single sign-on
@@ -226,10 +228,14 @@
           href: Customize-application-attributes.md
         - name: Scoping filters
           href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Skip deletion for out-of-scope users
+          href: skip-out-of-scope-deletions.md
         - name: Check provisioning status
           href: application-provisioning-when-will-provisioning-finish-specific-user.md
         - name: Report on automatic user provisioning
           href: check-status-user-account-provisioning.md
+        - name: Exporting and importing your configuration
+          href: export-import-provisioning-configuration.md  
       - name: Troubleshoot user provisioning
         items:
         - name: Troubleshoot user provisioning
@@ -340,6 +346,10 @@
       items:
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
+    - name: Azure AD Connect Provisioning Agent
+      items:
+       - name: Provisioning Agent version history
+         href: provisioning-agent-release-version-history.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy version history

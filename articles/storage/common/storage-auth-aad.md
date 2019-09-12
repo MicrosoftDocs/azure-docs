@@ -50,7 +50,7 @@ For more information about how built-in roles are defined for Azure Storage, see
 
 ### Access permissions for data operations
 
-For details on the permissions required to call specific Blob or Queue service operations, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+For details on the permissions required to call specific Blob or Queue service operations, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 ## Resource scope
 
@@ -81,5 +81,5 @@ Azure Files supports authorization with Azure AD over SMB for domain-joined VMs 
 ## Next steps
 
 - [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
-- [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
+- [Authorize with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
 - [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

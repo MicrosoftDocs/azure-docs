@@ -24,7 +24,7 @@
   - name: Create Ruby app
     href: quickstart-ruby.md
   - name: Run custom container
-    href: quickstart-docker-go.md
+    href: quickstart-docker.md
   - name: Create multi-container app
     href: quickstart-multi-container.md
 - name: Tutorials
@@ -150,7 +150,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Scale out to multiple instances
       href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: High density hosting

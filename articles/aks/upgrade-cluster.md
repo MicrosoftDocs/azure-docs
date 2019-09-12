@@ -36,22 +36,22 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 >
 > To upgrade, from *1.12.x* -> *1.14.x*, first upgrade from *1.12.x* -> *1.13.x*, then upgrade from *1.13.x* -> *1.14.x*.
 
-The following example output shows that the cluster can be upgraded to version *1.13.9*:
+The following example output shows that the cluster can be upgraded to versions *1.13.9* and *1.13.10*:
 
 ```console
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.12.8           1.12.8             1.13.9
+Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
+-------  ----------------  ---------------  -----------------  ---------------
+default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
 
 ## Upgrade an AKS cluster
 
 With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. When the new node is confirmed as running application pods, the old node is deleted. This process repeats until all nodes in the cluster have been upgraded.
 
-The following example upgrades a cluster to version *1.13.9*:
+The following example upgrades a cluster to version *1.13.10*:
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.9
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
@@ -62,12 +62,12 @@ To confirm that the upgrade was successful, use the [az aks show][az-aks-show] c
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows that the cluster now runs *1.13.9*:
+The following example output shows that the cluster now runs *1.13.10*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.13.9               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps
