@@ -60,8 +60,6 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
-  - name: App Service managed identity and Key Vault
-    href: managed-identity.md
   - name: Security
     items: 
       - name: Security overview
@@ -94,6 +92,8 @@
       href: create-certificate-scenarios.md
 - name: How-to guides
   items:
+  - name: Use an App Service managed identity
+    href: managed-identity.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls
