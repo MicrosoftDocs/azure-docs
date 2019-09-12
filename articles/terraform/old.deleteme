@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Terraform on Azure documentation
+metadata:
+  title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
+  description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  services: terraform
+  ms.service: azure
+  keywords: terraform, azure, devops, tutorials, samples, reference
+  author: tomarchermsft
+  manager: jeconnoc
+  ms.author: tarcher
+  ms.topic: landing-page
+  ms.date: 08/31/2018
+abstract:
+  description: Use Terraform to reliably version and create infrastructure on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our Quickstarts and tutorials.
+sections:
+- title: Quickstarts
+  items:
+  - type: paragraph
+    text: Configure Terraform and use it to create a Linux VM in Azure.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
+      text: Install and configure Terraform
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
+    - image: 
+        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
+      text: Create a Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create Azure compute and networking infrastructure from code with Terraform.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Create a Kubernetes cluster with AKS</a>.
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Create a Kubernetes cluster with Application Gateway as ingress controller with AKS</a>.
+    - html: <a href="/azure/terraform/terraform-vm-msi">Create a Terraform VM with MSI authentication enabled using an Azure Marketplace image</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Create a load balanced VM cluster using Azure Terraform modules</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Create a load balanced VM cluster in the Azure Cloud Shell</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure a VM scale set with networking and storage</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provision VM scale set from a Packer custom image</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Sample configuration templates for common deployment tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Azure Terraform modules
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM for Database</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM for Load Balancer</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM Compute Group</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM Network</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM Compute</a></p>
