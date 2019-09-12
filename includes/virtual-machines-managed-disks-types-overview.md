@@ -66,4 +66,4 @@ For now, ultra disks have additional limitations, they are as follows:
 - Can only be created as empty disks  
 - Do not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption
 - Do not yet support integration with Azure Backup or Azure Site Recovery
-- The current maximum VM limit for IOPS is 80,000. Some preview VM sizes offer an 160,000 IOPS limit.
+- The current maximum limit for IOPS on GA VMs is 80,000.
