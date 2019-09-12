@@ -17,7 +17,7 @@ ms.date: 09/12/2019
 
 This tutorial shows how to build a [logic app](../logic-apps/logic-apps-overview.md) and automate a recurring workflow that runs on a schedule. Specifically, this example logic app runs every weekday morning and checks the travel time, including traffic, between two places. If the time exceeds a specific limit, the logic app sends email with the travel time and the extra time necessary for your destination.
 
-In this tutorial, you learn how to 
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a blank logic app.
