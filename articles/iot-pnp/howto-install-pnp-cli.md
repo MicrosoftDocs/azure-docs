@@ -99,6 +99,22 @@ Set the value of a read-write property:
 az iot dt update-property --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface-payload {JSONPayload or FilePath}
 ```
 
+An example payload file to set the **name** property on the **sensor** interface of a device to **Contoso** looks like the following:
+
+```json
+{
+  "sensor": {
+    "properties": {
+      "name": {
+        "desired": {
+          "value": "Contoso"
+        }
+      }
+    }
+  }
+}
+```
+
 #### Commands
 
 List all commands for an interface on a device:
