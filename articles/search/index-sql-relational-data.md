@@ -108,7 +108,7 @@ This rowset is now ready for import into Azure Search.
 
 On the Azure Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section matches the index schema provided below.
 
-The following example is from [How to model complex data types](search-howto-complex-data-types.md#creating-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it is composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
+The following example is similar to the example in [How to model complex data types](search-howto-complex-data-types.md#creating-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it is composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
 
 ```json
 {
@@ -117,6 +117,9 @@ The following example is from [How to model complex data types](search-howto-com
     { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true },
     { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
     { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+    { "name": "Description_fr", "type": "Edm.String", "searchable": true, "analyzer": "fr.lucene" },
+    { "name": "Category", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": true, "facetable": true },
     { "name": "Address", "type": "Edm.ComplexType",
       "fields": [
         { "name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
@@ -127,8 +130,13 @@ The following example is from [How to model complex data types](search-howto-com
     { "name": "Rooms", "type": "Collection(Edm.ComplexType)",
       "fields": [
         { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+        { "name": "Description_fr", "type": "Edm.String", "searchable": true, "analyzer": "fr.lucene" },
         { "name": "Type", "type": "Edm.String", "searchable": true },
-        { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true }
+        { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true },
+        { "name": "BedOptions", "type": "Edm.String", "searchable": true, "filterable": true, "facetable": true },
+        { "name": "SleepsCount", "type": "Edm.Int32", "filterable": true, "facetable": true },
+        { "name": "SmokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true },
+        { "name": "Tags", "type": "Edm.Collection", "searchable": true }
       ]
     }
   ]
