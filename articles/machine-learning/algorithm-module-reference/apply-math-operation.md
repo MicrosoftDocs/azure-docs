@@ -584,18 +584,6 @@ Alternatively, use one of the following modules to do all the calculations at on
 + [Execute Python Script](execute-python-script.md)
 + [Apply SQL Transformation](apply-sql-transformation.md)   
   
-## Expected inputs  
-  
-|Name|Type|Description|  
-|----------|----------|-----------------|  
-|Dataset|[Data Table](data-table.md)|Input dataset|  
-  
-## Outputs  
-  
-|Name|Type|Description|  
-|----------|----------|-----------------|  
-|Results dataset|[Data Table](data-table.md)|Results dataset|  
-  
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

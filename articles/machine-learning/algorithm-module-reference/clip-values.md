@@ -114,42 +114,6 @@ Now try the same experiment using 60 as the upper percentile threshold and 30 as
 |-------------------|--------------------------|----------------------------|  
 |1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSE<br /><br /> 4, FALSE<br /><br /> 5, FALSE<br /><br /> 6, FALSE<br /><br /> 7, FALSE<br /><br /> 8, FALSE<br /><br /> 9, FALSE<br /><br /> TRUE|4, TRUE<br /><br /> 4, TRUE<br /><br /> 4, TRUE<br /><br /> 4, TRUE<br /><br /> 5, FALSE<br /><br /> 6, FALSE<br /><br /> 7, TRUE<br /><br /> 7, TRUE<br /><br /> 7, TRUE<br /><br /> 7, TRUE| 
  
-## Expected inputs  
-
-|Name|Type|Description|  
-|----------|----------|-----------------|  
-|Dataset|[Data Table](data-table.md)|Input dataset|  
-  
-## Module parameters  
-
-|Name|Range|Type|Default|Description|  
-|----------|-----------|----------|-------------|-----------------|  
-|Add indicator columns|TRUE/FALSE|Boolean|FALSE|Whether to add indicator for clipping of a value is done|  
-|Constant value for lower threshold|any|Float|-1|Value below which the subpeaks will be clipped|  
-|Constant value for upper threshold|any|Float|1|Value above which the peaks will be clipped|  
-|Constant value of lower threshold|any|Float|-1|Value below which the subpeaks are clipped|  
-|Constant value of upper threshold|>=1|Float|1|Value above which the peaks are clipped|  
-|List of columns||ColumnSelection||List of columns to clip|  
-|Lower substitute value|Threshold<br /><br /> Mean<br /><br /> Median<br /><br /> Missing|SubstituteValues|Threshold|The value used for clipping subpeaks|  
-|Lower threshold|Constant<br /><br /> Percentile|Threshold Mode|Constant|Value below which the subpeaks will be clipped mode|  
-|Overwrite flag|TRUE/FALSE|Boolean|TRUE|Whether clipped data column(s) must overwrite input data column(s)|  
-|Percentile number for lower threshold|[1;99]|Integer|1|Percentile number below which the subpeaks will be clipped|  
-|Percentile number for upper threshold|[1;99]|Integer|99|Percentile number above which the peaks will be clipped|  
-|Percentile number of lower threshold|[1;99]|Integer|1|Percentile number below which the subpeaks are clipped|  
-|Percentile number of upper threshold|[1;99]|Integer|99|Percentile number above which the peaks are clipped|  
-|Set of thresholds|ClipPeaks<br /><br /> ClipSubPeaks<br /><br /> ClipPeaksAndSubPeaks|Threshold Set|ClipPeaks|Specifies type of threshold to use|  
-|Substitute value for peaks|Threshold<br /><br /> Mean<br /><br /> Median<br /><br /> Missing|SubstituteValues|Threshold|The value used during clipping peaks|  
-|Substitute value for subpeaks|Threshold<br /><br /> Mean<br /><br /> Median<br /><br /> Missing|SubstituteValues|Threshold|The value used during clipping subpeaks|  
-|Threshold|Constant<br /><br /> Percentile|Threshold Mode|Constant|Value above and below which the peaks will be clipped mode|  
-|Upper substitute value|Threshold<br /><br /> Mean<br /><br /> Median<br /><br /> Missing|Threshold|Threshold|The value used for clipping peaks|  
-|Upper threshold|Constant<br /><br /> Percentile|Threshold Mode|Constant|Value above which the peaks will be clipped mode|  
-  
-## Outputs  
-
-|Name|Type|Description|  
-|----------|----------|-----------------|  
-|Results dataset|[Data Table](data-table.md)|Dataset with clipped columns|  
-
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

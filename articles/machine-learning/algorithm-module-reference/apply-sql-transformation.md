@@ -194,19 +194,7 @@ The `CASE` statement is useful for testing values and returning a new value base
   
 -   CASE [expression] WHEN [value] THEN [expression] ELSE [expression] END
 
-For example, suppose you had previously used the [Convert to Indicator Values](convert-to-indicator-values.md) module to create a set feature columns containing true-false values. The following query collapses the values in multiple feature columns into a single multivalued column.
-
-```sql  
-SELECT userID, [smoker-0], [smoker-1],  
-CASE  
-WHEN [smoker-0]= '1' THEN 'smoker'   
-WHEN [smoker-1]= '1' THEN 'nonsmoker'   
-ELSE 'unknown'  
-END AS newLabel  
-FROM t1;  
-```
-
-##  <a name="bkmk_Notes"></a> Technical notes  
+##  Technical notes  
 
 This section contains implementation details, tips, and answers to frequently asked questions.
 
@@ -228,27 +216,7 @@ Although SQLite supports much of the ANSI SQL standard, it does not include many
   
 
 In addition to the list of non-supported functions provided on the official SQLite site, the following wiki provides a list of other unsupported features: [SQLite - Unsupported SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  
-  
-## Expected inputs  
-
-|Name|Type|Description|  
-|----------|----------|-----------------|  
-|Table1|[Data Table](data-table.md)|Input dataset1|  
-|*Table2*|[Data Table](data-table.md)|Input dataset2|  
-|*Table3*|[Data Table](data-table.md)|Input dataset3|  
-  
-## Module parameters  
-
-|Name|Range|Type|Default|Description|  
-|----------|-----------|----------|-------------|-----------------|  
-|SQL Query Script|any|StreamReader||SQL query statement|  
-  
-## Outputs
-  
-|Name|Type|Description|  
-|----------|----------|-----------------|  
-|Results dataset|[Data Table](data-table.md)|Output dataset|  
-  
+    
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
