@@ -1447,6 +1447,11 @@ Jump to a resource provider namespace:
 > | vpnSites | Yes |Yes |
 > | webApplicationFirewallPolicies | Yes |Yes |
 
+<a id="frontdoor" />
+
+> [!NOTE]
+> For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
+
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
