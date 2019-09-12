@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/09/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -185,7 +185,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* Viasat
+* [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="c1partners"></a>Connectivity through additional service providers
 | **Location** | **Exchange** | **Connectivity providers** |
