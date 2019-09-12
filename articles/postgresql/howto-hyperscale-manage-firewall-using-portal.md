@@ -5,36 +5,38 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 9/12/2019
 ---
 # Create and manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus) using the Azure portal
 Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses.
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- A server [Create an Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
+- A server [Create an Azure Database for PostgreSQL](quickstart-create-hyperscale-portal.md)
 
 ## Create a server-level firewall rule in the Azure portal
-1. On the PostgreSQL server page, under Settings heading, click **Connection security** to open the Connection security page for the Azure Database for PostgreSQL.
+1. On the PostgreSQL server page, under Security heading, click **Networking** to open the Firewall rules page for the Azure Database for PostgreSQL.
 
-   ![Azure portal - click Connection Security](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
+   ![Azure portal - click Networking](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Click **Add My IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add client IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
-   ![Azure portal - click Add My IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
+   ![Azure portal - click Add client IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
 3. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Therefore, you may need to change the Start IP and End IP to make the rule function as expected.
-   Use a search engine or other online tool to check your own IP address. For example, search for "what is my IP."
+   Use a search engine or other online tool to check your own IP address. You can also query OpenDNS:
 
-   ![Bing search for What is my IP](./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png)
+```bash
+# Windows
+C:\> nslookup myip.opendns.com. resolver1.opendns.com
+
+# Unix
+$ dig +short myip.opendns.com @resolver1.opendns.com
+```
 
 4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to access any database on the PostgreSQL server to which they have valid credentials.
 
-   ![Azure portal - firewall rules](./media/howto-hyperscale-manage-firewall-using-portal/4-specify-addresses.png)
-
 5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
-
-   ![Azure portal - click Save](./media/howto-hyperscale-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## Connecting from Azure
 To allow applications from Azure to connect to your Azure Database for PostgreSQL server, Azure connections must be enabled. For example, to host an Azure Web Apps application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway. The resources do not need to be in the same Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. There are a couple of methods to enable these types of connections. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. Alternatively, you can set the **Allow access to Azure services** option to **ON** in the portal from the **Connection security** pane and hit **Save**. If the connection attempt is not allowed, the request does not reach the Azure Database for PostgreSQL server.
@@ -45,7 +47,7 @@ To allow applications from Azure to connect to your Azure Database for PostgreSQ
 
 ## Manage existing server-level firewall rules through the Azure portal
 Repeat the steps to manage the firewall rules.
-* To add the current computer, click the button to + **Add My IP**. Click **Save** to save the changes.
+* To add the current computer, click the button to + **Add client IP**. Click **Save** to save the changes.
 * To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address. Click **Save** to save the changes.
 * To modify an existing rule, click any of the fields in the rule and modify. Click **Save** to save the changes.
 * To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
