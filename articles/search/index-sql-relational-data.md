@@ -12,9 +12,9 @@ ms.author: heidist
 ---
 # How to model relational SQL data for import and indexing in Azure Search
 
-Azure Search accepts a flat rowset as input to the [indexing pipeline](search-what-is-an-index.md). If your source data is structured, originating from joined tables in a SQL Server relational database, this article explains how to work with denormalized data, and how to model a parent-child relationship in an Azure Search index.
+Azure Search accepts a flat rowset as input to the [indexing pipeline](search-what-is-an-index.md). If your source data originates from joined tables in a SQL Server relational database, this article explains how to construct the result set, and how to model a parent-child relationship in an Azure Search index.
 
-As an illustration, we'll refer to the hotels demo data set, consisting of a Hotels$ table with 50 hotels, and a Rooms$ table with rooms of varying types, rates, and amenities, for a total of 750 rooms, with both tables in a one-to-many relationship. A view will provide the query that returns 50 rows, one row per hotel, with associated room information embedded into each row.
+As an illustration, we'll refer to a hypothetical hotels database, based on [demo data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels). Assume the database consists of a Hotels$ table with 50 hotels, and a Rooms$ table with rooms of varying types, rates, and amenities, for a total of 750 rooms. There is a one-to-many relationship between the tables. In our approach, a view will provide the query that returns 50 rows, one row per hotel, with associated room detail embedded into each row.
 
    ![Tables and view in the Hotels database](media/index-sql-relational-data/hotels-database-tables-view.png "Tables and view in the Hotels database")
 
@@ -33,7 +33,7 @@ Results from this query return all of the Hotel fields, followed by all Room fie
    ![Denormalized data, redundant hotel data when room fields are added](media/index-sql-relational-data/denormalize-data-query.png "Denormalized data, redundant hotel data when room fields are added")
 
 
-While this query succeeds in providing all of the data in a flat row set, it fails in delivering the right document structure for the expected search experience. During indexing, Azure Search will create one search document for each row ingested. If your search documents looked like the above results, you would have perceived duplicates - seven separate documents for the Twin Dome hotel alone. A query on "hotels in Florida" would return seven results for just the Twin Dome hotel, pushing other relevant hotels deep into the search results.
+While this query succeeds on the surface (providing all of the data in a flat row set), it fails in delivering the right document structure for the expected search experience. During indexing, Azure Search will create one search document for each row ingested. If your search documents looked like the above results, you would have perceived duplicates - seven separate documents for the Twin Dome hotel alone. A query on "hotels in Florida" would return seven results for just the Twin Dome hotel, pushing other relevant hotels deep into the search results.
 
 To get the expected experience of one document per hotel, you should provide a rowset at the right granularity, but with complete information. Fortunately, you can do this easily by adopting the techniques in this article.
 
@@ -41,7 +41,7 @@ To get the expected experience of one document per hotel, you should provide a r
 
 To deliver the expected search experience, your data set should consist of one row for each search document in Azure Search. In our example, we want one row for each hotel, but we also want our users to be able to search on other room-related fields they care about, such as the nightly rate, size and number of beds, or a view of the beach, all of which are part of a room detail.
 
-The solution is to capture the room detail as nested JSON, and then insert the JSON structure into a field in a view, as shown in step 2. 
+The solution is to capture the room detail as nested JSON, and then insert the JSON structure into a field in a view, as shown in the second step. 
 
 1. Assume you have two joined tables, Hotels$ and Rooms$, that contain details for 50 hotels and 750 rooms, and are joined on the HotelID field. Individually, these tables contain 50 hotels and 750 related rooms.
 
@@ -79,7 +79,7 @@ The solution is to capture the room detail as nested JSON, and then insert the J
     GO
     ```
 
-2. Create a view composed of all fields in the parent table (`SELECT * from dbo.Hotels$`), with the addition of new *Rooms* field that contains the output of a nested query. A **FOR JSON AUTO** clause on `SELECT * from dbo.Rooms$` structured the output as JSON. The *Rooms* field exists only in the HotelRooms view.
+2. Create a view composed of all fields in the parent table (`SELECT * from dbo.Hotels$`), with the addition of a new *Rooms* field that contains the output of a nested query. A **FOR JSON AUTO** clause on `SELECT * from dbo.Rooms$` structures the output as JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -91,7 +91,7 @@ The solution is to capture the room detail as nested JSON, and then insert the J
    GO
    ```
 
-   The following screenshot shows the resulting view, with the *Rooms* nvarchar field at the bottom.
+   The following screenshot shows the resulting view, with the *Rooms* nvarchar field at the bottom. The *Rooms* field exists only in the HotelRooms view.
 
    ![HotelRooms view](media/index-sql-relational-data/hotelsrooms-view.png "HoteRooms view")
 
@@ -106,7 +106,7 @@ This rowset is now ready for import into Azure Search.
 
  ## Use a complex collection for the "many" side of a one-to-many relationship
 
-On the Azure Search side, create an index schema that models the one-to-many relationship using nested JSON. 
+On the Azure Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section matches the index schema provided below.
 
 The following example is from [How to model complex data types](search-howto-complex-data-types.md#creating-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it is composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
 
@@ -134,6 +134,8 @@ The following example is from [How to model complex data types](search-howto-com
   ]
 }
 ```
+
+Given the previous result set and the above index schema, you have all the required components for a successful indexing operation. The flattened data set meets indexing requirements yet preserves detail information. In the Azure Search index, search results will fall easily into hotel-based entities, while preserving the context of individual rooms and their attributes.
 
 ## Next steps
 
