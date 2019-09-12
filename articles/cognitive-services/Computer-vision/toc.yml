@@ -76,13 +76,7 @@
       - name: Python
         href: QuickStarts/python-domain.md
   - name: Using the .NET SDK
-    items:
-    - name: Analyze an image
-      href: quickstarts-sdk/csharp-analyze-sdk.md
-    - name: Generate a thumbnail
-      href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extract text
-      href: quickstarts-sdk/csharp-hand-text-sdk.md
+    href: quickstarts-sdk/csharp-sdk.md
   - name: Using the Python SDK
     href: quickstarts-sdk/python-sdk.md
   - name: Using the Java SDK
