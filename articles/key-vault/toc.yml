@@ -58,6 +58,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=key-vault
 - name: Concepts
   items:
+  - name: Basic concepts
+    href: basic-concepts.md
   - name: Security
     items: 
       - name: Security overview
@@ -68,8 +70,8 @@
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
         href: key-vault-secure-your-key-vault.md
-  - name: What is Key Vault?
-    href: key-vault-whatis.md
+  - name: App Service managed identity and Key Vault
+  - href: managed-identity.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
   - name: Throttling

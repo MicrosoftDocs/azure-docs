@@ -12,12 +12,11 @@ ms.date: 09/04/2019
 ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
-# Use an App Service application system-assigned managed identity to Access Azure Key Vault 
-
+# Use an App Service managed identity to access Azure Key Vault 
 
 This article shows you how to create a managed identity for App Service applications and use it to access Azure Key Vault. For applications hosted in Azure VMs, see [Use a Windows VM system-assigned managed identity to access Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). 
 
-A managed identity from Azure Active Directory allows your app to easily access other AAD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+A managed identity from Azure Active Directory allows your app to easily access other AAD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -60,7 +59,7 @@ az login
 
 For more information on login options with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest). 
 
-To create the identity for this application, use the Azure CLI [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest) command or [az functionapp identity assign](/cli/azure/functionapp/identity?view=azure-cli-latest) command:
+To create the identity for this application, use the Azure CLI [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command or [az functionapp identity assign](/cli/azure/functionapp/identity?view=azure-cli-latest#az-functionapp-identity-assign) command:
 
 
 ```azurecli-interactive
