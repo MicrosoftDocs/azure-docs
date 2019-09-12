@@ -53,7 +53,7 @@ You can build your first app on a small, single database at a low cost per month
 
 ### Purchasing models
 
-SQL Database offers two purchasing models:
+SQL Database offers the following purchasing models:
 - The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount of memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see the "Frequently asked questions" section later in this article.
 - The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, and IO resources in three service tiers, to support light to heavy database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [Serverless model](sql-database-serverless.md) that automatically scales compute based on workload demand, and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed, and automatically resumes databases when activity returns.
