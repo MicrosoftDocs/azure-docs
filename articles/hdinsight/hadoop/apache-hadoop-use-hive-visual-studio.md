@@ -55,7 +55,7 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 6. To run the same query in **Batch** mode, toggle the drop-down list from **Interactive** to **Batch**. Note that the execution button changes from **Execute** to **Submit**.
 
-    ![Screenshot of submit a hive query](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
+    ![Screenshot of submit a hive query](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
     The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type `SELECT * FROM`, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs. IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
 
