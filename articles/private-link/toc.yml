@@ -12,6 +12,10 @@
     href: create-private-endpoint-cli.md
   - name: Create a private endpoint - Azure PowerShell
     href: create-private-endpoint-powershell.md
+  - name: Create a private link service - Azure PowerShell
+    href: create-private-link-service-powershell.md
+  - name: Create a private link service - Azure CLI
+    href: create-private-link-service-cli.md
 
 - name: Tutorials
   items:
