@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 03/04/2019
+  ms.date: 09/00/2019
   ms.author: sstein
 abstract:
   description: Azure SQL Database is a general-purpose relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure cloud database that you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
@@ -38,17 +38,40 @@ sections:
         html: <p>PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability.</p>
         image:
           src: media/index/i_managed.svg
-        title: Fully managed
+        title: Overview
       - href: /azure/sql-database/sql-database-service-tiers
         html: <p>Tailor price/performance ratio to your needs with flexible service tiers that span from affordable $5/month to powerful 80-core databases.</p>
         image:
           src: media/index/i_perftier.svg
-        title: Price/service tiers
+        title: Pricing models
+      - href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
+        html: <p>Choose a service tiers and cloud architecture that is a best fit your your need.</p>
+        image:
+          src: media/index/gear.svg
+        title: Service tiers
       - href: /azure/sql-database/sql-database-scalability-index
         html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
           src: media/index/i_scale.svg
         title: Scalability
+      - href: /azure/sql-database/sql-database-paas
+        html: <p>Built-in High-availability, automated backups, and geo-replication, will prevent maintenance operations, infrastructure or hardware failures from stopping your business.</p>
+        image:
+          src: media/index/i_intelligence.svg
+        title: Platform as a Service
+      - href: /azure/sql-database/sql-database-security-index
+        html: <p>Secure your database with Azure AD authentication, Virtual Networks, Firewalls, Always Encrypted connections. Identify threats and vulnerabilities with built-in security.</p>
+        image:
+          src: media/index/i_security.svg
+        title: Advanced security
+
+- title: Deployment models
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
       - href: /azure/sql-database/sql-database-single-index
         html: <p>Use the single database managed by a SQL Database server for your SaaS applications and microservices that need a single database with the predictable performances.</p>
         image:
@@ -64,21 +87,6 @@ sections:
         image:
           src: media/index/i_mi.svg
         title: Managed instance
-      - href: /azure/sql-database/sql-database-paas
-        html: <p>Built-in High-availability, automated backups, and geo-replication, will prevent maintenance operations, infrastructure or hardware failures from stopping your business.</p>
-        image:
-          src: media/index/gear.svg
-        title: Platform as a Service
-      - href: /azure/sql-database/sql-database-security-index
-        html: <p>Secure your database with Azure AD authentication, Virtual Networks, Firewalls, Always Encrypted connections. Identify threats and vulnerabilities with built-in security.</p>
-        image:
-          src: media/index/i_security.svg
-        title: Advanced security
-      - href: /azure/sql-database/sql-database-monitoring-tuning-index
-        html: <p>Built-in monitoring and intelligent tuning help you dramatically reduce the costs of running and managing databases and maximizes performance of your application.</p>
-        image:
-          src: media/index/i_intelligence.svg
-        title: Monitoring and tuning
 
 - title: 5-Minute Quickstarts
   items:
