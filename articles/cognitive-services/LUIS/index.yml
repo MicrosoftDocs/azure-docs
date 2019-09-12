@@ -151,4 +151,14 @@ landingContent:
           - text: Reference documentation - authoring
             url: https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest  
           - text: Reference documentation - prediction
-            url: https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest                                
+            url: https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest                  
+      - linkListType: getting-started
+        links: 
+          - text: "Quickstart: With Python"
+            url: sdk-python-quickstart-authoring-app.md
+          - text: Pip 
+            url: https://pypi.org/project/azure-cognitiveservices-language-luis/
+          - text: Reference documentation 
+            url: https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python 
+          - text: Samples
+            url: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis            
