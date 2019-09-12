@@ -42,8 +42,6 @@ The module calculates the important scores for each column, and returns a row of
 
 The report from the module can include the following statistics. 
 
-+ The exact statistics that are generated depend on the column data type. See the [Technical notes](#technical-notes) section for details.
-
 |Column name|Description|
 |------|------|  
 |**Feature**|Name of the column|

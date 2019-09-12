@@ -25,9 +25,9 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is [SQLite](#bkmk_SQLite). If you are unfamiliar with SQLite syntax, be sure to read the [syntax and usage](#bkmk_syntax) section of this article for examples.  
+> The SQL engine used in this module is SQLite. If you are unfamiliar with SQLite syntax, be sure to read the [syntax and usage](#general-syntax-and-usage) section of this article for examples.  
 
-###  <a name="bkmk_SQLite"></a> What is SQLite?  
+### What is SQLite?  
 
 SQLite is a public domain relational database management system that is contained in a C programming library. SQLite is a popular choice as an embedded database for local storage in web browsers.  
   
@@ -39,7 +39,7 @@ The module can take up to three datasets as inputs. When you reference the datas
   
 The remaining parameter is a SQL query, which uses the SQLite syntax. This module supports all standard statements of the SQLite syntax. For a list of unsupported statements, see the [Technical Notes](#bkmk_Notes) section.
 
-### <a name="bkmk_syntax"></a> General syntax and usage
+### General syntax and usage
   
 + When typing multiple lines in the **SQL Script** text box, use a semi-colon to terminate each statement. Otherwise, line breaks are converted to spaces.  
   
