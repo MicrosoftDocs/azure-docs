@@ -187,6 +187,8 @@
     items:
     - name: Create service principal
       href: kubernetes-service-principal.md
+    - name: Use managed identities 
+      href: use-managed-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
