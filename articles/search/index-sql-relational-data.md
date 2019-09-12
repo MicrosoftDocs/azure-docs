@@ -12,7 +12,7 @@ ms.author: heidist
 ---
 # How to model relational SQL data for import and indexing in Azure Search
 
-Azure Search accepts a flat rowset as input to the [indexing pipeline](search-what-is-an-index.md). If your source data is structured, originating from joined tables in a SQL Server relational database, this article explains how to work with denormalized data, and how to model a one-to-many relationship in an Azure Search index.
+Azure Search accepts a flat rowset as input to the [indexing pipeline](search-what-is-an-index.md). If your source data is structured, originating from joined tables in a SQL Server relational database, this article explains how to work with denormalized data, and how to model a parent-child relationship in an Azure Search index.
 
 As an illustration, we'll refer to the hotels demo data set, consisting of a Hotels$ table with 50 hotels, and a Rooms$ table with rooms of varying types, rates, and amenities, for a total of 750 rooms, with both tables in a one-to-many relationship. A view will provide the query that returns 50 rows, one row per hotel, with associated room information embedded into each row.
 
@@ -33,9 +33,9 @@ Results from this query return all of the Hotel fields, followed by all Room fie
    ![Denormalized data, redundant hotel data when room fields are added](media/index-sql-relational-data/denormalize-data-query.png "Denormalized data, redundant hotel data when room fields are added")
 
 
-While this query succeeds in providing all of the data in a flat row set, it fails in delivering the right document structure for the expected search experience. During indexing, Azure Search will create one search document for each row ingested. If your search documents looked like the above results, you would have seven separate documents for the Twin Dome hotel, and a query on "hotels in Florida" would return seven results for just the Twin Dome hotel alone, pushing other relevant hotels deep into the search results.
+While this query succeeds in providing all of the data in a flat row set, it fails in delivering the right document structure for the expected search experience. During indexing, Azure Search will create one search document for each row ingested. If your search documents looked like the above results, you would have perceived duplicate - seven separate documents for the Twin Dome hotel alone. A query on "hotels in Florida" would return seven results for just the Twin Dome hotel, pushing other relevant hotels deep into the search results.
 
-To get the expected experience of one document per hotel, you should provide a rowset with all of the necessary data, but at the right granularity. Fortunately, you can do this easily by adopting the techniques in this article.
+To get the expected experience of one document per hotel, you should provide a rowset at the right granularity, but with complete informatoin. Fortunately, you can do this easily by adopting the techniques in this article.
 
 ## Define a query that returns embedded JSON
 
@@ -100,6 +100,9 @@ The solution is to capture the room information as a JSON collection, and then i
    ![Rowset from HotelRooms view](media/index-sql-relational-data/hotelrooms-rowset.png "Rowset from HotelRooms view")
 
 This rowset is now ready for import into Azure Search.
+
+> [!NOTE]
+> This approach assumes that embedded JSON is under the [maximum column size limits of SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). If your data doesn't fit, you can try a programmatic approach, as illustrated in [Example: Model the AdventureWorks Inventory database for Azure Search](search-example-adventureworks-modeling.md).
 
  ## Use a complex collection for the "many" side of a one-to-many relationship
 
@@ -291,8 +294,3 @@ LEFT JOIN
 WHERE
   md.Culture='en'
 ``` -->
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Example: Multi-level facet taxonomies in Azure Search](search-example-adventureworks-multilevel-faceting.md)
