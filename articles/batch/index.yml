@@ -22,59 +22,70 @@ landingContent:
         links:
           - text: What is Azure Batch?
             url: batch-technical-overview.md
-          - text: linktext2
-            url: file2.md
       - linkListType: learn
         links:
           - text: Free Pluralsight Video Training
             url: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
-          - text: linktext2
-            url: file2.md
 
-  # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: linkListType
+      - linkListType: quickstart
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+          - text: Azure CLI
+            url: quick-create-cli.md
+          - text: Azure Portal
+            url: quick-create-portal.md
+          - text: .NET API
+            url: quick-run-dotnet.md
+          - text: Python API
+            url: quick-run-python.md
+      - linkListType: how-to-guide 
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+            - text: Manage a Batch account
+              url: batch-account-create-portal.md            
 
   # Card
-  - title: cardtitle3
+  - title: Batch processing
     linkLists:
-      - linkListType: linkListType
+      - linkListType: tutorial
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Parallel file processing - .NET
+            url: tutorial-parallel-dotnet.md
+          - text: Parallel file processing - Python
+            url: tutorial-parallel-python.md
 
-  # Card
-  - title: cardtitle4
+  - title: Set up and manage resources
     linkLists:
-      - linkListType: linkListType
+      - linkListType: how-to-guide
+        links: 
+        - text: Create a Batch account
+          url: batch-account-create-portal.md
+        - text: Create and manage pools
+          url: batch-custom-images.md
+        - text: Run tasks concurrently 
+          url: batch-parallel-node-tasks.md
+      - linkListType: concept
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+          - text: Supported VM sizes
+            url: batch-pool-vm-sizes.md
+          - text: Quotas and limits
+            url: batch-quota-limit.md
+
+  - title: API Reference
+    linkLists:
+      - linkListType: reference
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/batch?view=azure-cli-latest
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.batch/?view=azps-2.6.0
+          - text: .NET
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet
+          - text: Java
+            url: https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable
+          - text: Node.js
+            url: https://docs.microsoft.com/javascript/api/overview/azure/batch?view=azure-node-latest
+          - text: Python
+            url: https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python
+          - text: REST
+            url: https://docs.microsoft.com/rest/api/batchservice/
