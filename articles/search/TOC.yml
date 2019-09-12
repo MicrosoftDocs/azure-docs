@@ -166,9 +166,7 @@
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
-      href: search-example-adventureworks-modeling.md
-    - name: Model multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+      href: index-sql-relational-data.md
   - name: Load data
     items:
     - name: Data import overview
@@ -277,6 +275,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
+    - name: Example of multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Handle results
     items:
     - name: Page-related features
