@@ -60,7 +60,7 @@ In this section, you configure and test Azure AD SSO with Jamf Pro.
 
 1. **[Configure SSO in Azure AD](#configure-sso-in-azure-ad)** so that your users can use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD SSO with the B.Simon account.
-    1. **[Add the Azure AD test user](#add-the-azure-AD-test-user)** so that B.Simon can use SSO in Azure AD.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** so that B.Simon can use SSO in Azure AD.
 1. **[Configure SSO in Jamf Pro](#configure-sso-in-jamf-pro)** to configure the SSO settings on the application side.
     1. **[Create a Jamf Pro test user](#create-a-jamf-pro-test-user)** to have a counterpart of B.Simon in Jamf Pro that's linked to the Azure AD representation of the user.
 1. **[Test the SSO configuration](#test-the-sso-configuration)** to verify that the configuration works.
@@ -105,7 +105,7 @@ In this section, you create a test user in the Azure portal called B.Simon.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
-### Add the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you grant B.Simon access to Jamf Pro.
 
