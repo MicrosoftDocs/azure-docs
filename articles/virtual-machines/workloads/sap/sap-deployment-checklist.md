@@ -120,7 +120,7 @@ We recommend that you set up and validate a full HADR solution and security desi
            2.  Evaluate and test the data path between the SAP application layer and the SAP DBMS layer.
                     1.  Placement of [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver, Hybris, or S/4HANA isn't supported.
                     2.  Placement of the SAP application layer and SAP DBMS in different Azure virtual networks that aren't peered isn't supported.
-                    3.  You can use [Azure security group and network security group rules](https://docs.microsoft.com/azure/virtual-network/security-overview) to define routes between the SAP application layer and the SAP DBMS layer.
+                    3.  You can use [Application security group and network security group rules](https://docs.microsoft.com/azure/virtual-network/security-overview) to define routes between the SAP application layer and the SAP DBMS layer.
            3.  Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer. Keep in mind that different OS levels are needed to support Accelerated Networking in Azure:
                     1. Windows Server 2012 R2 or later.
                     1. SUSE Linux 12 SP3 or later.
@@ -140,31 +140,31 @@ We recommend that you set up and validate a full HADR solution and security desi
            1. Check the SAP NetWeaver developer traces of the SAP instances to make sure there are no connection breaks between enqueue server and the SAP work processes. You can avoid these connection breaks by setting these two registry parameters:
               1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. For more information, see [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).
               2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000. For more information, see [KeepAliveInterval](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)).
-           2. In order to avoid GUI time outs between one-premise deployed SAP GUI interfaces and SAP application layers deployed in Azure, check whether the following parameters are set in the default.pfl or the instance profile:
+           2. To avoid GUI timeouts between on-premises SAP GUI interfaces and SAP application layers deployed in Azure, check whether these parameters are set in the default.pfl or the instance profile:
               1.   rdisp/keepalive_timeout = 3600
               2.   rdisp/keepalive = 20
-           3. In order to prevent disruption of established connections between the SAP enqueue process and the SAP workprocesse, the parameter enque/encni/set_so_keepalive needs to be set to "true". Also see [SAP Note #2743751](https://launchpad.support.sap.com/#/notes/2743751)  
-           3. If you use a Windows Failover Cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The Microsoft article [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lists parameters and how those impact failover sensitivities. Assuming the cluster nodes are in the same subnet, the following parameters should be changed:
+           3. To prevent disruption of established connections between the SAP enqueue process and the SAP work processes, you need to set the **enque/encni/set_so_keepalive** parameter to **true**. See also [SAP note #2743751](https://launchpad.support.sap.com/#/notes/2743751).  
+           3. If you use a Windows failover cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The article [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lists parameters and how they affect failover sensitivities. Assuming the cluster nodes are in the same subnet, you should change these parameters:
               1.   SameSubNetDelay = 2000
               2.   SameSubNetThreshold = 15
               3.   RoutingHistorylength = 30
-1. Test your high availability and disaster recovery procedures
-   1. Simulate failover situations by shutting down VMs (Windows guest OS) or putting operating systems in panic mode (Linux guest OS) in order to figure out whether your failover configurations work as designed. 
-   2. Measure your times it takes to execute a failover. If the times take too long, consider:
-           1.   For SUSE Linux, use SBD devices instead of the Azure Fencing Agent to speed up failover
-           2.   For SAP HANA, if the reload of data takes too long consider to provision more storage bandwidth
-   3. Test backup/restore sequence and timing and tune if necessary. Make sure that not only backup times are sufficient. Also test restore and take the timing on restore activities. make sure that the restore times are within your RTO SLAs where your RTO relies on a database or VM restore process
-   4. Test across region DR functionality and architecture
-1. Security checks
-   1.  Test the validity of the Azure role based access (RBAC) architecture you implemented. Goal is to separate and limit access and permissions of different teams. As an example, SAP Basis team members should be able to deploy VMs and assign disks from Azure storage into a given Azure virtual network. However the SAP Basis team should not be able to create own virtual networks or change the settings of existing virtual networks. On the other side, members of the network team should not be able to deploy VMs into virtual networks where SAP application and DBMS VMs are running. Nor should members of the network team be able to change attributes of VMs or even delete VMs or disks.  
-   2.  Verify [NSG and ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) rules are working as expected and shield the protected resources
-   3.  Make sure that all resources that need to be encrypted are encrypted. Define and execute processes to back up certificates, store, and access those certificates and restore the encrypted entities. 
-   4.  Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) and/or for OS disks where possible from an OS support point of view
-   5.  Check that not too many layers of encryption have been used. It does make limited sense to use Azure Disk encryption and then on top one of the DBMS Transparent Database Encryption methods
+1. Test your high availability and disaster recovery procedures.
+   1. Simulate failover situations by shutting down VMs (Windows guest operating systems) or putting operating systems in panic mode (Linux guest operating systems) to figure out whether your failover configurations work as designed.
+   2. Measure how long it takes to execute a failover. If the times are too long, consider:
+           1. For SUSE Linux, use SBD devices instead of the Azure Fence agent to speed up failover.
+           2. For SAP HANA, if the reload of data takes too long, consider provisioning more storage bandwidth.
+   3. Test your backup/restore sequence and timing and make corrections if you need to. Make sure that backup times are sufficient. You also need to test the restore and time restore activities. Make sure that restore times are within your RTO SLAs wherever your RTO relies on a database or VM restore process.
+   4. Test cross-region DR functionality and architecture.
+1. Security checks.
+   1. Test the validity of your Azure role-based access control (RBAC) architecture. The goal is to separate and limit the access and permissions of different teams. For example, SAP Basis team members should be able to deploy VMs and assign disks from Azure Storage into a given Azure virtual network. But the SAP Basis team shouldn't be able to create its own virtual networks or change the settings of existing virtual networks. Members of the network team shouldn't be able to deploy VMs into virtual networks in which SAP application and DBMS VMs are running. Nor should members of this team be able to change attributes of VMs or even delete VMs or disks.  
+   2.  Verify that [network security group and ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) rules are working as expected and shield the protected resources.
+   3.  Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
+   4.  Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) for OS disks where possible from an OS-support point of view.
+   5.  Be sure that you're not using too many layers of encryption. It does make limited sense to use Azure Disk Encryption and then on top one of the DBMS Transparent Database Encryption methods.
 1. Performance Testing
    1.  In SAP based on SAP tracing and measurements, compare top 10 online reports to current implementation where applicable 
    2.  In SAP based on SAP tracing and measurements, compare top 10 batch jobs to current implementation where applicable 
-   3.  In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premises to Azure 
+   3.  In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premises to Azure
 
 
 ## Non-Production Phase 
