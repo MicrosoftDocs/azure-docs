@@ -10,7 +10,7 @@ ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/12/2018
+ms.date: 09/12/2019
 ---
 
 # Check traffic on a schedule with Azure Logic Apps
@@ -331,7 +331,11 @@ Next, test your logic app, which now looks similar to this example:
 
 ## Run your logic app
 
-To manually start your logic app, on the designer toolbar bar, select **Run**. If the current travel time stays under your limit, your logic app does nothing else and waits or the next interval before checking again. But if the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. Here is an example email that your logic app sends:
+To manually start your logic app, on the designer toolbar bar, select **Run**.
+
+* If the current travel time stays under your limit, your logic app does nothing else and waits or the next interval before checking again. 
+
+* If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. Here is an example email that your logic app sends:
 
 ![Email sent with travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
 
