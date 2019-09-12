@@ -4,6 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh 
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
@@ -34,7 +35,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 2. From the left menu, navigate to **+ Create a resource** > **Analytics** > **HDInsight**.
    
-    ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. From **Basics**, enter or select the following information:
 
@@ -45,7 +46,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     
    Select __Cluster Type__ to display the **Cluster configuration**.
    
-   ![Apache Kafka cluster on HDInsight basic configuration](./media/apache-kafka-get-started/custom-basics-kafka.png)
+   ![Apache Kafka cluster on HDInsight basic configuration](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. From __Cluster configuration__, select the following values:
 
@@ -56,7 +57,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
     Select **Select** to save the cluster type settings and return to __Basics__.
 
-    ![Select cluster type](./media/apache-kafka-get-started/kafka-cluster-type.png)
+    ![Select cluster type](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. From __Basics__, enter or select the following information:
 
@@ -94,7 +95,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
     The **disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
 
-   ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
+   ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
 10. From __Advanced settings__, select __Next__ to continue with the default settings.
 
