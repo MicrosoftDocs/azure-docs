@@ -12,7 +12,7 @@ ms.author: xujing
 ---
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as atttestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 
 ## Using Azure Monitor to view metrics and set up alerts
 
@@ -25,7 +25,7 @@ The following procedure describes how to view and set up alert on IoT Hub Device
 3. Select **Metrics**.
 
 4. Select the desired metric. 
-   <br>Currently there are three metrics for DPS:</br>
+   <br />Currently there are three metrics for DPS:
 
     | Metric Name | Description |
     |-------|------------|
@@ -35,11 +35,11 @@ The following procedure describes how to view and set up alert on IoT Hub Device
 
 5. Select desired aggregation method to create a visual view of the metric. 
 
-6. To set up an alert of a metric, select **New alert rules** from the top right of the metric blade, similiarily you can go to **Alert** blade and select **New alert rules**
+6. To set up an alert of a metric, select **New alert rules** from the top right of the metric blade, similarly you can go to **Alert** blade and select **New alert rules**.
 
 7. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
-To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
+To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 
 ## Using Log Analytic to view and resolve errors
 
@@ -62,7 +62,7 @@ To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monito
 
 7. Go to **Logs** tab in the Azure portal under Device Provisioning Service resource.
 
-8. Click **Run** to view recent events
+8. Click **Run** to view recent events.
 
 9. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
 
