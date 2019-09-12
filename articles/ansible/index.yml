@@ -41,7 +41,10 @@ landingContent:
         links:
           - text: Configure a dynamic inventory
             url:  ansible-manage-azure-dynamic-inventories.md
-
+      - linkListType: download
+        links:
+          - text: Visual Studio Code extension for Ansible
+            url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
   # Card
   - title: Manage Virtual Machines
     linkLists:
@@ -88,12 +91,4 @@ landingContent:
           - text: Configure kubenet networking
             url: ansible-aks-configure-kubenet-networking.md
           - text: Configure RBAC roles in AKS cluster
-            url: ansible-aks-configure-rbac.md                      
-
-  # Card
-  - title: Downloads for Ansible
-    linkLists:
-      - linkListType: download
-        links:
-          - text: Visual Studio Code extension for Ansible
-            url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
+            url: ansible-aks-configure-rbac.md  
