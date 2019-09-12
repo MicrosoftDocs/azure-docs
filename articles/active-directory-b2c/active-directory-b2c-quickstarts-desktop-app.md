@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C | Microsoft Docs
-description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign-in.
+title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C
+description: Run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 ## Prerequisites
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
-- A social account from either Facebook, Google, Microsoft, or Twitter.
+- A social account from either Facebook, Google, or Microsoft.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) or clone the sample web app from GitHub.
 
     ```
@@ -41,10 +41,10 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
     ![Screenshot of the sample WPF application](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    The sample supports several sign-up options. These options include using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter.
+    The sample supports several sign-up options. These options include using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
 
 
-2. Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. To sign up using a social identity provider, click the button of the identity provider you want to use.
+2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
     ![Sign In or Sign Up page showing identity providers](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
@@ -62,7 +62,7 @@ Azure AD B2C provides functionality to allow users to update their profiles. The
 
     ![Edit profile button highlighted in WPF sample app](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-2. Choose the identity provider associated with the account you created. For example, if you used Twitter as the identity provider when you created your account, choose Twitter to modify the associated profile details.
+2. Choose the identity provider associated with the account you created. For example, if you used Facebook as the identity provider when you created your account, choose Facebook to modify the associated profile details.
 
 3. Change your **Display name** or **City**, and then click **Continue**.
 
