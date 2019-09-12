@@ -9,7 +9,6 @@ ms.subservice: design #Required will update once these are established.
 ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
 ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
 ms.reviewer: jrasnick
-manager: rothja #Required do not modify.
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
