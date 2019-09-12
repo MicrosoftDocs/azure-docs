@@ -292,6 +292,8 @@
           href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Virtual network endpoints - PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Private Link
+        href: sql-database-private-endpoint-overview.md
     - name: Access control
       items:
       - name: Access control
