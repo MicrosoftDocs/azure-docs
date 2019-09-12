@@ -65,7 +65,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Select your account and subscription > Select the **Existing resource** you created in the Azure portal > Click **Register**.
 
-4. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
+4. Select **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
+
+5. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
 
     ![Application Insights Overview Menu](./media/dotnetcore-quick-start/3debug.png)
 
