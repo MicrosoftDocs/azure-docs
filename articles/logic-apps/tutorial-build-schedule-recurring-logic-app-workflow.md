@@ -76,7 +76,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires based on a specified schedule. Every logic app must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## Add Recurrence trigger
+## Add the Recurrence trigger
 
 1. On the Logic App Designer, in the search box, enter "recurrence" as your filter. From the **Triggers** list, select the **Recurrence** trigger.
 
@@ -174,7 +174,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
 Next, create a variable so that you can convert and store the current travel time as minutes, rather than seconds. That way, you can avoid repeating the conversion and use the value more easily in later steps. 
 
-## Create variable to store travel time
+## Create a variable to store travel time
 
 Sometimes, you might want to run operations on data in your workflow, and then use the results in later actions. To save these results so that you can easily reuse or reference them, you can create variables to store those results after processing them. You can create variables only at the top level in your logic app.
 
@@ -228,7 +228,7 @@ By default, the previous **Get route** action returns the current travel time wi
 
 Next, add a condition that checks whether the current travel time is greater than a specific limit.
 
-## Compare travel time with limit
+## Compare the travel time with limit
 
 1. Under the previous action, select **New step**.
 
