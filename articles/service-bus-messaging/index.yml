@@ -33,8 +33,6 @@ landingContent:
             url: ../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json
           - text: Compare Azure queues and Service Bus queues
             url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
-          - text: Premium messaging
-            url: service-bus-premium-messaging.md            
           - text: Queues, topics, and subscriptions
             url: service-bus-queues-topics-subscriptions.md            
 
@@ -63,7 +61,7 @@ landingContent:
             url: service-bus-resource-manager-namespace-topic.md
 
   # Card
-  - title: Send and receive messages - Service Bus queues
+  - title: Send and receive messages - queues
     linkLists:
       - linkListType: quickstart
         links:
