@@ -41,7 +41,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Azure AD SAML Toolkit supports **SP and IDP** initiated SSO
+* Azure AD SAML Toolkit supports **SP** initiated SSO
 
 ## Adding Azure AD SAML Toolkit from the gallery
 
