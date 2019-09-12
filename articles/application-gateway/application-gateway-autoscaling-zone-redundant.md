@@ -72,26 +72,26 @@ Total price = $148.8 + $297.6 = $446.4
 
 **Example 2**
 
-An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
+An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, and the minimum of 2 instances is configured, your price would be:
 
 Fixed price = 744(hours) * $0.20 = $148.8
 
-Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 8.88/2.22 capacity unit for throughput) * $0.008 = 744 * 4 * 0.008 = $23.81
+Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 8.88/2.22 capacity unit for throughput, 10 capacity unit per instance * 2 instances) * $0.008 = 744 * 20 * 0.008 = $119.04
 
-Total price = $148.8+23.81 = $172.61
+Total price = $148.8+119.04 = $267.84
 
 > [!NOTE]
 > The Max function returns the largest value in a pair of values.
 
 **Example 3**
 
-An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
+An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, and the minimum of 2 instances is configured, your price would be:
 
 Fixed price = 744(hours) * $0.36 = $267.84
 
-Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 8 * 0.0144 = $85.71
+Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS, 10 capacity unit per instance * 2 instances), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 20 * 0.0144 = $214.27
 
-Total price = $267.84 + $85.71 = $353.55
+Total price = $267.84 + $214.27 = $482.11
 
 > [!NOTE]
 > The Max function returns the largest value in a pair of values.
