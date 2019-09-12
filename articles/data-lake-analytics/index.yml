@@ -33,6 +33,8 @@ landingContent:
             url: ./data-lake-analytics-get-started-portal.md
           - text: Submit U-SQL jobs using Azure CLI
             url: ./data-lake-analytics-get-started-cli.md
+          - text: Submit U-SQL jobs using Visual Studio Code
+            url: ./data-lake-analytics-data-lake-tools-for-vscode.md
 
   # Card (optional)
   - title: Learn the U-SQL language
@@ -83,3 +85,17 @@ landingContent:
             url: ./data-lake-analytics-add-users.md
           - text: Manage Azure Data Lake Analytics using policies
             url: ./data-lake-analytics-policies.md
+
+  # Card (optional)
+  - title: Continuous integration and continuous deployment
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up a CI/CD pipeline
+            url: ./data-lake-analytics-cicd-overview.md
+          - text: Managing U-SQL assemblies
+            url: ./data-lake-analytics-cicd-manage-assemblies.md
+          - text: Test U-SQL scripts
+            url: ./data-lake-analytics/data-lake-analytics-cicd-test.md
+          - text: Use U-SQL SDK
+            url: ./data-lake-analytics-u-sql-sdk.md

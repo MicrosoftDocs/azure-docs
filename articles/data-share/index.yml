@@ -35,7 +35,7 @@ landingContent:
             url: ./concepts-roles-permissions.md
 
   # Card (optional)
-  - title: Get started
+  - title: Share data
     linkLists:
       - linkListType: tutorial
         links:
@@ -45,11 +45,23 @@ landingContent:
             url: subscribe-to-data-share.md
       - linkListType: how-to-guide
         links:
-          - text: Monitor Azure Data Share Preview
-            url: ./how-to-monitor.md
           - text: Configure dataset mappings
             url: ./how-to-configure-mapping.md
+          - text: Add datasets
+            url: ./how-to-add-datasets.md
+
+  # Card (optional)
+  - title: Monitor and manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor Azure Data Share Preview
+            url: ./how-to-monitor.md
           - text: Troubleshoot common issues
             url: ./data-share-troubleshoot.md
           - text: Add datasets
             url: ./how-to-add-datasets.md
+          - text: Delete an invitation
+            url: ./how-to-delete-invitation.md
+          - text: Revoke a share subscription
+            url: ./how-to-revoke-share-subscription.md
