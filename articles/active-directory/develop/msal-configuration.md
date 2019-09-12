@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Android Microsoft Authentication Library (MSAL) configuration file
 
-MSAL ships with a default configuration JSON file that defines settings that allow your app to interact with the Microsoft identity platform.
+MSAL ships with a [default configuration JSON file](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) that defines settings that allow your app to interact with the Microsoft identity platform.
 
 This article will help you understand the various settings in the configuration file and how to specify the configuration file to use in your MSAL-based app.
 
