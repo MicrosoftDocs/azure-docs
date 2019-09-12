@@ -145,6 +145,6 @@ To learn how to explore this knowledge store using Storage Explorer, see the fol
 To learn how to connect this knowledge store to Power BI, see the following walkthrough.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](knowledge-store-connect-powerbi.md)
+> [Connect to Power BI](knowledge-store-connect-power-bi.md)
 
 If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer. Deleting the indexer resets the free daily transaction counter back to zero.

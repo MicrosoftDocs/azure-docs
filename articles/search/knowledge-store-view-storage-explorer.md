@@ -57,7 +57,7 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn how to connect this knowledge store to Power BI, see the following article.
 
 > [!div class="nextstepaction"]
-> [Connect to Power BI](knowledge-store-connect-powerbi.md)
+> [Connect to Power BI](knowledge-store-connect-power-bi.md)
 
 To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
 
