@@ -6,12 +6,10 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/20/2019
+ms.topic: include
+ms.date: 09/11/2019
 ms.author: dapine
 ---
-
-## Pull the Key Phrase Extraction container
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 
@@ -23,7 +21,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 For a full description of available tags for the Text Analytics containers, see the [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757) container on the Docker Hub.
 
-### Docker pull for the Key Phrase Extraction container
+#### Docker pull for the Key Phrase Extraction container
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
