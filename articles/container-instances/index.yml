@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Container Instances documentation # < 60 chars
-summary: Run a Docker container in a managed, serverless Azure environment.   # < 160 chars
+summary: Run a containerized app on-demand in a managed, serverless Azure environment.   # < 160 chars
 
 metadata:
   title: Azure Container Instances documentation - serverless containers # Required; page title displayed in search results. Include the brand. < 60 chars.
