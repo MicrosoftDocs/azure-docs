@@ -13,11 +13,11 @@ ms.author: azfuncdf
 
 # Handling errors in Durable Functions (Azure Functions)
 
-Durable Function orchestrations are implemented in code and can use the error-handling capabilities of the programming language. With this in mind, there really aren't any new concepts you need to learn about incorporating error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
+Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
 
 ## Errors in activity functions
 
-Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
 
 For example, consider the following orchestrator function that transfers funds from one account to another:
 
@@ -134,7 +134,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-If the call to the **CreditAccount** function fails for the destination account, the orchestrator function compensates for this by crediting the funds back to the source account.
+If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
 
 ## Automatic retry on failure
 
@@ -187,18 +187,18 @@ module.exports = df.orchestrator(function*(context) {
 
 The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Suborchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
 
-There are several options for customizing the automatic retry policy. They include the following:
+There are several options for customizing the automatic retry policy:
 
 * **Max number of attempts**: The maximum number of retry attempts.
 * **First retry interval**: The amount of time to wait before the first retry attempt.
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Handle**: A user-defined callback can be specified which determines whether or not a function call should be retried.
+* **Handle**: A user-defined callback can be specified to determine whether a function should be retried.
 
 ## Function timeouts
 
-You might want to abandon a function call within an orchestrator function if it is taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript) in conjunction with `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript), as in the following example:
+You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript) in conjunction with `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript), as in the following example:
 
 ### Precompiled C#
 

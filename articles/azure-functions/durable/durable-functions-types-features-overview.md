@@ -25,13 +25,13 @@ Orchestrator functions describe how actions are executed and the order in which 
 > [!NOTE]
 > Orchestrator functions are written using ordinary code, but there are strict requirements on how to write the code. Specifically, orchestrator function code must be *deterministic*. Failing to follow these determinism requirements can cause orchestrator functions to fail to run correctly. Detailed information on these requirements and how to work around them can be found in the [code constraints](durable-functions-code-constraints.md) topic.
 
-For more detailed information on orchestrator functions and their features, see the [Durable orchestrations](durable-functions-orchestrations.md) topic.
+For more detailed information on orchestrator functions and their features, see the [Durable orchestrations](durable-functions-orchestrations.md) article.
 
 ## Activity functions
 
-Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create an orchestrator function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be a separate activity function. These activity functions may be executed serially in a specific order, may be executed in parallel, or a combination of both.
+Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create an orchestrator function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be a separate activity function. These activity functions may be executed serially, in parallel, or some combination of both.
 
-Unlike orchestrator functions, activity functions aren't restricted in the type of work you can do in them. Activity functions are freqently used to make network calls or perform CPU intensive operations. An activity functions can also return data back to the orchestration that invoked it. The Durable Task Framework guarantees that each called activity function will be executed *at least once* during an orchestration's execution.
+Unlike orchestrator functions, activity functions aren't restricted in the type of work you can do in them. Activity functions are frequently used to make network calls or run CPU intensive operations. An activity function can also return data back to the orchestrator function. The Durable Task Framework guarantees that each called activity function will be executed *at least once* during an orchestration's execution.
 
 > [!NOTE]
 > Because activity functions only guarantee *at least once* execution, we recommend you make your activity function logic *idempotent* whenever possible.
@@ -48,16 +48,16 @@ Entity functions define operations for reading and updating small pieces of stat
 > [!NOTE]
 > Entity functions and related functionality is only available in Durable Functions 2.0 and above. Entity functions are currently in public preview.
 
-For more information about entity functions, see the [Durable Entities](durable-functions-entities.md) topic.
+For more information about entity functions, see the [Durable Entities](durable-functions-entities.md) article.
 
 ## Client functions
 
-Orchestrator functions are triggered by an [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) and entity functions are triggered by an [entity trigger binding](durable-functions-bindings.md#entity-trigger). Both of these triggers work by reacting to messages that are enqueued into a [task hub](durable-functions-task-hubs.md). The primary way to deliver these messages is by using an [orchestrator client binding](durable-functions-bindings.md#orchestration-client) or an [entity client binding](durable-functions-bindings.md#entity-client) from within a *client function*. Any non-orchestrator function can be a *client function*. For example, You can trigger the orchestrator from an HTTP-triggered function, an Azure Event Hub triggered function, etc. What makes a function a *client function* is its use of the a durable client output binding.
+Orchestrator functions are triggered by an [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) and entity functions are triggered by an [entity trigger binding](durable-functions-bindings.md#entity-trigger). Both of these triggers work by reacting to messages that are enqueued into a [task hub](durable-functions-task-hubs.md). The primary way to deliver these messages is by using an [orchestrator client binding](durable-functions-bindings.md#orchestration-client) or an [entity client binding](durable-functions-bindings.md#entity-client) from within a *client function*. Any non-orchestrator function can be a *client function*. For example, You can trigger the orchestrator from an HTTP-triggered function, an Azure Event Hub triggered function, etc. What makes a function a *client function* is its use of the durable client output binding.
 
 > [!NOTE]
 > Unlike other function types, orchestrator and entity functions cannot be triggered directly using the buttons in the Azure Portal. If you want to test an orchestrator or entity function in the Azure Portal, you must instead run a *client function* that starts an orchestrator or entity function as part of its implementation. For the simplest testing experience, a *manual trigger* function is recommended.
 
-In addition to triggering orchestrator or entity functions, the *durable client* binding can be used to interact with running orchestrations and entities. For example, orchestrations can be queried, terminated, and can have events raised to them. For more information on managing orchestrations and entities, see the [Instance management](durable-functions-instance-management.md) topic.
+In addition to triggering orchestrator or entity functions, the *durable client* binding can be used to interact with running orchestrations and entities. For example, orchestrations can be queried, terminated, and can have events raised to them. For more information on managing orchestrations and entities, see the [Instance management](durable-functions-instance-management.md) article.
 
 ## Next steps
 
