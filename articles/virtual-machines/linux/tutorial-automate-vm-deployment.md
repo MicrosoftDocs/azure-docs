@@ -239,7 +239,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The certificate
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
