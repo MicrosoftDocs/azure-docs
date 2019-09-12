@@ -81,6 +81,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074659
         - name: Java Azure SDK
           href: https://go.microsoft.com/fwlink/?linkid=2098196
+        - name: Python Azure SDK
+          href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: REST
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management
