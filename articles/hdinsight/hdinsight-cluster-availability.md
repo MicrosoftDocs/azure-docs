@@ -10,8 +10,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-
 ---
+
 # How to monitor cluster availability with Ambari and Azure Monitor logs
 
 HDInsight clusters include both Apache Ambari, which provides health information
@@ -29,7 +29,7 @@ The Ambari dashboard can be accessed by clicking the **Ambari home** link in the
 as shown below. Alternatively, it can be accessed by entering the following URL
 in a browser [https://\<clustername\>.azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
-![HDInsight resource portal view](media/hdinsight-cluster-availability/portal-overview.png)
+![HDInsight resource portal view](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
 You will then be prompted for a cluster login username and password. Enter the
 credentials you chose when you created the cluster.
@@ -41,7 +41,7 @@ nodes) and JournalNodes (zookeeper node), NameNodes (head nodes) uptime, as well
 metrics specific to certain cluster types, like YARN ResourceManager uptime for
 Spark and Hadoop clusters.
 
-![Ambari dashboard](media/hdinsight-cluster-availability/ambari-dashboard.png)
+![Ambari dashboard](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
 ### Hosts – view individual node status
 
@@ -51,13 +51,13 @@ each node. The green check to the left of each node name indicates all
 components are up on the node. If a component is down on a node, you will see a
 red alert triangle instead of the green check.
 
-![Ambari hosts view](media/hdinsight-cluster-availability/ambari-hosts.png)
+![Ambari hosts view](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
 You can then click on the **name** of a node to view more detailed host metrics
 for that particular node. This view shows the status/availability of each
 individual component.
 
-![Ambari hosts single node view](media/hdinsight-cluster-availability/ambari-hosts-node.png)
+![Ambari hosts single node view](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### Ambari alerts
 
@@ -66,7 +66,7 @@ certain events. When alerts are triggered, they are shown in the upper-left
 corner of Ambari in a red badge containing the number of alerts. Clicking this
 badge shows a list of current alerts.
 
-![Ambari alerts count](media/hdinsight-cluster-availability/ambari-alerts.png)
+![Ambari alerts count](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
 To view a list of alert definitions and their statuses, click the **Alerts**
 tab, as shown below.
@@ -135,7 +135,7 @@ From the HDInsight cluster resource page in the portal, click the **Operations
 Management Suite** blade. Then, click **enable** and select your Log Analytics
 workspace from the dropdown.
 
-![HDInsight Operations Management Suite blade](media/hdinsight-cluster-availability/portal-enable-oms.png)
+![HDInsight Operations Management Suite blade](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
 
 ### Query metrics and logs tables in the logs blade
 
@@ -143,7 +143,7 @@ Once Azure Monitor log integration is enabled (this may take a few minutes),
 navigate to your **Log Analytics Workspace** resource and click on the **Logs**
 blade
 
-![Log Analytics workspace logs blade](media/hdinsight-cluster-availability/portal-logs.png)
+![Log Analytics workspace logs blade](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
 The **Logs** blade lists a number of sample queries, such as:
 
@@ -258,17 +258,17 @@ Critical (Sev 0) in the unlikely event that both head nodes go down.
 When the condition for this alert is met, the alert will fire and you will
 receive an email with the alert details like this:
 
-![Azure Monitor alert email](media/hdinsight-cluster-availability/alert-email.png)
+![Azure Monitor alert email](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
 You can also view all alerts that have fired, grouped by severity, by going to
 the **Alerts** blade in your **Log Analytics Workspace**.
 
-![Log Analytics workspace alerts](media/hdinsight-cluster-availability/portal-alerts.png)
+![Log Analytics workspace alerts](media/hdinsight-cluster-availability/hdi-portal-oms-alerts.png)
 
 Clicking on a severity grouping (i.e. **Sev 1,** as highlighted above) will show
 records for all alerts of that severity that have fired like below:
 
-![Log Analytics workspace sev 1 alerts](media/hdinsight-cluster-availability/portal-alerts-sev-1.png)
+![Log Analytics workspace sev 1 alerts](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
 ## Next steps
 - [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
