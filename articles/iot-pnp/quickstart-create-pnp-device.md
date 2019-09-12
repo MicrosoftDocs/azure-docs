@@ -25,12 +25,12 @@ To complete this quickstart, you need to install the following software on your 
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-### Install Azure IoT Device Workbench
+### Install Azure IoT Tools
 
-Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
+Use the following steps to install the [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack:
 
 1. In VS Code, select the **Extensions** tab.
-1. Search for **Azure IoT Device Workbench**.
+1. Search for **Azure IoT Tools**.
 1. Select **Install**.
 
 ### Install the Azure IoT explorer
@@ -46,6 +46,9 @@ You can find your _company model repository connection string_ in the [Azure Cer
 ## Prepare an IoT hub
 
 You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!NOTE]
+> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
 
 Add the Microsoft Azure IoT Extension for Azure CLI:
 
