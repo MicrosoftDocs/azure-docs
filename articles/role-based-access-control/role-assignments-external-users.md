@@ -69,7 +69,7 @@ In RBAC, to grant access, you assign a role. To grant access to a guest user, yo
 
 1. Click **Access control (IAM)**.
 
-    The following shows an example of the Access control (IAM) blade for a resource group. If you make any access control changes here, they would apply to just to the resource group.
+    The following screenshot shows an example of the Access control (IAM) blade for a resource group. If you make any access control changes here, they would apply to just to the resource group.
 
     ![Access control (IAM) blade for a resource group](./media/role-assignments-external-users/access-control-resource-group.png)
 
@@ -175,7 +175,7 @@ If a guest user needs additional privileges in the directory, you can assign a d
 
 ### Guest user cannot browse users, groups, or service principals to assign roles
 
-Guest users have restricted directory permissions. If a guest user tries to create a role assignment to grant someone else access, they cannot browse the list of users, groups, or service principals. If the guest user knows someone else's exact email name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
+Guest users have restricted directory permissions. If a guest user tries to create a role assignment to grant someone else access, they cannot browse the list of users, groups, or service principals. If the guest user knows someone's exact email name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
 
 ### Guest user cannot create application or service principal objects
 
@@ -185,7 +185,7 @@ Guest users have restricted directory permissions. If a guest user needs to be a
 
 If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directory + subscription** pane, make sure the guest user has accepted the invite. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/b2b/redemption-experience.md).
 
-### Guest user does not see resources in the Azure portal
+### Guest user does not see resources
 
 If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Directory + subscription**, and then click the appropriate directory.
 
