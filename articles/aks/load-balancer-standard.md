@@ -275,6 +275,8 @@ Navigate to the public IP in a browser and verify you see the sample application
 
 When using a *Standard* SKU load balancer with managed outbound public IPs, which are created by default, you can scale the number of managed outbound public IPs using the *load-balancer-managed-ip-count* parameter.
 
+To update an existing cluster run the following command. This parameter can also be set at cluster create-time to have multiple managed outbound public IPs.
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
@@ -282,11 +284,13 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*. You can also use the *load-balancer-managed-ip-count* parameter to set the initial number of managed outbound public IPs when creating your cluster. The default number of managed outbound public IPs is 1.
+The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*. 
+
+You can also use the *load-balancer-managed-ip-count* parameter to set the initial number of managed outbound public IPs when creating your cluster by appending the `--load-balancer-managed-outbound-ip-count` parameter and setting it to your desired value. The default number of managed outbound public IPs is 1.
 
 ## Optional - Provide your own public IPs or prefixes for egress
 
-When using a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in same resource group created for the AKS cluster and assigns the public IP to the *Standard* SKU load balancer. Alternatively, you can assign your own public IP.
+When using a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in same resource group created for the AKS cluster and assigns the public IP to the *Standard* SKU load balancer. Alternatively, you can assign your own public IP at cluster creation time or you can update an existing cluster's load balancer properties.
 
 > [!IMPORTANT]
 > You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
@@ -322,8 +326,6 @@ az network public-ip prefix show --resource-group myResourceGroup --name myPubli
 
 The above command shows the ID for the *myPublicIPPrefix* public IP prefix in the *myResourceGroup* resource group.
 
-Use the *az aks update* command with the *load-balancer-outbound-ip-prefixes* parameter with the IDs from the previous command.
-
 The following example uses the *load-balancer-outbound-ip-prefixes* parameter with the IDs from the previous command.
 
 ```azurecli-interactive
@@ -335,6 +337,36 @@ az aks update \
 
 > [!IMPORTANT]
 > The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+
+### Define your own public IP or prefixes at cluster create time
+
+You may wish to bring your own IP addresses or IP prefixes for egress at cluster creation time to support scenarios like whitelisting egress endpoints. Append the same parameters shown above to your cluster creation step to define your own public IPs and IP prefixes at the start of a cluster's lifecycle.
+
+Use the *az aks create* command with the *load-balancer-outbound-ips* parameter to create a new cluster with your public IPs at the start.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+Use the *az aks create* command with the *load-balancer-outbound-ip-prefixes* parameter to create a new cluster with your public IP prefixes at the start.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
 
 ## Clean up the Standard SKU load balancer configuration
 
