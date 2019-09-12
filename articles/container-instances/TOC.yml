@@ -1,143 +1,75 @@
-- name: Container Instances
-  href: index.yml
-- name: Overview
-  items:
-  - name: About Azure Container Instances
-    href: container-instances-overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Deploy a container instance - CLI
-    href: container-instances-quickstart.md
-  - name: Deploy a container instance - Portal
-    href: container-instances-quickstart-portal.md
-  - name: Deploy a container instance - PowerShell
-    href: container-instances-quickstart-powershell.md
-- name: Tutorials
-  items:
-  - name: Create and deploy container image
-    items:
-    - name: 1 - Create container image
-      href: container-instances-tutorial-prepare-app.md
-    - name: 2 - Create container registry
-      href: container-instances-tutorial-prepare-acr.md
-    - name: 3 - Deploy application
-      href: container-instances-tutorial-deploy-app.md
-  - name: Deploy a multi-container group
-    items:
-    - name: Deploy a container group - YAML
-      href: container-instances-multi-container-yaml.md
-    - name: Deploy a container group - Resource Manager
-      href: container-instances-multi-container-group.md
-- name: Samples
-  items:
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
-  - name: Resource Manager templates
-    href: container-instances-samples-rm.md
-- name: Concepts
-  items:
-  - name: Container groups
-    href: container-instances-container-groups.md
-  - name: Quotas and limits
-    href: container-instances-quotas.md
-  - name: Region availability
-    href: container-instances-region-availability.md
-  - name: Relationship to orchestrators
-    href: container-instances-orchestrator-relationship.md
-  - name: Security considerations
-    href: container-instances-image-security.md
-- name: How-to guides
-  items:
-  - name: Deploy
-    items:
-    - name: Deploy in a virtual network (preview)
-      href: container-instances-vnet.md
-    - name: Deploy from Azure Container Registry
-      href: container-instances-using-azure-container-registry.md
-  - name: Container scenarios
-    items:
-    - name: Set restart policy for run-once tasks
-      href: container-instances-restart-policy.md
-    - name: Set environment variables (env)
-      href: container-instances-environment-variables.md
-    - name: Set container startup command (entrypoint)
-      href: container-instances-start-command.md
-    - name: Execute a command (exec)
-      href: container-instances-exec.md
-    - name: Run Jenkins build job
-      href: container-instances-jenkins.md
-    - name: Use a managed identity (preview)
-      href: container-instances-managed-identity.md
-    - name: Use GPU resources (preview)
-      href: container-instances-gpu.md
-    - name: Enable SSL endpoint
-      href: container-instances-container-group-ssl.md     
-  - name: Mount data volumes
-    items:
-    - name: Azure file share
-      href: container-instances-volume-azure-files.md
-    - name: Secret
-      href: container-instances-volume-secret.md
-    - name: Empty directory
-      href: container-instances-volume-emptydir.md
-    - name: Cloned Git repo
-      href: container-instances-volume-gitrepo.md
-  - name: Manage running containers
-    items:
-    - name: Configure liveness probes
-      href: container-instances-liveness-probe.md
-    - name: Stop and start containers
-      href: container-instances-stop-start.md
-    - name: Update running containers
-      href: container-instances-update.md
-  - name: Monitor and log
-    items:
-    - name: Monitor CPU and memory usage
-      href: container-instances-monitor.md
-    - name: Get container logs and events
-      href: container-instances-get-logs.md
-    - name: Logging with Azure Monitor logs
-      href: container-instances-log-analytics.md
-  - name: Troubleshoot
-    items:
-    - name: Troubleshoot common issues
-      href: container-instances-troubleshooting.md
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/container
-  - name: REST
-    href: /rest/api/container-instances
-  - name: PowerShell
-    href: /powershell/module/az.containerinstance
-  - name: .NET
-    href: /dotnet/api/overview/azure/containerinstance
-  - name: Python
-    href: /python/api/overview/azure/containerinstance
-  - name: Java
-    href: /java/api/overview/azure/containerinstance
-  - name: Node.js
-    href: /javascript/api/overview/azure/containerinstances
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.containerinstance/containergroups
-  - name: Connector
-    href: /connectors/aci
-- name: Resources
-  items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-container-instances
-  - name: Region availability
-    href: https://azure.microsoft.com/regions/services/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/container-instances/
-  - name: Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Provide product feedback
-    href: https://feedback.azure.com/forums/602224-azure-container-instances
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-container-instances
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-  - name: FAQ
-    href: container-instances-faq.md
+### YamlMime:Landing
+
+title: Azure Container Instances documentation # < 60 chars
+summary: Run a Docker container in a managed, serverless Azure environment.   # < 160 chars
+
+metadata:
+  title: Azure Container Instances documentation - serverless containers # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Run a Docker container in a managed, serverless Azure environment.  # Required; article description that is displayed in search results. < 160 chars.
+  services: 
+  ms.service: container-instances 
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: dlepow 
+  ms.author: danlep 
+  ms.date: 09/12/2019
+
+
+landingContent:
+  - title: About Azure Container Instances
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Container Instances?
+            url: container-instances-overview.md
+          - text: Container groups
+            url: container-instances-container-groups.md
+      - linkListType: concepts
+        links:
+          - text: FAQ
+            url: container-instances-faq.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: container-instances-quickstart.md 
+            url: container-instances-quickstart.md
+          - text: container-instances-quickstart.md
+            url: container-instances-quickstart-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy a container group - YAML 
+            url : container-instances-multi-container-yaml.md
+          - text: Deploy a container group - Resource Manager
+            url: container-instances-multi-container.md
+      - linkListType: learn
+        links:
+          - text: Run Docker containers with Azure Container Instances
+            url: /learn/modules/run-docker-with-azure-container-instances/
+  - title: Run container applications
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy image from Azure Container Registry
+            url: container-instances-using-azure-container-registry.md
+          - text: Mount an Azure file share
+            url: container-instances-volume-azure-files.md
+          - text: Set environment variables
+            url: container-instances-environment-variables.md
+          - text: Set a container entry point
+            url: container-instances-start-command.md
+  - title: Deployment options
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy in a virtual network
+            url: container-instances-vnet.md
+          - text: Use a managed identity
+            url: container-instances-managed-identity.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/container
+          - text: REST API
+            url: /rest/api/container-instances/
