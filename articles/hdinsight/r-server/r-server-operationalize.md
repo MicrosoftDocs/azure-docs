@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ---
+
 # Operationalize ML Services cluster on Azure HDInsight
 
 After you have used ML Services cluster in HDInsight to complete your data modeling, you can operationalize the model to make predictions. This article provides instructions on how to perform this task.
@@ -44,31 +45,31 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 1. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![one box op1](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![one box op2](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. When prompted, enter and reenter the password for a local admin user.
 
 1. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![one box op3](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
 
     a. From the main menu, select **6** to run diagnostic tests.
 
-    ![one box op](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. From the Diagnostic Tests menu, select **A**. When prompted, enter the password that you provided for the local admin user.
 
-    ![one box op](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. Verify that the output shows that overall health is a pass.
 
-    ![one box op](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 

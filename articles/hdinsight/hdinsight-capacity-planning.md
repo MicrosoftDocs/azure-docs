@@ -94,9 +94,6 @@ You are charged for a cluster's lifetime. If there are only specific times that 
 
 Sometimes errors can occur due to the parallel execution of multiple maps and reduce components on a multi-node cluster. To help isolate the issue, try distributed testing by running concurrent multiple jobs on a single worker node cluster, then expand this approach to run multiple jobs concurrently on clusters containing more than one node. To create a single-node HDInsight cluster in Azure, use the *Custom(size,settings,apps)* option  and use a value of 1 for *Number of Worker nodes* in the **Cluster size** section when provisioning a new cluster in the portal.
 
-You can also install a single-node development environment on your local computer and test the solution there. Hortonworks provides a single-node local development environment for Hadoop-based solutions that is useful for initial development, proof of concept, and testing. For more information, see [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
-
-To identify the issue on a single-node local cluster you can rerun failed jobs and adjust the input data, or use smaller datasets. How you run those jobs depends on the platform and type of application.
 
 ## Quotas
 

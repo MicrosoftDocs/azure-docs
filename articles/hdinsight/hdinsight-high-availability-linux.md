@@ -102,7 +102,7 @@ The Ambari Web UI is viewable at `https://CLUSTERNAME.azurehdinsight.net`. Repla
 
 When you arrive on the Ambari page, the installed services are listed on the left of the page.
 
-![Installed services](./media/hdinsight-high-availability-linux/services.png)
+![Installed services](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page.  Ambari offers several predefined alerts.
 
@@ -151,11 +151,11 @@ You can select each service to view more information on it.
 
 While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This page displays hosts within the cluster, including the head nodes.
 
-![hosts list](./media/hdinsight-high-availability-linux/hosts.png)
+![hosts list](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Selecting the link for one of the head nodes displays the services and components running on that node.
 
-![Component status](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Component status](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 For more information on using Ambari, see [Monitor and manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
@@ -237,7 +237,7 @@ For a list of available commands, enter `help` at the `sftp>` prompt.
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN). Then use **Quick Links** to select which head node to view the logs for.
 
-![Using quick links to view logs](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Using quick links to view logs](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## How to configure the node size
 
@@ -247,7 +247,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
-    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
 * **Azure CLI**: When using the [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
 
