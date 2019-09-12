@@ -5,7 +5,7 @@ summary: Learn how to use Language Understanding service to allow your applicati
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/03/2019
+  ms.date: 09/12/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -13,6 +13,7 @@ metadata:
   services: cognitive-services
   ms.topic: landing-page
   title: Language Understanding (LUIS) Documentation
+  titleSuffix: Azure Cognitive Services
   description: Language Understanding service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. 
 
 
@@ -26,5 +27,74 @@ landingContent:
             url: what-is-luis.md
           - text: What's new
             url: whats-new.md
-          - text: "Quickstart: Query prediction endpoint"
-            url: luis-get-started-create-app.md
+      - linkListType: concept
+        links:
+          - text: Plan your app
+            url: luis-how-plan-your-app.md  
+          - text: The authoring cycle of your app
+            url: luis-concept-app-iteration.md
+
+  - title: "Authoring: Create intents, entities and features"
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Intents summarizes complete utterance
+            url: luis-concept-intent.md
+          - text: Entity data is pulled from the utterance
+            url: luis-concept-entity-types.md
+          - text: Understand a good example utterance
+            url: luis-concept-utterance.md   
+          - text: Phrase lists features
+            url: luis-concept-feature.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Create a new LUIS app
+            url: luis-how-to-start-new-app.md
+          - text: Add intent with example utterances
+            url: luis-how-to-add-intents
+          - text: Add entities
+            url: luis-how-to-add-example-utterances.md
+          - text: Add phrase list feature
+            url: luis-how-to-add-features.md
+      - linkListType: quickstart
+        links: 
+          - text: "Portal: Create a new LUIS app"
+            url: get-started-portal-build-app.md
+  - title: Version, train, test, and publish
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Versioning
+            url: luis-concept-version.md
+          - text: Interactive testing
+            url: luis-concept-test.md
+          - text: Batch testing
+            url: luis-concept-batch-test.md   
+      - linkListType: how-to-guide
+        links: 
+          - text: Versioning your app
+            url: luis-how-to-manage-versions.md
+          - text: Interactive testing
+            url: luis-interactive-test.md
+          - text: Batch testing
+            url: luis-how-to-batch-test.md
+          - text: Training your app
+            url: luis-how-to-train.md
+          - text: Publish to use prediction endpoint 
+            url: luis-how-to-publish-app.md
+      - linkListType: quickstart
+        links: 
+          - text: "Portal: Deploy app to prediction endpoint"
+            url: get-started-portal-deploy-app.md
+  - title: Get prediction from runtime endpoint
+    linkLists:   
+      - linkListType: quickstart
+        links: 
+          - text: With C# .NET SDK
+            url: sdk-csharp-quickstart-query-prediction-endpoint.md
+      - linkListType: quickstart
+        links: 
+          - text: With C# using REST
+            url: luis-get-started-cs-get-intent.md   
+          - text: With Go using REST
+            url: luis-get-started-go-get-intent.md         
