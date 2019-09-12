@@ -92,11 +92,11 @@ When Azure VMs are created after the migration (failover), they're joined to thi
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** >
    **Virtual network**.
 3. For **Name**, enter **myMigrationNetwork**.
-4. Leave the default value for **Address space**.
+4. Leave the default value for **Address space** (must enter value).
 5. For **Subscription**, select the subscription that you want to use.
 6. For **Resource group**, select **Use existing**, and then select **migrationRG**.
 7. For **Location**, select **West Europe**.
-8. Under **Subnet**, leave the default values for **Name** and **IP range**.
+8. Under **Subnet**, leave the default values for **Name** and **IP range (must enter value)**.
 9. Add instructions for DDoS protection settings.
 10. Leave the **Service Endpoints** option disabled.
 11. Add instructions for Firewall settings.

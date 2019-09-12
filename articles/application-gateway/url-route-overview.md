@@ -78,7 +78,7 @@ Path rules are case insensitive.
 
 #### v2
 
-Path rules are case sensitive.
+Path rules are case insensitive.
 
 |v2 path pattern  |Is supported?  |
 |---------|---------|
