@@ -19,7 +19,7 @@ To access resources in other Azure Active Directory (Azure AD) tenants and authe
 > Your logic app can use managed identities only with connectors that support managed identities. Currently, 
 > only the HTTP connector supports managed identities.
 >
-> You can currently have up to 10 logic app workflows with system-assigned managed identities in each Azure subscription.
+> You can currently have up to 100 logic app workflows with system-assigned managed identities in each Azure subscription.
 
 ## Prerequisites
 
