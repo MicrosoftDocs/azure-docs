@@ -169,7 +169,7 @@ appears with the default resource ID value:
    > what Azure AD expects, including any required trailing slashes. 
    > You can find these resource ID values in this 
    > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > For example, if you're using the Azure Resoruce Manager resource ID, 
+   > For example, if you're using the Azure Resource Manager resource ID, 
    > make sure the URI has a trailing slash.
 
 1. Continue building the logic app the way you want.
