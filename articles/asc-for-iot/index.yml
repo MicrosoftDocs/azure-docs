@@ -61,6 +61,11 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/common/i_video.svg
         href: https://youtu.be/pq5uSp9u_x0
+    - title: Microsoft Azure Security Center for IoT - Solution
+      href: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+      image: 
+        src: https://docs.microsoft.com/media/common/i_video.svg
+        href: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
 - title: Reference
   items:
   - type: list
