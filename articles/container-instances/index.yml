@@ -22,10 +22,10 @@ landingContent:
         links:
           - text: What is Azure Container Instances?
             url: container-instances-overview.md
-          - text: Container groups
-            url: container-instances-container-groups.md
       - linkListType: concept
         links:
+          - text: Container groups
+            url: container-instances-container-groups.md
           - text: FAQ
             url: container-instances-faq.md
 
@@ -42,7 +42,7 @@ landingContent:
           - text: Deploy a container group - YAML 
             url : container-instances-multi-container-yaml.md
           - text: Deploy a container group - Resource Manager
-            url: container-instances-multi-container.md
+            url: container-instances-multi-container-group.md
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
@@ -59,7 +59,7 @@ landingContent:
             url: container-instances-environment-variables.md
           - text: Set a container entry point
             url: container-instances-start-command.md
-  - title: Deployment options
+  - title: Integrate with Azure
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -67,9 +67,3 @@ landingContent:
             url: container-instances-vnet.md
           - text: Use a managed identity
             url: container-instances-managed-identity.md
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: /cli/azure/container
-          - text: REST API
-            url: /rest/api/container-instances/
