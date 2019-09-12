@@ -87,10 +87,6 @@ In RBAC, to grant access, you assign a role. To grant access to a guest user, yo
 
    ![Add role assignment pane](./media/role-assignments-external-users/add-role-assignment.png)
 
-    If the guest user is not in the current directory, you can invite the user directly from the Add role assignment pane. Type the email address of the person you want to invite, and you will be asked whether you want to invite this person.  
-
-   ![Invite guest user in Add role assignment pane](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
-
 1. Click **Save** to assign the role at the selected scope.
 
     ![Role assignment for Virtual Machine Contributor](./media/role-assignments-external-users/access-control-role-assignments.png)
