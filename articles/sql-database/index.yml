@@ -28,7 +28,8 @@ abstract:
     width: 250
 sections:
 
-- items:
+- title: Concepts
+  items:
   - type: paragraph
     text: 'Learn about the main values that Platform-as-a-service database brings to you, purchasing models and service tires that you can leverage to get the best price/performance configuration.'
   - type: list
@@ -130,18 +131,21 @@ sections:
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-- title: Step-by-Step Tutorials
+- title: Step-by-Step Tutorials and learning materials
   items:
   - type: paragraph
     text: Learn how to create, manage, and migrate databases using SQL Database
   - type: list
     style: ordered
     items:
+    - html: Learn how to decide is <a href="/azure/sql-database/sql-database-paas-vs-sql-server-iaas">SQL Server on VM (IaaS) or Azure SQL Database (PaaS) the right choice for your workload</a>.
+    - html: Learn <a href="/azure/sql-database/sql-database-features">what features are supported in Azure SQL Database and are there some behaviour differences</a>.
     - html: Get started with a <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">single database</a> and a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">managed instance</a> using our quickstart guides.
     - html: Create and design the schema for a new single database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">a native SQL Server backup file</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">the Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">by importing a BACPAC file</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">a geo-distributed database</a>
+    - html: Find the <a href="/azure/sql-database/sql-database-release-notes">new features that are added in Azure SQL Database</a>.
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
