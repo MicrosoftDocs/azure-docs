@@ -51,7 +51,7 @@ Create an Azure Data Lake Storage Gen2 storage account.
 1. Click **Create**.
 1. On the **Create storage account** screen:
     1. Select the correct subscription and resource group.
-    1. Enter a name for your Data Lake Storage Gen2 account. For more information on storage account naming convetions see [Naming conventions for Azure resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
+    1. Enter a name for your Data Lake Storage Gen2 account. For more information on storage account naming conventions see [Naming conventions for Azure resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
     1. Click on the **Advanced** tab.
     1. Click **Enabled** next to **Hierarchical namespace** under **Data Lake Storage Gen2**.
     1. Click **Review + create**.
