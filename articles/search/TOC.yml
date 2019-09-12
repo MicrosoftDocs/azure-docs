@@ -242,13 +242,13 @@
   - name: Knowledge store (preview)
     items:
     - name: Create a knowledge store in Azure portal
-      href: kstore-create-portal.md
+      href: knowledge-store-create-portal.md
     - name: Create using REST and Postman
       href: knowledge-store-howto.md
     - name: View with Storage Explorer
-      href: kstore-view-storage-explorer.md
+      href: knowledge-store-view-storage-explorer.md
     - name: Connect with Power BI
-      href: kstore-connect-powerbi.md
+      href: knowledge-store-connect-powerbi.md
   - name: Query data
     items:
     - name: Create a basic query
