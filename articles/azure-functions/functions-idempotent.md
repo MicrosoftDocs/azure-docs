@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
+ms.service: azure-functions
 manager: gwallace
 ---
 
@@ -14,7 +15,7 @@ The reality of serverless architecture dictates the need to accept identical req
 
 To illustrate, consider an elevator call button. As you press the button, it lights up and an elevator is sent to your floor. A few moments later, someone else joins you in the lobby. This person smiles at you and presses the illuminated button a second time. You smile back and chuckle to yourself as you're reminded that the command to call an elevator is idempotent.
 
-Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the amount of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
+Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
 
 When it comes to building serverless applications, consider the following scenarios:
 
