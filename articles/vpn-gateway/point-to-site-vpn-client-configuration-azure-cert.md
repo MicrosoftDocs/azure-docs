@@ -66,7 +66,6 @@ Use the following steps to configure the native Windows VPN client for certifica
 2. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
 3. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to. 
 4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
-5. Return to your P2S configuration page to continue configuration steps. 
 
 ## <a name="installmac"></a>Mac (OS X)
 
