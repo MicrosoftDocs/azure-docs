@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 4/29/2019
+ms.date: 08/21/2019
 ---
 # Azure HDInsight Accelerated Writes for Apache HBase
 

@@ -192,7 +192,7 @@ includes this information about the content that your logic app wants to upload 
    | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
-   | **Location** | String | No | The URL location where to send the HTTP PATCH messages |
+   | **Location** | String | Yes | The URL location where to send the HTTP PATCH messages |
    ||||
 
 3. Your logic app creates and sends follow-up HTTP PATCH messages - each with this information:

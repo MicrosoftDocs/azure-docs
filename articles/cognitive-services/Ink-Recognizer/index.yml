@@ -8,8 +8,7 @@ metadata:
   author: erhopf
   manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: ink-recognizer 
   ms.topic: landing-page
   ms.date: 05/02/2019
   ms.author: erhopf

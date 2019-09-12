@@ -61,6 +61,9 @@ The following section helps you decide which authentication method is right for 
 
 ## Decision tree
 
+> [!NOTE]
+> PTA only works with Alternate ID when UserPrincipalName is chosen as the Alternate ID. Only then will the on-premises UserPrincipalName be synchronized from AD to AAD. For more information, see [Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
+
 ![Azure AD authentication decision tree](./media/choose-ad-authn/azure-ad-authn-image1.png)
 
 Details on decision questions:

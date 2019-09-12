@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
+ms.date: 08/27/2019
 ---
 # Recover an Azure SQL database using automated database backups
 
@@ -31,7 +31,7 @@ When using Standard or Premium service tier, a restored database incurs an extra
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
 - Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 
-The extra cost is icurred when the max size of the restored database is greater than the amount of storage included with the target database's service tier and performance level. The extra storage provisioned above the included amount is charged extra. For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of used space is less than the amount of storage included, you can avoid  this extra cost by setting the max database size to the included amount.
+The extra cost is incurred when the max size of the restored database is greater than the amount of storage included with the target database's service tier and performance level. The extra storage provisioned above the included amount is charged extra. For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of used space is less than the amount of storage included, you can avoid  this extra cost by setting the max database size to the included amount.
 
 > [!NOTE]
 > [Automated database backups](sql-database-automated-backups.md) are used when you create a [database copy](sql-database-copy.md).
@@ -107,7 +107,7 @@ To recover a deleted database using the Azure portal, open the page for your ser
 
 You can restore a SQL database on any server in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. It can be requested even if the database or datacenter is inaccessible due to an outage.
 
-Geo-restore is the default recovery option when your database is unavailable because of an incident in the hosting region. You can restore the database to a server in any other region. There is a delay between when a backup is taken and when it is geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the orignal database. The following illustration shows restore of the database from the last available backup in another region.
+Geo-restore is the default recovery option when your database is unavailable because of an incident in the hosting region. You can restore the database to a server in any other region. There is a delay between when a backup is taken and when it is geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the original database. The following illustration shows restore of the database from the last available backup in another region.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -121,10 +121,7 @@ Point-in-time restore on a geo-secondary is not currently supported. Point-in-ti
 
 ### Geo-restore using the Azure portal
 
-To geo-restore a database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice.
-
-> [!Note]
-> Geo-restore using the Azure portal is not available in Managed Instance. Please use PowerShell instead.
+To geo-restore a database using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
 
 ## Programmatically performing recovery using automated backups
 

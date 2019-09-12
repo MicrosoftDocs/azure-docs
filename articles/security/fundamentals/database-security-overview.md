@@ -204,7 +204,7 @@ SQL Advanced Threat Protection (ATP) provides a set of advanced SQL security cap
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) helps you prevent, detect, and respond to threats. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and it works with a broad ecosystem of security solutions.
 
-[Security Center](../../security-center/security-center-sql-database.md) helps you safeguard data in SQL Database by providing visibility into the security of all your servers and databases. With Security Center, you can:
+[Security Center](../../security-center/security-center-alerts-data-services.md) helps you safeguard data in SQL Database by providing visibility into the security of all your servers and databases. With Security Center, you can:
 
 - Define policies for SQL Database encryption and auditing.
 - Monitor the security of SQL Database resources across all your subscriptions.

@@ -440,7 +440,7 @@ This example template that has multiple secured parameter definitions that use t
 | Parameter name | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | A template parameter that accepts a password that is then passed to the workflow definition's `basicAuthPasswordParam` parameter |
-| `TemplatePasswordParam` | A template parameter that accepts a username that is then passed to the workflow definition's `basicAuthUserNameParam` parameter |
+| `TemplateUsernameParam` | A template parameter that accepts a username that is then passed to the workflow definition's `basicAuthUserNameParam` parameter |
 | `basicAuthPasswordParam` | A workflow definition parameter that accepts the password for basic authentication in an HTTP action |
 | `basicAuthUserNameParam` | A workflow definition parameter that accepts the username for basic authentication in an HTTP action |
 |||

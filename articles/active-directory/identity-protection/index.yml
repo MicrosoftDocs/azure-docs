@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure AD Identity Protection Documentation
+title: Azure AD Identity Protection documentation
 summary: Learn how to use Identity Protection to identify and address identity risks in your organization
 
 metadata:
-  title: Azure AD Identity Protection Documentation
+  title: Azure AD Identity Protection documentation
   description: Learn how to use Identity Protection to identify and address identity risks in your organization
   services: active-directory
   ms.service: active-directory
@@ -31,14 +31,14 @@ landingContent:
             url: security-overview.md
 
   # Card
-  - title: Investigate risk events
+  - title: Investigate risk detections
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Configure risk polciies
             url: howto-configure-risk-policies.md
-          - text: Investigate risky users and sign-ins
-            url: howto-investigate-risky-users-signins.md
+          - text: Investigate risk
+            url: howto-investigate-risk.md
       - linkListType: reference
         links:
           - text: Types of events
@@ -53,7 +53,7 @@ landingContent:
             url: flows.md
       - linkListType: how-to-guide
         links:
-          - text: Simulate Risk Events
+          - text: Simulate Risk Detections
             url: playbook.md
       - linkListType: quickstart
         links:

@@ -13,17 +13,6 @@ ms.author: helohr
 
 This article lists the Windows Virtual Desktop's partners in alphabetical order.
 
-## Active Cypher
-
-![Active Cypher Logo](./media/partners/active-cypher.png)
-
-Active Cypher is a Windows Virtual Desktop value-added services provider that equips IT with encryption technology to help protect the enterprise from breaches and data loss. With Active Cypher, innovative encryption technology supports the overall file protection strategy to run Windows Virtual Desktop on Azure.
-
-When used with Windows Virtual Desktop, Active Cypher provides additional capabilities to enable accessibility and mobility of user data while preventing inadvertent data loss. With Active Cypher, existing group security policies and permissions in Azure Information Protection can be leveraged to encrypt user files while using Windows Virtual Desktop.
-
-- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
-- [Go to the partner website.](https://activecypher.com/)
-
 ## CloudJumper
 
 ![CloudJumper Logo](./media/partners/cloudjumper.png)
@@ -77,7 +66,7 @@ ThinPrint is a Windows Virtual Desktop value-added services provider that delive
 ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by enabling the connection to existing enterprise print infrastructure. ezeep gives users control over printing in the enterprise no matter where they are. Using ezeep, users can bridge the gap between Windows Virtual Desktop and printing hardware.
 
 - [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [Go to partner website.](http://www.ezeep.com/wvd-printing)
+- [Go to partner website.](https://www.ezeep.com/wvd-printing)
 
 ## Workspot
 

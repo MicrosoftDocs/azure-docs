@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory Identity Protection is a capability of Azure Active Directory (Azure AD). With Azure AD Identity Protection, you are able to:
 
-- Get a consolidated view of flagged users and risk events detected using machine learning algorithms
+- Get a consolidated view of flagged users and risk detections detected using machine learning algorithms
 - Set risk-based Conditional Access policies to automatically protect your users
 - Improve security posture by acting on vulnerabilities 
 

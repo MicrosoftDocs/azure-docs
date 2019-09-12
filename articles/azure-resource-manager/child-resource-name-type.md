@@ -4,7 +4,7 @@ description: Describes how to set the name and type for child resources in an Az
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/26/2019
 ms.author: tomfitz
 ---
 # Set name and type for child resources
@@ -16,9 +16,9 @@ In a Resource Manger template, you can specify the child resource either within 
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
     "resources": [
-      // child resource
+      <child-resource>
     ]
   }
 ]
@@ -29,10 +29,10 @@ The next example shows the child resource outside of the parent resource. You mi
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
   },
   {
-    // child resource
+    <child-resource>
   }
 ]
 ```

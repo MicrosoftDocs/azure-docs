@@ -8,7 +8,6 @@ manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
@@ -724,7 +723,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 
 ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-There is no supported API for programmatically obtaining function keys.
+You may obtain function keys programmatically by using [Key management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### API key authorization
 

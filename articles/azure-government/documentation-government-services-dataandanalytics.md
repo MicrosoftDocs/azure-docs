@@ -1,6 +1,6 @@
 ---
 title: Azure Government Data + Analytics
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 author: jglixon
@@ -36,10 +36,9 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 | ---- | ---- | ---- |
 | USDoD Central | 52.180.249.174</br>52.180.250.239 | 443 |
 | USDoD East | 52.181.164.168</br>52.181.164.151 | 443 |
-| USGov Iowa | 13.72.184.124</br>13.72.190.110</br>13.72.49.126</br>13.72.55.55 | 443 |
+| USGov Iowa | 13.72.184.124</br>13.72.190.110</br>13.72.49.126</br>13.72.55.55| 443 |
 | USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
-| USGov Virginia | 13.72.49.126</br>13.72.55.55</br>13.72.190.110 </br>13.72.184.124| 443 |
-
+| USGov Virginia | 13.72.49.126</br>13.72.55.55</br> 13.72.184.124</br>13.72.190.110 | 443 |
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
 
@@ -66,7 +65,7 @@ Power BI Embedded does not yet have Portal support in the Azure Government Porta
 
 ## Azure Analysis Services
 
-For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.md).
+For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.yml).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

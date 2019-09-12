@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
 
 
@@ -32,8 +32,7 @@ Before you back up a SQL Server database, check the following criteria:
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region or locale as the VM hosting the SQL Server instance.
 2. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Specifically for SQL 2008 and 2008 R2, [add registry key](#add-registry-key-to-enable-registration) to enable server registration. This step will be not be required when the feature is generally available.
-5. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
+4. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
 
 > [!NOTE]
 > You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
@@ -94,22 +93,6 @@ Avoid using the following elements in database names:
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
-### Add registry key to enable registration
-
-1. Open Regedit
-2. Create the Registry Directory Path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (you will need to create the 'Key' TestHook under WorkloadBackup which in turn needs to be created under Microsoft).
-3. Under the Registry Directory Path, create a new 'string value' with the string name **AzureBackupEnableWin2K8R2SP1** and value: **True**
-
-    ![RegEdit for enabling registration](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-Alternatively, you can automate this step by running .reg file with the following command:
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -171,7 +154,7 @@ How to discover databases running on a VM:
    To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
      * To protect more than 50 databases, configure multiple backups.
-     * To enable [](#enable-auto-protection) the entire instance or the Always On availability group. In the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
+     * To [enable](#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
 
     > [!NOTE]
     > The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
@@ -257,18 +240,6 @@ To create a backup policy:
     - On the back end, Azure Backup uses SQL native backup compression.
 
 14. After you complete the edits to the backup policy, select **OK**.
-
-
-### Modify policy
-Modify policy to change backup frequency or retention range.
-
-> [!NOTE]
-> Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
-
-In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
-
-  ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
-
 
 ## Enable auto-protection  
 

@@ -3,7 +3,7 @@ title: Configure and read logs when using Azure Functions trigger for Cosmos DB
 description: Learn how to expose the logs to the Azure Functions logging pipeline when using Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ---

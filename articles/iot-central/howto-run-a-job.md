@@ -10,7 +10,7 @@ ms.topic: conceptual
 manager: peterpr
 ---
 
-# Create and run a job in your Azure IoT Central Application
+# Create and run a job in your Azure IoT Central application
 
 You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. Jobs let you do bulk updates to device properties, settings, and commands. This article walks you through how to get started using jobs in your own application.
 

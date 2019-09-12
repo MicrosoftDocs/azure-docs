@@ -8,7 +8,7 @@
     items:
       - name: Hybrid identity
         tocHref: /azure/active-directory/hybrid/
-        topicHref: /azure/active-directory/hybrid/    
+        topicHref: /azure/active-directory/hybrid/
       - name: Fundamentals
         tocHref: /azure/active-directory/fundamentals/
         topicHref: /azure/active-directory/fundamentals/
@@ -35,7 +35,7 @@
         topicHref: /azure/active-directory/managed-identities-azure-resources/
       - name: User help
         tocHref: /azure/active-directory/user-help/
-        topicHref: /azure/active-directory/user-help/         
+        topicHref: /azure/active-directory/user-help/
       - name: B2B
         tocHref: /azure/active-directory/b2b/
         topicHref: /azure/active-directory/b2b/
@@ -173,6 +173,9 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
+      - name: IoT Plug and Play
+        tocHref: /azure/iot-pnp/
+        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
@@ -223,7 +226,7 @@
     topicHref: /azure/blockchain-workbench/
   - name: Bot Service
     tocHref: /azure/bot-service/
-    topicHref: /azure/bot-service/    
+    topicHref: /azure/bot-service/
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -338,10 +341,10 @@
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: /azure/cognitive-services/web-language-model/home    
+      topicHref: /azure/cognitive-services/web-language-model/home
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
-      topicHref: /azure/cognitive-services/project-personality-chat/overview    
+      topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
@@ -433,10 +436,10 @@
     topicHref: /azure/frontdoor/
   - name: FXT Edge Filer
     tocHref: /azure/fxt-edge-filer/
-    topicHref: /azure/fxt-edge-filer/  
+    topicHref: /azure/fxt-edge-filer/
   - name: Genomics
     tocHref: /azure/genomics/
-    topicHref: /azure/genomics/    
+    topicHref: /azure/genomics/
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -508,13 +511,13 @@
 #      topicHref: /azure/iot-accelerators/
 #    - name: IoT Central
 #      tocHref: /azure/iot-central/
-#      topicHref: /azure/iot-central/         
+#      topicHref: /azure/iot-central/
 #    - name: Maps
 #      tocHref: /azure/azure-maps/
 #      topicHref: /azure/azure-maps/
 #    - name: Time Series Insights
 #      tocHref: /azure/time-series-insights/
-#      topicHref: /azure/time-series-insights/                     
+#      topicHref: /azure/time-series-insights/
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
@@ -526,7 +529,7 @@
     topicHref: /azure/kinect-dk/
   - name: Lab Services
     tocHref: /azure/lab-services/
-    topicHref: /azure/lab-services/    
+    topicHref: /azure/lab-services/
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -571,7 +574,7 @@
         topicHref: /azure/media-services/previous/
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
-        topicHref: /azure/media-services/video-indexer/        
+        topicHref: /azure/media-services/video-indexer/
   - name: Migrate
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
@@ -643,9 +646,12 @@
     tocHref: /azure/security/
     topicHref: /azure/security/
     items:
+      - name: Fundamentals
+        tocHref: /azure/security/fundamentals/
+        topicHref: /azure/security/fundamentals/
       - name: Develop
         tocHref: /azure/security/develop/
-        topicHref: /azure/security/develop/ 
+        topicHref: /azure/security/develop/
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/

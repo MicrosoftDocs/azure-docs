@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 08/14/2019
+ms.date: 08/29/2019
 ---
 # Resource limits for single databases using the vCore-based purchasing model
 
@@ -68,7 +68,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB max data size (GB)|224|256|288|320|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)
-|Max data IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Max data IOPS (64 KB)|3500|4000|4500|5000|8000|12000|
 |Max log rate (MBps)|26.25|30|30|30|30|30|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|
@@ -114,7 +114,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB max data size (GB)|384|384|384|384|384|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Max data IOPS (64 KB)|8000|9000|10000|12000|16000|20000|40000|
 |Max log rate (MBps)|30|30|30|30|30|30|30|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|
@@ -295,7 +295,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
-|Number of replicas|2|2|2|2|2|2|2|2|
+|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage |7|7|7|7|7|7|7|7|

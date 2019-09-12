@@ -8,7 +8,6 @@ manager: gwallace
 keywords: azure functions, functions, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe

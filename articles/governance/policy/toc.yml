@@ -249,9 +249,6 @@
     - name: Ensure storage file encryption
       displayName: deny, all
       href: samples/ensure-storage-file-encryption.md
-    - name: Require storage account encryption
-      displayName: deny, builtin
-      href: samples/require-storage-account-encryption.md
 - name: Concepts
   items:
   - name: Azure Policy definition structure

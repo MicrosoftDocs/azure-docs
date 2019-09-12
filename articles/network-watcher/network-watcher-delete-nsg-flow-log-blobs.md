@@ -108,7 +108,7 @@ foreach ($Psflowlog in $FlowLogsList)
         if ((-not $Confirm) -or ($Confirmation -eq 'Y'))
         {
             Write-Output ($Blob.Name + '===>' + $BlobLastModifietedDTinUTC  + ' ===> DELETED')
-            Remove-AzStorageBlob -Container $container_name -Context $storage_account.Context -Blob $Blob.Name
+            Remove-AzStorageBlob -Container $ContainerName -Context $StorageAccount.Context -Blob $Blob.Name
         }
         else
         {
@@ -131,5 +131,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## Next steps
+- Customers can automate running the script using [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) or [Azure Automation](https://azure.microsoft.com/services/automation/)
 - To learn more about NSG logging, see [Azure Monitor logs for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

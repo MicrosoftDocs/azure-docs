@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
@@ -32,6 +32,9 @@ This article assumes that you already have SharePoint 2013 or newer in your envi
 * SharePoint includes native Kerberos support. Therefore, users who are accessing internal sites remotely through Azure AD Application Proxy can assume to have a single sign-on (SSO) experience.
 * This scenario includes configuration changes to your SharePoint server. We recommend using a staging environment. This way, you can make updates to your staging server first, and then facilitate a testing cycle before going into production.
 * We require SSL on the published URL. SSL is also required on the internal URL to ensure that links are sent/mapped correctly.
+
+> [!NOTE]
+> As a best practice, use custom domains whenever possible. With a custom domain, you can configure the same URL for both the Internal URL and the External URL. Then, the same link can be used to access the application from either inside or outside of your network. This configuration optimizes the experience for users and other applications that need to access your application. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 ## Step 1: Configure Kerberos Constrained Delegation (KCD)
 

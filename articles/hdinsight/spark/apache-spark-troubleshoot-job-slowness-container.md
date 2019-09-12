@@ -1,14 +1,14 @@
 ---
-title: Apache Spark job runs slowly when the Azure storage container contains many files in Azure HDInsight
+title: Apache Spark slow when Azure storage container contains many files - HDInsight
 description: Apache Spark job runs slowly when the Azure storage container contains many files in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
+ms.date: 08/21/2019
 ---
 
-# Scenario: Apache Spark job run slowly when the Azure storage container contains many files in Azure HDInsight
+# Apache Spark job run slowly when the Azure storage container contains many files in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
 
@@ -21,8 +21,6 @@ When running an HDInsight cluster, the Apache Spark job that writes to Azure sto
 This is a known Spark issue. The slowness comes from the `ListBlob` and `GetBlobProperties` operations during Spark job execution.
 
 To track partitions, Spark has to maintain a `FileStatusCache` which contains info about directory structure. Using this cache, Spark can parse the paths and be aware of available partitions. The benefit of tracking partitions is that Spark only touches the necessary files when you read data. To keep this information up-to-date, when you write new data, Spark has to list all files under the directory and update this cache.
-
-In Spark 1.6, every time you update the directory, you (1) clear the cache (2) recursively list all files and (3) update the whole cache. This will lead to many listing operations.
 
 In Spark 2.1, while we do not need to update the cache after every write, Spark will check whether an existing partition column matches with the proposed one in the current write request, so it will also lead to listing operations at the beginning of every write.
 

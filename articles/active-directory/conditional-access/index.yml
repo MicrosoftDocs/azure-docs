@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure AD Conditional Access Documentation
+title: Azure AD Conditional Access documentation
 summary: Learn how to configure and test Azure Active Directory Conditional Access
 
 metadata:
-  title: Azure AD Conditional Access Documentation
+  title: Azure AD Conditional Access documentation
   description: Learn how to configure and test Azure Active Directory Conditional Access
   services: active-directory
   ms.service: active-directory
