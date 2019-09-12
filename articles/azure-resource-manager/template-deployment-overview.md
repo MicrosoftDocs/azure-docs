@@ -38,7 +38,7 @@ If you're trying to decide between using Resource Manager templates and one of t
 
    ![Deployment history](./media/template-deployment-overview/deployment-history.png)
 
-* **Policy as code**: [Azure Policy]((../governance/policy/overview.md)) is a policy as code framework to automate governance. If you're using Azure policies, policy remediation is done on non-compliant resources when deployed through templates.
+* **Policy as code**: [Azure Policy](../governance/policy/overview.md) is a policy as code framework to automate governance. If you're using Azure policies, policy remediation is done on non-compliant resources when deployed through templates.
 
 * **Deployment Blueprints**: You can take advantage of [Blueprints](../governance/blueprints/overview.md) provided by Microsoft to meet regulatory and compliance standards. These blueprints include pre-built templates for various architectures.
 
