@@ -88,7 +88,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
     ```
 
     The **simple contract** declares a state variable named **balance**. There are two functions defined. The **add** function adds a number to **balance**. The **get** function returns the value of **balance**.
-1. To compile the contract, first select the Solidity compiler pane then select the  **Compile > Start to compile**. 
+1. To compile the contract, first select the Solidity compiler pane then select the  **Compile simple.sol**. 
 
     ![Compile](./media/connect-metamask/compile.png)
 
