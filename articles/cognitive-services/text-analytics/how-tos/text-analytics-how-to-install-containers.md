@@ -62,7 +62,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-# Get the container image with `docker pull`
+## Get the container image with `docker pull`
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 
