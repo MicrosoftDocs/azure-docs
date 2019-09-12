@@ -18,7 +18,7 @@ A skillset comprises of three properties:
 +	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked.
 +	```knowledgeStore```, the storage account where your enriched documents can be projected in addition to the search index.
 
-Skillsets are authored in JSON, you can build complex skillsets with looping and branching using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+Skillsets are authored in JSON, you can build complex skillsets with looping and [branching](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
 
 ## Concepts
 ### Enrichment tree
@@ -35,7 +35,7 @@ The enrichment tree is the JSON representation of the document and enrichments a
 
 
 The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
-For the rest of this document, we will assume we are working with hotel reviews, but the same concepts apply to enriching documents from all other data sources.
+For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.
 
 ### Context
 Each skill requires a context. A context determines:
@@ -87,7 +87,7 @@ When defining a table projection group, a single node in the enrichment tree can
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then in your projections, you only reference the output of the shaper skill. You could also inline shape a projection within the projection the definition itself.
 The shaper approach ensures that all the mutations of the enrichment tree are contained within the skills and output is an object that can be reused, but it is more verbose. Inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection it is defined for. Either approach works, the skillset created for you in the portal workflow contains both approaches. It uses a shaper skill for the table projections, but also uses inline shaping to project the key phrases table.
 
-To extend the example further, you can use only a shaper skill by creating a new node for the key phrases. To create a shape that you can project into three tables namely document, pages and keyphrases, the two options are
+To extend the example further, you can use only a shaper skill by creating a new node for the key phrases. To create a shape that you can project into three tables namely hotelReviewsDocument, hotelReviewsPages and hotelReviewsKeyPhrases, the two options are
 #### Shaper skill and projection 
 > [!Note]
 > Some of the columns from the document table have been removed from this example for brevity.
@@ -272,7 +272,7 @@ The inline shaping approach does not require a shaper skill and all shapes neede
             },
             {
                 "tableName": "hotelReviewsInlineKeyPhrases",
-                "generatedKeyName": "kpidv2",
+                "generatedKeyName": "KeyPhraseId",
                 "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
                 "inputs": [
                     {
