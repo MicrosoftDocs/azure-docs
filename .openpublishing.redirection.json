@@ -37734,11 +37734,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
-      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/log-query/runbook-datacollect.md",
       "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
       "redirect_document_id": false
