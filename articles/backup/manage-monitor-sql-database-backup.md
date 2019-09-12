@@ -148,6 +148,20 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
   ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
 
+  ![Modify backup policy](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs. 
+
+#### Inconsistent Policy 
+
+Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
+
+      ![Inconsistent policy](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+You can fix the policy version for all the impacted items in one click:
+
+      ![Fix inconsistent policy](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## Re-register extension on the SQL Server VM
 
