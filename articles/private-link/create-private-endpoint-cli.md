@@ -73,7 +73,7 @@ $privateEndpoint = az network private-endpoint create \
     --name myPrivateEndpoint \ 
     --resource-group myResourceGroup \ 
     --vnet-name myVirtualNetwork  \ 
-    --subnet default \ 
+    --subnet mySubnet \ 
     --private-connection-resource-id "<Storage account Id>" \ 
     --group-ids blob \ 
     --connection-name myConnection 

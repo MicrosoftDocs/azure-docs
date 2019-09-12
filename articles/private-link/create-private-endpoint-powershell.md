@@ -33,7 +33,7 @@ In this section, you create a virtual network and a subnet. Next, you associate 
 
 ### Create a virtual network
 
-Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVNet*:
+Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *MyVirtualNetwork*:
  
 ```azurepowershell
 
@@ -73,7 +73,7 @@ New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "westcentralus" `
-    -VirtualNetworkName "myVNet" `
+    -VirtualNetworkName "MyVirtualNetwork" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
     -PublicIpAddressName "myPublicIpAddress" `
@@ -115,7 +115,7 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnect
   -PrivateLinkServiceId $storageAccount.Id ` 
   -GroupId "blob" 
  
-$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "myVNet"  
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "MyVirtualNetwork"  
  
 $subnet = $virtualNetwork ` 
   | Select -ExpandProperty subnets ` 

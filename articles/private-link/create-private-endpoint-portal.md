@@ -103,7 +103,7 @@ In this section, you will create a private storage account and add a private end
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
-    | Storage account name  | Enter *myvmstorageaccount*. If this name is taken, create a unique name. |
+    | Storage account name  | Enter *mystorageaccount*. If this name is taken, create a unique name. |
     | Region | Select **WestCentralUS**. |
     | Performance| Leave the default **Standard**. |
     | Account kind | Leave the default **Storage (general purpose v2)**. |
