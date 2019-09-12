@@ -66,7 +66,7 @@ You are prompted to sign in to an account that has administrative privileges for
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-The script prints the JSON required by the Azure Resource Manager template when you [create the cluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), so it's a good idea to keep the PowerShell window open.
+The script prints the JSON required by the Azure Resource Manager template when you [create your AAD enabled cluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), so it's a good idea to keep the PowerShell window open.
 
 ```json
 "azureActiveDirectory": {
@@ -125,7 +125,7 @@ To learn more, see [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.
 Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.
 
 ### Why do I still need a server certificate while Azure AD is enabled?
-FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
+FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity to the client. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
 
 ## Next steps
 After setting up Azure Active Directory applications and setting roles for users, [configure and deploy a cluster](service-fabric-cluster-creation-via-arm.md).
