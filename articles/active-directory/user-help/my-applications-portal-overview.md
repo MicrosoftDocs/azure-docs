@@ -17,21 +17,21 @@ ms.collection: M365-identity-device-management
 
 # What is the My Apps (preview) portal?
 
-You can use your work or school account with the web-based **My Apps** (preview) portal, to view, organize, and start many of your organization’s cloud-based apps. If you don’t have access to the **My Apps** (preview) portal, contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal, to view, organize, and start many of your organization’s cloud-based apps. If you don’t have access to the **My Apps**  portal, contact your organization's Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## My Apps (preview) portal articles
+## My Apps portal articles
 
-For detailed information and instructions about what's available from the **My Apps** (preview) portal, see the following articles:
+For detailed information and instructions about what's available from the **My Apps** portal, see the following articles:
 
 |Article |Description |
 |------|------------|
-| [Access and use the My Apps (preview) portal](my-applications-portal-end-user-access.md) | Instructions about how to access and use the **My Apps** (preview) web portal to view and start your organization’s cloud-based apps, based on device. |
-| [Access and use workspaces](my-applications-portal-workspaces.md) | Instructions about how to access and use the **My Apps** (preview) web portal to view and start your organization’s cloud-based apps, based on device. |
+| [Access and use apps on the My Apps (preview) portal](my-applications-portal-end-user-access.md) | Instructions about how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device. |
+| [Access and use workspaces](my-applications-portal-workspaces.md) | Instructions about how to organize your cloud-based apps into your organization's categories. |
 
 ## Related articles
 
