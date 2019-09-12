@@ -283,6 +283,14 @@ Yes, but note that physical machine can be failed back only to a VMware VM.
 
 In the Recovery Services vault, select **Configuration Servers** in **Site Recovery Infrastructure** > **Manage**. Then, in **Servers**, select **Download registration key** to download the vault credentials file.
 
+### Can a single configuration server be used to protect multiple vCenter instances?
+
+Yes, a single configuration server can protect VMs accross multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
+
+### Can a single configuration server protect multiple clusters within vCenter?
+
+Yes, Azure Site Recovery can protect VMs across different clusters.
+
 ## Process server
 
 ### Why am I unable to select the process server when I enable replication?
