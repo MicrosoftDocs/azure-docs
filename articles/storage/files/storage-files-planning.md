@@ -206,12 +206,16 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |Australia East |LRS     |No    |Yes|
 |Australia Southeast|LRS     |No    |Not yet|
 |Central India  |LRS     |No    |Not yet|
-|France Central  |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
+|East US        |LRS     |No    |Not yet|
+|France Central |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
+|France South   |LRS     |No    |Yes|
 |South India    |LRS     |No    |Not yet|
 |Southeast Asia |LRS, ZRS|No    |Yes|
 |West Central US|LRS     |No    |Not yet|
 |West Europe    |LRS, ZRS|No    |Yes|
+|West US        |LRS     |No    |Not yet|
 |West US 2      |LRS, ZRS|No    |Yes|
+
 
 *For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Alternatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
 

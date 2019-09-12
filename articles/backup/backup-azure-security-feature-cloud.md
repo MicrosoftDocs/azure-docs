@@ -20,7 +20,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 ### Supported regions
 
-Soft delete is currently supported in the West Central US region.
+Soft delete is currently supported in the West Central US region and East Asia.
 
 ### Soft delete for VMs
 
@@ -130,4 +130,4 @@ No. Currently soft delete is only supported for Azure virtual machines.
 
 ## Next steps
 
-* Read about [Security attributes for Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes).
+* Read about [Security controls for Azure Backup](backup-security-controls.md).
