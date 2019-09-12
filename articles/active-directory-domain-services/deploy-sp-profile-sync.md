@@ -16,11 +16,9 @@ ms.author: iainfou
 ---
 # Configure Azure Active Directory Domain Services to support user profile synchronization for SharePoint Server
 
-SharePoint Server includes a service to synchronize user profiles. This feature lets user profiles be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in an Azure Active Directory Domain Services (Azure AD DS) managed domain. For more information, see [user profile synchronization in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
+SharePoint Server includes a service to synchronize user profiles. This feature lets user profiles be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in an Azure Active Directory Domain Services (Azure AD DS) managed domain. For more information, see [user profile synchronization in SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
 
 This article shows you how to configure Azure AD DS to allow the SharePoint Server user profile sync service.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
 
@@ -35,6 +33,8 @@ To complete this article, you need the following resources and privileges:
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A SharePoint service account for the user profile synchronization service.
+    * If needed, see [Plan for administrative and service accounts in SharePoint Server][sharepoint-service-account].
 
 ## Service accounts overview
 
@@ -74,3 +74,6 @@ For more information, see [Grant Active Directory Domain Services permissions fo
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+
+<!-- EXTERNAL LINKS -->
+[sharepoint-service-account]: /sharepoint/security-for-sharepoint-server/plan-for-administrative-and-service-accounts
