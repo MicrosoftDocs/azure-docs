@@ -11,7 +11,7 @@ ms.date: 08/07/2019
 
 # What is Private Link?
 
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to https://docs.microsoft.com/en-us/azure/privatelink. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to https://docs.microsoft.com/azure/privatelink. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
 > [!IMPORTANT]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
@@ -25,13 +25,12 @@ Consider a scenario with a user running SQL Server Management Studio (SSMS) insi
 1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Data Warehouse network access controls](sql-database-networkaccess-overview.md).
 1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](sql-database-firewall-configure.md).
 1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../virtual-network/manage-network-security-group.md) and Service Tags as follows
-    - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs
-    - Specify an NSG rule to deny traffic for Service Tag = SQL
-        - This tag will deny all traffic from other regions
+    - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
+    - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions
 
 At the end of this setup, the Azure VM can connect only to SQL Databases in the West US region. However, the connectivity isn't restricted to a single SQL Database. The VM can still connect to any SQL Databases in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
 
-With Private Link, customers can now set up standard network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a SQL Database) and no other resource. Private Link provides data exfiltration prevention capabilities.
+With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a SQL Database) and no other resource. 
 
 ## On-premises connectivity over private peering
 
