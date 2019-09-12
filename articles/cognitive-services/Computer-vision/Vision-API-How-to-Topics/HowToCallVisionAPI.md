@@ -24,7 +24,7 @@ This article demonstrates how to call the Computer Vision API by using the REST 
 ## Prerequisites
 
 - An image URL or a path to a locally stored image
-- Supported input methods: Raw image binary in the form of an application or octet stream, or an image URL
+- Supported input methods: a raw image binary in the form of an application or octet stream, or an image URL
 - Supported image file formats: JPEG, PNG, GIF, and BMP
 - Image file size: 4 MB or less
 - Image dimensions: 50 &times; 50 pixels or greater
@@ -36,7 +36,7 @@ The examples in this article demonstrate the following features:
 
 The features offer the following options:
 
-- **Option 1**: Scoped Analysis - Analyze only a given model
+- **Option 1**: Scoped Analysis - Analyze only a specified model
 - **Option 2**: Enhanced Analysis - Analyze to provide additional details by using [86-categories taxonomy](../Category-Taxonomy.md)
   
 ## Authorize the API call
@@ -117,7 +117,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ## Get domain-specific analysis (celebrities)
 
-### Option 1: Scoped analysis - Analyze only a given model
+### Option 1: Scoped analysis - Analyze only a specified model
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -185,7 +185,7 @@ description.captions[].confidence	| `number`	| The confidence score for the phra
 
 ## Retrieve and understand the JSON output of domain-specific models
 
-### Option 1: Scoped analysis - Analyze only a given model
+### Option 1: Scoped analysis - Analyze only a specified model
 
 The output is an array of tags, as shown in the following example:
 
