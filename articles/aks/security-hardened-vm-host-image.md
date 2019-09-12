@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Introduction 
 
-Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This document covers the security hardening applied to AKS virtual machine hosts. For more information on AKS security see:  [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-security) 
+Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This document covers the security hardening applied to AKS virtual machine hosts. For more information on AKS security, see:  [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-security) 
 
 AKS clusters are deployed on host virtual machines, which run a security optimized OS. This host OS is currently based on an Ubuntu 16.04.LTS image with a set of additional security hardening steps applied (see Security hardening details).   
 
@@ -21,11 +21,11 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 # Security hardening features 
 
-* AKS provides a security optimized host OS by default. There is no current option to select an alternate operating systems. 
+* AKS provides a security optimized host OS by default. There is no current option to select an alternate operating system. 
 
 * Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
 
-Below is a summary of image hardening work that is implemented in AKS-Engine to produce the security optimized host OS. The work was implemented [in this Github project](https://github.com/Azure/aks-engine/projects/7).  
+Below is a summary of image hardening work that is implemented in AKS-Engine to produce the security optimized host OS. The work was implemented [in this GitHub project](https://github.com/Azure/aks-engine/projects/7).  
 
 AKS-Engine does not promote or adhere to any specific security standard at this time, but CIS (Center for Internet Security) audit IDs are provided for convenience where applicable. 
 
@@ -36,8 +36,8 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 | 1.1.1.1 |Ensure mounting of cramfs filesystems is disabled|
 | 1.1.1.2 |Ensure mounting of freevxfs filesystems is disabled|
 | 1.1.1.3 |Ensure mounting of jffs2 filesystems is disabled|
-| 1.1.1.4 |Ensure mounting of hfs filesystems is disabled|
-| 1.1.1.5 |Ensure mounting of hfsplus filesystems is disabled|
+| 1.1.1.4 |Ensure mounting of HFS filesystems is disabled|
+| 1.1.1.5 |Ensure mounting of HFS Plus filesystems is disabled|
 |1.4.1 |Ensure permissions on bootloader config are configured |
 |1.4.3 |Ensure authentication required for single user mode |
 |1.7.1.2 |Ensure local login warning banner is configured properly |
@@ -92,8 +92,7 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 
 # Next Steps  
 
-Please see
-the following documents for more information on AKS security: 
+See the following documents for more information on AKS security: 
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 
