@@ -176,7 +176,7 @@ Next, create a variable so that you can convert and store the current travel tim
 
 Sometimes, you might want to run operations on data in your workflow, and then use the results in later actions. To save these results so that you can easily reuse or reference them, you can create variables to store those results after processing them. You can create variables only at the top level in your logic app.
 
-By default, the previous **Get route** action returns the current travel time with traffic in seconds through the **Travel Duration Traffic** field. By converting and storing this value as minutes instead, you make the value easier to reuse later without converting again.
+By default, the previous **Get route** action returns the current travel time with traffic in seconds from the **Travel Duration Traffic** property. By converting and storing this value as minutes instead, you make the value easier to reuse later without converting again.
 
 1. Under the **Get route** action, select **New step**.
 
@@ -311,15 +311,15 @@ Now, add an action that emails you when the travel time exceeds your limit. This
 
    1. Under **Variables**, select **travelTime**.
 
-      ![Select "travelTime" field to use in expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
+      ![Select "travelTime" property to use in expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
 
-   1. After the field resolves inside the expression, select **OK**.
+   1. After the property resolves inside the expression, select **OK**.
 
-      !["Body" field with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      !["Body" property with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
-      The **Body** field now appears as shown here:
+      The **Body** property now appears as shown here:
 
-      !["Body" field with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      !["Body" property with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 1. Save your logic app.
 
