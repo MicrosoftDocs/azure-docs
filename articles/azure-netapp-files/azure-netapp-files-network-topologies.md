@@ -37,7 +37,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. In the interim, if you have a requirement for more IPs, please reach out to our support team with your use case and required limit.
+* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. In the interim, if you require for more IPs, reach out to our support team with your use case and required limit.
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
