@@ -38,7 +38,7 @@ Each bulk activity to remove a list of group members from can run for up to one 
 
 1. Open the CSV file and add a line for each group member you want to remove from the group (required values are Member object ID or User principal name). Then save the file.
 
-   ![The CSV file contains names and IDs for the members to remove](./media/groups-bulk-remove-members/cvs-file.png)
+   ![The CSV file contains names and IDs for the members to remove](./media/groups-bulk-remove-members/csv-file.png)
 
 1. On the **Bulk remove group members (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts.
 1. When the file contents are validated, the bulk import page displays **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.

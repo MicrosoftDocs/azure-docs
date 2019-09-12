@@ -38,7 +38,7 @@ Each bulk activity to import a list of group members can run for up to one hour.
 
 1. Open the CSV file and add a line for each group member you want to import into the group (required values are either **Member object ID** or **User principal name**). Then save the file.
 
-   ![The CSV file contains names and IDs for the members to import](./media/groups-bulk-import-members/cvs-file.png)
+   ![The CSV file contains names and IDs for the members to import](./media/groups-bulk-import-members/csv-file.png)
 
 1. On the **Bulk import group members (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the CSV file starts.
 1. When the file contents are validated, the bulk import page displays **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
