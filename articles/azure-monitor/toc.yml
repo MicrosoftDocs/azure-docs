@@ -762,6 +762,8 @@
       - name: Log query overview
         displayname: log query, log queries, query, queries
         href: log-query/log-query-overview.md
+      - name: Simple logs experience
+        href: log-query/simple-logs.md
       - name: Tutorials
         items:
         - name: Log Analytics tutorial
