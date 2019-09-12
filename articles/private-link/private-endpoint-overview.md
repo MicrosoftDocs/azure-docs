@@ -23,7 +23,7 @@ This article explains private endpoint concepts, to help you use them effectivel
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
-|Subnet    |  The subnet to deploy and allocate private IP addresses from a Virtual Network, for subnet requirements see the Limitations section.         |
+|Subnet    |  The subnet to deploy and allocate private IP addresses from a virtual network, for subnet requirements see the Limitations section in this article.         |
 |Private Link Resource    |   The private link resource to connect, from the list of available types, a unique network identifier will be generated for all traffic sent to this resource.       |
 |Target subresource   |      The subresource to connect, each private link resource type have different options to select based on preference.    |
 |Connection approval method    |  Automatic or manual, based on RBAC permissions, your private endpoint can be approved automatically, if you are trying to connect to a private link resource without RBAC, use manual method to allow the owner of the resource to approve the connection.        |
@@ -54,21 +54,16 @@ A private link resource is the destination target of a given private endpoint. T
 - **Azure SQL Database**: Generally available in all Azure regions. 
 - **Azure SQL Data Warehouse**: Generally available in all Azure regions. 
  
-All private link resources share a common behavior and experience for managing associated private endpoints. For details, see the following sections:
-- Network security for private endpoints.
-- Access to a private link resource using approval workflow.
-- DNS configuration.
- 
-### Network security of private endpoints 
+## Network security of private endpoints 
 When using private endpoints for Azure Services, traffic is secured to a specific private link resource, the platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure Service, additional private endpoints are required. 
  
 You can completely lock down your workloads from accessing to public endpoints to connect to a supported Azure Service. This control provides an additional network security layer to your resources by providing a build-in exfiltration protection that prevents access to other resources hosted on the same Azure Service. 
  
-### Access to a Private Link Resource using approval workflow 
-You can connect to a private link resource without permissions by using an approval workflow, the private endpoint needs to be created manually and a subsequent private endpoint connection will be created in "Pending" state, the private link resource owner is responsible to approve the connection, once approved, the private endpoint will be enabled to send traffic normally. 
+## Access to a private link resource using approval workflow 
+You can connect to a private link resource without permissions by using an approval workflow, the private endpoint needs to be created manually and a subsequent private endpoint connection will be created in "Pending" state, the private link resource owner is responsible to approve the connection, once approved, the private endpoint will be enabled to send traffic normally (see approval workflow diagram below). 
  
-The following approval workflow diagram applies to all private link resource types: 
-(Diagram here) 
+
+![workflow approval](media/private-endpoint-overview/workflow-private-endpoint.png)
  
 The private link resource owner can perform the following actions over a private endpoint connection: 
 - Review all private endpoint connections details. 
@@ -79,7 +74,7 @@ The private link resource owner can perform the following actions over a private
 > [!NOTE]
 > Only a private endpoint in approved state is valid to send traffic on to a given private link resource. 
  
-### DNS configuration 
+## DNS configuration 
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to configure properly your DNS settings to resolve into the allocated private IP addresses, existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS including fully qualified domain name (FQDN) and private IP addresses allocated for a given private link resource. 

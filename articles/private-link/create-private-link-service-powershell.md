@@ -15,15 +15,15 @@ This article shows you how to create a private link service in Azure using Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version XYZ or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the latest Azure PowerShell module version. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
-Before you can create your private link, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroupLB* in the *EastUS* location:
+Before you can create your private link, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestCentralUS* location:
 
 ```azurepowershell
-$location = "eastus2"
-$rgName = "myResourceGroupPrivateLink"
+$location = "westcentralus"
+$rgName = "myResourceGroup"
 New-AzResourceGroup `
   -ResourceGroupName $rgName `
   -Location $location
@@ -73,8 +73,7 @@ $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name $lbBackendName
 $NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Sku "Standard" 
 ```
 ## Create a private link service
-Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer) as follows:
-
+Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer).  This example creates a private link service named *myPLS* using Standard Load Balancer in resource group named *myResourceGroup*. 
 ```azurepowershell
 
 $plsIpConfigName = "PLS-ipconfig" 
@@ -96,7 +95,7 @@ $privateLinkService = New-AzPrivateLinkService `
 -IpConfiguration $IPConfig 
 ```
 
-## Get private link service
+### Get private link service
 Get details about your private link service with [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
 
 ```azurepowershell
@@ -106,7 +105,7 @@ $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName
 
   
 ### Create a virtual network
-Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
+Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a virtual network named *vnetPE* in resource group named *myResourceGroup*:
  
 ```azurepowershell
 $virtualNetworkNamePE = "vnetPE"
@@ -119,12 +118,13 @@ $peSubnet = New-AzVirtualNetworkSubnetConfig `
 
 $vnetPE = New-AzVirtualNetwork `
 -Name $virtualNetworkNamePE `
--ResourceGroupName $rgName `
+-ResourceGroupName myResourceGroup `
 -Location $location `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 
 ```
-### Create a Private Endpoint
+### Create a private endpoint
+Create a private endpoint for consuming private link service created above in your virtual network:
  
 ```azurepowershell
  
@@ -133,17 +133,19 @@ $plsConnection= New-AzPrivateLinkServiceConnection `
 -PrivateLinkServiceId  $privateLinkService.Id  
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
  ```
-### Get Private Endpoint
+### Get private endpoint
+Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
 
 ```azurepowershell  
-# Get Private Endpoint and its Ip Address 
+# Get Private Endpoint and its IP Address 
 $pe =  Get-AzPrivateEndpoint `
 -Name $peName `
 -ResourceGroupName $rgName  `
 -ExpandResource networkinterfaces $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
  ```
   
-### Approve the Private Endpoint connection
+### Approve the private endpoint connection
+Approve the private end point connection to the private link service with 'Approve-AzPrivateEndpointConnection`.
 
 ```azurepowershell   
 
