@@ -7,12 +7,14 @@
     href: Home.md
 - name: Quickstarts
   items:
-  - name: Using the .NET SDK
-    href: quickstarts-sdk/csharp-sdk.md
-  - name: Using the Python SDK
-    href: quickstarts-sdk/python-sdk.md
-  - name: Using the Java SDK
-    href: quickstarts-sdk/java-sdk.md
+  - name: Using the client SDK
+    items:
+    - name: .NET SDK
+      href: quickstarts-sdk/csharp-sdk.md
+    - name: Python SDK
+      href: quickstarts-sdk/python-sdk.md
+    - name: Java SDK
+      href: quickstarts-sdk/java-sdk.md
   - name: Using the REST API
     items:
     - name: Analyze a remote image
