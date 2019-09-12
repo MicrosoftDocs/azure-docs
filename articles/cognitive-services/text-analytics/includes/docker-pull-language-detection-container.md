@@ -7,11 +7,9 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 09/11/2019
+ms.date: 09/12/2019
 ms.author: dapine
 ---
-
-Container images for Text Analytics are available on the Microsoft Container Registry.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
