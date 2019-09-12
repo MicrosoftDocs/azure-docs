@@ -33,7 +33,7 @@ This article shows you how to:
 
 ### Step 1 - Install the Azure CLI
 
-Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up the Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az -–version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
+Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up the Azure CLI in your environment. To use all the commands below, your Azure CLI version must be version 2.0.73 or above. Use `az -–version` to validate.
 
 ### Step 2 - Install IoT extension
 
