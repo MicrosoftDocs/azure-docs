@@ -60,8 +60,8 @@ The following files handle the main functionality of the app.
 ## Setup
 
 1. Clone or download the IoTVisualAlerts sample on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts).
-2. Open the solution IoTVisualAlerts.sln in Visual Studio
-3. **Custom Vision setup**:
+1. Open the solution IoTVisualAlerts.sln in Visual Studio
+1. **Custom Vision setup**:
     * In CustomVision\CustomVisionServiceWrapper.cs, update ```ApiKey = "{The training key for your Custom Vision Service instance}"``` 
       with your api key.
     * In CustomVision\CustomVisionServiceWrapper.cs, update ```Endpoint = "https://westus2.api.cognitive.microsoft.com"``` with the 
@@ -69,7 +69,7 @@ The following files handle the main functionality of the app.
     * In CustomVision\CustomVisionServiceWrapper.cs, update ```targetCVSProjectGuid = "{Your Custom Vision Service target project id}"``` 
       with the corresponding Guid for the Custom Vision project that should be used by the app during the visual state learning 
       workflow. **Important:** This needs to be a Compact image classification project, since we will be exporting the model to ONNX later.
-4. **IoT Hub setup**:
+1. **IoT Hub setup**:
     * In IoTHub\IotHubWrapper.cs, update ```s_connectionString = "Enter your device connection string here"``` with the proper 
       connection string for your device. Using the Azure portal, load up your IoT Hub instance, click on IoT devices under Explorers, click on
       your target device (or create one if needed), and find the connection string under Primary Connection String. The format should be similar
@@ -77,17 +77,14 @@ The following files handle the main functionality of the app.
 
 ## Run the sample
 
-If you are running the sample in your own development PC, just select x64 or x86 for the target platform, Local Machine for the target device and hit F5 in Visual Studio. The app should start and show the live 
-feed from the camera, as well as a status message. 
+If you are running the sample in your own development PC, just select x64 or x86 for the target platform, Local Machine for the target device and hit F5 in Visual Studio. The app should start and show the live feed from the camera, as well as a status message. 
 
-If deploying to a IoT device running ARM, you will need to select ARM as the target platform, Remote Machine as the target device and provide the Ip Address of your 
-device when asked (it must be on the same network). You can get the Ip Address from the Windows IoT default app once you boot into the device and connect 
+If deploying to a IoT device running ARM, you will need to select ARM as the target platform, Remote Machine as the target device and provide the Ip Address of your device when asked (it must be on the same network). You can get the Ip Address from the Windows IoT default app once you boot into the device and connect 
 it to the network.
 
 ### Learning new visual states
 
-When running for the first time the app won't have any knowledge of any visual states. As a result it won't be doing much, and simply 
-display a status message that there is no model available. To change that, we need to transition the app to the Capturing Training Images state. 
+When running for the first time the app won't have any knowledge of any visual states. As a result it won't be doing much, and simply display a status message that there is no model available. To change that, we need to transition the app to the Capturing Training Images state. 
 
 #### Capturing training images
 
@@ -96,8 +93,7 @@ To enter the Capturing Training Images state and start collecting training image
   * Via a Direct Method call to the device via IoT Hub. The method for this is called EnterLearningMode, and you can send it via the device entry
     in the IoT Hub blade in Azure, or via a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-Once in this state, the app will capture images at about 2fps until the desired number of images has been captured. By default it will 30 images,
-but this parameter can be changed by simply passing the desired number as a parameter to the EnterLearningMode IoT Hub method. 
+Once in this state, the app will capture images at about 2fps until the desired number of images has been captured. By default it will 30 images, but this parameter can be changed by simply passing the desired number as a parameter to the EnterLearningMode IoT Hub method. 
 
 While pictures are being taken, just expose the camera to the types of visual states that you would like to be detected (e.g. empty room, room with
 people, empty desk, desk with a toy truck, etc).
@@ -125,27 +121,18 @@ To repeat this with your own scenario:
 
 #### Scoring against the trained model
 
-As soon as the trained model is downloaded from the previous state, the app will switch to the Scoring state and start
-scoring images from the camera in a continuous loop. 
+As soon as the trained model is downloaded from the previous state, the app will switch to the Scoring state and start scoring images from the camera in a continuous loop. 
 
 The top tag with each scoring will be displayed on the screen (or No Matches will be displayed in case no classes, or the Negative class, is detected).
-These results are also sent to IoT Hub as messages, and in the case of
-a class being detected, the message will include the label, the confidence and a property called ```detectedClassAlert``` which could be used from 
-IoT Hub clients interested in doing fast message routing based on properties. 
+These results are also sent to IoT Hub as messages, and in the case of a class being detected, the message will include the label, the confidence and a property called `detectedClassAlert` which could be used from IoT Hub clients interested in doing fast message routing based on properties. 
+
 In addition, the sample uses a Sense HAT [library](https://github.com/emmellsoft/RPi.SenseHat) to detect when running on a Raspberry Pi with a Sense HAT unit, and to use it as an output display by setting all display lights to red whenever a class is detected, or to blank when nothing is detected.
 
 ## Additional info
 
-* If you would like to reset the app back to the original state, you can do so by clicking on the button on the top-right corner of the UI, or by 
-  invoking the method ```DeleteCurrentModel``` via IoT Hub.
-* If after going through the process of uploading training images you realized that the images 
-aren't good enough for your needs, you can repeat the flow by issuing the ```EnterLearningMode``` method again. This method also can take as argument 
-a number that indicates how many images to upload, in case the default value (30) is not good enough.
-* If you are running the app from an IoT device, it can be handy to know its Ip Address to do things such as establishing a remote connection via the [Windows IoT
-  Remote Client](https://www.microsoft.com/en-us/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab). For this, the app comes with a handy ```GetIpAddress``` method that can be called through IoT Hub. This Ip Address is also displayed under the
-  Information menu on the top-right corner of the app UI.
-
-
+* If you would like to reset the app back to the original state, you can do so by clicking on the button on the top-right corner of the UI, or by invoking the method `DeleteCurrentModel` via IoT Hub.
+* If after going through the process of uploading training images you realized that the images aren't good enough for your needs, you can repeat the flow by issuing the `EnterLearningMode` method again. This method also can take as argument a number that indicates how many images to upload, in case the default value (30) is not good enough.
+* If you are running the app from an IoT device, it can be handy to know its Ip Address to do things such as establishing a remote connection via the [Windows IoT Remote Client](https://www.microsoft.com/en-us/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab). For this, the app comes with a handy `GetIpAddress` method that can be called through IoT Hub. This Ip Address is also displayed under the Information menu on the top-right corner of the app UI.
 
 ## Clean up resources
 
