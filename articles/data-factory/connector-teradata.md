@@ -26,6 +26,11 @@ This article outlines how to use the copy activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
+This Teradata connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from a Teradata database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Teradata connector supports:
@@ -325,6 +330,11 @@ When you copy data from Teradata, the following mappings apply. To learn about h
 | VarChar |String |
 | VarGraphic |Not supported. Apply explicit cast in source query. |
 | Xml |Not supported. Apply explicit cast in source query. |
+
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps
