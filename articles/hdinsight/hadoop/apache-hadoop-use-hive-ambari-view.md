@@ -30,11 +30,11 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
 3. From the list of views, select __Hive View__.
 
-    ![The Hive view selected](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![The Hive view selected](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     The Hive view page is similar to the following image:
 
-    ![Image of the query worksheet for the Hive view](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Image of the query worksheet for the Hive view](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. From the __Query__ tab, paste the following HiveQL statements into the worksheet:
 
@@ -100,7 +100,7 @@ To display the Tez UI for the query, select the **Tez UI** tab below the workshe
 
 The __Jobs__ tab displays a history of Hive queries.
 
-![Image of the job history](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Image of the job history](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## Database tables
 
@@ -112,7 +112,7 @@ You can use the __Tables__ tab to work with tables within a Hive database.
 
 From the **Query** tab, you can optionally save queries. After you save a query, you can reuse it from the __Saved Queries__ tab.
 
-![Image of saved queries tab](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Image of saved queries tab](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Saved queries are stored in the default cluster storage. You can find the saved queries under the path `/user/<username>/hive/scripts`. These are stored as plain-text `.hql` files.
