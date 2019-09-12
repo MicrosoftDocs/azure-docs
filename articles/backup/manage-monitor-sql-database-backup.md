@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
 
 
@@ -136,6 +136,32 @@ Unregister a SQL Server instance after you disable protection but before you del
 4. Right-click the protected server, and select **Unregister**.
 
    ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## Modify policy
+Modify policy to change backup frequency or retention range.
+
+> [!NOTE]
+> Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
+
+In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
+
+  ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![Modify backup policy](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs. 
+
+#### Inconsistent Policy 
+
+Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
+ 
+  ![Inconsistent policy](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+You can fix the policy version for all the impacted items in one click:
+
+  ![Fix inconsistent policy](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## Re-register extension on the SQL Server VM
 

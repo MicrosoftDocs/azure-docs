@@ -1,20 +1,20 @@
 ---
-title: Use the Azure IoT Device Workbench to build IoT Plug and Play Preview devices | Microsoft Docs
-description: Use Azure IoT Device Workbench extension in Visual Studio Code to accelerate authoring IoT Plug and Play device models and implementing the device code.
+title: Use Visual Studio and Visual Studio Code to build IoT Plug and Play Preview devices | Microsoft Docs
+description: Use Visual Studio and Visual Studio Code to accelerate authoring IoT Plug and Play device models and implementing the device code.
 author: liydu
 ms.author: liydu
-ms.date: 07/25/2019
+ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a device or solution developer, I want to use the Azure IoT Device Workbench to author my device capability model (DCM) and interface, publish to model repository and generate skeleton C code to implement the device application.
+# As a device or solution developer, I want to use Visual Studio and Visual Studio Code to author my device capability model (DCM) and interface, publish to model repository and generate skeleton C code to implement the device application.
 ---
 
-# Use Azure IoT Device Workbench extension in Visual Studio Code
+# Use Azure IoT Tools for Visual Studio Code
 
-The Azure IoT Device Workbench Visual Studio Code extension provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate skeleton C code to implement the device application.
+The Azure IoT Tools for Visual Studio Code provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate skeleton C code to implement the device application.
 
 This article shows you how to:
 
@@ -22,16 +22,16 @@ This article shows you how to:
 - Use the generated code in your device project.
 - Iterate by regenerating the skeleton code.
 
-To learn more about using the Device Workbench extension to develop IoT devices, see [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
+To learn more about using the VS Code to develop IoT devices, see [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
 ## Prerequisites
 
 Install [Visual Studio Code](https://code.visualstudio.com/).
 
-Use the following steps to install the extension in VS Code.
+Use the following steps to install the extension pack in VS Code.
 
 1. In VS Code, select **Extensions** tab.
-1. Search for and install **Azure IoT Device Workbench** from the marketplace.
+1. Search for and install **Azure IoT Tools** from the marketplace.
 
 ## Generate device code and project
 
@@ -151,7 +151,7 @@ To build the device code together with the device C SDK on Windows using CMake a
 
 1. Open **azure-iot-sdk-c** repository in the **Team Explorer**, select **Branches**, search for **public-preview** branch and check it out.
 
-    ![Public preview](media/howto-use-iot-device-workbench/vs-public-preview.png)
+    ![Public preview](media/howto-develop-with-vs-vscode/vs-public-preview.png)
 
 1. Copy the folder that contains the generated code into the device SDK root folder.
 
@@ -167,7 +167,7 @@ To build the device code together with the device C SDK on Windows using CMake a
 
 1. In the **General** toolbar, find the **Configurations** dropdown. Select **Manage Configuration** to add the CMake setting for your project.
 
-    ![Manage configuration](media/howto-use-iot-device-workbench/vs-manage-config.png)
+    ![Manage configuration](media/howto-develop-with-vs-vscode/vs-manage-config.png)
 
 1. In the **CMake Settings**, add a new configuration and select **x64-Release** as target.
 
@@ -268,8 +268,8 @@ The code generator can regenerate the code if you update your DCM or interface f
 
 ## Problems and Feedback
 
-Azure IoT Device Workbench extension is an open-sourced project on GitHub. For any issues and feature requests, you can [create an issue on GitHub](https://github.com/microsoft/vscode-iot-workbench/issues).
+Azure IoT Tools is an open-sourced project on GitHub. For any issues and feature requests, you can [create an issue on GitHub](https://github.com/microsoft/vscode-azure-iot-tools/issues/new).
 
 ## Next steps
 
-In this how-to article, you've learned how to use the Azure IoT Device Workbench to author DCM and interface files. You've also learned how to generate skeleton C code to implement the device application. A suggested next step is to learn how to [Install and use Azure IoT explorer](./howto-install-iot-explorer.md) tool.
+In this how-to article, you've learned how to use the Visual Studio and Visual Studio Code to generate skeleton C code to implement the device application. A suggested next step is to learn how to [Install and use Azure IoT explorer](./howto-install-iot-explorer.md) tool.
