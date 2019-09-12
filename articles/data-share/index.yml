@@ -1,64 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Data Share Preview documentation
-metadata:
-  title: Azure Data Share Preview documentation - Tutorials, how-to guides
-  description: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations.
-  author: joannapea
-  ms.author: joanpo
-  ms.service: data-share
-  ms.topic: landing-page
-  ms.date: 07/10/2019
-abstract:
-  description: <p>Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations. Select the datasets that you want to share, add recipients, and start sharing data with the ability to govern, monitor, and control your data sharing relationships. </p><p>Learn how to use Azure Data Share through our tutorials and how-to guides.</p>
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/azure-friday.png
-      width: 250  
-    title: Azure Data Share on Azure Friday
-    href: https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny
-    width: 250
+### YamlMime:Landing
 
-sections:
-- title: How-to guides
-  items:
-  - type: paragraph
-    text: 'Learn how to monitor your data share, configure dataset mappings, add recipients and more with one of the following how-to guides:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Monitor Azure Data Share
-      href: /azure/data-share/how-to-monitor
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Configure a dataset mapping
-      href: /azure/data-share/how-to-configure-mapping
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Troubleshoot Azure Data Share
-      href: /azure/data-share/data-share-troubleshoot
-- title: Step-by-Step tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to start sharing your data using Azure Data Share'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="share-your-data">Share your data using Azure Data Share</a> 
-    - html: <a href="subscribe-to-data-share">Accept and receive data using Azure Data Share</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/datashare">.NET</a></p>
-    - title: Powershell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0">Azure Powershell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/datashare">REST API</a></p>
+title: Azure Data Share Preview documentation # < 60 chars
+summary: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations. # < 160 chars
+
+metadata:
+  title: Azure Data Share Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations. # Required; article description that is displayed in search results. < 160 chars.
+  services: service
+  ms.service: data-share #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: subservice
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
+  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/12/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Data Share
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Data Share Preview?
+            url: ./overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Data Share Preview Concepts
+            url: ./terminology.md
+          - text: Roles and requirements for Azure Data Share Preview
+            url: ./concepts-roles-permissions.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Share your data using Azure Data Share Preview
+            url: share-your-data.md
+          - text: Accept and receive data using Azure Data Share Preview
+            url: subscribe-to-data-share.md
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor Azure Data Share Preview
+            url: ./how-to-monitor.md
+          - text: Configure dataset mappings
+            url: ./how-to-configure-mapping.md
+          - text: Troubleshoot common issues
+            url: ./data-share-troubleshoot.md
+          - text: Add datasets
+            url: ./how-to-add-datasets.md
