@@ -144,7 +144,7 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 
 [EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, ASP.NET Core counters etc.
 
-SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. SDK by default collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
+SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. By default, the SDK collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
 
 |Category | Counter|
 |---------------|-------|
@@ -232,9 +232,9 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
-|EnableHeartbeat | Enable/Disable Heartbeats feature | true
+|EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15 min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
-|RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
+|RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by the Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
