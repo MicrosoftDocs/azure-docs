@@ -57,7 +57,6 @@ This step can be changed to point to your blob container by providing your own `
 
 ```python
 from azureml.core.dataset import Dataset
-from azureml.data.datapath import DataPath
 
 account_name = "pipelinedata"
 datastore_name="images_datastore"
@@ -69,11 +68,8 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
                       account_name=account_name, 
                       overwrite=True)
 
-input_images_data_path = DataPath(batchscore_blob, 'batchscoring/images/ILSVRC*.JPEG')
-input_images_dataset = Dataset.File.from_files(path=input_images_data_path).as_mount().as_named_input('input_images')
-
-label_data_path = DataPath(batchscore_blob, 'batchscoring/labels/labels.txt')
-label_dataset = Dataset.File.from_files(path=label_data_path).as_named_input('labels')
+input_images_dataset = Dataset.File.from_files((batchscore_blob, 'batchscoring/images/ILSVRC*.JPEG')).as_named_input('input_images')
+label_dataset = Dataset.File.from_files((batchscore_blob, 'batchscoring/labels/labels.txt')).as_named_input('labels')
 ```
 
 Next, specify the workspace default datastore as the output datastore, which you use for inference output.
@@ -175,7 +171,7 @@ shutil.rmtree("models")
 The scoring script should contain two functions:
 - `init()`: this function should be used for any costly or common preparation for subsequent inference, e.g. load the model into a global object.
 - `run(input_data, arguments)`: this function will run for each mini_batch.
-    - `input_data`: array of locally-accessible file paths.
+    - `input_data`: array of locally-accessible file paths or a Pandas dataframe, a subset of files or rows specified in the inputs list.
     - `arguments`: arguments passed during pipeline run will be passed to this function. 
     - `run method response`: run() method should return an array.
 
@@ -191,6 +187,9 @@ if not os.path.isdir(scripts_folder):
     os.mkdir(scripts_folder)
 
 %%writefile $scripts_folder/batch_scoring.py
+
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license.
 
 import os
 import argparse
@@ -257,9 +256,10 @@ def init():
     global g_tf_sess
 
     
-    print(f'start init, {args.model_name} {args.proc_unit} {args.label_dir}')
+    print(f'start init, {args.model_name} {args.proc_unit}')
     model_path = Model.get_model_path(args.model_name)
-    label_file_name = Run.get_context().get_dataset_by_name("labels")
+
+    label_file_name = Run.get_context().input_datasets["labels"].as_mount()
     label_dict = get_class_label_dict(label_file_name)
     classes_num = len(label_dict)
     
@@ -279,9 +279,8 @@ def init():
 
 def run(mini_batch):
     try:
-        filepaths = mini_batch['filepath'].values.tolist()
-        print(f'run method start: {__file__}, run({filepaths})')
-        test_feeder = DataIterator(file_paths=filepaths)
+        print(f'run method start: {__file__}, run({mini_batch})')
+        test_feeder = DataIterator(file_paths=mini_batch)
         total_size = len(test_feeder.labels)
         count = 0
         labelslist = []
@@ -298,14 +297,10 @@ def run(mini_batch):
                 print(f'start input data count:{count} total_size:{total_size}')
                 start_time = time.time()
                 test_images_batch = sess.run(test_images)
-                # print duration of test batch, if necessary
-                # print("--- test batch duration: %s seconds ---" % (time.time() - start_time))
                 file_names_batch = test_feeder.file_paths[i * args.proc_unit:
                                                             min(test_feeder.size, (i + 1) * args.proc_unit)]
                 start_time = time.time()
                 results = g_tf_sess.run(probabilities, feed_dict={input_images: test_images_batch})
-                # print duration of inference session, if necessary
-                # print("---predictor data %s seconds ---" % (time.time() - start_time))
                 new_add = min(args.proc_unit, total_size - count)
                 count += new_add
                 i += 1
@@ -353,7 +348,7 @@ predict_env.python.conda_dependencies.add_pip_package("azureml-defaults")
 
 Create the configuration to wrap the scoring script by using `ParallelRunConfig` object containing all the following parameters:
 - `entry_script`: scoring script with local file path. If source_directly is present, use relative path, otherwise use any path accessible on machine.
-- `mini_batch_size`: number of records scoring script can process in one inference call (optional, default value is 1).
+- `mini_batch_size`: size of the partition/mini-batch passed to a single run() call. For FileDataset, it's number of files with minimum value of 1. For TabularDatset, it's in bytes with minimum value of 4MB.
 - `error_threshold`: percentage of record failures can be ignored and processing should continue.
 - `output_action`: one of the following values:
     - `summary_only`: scoring script will store the output and batch inference will use the output only for error threshold calculation.
@@ -382,8 +377,8 @@ Create the pipeline step by using the script, environment configuration, and par
 - `name`: this name will be used to register batch inference service, has the following naming restrictions: (unique, 3-32 chars and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$
 - `models`: zero or more model names already registered in Azure Machine Learning model registry.
 - `parallel_run_config`: ParallelRunConfig as defined above.
-- `inputs`: one or more Azure Machine Learning datasets.
-- `refs`: one or more side inputs, e.g. labels.
+- `inputs`: one or more single-typed Azure Machine Learning datasets.
+- `refs`: one or more mixed-typed datasets as side inputs, can be used for lookups or to perform lookup-based joins, e.g. labels.
 - `output`: PipelineData object corresponding to the output directory.
 - `arguments`: list of arguments passed to scoring script (optional).
 - `allow_reuse`: if the inputs remain the same as a previous run, it will make the previous run results immediately available (optional, default value is True).
