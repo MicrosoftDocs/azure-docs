@@ -121,7 +121,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. |
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, GZIP, PSV, SOH, SCSV, TSV, and TXT. |
     | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**. Required for JSON, MULTILINE JSON, or AVRO, and optional for other formats.|
     | | |
 
