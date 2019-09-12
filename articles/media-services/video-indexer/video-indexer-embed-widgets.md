@@ -41,35 +41,33 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`captions`|A language code|Fetches the caption in the specified language during the widget loading to be available on the **Captions** menu.<br/> Example: `captions=en-US`.|
 |`showCaptions`|A Boolean value|Makes the player load with the captions already enabled.<br/> Example: `showCaptions=true`.|
 |`type`||Activates an audio player skin (the video part is removed).<br/> Example: `type=audio`.|
-|`autoplay`|A Boolean value|Indicates whether the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`.|
+|`autoplay`|A Boolean value|Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`.|
 |`language`|A language code|Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
 
-### Editor widget 
+### Editor widget
 
 You can use the Editor widget to create new projects and manage a video's insights. The Editor widget supports the following optional URL parameters.
 
 |Name|Definition|Description|
 |---|---|---|
-|`accessToken`|String| Provides access to videos that are only in the account that is used to embed the widget.<br/> **Notes:**<br/>The `accessToken` parameter is required when using the Editor widget.<br/>The owner should provide the `accessToken` with caution.<br/>|
-|`language`|A language code|Controls the player language. The default value is `en-US`. <br/>Example: `language=de-DE`.|
+|`accessToken`<sup>*</sup>|String|Provides access to videos that are only in the account that is used to embed the widget.<br> The Editor widget requires the `accessToken` parameter.|
+|`language`|A language code|Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
 |`locale`|A short language code|Controls the insights language. The default value is `en`.<br/>Example: `language=de`.|
 
-
+<sup>*</sup>The owner should provide `accessToken` with caution.
 
 ## Embedding public content
 
-To embed public videos, get embed codes from the **Share & Embed** dialog box:
-
 1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) website.
-2. Click the video that you want to work with.
-3. Click the **Embed** button that appears under the video.
+2. Select the video that you want to work with.
+3. Select the **Embed** button that appears under the video.
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
-	After you click the **Embed** button, you can select the widget that you want to embed in your application. 
+	After you select the **Embed** button, you can select the widget that you want to embed in your application. 
 4. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
  
-5. In the **Share & Embed** dialog box that opens, copy the embed code, and then add it to your application. 
+5. Copy the embed code, and then add it to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
@@ -83,10 +81,10 @@ To embed a private video, you must pass an access token in the **src** attribute
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 To get the Cognitive Insights widget content, use one of the following:<br/>
-- The [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API<br/>
-- The [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?): add it as a query parameter to the URL; specify this URL as the **src** value for the iframe, as shown earlier.
+- The [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API.<br/>
+- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL; specify this URL as the **src** value for the iframe, as shown earlier.
 
-To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with **&allowEdit=true**. 
+To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with `&allowEdit=true`. 
 
 ## Widgets interaction
 
@@ -105,15 +103,14 @@ If you implement your own player code and integrate with Cognitive Insights widg
 
 ### Embed widgets in your application or blog (recommended) 
 
-This section shows how to achieve interaction between two Video Indexer widgets so that when a user clicks the insight control on your application, the player jumps to the relevant moment.
+This section shows how to achieve interaction between two Video Indexer widgets so that when a user selects the insight control on your application, the player jumps to the relevant moment.
 
-To add a control to jump to a specific moment in a video:
 1. Copy the Player widget embed code.
 2. Copy the Cognitive Insights embed code.
 3. Add the [Mediator file](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) to handle the communication between the two widgets:<br/> 
 `<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
-Now when a user clicks the insight control on your application, the player jumps to the relevant moment.
+Now when a user selects the insight control on your application, the player jumps to the relevant moment.
 
 For more information, see the [Video Indexer - Embed both Widgets demo](https://codepen.io/videoindexer/pen/NzJeOb).
 
@@ -121,11 +118,10 @@ For more information, see the [Video Indexer - Embed both Widgets demo](https://
 
 This section shows how to achieve interaction between a Cognitive Insights widget and an Azure Media Player instance using the [AMP plug-in](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
  
-To add the ability to communicate with an Azure Media Player instance:
 1. Add a Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantiate Azure Media Player with the Video Indexer plug-in.
 
-		// Init the source
+		// Init the source.
 		function initSource() {
 		    var tracks = [{
 			kind: 'captions',
@@ -143,7 +139,7 @@ To add the ability to communicate with an Azure Media Player instance:
 		    ], tracks);
 		}
 
-		// Init your AMP instance
+		// Init your AMP instance.
 		var myPlayer = amp('vid1', { /* Options */
 		    "nativeControlsForTouch": false,
 		    autoplay: true,
@@ -155,14 +151,14 @@ To add the ability to communicate with an Azure Media Player instance:
 			videobreakedown: {}
 		    }
 		}, function () {
-		    // Activate the plug-in
+		    // Activate the plug-in.
 		    this.videobreakdown({
 			videoId: "c4c1ad4c9a",
 			syncTranscript: true,
 			syncLanguage: true
 		    });
 
-		    // Set the source dynamically
+		    // Set the source dynamically.
 		    initSource.call(this);
 		});
 
@@ -176,7 +172,6 @@ For more information, see the [Azure Media Player + VI Insights demo](https://co
 
 If you use a video player other than Azure Media Player, you must manually manipulate the video player to achieve the communication. 
 
-To add the ability to communicate with a video player (other than Azure Media Player):
 1. Insert your video player.
 
 	For example, a standard HTML5 player:
@@ -204,7 +199,7 @@ To add the ability to communicate with a video player (other than Azure Media Pl
 		        // Call your player's "jumpTo" implementation.
 		        playerInstance.currentTime = evt.data.time;
 		       
-		        // Confirm the arrival to us
+		        // Confirm the arrival to us.
 		        if ('postMessage' in window) {
 		          evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
 		        }
@@ -228,7 +223,7 @@ If you embed Video Indexer insights with your own [Azure Media Player](https://a
 
 ### Cognitive Insights widget
 
-You can choose the types of insights that you want. To do this,specify them as a value to the following URL parameter that is added to the embed code that you get (from the API or from the web application): `&widgets=<list of wanted widgets>`.
+You can choose the types of insights that you want. To do this, specify them as a value to the following URL parameter that is added to the embed code that you get (from the API or from the web application): `&widgets=<list of wanted widgets>`.
 
 The possible values are: **people**, **keywords**, **sentiments**, **transcript**, and **search**.
 
@@ -236,7 +231,7 @@ For example, if you want to embed a widget that contains only people and search 
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-The title of the iframe window can also be customized by providing `&title=<YourTitle>` to the iframe URL. (It customizes the HTML \<title> value ).
+The title of the iframe window can also be customized by providing `&title=<YourTitle>` to the iframe URL. (It customizes the HTML \<title> value).
 	
 For example, if you want to give your iframe window the title "MyInsights", the URL will look like this:
 
@@ -254,7 +249,7 @@ For example:
 
 By default, Video Indexer player has auto-generated closed captions that are based on the transcript of the video. The transcript is extracted from the video with the source language that was selected when the video was uploaded.
 
-If you want to embed with a different language, you can add `&captions=< Language | ”all” | “false” >` to the embed player URL. If you want captions in all available languages captions, use the value `all`. If you want the captions to be displayed by default, you can pass `&showCaptions=true`.
+If you want to embed with a different language, you can add `&captions=< Language | ”all” | “false” >` to the embed player URL. If you want captions in all available languages' captions, use the value `all`. If you want the captions to be displayed by default, you can pass `&showCaptions=true`.
 
 The embed URL then will look like this: 
 
@@ -262,7 +257,7 @@ The embed URL then will look like this:
 
 If you want to disable captions, you can pass the `captions` parameter value as `false`.
 
-#### Auto play
+#### AutoPlay
 By default, the player will start playing the video. you can choose not to by passing `&autoplay=false` to the preceding embed URL.
 
 ## Next steps
