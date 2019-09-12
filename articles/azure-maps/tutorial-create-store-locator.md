@@ -412,7 +412,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'

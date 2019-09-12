@@ -165,7 +165,7 @@ This section explains the different ways you can use script actions when you cre
 
 4. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
-    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     The following table describes the elements on the form:
 
@@ -247,7 +247,7 @@ Go to the [Azure portal](https://portal.azure.com):
 
 4. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
-    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     The following table describes the elements on the form:
 
@@ -435,7 +435,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
 2. From the bar at the top of the page, select the **ops** entry. A list displays current and previous operations done on the cluster through Ambari.
 
-    ![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. Find the entries that have **run\_customscriptaction** in the **Operations** column. These entries are created when the script actions run.
 
