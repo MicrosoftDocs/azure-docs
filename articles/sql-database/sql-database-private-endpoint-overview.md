@@ -13,7 +13,8 @@ ms.date: 08/07/2019
 
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to https://docs.microsoft.com/en-us/azure/privatelink. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
-For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
+> [!IMPORTANT]
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
 
 ## Data exfiltration prevention
 
@@ -38,17 +39,15 @@ When customers connect to the public endpoint from on-premises machines, their I
 
 With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
 
+With Private Link, customers can enable cross-premises access to the private endpoint using Express Route (ER) private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall.
 
 ## How to set up Private Link for Azure SQL Database 
 
 ### Creation Process
 Private Endpoints can be created using the portal, PowerShell, or Azure CLI:
-- Portal: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-portal
-- PowerShell: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-powershell
-- CLI: https://docs.microsoft.com/en-us/azure/privatelink/create-privatelink-cli
-
-### DNS configuration process
-*TBD Azure Networking docs TBD*
+- Portal: https://docs.microsoft.com/azure/privatelink/create-privatelink-portal
+- PowerShell: https://docs.microsoft.com/azure/privatelink/create-privatelink-powershell
+- CLI: https://docs.microsoft.com/azure/privatelink/create-privatelink-cli
 
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
@@ -69,7 +68,7 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
 1. After approval or rejection, the list will reflect the appropriate state along with the response text.
 ![Screenshot of all PECs after approval][5]
 
-## Use cases of Private Link for Azure SQL Database
+## Use cases of Private Link for Azure SQL Database 
 
 Clients can connect to the Private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
@@ -81,28 +80,12 @@ For this scenario, assume you've created an Azure Virtual Machine (VM) running W
 
 1. [Start a Remote Desktop (RDP) session and connect to the virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
 1. You can then do some basic connectivity checks to ensure that the VM is connecting to SQL Database via the private endpoint using the following tools:
-    1. Nmap
     1. Telnet
+    1. Psping
+    1. Nmap
     1. SQL Server Management Studio (SSMS)
 
-### Check connectivity using Nmap
-
-Nmap (Network Mapper) is a free and open-source tool used for network discovery and security auditing. For more information and the download link, visit https://nmap.org. You can use this tool to ensure that the private endpoint is listening for connections on port 1433.
-
-Run Nmap as follows by providing the address range of the subnet that hosts the private endpoint
-
-```
->nmap -n -sP 10.1.1.0/24
-...
-...
-Nmap scan report for 10.1.1.5
-Host is up (0.00s latency).
-Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
-```
-
-The result indicates that there's one IP address that is up. That IP corresponds to the IP address for the private endpoint.
-
-### Check connectivity using Telnet
+### Check Connectivity using Telnet
 
 [Telnet Client](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
 
@@ -116,14 +99,56 @@ When Telnet connects successfully, you'll see a blank screen at the command wind
 
  ![Diagram of telnet][2]
 
-### Check connectivity using SQL Server Management Studio (SSMS)
+### Check Connectivity using Psping
+
+[Psping](/sysinternals/downloads/psping) can be used as follows to check that the Private endpoint connection(PEC) is listening for connections on port 1433.
+
+Run psping as follows by providing the FQDN for your SQL Database server and port 1433:
+
+```
+>psping.exe mysqldbsrvr.database.windows.net:1433
+
+PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
+Copyright (C) 2012-2016 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+TCP connect to 10.6.1.4:1433:
+5 iterations (warmup 1) ping test:
+Connecting to 10.6.1.4:1433 (warmup): from 10.6.0.4:49953: 2.83ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49954: 1.26ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49955: 1.98ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49956: 1.43ms
+Connecting to 10.6.1.4:1433: from 10.6.0.4:49958: 2.28ms
+```
+
+The output show that Psping could ping the private IP address associated with the PEC.
+
+### Check connectivity using Nmap
+
+Nmap (Network Mapper) is a free and open-source tool used for network discovery and security auditing. For more information and the download link, visit https://nmap.org. You can use this tool to ensure that the private endpoint is listening for connections on port 1433.
+
+Run Nmap as follows by providing the address range of the subnet that hosts the private endpoint.
+
+```
+>nmap -n -sP 10.1.1.0/24
+...
+...
+Nmap scan report for 10.1.1.5
+Host is up (0.00s latency).
+Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
+```
+
+The result shows that one IP address is up; which corresponds to the IP address for the private endpoint.
+
+
+### Check Connectivity using SQL Server Management Studio (SSMS)
 
 The last step is to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
-```sql
-SELECT client_net_address FROM sys.dm_exec_connections 
-WHERE session_id=@@SPID
-```
+````
+select client_net_address from sys.dm_exec_connections 
+where session_id=@@SPID
+````
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 
 
@@ -139,6 +164,12 @@ To establish connectivity from an on-premises environment to the SQL Database, c
 - [Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Site-to-Site VPN connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+
+
+### Azure SQL Data Warehouse PolyBase 
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints or Service Endpoints or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps provided [here] (sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+
+
 
 ## Next steps
 
