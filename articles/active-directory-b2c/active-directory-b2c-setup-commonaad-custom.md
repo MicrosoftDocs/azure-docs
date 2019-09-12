@@ -53,14 +53,14 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 You need to store the application key that you created in your Azure AD B2C tenant.
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. On the Overview page, select **Identity Experience Framework**.
-4. Select **Policy Keys** and then select **Add**.
-5. For **Options**, choose `Manual`.
-6. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key.
-7. In **Secret**, enter your application key that you recorded earlier.
-8. For **Key usage**, select `Signature`.
-9. Click **Create**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. Enter a **Name** for the policy key. For example, `AADAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key when it's created, so its reference in the XML in following section is to *B2C_1A_AADAppSecret*.
+1. In **Secret**, enter your application key that you recorded earlier.
+1. For **Key usage**, select `Signature`.
+1. Click **Create**.
 
 ## Add a claims provider
 
@@ -74,8 +74,8 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
     ```XML
     <ClaimsProvider>
-      <Domain>Contoso</Domain>
-      <DisplayName>Login using Contoso</DisplayName>
+      <Domain>commonaad</Domain>
+      <DisplayName>Common AAD</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Common-AAD">
           <DisplayName>Multi-Tenant AAD</DisplayName>
