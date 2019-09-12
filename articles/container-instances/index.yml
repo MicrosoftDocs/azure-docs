@@ -33,9 +33,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: container-instances-quickstart.md 
+          - text: Deploy a container instance - CLI 
             url: container-instances-quickstart.md
-          - text: container-instances-quickstart.md
+          - text: Deploy a container instance - Portal
             url: container-instances-quickstart-portal.md
       - linkListType: tutorial
         links:
