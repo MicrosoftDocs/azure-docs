@@ -292,6 +292,8 @@ You can also use the *load-balancer-managed-ip-count* parameter to set the initi
 
 When using a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in same resource group created for the AKS cluster and assigns the public IP to the *Standard* SKU load balancer. Alternatively, you can assign your own public IP at cluster creation time or you can update an existing cluster's load balancer properties.
 
+By bringing multiple IP addresses or prefixes, you are able to define multiple backing services when defining the IP address behind a single load balancer object. The egress endpoint of specific nodes will depend on what service they are associated with.
+
 > [!IMPORTANT]
 > You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
 >
@@ -351,7 +353,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
-    --generate-ssh-keys
+    --generate-ssh-keys \
     --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
 ```
 
@@ -364,8 +366,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
-    --generate-ssh-keys
-    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+    --generate-ssh-keys \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
 ## Clean up the Standard SKU load balancer configuration
