@@ -1,7 +1,7 @@
 ---
-title: "Example: Real-time video analysis - Computer Vision"
+title: Analyze videos in near real time - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Learn how to perform near real-time analysis on frames taken from a live video stream by using the Computer Vision API.
+description: Learn how to perform near real-time analysis on frames that are taken from a live video stream by using the Computer Vision API.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Analyze videos in near real time
 
-This article demonstrates how to perform near real-time analysis on frames that are taken from a live video stream. The basic elements of such an analysis are:
+This article demonstrates how to perform near real-time analysis on frames that are taken from a live video stream by using the Computer Vision API. The basic elements of such an analysis are:
 
 - Acquiring frames from a video source.
 - Selecting which frames to analyze.
@@ -45,9 +45,9 @@ while (true)
 }
 ```
 
-If the analysis consisted of a lightweight, client-side algorithm, this approach would be suitable. However, when the analysis is happening in the cloud, the latency involved means that an API call might take several seconds. During this time, you're not capturing images, and your thread is essentially doing nothing. Your maximum frame rate is limited by the latency of the API calls.
+If your analysis were to consist of a lightweight, client-side algorithm, this approach would be suitable. However, when the analysis occurs in the cloud, the resulting latency means that an API call might take several seconds. During this time, you're not capturing images, and your thread is essentially doing nothing. Your maximum frame rate is limited by the latency of the API calls.
 
-### Parallelize the API calls
+### Allow the API calls to run in parallel
 
 Although a simple, single-threaded loop makes sense for a lightweight, client-side algorithm, it doesn't fit well with the latency of a cloud API call. The solution to this problem is to allow the long-running API call to run in parallel with the frame-grabbing. In C#, you could do this by using task-based parallelism. For example, you can run the following code:
 
@@ -66,7 +66,7 @@ while (true)
 }
 ```
 
-By using this approach, you launch each analysis in a separate task. The task can run in the background while you continue grabbing new frames. The approach avoids blocking the main thread as you wait for an API call to return. However, the approach can present certain disadvantages:
+With this approach, you launch each analysis in a separate task. The task can run in the background while you continue grabbing new frames. The approach avoids blocking the main thread as you wait for an API call to return. However, the approach can present certain disadvantages:
 * It costs you some of the guarantees that the simple version provided. That is, multiple API calls might occur in parallel, and the results might get returned in the wrong order. 
 * It could also cause multiple threads to enter the ConsumeResult() function simultaneously, which might be dangerous if the function isn't thread-safe. 
 * Finally, this simple code doesn't keep track of the tasks that get created, so exceptions silently disappear. Thus, you need to add a "consumer" thread that tracks the analysis tasks, raises exceptions, kills long-running tasks, and ensures that the results get consumed in the correct order, one at a time.
@@ -138,9 +138,9 @@ while (true)
 
 ### Get started quickly
 
-To help get your app up and running as quickly as possible, we've implemented the system described in the preceding section. It's intended to be flexible enough to implement many scenarios, while being easy to use. To access the code, go to the [Video frame analysis sample](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) page on GitHub.
+To help get your app up and running as quickly as possible, we've implemented the system that's described in the preceding section. It's intended to be flexible enough to accommodate many scenarios, while being easy to use. To access the code, go to the [Video frame analysis sample](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) page on GitHub.
 
-The library contains the `FrameGrabber` class, which implements the previously discussed producer-consumer to process video frames from a webcam. Users can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired, or when a new analysis result is available.
+The library contains the `FrameGrabber` class, which implements the previously discussed producer-consumer system to process video frames from a webcam. Users can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired, or when a new analysis result is available.
 
 To illustrate some of the possibilities, we've provided two sample apps that use the library. 
 
@@ -214,9 +214,9 @@ namespace BasicConsoleSample
 }
 ```
 
-The second sample app is a bit more interesting. It allows you to choose which API to call on the video frames. On the left side, the app shows a preview of the live video, and on the right it shows the most recent API result overlaid on the corresponding frame.
+The second sample app is a bit more interesting. It allows you to choose which API to call on the video frames. On the left side, the app shows a preview of the live video. On the right, it overlays the most recent API result on the corresponding frame.
 
-In most modes, there's a visible delay between the live video on the left and the visualized analysis on the right. This delay is the time taken to make the API call. An exception is in the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer by using OpenCV before it submits any images to Azure Cognitive Services. 
+In most modes, there's a visible delay between the live video on the left and the visualized analysis on the right. This delay is the time that it takes to make the API call. An exception is in the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer by using OpenCV before it submits any images to Azure Cognitive Services. 
 
 By using this approach, you can visualize the detected face immediately. You can then update the emotions later, after the API call returns. This demonstrates the possibility of a "hybrid" approach. That is, some simple processing can be performed on the client, and then Cognitive Services APIs can be used to augment this processing with more advanced analysis when necessary.
 
@@ -237,11 +237,11 @@ To get started with this sample, do the following:
 
 When you're ready to integrate the samples, reference the VideoFrameAnalyzer library from your own projects.
 
-The image-, voice-, video-, or text-understanding capabilities of VideoFrameAnalyzer uses Azure Cognitive Services. Microsoft receives the images, audio, video, and other data that you upload (via this app) and might use them for service-improvement purposes. We ask for your help in protecting the people whose data your app sends to Azure Cognitive Services.
+The image-, voice-, video-, and text-understanding capabilities of VideoFrameAnalyzer use Azure Cognitive Services. Microsoft receives the images, audio, video, and other data that you upload (via this app) and might use them for service-improvement purposes. We ask for your help in protecting the people whose data your app sends to Azure Cognitive Services.
 
 ## Summary
 
-In this article, you learned how to run near real-time analysis on live video streams by using the Face API and the Computer Vision API. You also learned how you can use our sample code to get started. You can get started building your app with free API keys at the [Azure Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/).
+In this article, you learned how to run near real-time analysis on live video streams by using the Face API and the Computer Vision API. You also learned how you can use our sample code to get started. To get started building your app by using free API keys, go to the [Azure Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/).
 
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our [UserVoice site](https://cognitive.uservoice.com/).
 
