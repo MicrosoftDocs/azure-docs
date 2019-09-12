@@ -66,7 +66,7 @@ Certificate errors are caused by one of the two following situations:
 When Storage Explorer sees a self-signed or untrusted certificate, it can no longer know whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer trust it by doing the following steps:
 
 1. Obtain a Base-64 encoded X.509 (.cer) copy of the certificate
-2. Click **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer file
+2. Click **Edit** → **SSL Certificates** → **Import Certificates**, and then use the file picker to find, select, and open the .cer file
 
 This issue may also be the result of multiple certificates (root and intermediate). Both certificates must be added to overcome the error.
 
@@ -81,7 +81,7 @@ If you're unsure of where the certificate is coming from, you can try these step
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Look for self-signed certificates. If you're unsure of which certificates are self-signed, look for anywhere the subject `("s:")` and issuer `("i:")` are the same.
 5. When you have found any self-signed certificates, for each one, copy and paste everything from and including **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** to a new .cer file.
-6. Open Storage Explorer, click **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
+6. Open Storage Explorer, click **Edit** → **SSL Certificates** → **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
 
 If you can't find any self-signed certificates using the preceding steps, contact us through the feedback tool for more help. You can also choose to launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore certificate errors.
 
@@ -259,6 +259,7 @@ Local credential management varies depending on Linux distribution. If your Linu
 1. Open your local credential management tool, find your saved credentials.
 2. Look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Delete these entries and add the connections back.
+---
 
 If you still come across this error after doing these steps, or if you'd like to share what you think corrupts the connections, [open an issue](https://github.com/microsoft/AzureStorageExplorer/issues) on our GitHub page.
 
@@ -280,7 +281,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 
 ## Linux dependencies
 
-<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
+Storage Explorer 1.10.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies automatically and updates when a new version of the snap is available. Installing the Storage Explorer snap is the recommended method of installation.
 
 Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
 
@@ -288,7 +289,7 @@ Storage Explorer requires the use of a password manager, which may need to be co
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+You can also download the application as a .tar.gz file, but you'll have to install dependencies manually.
 
 > [!IMPORTANT]
 > Storage Explorer as provided in the .tar.gz download is only supported for Ubuntu distributions. Other distributions have not been verified and may require alternative or additional packages.
