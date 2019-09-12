@@ -11,7 +11,7 @@ ms.date: 09/03/2019
 ms.author: v-lilei
  
 ---
-# Create an Azure Search knowledge store
+# Create an Azure Search knowledge store in the Azure portal
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.

@@ -11,7 +11,7 @@ ms.date: 09/03/2019
 ms.author: v-lilei
  
 ---
-# View a knowledge store in Storage Explorer
+# View a knowledge store with Storage Explorer
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
