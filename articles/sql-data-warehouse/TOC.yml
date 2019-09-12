@@ -130,7 +130,7 @@
     - name: Materialized view
       items:
       - name: Performance tuning guidance  
-        href: sql-data-warehouse-performance-tuning-with-materialized-views.md
+        href: performance-tuning-materialized-views.md
       - name: Create
         href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
       - name: Alter
@@ -138,7 +138,7 @@
     - name: Ordered clustered columnstore index
       items:
       - name: Performance tuning guidance  
-        href: sql-data-warehouse-performance-tuning-with-ordered-CCI.md
+        href: performance-tuning-ordered-CCI.md
     - name: Result set caching
       href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables

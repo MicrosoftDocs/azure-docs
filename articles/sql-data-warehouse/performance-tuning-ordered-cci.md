@@ -42,7 +42,7 @@ The performance of data loading into an ordered CCI table is similar to data loa
 Loading data into an ordered CCI table can take more time than data loading into a non-ordered CCI table because of the data sorting.  
 
 Here is an example performance comparison of loading data into tables with different schemas.
-![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci_data_loading_performance.png)
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
  
 ## Reduce segment overlapping
 Below are options to further reduce segment overlapping when creating ordered CCI on a new table via CTAS or on an existing table with data:
