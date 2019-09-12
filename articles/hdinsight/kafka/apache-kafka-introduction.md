@@ -41,7 +41,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
 The following diagram shows a typical Kafka configuration that uses consumer groups, partitioning, and replication to offer parallel reading of events with fault tolerance:
 
-![Kafka cluster configuration diagram](./media/apache-kafka-introduction/kafka-cluster.png)
+![Kafka cluster configuration diagram](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper manages the state of the Kafka cluster. Zookeeper is built for concurrent, resilient, and low-latency transactions. 
 
