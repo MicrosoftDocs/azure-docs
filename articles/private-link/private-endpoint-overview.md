@@ -23,7 +23,7 @@ This article explains private endpoint concepts, to help you use them effectivel
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
-|Subnet    |  The subnet to deploy and allocate private IP addresses from a virtual vetwork, for subnet requirements see the Limitations section in this article.         |
+|Subnet    |  The subnet to deploy and allocate private IP addresses from a virtual network, for subnet requirements see the Limitations section in this article.         |
 |Private Link Resource    |   The private link resource to connect, from the list of available types, a unique network identifier will be generated for all traffic sent to this resource.       |
 |Target subresource   |      The subresource to connect, each private link resource type have different options to select based on preference.    |
 |Connection approval method    |  Automatic or manual, based on RBAC permissions, your private endpoint can be approved automatically, if you are trying to connect to a private link resource without RBAC, use manual method to allow the owner of the resource to approve the connection.        |
