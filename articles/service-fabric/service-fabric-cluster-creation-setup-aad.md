@@ -19,9 +19,9 @@ ms.author: atsenthi
 
 # Set up Azure Active Directory for client authentication
 
-For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints.  This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster.
+For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints. This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster.
 
-Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience.
+In this article, the term "application" is not referring to a Service Fabric application. An Azure AD application defines the authorization and authentication configuration for an endpoint or collection of endpoints. Applications are categorized as those with a web-based sign-in UI and those with a native client experience. Azure AD enables organizations (known as tenants) to manage user access to applications. For more information, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals).
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
 
