@@ -18,6 +18,7 @@ Skillsets are where you author and organize the AI enrichment pipeline to apply 
 
 A skillset has three properties:
 
+
 +	```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill
 +	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
 +	```knowledgeStore```, the storage account where your enriched documents will be projected
@@ -25,6 +26,9 @@ A skillset has three properties:
 Skillsets are authored in JSON. You can build complex skillsets with looping and [branching](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) using the [expression language](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. These concepts are best described with an example. To illustrate some of the concepts and capabilities, we'll walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you'll need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
 
 ## Specify the Skillset
+
+Skillsets are authored in JSON, you can build complex skillsets with looping and [branching](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+
 
 ### Enrichment tree
 
@@ -41,7 +45,9 @@ The enrichment tree is the JSON representation of the document and enrichments a
 
  As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 
-For the rest of this document, we'll assume we're working with [the hotel reviews example](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all data sources.
+The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
+For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.
+
 
 ### Context
 
@@ -119,11 +125,13 @@ When defining a table projection group, a single node in the enrichment tree can
 
 ### Shaping projections
 
+
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the shaper skill. You could also inline shape a projection within the projection definition itself.
 
 The shaper approach is more verbose than inline shaping but ensures that all the mutations of the enrichment tree are contained within the skills and that the output is an object that can be reused. Inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined. The approaches can be used together or separately. The skillset created for you in the portal workflow contains both. It uses a shaper skill for the table projections, but also uses inline shaping to project the key phrases table.
 
 To extend the example, you could choose to remove the inline shaping and use a shaper skill to create a new node for the key phrases. To create a shape projected into three tables, namely, `hotelReviewsDocument`, `hotelReviewsPages`, and `hotelReviewsKeyPhrases`, the two options are described in the following sections.
+
 
 #### Shaper skill and projection 
 
