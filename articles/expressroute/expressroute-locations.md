@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/09/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
 
 ---
@@ -152,7 +152,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Supported |Supported |Dallas, +Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Supported |Supported |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong SAR, London, Mumbai, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **Viasat** | Supported | Supported | Washington DC2 |
+| **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Supported | Supported | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Supported |Amsterdam2, London, Singapore |
 | **Vodafone Idea** | Supported | Supported | Mumbai, Mumbai2 |
@@ -216,7 +216,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* Viasat
+* [Viasat](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ## Connectivity through additional service providers
 
