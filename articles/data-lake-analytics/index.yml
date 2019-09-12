@@ -26,15 +26,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Data Lake Analytics?
-            url: ./data-lake-analytics-overview.md
+            url: data-lake-analytics-overview.md
       - linkListType: quickstart
         links:
-          - text: Submit U-SQL jobs using the Azure portal
-            url: ./data-lake-analytics-get-started-portal.md
-          - text: Submit U-SQL jobs using Azure CLI
-            url: ./data-lake-analytics-get-started-cli.md
-          - text: Submit U-SQL jobs using Visual Studio Code
-            url: ./data-lake-analytics-data-lake-tools-for-vscode.md
+          - text: Create U-SQL jobs in the Azure portal
+            url: data-lake-analytics-get-started-portal.md
+          - text: Create U-SQL jobs with Azure CLI
+            url: data-lake-analytics-get-started-cli.md
+          - text: Create U-SQL jobs in Visual Studio Code
+            url: data-lake-analytics-data-lake-tools-for-vscode.md
 
   # Card (optional)
   - title: Learn the U-SQL language
@@ -42,13 +42,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Get started with U-SQL
-            url: ./data-lake-analytics-u-sql-get-started.md
+            url: data-lake-analytics-u-sql-get-started.md
           - text: U-SQL language reference
             url: https://docs.microsoft.com/u-sql/
           - text: Get started with the U-SQL Catalog
-            url: ./data-lake-analytics-u-sql-catalog.md
+            url: data-lake-analytics-u-sql-catalog.md
           - text: Use user-defined operators
-            url: ./data-lake-analytics-u-sql-develop-user-defined-operators.md
+            url: data-lake-analytics-u-sql-develop-user-defined-operators.md
 
   # Card (optional)
   - title: Develop U-SQL programs
@@ -56,9 +56,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use Data Lake Tools for Visual Studio
-            url: ./data-lake-analytics-data-lake-tools-get-started.md
+            url: data-lake-analytics-data-lake-tools-get-started.md
           - text: Use a U-SQL database project in Visual Studio
-            url: ./data-lake-analytics-data-lake-tools-develop-usql-database.md
+            url: data-lake-analytics-data-lake-tools-develop-usql-database.md
           - text: Use Job Browser and Job View
             url: data-lake-analytics-data-lake-tools-view-jobs.md
           - text: Debug user-defined C# code
@@ -68,23 +68,23 @@ landingContent:
           - text: Use custom code with U-SQL in Visual Studio Code
             url: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
           - text: Schedule jobs using SSIS
-            url: ./data-lake-analytics-schedule-jobs-ssis.md
+            url: data-lake-analytics-schedule-jobs-ssis.md
 
   # Card (optional)
   - title: Manage Data Lake Analytics
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Azure Data Lake Analytics using the Azure portal
-            url: ./data-lake-analytics-manage-use-portal.md
-          - text: Manage Azure Data Lake Analytics using the Azure CLI
-            url: ./data-lake-analytics-manage-use-cli.md
-          - text: Manage Azure Data Lake Analytics with .NET app
-            url: ./data-lake-analytics-manage-use-dotnet-sdk.md
+          - text: Manage using the Azure portal
+            url: data-lake-analytics-manage-use-portal.md
+          - text: Manage using the Azure CLI
+            url: data-lake-analytics-manage-use-cli.md
+          - text: Manage using a .NET app
+            url: data-lake-analytics-manage-use-dotnet-sdk.md
           - text: Adding a user in the Azure portal
-            url: ./data-lake-analytics-add-users.md
+            url: data-lake-analytics-add-users.md
           - text: Manage Azure Data Lake Analytics using policies
-            url: ./data-lake-analytics-policies.md
+            url: data-lake-analytics-policies.md
 
   # Card (optional)
   - title: Continuous integration and continuous deployment
@@ -92,10 +92,10 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Set up a CI/CD pipeline
-            url: ./data-lake-analytics-cicd-overview.md
+            url: data-lake-analytics-cicd-overview.md
           - text: Managing U-SQL assemblies
-            url: ./data-lake-analytics-cicd-manage-assemblies.md
+            url: data-lake-analytics-cicd-manage-assemblies.md
           - text: Test U-SQL scripts
-            url: ./data-lake-analytics/data-lake-analytics-cicd-test.md
+            url: data-lake-analytics-cicd-test.md
           - text: Use U-SQL SDK
-            url: ./data-lake-analytics-u-sql-sdk.md
+            url: data-lake-analytics-u-sql-sdk.md
