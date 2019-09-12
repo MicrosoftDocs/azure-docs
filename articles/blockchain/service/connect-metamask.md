@@ -118,7 +118,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
     There are two actions **add** and **get** that map to the functions defined in the contract.
 
-1. To perform an **add** transaction on the blockchain, enter a number to add then select **add**. You may get an gas estimation failure message from Remix. You are sending the transaction to a private blockchain that does not require gas. Select **Send Transaction** to force the transaction.
+1. To perform an **add** transaction on the blockchain, enter a number to add then select **add**. You may get a gas estimation failure message from Remix. You are sending the transaction to a private blockchain that does not require gas. Select **Send Transaction** to force the transaction.
 1. Similar to when you deployed the contract, a MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
 
     Since this is a private network in a consortium, we can set gas price to zero.
