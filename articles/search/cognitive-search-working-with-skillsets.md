@@ -1,6 +1,6 @@
 ---
 title: Working with skillsets - Azure Search
-description: Skillsets are where you author and organize AI enrichments in cognitive search, understanding a few concepts and how skillsets work allows you to build simple or complex skillsets
+description: Skillsets are where you author an AI enrichment pipeline in cognitive search, understanding a few concepts and how skillsets work allows you to build simple or complex skillsets
 manager: eladz
 author: vkurpad
 services: search
@@ -14,7 +14,7 @@ ms.subservice: cognitive-search
 
 # Working with skillsets
 
-Skillsets are where you author and organize the AI enrichments to apply to each document. 
+Skillsets are where you author and organize the AI enrichment pipeline to apply to each document. 
 
 A skillset has three properties:
 
