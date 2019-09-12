@@ -34,7 +34,7 @@ landingContent:
           - text: The authoring cycle of your app
             url: luis-concept-app-iteration.md
 
-  - title: "Authoring: Create intents, entities and features"
+  - title: Create intents, entities and features
     linkLists: 
       - linkListType: concept
         links:
@@ -86,7 +86,7 @@ landingContent:
         links: 
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
-  - title: Get prediction from runtime endpoint
+  - title: Get prediction from endpoint
     linkLists:   
       - linkListType: quickstart
         links: 
@@ -106,7 +106,49 @@ landingContent:
             url: luis-get-started-python-get-intent.md
   - title: Developing with Language Understanding
     linkLists:   
-      - linkListType: reference
+      - linkListType: getting-started
         links: 
-          - text: With C# .NET SDK
+          - text: "Quickstart: With C# .NET SDK"
             url: sdk-csharp-quickstart-query-prediction-endpoint.md
+          - text: NuGet - authoring
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/
+          - text: NuGet - prediction runtime
+            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
+          - text: Reference documentation
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
+          - text: Samples
+            url: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
+      - linkListType: getting-started
+        links: 
+          - text: "Quickstart: With Go using REST"
+            url: luis-get-started-go-get-intent.md
+          - text: SDK - authoring
+            url: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring
+          - text: SDK - prediction runtime
+            url: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime
+          - text: Reference documentation
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/    
+      - linkListType: getting-started
+        links: 
+          - text: "Quickstart: With Java using REST"
+            url: luis-get-started-java-get-intent.md
+          - text: Maven SDK - authoring
+            url: https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring
+          - text: Maven SDK - prediction runtime
+            url: https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime
+          - text: Reference documentation
+            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable   
+          - text: Samples
+            url: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
+      - linkListType: getting-started
+        links: 
+          - text: "Quickstart: With Node.js using REST"
+            url: luis-get-started-node-get-intent.md
+          - text: NPM SDK - authoring
+            url: https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring
+          - text: NPM SDK - prediction runtime
+            url: https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime
+          - text: Reference documentation - authoring
+            url: https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest  
+          - text: Reference documentation - prediction
+            url: https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest                                
