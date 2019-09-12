@@ -79,8 +79,9 @@ If you've decided to create a separate resource for each role, and perhaps a sep
 
     ![Application Insights pane](./media/cloudservices/01-new.png)
 
-1. In the **Application Type** drop-down list, select **ASP.NET web application**.  
-    Each resource is identified by an instrumentation key. You might need this key later if you want to manually configure or verify the configuration of the SDK.
+1. In the **Application Type** drop-down list, select **ASP.NET web application**.
+
+Each resource is identified by an instrumentation key. You might need this key later if you want to manually configure or verify the configuration of the SDK.
 
 
 ## Set up Azure Diagnostics for each role
@@ -128,8 +129,9 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
     * [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [For webpages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Set the *ApplicationInsights.config* file to be copied always to the output directory.  
-    A message in the *.config* file asks you to place the instrumentation key there. However, for cloud apps, it's better to set it from the *.cscfg* file. This approach ensures that the role is correctly identified in the portal.
+1. Set the *ApplicationInsights.config* file to be copied always to the output directory.
+
+   A message in the *.config* file asks you to place the instrumentation key there. However, for cloud apps, it's better to set it from the *.cscfg* file. This approach ensures that the role is correctly identified in the portal.
 
 ## Set up Status Monitor to collect full SQL Queries (optional)
 
@@ -166,7 +168,9 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Run your app, and sign in to Azure. 
 
-1. Open the Application Insights resources that you created. Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
+1. Open the Application Insights resources that you created.
+
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -175,7 +179,8 @@ If there is no data, do the following:
 1. To view individual events, open the [Search][diagnostic] tile.
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
-    For more information, see [Troubleshooting][qna].
+
+For more information, see [Troubleshooting][qna].
 
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights in the following locations:
