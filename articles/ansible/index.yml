@@ -85,3 +85,11 @@ landingContent:
             url: ansible-aks-configure-kubenet-networking.md
           - text: Configure RBAC roles in AKS cluster
             url: ansible-aks-configure-rbac.md                      
+
+  # Card
+  - title: Downloads for Ansible
+    linkLists:
+      - linkListType: download
+        links:
+          - text: Visual Studio Code extension for Ansible
+            url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
