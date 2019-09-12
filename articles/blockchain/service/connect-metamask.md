@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 09/12/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -58,20 +58,13 @@ You need the Azure Blockchain Service endpoint address to connect to the blockch
 Remix is a browser-based Solidity development environment. Using MetaMask and Remix together, you can deploy and take actions on smart contracts.
 
 1. In your browser, navigate to `https://remix.ethereum.org`.
-1. Select **Run**. 
-
-    MetaMask sets your **Environment** to **Injected Web3** and **Account** to your network.
-
-    ![Run tab](./media/connect-metamask/injected-web3.png)
-
-1. Select **Create new file**.
+1. Select **New file** in the **Home** tab under **File**.
 
     Name the new file `simple.sol`.
 
     ![Create file](./media/connect-metamask/create-file.png)
 
     Select **OK**.
-
 1. In the Remix editor, paste in the following **simple smart contract** code.
 
     ```solidity
@@ -95,14 +88,18 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
     ```
 
     The **simple contract** declares a state variable named **balance**. There are two functions defined. The **add** function adds a number to **balance**. The **get** function returns the value of **balance**.
-
-1. To compile the contract, select the  **Compile > Start to compile**. If successful, a green box with contract name is displayed.
+1. To compile the contract, first select the Solidity compiler pane then select the  **Compile > Start to compile**. 
 
     ![Compile](./media/connect-metamask/compile.png)
 
-1. To execute the contract, select the **Run** tab. Select the **simple** contract then **Deploy**.
+1. Select the **Deploy & Run** pane then set the **Environment** to **Injected Web3** to connect through MetaMask to your blockchain member.
 
-    ![Custom RPC](./media/connect-metamask/deploy.png)
+    ![Run tab](./media/connect-metamask/injected-web3.png)
+
+1. Select the **simple** contract then **Deploy**.
+
+    ![Deploy](./media/connect-metamask/deploy.png)
+
 
 1. A MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
 
@@ -121,13 +118,13 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
     There are two actions **add** and **get** that map to the functions defined in the contract.
 
-1. To perform an **add** transaction on the blockchain, enter a number to add then select **add**.
+1. To perform an **add** transaction on the blockchain, enter a number to add then select **add**. You may get an gas estimation failure message from Remix. You are sending the transaction to a private blockchain that does not require gas. Select **Send Transaction** to force the transaction.
 1. Similar to when you deployed the contract, a MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
 
     Since this is a private network in a consortium, we can set gas price to zero.
 
 1.  Select **Gas Fee > Edit > Advanced**,  set the **Gas Price** to 0, and select **Save**.
-1. Select **Confirm** to perform the transaction on the blockchain.
+1. Select **Confirm** to send the transaction to the blockchain.
 1. Select **get** action. This is a call to query node data. A transaction isn't needed.
 1. In the debug pane of Remix, you can see details about the transactions on the blockchain.
 
