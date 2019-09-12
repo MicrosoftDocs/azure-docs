@@ -51,23 +51,26 @@ To remove a resource group using the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-Put steps here.
+The following steps show how to prepare the storage account for the move using an Resource Manager template, and move the storage account settings to the target region using the portal and a script.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+    
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
+
+2. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 ---
-
-### Obtain the target region code
-
-To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
-
-If you prefer to use PowerShell, you can obtain region codes by running the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
-
-```azurepowershell-interactive
-Get-AzLocation | format-table 
-```
 
 ### Modify the template 
 
-Azure requires that each Azure service has a unique name. The deployment could fail if you entered a storage account name that already exists. To avoid this issue, you modify the template to use a template function call `uniquestring()` to generate a unique storage account name.
+# [Portal](#tab/azure-portal)
 
 1. In the Azure portal, select **Create a resource**.
 
@@ -107,6 +110,41 @@ Azure requires that each Azure service has a unique name. The deployment could f
          }]          
     ```
 
+    To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
+
+# [PowerShell](#tab/azure-powershell)
+
+1. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
+    
+    ```json
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_mysourceaccount_name": {
+            "defaultValue": "mytargetaccount",
+            "type": "String"
+        }
+    },
+    ``` 
+
+2. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
+
+    ```json
+    "resources": [{
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2019-04-01",
+         "name": "[parameters('storageAccounts_mysourceaccount_name')]",
+         "location": "eastus"
+         }]          
+    ```
+
+    You can obtain region codes by running the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
+
+    ```azurepowershell-interactive
+    Get-AzLocation | format-table 
+    ```
+---
+
 ## Move
 
 # [Portal](#tab/azure-portal)
@@ -125,7 +163,11 @@ Azure requires that each Azure service has a unique name. The deployment could f
 
 # [PowerShell](#tab/azure-powershell)
 
-Put steps here.
+1. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and virtual network into the target region:
+
+   ```azurepowershell-interactive
+   ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion  
+   ```
 
 ---
 
@@ -145,12 +187,6 @@ If you set up a Content Delivery Network (CDN) in the source account, just chang
 
 ### Move data to the new storage account
 
-# [Azure Storage Explorer](#tab/azure-portal)
-
-Put steps here.
-
-# [PowerShell](#tab/azure-powershell)
-
 Use AzCopy. See [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
 
 ---
@@ -161,11 +197,22 @@ After the deployment, if you wish to start over or discard the target storage ac
 
 To commit the changes and complete the move of a storage account, delete the source storage account.
 
+# [Portal](#tab/azure-portal)
+
+To remove a storage account by using the Azure portal:
+
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts*** to display the list of your storage accounts.
-
 2. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
-
 3. Select **Delete**, and confirm.
+
+# [PowerShell](#tab/azure-powershell)
+
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) command:
+
+```powershell
+Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
+```
+---
 
 ## Next steps
 
