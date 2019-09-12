@@ -27,7 +27,7 @@ Each IoT Hub tier is available in three sizes, based around how much data throug
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
 
-Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
+Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and S2.
 
 | Capability | Basic tier | Free/Standard tier |
 | ---------- | ---------- | ------------- |
@@ -80,6 +80,10 @@ The difference in supported capabilities between the basic and standard tiers of
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
 | [Bulk device operation](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Yes, except for IoT Edge capabilities | Yes |
+| [Cancel import export job](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Yes | Yes |
+| [Create import export job](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Yes | Yes |
+| [Get import export job](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Yes | Yes |
+| [Get import export jobs](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Yes | Yes |
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
 | [Get module twin](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Yes |
@@ -101,17 +105,17 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 * Cloud-to-device messages
 * Identity registry operations
 
-Traffic is measured on a per-unit basis, not per hub. A level 1 or 2 IoT Hub instance can have as many as 200 units associated with it. A level 3 IoT Hub instance can have up to 10 units. Once you create your IoT hub you can change the number of units or move between the 1, 2, and 3 sizes within a specific tier without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).
+Traffic is measured for your IoT hub on a per-unit basis. When you create an IoT hub, you select its tier, edition, and number of units. The B1, B2, S1 and S2 editions can have up to 200 units. The B3 and S3 editions are limited to 10 units. After your hub is created, you can change the number of units available within its edition, upgrade or downgrade between editions within its tier (B1 to B2, or vice-versa), or upgrade from the basic to the standard tier (B1 to S1) without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).  
 
 As an example of each tier's traffic capabilities, device-to-cloud messages follow these sustained throughput guidelines:
 
-| Tier | Sustained throughput | Sustained send rate |
+| Tier edition | Sustained throughput | Sustained send rate |
 | --- | --- | --- |
 | B1, S1 |Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) |Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
 | B2, S2 |Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) |Average of 4,167 messages/minute per unit<br/>(6 million messages/day per unit) |
 | B3, S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
-In addition to this throughput information, see [IoT Hub quotas and throttles](iot-hub-devguide-quotas-throttling.md) and design your solution accordingly.
+Device-to-cloud messaging is only one of the metrics you need to consider when designing an IoT solution. For more comprehensive information, see [IoT Hub quotas and throttles](iot-hub-devguide-quotas-throttling.md) and design your solution accordingly.
 
 ### Identity registry operation throughput
 
