@@ -3,7 +3,7 @@ title: Azure Resource Manager tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: tomfitz
 ---
@@ -116,6 +116,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
@@ -861,7 +862,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | services | No |No |
 > | services/projects | No |No |
-> | slots | Yes |Yes |
 
 ## Microsoft.DataShare
 
@@ -1362,6 +1362,91 @@ Jump to a resource provider namespace:
 > | netAppAccounts/capacityPools/volumes/mountTargets | Yes |Yes |
 > | netAppAccounts/capacityPools/volumes/snapshots | Yes |Yes |
 
+## Microsoft.Network
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | applicationGateways | Yes |Yes |
+> | applicationGatewayWebApplicationFirewallPolicies | Yes |Yes |
+> | applicationSecurityGroups | Yes |Yes |
+> | azureFirewallFqdnTags | No |No |
+> | azureFirewalls | Yes |Yes |
+> | bastionHosts | Yes |Yes |
+> | bgpServiceCommunities | No |No |
+> | connections | Yes |Yes |
+> | ddosCustomPolicies | Yes |Yes |
+> | ddosProtectionPlans | Yes |Yes |
+> | dnsOperationStatuses | No |No |
+> | dnszones | Yes |Yes |
+> | dnszones/A | No |No |
+> | dnszones/AAAA | No |No |
+> | dnszones/all | No |No |
+> | dnszones/CAA | No |No |
+> | dnszones/CNAME | No |No |
+> | dnszones/MX | No |No |
+> | dnszones/NS | No |No |
+> | dnszones/PTR | No |No |
+> | dnszones/recordsets | No |No |
+> | dnszones/SOA | No |No |
+> | dnszones/SRV | No |No |
+> | dnszones/TXT | No |No |
+> | expressRouteCircuits | Yes |Yes |
+> | expressRouteCrossConnections | Yes |Yes |
+> | expressRouteGateways | Yes |Yes |
+> | expressRoutePorts | Yes |Yes |
+> | expressRouteServiceProviders | No |No |
+> | firewallPolicies | Yes |Yes |
+> | frontdoors | Yes, but limited (see [note below](#frontdoor)) |Yes |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Yes, but limited (see [note below](#frontdoor)) |No |
+> | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) |Yes |
+> | getDnsResourceReference | No |No |
+> | internalNotify | No |No |
+> | loadBalancers | Yes |No |
+> | localNetworkGateways | Yes |Yes |
+> | natGateways | Yes |Yes |
+> | networkIntentPolicies | Yes |Yes |
+> | networkInterfaces | Yes |Yes |
+> | networkProfiles | Yes |Yes |
+> | networkSecurityGroups | Yes |Yes |
+> | networkWatchers | Yes |No |
+> | networkWatchers/connectionMonitors | Yes |No |
+> | networkWatchers/lenses | Yes |No |
+> | networkWatchers/pingMeshes | Yes |No |
+> | p2sVpnGateways | Yes |Yes |
+> | privateDnsOperationStatuses | No |No |
+> | privateDnsZones | Yes |Yes |
+> | privateDnsZones/A | No |No |
+> | privateDnsZones/AAAA | No |No |
+> | privateDnsZones/all | No |No |
+> | privateDnsZones/CNAME | No |No |
+> | privateDnsZones/MX | No |No |
+> | privateDnsZones/PTR | No |No |
+> | privateDnsZones/SOA | No |No |
+> | privateDnsZones/SRV | No |No |
+> | privateDnsZones/TXT | No |No |
+> | privateDnsZones/virtualNetworkLinks | Yes |Yes |
+> | privateEndpoints | Yes |Yes |
+> | privateLinkServices | Yes |Yes |
+> | publicIPAddresses | Yes |Yes |
+> | publicIPPrefixes | Yes |Yes |
+> | routeFilters | Yes |Yes |
+> | routeTables | Yes |Yes |
+> | secureGateways | Yes |Yes |
+> | serviceEndpointPolicies | Yes |Yes |
+> | trafficManagerGeographicHierarchies | No |No |
+> | trafficmanagerprofiles | Yes |Yes |
+> | trafficmanagerprofiles/heatMaps | No |No |
+> | trafficManagerUserMetricsKeys | No |No |
+> | virtualHubs | Yes |Yes |
+> | virtualNetworkGateways | Yes |Yes |
+> | virtualNetworks | Yes |Yes |
+> | virtualNetworkTaps | Yes |Yes |
+> | virtualWans | Yes |Yes |
+> | vpnGateways | Yes |No |
+> | vpnSites | Yes |Yes |
+> | webApplicationFirewallPolicies | Yes |Yes |
+
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1518,12 +1603,9 @@ Jump to a resource provider namespace:
 > | resources | No |No |
 > | subscriptions | No |No |
 > | subscriptions/providers | No |No |
-> | subscriptions/resourceGroups | No |No |
-> | subscriptions/resourcegroups/resources | No |No |
 > | subscriptions/resources | No |No |
 > | subscriptions/tagnames | No |No |
 > | subscriptions/tagNames/tagValues | No |No |
-> | tags | No |No |
 > | tenants | No |No |
 
 ## Microsoft.SaaS

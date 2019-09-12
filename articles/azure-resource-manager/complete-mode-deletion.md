@@ -3,7 +3,7 @@ title: Azure Resource Manager complete mode deletion by resource type
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: tomfitz
 ---
@@ -119,6 +119,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
@@ -1364,6 +1365,91 @@ Jump to a resource provider namespace:
 > | netAppAccounts/capacityPools/volumes | Yes |
 > | netAppAccounts/capacityPools/volumes/mountTargets | Yes |
 > | netAppAccounts/capacityPools/volumes/snapshots | Yes |
+
+## Microsoft.Network
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | applicationGateways | Yes |
+> | applicationGatewayWebApplicationFirewallPolicies | Yes |
+> | applicationSecurityGroups | Yes |
+> | azureFirewallFqdnTags | No |
+> | azureFirewalls | Yes |
+> | bastionHosts | Yes |
+> | bgpServiceCommunities | No |
+> | connections | Yes |
+> | ddosCustomPolicies | Yes |
+> | ddosProtectionPlans | Yes |
+> | dnsOperationStatuses | No |
+> | dnszones | Yes |
+> | dnszones/A | No |
+> | dnszones/AAAA | No |
+> | dnszones/all | No |
+> | dnszones/CAA | No |
+> | dnszones/CNAME | No |
+> | dnszones/MX | No |
+> | dnszones/NS | No |
+> | dnszones/PTR | No |
+> | dnszones/recordsets | No |
+> | dnszones/SOA | No |
+> | dnszones/SRV | No |
+> | dnszones/TXT | No |
+> | expressRouteCircuits | Yes |
+> | expressRouteCrossConnections | Yes |
+> | expressRouteGateways | Yes |
+> | expressRoutePorts | Yes |
+> | expressRouteServiceProviders | No |
+> | firewallPolicies | Yes |
+> | frontdoors | Yes |
+> | frontdoorWebApplicationFirewallManagedRuleSets | No |
+> | frontdoorWebApplicationFirewallPolicies | Yes |
+> | getDnsResourceReference | No |
+> | internalNotify | No |
+> | loadBalancers | Yes |
+> | localNetworkGateways | Yes |
+> | natGateways | Yes |
+> | networkIntentPolicies | Yes |
+> | networkInterfaces | Yes |
+> | networkProfiles | Yes |
+> | networkSecurityGroups | Yes |
+> | networkWatchers | Yes |
+> | networkWatchers/connectionMonitors | Yes |
+> | networkWatchers/lenses | Yes |
+> | networkWatchers/pingMeshes | Yes |
+> | p2sVpnGateways | Yes |
+> | privateDnsOperationStatuses | No |
+> | privateDnsZones | Yes |
+> | privateDnsZones/A | No |
+> | privateDnsZones/AAAA | No |
+> | privateDnsZones/all | No |
+> | privateDnsZones/CNAME | No |
+> | privateDnsZones/MX | No |
+> | privateDnsZones/PTR | No |
+> | privateDnsZones/SOA | No |
+> | privateDnsZones/SRV | No |
+> | privateDnsZones/TXT | No |
+> | privateDnsZones/virtualNetworkLinks | Yes |
+> | privateEndpoints | Yes |
+> | privateLinkServices | Yes |
+> | publicIPAddresses | Yes |
+> | publicIPPrefixes | Yes |
+> | routeFilters | Yes |
+> | routeTables | Yes |
+> | secureGateways | Yes |
+> | serviceEndpointPolicies | Yes |
+> | trafficManagerGeographicHierarchies | No |
+> | trafficmanagerprofiles | Yes |
+> | trafficmanagerprofiles/heatMaps | No |
+> | trafficManagerUserMetricsKeys | No |
+> | virtualHubs | Yes |
+> | virtualNetworkGateways | Yes |
+> | virtualNetworks | Yes |
+> | virtualNetworkTaps | Yes |
+> | virtualWans | Yes |
+> | vpnGateways | Yes |
+> | vpnSites | Yes |
+> | webApplicationFirewallPolicies | Yes |
 
 ## Microsoft.NotificationHubs
 
