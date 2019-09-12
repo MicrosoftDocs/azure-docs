@@ -85,13 +85,8 @@ The following steps show how to prepare the network security group for the confi
             }
        ```
   
-11. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
-
-    ```azurepowershell-interactive
-
-    Get-AzLocation | format-table
+11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
     
-    ```
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **template.json** file:
@@ -159,15 +154,15 @@ The following steps show how to prepare the network security group for the confi
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target NSG will be deployed.
 
-14. Click **BASICS** > **Resource group** to choose the resource group where the target NSG will be deployed.  You can click **Create new** to create a new resource group for the target NSG.  Ensure the name is not the same as the source resource group of the existing NSG. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target NSG will be deployed.  You can click **Create new** to create a new resource group for the target NSG.  Ensure the name is not the same as the source resource group of the existing NSG. 
 
-15. Verify **BASICS** > **Location** is set to the target location where you wish for the NSG to be deployed.
+16. Verify **BASICS** > **Location** is set to the target location where you wish for the NSG to be deployed.
 
-16. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.
+17. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.
 
-17. Check the box under **TERMS AND CONDITIONS**.
+18. Check the box under **TERMS AND CONDITIONS**.
 
-18. Click the **Purchase** button to deploy the target network security group.
+19. Click the **Purchase** button to deploy the target network security group.
 
 ## Discard 
 
