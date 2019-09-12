@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 09/00/2019
+  ms.date: 09/09/2019
   ms.author: sstein
 abstract:
   description: Azure SQL Database is a general-purpose relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure cloud database that you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
@@ -29,6 +29,8 @@ abstract:
 sections:
 
 - items:
+  - type: paragraph
+    text: 'Learn about the main values that Platform-as-a-service database brings to you, purchasing models and service tires that you can leverage to get the best price/performance configuration.'
   - type: list
     style: cards
     className: cardsM
@@ -45,7 +47,7 @@ sections:
           src: media/index/i_perftier.svg
         title: Pricing models
       - href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
-        html: <p>Choose a service tiers and cloud architecture that is a best fit your your need.</p>
+        html: <p>Choose a service tiers and cloud architecture that is a best fit your needs or match the infrastructure that you use on on-premises environment.</p>
         image:
           src: media/index/gear.svg
         title: Service tiers
@@ -67,6 +69,8 @@ sections:
 
 - title: Deployment models
   items:
+  - type: paragraph
+    text: 'Choose the right deployment model that fits your needs. Single database is the best choice for new modern cloud applications, Elastic pools are the best place to host a large fleet of databases, and Managed Instance provides high compatibility with SQL Server and enables easy migration to cloud.'
   - type: list
     style: cards
     className: cardsM
