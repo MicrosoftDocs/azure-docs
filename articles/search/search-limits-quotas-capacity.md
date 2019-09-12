@@ -62,7 +62,7 @@ To determine whether your service has document limits, check the Usage tile in t
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. The number of documents is bound by an underlying lucene limit. It's hard to precisely determine the limit as it depends on factors like number of complex collections and number of internal sub-indexes modeling the original index. For indexes without any complex collections, it is roughly around 25 billion. but Using complex collections can significantly lower this limit.
+<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. The number of documents is bound by an underlying lucene limit. It's hard to precisely determine the limit as it depends on factors like number of complex collections and number of internal sub-indexes modeling the original index. For indexes without any complex collections, it is roughly around 25 billion. Using complex collections can significantly lower this limit.
 
 ### Regions previously having document limits
 
