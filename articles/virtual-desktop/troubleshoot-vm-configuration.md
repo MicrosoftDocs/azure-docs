@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 09/12/2019
 ms.author: helohr
 ---
 # Tenant and host pool creation
@@ -301,7 +301,66 @@ To manually configure the licensing mode:
 2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**. 
 3. Select **Set the Remote Desktop licensing mode** and change it to **Per user**.
 
-We're currently looking into the notification and grace period timeout issues and plan to address them in a future update. 
+If you don't configure the licensing mode to Per user and the grace period timeout expires, you won't be able to access the account unless you configure the licensing mode. In this case, an error message will appear when you try to connect that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
+
+>[!NOTE]
+>Windows 10 Enterprise multi-session only requires an RDS client access license (CAL) when your host pool contains Windows Server 2016 session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+To solve this issue, you must follow different instructions depending on which version of Windows 10 Enterprise multi-session you have installed.
+
+### Identify which version of Windows 10 Enterprise multi-session you're using
+
+First, identify which version of Windows 10 Enterprise multi-session you're currently using:
+
+1. Sign in with your admin account.
+2. Select **Start**.
+3. Enter "About" into the search bar.
+4. Select **About your PC**.
+5. Check the version number.
+
+### Version 1809
+
+If your version number says "1809," you can either upgrade to Windows 10, version 1903 or redeploy the host pool with the latest image.
+
+To upgrade to Windows 10, version 1903:
+
+1. If you haven't already, download and install the [Windows 10 May 2019 Update](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Sign in to your computer with your admin account.
+3. Run **gpedit.msc**.
+4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
+5. Select **Set the Remote Desktop licensing mode**.
+6. Select **Enabled**.
+7. Under Specifiy the licensing mode for the RD Session Host server, select **Per User**.
+8. Select **Apply**.
+9. Select **OK**.
+10. Restart your computer.
+
+To redeploy the host pool with the latest image:
+
+1. Follow the instructions in [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) until you're prompted to choose an Image OS version. You can choose either Windows 10 Enterprise multi-session with or without Office365 ProPlus.
+2. Sign in to your computer with your admin account.
+3. Run **gpedit.msc**.
+4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
+5. Select **Set the Remote Desktop licensing mode**.
+6. Select **Enabled**.
+7. Under Specifiy the licensing mode for the RD Session Host server, select **Per User**.
+8. Select **Apply**.
+9. Select **OK**.
+10. Restart your computer.
+
+### Version 1903
+
+If your version number says "1903," follow these instructions:
+
+1. Sign in to your computer with your admin account.
+2. Run **gpedit.msc**.
+3. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
+4. Select **Set the Remote Desktop licensing mode**.
+5. Select **Enabled**.
+6. Under Specifiy the licensing mode for the RD Session Host server, select **Per User**.
+7. Select **Apply**.
+8. Select **OK**.
+9.  Restart your computer.
 
 ## Next steps
 
