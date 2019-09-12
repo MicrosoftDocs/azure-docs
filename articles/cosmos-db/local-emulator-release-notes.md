@@ -21,6 +21,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.4.6
+
+- It reflects the Azure Cosmos features as of July 2019 and public emulator fixes for shutdown, IP address override, 
+
 ### 2.4.3
 
 - Disabled starting the MongoDB service by default. Only the SQL endpoint is enabled as default. The user must start the endpoint manually using the emulator's "/EnableMongoDbEndpoint" command-line option. Now, it's like all the other service endpoints, such as Gremlin, Cassandra, and Table.
