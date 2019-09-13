@@ -22,7 +22,9 @@ To create a Windows Data Science Virtual Machine, you must have an Azure subscri
 
 Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
 
-1. Go to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). You might be prompted to sign in to your Azure account if you're not already signed in. 
+1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine for Linux (Ubuntu)."
+    ![Ubuntu VM Listing](./media/dsvm-ubuntu-intro/search-ubuntu.png)
 1. On the subsequent window, select **Create**.
 
     ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/Create_Linux.png)
