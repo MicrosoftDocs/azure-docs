@@ -48,7 +48,7 @@ The architecture consists of these components:
 - [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview). Provides an extensible Application Performance Management (APM) service on multiple platforms.
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis/).Provides cloud-based identity and access management service, sign in and access resources.
-- [Azure DNS](https://docs.microsoft.com/en-us/azure/dns/dns-overview). Provide the service to host the domain.
+- [Azure Domain Name System](https://docs.microsoft.com/en-us/azure/dns/dns-overview). Provide the service to host the domain.
 - [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/). Provides to scale your applications and create high availability for your services
 - [Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview/).  Provides an HTTP-based service for hosting web applications.
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/). provides advanced threat protection across your hybrid workloads in the cloud
@@ -253,7 +253,7 @@ Azure App Service enables you to build and host web apps using the languages lik
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### Before continuing, go to your DNS configuration UI for your custom domain and follow the instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the hostname "www" and point it your web app's default domain name.
+#### Before continuing, go to your Azure Domain Name System configuration UI for your custom domain and follow the instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the hostname "www" and point it your web app's default domain name.
 
 #### Upgrade App Service plan to Shared tier (minimum required by custom domains)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
@@ -341,9 +341,9 @@ You can retrieve the IP address of the gateway from its overview page. On the **
 
 *Allow only the gateway IP to access the App Service*
 
-### Azure DNS: 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS(https://docs.microsoft.com/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using 
-Azure infrastructure. By hosting domains in Azure, users can manage DNS records using the same credentials, APIs, tools, and billing as other Azure services. Azure DNS also supports private DNS domains.
+### Azure Domain Name System: 
+The Azure Domain Name System, or Azure Domain Name System, is responsible for translating (or resolving) a website or service name to its IP address. Azure Domain Name System(https://docs.microsoft.com/azure/dns/dns-overview) is a hosting service for Domain Name System domains that provides name resolution using 
+Azure infrastructure. By hosting domains in Azure, users can manage Domain Name System records using the same credentials, APIs, tools, and billing as other Azure services. Azure Domain Name System also supports private Domain Name System domains.
 
 ### Azure Disk Encryption: 
 Azure Disk Encryption leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
@@ -359,10 +359,10 @@ The solution uses Azure Key Vault for the management of keys and secrets. Azure 
    - Advanced access policies are configured on a need basis.
    - Key Vault access policies are defined with minimum required permissions to keys and secrets.
    - All keys and secrets in Key Vault have expiration dates.
-   - All keys in Key Vault are protected by specialized hardware security modules. The key type is an HSM Protected 2048-bit RSA Key.
-   - With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs) 
-   - Use RBAC to assign permissions to users, groups, and applications at a certain scope.     
-   - Use Key Vault to manage your TLS certificates with auto-renewal. 
+   - All keys in Key Vault are protected by specialized hardware security modules. The key type is an hardware security module (HSM) Protected 2048-bit RSA Key.
+   - With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are   protected by hardware security modules (HSMs) 
+   - Use Role-Based Access Control (RBAC) to assign permissions to users, groups, and applications at a certain scope.     
+   - Use Key Vault to manage your TLS certificates with autorenewal. 
    - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
    - Permitted cryptographic operations for keys are restricted to the ones required.
 ### Azure Security Center: 
@@ -392,7 +392,7 @@ Azure services extensively log system and user activity, as well as system healt
    The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
 
    - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
-   - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
+   - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents, which are unresponsive and the number of agents, which are submitting operational data.
    - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
 ### Azure Monitor: 
    [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
@@ -412,7 +412,7 @@ Azure services extensively log system and user activity, as well as system healt
    - Advanced access policies are configured on a need basis
    - Key Vault access policies are defined with minimum required permissions to   keys and secrets
    - All keys and secrets in Key Vault have expiration dates
-   - All keys in Key Vault are protected by HSM [Key Type = HSM Protected       
+   - All keys in Key Vault are protected by hardware security module (HSM) [Key Type = hardware security module (HSM) Protected       
      2048-bit RSA Key]
    - All users/identities are granted minimum required permissions using          Role-Based Access Control (RBAC)
    - Applications do not share a Key Vault unless they trust each other and       they need access to the same secrets at runtime
@@ -509,7 +509,7 @@ To create this workspace:
 
    ![Search for Log Analytics workspaces](./media/secure-aad-app/sentinel-log-analytics.png)
 
-    *Search for Log Analytics workspaces*
+   *Search for Log Analytics workspaces*
 
    2. On the next page, select **Add** and then provide a name, resource group, and location for the workspace.
    ![Create a Log Analytics workspace](./media/secure-aad-app/sentinel-log-analytics-create.png)
@@ -520,13 +520,13 @@ To create this workspace:
 
    ![Search for Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
 
-    *Search for Azure Sentinel*
+   *Search for Azure Sentinel*
 
    4. Select **Add** and then select the Log Analytics workspace that you created earlier.
 
    ![Add a Log Analytics workspace](./media/secure-aad-app/sentinel-workspace-add.png)
 
-    *Add a Log Analytics workspace*
+   *Add a Log Analytics workspace*
 
    5. On the **Azure Sentinel - Data connectors** page, under **Configuration**, select **Data connectors**. You see an array of Azure services that you can link to the Log Analytics storage instance for analysis in Azure Sentinel.
 
@@ -536,17 +536,17 @@ To create this workspace:
 
    For example, to connect the application gateway, take these steps:
 
-     1. Open the Azure Application Gateway instance blade.
-     2. Under **Monitoring**, select **Diagnostic settings**.
-     3. Select **Add diagnostic setting**.
+   1. Open the Azure Application Gateway instance blade.
+   2. Under **Monitoring**, select **Diagnostic settings**.
+   3. Select **Add diagnostic setting**.
 
-     ![Add Application Gateway diagnostics](./media/secure-aad-app/sentinel-gateway-connector.png)
+   ![Add Application Gateway diagnostics](./media/secure-aad-app/sentinel-gateway-connector.png)
          
-     *Add Application Gateway diagnostics*
+   *Add Application Gateway diagnostics*
 
-     4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
+   4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
 
-     ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
+   ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
