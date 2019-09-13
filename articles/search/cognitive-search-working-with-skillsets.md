@@ -45,7 +45,7 @@ Once a document is in the enrichment pipeline, it is represented as a tree of co
 
  As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 
-The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
+You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.
 
 ### Context
@@ -73,7 +73,7 @@ The diagram above describes the selector you work with based on where you are in
 
 ## Generate enriched data 
 
-Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](media/cognitive-search-working-with-skillsets/sample-skillset.md) the skillset. We are going to look at:
+Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) the skillset. We are going to look at:
 
 * how the enrichment tree evolves with the execution of each skill 
 * how the context and inputs work to determine how many times a skill executes 
@@ -200,8 +200,6 @@ To extend the example, you could choose to remove the inline shaping and use a s
     ]
 }
 ```
-
-{>> Is it possible to make consistent the capitalization in `name` and `source` keys? e.g., keyphrase and Keyphrases, document/name vs document/Language, etc. <<}
 
 With the `tableprojection` node defined in the `outputs` section above, we can now use the slicing feature to project parts of the `tableprojection` node into different tables:
 
