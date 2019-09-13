@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
-	1. Click **Choose File** and upload the **Federation metadata XML** file which you have downloaded from the Azure portal.
+	1. Click **Choose File** and upload the **Certificate (Raw)** file which you have downloaded from the Azure portal.
 
 	1. Click **Create**.
 
