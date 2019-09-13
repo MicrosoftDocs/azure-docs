@@ -50,12 +50,12 @@ For more information about Private Link service, see [What is Private Endpoint?]
 
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 ## Availability 
- The following table lists the Private Link services and the regions where they are available:
+ The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
 
 
 |Scenario  |Supported services   |Availability regions |Time of availability   |
 |---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS; WestUS2  |  Preview  |
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  | Azure Data Lake Service Gen2        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  |  Azure SQL Database         | Azure Public Cloud Regions         |   Preview      |
