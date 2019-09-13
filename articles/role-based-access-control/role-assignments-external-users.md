@@ -189,7 +189,7 @@ Guest users have restricted directory permissions. If a guest user needs to be a
 
 ### Guest user does not see the new directory
 
-If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directory + subscription** pane, make sure the guest user has accepted the invite. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/b2b/redemption-experience.md).
+If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directory + subscription** pane, make sure the guest user has completed the invitation process. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/b2b/redemption-experience.md).
 
 ### Guest user does not see resources
 
