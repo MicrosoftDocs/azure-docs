@@ -187,7 +187,7 @@ To list the role assignments for a specific user, use [az role assignment list](
 az role assignment list --assignee <assignee>
 ```
 
-By default, only direct assignments scoped to subscription will be displayed. To view assignments scoped by resource or group, use `--all` and to view inherited asisgnments, use `--include-inherited`.
+By default, only direct assignments scoped to subscription will be displayed. To view assignments scoped by resource or group, use `--all` and to view inherited assignments, use `--include-inherited`.
 
 The following example lists the role assignments that are assigned directly to the *patlong\@contoso.com* user:
 
