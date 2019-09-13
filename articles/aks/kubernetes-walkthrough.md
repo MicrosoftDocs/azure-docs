@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/20/2019
+ms.date: 09/13/2019
 ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 
@@ -28,6 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+[!Note]
+> If running locally, ensure you run the commands as Administrator.
 
 ## Create a resource group
 
@@ -56,15 +59,10 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.  This will take several minutes to complete.
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 1 \
-    --enable-addons monitoring \
-    --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -232,26 +230,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## Monitor health and logs
-
-When the AKS cluster was created, Azure Monitor for containers was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
-
-To see the current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
-
-1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
-1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
-1. Under **Monitoring** on the left-hand side, select **Insights**.
-1. Across the top, select **+ Add Filter**.
-1. Select *Namespace* as the property, then choose *\<All but kube-system\>*.
-1. Select **Containers**.
-
-The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown in the following example:
-
-![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
-
-To see logs for the `azure-vote-back` pod, choose the option to **View in analytics**, then select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
-
-![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
+When the AKS cluster was created, [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview?) was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 
 ## Delete the cluster
 
