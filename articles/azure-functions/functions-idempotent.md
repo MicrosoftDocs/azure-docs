@@ -17,13 +17,13 @@ To illustrate, consider an elevator call button. As you press the button, it lig
 
 Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
 
-When it comes to building event-driven and message-based applications, consider the following scenarios:
+When it comes to building applications, consider the following scenarios:
 
 - What happens if your inventory control application tries to delete the same product more than once?
 - How does your human resource application behave if there is more than one request to create an employee record for the same person?
 - Where does the money go if your banking app gets 100 requests to make the same withdrawal?
 
-There are many contexts where requests to even-driven and message-based functions may receive identical commands. Some situations include:
+There are many contexts where requests to a function may receive identical commands. Some situations include:
 
 - Retry policies sending the same request many times
 - Cached commands replayed to the application
