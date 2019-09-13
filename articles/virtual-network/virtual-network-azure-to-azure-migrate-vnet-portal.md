@@ -33,22 +33,14 @@ You can use an Azure Resource Manager template to complete the move of the virtu
 ## Prepare and move
 The following steps show how to prepare the virtual network for the move using an Resource Manager template, and move the virtual network to the target region using the portal.
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ### Export the template and deploy from the portal
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
-    
-    ```azurepowershell-interactive
-    Connect-AzAccount
-    ```
-3. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-4. Locate the Resource Group that contains the source virtual network and click on it.
-5. Select > **Settings** > **Export template**.
-6. Choose **Deploy** in the **Export template** blade.
-7. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
-8. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
+1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+2. Locate the Resource Group that contains the source virtual network and click on it.
+3. Select > **Settings** > **Export template**.
+4. Choose **Deploy** in the **Export template** blade.
+5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
+6. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
     
     ```json
     {
@@ -61,13 +53,13 @@ The following steps show how to prepare the virtual network for the move using a
         }
     }
     ```
-9. Change the source virtual network name value in the editor to a name of your choice for the target VNET. Ensure you enclose the name in quotes.
+7. Change the source virtual network name value in the editor to a name of your choice for the target VNET. Ensure you enclose the name in quotes.
 
-10. Click **Save** in the editor.
+8.  Click **Save** in the editor.
 
-11. Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
+9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
 
-12. To edit the target region where the VNET will be moved, change the **location** property under **resources** in the online editor:
+10. To edit the target region where the VNET will be moved, change the **location** property under **resources** in the online editor:
 
     ```json
     "resources": [
@@ -87,15 +79,9 @@ The following steps show how to prepare the virtual network for the move using a
 
     ```
  
-13. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
-
-    ```azurepowershell-interactive
-
-    Get-AzLocation | format-table
-    
-    ```
+11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
  
-14. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
+12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
     
@@ -182,19 +168,19 @@ The following steps show how to prepare the virtual network for the move using a
                         ]
     ```
 
-12. Click **Save** in the online editor.
+13. Click **Save** in the online editor.
 
-13. Click **BASICS** > **Subscription** to choose the subscription where the target VNET will be deployed.
+14. Click **BASICS** > **Subscription** to choose the subscription where the target VNET will be deployed.
 
-14. Click **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can click **Create new** to create a new resource group for the target VNET.  Ensure the name is not the same as the source resource group of the existing VNET. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can click **Create new** to create a new resource group for the target VNET.  Ensure the name is not the same as the source resource group of the existing VNET. 
 
-15. Verify **BASICS** > **Location** is set to the target location where you wish for the VNET to be deployed.
+16. Verify **BASICS** > **Location** is set to the target location where you wish for the VNET to be deployed.
 
-16. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.
+17. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.
 
-17. Check the box under **TERMS AND CONDITIONS**.
+18. Check the box under **TERMS AND CONDITIONS**.
 
-18. Click the **Purchase** button to deploy the target virtual network.
+19. Click the **Purchase** button to deploy the target virtual network.
 
 ## Discard 
 
