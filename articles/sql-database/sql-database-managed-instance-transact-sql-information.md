@@ -334,7 +334,7 @@ A managed instance can't access file shares and Windows folders, so the followin
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### Database Mail (db_mail)
- - `sp_send_dbmail` cannot send attachments using @file_attachments parameter. Local file system and extental shares or Azure blob Storage are not accessible form this procedure.
+ - `sp_send_dbmail` cannot send attachments using @file_attachments parameter. Local file system and extertal shares or Azure blob Storage are not accessible form this procedure.
  - See the known issues related to `@query` parameter and authentication.
  
 ### DBCC
