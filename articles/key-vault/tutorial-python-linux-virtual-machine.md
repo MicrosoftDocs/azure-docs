@@ -27,7 +27,7 @@ In this tutorial, you set up an Azure web application to read information from A
 > * Grant the required permissions for the console application to read data from the key vault
 > * Retrieve a secret from your key vault
 
-Before you go any further, make sure you understand the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
+Before you go any further, make sure you understand the [basic concepts about Key Vault](key-vault-overview.md#basic-concepts).
 
 ## Prerequisites
 
