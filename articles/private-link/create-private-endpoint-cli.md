@@ -10,7 +10,7 @@ ms.author: kumud
 
 ---
 # Create a private endpoint using Azure CLI
-Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link Resources. In this Quickstart, you will learn how to create a VM on a virtual network, a SQL Database Server with a Private Endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure storage account in this example). 
+Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link Resources. In this Quickstart, you will learn how to create a VM on a virtual network, a SQL Database Server with a Private Endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure SQL Database server in this example). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -79,11 +79,8 @@ az sql db create \
 Note the SQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` 
 You will use the SQL Server ID in the next step. 
 
-Note the storage account ID is similar to ``` /subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount```
-You will use the storage account ID in the next step. 
-
 ## Create the Private Endpoint 
-Create a private endpoint for the storage account in your Virtual Network: 
+Create a private endpoint for the SQL Database server in your Virtual Network: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -95,7 +92,7 @@ az network private-endpoint create \
     --connection-name myConnection  
  ```
 ## Configure the Private DNS Zone 
-Create a Private DNS Zone for storage blob domain and create an association link with the Virtual Network. 
+Create a Private DNS Zone for SQL Database server domain and create an association link with the Virtual Network. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.database.windows.net" 
@@ -171,12 +168,6 @@ In this section, you will connect to the SQL Database Server from the VM using t
  6. Browse **Databases** from left menu.
  7. (Optionally) Create or query information from *mydatabase*
  8. Close the remote desktop connection to *myVm*.
-
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
- 
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
-
 
 ## Clean up resources 
 When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
