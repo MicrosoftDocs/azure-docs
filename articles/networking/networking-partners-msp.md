@@ -26,7 +26,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [ANS Group UK](https://www.ans.co.uk/)
 
-[Aryaka Networks](https://www.aryaka.com/)
+[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)
 
 [BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
 
@@ -34,19 +34,21 @@ Use the links in this section for more information about managed cloud networkin
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://www.intercloud.com/)
+[InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
 
 [IIJ](https://www.iij.ad.jp/en/)
 
+[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+
 [ixreach](https://www.ixreach.com/)
 
-[Megaport](https://www.megaport.com/)
+[Megaport](https://www.megaport.com/services/microsoft-expressroute/)
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
-[Tata Communications](https://www.tatacommunications.com/)
+[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 
-[Vandis](https://www.vandis.com/)
+[Vandis](https://www.vandis.com/services/azure-migration/)
 
 ## <a name="expressroute"></a>ExpressRoute partners
 
