@@ -7,7 +7,6 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Starter Resource Graph queries
 
@@ -33,8 +32,6 @@ We'll walk through the following starter queries:
 > - [Show distinct values for a specific alias](#distinct-alias-values)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Language support
 

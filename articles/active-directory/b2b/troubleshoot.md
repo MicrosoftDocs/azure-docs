@@ -32,7 +32,7 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 
 ## Invitations have been disabled for directory
 
-If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under User Settings:
+If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
 
 ![Screenshot showing the External Users settings](media/troubleshoot/external-user-settings.png)
 

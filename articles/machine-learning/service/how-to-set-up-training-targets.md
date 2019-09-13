@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
-You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
+You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, your workspace landing page (preview), Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
 In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
 1. __Create__ a compute target if you don’t already have one.
@@ -39,9 +39,9 @@ Azure Machine Learning service has varying support across different compute targ
 
 ## What's a run configuration?
 
-When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
+When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script.
 
-All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md)
+All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -272,6 +272,7 @@ You can access the compute targets that are associated with your workspace in th
 * [Create a compute target](#portal-create) in your workspace
 * [Attach a compute target](#portal-reuse) that was created outside the workspace
 
+
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
 
 ```python
@@ -284,7 +285,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 To see the compute targets for your workspace, use the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. 
+1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. You can also access these same steps in your [workspace landing page (preview)](https://ml.azure.com), although the images below show the Azure portal.
+ 
 1. Under __Applications__, select __Compute__.
 
     [![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
@@ -398,11 +400,20 @@ Switch the same experiment to run in a different compute target by using a diffe
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> This example defaults to only using one node of the compute target for training. To use more than one node, set the `node_count` of the run configuration to the desired number of nodes. For example, the following code sets the number of nodes used for training to four:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
 * Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
+
+For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
 
 ## Create run configuration and submit run using Azure Machine Learning CLI
 
@@ -417,6 +428,19 @@ az ml folder attach
 ```
 
 This command creates a subfolder `.azureml` that contains template run configuration files for different compute targets. You can copy and edit these files to customize your configuration, for example to add Python packages or change Docker settings.  
+
+### Structure of run configuration file
+
+The run configuration file is YAML formatted, with following sections
+ * The script to run and its arguments
+ * Compute target name, either "local" or name of a compute under the workspace.
+ * Parameters for executing the run: framework, communicator for distributed runs, maximum duration, and number of compute nodes.
+ * Environment section. See [Create and manage environments for training and deployment](how-to-use-environments.md) for details of the fields in this section.
+   * To specify Python packages to install for the run, create [conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually), and set __condaDependenciesFile__ field.
+ * Run history details to specify log file folder, and to enable or disable output collection and run history snapshots.
+ * Configuration details specific to the framework selected.
+ * Data reference and data store details.
+ * Configuration details specific for Machine Learning Compute for creating a new cluster.
 
 ### Create an experiment
 

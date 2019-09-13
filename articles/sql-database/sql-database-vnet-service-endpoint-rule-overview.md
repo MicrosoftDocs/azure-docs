@@ -66,8 +66,6 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
-- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must **Allow Azure services to access server** on the server.
-
 - In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
 
 - Each Azure SQL Database server can have up to 128 ACL entries for any given virtual network.
@@ -240,7 +238,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 3. Set the **Allow access to Azure services** control to OFF.
 
     > [!IMPORTANT]
-    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
+    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet inside the Azure boundary i.e. originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
 
 4. Click the **+ Add existing** control, in the **Virtual networks** section.
 
