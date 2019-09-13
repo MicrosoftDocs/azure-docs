@@ -40,13 +40,17 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
        * **Virtual machine name**: Enter the name of the virtual machine. This is how it will appear in your Azure portal.
        * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
        * **Image**: Leave the default value.
-       * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about [Windows VM sizes in Azure](../../virtual-machines/windows/sizes.md).
+       * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/linux/sizes.md).
        * **Authentication type**: For quicker setup, select "Password." 
+         
          > [!NOTE]
          > If you intend to use JupyterHub, make sure to select "Password," as JupyterHub is *not* configured to use SSH public keys.
+
        * **Username**: Enter the administrator username. This is the username you will use to log into your virtual machine, and need not be the same as your Azure username. Do *not* use capitalized letters.
+         
          > [!NOTE]
          > If you use capitalized letters in your username, JupyterHub will not work, and you will encounter a 500 internal server error.
+
        * **Password**: Enter the password you will use to log into your virtual machine.    
     
    1. Select **Review + create**.
@@ -58,17 +62,17 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
 
 ## How to access the Data Science Virtual Machine for Linux
 
-You can access the Ubuntu DSVM by using three methods:
+You can access the Ubuntu DSVM in one of three ways:
 
-- SSH for terminal sessions
-- X2Go for graphical sessions
-- JupyterHub and JupyterLab for Jupyter notebooks
+  1. SSH for terminal sessions
+  1. X2Go for graphical sessions
+  1. JupyterHub and JupyterLab for Jupyter notebooks
 
 You can also attach a Data Science Virtual Machine to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Azure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### SSH
 
-After the VM is created, if it was configured with SSH access, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY or install the X2Go client.
+After the VM is created, if it was configured with SSH access, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY.
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
@@ -95,9 +99,12 @@ The Linux VM is already provisioned with X2Go Server and ready to accept client 
 
    ![X2go configuration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Select **OK**.
+1. Click on the box in the right pane of the X2Go window in order to bring up the log-in screen for your VM.
+1. Enter the password for your VM.
+1. Select **OK**.
+1. You may have to give X2Go permission to bypass your firewall in order to finish connecting.
+1. You should now see the graphical interface for your Ubuntu DSVM. 
 
-
-After you sign in to the VM by using either the SSH client or the XFCE graphical desktop through the X2Go client, you're ready to start using the tools that are installed and configured on the VM. On XFCE, you can see application menu shortcuts and desktop icons for many of the tools.
 
 ### JupyterHub and JupyterLab
 
@@ -129,4 +136,4 @@ Here's how you can continue your learning and exploration:
 * Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://aka.ms/tdsp).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
-* Consult the appropriate [reference documentation            ](./reference-ubuntu-vm.md) for this virtual machine.
+* Consult the appropriate [reference documentation](./reference-ubuntu-vm.md) for this virtual machine.
