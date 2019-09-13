@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Using redirect URIs with the Microsoft authentication library
+# Using redirect URIs with the Microsoft authentication library for iOS and macOS
 
 When a user authenticates, Azure Active Directory (Azure AD) sends the token to the app by using the redirect URI registered with the Azure AD application.
 
