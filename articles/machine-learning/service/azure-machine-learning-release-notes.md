@@ -1,7 +1,7 @@
 ---
 title: What's new in the release?
-titleSuffix: Azure Machine Learning service
-description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
+titleSuffix: Azure Machine Learning
+description: Learn about the latest updates to Azure Machine Learning and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,9 +12,9 @@ ms.date: 08/19/2019
 ms.custom: seodec18
 ---
 
-# Azure Machine Learning service release notes
+# Azure Machine Learning release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page. 
+In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page. 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
@@ -552,7 +552,7 @@ In Azure portal, you can now:
 + Live chart and metric updating in run reports and run details pages
 + Updated file viewer for logs, outputs, and snapshots in Run details pages.
 + New and improved report creation experience in the Experiments tab. 
-+ Added ability to download the config.json file from the Overview page of the Azure Machine Learning service workspace.
++ Added ability to download the config.json file from the Overview page of the Azure Machine Learning workspace.
 + Support Machine Learning service workspace creation from Azure Databricks workspace 
 
 ## 2019-04-26
@@ -571,7 +571,7 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 + [Quickly spin up a preconfigured notebook VM](tutorial-1st-experiment-sdk-setup.md) that has the latest version of Azure Machine Learning SDK and related packages.
 + Access is secured through proven technologies, such as HTTPS, Azure Active Directory authentication and authorization.
 + Reliable cloud storage of notebooks and code in your Azure Machine Learning Workspace blob storage account. You can safely delete your notebook VM without losing your work.
-+ Preinstalled sample notebooks to explore and experiment with Azure Machine Learning service features.
++ Preinstalled sample notebooks to explore and experiment with Azure Machine Learning features.
 + Full customization capabilities of Azure VMs, any VM type, any packages, any drivers. 
 
 ## 2019-04-26
@@ -871,7 +871,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
 ## 2018-12-04: General Availability
 
-Azure Machine Learning service is now generally available.
+Azure Machine Learning is now generally available.
 
 ### Azure Machine Learning Compute
 With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
@@ -983,7 +983,7 @@ Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/da
 ## 2018-11-05
 
 ### Azure portal 
-The Azure portal for the Azure Machine Learning service has the following updates:
+The Azure portal for Azure Machine Learning has the following updates:
   * A new **Pipelines** tab for published pipelines.
   * Added support for attaching an existing HDInsight cluster as a compute target.
 
@@ -1096,4 +1096,4 @@ A new, refreshed release of Azure Machine Learning: Read more about this release
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning service](../service/overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](../service/overview-what-is-azure-ml.md).
