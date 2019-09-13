@@ -35,7 +35,7 @@ landingContent:
           - text: The authoring cycle of your app
             url: luis-concept-app-iteration.md
 
-      - linkListType: get-started
+      - linkListType: video
         links:
           - text: "AI Roadshow: LUIS"
             url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
