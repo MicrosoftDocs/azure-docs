@@ -66,19 +66,6 @@ landingContent:
         - text: Language detection
           url: how-tos/text-analytics-how-to-language-detection.md
 
-- title: Use Docker containers
-  linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Install and run Text Analytics containers
-          url: how-tos/text-analytics-how-to-install-containers.md
-        - text: Configure Text Analytics containers
-          url: text-analytics-container-config.md
-        - text: Deploy a container instance to Azure
-          url: how-tos/text-analytics-how-to-use-container-instances.md
-        - text: Deploy a container to Azure Kubernetes Service (AKS)
-          url: how-tos/text-analytics-how-to-use-kubernetes-service.md
-
 - title: Reference
   linkLists:
     - linkListType: reference
@@ -99,3 +86,16 @@ landingContent:
           url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services"
         - text: Azure CLI 
           url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+
+- title: Use Docker containers
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Install and run Text Analytics containers
+          url: how-tos/text-analytics-how-to-install-containers.md
+        - text: Configure Text Analytics containers
+          url: text-analytics-container-config.md
+        - text: Deploy a container instance to Azure
+          url: how-tos/text-analytics-how-to-use-container-instances.md
+        - text: Deploy a container to Azure Kubernetes Service (AKS)
+          url: how-tos/text-analytics-how-to-use-kubernetes-service.md

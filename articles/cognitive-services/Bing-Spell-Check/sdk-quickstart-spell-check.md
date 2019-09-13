@@ -11,7 +11,7 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
----
+---K
 
 # Quickstart: Check spelling with the Bing Spell Check SDK for C#
 
