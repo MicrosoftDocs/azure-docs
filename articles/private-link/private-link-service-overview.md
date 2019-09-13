@@ -11,7 +11,7 @@ ms.author: kumud
 ---
 # What is Azure Private Link Service?
 
-Using Azure Private Link technology, you can create your own Private Link Service in your virtual network (VNet). You can deliver this service privately to your customers by mapping it to private endpoint inside your customer's VNet. This article explains Private Link service concepts to help you use them effectively. 
+Azure Private Link service is a service you can create in your virtual network (VNet) and deliver it privately to your customers. Your customers can access this service by mapping it to private endpoint inside thier VNets. This article explains Private Link service concepts to help you use them effectively. 
 
 ## Workflow
 
@@ -66,9 +66,10 @@ A Private Link Service specifies the following properties:
  
 - A single Private Link Service can be accessed from multiple Private Endpoints belonging to different VNets, subscriptions and/or Active Directory tenants. The connection is established through a connection workflow. 
  
-- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see Azure limits. 
+- Multiple Private Link Services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
  
 - Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link Service, you can't delete the NAT IP addresses. This is done to ensure that active connections are not impacted while deleting the NAT IP addresses.
+
 
 ## Alias
 
