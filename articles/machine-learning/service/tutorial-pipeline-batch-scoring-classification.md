@@ -1,7 +1,7 @@
 ---
-title: 'Azure Machine Learning Pipelines tutorial: batch scoring'
+title: 'Tutorial: Azure ML Pipelines for batch scoring'
 titleSuffix: Azure Machine Learning service
-description: Use Azure Machine Learning service to build a pipeline for running batch scoring on an image classification model. Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation.
+description: Build an ML pipeline for running batch scoring on an image classification model. Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,9 @@ ms.date: 09/05/2019
 
 # Use Azure Machine Learning Pipelines for batch scoring
 
-In this tutorial, you use Azure Machine Learning service pipelines to run a batch scoring image classification job. The example job uses the pre-trained [Inception-V3](https://arxiv.org/abs/1512.00567) CNN (convolutional neural network) Tensorflow model to classify unlabeled images. Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation. After building and publishing a pipeline, you can configure a REST endpoint to enable triggering the pipeline from any HTTP library on any platform.
+In this tutorial, you use Azure Machine Learning service pipelines to run a batch scoring, or inference, job. This example job uses the pre-trained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network Tensorflow model to classify unlabeled images. After building and publishing a pipeline, you'll configure a REST endpoint so you can trigger the pipeline from any HTTP library on any platform.
+
+Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation. [Learn more about ML pipelines](concept-ml-pipelines.md).
 
 In this tutorial you learn the following tasks:
 
@@ -30,14 +32,17 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning service workspace or notebook virtual machine.
+* Complete [Part 1 of the setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning service workspace or notebook virtual machine.
 * After you complete the setup tutorial, open the **tutorials/tutorial-pipeline-batch-scoring-classification.ipynb** notebook using the same notebook server.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` to get the required packages.
 
 ## Configure workspace and create datastore
 
-Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing Azure Machine Learning workspace. 
++ A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. 
+
++ `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
 
 ```python
 from azureml.core import Workspace
@@ -64,10 +69,12 @@ def_data_store = ws.get_default_datastore()
 
 When building pipelines, `DataReference` objects are used for reading data from workspace datastores, and `PipelineData` objects are used for transferring intermediate data between pipeline steps.
 
-This batch scoring example only uses one pipeline step, but in use-cases with multiple steps, the typical flow will include:
-
-1. Using `DataReference` objects as **inputs** to fetch raw data, performing some transformations, then **outputting** a `PipelineData` object.
-1. Use the previous step's `PipelineData` **output object** as an *input object*, repeated for subsequent steps.
+> [!Important]
+> This batch scoring example only uses one pipeline step, but in use-cases with multiple steps, the typical flow will include:
+>
+> 1. Using `DataReference` objects as **inputs** to fetch raw data, performing some transformations, then **outputting** a `PipelineData` object.
+>
+> 2. Use the previous step's `PipelineData` **output object** as an *input object*, repeated for subsequent steps.
 
 For this scenario you create `DataReference` objects corresponding to the datastore directories for both the input images and the classification labels (y-test values). You also create a `PipelineData` object for the batch scoring output data.
 
