@@ -290,11 +290,11 @@ However, users still need to carry out day to day privileged operations, so enfo
 
 ### Reporting and monitoring
 
-Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Application Proxy also makes it very easy to monitor connectors from the Azure AD portal and Windows Event Logs.
+Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Application Proxy also makes it very easy to monitor connectors from the Azure AD portal and Windows Event Logs.
 
 #### Application audit logs
 
-These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) are located in the Azure portal and in [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) for export. Additionally, [usage and insights reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) are also available for your application.
+These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are located in the Azure portal and in [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) for export. Additionally, [usage and insights reports](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) are also available for your application.
 
 #### Application Proxy Connector monitoring
 
