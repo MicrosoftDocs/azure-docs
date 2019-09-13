@@ -1,5 +1,5 @@
 ---
-title: Detect data drift (Preview) on AKS deployments
+title: Detect data drift (preview) on AKS deployments
 titleSuffix: Azure Machine Learning service
 description: Detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning service.
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
+ms.date: 09/13/2019
 ---
 
 # Detect data drift (preview) on models deployed to Azure Kubernetes Service (AKS)
@@ -31,7 +31,7 @@ With Azure Machine Learning service, you can monitor the inputs to a model deplo
 + Send alerts to data drift by email.
 
 > [!Note]
-> This service is in (Preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
+> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
 
 ### How data drift is monitored in Azure Machine Learning service
 
@@ -128,7 +128,7 @@ There are multiple ways to view drift metrics:
 
 * Use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
-* View the metrics in the Azure portal on your model.
+* View the metrics from the **Models** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
 
@@ -153,15 +153,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen on the model details page in the Azure portal.
+The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your [workspace landing page (preview)](https://ml.azure.com).
 
-![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
+![Azure portal Data Drift](media/how-to-monitor-data-drift/drift-config.png)
 
-## View results in Azure portal
+## View results in your workspace landing page
 
-To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [workspace landing page (preview)](https://ml.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A **Data drift** tab is now available visualizing the data drift metrics. 
 
-![Azure portal Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
+[![workspace landing page Data Drift](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
+
 
 ## Receiving drift alerts
 

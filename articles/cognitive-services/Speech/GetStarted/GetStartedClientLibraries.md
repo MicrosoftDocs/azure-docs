@@ -3,13 +3,13 @@ title: Get started with the Bing Speech Recognition API by using client librarie
 titlesuffix: Azure Cognitive Services
 description: Use the Bing Speech client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with Bing Speech Service client libraries

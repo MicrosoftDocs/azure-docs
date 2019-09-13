@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -356,6 +356,11 @@ The custom property name can be found in the directory by querying a user's prop
 
 You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
 
+> [!NOTE]
+> systemlabels is a read-only attribute that cannot be set with Intune.
+>
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0 (17763)"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+
 The following device attributes can be used.
 
  Device attribute  | Values | Example
@@ -368,7 +373,7 @@ The following device attributes can be used.
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers (Android - Kiosk), or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

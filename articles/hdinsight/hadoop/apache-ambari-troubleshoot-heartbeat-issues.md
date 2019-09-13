@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
+ms.date: 09/11/2019
 ---
 
 # Apache Ambari heartbeat issues in Azure HDInsight
@@ -16,7 +16,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ### Issue
 
-Ambari agent has high CPU utilization, which results in alerts from Ambari UI that for some nodes the Ambari agent heartbeat is lost.
+Ambari agent has high CPU utilization, which results in alerts from Ambari UI that for some nodes the Ambari agent heartbeat is lost. The heartbeat lost alert is usually transient. 
 
 ### Cause
 
