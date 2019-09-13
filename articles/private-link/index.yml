@@ -36,10 +36,6 @@ landingContent:
         links:
           - text: Create a private endpoint
             url: create-private-endpoint-portal.md
-      - linkListType: tutorial
-        links:
-          - text: Connect privately to a SQL server
-            url: tutorial-private-endpoint-sql-server-portal.md
 
   # Card (optional)
   - title: Build your own private link service
