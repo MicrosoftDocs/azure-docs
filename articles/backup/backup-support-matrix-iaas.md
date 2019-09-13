@@ -176,7 +176,7 @@ Multiple reserved IP addresses |	Supported. <br/><br/> [Learn more](backup-azure
 VMs with multiple network adapters	| Supported. <br/><br/> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) about restoring VMs with special network settings.
 VMs with public IP addresses	| Supported.<br/><br/> Associate an existing public IP address with the NIC, or create an address and associate it with the NIC after restore is done.
 Network security group (NSG) on NIC/subnet. |	Supported.
-Reserved IP address (static) | Not supported.<br/><br/> You can't back up a VM with a reserved IP address and no defined endpoint.
+Static IP address | Not supported.<br/><br/> When creating a new VM from a restore point, it will be assigned a dynamic IP address.<br/><br/> For classic VMs, you can't back up a VM with a reserved IP address and no defined endpoint.
 Dynamic IP address |	Supported.<br/><br/> If the NIC on the source VM uses dynamic IP addressing, by default the NIC on the restored VM will use it too.
 Azure Traffic Manager	| Supported.<br/><br/>If the backed-up VM is in Traffic Manager, manually add the restored VM to the same Traffic Manager instance.
 Azure DNS |	Supported.
