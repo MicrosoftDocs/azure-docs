@@ -13,7 +13,7 @@ manager:  mtillman
 ---
 # Get started with the Azure Quickstart Center
 
-Azure Quickstart Center is a guided experience in the Azure portal available to anyone who wants to improve their knowledge of Azure. For organizations new to Azure, it’s the fastest way to onboard and set up your environment.
+Azure Quickstart Center is a guided experience in the Azure portal available to anyone who wants to improve their knowledge of Azure. For organizations new to Azure, it’s the fastest way to onboard and set up your cloud environment.
 
 ## Overview
 
