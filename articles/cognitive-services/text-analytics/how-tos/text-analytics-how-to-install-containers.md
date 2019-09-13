@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 09/12/2019
 ms.author: dapine
 ---
 
@@ -35,7 +35,7 @@ You must meet the following prerequisites before using Text Analytics containers
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
-### The host computer
+## The host computer
 
 [!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
@@ -43,15 +43,15 @@ You must meet the following prerequisites before using Text Analytics containers
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-#### [Key Phrase Extraction](#tab/keyphrase)
+# [Key Phrase Extraction](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-#### [Language Detection](#tab/language)
+# [Language Detection](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
-#### [Sentiment Analysis](#tab/sentiment)
+# [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
 
@@ -62,21 +62,41 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-#### [Key Phrase Extraction](#tab/keyphrase)
+## Get the container image with `docker pull`
 
-[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
+Container images for Text Analytics are available on the Microsoft Container Registry.
 
-#### [Language Detection](#tab/language)
+# [Key Phrase Extraction](#tab/keyphrase)
 
-[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
+[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-#### [Sentiment Analysis](#tab/sentiment)
+# [Language Detection](#tab/language)
 
-[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
+
+# [Sentiment Analysis](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
 
 ***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
+### Docker pull for the Text Analytics containers
+
+# [Key Phrase Extraction](#tab/keyphrase)
+
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
+
+# [Language Detection](#tab/language)
+
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
+
+# [Sentiment Analysis](#tab/sentiment)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+***
 
 ## How to use the container
 
@@ -91,15 +111,15 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-#### [Key Phrase Extraction](#tab/keyphrase)
+# [Key Phrase Extraction](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-#### [Language Detection](#tab/language)
+# [Language Detection](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-#### [Sentiment Analysis](#tab/sentiment)
+# [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -144,7 +164,10 @@ For more information about these options, see [Configure containers](../text-ana
 
 In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
 
-* Text Analytics provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
+* Text Analytics provides three Linux containers for Docker, encapsulating various capabilities:
+   * *Key Phrase Extraction*
+   * *Language Detection*
+   * *Sentiment Analysis*
 * Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
