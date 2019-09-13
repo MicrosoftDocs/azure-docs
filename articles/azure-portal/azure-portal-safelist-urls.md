@@ -20,48 +20,50 @@ For good performance and connectivity between your local- or wide-area network a
 The URL endpoints to safelist for the Azure portal are specific to the Azure cloud where your organization is deployed. Select your cloud, then add the list of URLs to your proxy server or firewall to allow network traffic to these endpoints to bypass restrictions.
 
 #### [Public Cloud](#tab/public-cloud)
-
-* *.aadcdn.microsoftonline-p.com
-* *.aka.ms
-* *.applicationinsights.io
-* *.azure.com
-* *.azure.net
-* *.azureafd.net
-* *.azure-api.net
-* *.azuredatalakestore.net
-* *.azureedge.net
-* *.loganalytics.io
-* *.microsoft.com
-* *.microsoftonline.com
-* *.microsoftonline-p.com
-* *.msauth.net
-* *.msftauth.net
-* *.trafficmanager.net
-* *.visualstudio.com
-* *.windows.net
-* *.windows-int.net
+```
+*.aadcdn.microsoftonline-p.com
+*.aka.ms
+*.applicationinsights.io
+*.azure.com
+*.azure.net
+*.azureafd.net
+*.azure-api.net
+*.azuredatalakestore.net
+*.azureedge.net
+*.loganalytics.io
+*.microsoft.com
+*.microsoftonline.com
+*.microsoftonline-p.com
+*.msauth.net
+*.msftauth.net
+*.trafficmanager.net
+*.visualstudio.com
+*.windows.net
+*.windows-int.net
+```
 
 #### [U.S. Government Cloud](#tab/us-government-cloud)
-
-* *.azure.us
-* *.loganalytics.us
-* *.microsoft.us
-* *.microsoftonline.us
-* *.msauth.net
-* *.usgovcloudapi.net
-* *.usgovtrafficmanager.net
-* *.windowsazure.us
+```
+*.azure.us
+*.loganalytics.us
+*.microsoft.us
+*.microsoftonline.us
+*.msauth.net
+*.usgovcloudapi.net
+*.usgovtrafficmanager.net
+*.windowsazure.us
+```
 
 #### [China Government Cloud](#tab/china-government-cloud)
-
-* *.azure.cn
-* *.microsoft.cn
-* *.microsoftonline.cn
-* *.chinacloudapi.cn
-* *.trafficmanager.cn
-* *.chinacloudsites.cn
-* *.windowsazure.cn
-
+```
+*.azure.cn
+*.microsoft.cn
+*.microsoftonline.cn
+*.chinacloudapi.cn
+*.trafficmanager.cn
+*.chinacloudsites.cn
+*.windowsazure.cn
+```
 ---
 
 > [!NOTE]
