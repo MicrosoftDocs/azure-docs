@@ -1781,6 +1781,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/knowledge-store-connect-powerbi.md",
+      "redirect_url": "/azure/search/knowledge-store-create-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-rest-api.md",
       "redirect_url": "/azure/search/search-get-started-powershell",
       "redirect_document_id": false
@@ -37734,11 +37739,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
-      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/log-query/runbook-datacollect.md",
       "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
       "redirect_document_id": false
@@ -41579,6 +41579,21 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-domain.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/use-domain-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-thumb-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
       "redirect_document_id": false
     },
     {
