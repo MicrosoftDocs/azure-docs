@@ -101,14 +101,14 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?filter=loggedByServic
 
 ### PowerShell script
 
-The following script provides an example of using PowerShell to query the Azure AD reporting API and store the results as a JSON file:
+The following script provides an example of using PowerShell to query the Azure AD reporting API and outputting the results to a JSON file:
 
 ```powershell
-# This script will require registration of a Web Application in Azure Active Directory (see https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)
+# This script requires the registration of a Web Application in Azure Active Directory (see https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
+$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
