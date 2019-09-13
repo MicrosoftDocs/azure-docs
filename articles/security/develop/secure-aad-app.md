@@ -61,7 +61,7 @@ This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com
 
 Here is the threat model for the sample app:
 
-![Threat model](./media/secure-add-app/threat-model.png)
+![Threat model](./media/secure-aad-app/threat-model.png)
 
 Some sample threats and potential vulnerabilities that the threat modeling tool generates are shown in the following screenshot. The threat model gives an overview of the attack surface exposed and prompts the developers to think about how to mitigate the issues.
 
@@ -96,26 +96,26 @@ To deploy Azure Key Vault by using Powershell:
 4. Create the Azure Key Vault instance in the resource group created in step 3.
 
 #### These are the Azure AD users that will have admin permissions to the Key Vault
-$keyVaultAdminUsers = @($user1,user2)
+    $keyVaultAdminUsers = @($user1,user2)
 
 #### Register the Az Providers
-Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+    Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 #### Create the Azure Key Vault instance
- New-AzKeyVault -Name $kvName 
+    New-AzKeyVault -Name $kvName 
                 -ResourceGroupName $ResourceGroup 
                 -Location 'East US'
                 -EnabledForDiskEncryption
 
 #### Add the Administrator policies to the Key Vault
-foreach ($keyVaultAdminUser in $keyVaultAdminUsers) {
+    foreach ($keyVaultAdminUser in $keyVaultAdminUsers) {
     $UserObjectId = (Get-AzADUser -SearchString $keyVaultAdminUser).Id
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -ObjectId $UserObjectId 
-        -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
+    -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
 }
 
 #### To create an access policy to allow a user to get and list cryptographic keys, certificates and secrets if you know the User Principal Name:
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName 
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName 
                            -ResourceGroupName $resourceGroupName 
                            -UserPrincipalName 'user1@contoso.com 
                            -PermissionsToCertificates list, get 
@@ -275,7 +275,7 @@ Blocking unused ports and limiting the attack surface exposure is a security bes
 App Service instances can be integrated with virtual networks. This integration allows them to be configured with network security group policies that manage the
 app's incoming and outgoing traffic.
 
-1. To enable this feature, on the Azure App service instance blade, under Settings, selects Networking. In the right pane, under **VNet Integration**, select **Click here to configure**.
+1. To enable this feature, on the Azure App service instance blade, under **Settings**, select **Networking**. In the right pane, under **VNet Integration**, select **Go here to configure**.
 
    ![New virtual network integration](./media/secure-web-app/app-vnet-menu.png)
 
@@ -350,49 +350,41 @@ Azure infrastructure. By hosting domains in Azure, users can manage DNS records 
 
 ### Identity management
 The following technologies provide capabilities to manage access to cardholder data in the Azure environment:
-    •	Azure Active Directory is Microsoft's multi-tenant cloud-based directory and identity management service. All users for this solution are created in Azure Active Directory, including users accessing the 
-        Azure SQL Database.
-    •	Authentication to the application is performed using Azure Active Directory. For more information, see Integrating applications with Azure Active Directory. Additionally, the database column encryption uses 
-        Azure Active Directory to authenticate the application to Azure SQL Database. For more information, see how to protect sensitive data in Azure SQL Database.
-    •	Azure role-based access control enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user 
-        unrestricted permission for Azure resources, administrators can allow only certain actions for accessing cardholder data. Subscription access is limited to the subscription administrator.
-    •	Azure Active Directory Privileged Identity Management enables customers to minimize the number of users who have access to certain information such as cardholder data. Administrators can use Azure Active 
-        Directory Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality can also be used to enforce on-demand, just-in-time administrative access when needed.
-    •	Azure Active Directory Identity Protection detects potential vulnerabilities affecting an organization's identities, configures automated responses to detected suspicious actions related to an 
-        organization's identities, and investigates suspicious incidents to take appropriate action to resolve them.
+- Azure Active Directory is Microsoft's multi-tenant cloud-based directory and identity management service. All users for this solution are created in Azure Active Directory, including users accessing the Azure WebApp.
+- Azure role-based access control enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted permission for Azure resources, administrators can allow only certain actions for accessing cardholder data. Subscription access is limited to the subscription administrator.
+- Azure Active Directory Privileged Identity Management enables customers to minimize the number of users who have access to certain information such as cardholder data. Administrators can use Azure Active Directory Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality can also be used to enforce on-demand, just-in-time administrative access when needed.
+- Azure Active Directory Identity Protection detects potential vulnerabilities affecting an organization's identities, configures automated responses to detected suspicious actions related to an organization's identities, and investigates suspicious incidents to take appropriate action to resolve them.
 ### Secrets management: 
-        The solution uses Azure Key Vault for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key 
-        Vault capabilities help customers protect and access such data:
-    •	Advanced access policies are configured on a need basis.
-    •	Key Vault access policies are defined with minimum required permissions to keys and secrets.
-    •	All keys and secrets in Key Vault have expiration dates.
-    •	All keys in Key Vault are protected by specialized hardware security modules. The key type is an HSM Protected 2048-bit RSA Key.
-    •	With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security 
-        modules (HSMs) 
-    •	Use RBAC to assign permissions to users, groups, and applications at a certain scope. 
-    •	Use Key Vault to manage your TLS certificates with auto-renewal. 
-    •	Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
-    •	Permitted cryptographic operations for keys are restricted to the ones required.
+The solution uses Azure Key Vault for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect and access such data:
+   - Advanced access policies are configured on a need basis.
+   - Key Vault access policies are defined with minimum required permissions to keys and secrets.
+   - All keys and secrets in Key Vault have expiration dates.
+   - All keys in Key Vault are protected by specialized hardware security modules. The key type is an HSM Protected 2048-bit RSA Key.
+   - With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs) 
+   - Use RBAC to assign permissions to users, groups, and applications at a certain scope.     
+   - Use Key Vault to manage your TLS certificates with auto-renewal. 
+   - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
+   - Permitted cryptographic operations for keys are restricted to the ones required.
 ### Azure Security Center: 
-With Azure Security Center, customers can centrally apply and manage security policies across workloads, limit exposure to threats, and detect and respond to attacks. Additionally, Azure Security Center 
-    accesses existing configurations of Azure services to provide configuration and service recommendations to help improve security posture and protect data.
-    Azure Security Center uses a variety of detection capabilities to alert customers of potential attacks targeting their environments. These alerts contain valuable information about what triggered the alert, the resources targeted, and the source of the attack. Azure Security Center has a set of predefined security alerts, which are triggered when a threat, or suspicious activity takes place. Custom alert rules in Azure Security Center allow customers to define new security alerts based on data that is already collected from their environment.
-    Azure Security Center provides prioritized security alerts and incidents, making it simpler for customers to discover and address potential security issues. A threat intelligence report is generated for each detected threat to assist incident response teams in investigating and remediating threats.
+With Azure Security Center, customers can centrally apply and manage security policies across workloads, limit exposure to threats, and detect and respond to attacks. Additionally, 
+   - Azure Security Center accesses existing configurations of Azure services to provide configuration and service recommendations to help improve security posture and protect data.
+   - Azure Security Center uses a variety of detection capabilities to alert customers of potential attacks targeting their environments. These alerts contain valuable information about what triggered the alert, the resources targeted, and the source of the attack. Azure Security Center has a set of predefined security alerts, which are triggered when a threat, or suspicious activity takes place. Custom alert rules in Azure Security Center allow customers to define new security alerts based on data that is already collected from their environment.
+   - Azure Security Center provides prioritized security alerts and incidents, making it simpler for customers to discover and address potential security issues. A threat intelligence report is generated for each detected threat to assist incident response teams in investigating and remediating threats.
 ### Azure Application Gateway: 
-    The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured, and the OWASP ruleset enabled. Additional capabilities include:
-        •	End-to-end-SSL
-        •	Disable TLS v1.0 and v1.1
-        •	Enable TLSv1.2
-        •	Web application firewall (prevention mode)
-        •	Prevention mode with OWASP 3.0 ruleset
-        •	Enable diagnostics logging
-        •	Custom health probes
-        •	Azure Security Center and Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
+   The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured, and the OWASP ruleset enabled. Additional capabilities include:
+        - End-to-end-SSL
+        - Disable TLS v1.0 and v1.1
+        - Enable TLSv1.2
+        - Web application firewall (prevention mode)
+        - Prevention mode with OWASP 3.0 ruleset
+        - Enable diagnostics logging
+        - Custom health probes
+        - Azure Security Center and Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
 ### Logging and auditing
 Azure services extensively log system and user activity, as well as system health:
-        •	Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. 
+        - Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. 
             Activity logs can help determine an operation's initiator, time of occurrence, and status.
-        •	Diagnostic logs: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include 
+        - Diagnostic logs: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include 
             Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and 
             Firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
 ### Azure Monitor logs: 
@@ -400,13 +392,11 @@ Azure services extensively log system and user activity, as well as system healt
 tables for each data type within Log Analytics workspaces, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs 
 allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
 The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
-        •	[Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments 
-            on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
-        •	[SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): The SQL Health Check solution assesses the risk and health of server environments on a regular interval and 
-            provides customers with a prioritized list of recommendations specific to the deployed server infrastructure.
-        •	[Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, 
+        - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments 
+            on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.        
+        - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, 
             as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
-        •	[Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure 
+        - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure 
             subscriptions for a customer.
 ### Azure Monitor: 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
@@ -414,39 +404,40 @@ The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users actually do with their app. It's designed to help customers continuously improve performance and usability.
 
 ### Azure Key Vault
-        •	Data stored in Key Vault includes:
-                o	Application insight key
-                o	Data Storage Access key
-                o	Connection string
-                o	Data table name
-                o	User Credentials
-        •	Advanced access policies are configured on a need basis
-        •	Key Vault access policies are defined with minimum required permissions to keys and secrets
-        •	All keys and secrets in Key Vault have expiration dates
-        •	All keys in Key Vault are protected by HSM [Key Type = HSM Protected 2048-bit RSA Key]
-        •	All users/identities are granted minimum required permissions using Role Based Access Control (RBAC)
-        •	Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
-        •	Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
-        •	Permitted cryptographic operations for keys are restricted to the ones required
+Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below:
+
+        - Data stored in Key Vault includes:
+        - Data stored in Key Vault includes:
+        - Application insight key
+        - Data Storage Access key
+        - Connection string
+        - Data table name
+        - User Credentials
+        - Advanced access policies are configured on a need basis
+        - Key Vault access policies are defined with minimum required permissions to keys and secrets
+        - All keys and secrets in Key Vault have expiration dates
+        - All keys in Key Vault are protected by HSM [Key Type = HSM Protected 2048-bit RSA Key]
+        - All users/identities are granted minimum required permissions using Role Based Access Control (RBAC)
+        - Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
+        - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
+        - Permitted cryptographic operations for keys are restricted to the ones required
 
 ## VPN and ExpressRoute
-A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this   
-    PaaS web application reference architecture. By appropriately setting up a       VPN or ExpressRoute, customers can add a layer of protection for data in transit.
-    By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows 
-    customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes 
-    for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
-    Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers another, even more secure connection option. Azure ExpressRoute is a dedicated WAN link between Azure 
-    and an on-premises location or an Exchange hosting provider. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher 
-    security than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not 
-    exposed to it.
+### VPN and ExpressRoute
+A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
+
+By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
+
+Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers another, even more secure connection option. Azure ExpressRoute is a dedicated WAN link between Azure and an on-premises location or an Exchange hosting provider. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not exposed to it.
+
 Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are [available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 #### Implement Azure Active Directory OIDC
 
 1. To clone the source code repository, use this Git command:
 
-   ``` git
-   git clone https://github.com/Azure-Samples/AAD-Security tutorial-project
+ ``` git
+ git clone https://github.com/Azure-Samples/AAD-Security tutorial-project
    ```
 ## Update the redirect URLs
 1.	Navigate back to the Azure portal. In the left-hand navigation pane, select the Azure Active Directory service, and then select App registrations.
@@ -567,15 +558,6 @@ To create this workspace:
 If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
 
 To deploy the resources in the sample app with the security features, you need to pay for some premium features. As the app scales and the free tiers and trials offered by Azure need to be upgraded to meet application requirements, your costs might increase. Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs.
-
-## Disclaimer
-•	This document is for informational purposes only. MICROSOFT MAKES NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided "as-is." Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.
-•	This document does not provide customers with any legal rights to any intellectual property in any Microsoft product or solutions.
-•	Customers may copy and use this document for internal reference purposes.
-•	Certain recommendations in this document may result in increased data, network, or compute resource usage in Azure, and may increase a customer's Azure license or subscription costs.
-•	This architecture is intended to serve as a foundation for customers to adjust to their specific requirements and should not be used as-is in a production environment.
-•	This document is developed as a reference and should not be used to define all means by which a customer can meet specific compliance requirements and regulations. Customers should seek legal support from their organization on approved customer implementations.
-
 
 ## Next steps
 The following articles can help you design, develop, and deploy secure applications.
