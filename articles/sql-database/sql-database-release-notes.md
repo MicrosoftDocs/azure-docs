@@ -16,7 +16,7 @@ This article lists SQL Database features that are currently in public preview. F
 
 ## Features in public preview
 
-# [Single database](#tab/single-database)
+### [Single database](#tab/single-database)
 
 | Feature | Details |
 | ---| --- |
@@ -39,13 +39,13 @@ This article lists SQL Database features that are currently in public preview. F
 | Transparent data encryption (TDE) with Bring Your Own Key (BYOK) with managed instances |For information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
 
-# [Managed Instance](#tab/managed-instance)
+### [Managed Instance](#tab/managed-instance)
 
 | Feature | Details |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> | Migrate database from on-premises that already have enabled Transparent Data Encryption (TDE) with existing TDE keys. |
-| <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> | Keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario. |
+| <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> | Keep a copy of the instance in another region and ensure that your data will be available even in the regional disaster scenario. |
 
 ## Updates
 
