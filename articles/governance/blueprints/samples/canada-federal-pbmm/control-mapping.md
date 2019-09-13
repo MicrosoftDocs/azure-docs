@@ -3,7 +3,7 @@ title: Sample - Canada Federal PBMM blueprint - Control mapping
 description: Control mapping of the Canada Federal PBMM blueprint sample to Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
@@ -455,6 +455,13 @@ you can take appropriate action.
 > clouds. 
 
 ## Next steps
+
+You've reviewed the control mapping of the Canada Federal PBMM blueprint sample. Next, visit the
+following articles to learn about the overview and how to deploy this sample:
+
+> [!div class="nextstepaction"]
+> [Canada Federal PBMM blueprint - Overview](./control-mapping.md)
+> [Canada Federal PBMM blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 
