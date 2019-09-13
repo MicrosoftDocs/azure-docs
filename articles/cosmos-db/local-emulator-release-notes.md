@@ -23,7 +23,7 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ### 2.4.6
 
-- It reflects the Azure Cosmos features as of July 2019 and public emulator fixes for shutdown, IP address override, 
+- In this release there are couple bug fixes related to emulator shutdown when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity. It also provides parity with the Azure Cosmos features as of July 2019 with the exceptions as noted in [Develop locally with Azure Cosmos emulator](local-emulator.md).
 
 ### 2.4.3
 
