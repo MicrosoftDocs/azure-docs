@@ -66,7 +66,7 @@ The following steps show you how to prepare the virtual network for the move usi
 5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
-   notepad myResourceGroupVNET.json
+   notepad <resource-group-name>.json
    ```
 
 6. To edit the parameter of the virtual network name, change the property **defaultValue** of the source virtual network name to the name of your target virtual network, ensure the name is in quotes:
