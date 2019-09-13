@@ -1,9 +1,9 @@
 ---
-title: 'Create an Azure private endpoint using Azure portal| Microsoft Docs'
+title: 'Create an Azure Private Endpoint using Azure portal| Microsoft Docs'
 description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 09/09/2019
