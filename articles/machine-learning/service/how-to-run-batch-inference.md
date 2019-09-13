@@ -15,12 +15,9 @@ ms.custom:
 ---
 # Run batch inference on large data sets with Azure Machine Learning service (Preview)
 
-In this article, you'll learn how to get inferences on large quantities of data asynchronously and in parallel, by using the Azure Machine Learning service.
+In this article, you will learn how to get inferences on large quantities of data asynchronously and in parallel, by using the Azure Machine Learning service.
 
-When you don't need to get inferences right away, and you have a large dataset to get inferences for which requires parallel processing, Azure Machine Learning Batch Inference is what you want to use. Batch Inference provides parallelism out of the box, and can scale to perform fire-and-forget inference on terabytes of production data.
-
->[!TIP]
-> If your system requires asynchronous inference and sequential processing is sufficient (to process a single document or small sets of documents sequentially on one compute node), use [Azure Machine Learning pipeline PythonScriptStep](how-to-run-batch-predictions.md).
+When you have large dataset to get inference on, you can leverage the parallel processing power of cloud by using Azure Machine Learning Batch Inference capability. Batch Inference provides parallelism out of the box, and can scale to perform fire-and-forget inference on terabytes of production data.
 
 In the following steps, you create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model ([Inception-V3](https://arxiv.org/abs/1512.00567)), and use this model to do batch inference on images available in your Azure Blob storage account. These images used for scoring are unlabeled images from the [ImageNet](http://image-net.org/) dataset.
 
@@ -47,7 +44,7 @@ The following steps set up the resources you need to run a batch inference pipel
 
 - Create a dataset that points to a blob container containing images to score.
 - Set up an output directory to store your outputs.
-- Set up compute machines or clusters where the batch inference pipeline steps will run.
+- Set up compute cluster where the batch inference step will run.
 
 ### Create a dataset to access the datastores
 
