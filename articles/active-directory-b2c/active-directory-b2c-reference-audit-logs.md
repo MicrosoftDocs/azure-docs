@@ -1,6 +1,6 @@
 ---
-title: Audit logs samples and definitions in Azure Active Directory B2C | Microsoft Docs
-description: Guide and samples on accessing the Azure AD B2C Audit logs.
+title: Audit logs samples and definitions in Azure Active Directory B2C
+description: Guide and samples on accessing the Azure AD B2C audit logs.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -25,6 +25,7 @@ Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity i
 > You cannot see user sign-ins for individual Azure AD B2C applications under the **Users** section of the **Azure Active Directory** or **Azure AD B2C** blades. The sign-ins there will show user activity, but cannot be correlated back to the B2C application that the user signed in to. You must use the audit logs for that, as explained further in this article.
 
 ## Overview of activities available in the B2C category of audit logs
+
 The **B2C** category in audit logs contains the following types of activities:
 
 |Activity type |Description  |
@@ -40,7 +41,8 @@ The **B2C** category in audit logs contains the following types of activities:
 > For user object CRUD activities, refer to the **Core Directory** category.
 
 ## Example activity
-The example below shows the data captured when a user signs in with an external identity provider:  
+
+The example below shows the data captured when a user signs in with an external identity provider:
     ![Example of Audit Log Activity Details page in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 The activity details panel contains the following relevant information:
@@ -56,6 +58,7 @@ The activity details panel contains the following relevant information:
 | Additional Details | ApplicationId | The **Application ID** of the B2C application that the user is signing in to. |
 
 ## Accessing audit logs through the Azure portal
+
 1. Go to the [Azure portal](https://portal.azure.com). Make sure you are in your B2C directory.
 2. Click on **Azure Active Directory** in the favorites bar on the left
 
@@ -71,6 +74,7 @@ The activity details panel contains the following relevant information:
     ![Category and Apply button highlighted in Audit Log filter](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 You will see a list of activities logged over the last seven days.
+
 - Use the **Activity Resource Type** dropdown to filter by the activity types outlined above
 - Use the **Date Range** dropdown to filter the date range of the activities shown
 - If you click on a specific row in the list, a contextual box on the right will show you additional attributes associated with the activity
@@ -80,28 +84,34 @@ You will see a list of activities logged over the last seven days.
 > You can also see the audit logs by navigating to **Azure AD B2C** rather than **Azure Active Directory** in the favorites bar on the left. Under **Activities**, click on **Audit logs**, where you will find the same logs with similar filtering capabilities.
 
 ## Accessing audit logs through the Azure AD reporting API
-Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
+
+Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../azure/active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### Prerequisites
+
 To authenticate to the Azure AD reporting API you first need to register an application. Make sure to follow the steps in [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ### Accessing the API
+
 To download the Azure AD B2C audit logs via the API, you'll want to filter the logs to the **B2C** category. To filter by category, use the query string parameter when calling the Azure AD reporting API endpoint, as shown below:
 
-`https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
+```HTTP
+https://graph.microsoft.com/beta/auditLogs/directoryAudits?filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
+```
 
 ### PowerShell script
+
 The following script provides an example of using PowerShell to query the Azure AD reporting API and store the results as a JSON file:
 
 ```powershell
-# This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
+# This script will require registration of a Web Application in Azure Active Directory (see https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)
 
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
 $loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
-$resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
+$resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
 Write-Output "Searching for events starting $7daysago"
 
@@ -113,7 +123,7 @@ $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2
 if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
+     $url = "https://graph.microsoft.com/beta/auditLogs/directoryAudits?\`$filter=loggedByService eq 'B2C' and activityDateTime gt  " + $7daysago
 
     # loop through each query page (1 through n)
     Do {
