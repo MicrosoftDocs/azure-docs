@@ -342,11 +342,11 @@ You can retrieve the IP address of the gateway from its overview page. On the **
 *Allow only the gateway IP to access the App Service*
 
 ### Azure DNS: 
-        The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS(https://docs.microsoft.com/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using 
+The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS(https://docs.microsoft.com/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using 
 Azure infrastructure. By hosting domains in Azure, users can manage DNS records using the same credentials, APIs, tools, and billing as other Azure services. Azure DNS also supports private DNS domains.
 
 ### Azure Disk Encryption: 
-        Azure Disk Encryption leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
+Azure Disk Encryption leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
 
 ### Identity management
 The following technologies provide capabilities to manage access to cardholder data in the Azure environment:
@@ -372,70 +372,68 @@ With Azure Security Center, customers can centrally apply and manage security po
    - Azure Security Center provides prioritized security alerts and incidents, making it simpler for customers to discover and address potential security issues. A threat intelligence report is generated for each detected threat to assist incident response teams in investigating and remediating threats.
 ### Azure Application Gateway: 
    The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured, and the OWASP ruleset enabled. Additional capabilities include:
-        - End-to-end-SSL
-        - Disable TLS v1.0 and v1.1
-        - Enable TLSv1.2
-        - Web application firewall (prevention mode)
-        - Prevention mode with OWASP 3.0 ruleset
-        - Enable diagnostics logging
-        - Custom health probes
-        - Azure Security Center and Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
+   - End-to-end-SSL
+   - Disable TLS v1.0 and v1.1
+   - Enable TLSv1.2
+   - Web application firewall (prevention mode)
+   - Prevention mode with OWASP 3.0 ruleset
+   - Enable diagnostics logging
+   - Custom health probes
+   - Azure Security Center and Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
 ### Logging and auditing
 Azure services extensively log system and user activity, as well as system health:
-        - Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. 
-            Activity logs can help determine an operation's initiator, time of occurrence, and status.
-        - Diagnostic logs: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include 
-            Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and 
-            Firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
+   - Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. 
+   Activity logs can help determine an operation's initiator, time of occurrence, and status.
+   - Diagnostic logs: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include 
+   Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and Firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
 ### Azure Monitor logs: 
-        These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate 
-tables for each data type within Log Analytics workspaces, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs 
-allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
+   These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate tables for each data type within Log Analytics workspaces, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
 
-The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
+   The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
 
-  - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
-  - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
-  - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
+   - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
+   - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
+   - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
 ### Azure Monitor: 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
+   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 ### Application Insights: 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users actually do with their app. It's designed to help customers continuously improve performance and usability.
+   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users actually do with their app. It's designed to help customers continuously improve performance and usability.
 
 ### Azure Key Vault
-Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below:
+   Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below:
 
-     - Data stored in Key Vault includes:
-     - Data stored in Key Vault includes:
-     - Application insight key
-     - Data Storage Access key
-     - Connection string
-     - Data table name
-     - User Credentials
-     - Advanced access policies are configured on a need basis
-     - Key Vault access policies are defined with minimum required permissions to keys and secrets
-     - All keys and secrets in Key Vault have expiration dates
-     - All keys in Key Vault are protected by HSM [Key Type = HSM Protected 2048-bit RSA Key]
-     - All users/identities are granted minimum required permissions using Role Based Access Control (RBAC)
-     - Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
-     - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
-     - Permitted cryptographic operations for keys are restricted to the ones required
+   - Data stored in Key Vault includes:
+   - Data stored in Key Vault includes:
+   - Application insight key
+   - Data Storage Access key
+   - Connection string
+   - Data table name
+   - User Credentials
+   - Advanced access policies are configured on a need basis
+   - Key Vault access policies are defined with minimum required permissions to   keys and secrets
+   - All keys and secrets in Key Vault have expiration dates
+   - All keys in Key Vault are protected by HSM [Key Type = HSM Protected       
+     2048-bit RSA Key]
+   - All users/identities are granted minimum required permissions using Role     Based Access Control (RBAC)
+   - Applications do not share a Key Vault unless they trust each other and       they need access to the same secrets at runtime
+   - Diagnostics logs for Key Vault are enabled with a retention period of at     least 365 days.
+   - Permitted cryptographic operations for keys are restricted to the ones       required
 
 ### VPN and ExpressRoute
-A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
+   A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
 
-By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
+   By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
 
-Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers another, even more secure connection option. Azure ExpressRoute is a dedicated WAN link between Azure and an on-premises location or an Exchange hosting provider. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not exposed to it.
+   Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers another, even more secure connection option. Azure ExpressRoute is a dedicated WAN link between Azure and an on-premises location or an Exchange hosting provider. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not exposed to it.
 
-Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are [available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+   Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are [available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 #### Implement Azure Active Directory OIDC
 
 1. To clone the source code repository, use this Git command:
 
  ``` git
- git clone https://github.com/Azure-Samples/AAD-Security tutorial-project
+ git clone https://github.com/Azure-Samples/AAD-Security
    ```
 ## Update the redirect URLs
 1.	Navigate back to the Azure portal. In the left-hand navigation pane, select the Azure Active Directory service, and then select App registrations.
@@ -456,109 +454,109 @@ Publishing the sample
     4.	On the Settings tab, make sure Enable Organizational Authentication is NOT selected. Click Save. Click on Publish on the main screen.
     5.	Visual Studio will publish the project and automatically open a browser to the URL of the project. If you see the default web page of the project, the publication was successful.
 #### Implement Multi-Factor Authentication for Azure Active Directory
-Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. To protect the subscription, enable Multi-Factor Authentication on the **Azure Active Directory** tab of the subscription.
+   Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. To protect the subscription, enable Multi-Factor Authentication on the **Azure Active Directory** tab of the subscription.
 
-Azure AD operates based on policies that are applied to a user or groups of users that fit a certain criteria.
-Azure creates a default policy specifying that administrators need two-factor authentication to sign in to the portal.
-After enabling this policy, you might be prompted to sign out and sign back in to the Azure portal.
+   Azure AD operates based on policies that are applied to a user or groups of users that fit a certain criteria.
+   Azure creates a default policy specifying that administrators need two-factor authentication to sign in to the portal.
+   After enabling this policy, you might be prompted to sign out and sign back in to the Azure portal.
 
 To enable MFA for admin sign-ins:
 
-1. Go to the **Azure Active Directory** tab in the Azure portal
-2. Under the security category, select conditional access. You see this screen:
+   1. Go to the **Azure Active Directory** tab in the Azure portal
+   2. Under the security category, select conditional access. You see this screen:
 
-   ![Conditional Access - Policies](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Conditional Access - Policies](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 If you can't create a new policy:
 
-1. Go to the **MFA** tab.
-2. Select the Azure AD Premium **Free trial** link to subscribe to the free trial.
+   1. Go to the **MFA** tab.
+   2. Select the Azure AD Premium **Free trial** link to subscribe to the free trial.
 
    ![Azure AD Premium free trial](./media/secure-aad-app/ad-trial-premium.png)
 
 Return to the conditional access screen.
 
-1. Select the new policy tab.
-2. Enter the policy name.
-3. Select the users or groups for which you want to enable MFA.
-4. Under **Access controls**, select the **Grant** tab and then select **Require multi-factor authentication** (and other settings if you want).
+   1. Select the new policy tab.
+   2. Enter the policy name.
+   3. Select the users or groups for which you want to enable MFA.
+   4. Under **Access controls**, select the **Grant** tab and then select **Require multi-factor authentication** (and other settings if you want).
 
    ![Require MFA](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
-You can enable the policy by selecting the check box at the top of the screen or do so on the **Conditional Access** tab. When the policy is enabled, users need MFA to sign in to the portal.
+   You can enable the policy by selecting the check box at the top of the screen or do so on the **Conditional Access** tab. When the policy is enabled, users need MFA to sign in to the portal.
 
-There's a baseline policy that requires MFA for all Azure administrators. You can enable it immediately in the portal. Enabling this policy might invalidate the current session and force you to sign in again.
+   There's a baseline policy that requires MFA for all Azure administrators. You can enable it immediately in the portal. Enabling this policy might invalidate the current session and force you to sign in again.
 
-If the baseline policy isn't enabled:
-1.	Select **Require MFA for admins**.
-2.	Select **Use policy immediately**.
+   If the baseline policy isn't enabled:
+   1.	Select **Require MFA for admins**.
+   2.	Select **Use policy immediately**.
 
    ![Select Use policy immediately](./media/secure-aad-app/ad-mfa-conditional-enable.png)
 
 #### Use Azure Sentinel to monitor apps and resources
 
-As an application grows, it becomes difficult to aggregate all the security signals and metrics received from resources and make them useful in an action-oriented way.
+   As an application grows, it becomes difficult to aggregate all the security signals and metrics received from resources and make them useful in an action-oriented way.
 
-Azure Sentinel is designed to collect data, detect the types of threats possible, and provide visibility into security incidents.
-While it waits for manual intervention, Azure Sentinel can rely on pre-written playbooks to kick off alerts and incident management processes.
+   Azure Sentinel is designed to collect data, detect the types of threats possible, and provide visibility into security incidents.
+   While it waits for manual intervention, Azure Sentinel can rely on pre-written playbooks to kick off alerts and incident management processes.
 
-The sample app is composed of several resources that Azure Sentinel can monitor.
-To set up Azure Sentinel, you first need to create a Log Analytics workspace that stores all the data collected from the various resources.
+   The sample app is composed of several resources that Azure Sentinel can monitor.
+   To set up Azure Sentinel, you first need to create a Log Analytics workspace that stores all the data collected from the various resources.
 
 To create this workspace:
 
-1. In the search box in the Azure portal, search for **Log Analytics**. Select **Log Analytics workspaces**.
+   1. In the search box in the Azure portal, search for **Log Analytics**. Select **Log Analytics workspaces**.
 
    ![Search for Log Analytics workspaces](./media/secure-aad-app/sentinel-log-analytics.png)
 
     *Search for Log Analytics workspaces*
 
-2. On the next page, select **Add** and then provide a name, resource group, and location for the workspace.
+   2. On the next page, select **Add** and then provide a name, resource group, and location for the workspace.
    ![Create a Log Analytics workspace](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
    *Create a Log Analytics workspace*
 
-3. Use the search box to search for **Azure Sentinel**.
+   3. Use the search box to search for **Azure Sentinel**.
 
    ![Search for Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
 
     *Search for Azure Sentinel*
 
-4. Select **Add** and then select the Log Analytics workspace that you created earlier.
+   4. Select **Add** and then select the Log Analytics workspace that you created earlier.
 
    ![Add a Log Analytics workspace](./media/secure-aad-app/sentinel-workspace-add.png)
 
     *Add a Log Analytics workspace*
 
-5. On the **Azure Sentinel - Data connectors** page, under **Configuration**, select **Data connectors**. You see an array of Azure services that you can link to the Log Analytics storage instance for analysis in Azure Sentinel.
+   5. On the **Azure Sentinel - Data connectors** page, under **Configuration**, select **Data connectors**. You see an array of Azure services that you can link to the Log Analytics storage instance for analysis in Azure Sentinel.
 
    ![Log Analytics data connectors](./media/secure-aad-app/sentinel-connectors.png)
 
-    *Add a data connector to Azure Sentinel*
+      *Add a data connector to Azure Sentinel*
 
    For example, to connect the application gateway, take these steps:
 
-   1. Open the Azure Application Gateway instance blade.
-   2. Under **Monitoring**, select **Diagnostic settings**.
-   3. Select **Add diagnostic setting**.
+      1. Open the Azure Application Gateway instance blade.
+      2. Under **Monitoring**, select **Diagnostic settings**.
+      3. Select **Add diagnostic setting**.
 
       ![Add Application Gateway diagnostics](./media/secure-aad-app/sentinel-gateway-connector.png)
-
+         
       *Add Application Gateway diagnostics*
 
-   4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
+      4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
 
-        ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
+      ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
 ## Cost considerations
-If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
+    If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
 
-To deploy the resources in the sample app with the security features, you need to pay for some premium features. As the app scales and the free tiers and trials offered by Azure need to be upgraded to meet application requirements, your costs might increase. Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs.
+    To deploy the resources in the sample app with the security features, you need to pay for some premium features. As the app scales and the free tiers and trials offered by Azure need to be upgraded to meet application requirements, your costs might increase. Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs.
 
 ## Next steps
-The following articles can help you design, develop, and deploy secure applications.
+    The following articles can help you design, develop, and deploy secure applications.
 
 - [Design](secure-design.md)
 - [Develop](secure-develop.md)
