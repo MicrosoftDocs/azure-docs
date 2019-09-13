@@ -21,9 +21,7 @@ This guide summarizes solutions for issues that are commonly seen in Storage Exp
 
 ### How do I see and access my resources in Storage Explorer?
 
-If you're having problems accessing storage resources through RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources.
-
-Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
+If you're having problems accessing storage resources through RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
 
 #### List storage accounts
 
@@ -38,7 +36,7 @@ Storage Explorer can also use account keys to authenticate requests. You can get
 
 #### Data roles
 
-You must be assigned at least one role that grants access to read data from resources. For example, if you need to list or download blobs, you'll need at least the _Storage Blob Data Reader_ role.
+You must be assigned at least one role that grants access to read data from resources. For example, if you want to list or download blobs, you'll need at least the _Storage Blob Data Reader_ role.
 
 ### Why do I need a management layer role to see my resources in Storage Explorer?
 
@@ -48,7 +46,7 @@ RBAC roles can contain permissions for management or data layer access. The Read
 
 Strictly speaking, the Reader role provides no data layer permissions and isn't necessary for accessing the data layer.
 
-Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources. For example, to display your blob containers, Storage Explorer sends a list containers request to the blob service endpoint. To get that endpoint, Storage Explorer searches the list of subscriptions and storage accounts you have access to. But, to find your subscriptions and storage accounts, Storage Explorer also needs access to the management layer.
+Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources. For example, to display your blob containers, Storage Explorer sends a "list containers" request to the blob service endpoint. To get that endpoint, Storage Explorer searches the list of subscriptions and storage accounts you have access to. But, to find your subscriptions and storage accounts, Storage Explorer also needs access to the management layer.
 
 If you don’t have a role that grants any management layer permissions, Storage Explorer can’t get the information it needs to connect to the data layer.
 
@@ -60,7 +58,7 @@ We don't currently have an RBAC-related solution for this issue. As a workaround
 
 Certificate errors typically occur in one of the following situations:
 
-- The app is connected through a "transparent proxy," which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
+- The app is connected through a *transparent proxy*, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
 - You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that do inject certificates include antivirus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
@@ -80,7 +78,7 @@ If you're unsure of where the certificate is coming from, follow these steps to 
     * Mac and Linux: Run **openssl** from a terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
 4. Look for self-signed certificates. If you're unsure of which certificates are self-signed, make note of anywhere the subject `("s:")` and issuer `("i:")` are the same.
-5. When you have found self-signed certificates: for each one, copy and paste everything from (and including) **-----BEGIN CERTIFICATE-----** through **-----END CERTIFICATE-----** into a new .cer file.
+5. When you find self-signed certificates, for each one, copy and paste everything from (and including) **-----BEGIN CERTIFICATE-----** through **-----END CERTIFICATE-----** into a new .cer file.
 6. Open Storage Explorer, go to **Edit** → **SSL Certificates** → **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
 
 If you can't find any self-signed certificates by following these steps, contact us through the feedback tool. You can also open Storage Explorer from the command line by using the `--ignore-certificate-errors` flag. When opened with this flag, Storage Explorer ignores certificate errors.
@@ -89,15 +87,15 @@ If you can't find any self-signed certificates by following these steps, contact
 
 ### Blank sign-in dialog box
 
-Blank sign-in dialog boxes are most often caused by ADFS asking Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
+Blank sign-in dialog boxes most often occur when Active Directory Federation Services (ADFS) prompts Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
 
-1. On the menu: **Preview** -> **Use Device Code Sign-In**.
-2. Open the Connect dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
+1. On the menu: Go to **Preview** -> **Use Device Code Sign-In**.
+2. Open the **Connect** dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
 3. Choose the environment you want to sign in to.
 4. Select **Sign In**.
 5. Follow the instructions on the next panel.
 
-If you encounter issues signing into the account you want to use because your default browser is already signed in to a different account, do one of the following:
+If you can't sign in to the account you want to use because your default browser is already signed in to a different account, do one of the following:
 
 - Manually copy the link and code into a private session of your browser.
 - Manually copy the link and code into a different browser.
@@ -108,7 +106,7 @@ If you're in a reauthentication loop or have changed the UPN of one of your acco
 
 1. Remove all accounts and then close Storage Explorer.
 2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
-3. If you're running Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On the Mac, the keystore is the *Gnome Keychain* application. In Linux, the application is typically called _Keyring_, but the name might be different depending on your distribution.
+3. If you're running Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your operating system's keystore. On the Mac, the keystore is the *Gnome Keychain* application. In Linux, the application is typically called _Keyring_, but the name might differ depending on your distribution.
 
 ### Conditional Access
 
@@ -137,17 +135,17 @@ The macOS Keychain can sometimes enter a state that causes issues for the Storag
 * Make sure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
 * If you're running Windows and have access to Visual Studio 2019 on the same machine and to the sign-in credentials, try signing in to Visual Studio 2019. After a successful sign-in to Visual Studio 2019, you can open Storage Explorer and see your account in the account panel.
 
-If none of these methods work [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+If none of these methods work, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### Missing subscriptions and broken tenants
 
 If you can't retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
-* Verify that your account has access to the subscriptions you expect. You can verify your access by signing into the portal for the Azure environment you're trying to use.
-* Make sure you've signed in using the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
+* Verify that your account has access to the subscriptions you expect. You can verify your access by signing in to the portal for the Azure environment you're trying to use.
+* Make sure you've signed in through the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
 * If you're behind a proxy server, make sure you've configured the Storage Explorer proxy correctly.
 * Try removing and re-adding the account.
-* If there's a "More information" link, look and see what error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, feel free to [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* If there's a "More information" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, feel free to [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Can't remove attached account or storage resource
 
@@ -177,7 +175,7 @@ First, make sure that the following information you entered is correct:
 
 If you're still experiencing issues, try the following troubleshooting methods:
 
-* If you can connect to the Internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If this is the case, there may be an issue with your proxy settings. Work with your administrator to identify the problems.
+* If you can connect to the internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If this is the case, there may be an issue with your proxy settings. Work with your administrator to identify the problems.
 * Verify that other applications that use the proxy server work as expected.
 * Verify that you can connect to the portal for the Azure environment you're trying to use.
 * Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive an InvalidQueryParameterValue or similar XML response.
@@ -189,7 +187,7 @@ If you have networking tools, such as Fiddler for Windows, you can diagnose the 
 
 * If you have to work through your proxy, you may have to configure your networking tool to connect through the proxy.
 * Check the port number used by your networking tool.
-* Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When done correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter `https://cawablobgrs.blob.core.windows.net/` for your blob endpoint in a browser, and you'll receive a response that resembles the following:
+* Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When you do this correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter `https://cawablobgrs.blob.core.windows.net/` for your blob endpoint in a browser, and you'll receive a response that resembles the following:
 
 ![code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -218,13 +216,13 @@ If you receive this error message when you try to add a custom connection, the c
 
 1. Start Storage Explorer. On the top menu, go to **Help** → **Toggle Developer Tools**.
 2. In the opened window, on the **Application** tab, go to **Local Storage** (left side) → **file://**.
-3. Depending on the type of connection you're having an issue with, look for its key, and copy its value into a text editor. The value is an array of your custom connection names, like the following:
+3. Depending on the type of connection you're having an issue with, look for its key and then copy its value into a text editor. The value is an array of your custom connection names, like the following:
     * Storage accounts
         * `StorageExplorer_CustomConnections_Accounts_v1`
     * Blob containers
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
-    * File Shares
+    * File shares
         * `StorageExplorer_CustomConnections_Files_v1`
     * Queues
         * `StorageExplorer_CustomConnections_Queues_v1`
@@ -238,7 +236,7 @@ If you want to preserve the connections that aren't corrupted, you can use the f
 2. If a connection is working correctly, it's not corrupted and you can safely leave it there. If a connection isn't working, remove its value from Developer Tools, and record it so that you can add it back later.
 3. Repeat until you have examined all your connections.
 
-After going through all your connections, for all connections names that aren't added back, you must clear their corrupted data (if there is any) and add them back through the standard steps in Storage Explorer.
+After going through all your connections, for all connections names that aren't added back, you must clear their corrupted data (if there is any) and add them back by using the standard steps in Storage Explorer:
 
 # [Windows](#tab/Windows)
 
@@ -266,7 +264,7 @@ If you still encounter this error after running these steps, or if you want to s
 
 ## Issues with SAS URL
 
-If you're connecting to a service through a SAS URL and experiencing this error:
+If you're connecting to a service through a SAS URL and experiencing an error:
 
 * Verify that the URL provides the necessary permissions to read or list resources.
 * Verify that the URL has not expired.
@@ -277,14 +275,14 @@ If you accidentally attached by using an invalid SAS URL and now cannot detach, 
 1. When you're running Storage Explorer, press F12 to open the Developer Tools window.
 2. On the **Application** tab, select **Local Storage** > **file://** in the tree on the left.
 3. Find the key associated with the service type of the problematic SAS URI. For example, if the bad SAS URI is for a blob container, look for the key named `StorageExplorer_AddStorageServiceSAS_v1_blob`.
-4. The value of the key should be a JSON array. Find the object associated with the bad URI, and then remove it.
+4. The value of the key should be a JSON array. Find the object associated with the bad URI, and then delete it.
 5. Press Ctrl+R to reload Storage Explorer.
 
 ## Linux dependencies
 
 Storage Explorer 1.10.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all its dependencies automatically, and it's updated when a new version of the snap is available. Installing the Storage Explorer snap is the recommended method of installation.
 
-Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager by running the following command:
+Storage Explorer requires the use of a password manager, which you might need to connect manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager by running the following command:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
