@@ -55,7 +55,7 @@ For more information about Private Link service, see [What is Private Endpoint?]
 
 |Scenario  |Supported services   |Availability regions |Time of availability   |
 |---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS; WestUS2  |  Preview  |
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  | Azure Data Lake Service Gen2        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  |  Azure SQL Database         | Azure Public Cloud Regions         |   Preview      |
