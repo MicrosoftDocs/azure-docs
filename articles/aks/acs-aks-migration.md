@@ -31,10 +31,9 @@ ACS and AKS differ in some key areas that affect migration. Before any migration
 
 ## Differences between Kubernetes versions
 
-If you're migrating to a newer version of Kubernetes (for example, from 1.7.x to 1.9.x), review the following resources to understand a few changes to the Kubernetes API:
+If you're migrating to a newer version of Kubernetes, review the following resources to understand the Kubernetes versioning strategies:
 
-* [Migrating a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
-* [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/)
+* [https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions](Kubernetes version and version skew support policy)
 
 ## Migration considerations
 
