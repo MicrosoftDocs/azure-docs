@@ -21,35 +21,6 @@ Use Ethereum Blockchain connector with Azure Logic App connector to perform smar
 
 Complete use smart contract quickstart.
 
-## Create connection
-
-Logic apps require a connection. To set up a connection to an Azure Blockchain Service member, you need the following information
-
-### RPC endpoint
-from DevKit
-from portal
-
-### Private key 
-from devkit F1 Azure Blockchain: Retrieve private key
-Select mnemonic 
-
-### Account address and password
-
-## Get smart contract details
-
-### ABI
-From devkit - right click contract, get ABI.
-From compiler json output - abi section.
-
-### Contract address
-from truffle deployment output. 
-From build>contract> contract.json > networks > number > address file .
-
-### Get the byte code
-
-from devkit - right click contract, get bytecode
-solc --bin sourcefile.sol
-
 ## Create a logic app
 
 1. In the [Azure portal](https://portal.azure.com), choose **Create a resource > Integration > Logic App**.
@@ -57,21 +28,79 @@ solc --bin sourcefile.sol
 
     [Provide logic app details]
 
-    | Property | Value | Description |
-    |----------|-------|-------------|
-    | **Name** | BlockchainSendRequest | The name for your logic app |
-    | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription |
-    | **Resource group** | Blockchain-LogicApp-rg | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources |
-    | **Location** | West US 2 | The region where to store your logic app information |
-    | **Log Analytics** | Off | Monitoring isn't required for the tutorial |
+    | Property | Description |
+    |----------|-------------|
+    | **Name** | The name for your logic app |
+    | **Subscription** | The name for your Azure subscription |
+    | **Resource group** | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources |
+    | **Location** | The region where to store your logic app information |
+    | **Log Analytics** | Push the Logic App runtime events to Log Analytics to help monitor your workflows. |
 
 1. After Azure deploys your app, the Logic Apps Designer opens and shows a page with an introduction video and commonly used triggers. Under **Templates**, choose **Blank Logic App**.
 
-Next, add a trigger that fires when a new HTTP POST request is made to the logic app. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
+ Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
+
+The Ethereum Blockchain connector has one trigger and several actions. 
+
+## Use the event trigger
+
+The Ethereum Blockchain event trigger is used when you want a Logic App to run when a smart contract event occurs. For example, you want to send an email when a smart contract function is called.
+
+In the Logic app designer, choose the Ethereum Blockchain connector.
+From the Triggers tab, choose **When a smart contract event occurs**
+Select or create an API connection to your blockchain.
+
+
+
+
+## Use actions
 
 In Logic App Designer, under the search box, choose **All**.
 
 In the search box, enter "Ethereum". From the triggers list, select **When a HTTP request is received**.
+
+## Create an API connection
+
+Connectors require an API connection for the connector. To set up a connection to an Azure Blockchain Service member, you need the following information.
+
+
+
+### RPC endpoint
+
+To get the RPC endpoint:
+
+
+
+from DevKit
+
+### Private key 
+from devkit F1 Azure Blockchain: Retrieve private key
+Select mnemonic you saved when connecting to the consortium member. The private key is copied to your clipboard.
+
+### Account address and password
+
+The member account and password is required to authenticate to the management smart contract at the root contract address. The password is set when you create the member. If you need to reset the password, select the **Member account** address link on the Azure Blockchain Service member's overview page.
+
+## Get smart contract details
+
+### ABI
+From devkit - right click contract, get ABI.
+
+Select your compiled contract under the build > contracts folder in the VS Code Explorer pane.
+Right click the contract.sol file.
+Choose copy contract ABI.
+
+The abi section of the contract.json file is copied to your clipboard.
+
+### Contract address
+
+from truffle deployment output. 
+From build>contract> contract.json > networks > number > address file .
+
+### Get the byte code
+
+from devkit - right click contract, get bytecode
+solc --bin sourcefile.sol
 
 ## Deploy smart contract
 
