@@ -54,13 +54,19 @@ Run the `npm init` command to create a node application with a `package.json` fi
 npm init
 ```
 
+Install the csv-parse library.
+
+```console
+npm i csv-parse
+``` 
+
 Create a file named `index.js` and import the following libraries:
 
-[!code-csharp[Const statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=const-statements)]
+[!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. Then create a ApiKeyCredentials object to contain the key.
 
-[!code-csharp[Const statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
+[!code-javascript[Initial variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
 ### Install the client library
 
@@ -94,54 +100,34 @@ These code snippets show you how to do the following with the Anomaly Detector c
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Anomaly Detector key, named `ANOMALY_DETECTOR_KEY`.
 
-Instantiate a AnomalyDetectorClient object with your endpoint and credentials.
+Instantiate a [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) object with your endpoint and credentials.
 
-```javascript
-[!code-csharp[Const statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
-```
+[!code-javascript[Authentication](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
 
+## Load time series data from a file
+
+Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv):
+1. In your browser, right-click **Raw**.
+2. Click **Save link as**.
+3. Save the file to your application directory, as a .csv file.
+
+This time series data is formatted as a .csv file, and will be sent to the Anomaly Detector API.
+
+Read your data file with the csv-parse library's `readFileSync()` method, and parse the file with `parse()`. For each line, push a [Point](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) object containing the timestamp, and the numeric value.
+
+[!code-javascript[Read the data file](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=readFile)]
 
 ## Detect anomalies in the entire data set 
 
-Call the API to detect anomalies through the entire time series data using the client's [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) method. Store the returned [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) object. Iterate through the response's `is_anomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+Call the API to detect anomalies through the entire time series as a batch with the client's [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) method. Store the returned [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) object. Iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
-[!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
+[!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 
 ## Detect the anomaly status of the latest data point
 
-Call the Anomaly Detector API to determine if your latest data point is an anomaly using the client's [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) method, and store the returned [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) object. The response's `is_anomaly` value is a boolean that specifies that point's anomaly status.  
+Call the Anomaly Detector API to determine if your latest data point is an anomaly using the client's [lastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) method, and store the returned [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) object. The response's `isAnomaly` value is a boolean that specifies that point's anomaly status.  
 
-[!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=latestPointDetection)]
-
-
-    
-## Example task 1
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
-
-```javascript
-```
-
-<!-- 
-    If this code sample is in a function, tell the reader to call it. For example:
-
-    Call the `example()` function.
-
--->
-
-## Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
-
-```javascript
-```
-
-<!-- 
-    If this code sample is in a function, tell the reader to call it. For example:
-
-    Call the `example()` function.
-
--->
+[!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
 
 ## Run the application
 
@@ -158,18 +144,11 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## Troubleshooting
-
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
-
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Next article]()
+>[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
 
-* [What is the [Product Name] API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+* What is the [Anomaly Detector API?](../overview.md)
+* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
