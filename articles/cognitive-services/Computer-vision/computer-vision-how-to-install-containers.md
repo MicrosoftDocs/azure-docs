@@ -154,9 +154,29 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 #### [Read](#tab/read)
 
-### Asynchronous text recognition
+### Asynchronous read
 
-You can use the [`POST /vision/v2.0/read/core/asyncBatchAnalyze`][asyncBatchAnalyze] and [`GET /vision/v2.0/read/operations/{operationId}`][getRead] operations in concert to asynchronously recognize text in an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to GET request.
+You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to GET request.
+
+#### Synchronous read
+
+You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API returns a JSON response. A successful response will look similar to the following:
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 0,
+      "width": 1024,
+      "height": 768,
+      "unit": "pixel",
+      "lines": [ /* omitted for brevity, but contains objects with boundingBox and text */ ]
+    }
+  ]
+}
+```
 
 #### [Recognize Text](#tab/recognize-text)
 
@@ -214,6 +234,3 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
-
-[asyncBatchAnalyze]: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb
-[getRead]: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d
