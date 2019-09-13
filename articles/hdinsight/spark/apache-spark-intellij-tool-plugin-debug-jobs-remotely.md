@@ -185,20 +185,20 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 
 1. In the `MyClusterAppMain.scala` file, paste the following code. This code creates the Spark context and opens an `executeJob` method from the `SparkSample` object.
 
-        ```scala
-        import org.apache.spark.{SparkConf, SparkContext}
+    ```scala
+    import org.apache.spark.{SparkConf, SparkContext}
 
-        object SparkSampleMain {
-          def main (arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("SparkSample")
-                                      .set("spark.hadoop.validateOutputSpecs", "false")
-            val sc = new SparkContext(conf)
+    object SparkSampleMain {
+        def main (arg: Array[String]): Unit = {
+        val conf = new SparkConf().setAppName("SparkSample")
+                                    .set("spark.hadoop.validateOutputSpecs", "false")
+        val sc = new SparkContext(conf)
 
-            SparkSample.executeJob(sc,
-                                "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-                                "wasb:///HVACOut")
-          }
+        SparkSample.executeJob(sc,
+                            "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+                            "wasb:///HVACOut")
         }
+    }
         ```
 
 1. Repeat steps 8 and 9 to add a new Scala object called `*SparkSample`. Add the following code to this class. This code reads the data from the HVAC.csv (available in all HDInsight Spark clusters). It retrieves the rows that only have one digit in the seventh column in the CSV file, and then writes the output to **/HVACOut** under the default storage container for the cluster.
