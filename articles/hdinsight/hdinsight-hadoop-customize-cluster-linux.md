@@ -161,11 +161,11 @@ This section explains the different ways you can use script actions when you cre
 
 3. From the __Advanced settings__ section, select __Script actions__. From the __Script actions__ section, select __+ Submit new__.
 
-    ![Submit a new script action](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
+    ![Submit a new script action](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
 4. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
-    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     The following table describes the elements on the form:
 
@@ -181,7 +181,7 @@ This section explains the different ways you can use script actions when you cre
 
 5. Select __Create__ to save the script. Then you can use __+ Submit new__ to add another script.
 
-    ![Multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
+    ![Multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     When you're done adding scripts, select the __Select__ button and then the __Next__ button to return to the __Cluster summary__ section.
 
@@ -247,7 +247,7 @@ Go to the [Azure portal](https://portal.azure.com):
 
 4. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
-    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Add a script in the select script form](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     The following table describes the elements on the form:
 
@@ -435,7 +435,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
 2. From the bar at the top of the page, select the **ops** entry. A list displays current and previous operations done on the cluster through Ambari.
 
-    ![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. Find the entries that have **run\_customscriptaction** in the **Operations** column. These entries are created when the script actions run.
 
@@ -518,4 +518,4 @@ There are two exceptions:
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Stages during cluster creation"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Stages during cluster creation"
