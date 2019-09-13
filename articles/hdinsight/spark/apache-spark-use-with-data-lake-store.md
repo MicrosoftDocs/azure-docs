@@ -20,7 +20,6 @@ In this article, you use [Jupyter Notebook](https://jupyter.org/) available with
 
 * Azure HDInsight Spark cluster with Data Lake Storage Gen1 as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-	
 ## Prepare the data
 
 > [!NOTE]  
@@ -115,7 +114,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
      You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
 
-     ![Area graph of query result](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "Area graph of query result")
+     ![Area graph of query result](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Area graph of query result")
 
 8. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 
