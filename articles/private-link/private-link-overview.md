@@ -20,7 +20,7 @@ Azure Private Link provides private connectivity between applications running in
 >
 
 ## Why use Azure Private Link?
-Use Azure Private Link to access Azure services or your own services privately and securely. Previously, Azure services (such as Storage, SQL, etc.) or customer-owned services needed to be accessed over Public IP endpoints. With Azure Private Link, this is no longer the case, the need for Internet exposed endpoints or Public IP endpoints is removed. You can privately connect to services in other Virtual Networks easily and securely.
+Use Azure Private Link to access Azure services or your own services privately and securely. Previously, Azure services (such as Storage, SQL, etc.) or customer-owned services needed to be accessed over Public IP endpoints. With Azure Private Link, this is no longer the case. The need for Internet exposed endpoints is removed. You can privately connect to services in other Virtual Networks easily and securely.
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
