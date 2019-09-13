@@ -69,7 +69,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 ### Configure the Syslog connector for anomalous SSH login detection
 
 > [!IMPORTANT]
-> This anomalous SSH login detection is currently in public preview.
+> Anomalous SSH login detection is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
