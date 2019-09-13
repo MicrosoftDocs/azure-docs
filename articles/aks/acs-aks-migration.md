@@ -33,7 +33,7 @@ ACS and AKS differ in some key areas that affect migration. Before any migration
 
 If you're migrating to a newer version of Kubernetes, review the following resources to understand the Kubernetes versioning strategies:
 
-* [https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions](Kubernetes version and version skew support policy)
+* [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
 
 ## Migration considerations
 
