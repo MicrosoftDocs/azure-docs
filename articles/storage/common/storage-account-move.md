@@ -13,9 +13,9 @@ ms.reviewer: dineshm
 
 # Move an Azure Storage account to another region
 
-To move a storage account, export, modify, and deploy an Azure Resource Manager template. You can move your data to the new storage account by using AzCopy.
+To move a storage account, create a copy of your storage account in another region, and then move data to that account by using AzCopy.
 
-This article shows you how to do this by using Azure portal and PowerShell.
+This article shows you how to do this by using Azure portal and PowerShell. 
 
 ## Prerequisites
 
