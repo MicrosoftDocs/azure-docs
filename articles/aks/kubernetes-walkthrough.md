@@ -29,8 +29,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-[!Note]
-> If running locally, ensure you run the commands as Administrator.
+> [!Note]
+> If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
 
 ## Create a resource group
 
