@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 08/08/2019
+ ms.date: 09/13/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -21,4 +21,5 @@ You can check the links in this section for more information about services offe
 |[Netfoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|
+| [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) |
 |[128 Technology](https://www.128technology.com/partners/azure) |

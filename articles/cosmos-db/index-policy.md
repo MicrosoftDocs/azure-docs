@@ -24,7 +24,7 @@ Azure Cosmos DB supports two indexing modes:
 - **Consistent**: If a container's indexing policy is set to Consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
 - **None**: If a container's indexing policy is set to None, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
 
-Additionally you should set the **automatic** property in the indexing policy to **true**. Setting this property to true allows Azure Cosmos DB to automatically index documents as they are written.
+By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
 
 ## Including and excluding property paths
 
