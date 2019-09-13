@@ -101,6 +101,7 @@
   - name: Events and Messaging
     items:
     - name: Designing for identical input
+      href: functions-idempotent.md
   - name: Triggers and bindings
     items:
     - name: About triggers and bindings
