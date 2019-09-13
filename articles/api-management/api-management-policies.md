@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
@@ -34,12 +33,15 @@ This section provides a reference for the following API Management policies. For
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.  
 -   [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the evaluation of Boolean expressions.  
-    -   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.  
-    -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) - Sends messages in the specified format to a message target defined by a Logger entity.  
+    -   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.
+    -   [Limit concurrency](api-management-advanced-policies.md#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
+    -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) - Sends messages in the specified format to a message target defined by a Logger entity.
+    -   [Mock response](api-management-advanced-policies.md#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
     -   [Retry](api-management-advanced-policies.md#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.  
     -   [Return response](api-management-advanced-policies.md#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.  
     -   [Send one way request](api-management-advanced-policies.md#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.  
-    -   [Send request](api-management-advanced-policies.md#SendRequest) - Sends a request to the specified URL.  
+    -   [Send request](api-management-advanced-policies.md#SendRequest) - Sends a request to the specified URL.
+    -   [Set HTTP proxy](api-management-advanced-policies.md#SetHttpProxy) - Allows you to route forwarded requests via an HTTP proxy.
     -   [Set variable](api-management-advanced-policies.md#set-variable) - Persist a value in a named context variable for later access.  
     -   [Set request method](api-management-advanced-policies.md#SetRequestMethod) - Allows you to change the HTTP method for a request.  
     -   [Set status code](api-management-advanced-policies.md#SetStatus) - Changes the HTTP status code to the specified value.  
@@ -48,6 +50,7 @@ This section provides a reference for the following API Management policies. For
 -   [Authentication policies](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.  
     -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) - Authenticate with a backend service using client certificates.  
+    -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached response when available.  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches response according to the specified cache control configuration.  
@@ -77,5 +80,4 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)	

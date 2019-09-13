@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 02/01/2019
+ms.date: 08/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -12,6 +12,8 @@ manager: peterpr
 ---
 
 # Tutorial: Add a real device to your Azure IoT Central application
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This tutorial shows you how to add and configure a real device to your Microsoft Azure IoT Central application.
 
@@ -31,11 +33,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, the builder should complete at least the first builder tutorial to create the Azure IoT Central application:
+Before you begin, the builder should complete at least the first builder tutorial to create the Azure IoT Central application: [Define a new device type](tutorial-define-device-type.md) (Required)
 
-* [Define a new device type](tutorial-define-device-type.md) (Required)
-* [Configure rules and actions for your device](tutorial-configure-rules.md) (Optional)
-* [Customize the operator's views](tutorial-customize-operator.md) (Optional)
 
 Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your development machine. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
@@ -43,7 +42,7 @@ Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your developmen
 
 To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
 
-1. To add a new device as an operator choose **Device Explorer** in the left navigation menu:
+1. To add a new device as an operator choose **Devices** in the left navigation menu:
 
    ![Device explorer page showing connected air conditioner](media/tutorial-add-device/explorer.png)
 
@@ -239,7 +238,7 @@ In the previous section, you created a skeleton Node.js project for an applicati
 
     * Watches for Azure IoT Central sending a desired property.
     * Locates the appropriate function to call to handle the setting change.
-    * Sends an acknowledgement back to your Azure IoT Central application.
+    * Sends an acknowledgment back to your Azure IoT Central application.
 
 1. To respond to a command such as **echo**  from your Azure IoT Central application, add the following definition:
 
@@ -343,7 +342,7 @@ In this tutorial, you learned how to:
 > * Understand how client code maps to the application
 > * Configure client code for the real device
 
-Now that you've connected a real device to your Azure IoT Central application, here are the suggested next steps:
+Now that you've connected a real device to your Azure IoT Central application, here are some suggested next steps.
 
 As an operator, you can learn how to:
 

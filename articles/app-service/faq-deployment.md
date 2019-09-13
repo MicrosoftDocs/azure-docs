@@ -12,7 +12,6 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
@@ -34,16 +33,16 @@ Here are some options for publishing your web app code:
 
 For more information, see [Deploy your app to App Service](deploy-local-git.md).
 
-## I see an error message when I try to deploy from Visual Studio. How do I resolve this?
+## I see an error message when I try to deploy from Visual Studio. How do I resolve this error?
 
-If you see the following message, you might be using an older version of the SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location.” 
+If you see the following message, you might be using an older version of the SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Re-register for this provider in order to have access to this location.” 
 
 To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/downloads/). If you see this message and you have the latest SDK, submit a support request.
 
 ## How do I deploy an ASP.NET application from Visual Studio to App Service?
 <a id="deployasp"></a>
 
-The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio 2017.
+The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio.
 
 ## What are the different types of deployment credentials?
 
@@ -55,7 +54,7 @@ For information about the file structure of your App Service app, see [File stru
 
 ## How do I resolve "FTP Error 550 - There is not enough space on the disk" when I try to FTP my files?
 
-If you see this message, it's likely that you are running into a disk quota in the service plan for your web app. You might need to scale up to a higher service tier based on your disk space needs. For more information about pricing plans and resource limits, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+If you see this message, it's likely that you're running into a disk quota in the service plan for your web app. You might need to scale up to a higher service tier based on your disk space needs. For more information about pricing plans and resource limits, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## How do I set up continuous deployment for my App Service web app?
 
@@ -65,11 +64,11 @@ You can set up continuous deployment from several resources, including Azure Dev
 
 For help investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## I can't FTP to my site and publish my code. How do I resolve this?
+## I can't FTP to my site and publish my code. How do I resolve this issue?
 
 To resolve FTP issues:
 
-1. Verify that you are entering the correct host name and credentials. For detailed information about different types of credentials and how to use them, see [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Verify that you're entering the correct host name and credentials. For detailed information about different types of credentials and how to use them, see [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Verify that the FTP ports are not blocked by a firewall. The ports should have these settings:
     * FTP control connection port: 21
     * FTP data connection port: 989, 10001-10300

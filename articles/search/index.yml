@@ -7,14 +7,13 @@ metadata:
   description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios.
   services: search
   author: HeidiSteen
-  manager: cgronlun
+  manager: nitinme
   ms.service: search
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 08/12/2019
   ms.author: heidist
 abstract:
-  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>New cognitive search preview.</b></a> Use a pre-release REST API to bind AI-powered algorithms to the indexing pipeline. Extract data, and invoke natural language and image processing to transform raw unstructured content into searchable content in an Azure Search index. <p/>Explore cognitive search using <a href="/azure/search/cognitive-search-quickstart-blob">resources and sample data</a> or learn more in <a href="/azure/search/cognitive-search-concept-intro">Concepts</a>.
+  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitive search</b></a> is a feature of Azure Search that attaches AI processes to indexing, detecting text and characteristics in image files, and finding patterns in large blocks of unstructured text. AI processes are backed by Cognitive Services.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge store (Preview)</b></a> extends cognitive search, saving AI enrichments to storage where you can view, reshape, and consume them in client apps or downstream processes.
   aside:
     image:
       alt: 
@@ -43,7 +42,7 @@ sections:
     - image: 
         src: /azure/search/media/index/rest.svg
       text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
+      href: https://docs.microsoft.com/azure/search/search-get-started-postman
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -51,11 +50,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Index with AI (Cognitive Services)</a> 
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
+    - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
+    - html: <a href="/azure/search/search-howto-dotnet-sdk">Use .NET to write your first search solution</a> 
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Enrich with AI (Cognitive Services)</a> 
     - html: <a href="/azure/search/search-indexer-tutorial">Index Azure SQL Database content with .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure Blob storage with REST</a>
-    - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
 - title: Reference
   items:
   - type: list

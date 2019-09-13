@@ -7,115 +7,149 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: quickstart-create-server-database-portal.md
-  - name: Create DB - Azure CLI
-    href: quickstart-create-server-database-azure-cli.md
-  - name: Create DB - Azure CLI up command
-    href: quickstart-create-server-up-azure-cli.md
-  - name: Connect & query
-    items: 
-    - name: Python
-      href: connect-python.md
-    - name: Node.js
-      href: connect-nodejs.md
-    - name: Java
-      href: connect-java.md
-    - name: Ruby
-      href: connect-ruby.md
-    - name: PHP
-      href: connect-php.md
-    - name: .NET
-      href: connect-csharp.md
-    - name: Go
-      href: connect-go.md
+  - name: Single server
+    items:
+    - name: Create DB - Portal
+      href: quickstart-create-server-database-portal.md
+    - name: Create DB - Azure CLI
+      href: quickstart-create-server-database-azure-cli.md
+    - name: Create DB - Azure CLI up command
+      href: quickstart-create-server-up-azure-cli.md
+    - name: Connect & query
+      items:
+      - name: Python
+        href: connect-python.md
+      - name: Node.js
+        href: connect-nodejs.md
+      - name: Java
+        href: connect-java.md
+      - name: Ruby
+        href: connect-ruby.md
+      - name: PHP
+        href: connect-php.md
+      - name: .NET
+        href: connect-csharp.md
+      - name: Go
+        href: connect-go.md
+  - name: Hyperscale (Citus)
+    items:
+    - name: Create DB - Portal
+      href: quickstart-create-hyperscale-portal.md
 - name: Tutorials
   items:
-  - name: 1 - Design a Database
+  - name: Single server
     items:
-    - name: Azure portal
-      href: tutorial-design-database-using-azure-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-using-azure-cli.md
-  - name: 2 - Design Web App - Python
-    href: ../app-service/containers/tutorial-python-postgresql-app.md
-    maintainContext: true
-  - name: 3 - Monitor and tune
-    href: tutorial-monitor-and-tune.md
+    - name: 1 - Design a Database
+      items:
+      - name: Azure portal
+        href: tutorial-design-database-using-azure-portal.md
+      - name: Azure CLI
+        href: tutorial-design-database-using-azure-cli.md
+    - name: 2 - Design Web App - Python
+      href: ../app-service/containers/tutorial-python-postgresql-app.md
+      maintainContext: true
+    - name: 3 - Monitor and tune
+      href: tutorial-monitor-and-tune.md
+  - name: Hyperscale (Citus)
+    items:
+    - name: Design a multi-tenant database
+      href: tutorial-design-database-hyperscale-multi-tenant.md
+    - name: Design a real-time dashboard
+      href: tutorial-design-database-hyperscale-realtime.md
 - name: Samples
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
-  - name: DB & Servers
+  - name: Single server
     items:
-    - name: Servers
-      href: concepts-servers.md
-    - name: Supported versions
-      href: concepts-supported-versions.md
-    - name: PostgreSQL extensions
-      href: concepts-extensions.md
-    - name: High availability
-      href: concepts-high-availability.md
-  - name: Resources
-    items:
-    - name: Pricing tiers
-      href: concepts-pricing-tiers.md
-    - name: Limits
-      href: concepts-limits.md
-  - name: Data access & security
-    items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
-    - name: Configure SSL
-      href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: VNet
-      href: concepts-data-access-and-security-vnet.md 
-  - name: Business continuity
-    items: 
-    - name: Overview
-      href: concepts-business-continuity.md
-    - name: Backup and restore
-      href: concepts-backup.md
-  - name: Monitor and tune
-    items:
-    - name: Monitor and tune
-      href: concepts-monitoring.md
-    - name: Server logs
-      href: concepts-server-logs.md
-    - name: Query Store
+    - name: Databases and servers
       items:
+      - name: Servers
+        href: concepts-servers.md
+      - name: Supported versions
+        href: concepts-supported-versions.md
+      - name: PostgreSQL extensions
+        href: concepts-extensions.md
+      - name: High availability
+        href: concepts-high-availability.md
+    - name: Resources
+      items:
+      - name: Pricing tiers
+        href: concepts-pricing-tiers.md
+      - name: Limits
+        href: concepts-limits.md
+    - name: Data access and security
+      items:
+      - name: Firewall rules
+        href: concepts-firewall-rules.md
+      - name: Configure SSL
+        href: concepts-ssl-connection-security.md
+      - name: Advanced Threat Protection
+        href: concepts-data-access-and-security-threat-protection.md
+      - name: Virtual network
+        href: concepts-data-access-and-security-vnet.md
+      - name: Connectivity architecture
+        href: concepts-connectivity-architecture.md      
+    - name: Business continuity
+      items:
+      - name: Overview
+        href: concepts-business-continuity.md
+      - name: Backup and restore
+        href: concepts-backup.md
+    - name: Monitor and tune
+      items:
+      - name: Monitor and tune
+        href: concepts-monitoring.md
+      - name: Server logs
+        href: concepts-server-logs.md
+      - name: Query Store
+        items:
         - name: Query Store
           href: concepts-query-store.md
         - name: Query Store usage scenarios
           href: concepts-query-store-scenarios.md
         - name: Query Store best practices
           href: concepts-query-store-best-practices.md
-    - name: Query Performance Insight
-      href: concepts-query-performance-insight.md
-    - name: Performance Recommendations
-      href: concepts-performance-recommendations.md
-  - name: Development
-    items:
-    - name: Connection libraries
-      href: concepts-connection-libraries.md
-    - name: Connection resiliency
-      href: concepts-connectivity.md
-    - name: Develop with Azure Kubernetes Service (AKS)
-      href: concepts-aks.md
-    - name: Java
+      - name: Query Performance Insight
+        href: concepts-query-performance-insight.md
+      - name: Performance recommendations
+        href: concepts-performance-recommendations.md
+    - name: Development
       items:
-      - name: Configure Spring Data JDBC
-        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-      - name: Configure Spring Data JPA
-        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-  - name: Replication
+      - name: Connection libraries
+        href: concepts-connection-libraries.md
+      - name: Connection resiliency
+        href: concepts-connectivity.md
+      - name: Develop with Azure Kubernetes Service (AKS)
+        href: concepts-aks.md
+      - name: Java
+        items:
+        - name: Configure Spring Data JDBC
+          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+        - name: Configure Spring Data JPA
+          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+    - name: Replication
+      items:
+      - name: Read replicas
+        href: concepts-read-replicas.md
+  - name: Hyperscale (Citus)
     items:
-    - name: Read replicas
-      href: concepts-read-replicas.md
+    - name: Nodes
+      href: concepts-hyperscale-nodes.md
+    - name: Distributed data
+      href: concepts-hyperscale-distributed-data.md
+    - name: Choose a distribution column
+      href: concepts-hyperscale-choose-distribution-column.md
+    - name: Table colocation
+      href: concepts-hyperscale-colocation.md
+    - name: PostgreSQL extensions
+      href: concepts-hyperscale-extensions.md
+    - name: Resources
+      items:
+      - name: Configuration options
+        href: concepts-hyperscale-configuration-options.md
 - name: How-to guides
   items:
   - name: Create users 
@@ -156,6 +190,12 @@
       href: howto-configure-server-parameters-using-portal.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
+  - name: Auto grow storage
+    items:
+    - name: Azure portal
+      href: howto-auto-grow-storage-portal.md
+    - name: Azure CLI
+      href: howto-auto-grow-storage-cli.md
   - name: Access server logs
     items:
     - name: Azure portal

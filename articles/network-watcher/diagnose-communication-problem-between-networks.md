@@ -3,8 +3,8 @@ title: Diagnose a communication problem between networks - tutorial - Azure port
 description: Learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor:
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 04/27/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ---
 

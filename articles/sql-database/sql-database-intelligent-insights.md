@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance

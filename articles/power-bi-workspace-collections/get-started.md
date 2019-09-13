@@ -2,9 +2,9 @@
 title: Get started with Microsoft Power BI Workspace Collections
 description: Power BI Workspace Collections are an Azure service that enables application developers to add interactive Power BI reports into their own applications.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017

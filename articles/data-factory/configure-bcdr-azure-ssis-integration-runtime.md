@@ -95,6 +95,59 @@ Follow these steps to stop your Azure-SSIS IR, switch the IR to a new region, an
 
 3. Start the IR again.
 
+## Scenario 3 - Attaching an existing SSISDB (SSIS catalog) to a new Azure-SSIS IR
+
+When an ADF or Azure-SSIS IR disaster occurs in current region, you can make your SSISDB keeps working with a new Azure-SSIS IR in a new region.
+
+### Prerequisites
+
+- If you are using a virtual network in the current region, you need to use another virtual network in the new region to connect your Azure-SSIS integration runtime. For more info, see [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
+
+- If you are using a custom setup, you may need to prepare another SAS URI for the blob container that stores your custom setup script and associated files, so it continues to be accessible during an outage. For more info, see [Configure a custom setup on an Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+
+### Steps
+
+Follow these steps to stop your Azure-SSIS IR, switch the IR to a new region, and start it again.
+
+1. Execute stored procedure to make SSISDB attached to **\<new_data_factory_name\>** or **\<new_integration_runtime_name\>**.
+   
+  ```SQL
+    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
+
+2. Create a new data factory named **\<new_data_factory_name\>** in the new region. For more info, see Create a data factory.
+
+     ```powershell
+     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                         -Location "new region"`
+                         -Name "<new_data_factory_name>"
+     ```
+    For more info about this PowerShell command, see [Create an Azure data factory using PowerShell](quickstart-create-data-factory-powershell.md)
+
+3. Create a new Azure-SSIS IR named **\<new_integration_runtime_name\>** in the new region using Azure PowerShell.
+
+    ```powershell
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+                                           -DataFactoryName "new data factory name" `
+                                           -Name "<new_integration_runtime_name>" `
+                                           -Description $AzureSSISDescription `
+                                           -Type Managed `
+                                           -Location $AzureSSISLocation `
+                                           -NodeSize $AzureSSISNodeSize `
+                                           -NodeCount $AzureSSISNodeNumber `
+                                           -Edition $AzureSSISEdition `
+                                           -LicenseType $AzureSSISLicenseType `
+                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                           -VnetId "new vnet" `
+                                           -Subnet "new subnet" `
+                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                           -CatalogPricingTier $SSISDBPricingTier
+    ```
+
+    For more info about this PowerShell command, see [Create the Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md)
+
+4. Start the IR again.
+
 ## Next steps
 
 Consider these other configuration options for the Azure-SSIS IR:

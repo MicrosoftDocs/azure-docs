@@ -1,8 +1,8 @@
-- name: Analysis Services Documentation
-  href: index.md
+- name: Azure Analysis Services Documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: What is Analysis Services?
+  - name: What is Azure Analysis Services?
     href: analysis-services-overview.md
 - name: Quickstarts
   items:
@@ -29,7 +29,7 @@
   - name: Client libraries
     href: analysis-services-data-providers.md
   - name: Compatibility level
-    href: analysis-services-compat-level.md
+    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers
@@ -70,41 +70,10 @@
       href: analysis-services-deploy.md
     - name: Refresh with REST API
       href: analysis-services-async-refresh.md
-    - name: Data modeling in Visual Studio - Adventure Works (1400) tutorial
-      href: tutorials/aas-adventure-works-tutorial.md
-      items:
-      - name: 1 - Create a tabular model project
-        href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-      - name: 2 - Get data
-        href: tutorials/aas-lesson-2-get-data.md
-      - name: 3 - Mark as Date Table
-        href: tutorials/aas-lesson-3-mark-as-date-table.md
-      - name: 4 - Create relationships
-        href: tutorials/aas-lesson-4-create-relationships.md
-      - name: 5 - Create calculated columns
-        href: tutorials/aas-lesson-5-create-calculated-columns.md
-      - name: 6 - Create measures
-        href: tutorials/aas-lesson-6-create-measures.md
-      - name: 7 - Create Key Performance Indicators
-        href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-      - name: 8 - Create perspectives
-        href: tutorials/aas-lesson-8-create-perspectives.md
-      - name: 9 - Create hierarchies
-        href: tutorials/aas-lesson-9-create-hierarchies.md
-      - name: 10 - Create partitions
-        href: tutorials/aas-lesson-10-create-partitions.md
-      - name: 11 - Create roles
-        href: tutorials/aas-lesson-11-create-roles.md
-      - name: 12 - Analyze in Excel
-        href: tutorials/aas-lesson-12-analyze-in-excel.md
-      - name: 13 - Deploy
-        href: tutorials/aas-lesson-13-deploy.md
-      - name: Supplemental lesson - Detail Rows
-        href: tutorials/aas-supplemental-lesson-detail-rows.md
-      - name: Supplemental lesson - Dynamic security
-        href: tutorials/aas-supplemental-lesson-dynamic-security.md
-      - name: Supplemental lesson - Ragged hierarchies
-        href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+    - name: Refresh with Logic Apps 
+      href: analysis-services-refresh-logic-app.md
+    - name: Refresh with Azure Automation
+      href: analysis-services-refresh-azure-automation.md
   - name: Security
     items:
     - name: Manage database users
@@ -128,13 +97,13 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.analysisservices/servers
   - name: DAX
-    href: https://msdn.microsoft.com/library/gg413422.aspx
+    href: https://docs.microsoft.com/dax/data-analysis-expressions-dax-reference
   - name: Power Query M
-    href: https://msdn.microsoft.com/library/mt211003.aspx
+    href: https://docs.microsoft.com/powerquery-m/power-query-m-reference
   - name: Tabular Model Scripting Language (TMSL)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference
+    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
   - name: Tabular Object Model (TOM)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
+    href: https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
   - name: Resource and object limits
     href: analysis-services-capacity-limits.md
 - name: Resources

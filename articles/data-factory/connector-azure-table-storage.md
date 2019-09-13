@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
 
 ---
@@ -109,7 +109,7 @@ You also can create a Storage linked service by using a shared access signature.
 A shared access signature provides delegated access to resources in your storage account. You can use it to grant a client limited permissions to objects in your storage account for a specified time and with a specified set of permissions. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md). 
 
 > [!TIP]
 > To generate a service shared access signature for your storage account, you can execute the following PowerShell commands. Replace the placeholders and grant the needed permission.
@@ -202,12 +202,13 @@ To copy data to and from Azure Table, set the type property of the dataset to **
     "properties":
     {
         "type": "AzureTable",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -217,10 +218,8 @@ To copy data to and from Azure Table, set the type property of the dataset to **
 
 For schema-free data stores such as Azure Table, Data Factory infers the schema in one of the following ways:
 
-* If you specify the structure of data by using the **structure** property in the dataset definition, Data Factory honors this structure as the schema. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
-* If you don't specify the structure of data by using the **structure** property in the dataset definition, Data Factory infers the schema by using the first row in the data. In this case, if the first row doesn't contain the full schema, some columns are missed in the result of the copy operation.
-
-For schema-free data sources, the best practice is to specify the structure of data by using the **structure** property.
+* If you specify the column mapping in copy activity, Data Factory use the source side column list to retrieve data. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
+* If you don't specify the column mapping in copy activity, Data Factory infers the schema by using the first row in the data. In this case, if the first row doesn't contain the full schema (e.g. some columns have null value), some columns are missed in the result of the copy operation.
 
 ## Copy activity properties
 

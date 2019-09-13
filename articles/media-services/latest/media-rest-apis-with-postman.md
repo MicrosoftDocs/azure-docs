@@ -12,13 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 04/11/2019
 ms.author: juliako
 
 ---
 # Configure Postman for Media Services REST API calls
 
 This article shows you how to configure **Postman** so it can be used to call Azure Media Services (AMS) REST APIs. The article shows how to import environment and collection files into **Postman**. The collection contains grouped definitions of HTTP requests that call Azure Media Services (AMS) REST APIs. The environment file contains variables that are used by the collection.
+
+Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md).
 
 ## Prerequisites
 
@@ -27,6 +29,9 @@ This article shows you how to configure **Postman** so it can be used to call Az
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in some of the AMS REST tutorials. 
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
+
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
 
 ## Download Postman files
 

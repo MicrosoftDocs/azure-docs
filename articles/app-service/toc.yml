@@ -9,7 +9,7 @@
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
-    href: overview-compare.md
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
@@ -63,23 +63,30 @@
     href: samples-resource-manager-templates.md
 - name: Concepts
   items:
-  - name: How App Service works
-    href: app-service-how-works-readme.md
   - name: App Service plans
     href: overview-hosting-plans.md
-  - name: Java runtime support
-    href: app-service-jre-support.md
   - name: OS functionality
     href: operating-system-functionality.md
+  - name: Deployment best practices
+    href: deploy-best-practices.md
   - name: Security
-    href: overview-security.md
     items:
+    - name: Recommendations
+      href: security-recommendations.md
     - name: Authentication and authorization
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
+    - name: Built-in security controls
+      href: app-service-security-controls.md
+    - name: Security overview
+      href: overview-security.md
+  - name: Networking features
+    href: networking-features.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
+  - name: Virtual Network Integration
+    href: web-sites-integrate-with-vnet.md  
   - name: Hybrid connections
     href: app-service-hybrid-connections.md
   - name: Traffic Manager integration
@@ -92,12 +99,16 @@
   items:
   - name: Configure app
     items:
-    - name: Use app settings
-      href: web-sites-configure.md
+    - name: Configure common settings
+      href: configure-common.md
     - name: Configure PHP
       href: web-sites-php-configure.md
+    - name: Configure Java
+      href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
+    - name: Configure Azure Storage (container)
+      href: configure-connect-to-azure-storage.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
@@ -159,7 +170,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: web-sites-scale.md
+      href: manage-scale-up.md
     - name: Configure PremiumV2 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
@@ -208,6 +219,8 @@
     href: /azure/templates/microsoft.web/allversions
 - name: Resources
   items:
+  - name: App Service Blog
+    href: https://aka.ms/appserviceblog
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/
   - name: Azure Roadmap
@@ -218,6 +231,8 @@
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Migration Assistant guides
+    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples
@@ -227,7 +242,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

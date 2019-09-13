@@ -4,7 +4,7 @@ description: This document describes the steps required to set up a virtual netw
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 
 ---

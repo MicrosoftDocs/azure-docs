@@ -3,8 +3,8 @@ title: Manage packet captures with Azure Network Watcher - REST API | Microsoft 
 description: This page explains how to manage the packet capture feature of Network Watcher using Azure REST API
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 
 ---
 

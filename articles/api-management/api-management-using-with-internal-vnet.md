@@ -12,9 +12,8 @@ ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/31/2019
 ms.author: apimpm
 
 ---
@@ -23,7 +22,10 @@ With Azure Virtual Networks, Azure API Management can manage APIs not accessible
 * External
 * Internal
 
-When API Management deploys in internal virtual network mode, all the service endpoints (gateway, the Developer portal, the Azure portal, direct management, and Git) are only visible inside a virtual network that you control the access to. None of the service endpoints are registered on the public DNS server.
+When API Management deploys in internal virtual network mode, all the service endpoints (the proxy gateway, the Developer portal, direct management, and Git) are only visible within a virtual network that you control the access to. None of the service endpoints are registered on the public DNS server.
+
+> [!NOTE]
+> Because there are no DNS entries for the service endpoints, these endpoints will not be accessible until [DNS is configured](#apim-dns-configuration) for the virtual network.
 
 Using API Management in internal mode, you can achieve the following scenarios:
 
@@ -42,9 +44,10 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **An Azure API Management instance**. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
-The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
+The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
 
 ### Enable a virtual network connection using the Azure portal
 
@@ -84,7 +87,9 @@ When you create an API Management service, named "contosointernalvnet" for examp
 
    * Gateway or proxy: contosointernalvnet.azure-api.net
 
-   * The Azure portal and the Developer portal: contosointernalvnet.portal.azure-api.net
+   * The Developer portal: contosointernalvnet.portal.azure-api.net
+
+   * The new Developer portal: contosointernalvnet.developer.azure-api.net
 
    * Direct management endpoint: contosointernalvnet.management.azure-api.net
 
@@ -95,6 +100,8 @@ To access these API Management service endpoints, you can create a virtual machi
    * 10.1.0.5     contosointernalvnet.azure-api.net
 
    * 10.1.0.5     contosointernalvnet.portal.azure-api.net
+
+   * 10.1.0.5     contosointernalvnet.developer.azure-api.net
 
    * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
@@ -112,10 +119,12 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
 
 ## <a name="routing"> </a> Routing
-+ A load balanced private virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the vnet.
-+ A load balanced public IP address (VIP) will also be reserved to provide access to the management service endpoint only over port 3443.
-+ An IP address from a subnet IP range (DIP) will be used to access resources within the vnet and a public IP address (VIP) will be used to access resources outside the vnet.
-+ Load balanced public and private IP addresses can be found on the Overview/Essentials blade in the Azure portal.
+
+* A load balanced *private* virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the virtual network. This *private* IP address can be found on the Overview blade for the service in the Azure portal. This address must be registered with the DNS servers used by the virtual network.
+* A load balanced *public* IP address (VIP) will also be reserved to provide access to the management service endpoint over port 3443. This *public* IP address can be found on the Overview blade for the service in the Azure portal. The *public* IP address is used only for control plane traffic to the `management` endpoint over port 3443 and can be locked down to the [ApiManagement][ServiceTags] servicetag.
+* IP addresses from the subnet IP range (DIP) will be assigned to each VM in the service and will used to access resources within the virtual network. A public IP address (VIP) will be used to access resources outside the virtual network. If IP restriction lists are used to secure resources within the virtual network, the entire range for the subnet where the API Management service is deployed must specified to grant or restrict access from the service.
+* The load balanced public and private IP addresses can be found on the Overview blade in the Azure portal.
+* The IP addresses assigned for public and private access may change if the service is removed from and then added back into the virtual network. If this happens, it may be necessary to update DNS registrations, routing rules, and IP restriction lists within the virtual network.
 
 ## <a name="related-content"> </a>Related content
 To learn more, see the following articles:

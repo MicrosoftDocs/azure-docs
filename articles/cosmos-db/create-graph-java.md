@@ -1,16 +1,17 @@
 ---
-title: Create an Azure Cosmos DB graph database with Java
+title: Build a graph database with Java in Azure Cosmos DB 
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 03/26/2019
 ms.author: lbosq
+ms.custom: seo-java-july2019, seo-java-august2019
 
 ---
-# Quickstart: Create a graph database in Azure Cosmos DB using the Java SDK 
+# Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Table API
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -30,8 +31,7 @@ This quickstart creates a simple graph database using the Azure portal tools for
 
 In addition:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
@@ -101,7 +101,7 @@ The following snippets are all taken from the C:\git-samples\azure-cosmos-db-gra
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](https://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Keys**. 
 
     Copy the first portion of the URI value.
 
@@ -146,13 +146,13 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 2. In the git terminal window, use the following command to install the required Java packages.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. In the git terminal window, use the following command to start the Java application.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 
@@ -160,14 +160,14 @@ Now go back to the Azure portal to get your connection information and copy it i
     
     If you experience timeout errors, check that you updated the connection information correctly in [Update your connection information](#update-your-connection-information), and also try running the last command again. 
     
-    Once the program stops, press Enter, then switch back to the Azure portal in your internet browser. 
+    Once the program stops, select Enter, then switch back to the Azure portal in your internet browser. 
 
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
 You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
-1. Click **Data Explorer**, expand **sample-graph**, click **Graph**, and then click **Apply Filter**. 
+1. Select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -175,13 +175,13 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Let's add a few new users. Click the **New Vertex** button to add data to your graph.
+3. Let's add a few new users. Select **New Vertex** to add data to your graph.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. In the label box, enter *person*.
 
-5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+5. Select **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
 
     key|value|Notes
     ----|----|----
@@ -192,13 +192,13 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     > [!NOTE]
     > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
-6. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
+6. Select **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
 
-7. Click **New Vertex** again and add an additional new user. 
+7. Select **New Vertex** again and add an additional new user. 
 
 8. Enter a label of *person*.
 
-9. Click **Add property** to add each of the following properties:
+9. Select **Add property** to add each of the following properties:
 
     key|value|Notes
     ----|----|----
@@ -206,17 +206,17 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     gender|male| 
     school|MIT| 
 
-10. Click **OK**. 
+10. Select **OK**. 
 
-11. Click the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
+11. ClSelectck the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
 
-    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
+    As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
 
-12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then click ![Change the target of a vertex in a graph](./media/create-graph-java/edit-pencil-button.png)  next to **Targets** on lower right side. You may need to widen your window to see the button.
+12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then select ![Change the target of a vertex in a graph](./media/create-graph-java/edit-pencil-button.png)  next to **Targets** on lower right side. You may need to widen your window to see the button.
 
     ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the checkbox.
+13. In the **Target** box enter *rakesh*, and in the **Edge label** box enter *knows*, and then select the check box.
 
     ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 

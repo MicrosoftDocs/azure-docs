@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Identify issues with the diagnostics feature
@@ -19,7 +19,11 @@ Windows Virtual Desktop Preview offers a diagnostics feature that allows the adm
   
 Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
-To get started, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+To get started, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## Diagnose issues with PowerShell
 
@@ -49,6 +53,14 @@ The **-ActivityId** parameter returns a specific diagnostic activity if it exist
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
+```
+
+### View error messages for a failed activity by activity ID
+
+To view the error messages for a failed activity, you must run the cmdlet with the **-Detailed** parameter. You can view the list of errors by running the **Select-Object** cmdlet.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
 ### Filter diagnostic activities by user
@@ -113,7 +125,7 @@ The **-Outcome** parameter can also be combined with other optional filtering pa
 
 Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
 
-* Internal Issue: specifies scenarios which cannot be mitigated by the tenant administrator and need to be resolved as support issue. When raising a ticket provide the activity ID, tenant name and approximate timeframe the issue occurred.
+* Internal Issue: specifies scenarios that can't be mitigated by the tenant administrator and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the activity ID and approximate time frame of when the issue occurred.
 * External Issue: relate to scenarios which can be mitigated by the system administrator. These are external to Windows Virtual Desktop.
 
 The following table lists common errors your admins might run into.
@@ -140,7 +152,7 @@ The following table lists common errors your admins might run into.
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
 |8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
 |8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
-|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) to provide consent for your tenant.|
+|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to provide consent for your tenant.|
 
 ### External connection error codes
 

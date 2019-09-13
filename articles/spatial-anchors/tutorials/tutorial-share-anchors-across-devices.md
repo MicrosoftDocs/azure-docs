@@ -34,7 +34,7 @@ It's worth noticing that, although you'll be using Unity and an ASP.NET Core Web
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## Open the sample project in Unity
+## Download the Unity sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 

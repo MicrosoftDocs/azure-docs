@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg 
 ms.date: 12/19/2018
 ---
 # Performance recommendations for SQL Database

@@ -130,45 +130,84 @@ To create your own regional disaster recovery topology, follow these requirement
    Copy and save the following python script to a file, and run it in your Databricks command line. For example, `python scriptname.py`.
 
    ```python
-   from subprocess import call, check_output import json
+   from subprocess import call, check_output
+   import json, os
 
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
 
-   # Get all clusters info from old workspace 
-   clusters_out = check_output(["databricks", "clusters", "list", "--profile", EXPORT_PROFILE]) clusters_info_list = clusters_out.splitlines()
+   # Get all clusters info from old workspace
+   clusters_out = check_output(["databricks", "clusters", "list", "--profile", EXPORT_PROFILE])
+   clusters_info_list = clusters_out.splitlines()
 
-   # Create a list of all cluster ids 
-   clusters_list = [] for cluster_info in clusters_info_list:   clusters_list.append(cluster_info.split(None, 1)[0])
+   # Create a list of all cluster ids
+   clusters_list = []
+   ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
+
+   for cluster_info in clusters_info_list: 
+      if cluster_info != '':
+         clusters_list.append(cluster_info.split(None, 1)[0])
 
    # Optionally filter cluster ids out manually, so as to create only required ones in new workspace
 
-   # Create a list of mandatory / optional create request elements 
-   cluster_req_elems = ["num_workers","autoscale","cluster_name","spark_version","spark_conf"," node_type_id","driver_node_type_id","custom_tags","cluster_log_conf","sp ark_env_vars","autotermination_minutes","enable_elastic_disk"]
+   # Create a list of mandatory / optional create request elements
+   cluster_req_elems = ["num_workers","autoscale","cluster_name","spark_version","spark_conf","node_type_id","driver_node_type_id","custom_tags","cluster_log_conf","spark_env_vars","autotermination_minutes","enable_elastic_disk"]
 
+   print(str(len(clusters_list)) + " clusters found in the primary site" )
+
+   print ("---------------------------------------------------------")
    # Try creating all / selected clusters in new workspace with same config as in old one.
-   cluster_old_new_mappings = {} for cluster in clusters_list:   print "Trying to migrate cluster " + cluster
+   cluster_old_new_mappings = {}
+   i = 0
+   for cluster in clusters_list:
+      i += 1
+      print("Checking cluster " + str(i) + "/" + str(len(clusters_list)) + " : " + cluster)
+      cluster_get_out = check_output(["databricks", "clusters", "get", "--cluster-id", cluster, "--profile", EXPORT_PROFILE])
+      print ("Got cluster config from old workspace")
 
-   cluster_get_out = check_output(["databricks", "clusters", "get", "--cluster-id", cluster, "--profile", EXPORT_PROFILE])
-   print "Got cluster config from old workspace"
+       # Remove extra content from the config, as we need to build create request with allowed elements only
+      cluster_req_json = json.loads(cluster_get_out)
+      cluster_json_keys = cluster_req_json.keys()
 
-   # Remove extra content from the config, as we need to build create request with allowed elements only
-   cluster_req_json = json.loads(cluster_get_out)    
-   cluster_json_keys = cluster_req_json.keys()   
+      #Don't migrate Job clusters
+      if cluster_req_json['cluster_source'] == u'JOB' : 
+         print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
+         print ("---------------------------------------------------------")
+         continue
 
-   for key in cluster_json_keys:     
-      if key not in cluster_req_elems:       
-         cluster_req_json.pop(key, None)
-  
-   # Create the cluster, and store the mapping from old to new cluster ids
-   cluster_create_out = check_output(["databricks", "clusters", "create", "--json", json.dumps(cluster_req_json), "--profile", IMPORT_PROFILE]) 
-   cluster_create_out_json = json.loads(cluster_create_out)   
-   cluster_old_new_mappings[cluster] = cluster_create_out_json['cluster_id']
+      for key in cluster_json_keys:
+         if key not in cluster_req_elems:
+            cluster_req_json.pop(key, None)
 
-   print "Sent cluster create request to new workspace successfully"
+      # Create the cluster, and store the mapping from old to new cluster ids
 
-   print "Cluster mappings: " + json.dumps(cluster_old_new_mappings)
-   print "All done"
+      #Create a temp file to store the current cluster info as JSON
+      strCurrentClusterFile = "tmp_cluster_info.json" 
+
+      #delete the temp file if exists
+      if os.path.exists(strCurrentClusterFile) : 
+         os.remove(strCurrentClusterFile)
+
+      fClusterJSONtmp = open(strCurrentClusterFile,"w+")
+      fClusterJSONtmp.write(json.dumps(cluster_req_json))
+      fClusterJSONtmp.close()
+
+      #cluster_create_out = check_output(["databricks", "clusters", "create", "--json", json.dumps(cluster_req_json), "--profile", IMPORT_PROFILE])
+      cluster_create_out = check_output(["databricks", "clusters", "create", "--json-file", strCurrentClusterFile , "--profile", IMPORT_PROFILE])
+      cluster_create_out_json = json.loads(cluster_create_out)
+      cluster_old_new_mappings[cluster] = cluster_create_out_json['cluster_id']
+
+      print ("Cluster create request sent to secondary site workspace successfully")
+      print ("---------------------------------------------------------")
+
+      #delete the temp file if exists
+      if os.path.exists(strCurrentClusterFile) : 
+         os.remove(strCurrentClusterFile)
+
+   print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
+   print ("All done")
+   print ("P.S. : Please note that all the new clusters in your secondary site are being started now!")
+   print ("       If you won't use those new clusters at the moment, please don't forget terminating your new clusters to avoid charges")
    ```
 
 6. **Migrate the jobs configuration**
@@ -241,7 +280,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 8. **Migrate Azure blob storage and Azure Data Lake Store mounts**
 
-   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Store (Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
+   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
 
 9. **Migrate cluster init scripts**
 

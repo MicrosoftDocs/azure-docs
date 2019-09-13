@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;Mingfeiy;rajputam;Juliako
+ms.author: willzhan
+ms.reviewer: Mingfeiy;rajputam;Juliako
 
 ---
 # Using Axinom to deliver Widevine licenses to Azure Media Services 

@@ -2,20 +2,20 @@
 title: About user interface customization in Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to customize the user interface for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.author: davidmu
+ms.date: 09/11/2019
+ms.author: marsma
 ms.subservice: B2C
 ---
 
 # About user interface customization in Azure Active Directory B2C
 
-The ability for you to brand and customize the user interface (UI) that Azure Active Directory (Azure AD) B2C serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
+The ability for you to brand and customize the user interface (UI) that Azure Active Directory B2C (Azure AD B2C) serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
 
 Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
 
@@ -25,7 +25,7 @@ Depending on your needs when it comes to these experiences, you customize the UI
 - If customers try to edit their profile before they sign in, they are redirected to a page that you customize using the same steps that are used for customizing the Azure AD sign-in page.
 - If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, you use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
 - If you need to provide dynamic content based on a customer’s decision, you use [custom policies that can change page content](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, the background image on the Azure AD B2C sign-up or sign-in page changes, based on a parameter that you pass from your web or mobile application.
-- You can enable JavaScript client-side code in your Azure AD B2C [user flows](user-flow-javascript-overview.md) or [custom policies](page-contract.md).
+- You can enable JavaScript client-side code in your Azure AD B2C [user flows](user-flow-javascript-overview.md) or [custom policies](page-layout.md).
 
 Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At run-time, content is loaded from a URL that you specify in a user flow or policy. You specify different URLs for different pages. After content is loaded from your URL, it's merged with an HTML fragment inserted from Azure AD B2C, and then displayed to your customer.
 
@@ -33,7 +33,7 @@ When using your own HTML and CSS files to customize the UI, review the following
 
 - Azure AD B2C merges HTML content into your pages. Don't copy and try to change the default content that Azure AD B2C provides. It's best to build your HTML content from scratch and use the default content as reference.
 - JavaScript can now be included in your custom content.
-- Supported browser versions are: 
+- Supported browser versions are:
     - Internet Explorer 11, 10 and Microsoft Edge
     - Limited support for Internet Explorer 9 and 8
     - Google Chrome 42.0 and above
@@ -46,11 +46,11 @@ For v2 user flows, you can choose a pre-designed template that gives your defaul
 
 In the left menu, under **Customize**, select **Page layouts**. Then select **Template (Preview)**.
 
-![Choose a page layout template](media/customize-ui-overview/template.png)
+![Template selection drop-down in user flow page of Azure portal](media/customize-ui-overview/template.png)
 
 Select a template from the list. For example, the **Ocean Blue** template applies the following layout to your user flow pages:
 
-![Ocean Blue template](media/customize-ui-overview/ocean-blue.png)
+![Example of the Ocean Blue template rendered on sign up sign in page](media/customize-ui-overview/ocean-blue.png)
 
 When you choose a template, the selected layout is applied to all pages in your user flow, and the URI for each page is visible in the **Custom page URI** field.
 
@@ -81,13 +81,13 @@ You do the following to customize the UI:
 - Host your content on an HTTPS endpoint (with CORS allowed). Both GET and OPTIONS request methods must be enabled when configuring CORS.
 - Use CSS to style the UI elements that Azure AD B2C inserts into your page. The following example shows a simple CSS file that also includes settings for the sign-up injected HTML elements:
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -95,7 +95,7 @@ You do the following to customize the UI:
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;
@@ -120,7 +120,7 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 
 ## How do I localize content?
 
-You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value {Culture:RFC5646}. For example, your custom page URI might look like `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`. You can load the page in French by pulling content from `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 
@@ -130,6 +130,9 @@ For customization examples, download and review these [sample template files](ht
 
 ## Next steps
 
-- If you're using user flows, you can start customizing your UI with the tutorial: [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
-- If you're using custom policies, you can start customizing the UI with the article: [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- If you're using **user flows**, you can start customizing your UI with the tutorial:
 
+    [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
+- If you're using **custom policies**, you can start customizing the UI with the article:
+
+    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

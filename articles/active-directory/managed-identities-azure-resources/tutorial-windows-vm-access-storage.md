@@ -22,6 +22,11 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
+
+> [!IMPORTANT] 
+> Azure Storage now supports Azure AD authentication. As a best practice, use [Azure AD authentication](tutorial-vm-windows-access-storage.md) instead of access keys. 
+
+
 This tutorial shows you how to use a system-assigned managed identity for Windows virtual machine (VM) to retrieve storage account access keys. You can use storage access keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
 
 

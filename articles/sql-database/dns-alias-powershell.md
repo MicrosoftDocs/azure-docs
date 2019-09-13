@@ -10,16 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
-manager: craigg
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database
 
 This article provides a PowerShell script that demonstrates how you can manage a DNS alias for Azure SQL Database. The script runs the following cmdlets which takes the following actions:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 The cmdlets used in the code example are the following:
 

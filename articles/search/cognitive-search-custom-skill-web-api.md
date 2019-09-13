@@ -2,26 +2,26 @@
 title: Custom cognitive search skill - Azure Search
 description: Extend capabilities of cognitive search skillsets by calling out to Web APIs
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
+ms.subservice: cognitive-search
 ---
 
 # Custom Web API skill
 
-The **Custom Web API** skill allows you to extend cognitive search by calling out to a web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
+The **Custom Web API** skill allows you to extend cognitive search by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
 The structure of the JSON payloads are described further down in this document.
 
 > [!NOTE]
 > The indexer will retry twice for certain standard HTTP status codes returned from the Web API. These HTTP status codes are: 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -34,10 +34,10 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| uri | The URI of the web api to which the _JSON_ payload will be sent. Only **https** URI scheme is allowed |
+| uri | The URI of the Web API to which the _JSON_ payload will be sent. Only **https** URI scheme is allowed |
 | httpMethod | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
 | httpHeaders | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 90 seconds and a minimum of 1 second. |
+| timeout | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 | batchSize | (Optional) Indicates how many "data records" (see _JSON_ payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
 
 ## Skill inputs
@@ -135,10 +135,10 @@ It will always follow these constraints:
 
 ## Sample output JSON structure
 
-The "output" corresponds to the response returned from your web api. The web api should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
+The "output" corresponds to the response returned from your Web API. The Web API should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
 
 * There should be a top-level entity called `values` which should be an array of objects.
-* The number of objects in the array should be the same as the number of objects sent to the web api.
+* The number of objects in the array should be the same as the number of objects sent to the Web API.
 * Each object should have:
    * A `recordId` property
    * A `data` property, which is an object where the fields are enrichments matching the "names" in the `output` and whose value is considered the enrichment.
@@ -201,4 +201,4 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to cognitive search](cognitive-search-custom-skill-interface.md)
-+ [Create a custom skill using the Text Translate API](cognitive-search-create-custom-skill-example.md)
++ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)

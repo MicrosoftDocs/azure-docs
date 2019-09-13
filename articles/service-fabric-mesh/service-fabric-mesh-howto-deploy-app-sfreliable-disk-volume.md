@@ -8,7 +8,6 @@ manager: raunakpandya
 editor: ''
 ms.assetid:
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
@@ -68,7 +67,7 @@ Notice the name of gateway resource which has resource type as `Microsoft.Servic
 
 Once the application successfully deploys, get the ipAddress of the gateway resource for the app. Use the gateway name you noticed in above section.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 The output should have a property `ipAddress` which is the public IP address for the service endpoint. Open it from a browser. It will display a web page with the counter value being updated every second.

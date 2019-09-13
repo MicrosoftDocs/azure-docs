@@ -3,7 +3,7 @@ title: Connect a Raspberry Pi to your Azure IoT Central application (C#) | Micro
 description: As a device developer, how to connect a Raspberry Pi to your Azure IoT Central application using C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/05/2018
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,6 +13,8 @@ manager: peterpr
 # Connect a Raspberry Pi to your Azure IoT Central application (C#)
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article describes how, as a device developer, to connect a Raspberry Pi to your Microsoft Azure IoT Central application using the C# programming language.
 
@@ -349,13 +351,11 @@ Toggle settings
 
 ### Properties
 
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| Type            | Display name | Field name | Data type                              |
+| --------------- | ------------ | ---------- | -------------------------------------- |
+| Device property | Die number   | dieNumber  | number                                 |
+| Location        | Location     | location   | {lat: float, long: float, alt?: float} |
 
 ## Next steps
 
-Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, here are the suggested next steps:
-
-* [Connect a generic Node.js client application to Azure IoT Central](howto-connect-nodejs.md)
+Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

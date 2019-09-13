@@ -2,13 +2,13 @@
 title: Azure SQL Data Warehouse - MPP architecture | Microsoft Docs
 description: Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 services: sql-data-warehouse
-author: ronortloff
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 

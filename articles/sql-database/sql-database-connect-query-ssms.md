@@ -11,7 +11,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
@@ -20,7 +19,7 @@ In this quickstart, you'll use [SQL Server Management Studio][ssms-install-lates
 
 ## Prerequisites
 
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
   || Single database | Managed instance |
   |:--- |:--- |:---|
@@ -31,7 +30,6 @@ In this quickstart, you'll use [SQL Server Management Studio][ssms-install-lates
   |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
   |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
 
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
@@ -81,7 +79,7 @@ In SMSS, connect to your Azure SQL Database server.
 
 5. To view the database's objects, expand **Databases** and then expand **mySampleDatabase**.
 
-   ![view database objects](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase objects](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## Query data
 
@@ -100,7 +98,7 @@ Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL
 
 3. On the toolbar, select **Execute** to retrieve data from the `Product` and `ProductCategory` tables.
 
-    ![query to retrieve data from two tables](./media/sql-database-connect-query-ssms/query2.png)
+    ![query to retrieve data from table Product and ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## Insert data
 
@@ -140,7 +138,7 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
 
 2. Select **Execute**. The following result appears.
 
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![result of Product table query](./media/sql-database-connect-query-ssms/result.png)
 
 ## Update data
 

@@ -9,17 +9,21 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
 # Copy data from Google Cloud Storage using Azure Data Factory
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Google Cloud Storage. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to copy data from Google Cloud Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-You can copy data Google Cloud Storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This Google Cloud Storage connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Specifically, this Google Cloud Storage connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
@@ -76,9 +80,53 @@ Here is an example:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Google Cloud Storage dataset.
+- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
 
-To copy data from Google Cloud Storage, set the type property of the dataset to **AmazonS3Object**. The following properties are supported:
+### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
+
+To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Google Cloud Storage under `location` settings in format-based dataset:
+
+| Property   | Description                                                  | Required |
+| ---------- | ------------------------------------------------------------ | -------- |
+| type       | The type property under `location` in dataset must be set to **AmazonS3Location**. | Yes      |
+| bucketName | The S3 bucket name.                                          | Yes      |
+| folderPath | The path to folder under the given bucket. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
+| fileName   | The file name under the given bucket + folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
+
+> [!NOTE]
+> **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+
+**Example:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<Google Cloud Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AmazonS3Location",
+                "bucketName": "bucketname",
+                "folderPath": "folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### Other format dataset
+
+To copy data from Google Cloud Storage in **ORC format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -131,12 +179,77 @@ For a full list of sections and properties available for defining activities, se
 
 ### Google Cloud Storage as source
 
-To copy data from Google Cloud Storage, set the source type in the copy activity to **FileSystemSource**. The following properties are supported in the copy activity **source** section:
+- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+
+#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
+
+To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Google Cloud Storage under `storeSettings` settings in format-based copy source:
+
+| Property                 | Description                                                  | Required                                                    |
+| ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| type                     | The type property under `storeSettings` must be set to **AmazonS3ReadSetting**. | Yes                                                         |
+| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                                          |
+| prefix                   | Prefix for the S3 object key under the given bucket configured in dataset to filter source objects. Objects whose keys start with this prefix are selected. Applies only when `wildcardFolderPath` and `wildcardFileName` properties are not specified. |                                                             |
+| wildcardFolderPath       | The folder path with wildcard characters under the given bucket configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                                          |
+| wildcardFileName         | The file name with wildcard characters under the given bucket + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` in dataset and `prefix` are not specified |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                                          |
+| modifiedDatetimeEnd      | Same as above.                                               | No                                                          |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                                          |
+
+> [!NOTE]
+> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGoogleCloudStorage",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AmazonS3ReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### Other format source
+
+To copy data from Google Cloud Storage in **ORC format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **FileSystemSource** |Yes |
 | recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
 
 **Example:**
 

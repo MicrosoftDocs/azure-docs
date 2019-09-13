@@ -2,7 +2,7 @@
 title: How to manage concurrent writes to resources - Azure Search
 description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Search indexes, indexers, data sources.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -164,7 +164,7 @@ The following code demonstrates accessCondition checks for key update operations
 
 A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes.
 
-This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym (preview) C# example for Azure Search](search-synonyms-tutorial-sdk.md).
+This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym C# example for Azure Search](search-synonyms-tutorial-sdk.md).
 
 The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server to get the latest version.
 

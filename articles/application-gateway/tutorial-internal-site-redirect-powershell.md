@@ -17,7 +17,7 @@ ms.author: victorh
 ---
 # Create an application gateway with internal redirection using Azure PowerShell
 
-You can use Azure Powershell to configure [web traffic redirection](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
+You can use Azure Powershell to configure [web traffic redirection](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www\.contoso.org*.
 
 In this article, you learn how to:
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -95,7 +95,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### Create the backend pool and settings
 
-Create a backend pool named *contosoPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend pool using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Create a backend pool named *contosoPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend pool using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -110,7 +110,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### Create the first listener and rule
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
+A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www.contoso.com* and *www\.contoso.org*.
 
 Create the first listener named *contosoComListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *contosoComRule* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -294,11 +294,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## Test the application gateway
 
-Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+Enter your domain name into the address bar of your browser. Such as, [http://www.contoso.com](http://www.contoso.com).
 
 ![Test contoso site in application gateway](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Change the address to your other domain, for example http://www.contoso.org and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
+Change the address to your other domain, for example http://www.contoso.org and you should see that the traffic has been redirected back to the listener for www.contoso.com.
 
 ## Next steps
 

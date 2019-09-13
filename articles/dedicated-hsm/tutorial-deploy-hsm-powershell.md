@@ -3,8 +3,8 @@ title: Tutorial deploy into an existing virtual network using PowerShell - Azure
 description: Tutorial showing how to deploy a dedicated HSM using PowerShell into an existing virtual network
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 
 ms.service: key-vault
@@ -13,7 +13,7 @@ ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
+ms.author: mbaldwin
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell
@@ -213,7 +213,7 @@ The ssh tool is used to connect to the virtual machine. The command will be simi
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 The password to use is the one from the parameter file.
-Once logged on to the Linux VM you can log in to the HSM using the private IP address found in the portal for the resource <prefix>hsm_vnic.
+Once logged on to the Linux VM you can log in to the HSM using the private IP address found in the portal for the resource \<prefix>hsm_vnic.
 
 ```powershell
 

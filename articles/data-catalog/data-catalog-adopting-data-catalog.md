@@ -1,11 +1,11 @@
 ---
 title: Approach and process for adopting Azure Data Catalog
 description: This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 ---
 
 # Approach and process for adopting Azure Data Catalog
@@ -49,7 +49,7 @@ Here are some tips to help you define you vision:
 
 Here is an example vision statement for a Data Catalog adoption plan for the fictitious company called Adventure Works:
 
-**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share her knowledge with the team as a whole.
+**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share their knowledge with the team as a whole.
 
 Once you have a crisp vision statement, you should identify a suitable pilot project for Data Catalog. Generally, there are several scenarios for Data Catalog, so the next section provides some tips to identify relevant uses cases.
 

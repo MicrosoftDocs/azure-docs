@@ -1,7 +1,6 @@
 ---
 title: Use Apache Beeline with Apache Hive - Azure HDInsight 
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -40,9 +39,9 @@ Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster head
 
 ---
 
-### To HDInsight Enterprise Security Package (ESP) cluster
+### To HDInsight Enterprise Security Package (ESP) cluster using Kerberos
 
-When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
+When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD)-DS on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
 
 ```bash
 kinit <username>
@@ -53,12 +52,18 @@ Replace `<username>` with the name of an account on the domain with permissions 
 
 ---
 
-### Over public internet
+### Over public or private endpoints
 
-When connecting over the public internet, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `<clustername>.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using SSL:
+When connecting to a cluster using the public  or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `<clustername>.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using SSL:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+or for private endpoint:
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. Replace `password` with the password for the cluster login account.
@@ -69,13 +74,21 @@ Replace `clustername` with the name of your HDInsight cluster. Replace `admin` w
 
 Apache Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
 
-#### Over public internet with Apache Spark
+#### Through public or private endpoints
 
-The connection string used when connecting over the internet is slightly different. Instead of containing `httpPath=/hive2` it is `httpPath/sparkhive2`:
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it is `httpPath/sparkhive2`:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+or for private endpoint:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. Replace `password` with the password for the cluster login account.
 
 ---
 
@@ -84,7 +97,7 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following example shows how to connect directly to the head node:
 
 ```bash
-beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+/usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 ```
 
 ---

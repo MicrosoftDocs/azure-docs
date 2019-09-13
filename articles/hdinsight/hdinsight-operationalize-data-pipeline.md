@@ -1,7 +1,6 @@
 ---
 title: Operationalize a data analytics pipeline - Azure 
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -28,7 +27,7 @@ The example pipeline waits until a new time period's flight data arrives, then s
 
 The following diagram illustrates the example pipeline.
 
-![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
+![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
 
 ## Apache Oozie solution overview
 
@@ -50,19 +49,19 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
 2. Within the `oozie` resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.
 3. Using the Azure portal, navigate to the pane for your newly deployed SQL Database, and select **Tools**.
 
-    ![Tools button](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
+    ![Tools button](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
 
 4. Select **Query Editor**.
 
-    ![Query Editor button](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
+    ![Query Editor button](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
 
 5. In the **Query Editor** pane, select **Login**.
 
-    ![Login button](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
+    ![Login button](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
 
 6. Enter your SQL Database credentials and select **OK**.
 
-   ![Login form](./media/hdinsight-operationalize-data-pipeline/sql-db-login2.png)
+   ![Login form](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
 
 7. In the Query Editor text area, enter the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
 
@@ -85,7 +84,7 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
 
 8. Select **Run** to execute the SQL statements.
 
-    ![Run button](./media/hdinsight-operationalize-data-pipeline/sql-db-run.png)
+    ![Run button](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
 
 Your Azure SQL Database is now ready.
 
@@ -95,24 +94,24 @@ Your Azure SQL Database is now ready.
 2. Select **Create**.
 3. On the Basics pane, provide a unique name for your cluster and choose your Azure Subscription.
 
-    ![HDInsight cluster name and subscription](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
+    ![HDInsight cluster name and subscription](./media/hdinsight-operationalize-data-pipeline/cluster-name-subscription.png)
 
 4. In the **Cluster type** pane, select the **Hadoop** cluster type, **Linux** operating system, and the latest version of the HDInsight cluster. Leave the **Cluster tier** at **Standard**.
 
-    ![HDInsight cluster type](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
+    ![HDInsight cluster type](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
 
 5. Choose **Select** to apply your cluster type selection.
 6. Complete the **Basics** pane by providing a login password and selecting your `oozie` resource group from the list, then select **Next**.
 
-    ![HDInsight Basics pane](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
+    ![HDInsight Basics pane](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
 
 7. In the **Storage** pane, leave the primary storage type set to **Azure Storage**, select **Create new**, and provide a name for the new account.
 
-    ![HDInsight Storage Account Settings](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
+    ![HDInsight Storage Account Settings](./media/hdinsight-operationalize-data-pipeline/storage-account-settings.png)
 
 8. For the **Metastore Settings**, under **Select a SQL database for Hive**, choose the database you previously created.
 
-    ![HDInsight Hive Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-hive.png)
+    ![HDInsight Hive Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hive-metastore-settings.png)
 
 9. Select **Authenticate SQL Database**.
 

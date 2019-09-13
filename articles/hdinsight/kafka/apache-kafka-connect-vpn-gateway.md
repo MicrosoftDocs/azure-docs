@@ -1,14 +1,13 @@
 ---
 title: Connect to Kafka using virtual networks - Azure HDInsight 
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/28/2019
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
@@ -52,7 +51,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
      > * Each client must connect using a VPN software client.
      > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
-For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
+For more information on using HDInsight in a virtual network, see [Plan a virtual network for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Connect to Apache Kafka from an on-premises network
 
@@ -81,7 +80,7 @@ Use the steps in this section to create the following configuration:
 
 1. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document. This document creates the certificates needed for the gateway.
 
-2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
+2. Open a PowerShell prompt and use the following code to sign in to your Azure subscription:
 
     ```powershell
     Connect-AzAccount
@@ -193,8 +192,10 @@ Use the steps in this section to create the following configuration:
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -236,7 +237,7 @@ Use the steps in this section to create the following configuration:
 
 By default, Apache Zookeeper returns the domain name of the Kafka brokers to clients. This configuration does not work with the VPN software client, as it cannot use name resolution for entities in the virtual network. For this configuration, use the following steps to configure Kafka to advertise IP addresses instead of domain names:
 
-1. Using a web browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace __CLUSTERNAME__ with the name of the Kafka on HDInsight cluster.
+1. Using a web browser, go to `https://CLUSTERNAME.azurehdinsight.net`. Replace `CLUSTERNAME` with the name of the Kafka on HDInsight cluster.
 
     When prompted, use the HTTPS user name and password for the cluster. The Ambari Web UI for the cluster is displayed.
 
@@ -246,7 +247,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
@@ -268,7 +269,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
@@ -276,7 +277,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -316,7 +317,9 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 2. Use the following to install the [kafka-python](https://kafka-python.readthedocs.io/) client:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. To send data to Kafka, use the following Python code:
 
@@ -360,7 +363,7 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 ## Next steps
 
-For more information on using HDInsight with a virtual network, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) document.
+For more information on using HDInsight with a virtual network, see the [Plan a virtual network deployment for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md) document.
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Using PHP to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 08/28/2019
 ms.author: aahi
 ---
 # Quickstart: Using PHP to call the Text Analytics Cognitive Service
@@ -23,76 +23,72 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
-
 <a name="Detect"></a>
 
 ## Detect language
 
-The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+The Language Detection API detects the language of a text document, using the [Detect Language method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Add the code provided below.
+1. Run the program.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/languages';
+$path = '/text/analytics/v2.1/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+    $headers = "Content-type: text/json\r\n" .
+        "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	$data = json_encode ($data);
+    $data = json_encode ($data);
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// https://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'POST',
-			'content' => $data
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
-	return $result;
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // https://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'POST',
+            'content' => $data
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path, false, $context);
+    return $result;
 }
 
 $data = array (
-	'documents' => array (
-		array ( 'id' => '1', 'text' => 'This is a document written in English.' ),
-		array ( 'id' => '2', 'text' => 'Este es un document escrito en Español.' ),
-		array ( 'id' => '3', 'text' => '这是一个用中文写的文件')
-	)
+    'documents' => array (
+        array ( 'id' => '1', 'text' => 'This is a document written in English.' ),
+        array ( 'id' => '2', 'text' => 'Este es un document escrito en Español.' ),
+        array ( 'id' => '3', 'text' => '这是一个用中文写的文件')
+    )
 );
 
 print "Please wait a moment for the results to appear.";
 
-$result = DetectLanguage ($host, $path, $accessKey, $data);
+$result = DetectLanguage ($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -148,69 +144,74 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Analyze sentiment
 
-The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
+The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Add the code provided below.
+1. Run the program.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/sentiment';
+$path = '/text/analytics/v2.1/sentiment';
 
 function GetSentiment ($host, $path, $key, $data) {
+    // Make sure all text is UTF-8 encoded.
+    foreach ($data as &$item) {
+        foreach ($item as $ignore => &$value) {
+            $value['text'] = utf8_encode($value['text']);
+        }
+    }
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+    $data = json_encode ($data);
 
-	$data = json_encode ($data);
+    $headers = "Content-type: text/json\r\n" .
+        "Content-Length: " . strlen($data) . "\r\n" .
+        "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// https://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'POST',
-			'content' => $data
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
-	return $result;
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // https://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'POST',
+            'content' => $data
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path, false, $context);
+    return $result;
 }
 
 $data = array (
-	'documents' => array (
-		array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
-		array ( 'id' => '2', 'language' => 'es', 'text' => 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' )
-	)
+    'documents' => array (
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
+        array ( 'id' => '2', 'language' => 'es', 'text' => 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' )
+    )
 );
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetSentiment ($host, $path, $accessKey, $data);
+$result = GetSentiment($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -240,74 +241,71 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Extract key phrases
 
-The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
+The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Add the code provided below.
+1. Run the program.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/keyPhrases';
+$path = '/text/analytics/v2.1/keyPhrases';
 
 function GetKeyPhrases ($host, $path, $key, $data) {
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+    $headers = "Content-type: text/json\r\n" .
+        "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	$data = json_encode ($data);
+    $data = json_encode ($data);
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// https://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'POST',
-			'content' => $data
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
-	return $result;
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // https://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'POST',
+            'content' => $data
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path, false, $context);
+    return $result;
 }
 
 $data = array (
-	'documents' => array (
-		array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
-		array ( 'id' => '2', 'language' => 'es', 'text' => 'Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.' ),
-		array ( 'id' => '3', 'language' => 'en', 'text' => 'The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I\'ve ever seen.' )
-	)
+    'documents' => array (
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
+        array ( 'id' => '2', 'language' => 'es', 'text' => 'Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.' ),
+        array ( 'id' => '3', 'language' => 'en', 'text' => 'The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I\'ve ever seen.' )
+    )
 );
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetKeyPhrases ($host, $path, $accessKey, $data);
+$result = GetKeyPhrases($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
-
 ```
 
 **Key phrase extraction response**
@@ -352,75 +350,71 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="Entities"></a>
 
-## Identify entities
+## Identify entities 
 
-The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+The Entities API identifies well-known entities in a text document, using the [Entities method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Add the code provided below.
+1. Run the program.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.1-preview/entities';
+$path = '/text/analytics/v2.1/entities';
 
 function GetEntities ($host, $path, $key, $data) {
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+    $headers = "Content-type: text/json\r\n" .
+        "Content-Length: " . Length($data) . "\r\n" .
+        "Ocp-Apim-Subscription-Key: $key\r\n";
+    $data = json_encode ($data);
 
-	$data = json_encode ($data);
-
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// https://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'POST',
-			'content' => $data
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
-	return $result;
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // https://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'POST',
+            'content' => $data
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path, false, $context);
+    return $result;
 }
 
 $data = array (
-	'documents' => array (
-		array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
-		array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
-	)
+    'documents' => array (
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'Microsoft is and It company.' ),
+    )
 );
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetEntities ($host, $path, $accessKey, $data);
+$result = GetEntities($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
-
 ```
 
 **Entity extraction response**
@@ -428,158 +422,47 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 A successful response is returned in JSON, as shown in the following example: 
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 

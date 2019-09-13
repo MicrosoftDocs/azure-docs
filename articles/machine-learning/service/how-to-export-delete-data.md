@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 
@@ -226,3 +226,29 @@ Templates can be obtained by:
 Data Sources can be obtained by:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## Delete visual interface assets
+
+In the visual interface where you created your experiment, delete individual assets:
+
+1. On the left, select the type of asset you want to delete.
+
+    ![Delete assets](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. In the list, select the individual assets to delete.
+
+1. On the bottom, select **Delete**.
+
+## Export visual interface data
+
+In the visual interface where you created your experiment, export data you have added:
+
+1. On the left, select **Data**.
+
+1. On the top, select **My Datasets** or **Samples** to locate the data you want to export.
+
+    ![Download data](media/how-to-export-delete-data.md/download-data.png)
+
+1. In the list, select the individual datasets to export.
+
+1. On the bottom, select **Download**.

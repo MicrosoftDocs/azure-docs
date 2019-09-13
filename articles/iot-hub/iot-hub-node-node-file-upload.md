@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ---
 
-# Upload files from your device to the cloud with IoT Hub
+# Upload files from your device to the cloud with IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This tutorial builds on the code in the [Send cloud-to-device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
 
-- Securely provide a device with an Azure blob URI for uploading a file.
-- 
-- Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
+* Securely provide a device with an Azure blob URI for uploading a file.
 
-The [Get started with IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+* Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-*  Large files that contain images
-*  Videos
-*  Vibration data sampled at high frequency
-*  Some form of pre-processed data.
+The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+
+* Large files that contain images
+* Videos
+* Vibration data sampled at high frequency
+* Some form of pre-processed data.
 
 These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
@@ -39,9 +39,9 @@ At the end of this tutorial you run two Node.js console apps:
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, Javascript, Python, and Java) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
-* Node.js version 4.0.x or later.
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -112,6 +112,12 @@ In this section, you create the device app to upload a file to IoT hub.
 
 9. Copy an image file to the `simulateddevice` folder and rename it `myimage.png`.
 
+## Get the IoT hub connection string
+
+In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## Receive a file upload notification
 
 In this section, you create a Node.js console app that receives file upload notification messages from IoT Hub.
@@ -140,7 +146,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
     var Client = require('azure-iothub').Client;
     ```
 
-5. Add a `iothubconnectionstring` variable and use it to create a **Client** instance.  Replace `{iothubconnectionstring}` with the connection string to the IoT hub you created in the _Create an IoT Hub_ section:
+5. Add a `iothubconnectionstring` variable and use it to create a **Client** instance.  Replace the `{iothubconnectionstring}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -211,6 +217,8 @@ You can use the portal to view the uploaded file in the storage container you co
 
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
-*  [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
-*  [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
-*  [Azure IoT SDKs](iot-hub-devguide-sdks.md)
+* [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
+
+* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDKs](iot-hub-devguide-sdks.md)

@@ -3,21 +3,21 @@ title: Authentication in Microsoft identity platform | Azure
 description: Learn about authentication in Microsoft identity platform, the app model, API, provisioning, and the most common authentication scenarios that Microsoft identity platform supports.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about the basic authentication concepts in Microsoft identity platform, including the app model, API, provisioning, and supported scenarios, so I understand what I need to do when I create apps that integrate Microsoft sign-in.
 ms.collection: M365-identity-device-management
 ---
@@ -50,7 +50,7 @@ Here’s what you need to know about the various components shown in the diagram
   * To quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more, see the **Quickstarts** section of the documentation.
   * To get in-depth, scenario-based procedures for top auth developer tasks like obtaining access tokens and using them in calls to the Microsoft Graph API and other APIs, implementing sign-in with Microsoft with a traditional web browser-based app using OpenID Connect, and more, see the **Tutorials** section of the documentation.
   * To download code samples, go to [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* The flow of requests and responses for the authentication process is determined by the authentication protocol that you used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. For more info about protocols, see the **Concepts > Protocols** section of the documentation.
+* The flow of requests and responses for the authentication process is determined by the authentication protocol that you used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. For more info about protocols, see the **Concepts > Authentication protocol** section of the documentation.
 
 In the example scenario above, you can classify the apps according to these two roles:
 
@@ -82,14 +82,11 @@ The following diagram shows a simplified Microsoft identity platform provisionin
 
 In this provisioning flow:
 
-|   |   |
-|---|---|
-| 1 | A user from tenant B attempts to sign in with the app |
-| 2 | The user credentials are acquired and verified |
-| 3 | The user is prompted to consent for the app to gain access to tenant B |
-| 4 | Microsoft identity platform uses the application object in A as a blueprint for creating a service principal in tenant B |
-| 5 | The user receives the requested token |
-|   |   |
+1. A user from tenant B attempts to sign in with the app, the authorization endpoint requests a token for the application.
+1. The user credentials are acquired and verified for authentication
+1. The user is prompted to provide consent for the app to gain access to tenant B
+1. Microsoft identity platform uses the application object in tenant A as a blueprint for creating a service principal in tenant B
+1. The user receives the requested token
 
 You can repeat this process as many times as you want for other tenants (C, D, and so on). Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent retain control over what the application is allowed to do through the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](app-objects-and-service-principals.md).
 

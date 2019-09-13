@@ -1,17 +1,10 @@
 ---
 title: Azure Resource Manager template functions - logical | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.topic: conceptual
+ms.date: 04/15/2019
 ms.author: tomfitz
 
 ---
@@ -192,7 +185,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -208,7 +201,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
     },
     "resources": [
         {
-            "condition": "[greaterOrEquals(parameters('logAnalytics'), '0')]",
+            "condition": "[not(empty(parameters('logAnalytics')))]",
             "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "location": "[parameters('location')]",
@@ -219,10 +212,10 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
                 "typeHandlerVersion": "1.0",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                    "workspaceId": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
                 },
                 "protectedSettings": {
-                    "workspaceKey": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
                 }
             }
         }
@@ -230,7 +223,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
     "outputs": {
         "mgmtStatus": {
             "type": "string",
-            "value": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
         }
     }
 }

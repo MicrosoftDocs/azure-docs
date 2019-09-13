@@ -11,13 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
 ---
 
 # Azure resource providers and types
 
-When deploying resources, you frequently need to retrieve information about the resource providers and types. In this article, you learn how to:
+When deploying resources, you frequently need to retrieve information about the resource providers and types. For example, if you want to store keys and secrets, you work with the Microsoft.KeyVault resource provider. This resource provider offers a resource type called vaults for creating the key vault.
+
+The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
+
+In this article, you learn how to:
 
 * View all resource providers in Azure
 * Check registration status of a resource provider
@@ -27,6 +31,8 @@ When deploying resources, you frequently need to retrieve information about the 
 * View valid API versions for a resource type
 
 You can do these steps through the Azure portal, Azure PowerShell, or Azure CLI.
+
+For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
 ## Azure portal
 
@@ -287,5 +293,5 @@ West US
 
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). 
 * To view the resource provider template schemas, see [Template reference](/azure/templates/).
-* To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

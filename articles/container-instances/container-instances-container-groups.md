@@ -3,7 +3,7 @@ title: Azure Container Instances container groups
 description: Understand how multi-container groups work in Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -61,7 +61,7 @@ For more information, see the [ResourceRequirements][resource-requirements] prop
 
 * Allocate a **minimum** of 1 CPU and 1 GB of memory to a container group. Individual container instances within a group can be provisioned with less than 1 CPU and 1 GB of memory. 
 
-* For the **maximum** resources in a container group, see the [resource availability][aci-region-availability] for Azure Container Instances in the deployment region.
+* For the **maximum** resources in a container group, see the [resource availability][region-availability] for Azure Container Instances in the deployment region.
 
 ## Networking
 

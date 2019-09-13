@@ -3,8 +3,8 @@ title: Manage packet captures with Azure Network Watcher - Azure portal | Micros
 description: Learn how to manage the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 09/10/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Manage packet captures with Azure Network Watcher using the portal
@@ -30,7 +30,7 @@ Packet capture requires the following connectivity:
 * Inbound and outbound connectivity to 169.254.169.254
 * Inbound and outbound connectivity to 168.63.129.16
 
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. 
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. Similarly, adding user-defined traffic routes to your network may prevent connectivity to the above mentioned IPs and ports. Please ensure they are reachable. 
 
 ## Start a packet capture
 

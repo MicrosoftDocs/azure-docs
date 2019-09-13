@@ -1,7 +1,6 @@
 ---
 title: Enable heap dumps for Apache Hadoop services on HDInsight - Azure 
 description: Enable heap dumps for Apache Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -17,9 +16,6 @@ ms.author: hrasheed
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are useful for diagnosing problems that occur at run-time.
-
-> [!IMPORTANT]  
-> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Services
 
@@ -90,15 +86,15 @@ To modify the configuration for a service, use the following steps:
 
 2. Using the list of on the left, select the service area you want to modify. For example, **HDFS**. In the center area, select the **Configs** tab.
 
-    ![Image of Ambari web with HDFS Configs tab selected](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
+    ![Image of Ambari web with HDFS Configs tab selected](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
 
 3. Using the **Filter...** entry, enter **opts**. Only items containing this text are displayed.
 
-    ![Filtered list](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
+    ![Filtered list](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
 4. Find the **\*\_OPTS** entry for the service you want to enable heap dumps for, and add the options you wish to enable. In the following image, I've added `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` to the **HADOOP\_NAMENODE\_OPTS** entry:
 
-    ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
@@ -107,15 +103,15 @@ To modify the configuration for a service, use the following steps:
 
 5. Once the changes have been applied, the **Restart required** icon appears beside one or more services.
 
-    ![restart required icon and restart button](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
+    ![restart required icon and restart button](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
 
 6. Select each service that needs a restart, and use the **Service Actions** button to **Turn On Maintenance Mode**. Maintenance mode prevents alerts from being generated from the service when you restart it.
 
-    ![Turn on maintenance mode menu](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
+    ![Turn on maintenance mode menu](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. Once you have enabled maintenance mode, use the **Restart** button for the service to **Restart All Effected**
 
-    ![Restart All Affected entry](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
+    ![Restart All Affected entry](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
    > The entries for the **Restart** button may be different for other services.

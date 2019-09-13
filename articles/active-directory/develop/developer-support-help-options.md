@@ -3,20 +3,19 @@ title: Support and help options for Azure AD app developers | Microsoft Docs
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
-ms.author: celested
-ms.reviewer: jmprieur, dadobali
+ms.date: 05/23/2019
+ms.author: ryanwi
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -51,7 +50,6 @@ Where *{Your Search Terms}* correspond to your search keywords.
 | Tool  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Paste an ID or access token to decode the claims names and values. |
-| [Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and resolutions. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API. |
 
 ## Post a question to Stack Overflow
@@ -79,10 +77,10 @@ The following posts from Stack Overflow contain tips on how to ask questions and
 
 If you find a bug or problem related to our libraries, raise an issue in our GitHub repositories. Because our libraries are open source, you can also submit a pull request.
 
-To see a list of libraries and their GitHub repositories, see the following articles:
+For a list of libraries and their GitHub repositories, see the following:
 
 * [ADAL](active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [MSAL](reference-v2-libraries.md) libraries and GitHub repositories
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
 
 ## Open a support request
 

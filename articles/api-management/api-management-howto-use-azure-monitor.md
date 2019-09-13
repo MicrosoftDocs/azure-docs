@@ -11,7 +11,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
@@ -60,8 +59,9 @@ To access metrics:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. From the drop-down, select metrics you are interested in. For example, **Successful Gateway Requests**. You can also add more metrics to the chart.
-3. The chart shows the total number of successful API calls.
+1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
+1. The chart shows the total number of API calls.
+1. The chart can be filtered using the dimensions of the **Requests** metric. For example, click on **Add filter**, choose **Backend Response Code**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule for unauthorized request
 
@@ -94,7 +94,7 @@ To configure alerts:
 
 8. Provide a name, description of the alert rule and choose the severity level. 
 9. Press **Create alert rule**.
-10. Now, try to call the Conference API without an API key. The alert will be triggered an email will be sent to the admins. 
+10. Now, try to call the Conference API without an API key. The alert will be triggered and email will be sent to the admins. 
 
 ## Activity Logs
 

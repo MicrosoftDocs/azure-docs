@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ---
-# Create an environment from a blueprint sample
+# Tutorial: Create an environment from a blueprint sample
 
 Sample blueprints provide examples of what can be done using Azure Blueprints. Each is a sample with
 a specific intent or purpose, but doesn't create a complete environment by themselves. Each is
@@ -254,7 +254,7 @@ When finished with this tutorial, delete the following resources:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md)
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md)
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md)
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md)
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md)

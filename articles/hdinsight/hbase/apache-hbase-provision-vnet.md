@@ -1,7 +1,6 @@
 ---
 title: Create HBase clusters in a Virtual Network - Azure 
 description: Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -10,8 +9,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-
 ---
+
 # Create Apache HBase clusters on HDInsight in Azure Virtual Network
 Learn how to create Azure HDInsight Apache HBase clusters in an [Azure Virtual Network][1].
 
@@ -22,7 +21,7 @@ With virtual network integration, Apache HBase clusters can be deployed to the s
 * The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following items:
+Before you begin this article, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
@@ -43,12 +42,11 @@ In this section, you create a Linux-based Apache HBase cluster with the dependen
 > * **Subnet address range**: 10.0.0.0/24
 >
 > &lt;Cluster Name> is replaced with the cluster name you provide when using the template.
->
->
+
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 2. From the **Custom deployment** blade, enter the following properties:
 
    * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
@@ -60,7 +58,7 @@ In this section, you create a Linux-based Apache HBase cluster with the dependen
    * **I agree to the terms and the conditions stated above**: (Select)
 3. Click **Purchase**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
+After you complete the article, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using Apache HBase with Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -212,7 +210,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
     3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
     - Set **Primary DNS Suffix** to the value obtained in step 2:
 
-        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/PrimaryDNSSuffix.png)
+        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/hdi-primary-dns-suffix.png)
     4. Click **OK**.
     5. Reboot the virtual machine.
 -->
@@ -230,7 +228,7 @@ To use this information in a Java application, you can follow the steps in [Use 
 > For more information about name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## Next steps
-In this tutorial, you learned how to create an Apache HBase cluster. To learn more, see:
+In this article, you learned how to create an Apache HBase cluster. To learn more, see:
 
 * [Get started with HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md)

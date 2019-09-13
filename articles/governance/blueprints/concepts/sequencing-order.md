@@ -1,13 +1,12 @@
 ---
 title: Understand the deployment sequence order
-description: Learn about the life-cycle that a blueprint definition goes through and details about each stage.
+description: Learn about the lifecycle that a blueprint definition goes through and details about each stage.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/25/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand the deployment sequence in Azure Blueprints
 
@@ -39,6 +38,10 @@ created within that resource group:
 - Resource group child **policy assignment** artifacts sorted by artifact name
 - Resource group child **Azure Resource Manager template** artifacts sorted by artifact name
 
+> [!NOTE]
+> Use of [artifacts()](../reference/blueprint-functions.md#artifacts) creates an implicit dependency
+> on the artifact being referred to.
+
 ## Customizing the sequencing order
 
 When composing large blueprint definitions, it may be necessary for resources to be created in a
@@ -49,6 +52,11 @@ order to be defined.
 The ordering is accomplished by defining a `dependsOn` property in the JSON. The blueprint
 definition, for resource groups, and artifact objects support this property. `dependsOn` is a string
 array of artifact names that the particular artifact needs to be created before it's created.
+
+> [!NOTE]
+> When creating blueprint objects, each artifact resource gets its name from the filename, if using [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact),
+> or the URL endpoint, if using [REST API](/rest/api/blueprints/artifacts/createorupdate).
+> _resourceGroup_ references in artifacts must match those defined in the blueprint definition.
 
 ### Example - ordered resource group
 
@@ -78,9 +86,7 @@ named **assignPolicyTags** will be processed before the **ordered-rg** resource 
         },
         "targetScope": "subscription"
     },
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint",
-    "type": "Microsoft.Blueprint/blueprints",
-    "name": "mySequencedBlueprint"
+    "type": "Microsoft.Blueprint/blueprints"
 }
 ```
 
@@ -101,16 +107,14 @@ ordering allows the policy artifact to wait for the Azure Resource Manager templ
         ]
     },
     "kind": "policyAssignment",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
-    "type": "Microsoft.Blueprint/artifacts",
-    "name": "assignPolicyTags"
+    "type": "Microsoft.Blueprint/artifacts"
 }
 ```
 
 ### Example - subscription level template artifact depending on a resource group
 
 This example is for a Resource Manager template deployed at the subscription level to depend on a
-resource group. In default ordering, the subscription level artifacts would be created prior to any
+resource group. In default ordering, the subscription level artifacts would be created before any
 resource groups and child artifacts in those resource groups. The resource group is defined in the
 blueprint definition like this:
 
@@ -141,9 +145,7 @@ like this:
         "description": ""
     },
     "kind": "template",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
-    "type": "Microsoft.Blueprint/blueprints/artifacts",
-    "name": "subtemplateWaitForRG"
+    "type": "Microsoft.Blueprint/blueprints/artifacts"
 }
 ```
 
@@ -161,7 +163,7 @@ default sequencing order and no changes would be made.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Understand how to use [static and dynamic parameters](parameters.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

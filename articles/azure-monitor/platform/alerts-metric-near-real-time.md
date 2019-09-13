@@ -5,7 +5,7 @@ author: snehithm
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 07/17/2019
 ms.author: snmuvva
 ms.subservice: alerts
 ---
@@ -64,6 +64,10 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 
 ## Payload schema
 
+> [!NOTE]
+> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+
+
 The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](../../azure-monitor/platform/action-groups.md) is used:
 
 ```json
@@ -78,11 +82,13 @@ The POST operation contains the following JSON payload and schema for all near n
       "name": "StorageCheck",
       "description": "",
       "conditionType": "SingleResourceMultipleMetricCriteria",
+      "severity":"3",
       "condition": {
         "windowSize": "PT5M",
         "allOf": [
           {
             "metricName": "Transactions",
+            "metricNamespace":"microsoft.storage/storageAccounts",
             "dimensions": [
               {
                 "name": "AccountResourceId",

@@ -3,8 +3,8 @@ title: Manage packet captures with Azure Network Watcher - Azure CLI | Microsoft
 description: This page explains how to manage the packet capture feature of Network Watcher using the Azure CLI
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Manage packet captures with Azure Network Watcher using the Azure CLI

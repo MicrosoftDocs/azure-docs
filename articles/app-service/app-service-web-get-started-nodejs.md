@@ -11,7 +11,6 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
@@ -53,7 +52,7 @@ const port = process.env.PORT || 1337;
 
 App Service injects process.env.PORT into your application, so the code uses the variable to know which port to listen. 
 
-In a terminal window, navigate to the root directory of the sample Node.js project (the one that contains _index.js_).
+In a terminal window, navigate to the **root directory** of the sample Node.js project (the directory that contains _index.js_).
 
 ## Run the app locally
 
@@ -74,7 +73,19 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 > [!NOTE]
 > In Azure App Service, the app is run in IIS using [iisnode](https://github.com/Azure/iisnode). To enable the app to run with iisnode, the root app directory contains a web.config file. The file is readable by IIS, and the iisnode-related settings are documented in [the iisnode GitHub repository](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## Create a project ZIP file
+
+Make sure you're still in the **root directory** of the sample project (the directory that contains _index.js_). Create a ZIP archive of everything in your project. The following command uses the default tool in your terminal:
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+Later, you upload this ZIP file to Azure and deploy it to App Service.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -152,7 +163,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-In the local terminal window, navigate to your application's root directory, create a new ZIP file for your updated project.
+In the local terminal window, navigate to your application's **root directory** (the directory that contains _index.js_), create a new ZIP file for your updated project.
 
 ```azurecli-interactive
 # Bash

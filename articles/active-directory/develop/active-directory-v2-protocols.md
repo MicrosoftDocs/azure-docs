@@ -3,8 +3,8 @@ title: Learn about the authorization protocols supported by Microsoft identity p
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
@@ -13,9 +13,9 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/11/2019
-ms.author: celested
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ The Microsoft identity platform endpoint for identity-as-a-service with industry
 
 In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0 Roles](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow third parties to access that data or resource.
@@ -41,13 +41,13 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 
 ## App Registration
 
-Every app that wants to accept both personal and work or school accounts must be registered through the new **App registrations (Preview)** experience in the [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
+Every app that wants to accept both personal and work or school accounts must be registered through the **App registrations** experience in the [Azure portal](https://aka.ms/appregistrations) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
 
 * An **Application ID** that uniquely identifies your app
-* A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
+* A **Redirect URI** (optional) that can be used to direct responses back to your app
 * A few other scenario-specific values.
 
-For more details, learn how to [register an app](quickstart-v2-register-an-app.md).
+For more details, learn how to [register an app](quickstart-register-app.md).
 
 ## Endpoints
 

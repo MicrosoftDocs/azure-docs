@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Azure CLI'
+title: 'Create an Azure Data Explorer cluster and database by using Azure CLI'
 description: Learn how to create an Azure Data Explorer cluster and database by using the Azure CLI
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/03/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using Azure CLI
@@ -19,15 +19,15 @@ ms.date: 04/10/2019
 > * [Python](create-cluster-database-python.md)
 >
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Azure CLI.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using Azure CLI.
 
 ## Prerequisites
 
-To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+To complete this article, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the Azure CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the Azure CLI locally, this article requires the Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Configure the CLI parameters
 
@@ -95,7 +95,7 @@ You now have a cluster and a database.
 
 ## Clean up resources
 
-* If you plan to follow our other quickstarts and tutorials, keep the resources you created.
+* If you plan to follow our other articles, keep the resources you created.
 * To clean up resources, delete the cluster. When you delete a cluster, it also deletes all the databases in it. Use the following command to delete your cluster:
 
     ```azurecli-interactive
@@ -104,5 +104,4 @@ You now have a cluster and a database.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+* [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)

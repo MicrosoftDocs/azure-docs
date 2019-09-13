@@ -3,7 +3,7 @@ title: Set up a Windows development environment for Azure microservices | Micros
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: peterpogorski
 manager: chackdan
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/02/2019
-ms.author: aljo
+ms.date: 08/22/2019
+ms.author: atsenthi
 
 ---
 # Prepare your development environment on Windows
@@ -49,8 +49,8 @@ Web Platform Installer (WebPI) is the recommended way to install the SDK and too
 > [!NOTE]
 > Local Service Fabric development cluster upgrades are not supported.
 
-### To use Visual Studio 2017
-The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
+### To use Visual Studio 2017 or 2019
+The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017 and 2019. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
@@ -65,10 +65,11 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.3.654
-* Service Fabric runtime 6.4.654
-* Service Fabric Tools for Visual Studio 2015 2.4.11116.1
+* Service Fabric SDK and Tools 3.4.664
+* Service Fabric runtime 6.5.664
+* Service Fabric Tools for Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
+* Visual Studio 2019 16.1 includes Service Fabric Tools for Visual Studio 2.5.20423.3
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 

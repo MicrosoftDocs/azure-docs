@@ -105,7 +105,7 @@ A route filter can have only one rule, and the rule must be of type 'Allow'. Thi
 
 ### 1. Create a route filter
 
-First, create the route filter. The command 'az network route-filter create' only creates a route filter resource. After you create the resource, you must then create a rule and attach it to the route filter object. Run the following command to create a route filter resource:
+First, create the route filter. The command `az network route-filter create` only creates a route filter resource. After you create the resource, you must then create a rule and attach it to the route filter object. Run the following command to create a route filter resource:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup

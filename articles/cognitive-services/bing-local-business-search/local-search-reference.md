@@ -1,19 +1,20 @@
 ---
-title: Bing Local Business Search API v7 Reference | Microsoft Docs
-description: Describes the programming elements of the Bing Local Business Search API.
+title: Bing Local Business Search API v7 Reference
 titleSuffix: Azure Cognitive Services
+description: Describes the programming elements of the Bing Local Business Search API.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Bing Local Business Search API v7 reference
 
-The Local Business Search API sends a search query to Bing to get results that include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries, etc.  
+The Local Business Search API sends a search query to Bing to get results that include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries/regions, etc.  
 
 This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Business Search C# quickstart](quickstarts/local-quickstart.md) or [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md). 
   

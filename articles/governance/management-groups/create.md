@@ -3,7 +3,7 @@ title: Create management groups to organize Azure resources - Azure Governance
 description: Learn how to create Azure management groups to manage multiple resources using the portal, Azure PowerShell, and Azure CLI. 
 author: rthorn17
 manager: rithorn
-ms.service: azure-resource-manager
+ms.service: governance
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -22,8 +22,6 @@ groups, see [Organize your resources with Azure management groups](overview.md).
 The first management group created in the directory could take up to 15 minutes to complete. There
 are processes that run the first time to set up the management groups service within Azure for your
 directory. You receive a notification when the process is complete.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Create a management group
 

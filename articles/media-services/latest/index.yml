@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. <br/> The SDKs are based on <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Specification (Swagger)</a>.
@@ -26,7 +26,7 @@ sections:
     - title: Learn concepts    
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Cloud upload and storage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Monitoring</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media analytics</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Live Streaming</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player clients</a></p>
     - title: Develop with v3 API
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Start developing with SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Develop with REST</a></p>
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/media-services-apis-overview">Guidance</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Develop with REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Connect with Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Connect with .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Connect with Node.js</a></p>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -55,34 +55,22 @@ sections:
     className: cardsM
     columns: 1
     items:
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>The tutorial uploads a local video file, encodes the file, and streams the encoded content.<p/>
+    - html: <p>The tutorial uploads a local video file, encodes the file, and streams the encoded content.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
       title: Encode uploaded file and stream video
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>The tutorial explains how to set up for a live event. It then shows how to use .NET to create a pass-through type of a live event.</p>
+    - html: <p>The tutorial explains how to set up for a live event. It then shows how to create a pass-through type of a live event.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
       title: Broadcast  live
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>This tutorial shows you how to analyze videos with Azure Media Services API.</p>
+    - html: <p>This tutorial shows you how to analyze videos with Azure Media Services API.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
       title: Analyze your video
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with AES-128.</p>
+    - html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with AES-128.</p>
       href: /azure/media-services/latest/protect-with-aes128
       title: Encrypt dynamically with AES-128
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with multi-DRM (PlayReady, Widevine, and FairPlay).</p>
+    - html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with multi-DRM (PlayReady, Widevine, and FairPlay).</p>
       href: /azure/media-services/latest/protect-with-drm
       title: Encrypt dynamically with multi-DRM
-    - image:
-        src: media/index/rest.svg
-      html: <p>The tutorial shows how to encode a remote file based on URL and stream the video.</p>
+    - html: <p>The tutorial shows how to encode a remote file based on URL and stream the video.</p>
       href: /azure/media-services/latest/stream-files-tutorial-with-rest
       title: Encode remote file and stream video 
 - title: Samples

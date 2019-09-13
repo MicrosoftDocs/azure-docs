@@ -1,60 +1,58 @@
 ---
-title: Install, run containers
-titlesuffix: Face - Azure Cognitive Services 
-description: How to download, install, and run containers for Face in this walkthrough tutorial.
+title: Install and run containers - FACE API
+titleSuffix: Azure Cognitive Services
+description: Download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: article
-ms.date: 03/22/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ---
 
 # Install and run Face containers
 
-Face provides a standardized Linux container for Docker, named Face, which detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.
+Azure Cognitive Services Face provides a standardized Linux container for Docker that detects human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Face API containers:
+You must meet the following prerequisites before you use the Face API containers.
 
 |Required|Purpose|
 |--|--|
-|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
-|Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Face API resource |In order to use the container, you must have:<br><br>A _Face API_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Face API Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
-
+|Docker Engine| The Docker Engine must be installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> On Windows, Docker also must be configured to support Linux containers.<br><br>|
+|Familiarity with Docker | You need a basic understanding of Docker concepts, such as registries, repositories, containers, and container images. You also need knowledge of basic `docker` commands.| 
+|Face resource |To use the container, you must have:<br><br>An Azure **Face** resource and the associated API key and the endpoint URI. Both values are available on the **Overview** and **Keys** pages for the resource. They're required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page
 
 ## Request access to the private container registry
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Face API container.
 
-| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+| Container | Minimum | Recommended | Transactions per second<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
-|Face | 1 core, 2 GB memory | 1 core, 4 GB memory |10, 20|
+|Face | 1 core, 2-GB memory | 1 core, 4-GB memory |10, 20|
 
-* Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
+* Each core must be at least 2.6 GHz or faster.
+* Transactions per second (TPS).
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-## Get the container image with `docker pull`
+## Get the container image with docker pull
 
-Container images for Face API are available. 
+Container images for the Face API are available. 
 
 | Container | Repository |
 |-----------|------------|
@@ -68,43 +66,45 @@ Container images for Face API are available.
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
-## How to use the container
+## Use the container
 
-Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
+After the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](./face-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Run the container](#run-the-container-with-docker-run) with the required billing settings. More [examples](./face-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
-## Run the container with `docker run`
+## Run the container with docker run
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters.
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Face API Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Face API Overview page.|
+|{API_KEY} | This key is used to start the container and is available on the Azure `Cognitive Services` **Keys** page. |
+|{ENDPOINT_URI} | The billing endpoint URI value is available on the Azure `Cognitive Services` **Overview** page. An example is `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
 
-Replace these parameters with your own values in the following example `docker run` command.
+Add the `face/v1.0` routing to the endpoint URI, as shown in the preceding ENDPOINT_URI example. 
+
+Replace these parameters with your own values in the following `docker run` command example:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-face \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 This command:
 
-* Runs a face container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Runs a face container from the container image.
+* Allocates one CPU core and 4 GB of memory.
+* Exposes TCP port 5000 and allocates a pseudo TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
 More [examples](./face-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container or the container won't start. For more information, see [Billing](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -113,7 +113,7 @@ More [examples](./face-resource-container-config.md#example-docker-run-commands)
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `https://localhost:5000`, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs.
 
 
 <!--  ## Validate container is running -->
@@ -126,34 +126,36 @@ Use the host, `https://localhost:5000`, for container APIs.
 
 ## Troubleshooting
 
-If you run the container with an output [mount](./face-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](./face-resource-container-config.md#mount-settings) and logging is enabled, the container generates log files that are helpful to troubleshoot issues that happen while you start or run the container. 
 
 
 ## Billing
 
-The Face API containers send billing information to Azure, using a _Face API_ resource on your Azure account. 
+The Face API containers send billing information to Azure by using a Face API resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./face-resource-container-config.md).
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Face API containers. In summary:
+In this article, you learned concepts and workflow for how to download, install, and run Face API containers. In summary:
 
-* Face API provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
-* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
+* Container images are downloaded from the Azure Container Registry.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Face API containers by specifying the host URI of the container.
-* You must specify billing information when instantiating a container.
+* You can use either the REST API or the SDK to call operations in Face API containers by specifying the host URI of the container.
+* You must specify billing information when you instantiate a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers aren't licensed to run without being connected to Azure for metering. Customers must enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
 ## Next steps
 
-* Review [Configure containers](face-resource-container-config.md) for configuration settings
-* Review [Face overview](Overview.md) to learn more about detecting and identifying faces  
-* Refer to the [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for details about the methods supported by the container.
-* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Face functionality.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* For configuration settings, see [Configure containers](face-resource-container-config.md).
+* To learn more about how to detect and identify faces, see [Face overview](Overview.md).
+* For information about the methods supported by the container, see the [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+* To use more Cognitive Services containers, see [Cognitive Services containers](../cognitive-services-container-support.md).

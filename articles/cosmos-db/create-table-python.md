@@ -31,7 +31,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 In addition:
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you select the **Azure development** and **Python development** workloads during the Visual Studio setup.
+* If you don’t already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you select the **Azure development** and **Python development** workloads during the Visual Studio setup.
 * Also select the Python 2 option in the **Python development** workload, or download Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## Create a database account
@@ -78,7 +78,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
 
@@ -96,7 +96,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
 
-2. Select Install Python Package, then type in **azure-storage-table**
+2. Select Install Python Package, then enter **azure-storage-table**
 
 3. Run F5 to run the application. Your app displays in your browser. 
 

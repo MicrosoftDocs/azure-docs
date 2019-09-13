@@ -4,13 +4,14 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh 
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
-# Quickstart: Create an Apache Kafka on HDInsight cluster
+# Quickstart: Create Apache Kafka cluster in Azure HDInsight using Azure portal
 
 Apache Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
@@ -18,16 +19,13 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]  
-> The Apache Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network.
->
-> For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+The Apache Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Create an Apache Kafka cluster
 
@@ -37,7 +35,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 2. From the left menu, navigate to **+ Create a resource** > **Analytics** > **HDInsight**.
    
-    ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. From **Basics**, enter or select the following information:
 
@@ -48,7 +46,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     
    Select __Cluster Type__ to display the **Cluster configuration**.
    
-   ![Apache Kafka cluster on HDInsight basic configuration](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
+   ![Apache Kafka cluster on HDInsight basic configuration](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. From __Cluster configuration__, select the following values:
 
@@ -59,7 +57,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
     Select **Select** to save the cluster type settings and return to __Basics__.
 
-    ![Select cluster type](./media/apache-kafka-get-started/kafka-cluster-type.png)
+    ![Select cluster type](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. From __Basics__, enter or select the following information:
 
@@ -71,10 +69,9 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     | Resource Group | The resource group to create the cluster in. |
     | Location | The Azure region to create the cluster in. |
 
-    > [!TIP]  
-    > Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
-    >
-    > For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+    Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
+
+    For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
    ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
@@ -94,22 +91,19 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 9. From __Cluster size__, select __Next__ to continue with the default settings.
 
-    > [!IMPORTANT]  
-    > To guarantee availability of Apache Kafka on HDInsight, the __number of worker nodes__ entry must be set to 3 or greater. The default value is 4.
-    
-    > [!TIP]  
-    > The **disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
+    To guarantee availability of Apache Kafka on HDInsight, the __number of worker nodes__ entry must be set to 3 or greater. The default value is 4.
 
-   ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
+    The **disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
+
+   ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
 10. From __Advanced settings__, select __Next__ to continue with the default settings.
 
 11. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, select **Create** to create the cluster.
-   
+
     ![Cluster configuration summary](./media/apache-kafka-get-started/kafka-configuration-summary.png)
-   
-    > [!NOTE]
-    > It can take up to 20 minutes to create the cluster.
+
+    It can take up to 20 minutes to create the cluster.
 
 ## Connect to the cluster
 
@@ -125,7 +119,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
     Once connected, you see information similar to the following text:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -143,7 +137,6 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information
@@ -172,17 +165,13 @@ In this section, you get the host information from the Apache Ambari REST API on
     echo $clusterName, $clusterNameA
     ```
 
-4. To set an environment variable with Zookeeper host information, use the following command:
-    
+4. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
+
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    > [!TIP]  
-    > This command directly queries the Ambari service on the cluster head node. You can also access Ambari using the public address of `https://$CLUSTERNAME.azurehdinsight.net:80/`. Some network configurations can prevent access to the public address. For example, using Network Security Groups (NSG) to restrict access to HDInsight in a virtual network.
-
-    > [!NOTE]  
-    > This command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
+    This command directly queries the Ambari service on the cluster head node. You can also access Ambari using the public address of `https://$CLUSTERNAME.azurehdinsight.net:80/`. Some network configurations can prevent access to the public address. For example, using Network Security Groups (NSG) to restrict access to HDInsight in a virtual network.
 
 5. To verify that the environment variable is set correctly, use the following command:
 
@@ -226,15 +215,13 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
     * Each partition is replicated across three worker nodes in the cluster.
 
-        > [!IMPORTANT]  
-        > If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
+        If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
         
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
         For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
-        > [!IMPORTANT]  
-        > Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
+        Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 
         To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Apache Kafka cluster.
 
@@ -286,15 +273,14 @@ To store records into the test topic you created earlier, and then read them usi
 2. Type a text message on the empty line and hit enter. Enter a few messages this way, and then use **Ctrl + C** to return to the normal prompt. Each line is sent as a separate record to the Apache Kafka topic.
 
 3. To read records from the topic, use the `kafka-console-consumer.sh` utility from the SSH connection:
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
-   
+
     This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.
 
-    > [!NOTE]
-    > If you are using an older version of Kafka, replace `--bootstrap-server $KAFKABROKERS` with `--zookeeper $KAFKAZKHOSTS`.
+    If you are using an older version of Kafka, replace `--bootstrap-server $KAFKABROKERS` with `--zookeeper $KAFKAZKHOSTS`.
 
 4. Use __Ctrl + C__ to stop the consumer.
 

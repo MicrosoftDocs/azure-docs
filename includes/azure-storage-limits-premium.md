@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -14,16 +14,9 @@ ms.custom: include file
 
 A premium performance block blob storage account is optimized for applications that use smaller, kilobyte range, objects. It's ideal for applications that require high transaction rates or consistent low-latency storage. Premium performance block blob storage is designed to scale with your applications. If you plan to deploy application(s) that require hundreds of thousands of requests per second or petabytes of storage capacity, please contact us by submitting a support request in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### Premium performance FileStorage (preview)
+### Premium performance FileStorage
 
-Premium files use a unique storage account called **FileStorage (preview)**. This account type is designed for workloads with high IOPS, high throughput with consistent low-latency. Premium file storage scales with the provisioned share size.
-
-|Area  |Target  |
-|---------|---------|
-|Max size     |5 TiB (public preview), 100 TiB (limited public preview)     |
-|Shares   |Unlimited  |
-|IOPS     |100,000 (limited public preview)    |
-|Bandwidth|5 GB/s     |
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
 
  For premium file share scale targets, see the [Premium files scale targets](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) section.
 

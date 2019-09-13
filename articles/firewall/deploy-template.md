@@ -3,17 +3,15 @@ title: Deploy Azure Firewall using a template
 description: Deploy Azure Firewall using a template
 services: firewall
 author: vhorne
-manager: jpconnock
-
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 7/9/2018
 ms.author: victorh
 ---
 
 # Deploy Azure Firewall using a template
 
-The [Create AzureFirewall sandbox setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* subnet each have a single, two-core Windows Server virtual machine.
+The [Create AzureFirewall sandbox setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* subnet each have a single, two-core Windows Server virtual machine.
 
 The firewall is in the *AzureFirewallSubnet* subnet, and has an application rule collection with a single rule that allows access to *www.microsoft.com*.
 
@@ -30,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 **To install and deploy Azure Firewall by using the template:**
 
-1. Access the template at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+1. Access the template at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
    
 1. Read the introduction, and when ready to deploy, select **Deploy to Azure**.
    

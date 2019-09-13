@@ -1,20 +1,20 @@
 ---
 title: 'Azure Backup: Back up Azure VMs using REST API'
 description: Manage backup operations of Azure VM Backup using REST API
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Azure VM backup; Azure VM restore;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ---
 
 # Back up an Azure VM using Azure Backup via REST API
 
-This article describes how to manage backups for an Azure VM using Azure Backup via REST API. Configure protection for the first time for a previously unprotected Azure VM, trigger an on-demand backup for a protected Azure VM and modify backup properties of a backed up VM via REST API as explained here.
+This article describes how to manage backups for an Azure VM using Azure Backup via REST API. Configure protection for the first time for a previously unprotected Azure VM, trigger an on-demand backup for a protected Azure VM and modify backup properties of a backed-up VM via REST API as explained here.
 
 Refer to [create vault](backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
 
@@ -93,7 +93,7 @@ X-Powered-By: ASP.NET
 
 ### Selecting the relevant Azure VM
 
- You can confirm that "caching" is done by [listing all protectable items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-1) also gives you information on how Recovery services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
+ You can confirm that "caching" is done by [listing all protectable items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-1) also gives you information on how Recovery Services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
 
 This operation is a *GET* operation.
 
@@ -103,13 +103,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The *GET* URI has all the required parameters. No additional request body is needed.
 
-#### Responses
+##### <a name="responses-1"></a>Responses
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### Example responses
+##### <a name="example-responses-1"></a>Example responses
 
 Once the *GET* request is submitted, a 200 (OK) response is returned.
 
@@ -324,7 +324,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |202 Accepted     |         |     Accepted    |
 
-#### Example responses
+##### <a name="example-responses-3"></a>Example responses
 
 Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -388,7 +388,7 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ### Changing the policy of protection
 
-To change the policy with which VM is protected, you can use the same format as [enabling protection](#enabling-protection-for-the-azure-vm). Just provide the new policy ID in [the request body](#example-request-body) and submit the request. For eg: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' id in the request body.
+To change the policy with which VM is protected, you can use the same format as [enabling protection](#enabling-protection-for-the-azure-vm). Just provide the new policy ID in [the request body](#example-request-body) and submit the request. For example: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' ID in the request body.
 
 ```http
 {
@@ -434,7 +434,7 @@ The `{containerName}` and `{protectedItemName}` are as constructed [above](#resp
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### Responses
+### <a name="responses-2"></a>Responses
 
 *DELETE* protection is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
 

@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
-description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search and Postman.
+title: 'REST Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
+description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search REST APIs and Postman.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Search.
 ---
 
-# Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
+# REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
 
 Azure Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
@@ -23,9 +23,6 @@ In this tutorial, use the [Azure Search REST APIs](https://docs.microsoft.com/re
 > * Create an Azure Search index to contain searchable content
 > * Configure and run an indexer to read the container and extract searchable content from Azure blob storage
 > * Search the index you just created
-
-> [!NOTE]
-> This tutorial relies on JSON array support, which is currently a preview feature in Azure Search. It is not available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API.
 
 ## Prerequisites
 
@@ -47,7 +44,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -55,9 +52,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. Because you will be using a key and storage account name for the connection, make sure the container's Public Access Level is set to "Container (anonymous read access for container)".
-
-   ![Set public access level](media/search-semi-structured-data/container-public-access-level.png "Set public access level")
+1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. You can set the Public Access Level to any of its valid values.
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
@@ -71,7 +66,7 @@ After the upload completes, the files should appear in their own subfolder insid
 
 ## Set up Postman
 
-Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-fiddler.md).
+Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-get-started-postman.md).
 
 The request method for every call in this tutorial is **POST**. The header keys are "Content-type" and "api-key." The values of the header keys are "application/json" and your "admin key" (the admin key is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query, but those are the basics.
 
@@ -79,7 +74,7 @@ The request method for every call in this tutorial is **POST**. The header keys 
 
 We are using Postman to make three API calls to your search service in order to create a data source, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
 
-The query string must contain a preview API (such as **api-version=2017-11-11-Preview**) and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
+Query strings must specify an api-version and each call should return a **201 Created**. The generally available api-version for using JSON arrays is `2019-05-06`.
 
 Execute the following three API calls from your REST client.
 
@@ -87,7 +82,7 @@ Execute the following three API calls from your REST client.
 
 The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)creates an Azure Search object that specifies what data to index.
 
-The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service. 
+The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Replace `[service name]` with the name of your search service. 
 
 For this call, the request body must include the name of your storage account, storage account key, and blob container name. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. The location is shown in the following image:
 
@@ -128,9 +123,9 @@ The response should look like:
 
 ## Create an index
     
-The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), creating an Azure Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), creating an Azure Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
-The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
+The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
 
 First replace the URL. Then copy and paste the following code into your body and run the query.
 
@@ -220,7 +215,7 @@ The response should look like:
 
 An indexer connects the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh. The REST API is [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-The URL for this call is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
+The URL for this call is `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
 
 First replace the URL. Then copy and paste the following code into your body and send the request. The request is processed immediately. When the response comes back, you will have an index that is full-text searchable.
 
@@ -265,7 +260,7 @@ You can start searching as soon as the first document is loaded. For this task, 
 
 In Azure portal, open the search service **Overview** page, find the index you created in the **Indexes** list.
 
-Be sure to choose the index you just created. The API version can be preview or a generally available version. The only preview requirement was for indexing JSON arrays.
+Be sure to choose the index you just created. 
 
   ![Unstructured search](media/search-semi-structured-data/indexespane.png)
 

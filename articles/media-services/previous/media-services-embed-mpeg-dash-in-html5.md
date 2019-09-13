@@ -82,7 +82,7 @@ Next, instantiate the primary class of the dash.js framework, MediaPlayer. This 
 
 The startup() function of the MediaPlayer class is called to ensure that the player is ready to play video. Among other things, the function ensures that all the necessary classes (as defined by the context) have been loaded. Once the player is ready, you can attach the video element to it using the attachView() function. The startup function enables the MediaPlayer to inject the video stream into the element and also control playback as necessary.
 
-Pass the URL of the MPD file to the MediaPlayer so that it knows about the video it is expected to play. The setupVideo() function just created will need to be executed once the page has fully loaded. Do this by using the onload event of the body element. Change your <body> element to:
+Pass the URL of the MPD file to the MediaPlayer so that it knows about the video it is expected to play. The setupVideo() function just created will need to be executed once the page has fully loaded. Do this by using the onload event of the body element. Change your `<body>` element to:
 
 ```html
     <body onload="setupVideo()">

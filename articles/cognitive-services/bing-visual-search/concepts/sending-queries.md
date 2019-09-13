@@ -1,6 +1,6 @@
 ---
 title: "Sending search queries to the Bing Visual Search API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about the REST API parameters used in the Bing Visual Search API.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
-ms.date: 4/03/2019
+ms.topic: conceptual
+ms.date: 08/30/2019
 ms.author: aahi
 ---
 
 # Sending search queries to the Bing Visual Search API
 
-This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
+This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object. 
 
 You can get insights about an image in three ways:
 
@@ -94,7 +94,7 @@ The following are the headers that your request should specify. The `Content-Typ
 | <a name="location" />X-Search-Location   | Optional request header.<br /><br /> A semicolon-delimited list of key/value pairs that describe the client's geographical location. Bing uses the location information to determine safe search behavior and to return relevant local content. Specify the key/value pair as \<key\>:\<value\>. The following are the keys that you use to specify the user's location.<br /><br /><ul><li>lat&mdash;Required. The latitude of the client's location, in degrees. The latitude must be greater than or equal to -90.0 and less than or equal to +90.0. Negative values indicate southern latitudes and positive values indicate northern latitudes.<br /><br /></li><li>long&mdash;Required. The longitude of the client's location, in degrees. The longitude must be greater than or equal to -180.0 and less than or equal to +180.0. Negative values indicate western longitudes and positive values indicate eastern longitudes.<br /><br /></li><li>re&mdash;Required. The radius, in meters, which specifies the horizontal accuracy of the coordinates. Pass the value returned by the device's location service. Typical values might be 22 m for GPS/Wi-Fi, 380 m for cell tower triangulation, and 18,000 m for reverse IP lookup.<br /><br /></li><li>ts&mdash;Optional. The UTC UNIX timestamp of when the client was at the location. (The UNIX timestamp is the number of seconds since January 1, 1970.)<br /><br /></li><li>head&mdash;Optional. The client's relative heading or direction of travel. Specify the direction of travel as degrees from 0 through 360, counting clockwise relative to true north. Specify this key only if the `sp` key is nonzero.<br /><br /></li><li>sp&mdash;Optional. The horizontal velocity (speed), in meters per second, that the client device is traveling.<br /><br /></li><li>alt&mdash;Optional. The altitude of the client device, in meters.<br /><br /></li><li>are&mdash;Optional. The radius, in meters, that specifies the vertical accuracy of the coordinates. Specify this key only if you specify the `alt` key.<br /><br /></li></ul> **NOTE:** Although many of the keys are optional, the more information that you provide, the more accurate the location results are.<br /><br /> **NOTE:** Although optional, you are encouraged to always specify the user's geographical location. Providing the location is especially important if the client's IP address does not accurately reflect the user's physical location (for example, if the client uses VPN). For optimal results, you should include this header and the `X-MSEdge-ClientIP` header, but at a minimum, you should include this header.       |
 
 > [!NOTE]
-> Remember that the [Bing Search API use and display requirements](/../bing-web-search/use-display-requirements.md) require compliance with all applicable laws, including regarding use of these headers. For example, in certain jurisdictions, such as Europe, there are requirements to obtain user consent before placing certain tracking devices on user devices.
+> Remember that the [Bing Search API use and display requirements](../../bing-web-search/use-display-requirements.md) require compliance with all applicable laws, including regarding use of these headers. For example, in certain jurisdictions, such as Europe, there are requirements to obtain user consent before placing certain tracking devices on user devices.
 
 <a name="content-form-types" />
 
@@ -189,6 +189,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ## Bing Visual Search responses
 
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
 If there are insights available for the image, the response contains one or more `tags` that contain the insights. The `image` field contains the insights token for the input image:
 
 ```json
@@ -235,7 +238,7 @@ The `tags` field contains a display name and list of actions (insights). One of 
 
 For a list of the default insights, see [Default insights tag](../default-insights-tag.md).
 
-The remaining tags contain other insights that may be of interest to the user. For example, if the image contains text, one of the tags may include a TextResults insight, which contains the recognized text. Or, if Bing recognizes an entity (that is, a person, place, or thing) in the image, one of the tags may identify the entity. Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags enable users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags might be Sports, which contains links to images of sports.
+The remaining tags contain other insights that may be of interest to the user. For example, if the image contains text, one of the tags may include a TextResults insight, which contains the recognized text. Or, if Bing recognizes an entity (that is, a culturally well-known/popular person, place, or thing) in the image, one of the tags may identify the entity. Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags enable users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags might be Sports, which contains links to images of sports.
 
 Each tag includes a display name that you can use to categorize the insight, bounding box that identifies the region of interest that the insight applies to, the insights themselves, and a thumbnail of the image. For example, if the image is of a person wearing a sports jersey, one of the tags might include a bounding box that bounds the jersey and includes VisualSearch and ProductVisualSearch insights. And another tag might include an ImageResults insight that contains a URL for an /images/search API request to get images that are topically related or a Bing.com search URL that takes the user to the Bing.com image search results.
 
@@ -361,7 +364,7 @@ Text recognition can also recognize the contact information on business cards, s
     }
 ```
 
-If the image contains a recognized entity such as a person, place, or thing, one of the tags may include an Entity insight.
+If the image contains a recognized entity such as a culturally well-known/popular person, place, or thing, one of the tags may include an Entity insight.
 
 ```json
     {

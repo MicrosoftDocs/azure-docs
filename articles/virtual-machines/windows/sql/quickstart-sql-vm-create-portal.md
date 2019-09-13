@@ -7,11 +7,11 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ---
@@ -24,11 +24,10 @@ ms.reviewer: jroth
 
 This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
 
-> [!TIP]
-> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-> [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+  > [!TIP]
+  > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -38,18 +37,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your account.
 
-1. In the Azure portal, select **Create a resource**. 
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information by selecting **Show details** on the **SQL virtual machines** tile.
+1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image from the dropdown.
 
-1. In the search field, type `SQL Server 2017 Developer on Windows Server 2016`, and press ENTER.
-
-1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image.
-
-   ![New search window](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
-   > [!TIP]
-   > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. For complete pricing considerations, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+   ![New search window](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. Select **Create**.
+
+   ![New search window](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Provide basic details
 
@@ -62,7 +58,7 @@ On the **Basics** tab, provide the following information:
 1. Under **Instance details**:
     1. Type _SQLVM_ for the **Virtual machine name**. 
     1. Choose a location for your **Region**. 
-    1. For the purpose of this quickstart, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Azure regions and availability](../../windows/regions-and-availability.md). 
+    1. For the purpose of this quickstart, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Availability](../../windows/availability.md). 
     1. In the **Image** list, select _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_. 
     1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. 
 
@@ -94,19 +90,14 @@ On the **SQL Server settings** tab, configure the following options:
 
 On the **Review + create** tab, review the summary, and select  **Create** to create SQL Server, resource group, and resources specified for this VM.
 
-You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
-
-> [!TIP]
-> Deploying a Windows SQL Server VM can take several minutes.
+You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment. Deployment can take several minutes. 
 
 ## Connect to SQL Server
 
 1. In the portal, find the **Public IP address** of your SQL Server VM in the **Overview** section of your virtual machine's properties.
 
-1. On a different computer connected to the Internet, open SQL Server Management Studio (SSMS).
+1. On a different computer connected to the Internet, open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
-   > [!TIP]
-   > If you do not have SQL Server Management Studio, you can download it from [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address. Then add a comma, and add the custom port, **1401**, that we specified when you configured the new VM. For example, `11.22.33.444,1401`.
 

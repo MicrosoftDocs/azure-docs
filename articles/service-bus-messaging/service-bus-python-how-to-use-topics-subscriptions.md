@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
@@ -21,14 +21,21 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Azure Python SDK package][Azure Python package]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
+This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Azure Python SDK package][Azure Python package]. The scenarios covered include:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Creating topics and subscriptions 
+- Creating subscription filters 
+- Sending messages to a topic 
+- Receiving messages from a subscription
+- Deleting topics and subscriptions
 
-> [!NOTE] 
-> If you need to install Python or the [Azure Python package][Azure Python package], see the [Python Installation Guide](../python-how-to-install.md).
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > You will create a **topic** and a **subscription** to the topic by using **Python** in this quickstart. 
+3. Install [Azure Python package][Azure Python package]. See the [Python Installation Guide](/azure/python/python-sdk-azure-install).
 
 ## Create a topic
 
@@ -68,9 +75,9 @@ bus_service.create_topic('mytopic', topic_options)
 Subscriptions to topics are also created with the **ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
 
 > [!NOTE]
-> Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
+> By default, subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
 > 
-> 
+> You can have the subscriptions automatically deleted by setting the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -130,7 +137,8 @@ The following example demonstrates how to send five test messages to `mytopic`. 
 
 ```python
 for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    msg = Message('Msg {0}'.format(i).encode('utf-8'),
+                  custom_properties={'messagenumber': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
@@ -142,7 +150,8 @@ a maximum size of 64 KB. There is no limit on the number of messages held in a t
 Messages are received from a subscription using the `receive_subscription_message` method on the **ServiceBusService** object:
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message(
+    'mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
@@ -169,7 +178,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
+Topics and subscriptions are persistent unless the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) is set. They can be deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -180,6 +189,9 @@ Deleting a topic also deletes any subscriptions that are registered with the top
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

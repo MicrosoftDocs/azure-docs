@@ -1,7 +1,6 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
 description: This article describes how to optimize your Apache Hive queries for Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -25,19 +24,19 @@ Increasing the number of worker nodes in an HDInsight cluster allows the work to
 
 * At the time when you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
     
 * After creation, you can also edit the number of worker nodes to scale out a cluster further without recreating one:
 
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
 
 ## Use Apache Tez instead of Map Reduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
+[Apache Tez](https://tez.apache.org/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez is faster because:
 
@@ -47,7 +46,7 @@ Tez is faster because:
 * **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
 * **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
 
-For more information on these concepts, see [Apache TEZ](https://hortonworks.com/hadoop/tez/).
+For more information on these concepts, see [Apache TEZ](https://tez.apache.org/).
 
 You can make any Hive query Tez enabled by prefixing the query with the following set command:
 
@@ -61,7 +60,7 @@ I/O operations are the major performance bottleneck for running Hive queries. Th
 
 Hive partitioning is implemented by reorganizing the raw data into new directories. Each partition has its own file directory. The partitioning is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
-![Hive partitioning][image-hdi-optimize-hive-partitioning_1]
+![Hive partitioning](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Some partitioning considerations:
 
@@ -191,10 +190,5 @@ There are more optimization methods that you can consider, for example:
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze flight delay data by using Interactive Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
-
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
-[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

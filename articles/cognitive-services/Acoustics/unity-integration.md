@@ -3,21 +3,22 @@ title: Project Acoustics Unity Integration and Deployment
 titlesuffix: Azure Cognitive Services
 description: This how-to explains integration of the Project Acoustics Unity plugin into your Unity project.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unity Integration
 This how-to explains integration of the Project Acoustics Unity plugin into your Unity project.
 
 Software requirements:
-* [Unity 2018.2+](http://unity3d.com) for Windows
+* [Unity 2018.2+](https://unity3d.com) for Windows
 * [Project Acoustics Unity package](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## Import the plugin
@@ -27,6 +28,10 @@ Import the acoustics UnityPackage to your project.
     ![Screenshot of Unity Import Package menu](media/import-package.png)  
 
 * Choose **ProjectAcoustics.unitypackage**
+
+* Click on the **Import** button to integrate the Unity package into your project  
+
+    ![Screenshot of Unity Import Package dialog](media/import-dialog.png)  
 
 If you're importing the plugin into an existing project, your project may already have an **mcs.rsp** file in the project root, which specifies options to the C# compiler. You'll need to merge the contents of that file with the mcs.rsp file that comes with the Project Acoustics plugin.
 

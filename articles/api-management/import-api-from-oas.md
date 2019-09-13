@@ -10,9 +10,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/12/2019
 ms.author: apimpm
 
 ---
@@ -56,6 +55,9 @@ Complete the following quickstart: [Create an Azure API Management instance](get
     |**Products**|*Unlimited*| Publish the API by associating the API with a product. To optionally add this new API to a product, type the product name. This step can be repeated multiple times to add the API to multiple products.<br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**. |
 
 4. Select **Create**.
+
+> [!NOTE]
+> The API import limitations are documented in [another article](api-management-api-import-restrictions.md).
 
 ## Test the new APIM API in the Azure portal
 

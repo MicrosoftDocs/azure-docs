@@ -1,6 +1,7 @@
 ---
 title: How to search efficiently using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to use best practices for search using the Azure Maps Search service
+author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
@@ -21,7 +22,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) inc
 
 ## Prerequisites
 
-To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).
+To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to retrieve a primary subscription key for your account.
 
 > [!Tip]
 > To query the search service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST calls or you can use any API development environment that you prefer.
@@ -44,7 +45,7 @@ See [geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-c
 
    In order to geo-bias your results to the relevant area for your user, you should always add the maximum possible detailed location input. To restrict the search results, consider adding the following input types:
 
-   1. Set the `countrySet` parameter, for example "US, FR". The default search behavior is to search the entire world, potentially returning unnecessary results. If your query does not include `countrySet` parameter, the search may return inaccurate results. For example, search for a city named **Bellevue** will return results from USA and France, since there are cities named **Bellevue** in France and in the USA.
+   1. Set the `countrySet` parameter, for example "US,FR". The default search behavior is to search the entire world, potentially returning unnecessary results. If your query does not include `countrySet` parameter, the search may return inaccurate results. For example, search for a city named **Bellevue** will return results from USA and France, since there are cities named **Bellevue** in France and in the USA.
 
    2. You can use the `btmRight` and `topleft` parameters to set the bounding box to restrict the search to a specific area on the map.
 
@@ -127,9 +128,9 @@ The `language` parameter allows you to set in which language search results shou
 
 ### Predictive mode (Auto-suggest)
 
-To find more matches for partial queries, `typeHead` parameter should be set to be 'true'. The query will be interpreted as a partial input and the search will enter predictive mode. Otherwise the service will assume all relevant information has been passed in.
+To find more matches for partial queries, `typeahead` parameter should be set to be 'true'. The query will be interpreted as a partial input and the search will enter predictive mode. Otherwise the service will assume all relevant information has been passed in.
 
-In the sample query below you can see that the search Address service is queried for "Microso" with the `typehead` parameter set to **true**. If you observe the response, you can see that the search service interpreted the query as partial query and response contains results for auto-suggested query.
+In the sample query below you can see that the search Address service is queried for "Microso" with the `typeahead` parameter set to **true**. If you observe the response, you can see that the search service interpreted the query as partial query and response contains results for auto-suggested query.
 
 **Sample query:**
 
@@ -260,7 +261,7 @@ encodeURIComponent(query)
 ```
 
 C#/VB:
-```C#
+```csharp
 Uri.EscapeDataString(query)
 ```
 

@@ -2,12 +2,12 @@
 title: Operator best practices - Container image management in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for how to manage and secure container images in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Best practices for container image management and security in Azure Kubernetes Service (AKS)
@@ -18,7 +18,6 @@ This article focuses on how to secure your containers in AKS. You learn how to:
 
 > [!div class="checklist"]
 > * Scan for and remediate image vulnerabilities
-> * Use a trusted registry with digitally signed container images
 > * Automatically trigger and redeploy container images when a base image is updated
 
 You can also read the best practices for [cluster security][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
@@ -32,16 +31,6 @@ One concern with the adoption of container-based workloads is verifying the secu
 ![Scan and remediate container images, validate, and deploy](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 In a real-world example, you can use a continuous integration and continuous deployment (CI/CD) pipeline to automate the image scans, verification, and deployments. Azure Container Registry includes these vulnerabilities scanning capabilities.
-
-## Use a trusted registry
-
-**Best practice guidance** - Limit the image registries that pods and deployments can use. Only allow trusted registries where you validate and control the images that are available.
-
-For additional security, you can also digitally sign your container images just like you can digitally sign your application code. You then only permit AKS to deploy signed images. This process provides an additional layer of security in that you limit AKS to only pull images digitally signed and trusted by you, not just images that pass a vulnerability check. You also make sure that the container image has not been tampered with and replaced by an image with the exact same name.
-
-Trusted registries that provide digitally signed container images add complexity to your environment, but may be required for certain policy or regulatory compliance. Azure Container Registry supports the use of trusted registries and signed images.
-
-For more information about digitally signed images, see [Content trust in Azure Container Registry][acr-content-trust].
 
 ## Automatically build new images on base image update
 
@@ -58,7 +47,6 @@ For more information about base image updates, see [Automate image builds on bas
 This article focused on how to secure your containers. To implement some of these areas, see the following articles:
 
 * [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update]
-* [Content trust in Azure Container Registry][acr-content-trust]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
@@ -68,5 +56,4 @@ This article focused on how to secure your containers. To implement some of thes
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-[acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

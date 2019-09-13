@@ -1,7 +1,6 @@
 ---
 title: Use ScaleR and SparkR with Azure HDInsight
-description: Use ScaleR and SparkR with ML Services on HDInsight
-services: hdinsight
+description: Use ScaleR and SparkR for data manipulation and model development with ML Services on Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -189,7 +188,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## Importing the airline and weather data to Spark DataFrames
 
-Now we use the SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, are executed lazily, meaning that they are queued for execution but not executed until required.
+Now we use the SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, are executed lazily, meaning that they are queued for execution but not executed until required.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -262,7 +261,7 @@ weatherDF <- rename(weatherDF,
 
 ## Joining the weather and airline data
 
-We now use the SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
+We now use the SparkR [join()](https://spark.apache.org/docs/latest/api/R/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -532,9 +531,7 @@ In this article, we’ve shown how it’s possible to combine use of SparkR for 
 
 - For more information on use of ML Server on Apache Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- For general information on ML Server, see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
-
-- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md) and [Get started with ML Services on Azure HDInsight](r-server/r-server-get-started.md).
+- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
 
 For more information on use of SparkR, see:
 

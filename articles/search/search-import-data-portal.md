@@ -2,11 +2,11 @@
 title: Import data into a search index using Azure portal - Azure Search
 description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -21,7 +21,7 @@ The Azure portal provides an **Import data** wizard on the Azure Search dashboar
 
 The wizard can't connect to a predefined index or run an existing indexer, but within the wizard, you can configure a new index or indexer to support the structure and behaviors you need.
 
-New to Azure Search? Step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using **Import data** and the built-in realestate sample data set.
+New to Azure Search? Step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using **Import data** and the built-in real estate sample data set.
 
 ## Start importing data
 
@@ -71,14 +71,14 @@ The **Import data** wizard creates a persistent data source object specifying co
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (not supported for [cognitive search](cognitive-search-concept-intro.md) pipelines)
 
-A flattened dataset is a required input. You can only import from a single table, database view, or equivalent data structure. 
+You can only import from a single table, database view, or equivalent data structure, however the structure can include hierarchical or nested substructures. For more information, see [How to model complex types](search-howto-complex-data-types.md).
 
 You should create this data structure before running the wizard, and it must contain content. Do not run the **Import data** wizard on an empty data source.
 
 |  Selection | Description |
 | ---------- | ----------- |
 | **Existing data source** |If you already have indexers defined in your search service, you can select an existing data source definition for another import. In Azure Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard.|
-| **Samples**| Azure Search hosts a free public Azure SQL database that you can use to learn about importing and query requests in Azure Search. See [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) for a walkthrough. |
+| **Samples**| Azure Search hosts a free global Azure SQL database that you can use to learn about importing and query requests in Azure Search. See [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) for a walkthrough. |
 | **Azure SQL Database** |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | **Cosmos DB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or leave the query blank. A query is not required in this wizard.|

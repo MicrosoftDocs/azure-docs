@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial: Index data from Azure SQL databases in a C# example code - Azure Search'
+title: 'C# Tutorial: Index data from Azure SQL databases - Azure Search'
 description: A C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
-# Tutorial in C#: Crawl an Azure SQL database using Azure Search indexers
+# C# Tutorial: Crawl an Azure SQL database using Azure Search indexers
 
 Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
 
@@ -52,9 +50,9 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-1.. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -95,7 +93,7 @@ The following exercise assumes no existing server or database, and instructs you
 
    ![SQL database page](./media/search-indexer-tutorial/hotels-db.png)
 
-4. On the command bar, click **Tools** > **Query editor**.
+4. On the navigation pane, click **Query editor (preview)**.
 
 5. Click **Login** and enter the user name and password of server admin.
 
@@ -263,7 +261,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-You can attach AI-powered algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+You can attach AI enrichment algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

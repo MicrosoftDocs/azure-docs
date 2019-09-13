@@ -3,7 +3,7 @@ title: Deploy the remote monitoring solution locally (via Visual Studio IDE) - A
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio for testing and development.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
@@ -55,9 +55,9 @@ Run the following command to launch the Docker container for the device simulati
 
 ### Deploy all other microservices on local machine
 
-The following steps show you how to run the Remote Monitoring microservices in Visual Studio 2017:
+The following steps show you how to run the Remote Monitoring microservices in Visual Studio:
 
-1. Launch Visual Studio 2017
+1. Launch Visual Studio.
 1. Open the **remote-monitoring.sln** solution in the **services** folder in your local copy of the repository.
 1. In **Solution Explorer**, right-click the solution and the click **Properties**.
 1. Select **Common Properties > Startup Project**.
@@ -78,7 +78,7 @@ Each web service opens a command prompt and web browser window. At the command p
 Follow these steps to start the Stream Analytics job:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script**.
+1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script.
 1. Click the **Stream Analytics job** in the list of resources.
 1. On the Stream Analytics job **overview** page, click the **Start** button. Then click **Start** to start the job now.
 

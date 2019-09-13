@@ -1,14 +1,14 @@
 ---
-title: Migrate a database using Import and Export in Azure Database for PostgreSQL
+title: Migrate a database using Import and Export in Azure Database for PostgreSQL - Single Server
 description: Describes how extract a PostgreSQL database into a script file and import the data into the target database from that file.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 5/6/2019
 ---
 # Migrate your PostgreSQL database using export and import
-You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) to extract a PostgreSQL database into a script file and [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to import the data into the target database from that file.
+You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a script file and [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to import the data into the target database from that file.
 
 ## Prerequisites
 To step through this how-to guide, you need:

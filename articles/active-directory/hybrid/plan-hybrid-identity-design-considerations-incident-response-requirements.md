@@ -45,14 +45,14 @@ The identity management system should assist IT admins to identify and report th
 * Does your company need to identify suspicious sign-on attempts from users across different devices?
 * Does your company need to detect potential compromised user’s credentials?
 * Does your company need to audit user’s access and action?
-* Does your company need to know when a user reset his password?
+* Does your company need to know when a user resets their password?
 
 ## Policy enforcement
 During damage control and risk reduction-phase, it is important to quickly reduce the actual and potential effects of an attack. That action that you will take at this point can make the difference between a minor and a major one. The exact response will depend on your organization and the nature of the attack that you face. If the initial assessment concluded that an account was compromised, you will need to enforce policy to block this account. That’s just one example where the identity management system will be leveraged. Use the questions below to help you design your hybrid identity solution while taking into consideration how policies will be enforced to react to an ongoing incident:
 
 * Does your company have policies in place to block users from access the network if necessary?
   * If yes, does the current solution integrate with the hybrid identity management system that you are going to adopt?
-* Does your company need to enforce conditional access for users that are in quarantine? 
+* Does your company need to enforce Conditional Access for users that are in quarantine? 
 
 > [!NOTE]
 > Make sure to take notes of each answer and understand the rationale behind the answer. [Define data protection strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.

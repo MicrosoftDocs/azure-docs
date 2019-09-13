@@ -2,15 +2,11 @@
 title: Secure access to a key vault - Azure Key Vault | Microsoft Docs
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
@@ -126,7 +122,7 @@ The following table summarizes the access permissions for our roles and applicat
 
 | Role | Management plane permissions | Data plane permissions |
 | --- | --- | --- |
-| Security team | Key Vault Contributor | Keys: back up, create, delete, get, import, list, restore<br>Secrets: all operations |
+| Security team | Key Vault Contributor | Keys: backup, create, delete, get, import, list, restore<br>Secrets: all operations |
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None |
 | Auditors | None | Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. |
 | Application | None | Keys: sign<br>Secrets: get |

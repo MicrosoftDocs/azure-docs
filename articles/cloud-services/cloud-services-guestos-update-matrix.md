@@ -5,16 +5,13 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 editor: ''
-
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 9/4/2019
 ms.author: raiye
-
 ---
 # Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
@@ -38,6 +35,21 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **September 4, 2019**
+The August Guest OS has released.
+
+###### **July 26, 2019**
+The July Guest OS has released.
+
+###### **July 8, 2019**
+The June Guest OS has released.
+
+###### **June 6, 2019**
+The May Guest OS has released.
+
+###### **May 7, 2019**
+The April Guest OS has released.
 
 ###### **March 26, 2019**
 The March Guest OS has released.
@@ -85,8 +97,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-6.5_201903-01 |March 26, 2019 |Post 6.7 |
-| WA-GUEST-OS-6.4_201902-01 |March 12, 2019 |Post 6.6 |
+| WA-GUEST-OS-6.10_201908-01 |  August 4, 2019  |  Post 6.12  |  
+| WA-GUEST-OS-6.9_201907-01 |July 26, 2019 |Post 6.11 |
+|~~WA-GUEST-OS-6.8_201906-01~~|July 8, 2019 |August 4, 2019 |
+|~~WA-GUEST-OS-6.7_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |March 12, 2019 |May 7, 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |February 5, 2019 |March 26, 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |January 24, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |January 24, 2019 |February 5, 2019 |
@@ -94,7 +111,7 @@ The September Guest OS has released.
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6.2
+.NET Framework installed: 3.5, 4.6
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
@@ -103,8 +120,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-5.29_201903-01 |March 26, 2019 |Post 5.31 |
-| WA-GUEST-OS-5.28_201902-01 |March 12, 2019 |Post 5.30 |
+| WA-GUEST-OS-5.34_201908-01  |  August 4, 2019  |  Post 5.36  |  
+| WA-GUEST-OS-5.33_201907-01 |July 26, 2019 |Post 5.35 |  
+|~~WA-GUEST-OS-5.32_201906-01~~|July 8, 2019 |August 4, 2019 |
+|~~WA-GUEST-OS-5.31_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |March 12, 2019 |May 7, 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |February 5, 2019 |March 26, 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |December 14, 2018 |February 5, 2019 |
@@ -114,12 +136,17 @@ The September Guest OS has released.
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-.NET Framework installed: 3.5, 4.5.1
+.NET Framework installed: 3.5, 4.5.1, 4.5.2
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-4.64_201903-01 |March 26, 2019 |Post 4.66 |
-| WA-GUEST-OS-4.63_201902-01 |March 12, 2019 |Post 4.65 |
+| WA-GUEST-OS-4.69_201908-01 |  August 4, 2019  |  Post 4.71  |  
+| WA-GUEST-OS-4.68_201907-01 | July 26, 2019  |Post 4.70 |
+|~~WA-GUEST-OS-4.67_201906-01~~|July 8, 2019 |August 4, 2019 |
+|~~WA-GUEST-OS-4.66_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |March 12, 2019 |May 7, 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |February 5, 2019 |March 26, 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |December 14, 2018 |February 5, 2019 |
@@ -133,8 +160,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-3.71_201903-01 |March 26, 2019 |Post 3.73 |
-| WA-GUEST-OS-3.70_201902-01 |March 12, 2019 |Post 3.72 |
+| WA-GUEST-OS-3.76_201908-01 |  August 4, 2019  |  Post 3.78  |  
+| WA-GUEST-OS-3.75_201907-01 | July 26, 2019 |Post 3.77 |
+|~~WA-GUEST-OS-3.74_201906-01~~|July 8, 2019 |August 4, 2019 |
+|~~WA-GUEST-OS-3.73_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |March 12, 2019 |May 7, 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |February 5, 2019 |March 26, 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |December 14, 2018 |February 5, 2019 |
@@ -144,12 +176,17 @@ The September Guest OS has released.
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installed: 3.5 (includes 2.0 and 3.0)
+.NET Framework installed: 3.5 (includes 2.0 and 3.0), 4.5
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.84_201903-01 |March 26, 2019 |Post 2.86 |
-| WA-GUEST-OS-2.83_201902-01 |March 12, 2019 |Post 2.85 |
+| WA-GUEST-OS-2.89_201908-01 |  August 4, 2019  |  Post 2.91  |  
+| WA-GUEST-OS-2.88_201907-01 | July 26, 2019 |Post 2.90 |
+|~~WA-GUEST-OS-2.87_201906-01~~|July 8, 2019 |August 4, 2019 |
+|~~WA-GUEST-OS-2.86_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |March 12, 2019 |May 7, 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |February 5, 2019 |March 26, 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |December 14, 2018 |February 5, 2019 |

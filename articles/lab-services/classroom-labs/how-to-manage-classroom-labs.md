@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 06/07/2019
 ms.author: spelluru
 
 ---
@@ -24,7 +24,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
@@ -33,10 +33,10 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **large**, and **GPU** sizes are allowed.
-    2. Select the **region** in which you want the VMs to be created. 
-    3. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
-    4. Select **Next**.
+    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **medium (virtualization)**, **large**, and **GPU** sizes are allowed. For details, see the [VM sizes](#vm-sizes) section.
+    1. Select the **region** in which you want the VMs to be created. 
+    1. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+    1. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. On the **Set credentials** page, specify default credentials for all VMs in the lab. 
@@ -45,7 +45,10 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         > [!IMPORTANT]
         > Make a note of user name and password. They won't be shown again.
-    3. Select **Create**. 
+    3. Disable **Use same password for all virtual machines** option if you want students to set their own passwords. This step is **optional**. 
+
+        A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.
+    1. Select **Create**. 
 
         ![Set credentials](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. On the **Configure template** page, you see the status of lab creation process. The creation of the template in the lab takes up to 20 minutes. A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users.  
@@ -55,13 +58,11 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. The following steps are optional steps in this tutorial: 
-    1. Start the template VM by selecting **Start**.
     2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-    3. Install and configure software on your template VM. 
-    4. **Stop** the VM.  
-    5. Enter a **description** for the template
-
-        ![Next on Configure template page](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+    1. Select **Reset password** to reset the password for the VM. 
+    1. Install and configure software on your template VM. 
+    1. **Stop** the VM.  
+    1. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
     1. To publish the template immediately, select the checkbox for *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour*, and select **Publish**.  Publish the template to make instances of the template VM available to your lab users.
@@ -84,6 +85,17 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+### VM sizes  
+
+| Size | Cores | RAM | Description | 
+| ---- | ----- | --- | ----------- | 
+| Small | 2 | 3.5 GB | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
+| Medium | 4 | 7 GB | This size is best suited for relational databases, in-memory caching, and analytics | 
+| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student needs multiple VMs. Teachers can use nested virtualization to set up a few small-size nested virtual machines inside the virtual machine. </p> |
+| Large | 8 | 32 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization |  
+| Small GPU (Visualization) | 6 | 56 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
+| Small GPU (Compute) | 6 | 56 GB | This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications. | 
+| Medium GPU (Visualization) | 12 | 112 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
 
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).

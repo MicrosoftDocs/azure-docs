@@ -1,17 +1,16 @@
 ---
 title: Ports used by Hadoop services on HDInsight - Azure 
-description: A list of ports used by Hadoop services running on HDInsight.
-services: hdinsight
+description: This provides a list of ports used by Apache Hadoop services running in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-   
 ---
+
 # Ports used by Apache Hadoop services on HDInsight
 
 This document provides a list of the ports used by Apache Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
@@ -25,8 +24,7 @@ Internally, HDInsight is implemented by several Azure Virtual Machines (the node
 > [!IMPORTANT]  
 > If you do not specify an Azure Virtual Network as a configuration option for HDInsight, one is created automatically. However, you cannot join other machines (such as other Azure Virtual Machines or your client development machine) to this virtual network.
 
-
-To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
+To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## Public ports
 
@@ -39,7 +37,7 @@ All the nodes in an HDInsight cluster are located in an Azure Virtual Network, a
 | sshd |23 |SSH |Connects clients to sshd on the secondary headnode. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. See [Use Apache Hive with Curl](hadoop/apache-hadoop-use-pig-curl.md), [Use Apache Pig with Curl](hadoop/apache-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. See  [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Connects to ApacheHive using JDBC. See [Connect to Apache Hive on HDInsight using the Hive JDBC driver](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -101,9 +99,9 @@ Examples:
 | Resource Manager scheduler |head nodes |8030 |HTTP |Administrative interface |
 | Resource Manager application interface |head nodes |8050 |HTTP |Address of the applications manager interface |
 | NodeManager |All worker nodes |30050 |&nbsp; |The address of the container manager |
-| NodeManager web UI |All worker nodes |30060 |HTTP |Resource manager interface |
+| NodeManager web UI |All worker nodes |30060 |HTTP |Resource Manager interface |
 | Timeline address |Head nodes |10200 |RPC |The Timeline service RPC service. |
-| Timeline web UI |Head nodes |8181 |HTTP |The Timeline service web UI |
+| Timeline web UI |Head nodes |8188 |HTTP |The Timeline service web UI |
 
 ### Hive ports
 

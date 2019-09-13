@@ -1,13 +1,13 @@
 ---
 title: Use PowerShell to back up Windows Server to Azure
 description: Learn how to deploy and manage Azure Backup using PowerShell
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/24/2018
-ms.author: pvrk
+ms.date: 08/20/2019
+ms.author: dacurwin
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 
@@ -80,7 +80,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](https://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
 
 Alternatively, use PowerShell to get the downloader:
- 
+
  ```powershell
  $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -132,8 +132,20 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
+### Registering using the PS Az module
+
+In the latest Az module of Powershell, due to underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
+
+```powershell
+$Vault = Get-AzRecoveryServicesVault -ResourceGroupName $rgName -Name $VaultName
+$cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname xxxxxxxxxxxxx
+$certificate =[System.Convert]::ToBase64String($cert.RawData)
+$CredsPath = "C:\downloads"
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certificate -Vault $vault -Backup -Path $CredsPath
+```
+
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet to register the machine with the vault.
-This, and other cmdlets used for backup, are from the MSONLINE module which the Mars AgentInstaller added as part of the installation process. 
+This, and other cmdlets used for backup, are from the MSONLINE module which the Mars AgentInstaller added as part of the installation process.
 
 The Agent installer does not update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this you can do the following:
 
@@ -194,9 +206,11 @@ Server properties updated successfully.
 
 The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore.
 
+You must generate a security pin by selecting **Generate**, under **Settings** > **Properties** > **Security PIN** in the **Recovery Services vault** section of the Azure portal. Then, use this as the `generatedPIN` in the command:
+
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
-Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
+Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>"
 ```
 
 ```Output
@@ -383,6 +397,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## Back up Windows Server System State in MABS agent
+
+This section covers the PowerShell command to set up System State in MABS agent
+
+### Schedule
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### Retention
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### Configuring schedule and retention
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### Verifying the policy
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### Applying the policy
 

@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight '
-description: Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
-services: azure-hdinsight
+title: 'Tutorial: Load data and run queries on Apache Spark cluster in Azure HDInsight'
+description: Tutorial - Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -9,7 +8,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
@@ -17,7 +16,7 @@ ms.date: 04/03/2019
 # Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight
 
 In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an [Apache Spark](https://spark.apache.org/) cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
- 
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a dataframe from a csv file
@@ -25,7 +24,22 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Complete [Create an Apache Spark cluster in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## Create a Jupyter notebook
+
+Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations. 
+
+1. Edit the URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` by replacing `SPARKCLUSTER` with the name of your Spark cluster. Then enter the edited URL in a web browser. If prompted, enter the cluster login credentials for the cluster.
+
+2. From the Jupyter web page, Select **New** > **PySpark** to create a notebook. 
+
+   ![Create a Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
+
+   A new notebook is created and opened with the name Untitled(`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > By using the PySpark kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
 
 ## Create a dataframe from a csv file
 
@@ -33,13 +47,7 @@ Applications can create dataframes directly from files or folders on the remote 
     
 ![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
-
-1. Open the Jupyter notebook that you created in the prerequisites section and create a new notebook with PySpark.
-
-    > [!NOTE]  
-    > By using the PySpark kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
-
-2. Paste the following code in an empty cell of the notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
+1. Paste the following code in an empty cell of the Jupyter notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
     ```python
     from pyspark.sql import *
@@ -50,7 +58,7 @@ Applications can create dataframes directly from files or folders on the remote 
 
     ![Status of interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. 
+2. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. 
 
     ```python
     # Create a dataframe and table from sample data
@@ -93,11 +101,7 @@ You can also select the resource group name to open the resource group page, and
 
 ## Next steps
 
-In this tutorial, you learned how to:
-> [!div class="checklist"]
-> * Create an Apache Spark dataframe.
-> * Run Spark SQL against the dataframe.
+In this tutorial, you learned how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an Apache Spark cluster in Azure HDInsight. Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI.
 
-Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
 > [Analyze data using BI tools](apache-spark-use-bi-tools.md)

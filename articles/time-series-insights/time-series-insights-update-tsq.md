@@ -2,13 +2,13 @@
 title: 'Azure Time Series Insights Preview data querying | Microsoft Docs'
 description: Azure Time Series Insights Preview data querying.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
@@ -30,9 +30,9 @@ The [Time Series Expression (TSX) language](https://docs.microsoft.com/rest/api/
 
 The following core APIs are supported.
 
-![tsq][1]
+[![Time Series Query overview](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### Environment APIs
+## Environment APIs
 
 The following Environment APIs are available:
 
@@ -40,7 +40,7 @@ The following Environment APIs are available:
 * [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
 * [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returns the event schema metadata for a given search span. This API helps retrieve all metadata and properties available in the schema for the given search span.
 
-### Time Series Model-Query (TSM-Q) APIs
+## Time Series Model-Query (TSM-Q) APIs
 
 The following Time Series Model-Query APIs are available:
 
@@ -49,7 +49,7 @@ The following Time Series Model-Query APIs are available:
 * [Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Enables CRUD on Time Series hierarchies and their associated field paths.
 * [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Enables CRUD on Time Series instances and their associated instance fields.
 
-### Time Series Query (TSQ) APIs
+## Time Series Query (TSQ) APIs
 
 The following Time Series Query APIs are available:
 
@@ -70,11 +70,8 @@ The following Time Series Query APIs are available:
 
 ## Next steps
 
-Read about:
+- Learn more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Preview.
 
-- [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
-- [Data modeling](./time-series-insights-update-tsm.md)
-- [Best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md)
+- Read the Time Series Insights Preview [data modeling](./time-series-insights-update-tsm.md) article.
 
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png
+- Discover [best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md).

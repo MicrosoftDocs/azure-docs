@@ -28,7 +28,7 @@ In part one of the series, you learn how to:
 > [!div class="checklist"]
 > * Create a set of EC2 instances
 > * Modify the security group
-> * Log in to one of the instances
+> * Sign in to one of the instances
 > * Prep the instance for Service Fabric
 
 ## Prerequisites
@@ -37,7 +37,7 @@ To complete this tutorial, you need an AWS account.  If you don't already have a
 
 ## Create EC2 instances
 
-Log in to the AWS Console > Enter **EC2** in the search box > **EC2 Virtual Servers in the Cloud**
+Sign in to the AWS Console > Enter **EC2** in the search box > **EC2 Virtual Servers in the Cloud**
 
 ![AWS console search][aws-console]
 
@@ -146,7 +146,7 @@ In part one of the series, you learned how to launch three EC2 instances and get
 > [!div class="checklist"]
 > * Create a set of EC2 instances
 > * Modify the security group
-> * Log in to one of the instances
+> * Sign in to one of the instances
 > * Prep the instance for Service Fabric
 
 Advance to part two of the series to configure Service Fabric on your cluster.

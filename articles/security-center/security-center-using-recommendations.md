@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
-ms.author: monhaber
+ms.date: 8/22/2019
+ms.author: v-mohabe
 
 ---
 # Use Azure Security Center recommendations to enhance security
@@ -37,30 +37,30 @@ David, from Contoso's IT security, has already chosen to onboard Security Center
 
 Security Center automatically analyzes the security state of Contoso’s Azure resources and applies default security policies. When Security Center identifies potential security vulnerabilities, it creates **recommendations** based on the controls set in the security policy. 
 
-David runs Azure Security standard tier, across all his subscriptions to get the full suite of recommendations and security features available. Jeff also onboards all his existing on-premises servers that haven't yet been migrated to the cloud so that he can take advantage of Security Center's hybrid support across his [Windows](quick-onboard-windows-computer.md) and [Linux](quick-onboard-linux-computer.md) servers.
+David runs Azure Security standard tier, across all their subscriptions to get the full suite of recommendations and security features available. Jeff also onboards all their existing on-premises servers that haven't yet been migrated to the cloud so that they can take advantage of Security Center's hybrid support across their [Windows](quick-onboard-windows-computer.md) and [Linux](quick-onboard-linux-computer.md) servers.
 
 Jeff is a cloud workload owner. Jeff is responsible for applying security controls in accordance with Contoso’s security policies. 
 
 Jeff performs the following tasks:
 
 - Monitor security recommendations provided by Security Center
-- Evaluate security recommendations and decide if he should apply or dismiss
+- Evaluate security recommendations and decide if they should apply or dismiss the recommendations.
 - Apply security recommendations
 
 ### Remediate threats using recommendations
-As part of his daily monitoring activities, Jeff signs in to Azure and opens Security Center. 
+As part of their daily monitoring activities, Jeff signs in to Azure and opens Security Center. 
 
-1. Jeff selects his workload's subscriptions.
+1. Jeff selects the workload's subscriptions.
 
-2. Jeff checks his **secure score** to get an overall picture of how secure the subscriptions are and he sees that his score is 548.
+2. Jeff checks the **secure score** to get an overall picture of how secure the subscriptions are and sees that the score is 548.
 
 3. Jeff has to decide which recommendations to handle first. So Jeff clicks secure score and starts to handle recommendations based on how much it improves his [secure score impact](security-center-secure-score.md).
 
 4. Because Jeff has lots of connected VMs and servers, Jeff decides to focus on **Compute and apps**.
 
-5. When Jeff clicks **Compute and apps**, he sees a list of recommendations and handles them according to the secure score impact.
+5. When Jeff clicks **Compute and apps**, they see a list of recommendations and handles them according to the secure score impact.
 
-6. Jeff has numerous Internet facing VMs, and because their ports are exposed, he's worried that an attacker could gain control over the servers. So Jeff chooses to use (**just-in-time VM access**)[security-center-just-in-time.md].
+6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use (**just-in-time VM access**)[security-center-just-in-time.md].
 
 Jeff continues to move through the high priority and medium priority recommendations, and makes decisions on implementation. For each recommendation, Jeff looks at the detailed information provided by Security Center to understand which resources are impacted, what the secure score impact is, what each recommendation means and remediation steps for how to mitigate each issue.
 
@@ -71,6 +71,6 @@ Monitoring recommendations in Security Center helps you eliminate security vulne
 ## Next steps
 Make sure you have a monitoring process in place, in which you regularly check the recommendations in Security Center so that you can make sure to keep your resources secure over time.
 
-This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack. See the [incident response scenario](security-center-incident-response.md) to learn how to have an incident response plan in place before an attack takes place.
+This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack.
 
-Learn how to respond to threats with [incident response](security-center-incident-response.md).
+Learn how to respond to threats with [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md).

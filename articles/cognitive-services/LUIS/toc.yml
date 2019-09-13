@@ -1,3 +1,4 @@
+
 - name: LUIS Documentation
   href: index.yml
 - name: Overview
@@ -5,6 +6,8 @@
   items:
   - name: What is Language Understanding?
     href: what-is-luis.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -19,8 +22,14 @@
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use .NET SDK
     items: 
+    - name: Create and manage app
+      href: sdk-csharp-quickstart-authoring-app.md
     - name: Query prediction endpoint
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
+  - name: Use Python SDK
+    items: 
+    - name: Create and manage app
+      href: sdk-python-quickstart-authoring-app.md 
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -61,12 +70,15 @@
       href: luis-quickstart-intents-regex-entity.md
     - name: Get exact text matches with lists
       href: luis-quickstart-intent-and-list-entity.md
-    - name: Get contextually-related data with hierarchical entities
-      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Get related data with entity roles
+      href: tutorial-entity-roles.md
+      displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
+      displayName: roles
     - name: Get names with simple entities
       href: luis-quickstart-primary-and-secondary-data.md
+      displayName: roles
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -77,14 +89,27 @@
       href: luis-tutorial-pattern.md
     - name: Extract contextually-related patterns
       href: luis-tutorial-pattern-roles.md
+      displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use bot
+  - name: Use with bot
     items:
     - name: With C# 
-      href: luis-csharp-tutorial-bf-v4.md
+      items:
+      - name: 1. Create basic bot
+        href: luis-csharp-tutorial-bf-v4.md 
+        displayName: bot framework, framework, sdk, abs
+      - name: 2. Add telemetry to Application Insights
+        href: luis-tutorial-bot-csharp-appinsights.md
+        displayName: Application insight, kusto
     - name: With Node.js
-      href: luis-nodejs-tutorial-bf-v4.md
+      items: 
+      - name: 1. Create basic bot
+        displayName: bot framework, framework, sdk, abs
+        href: luis-nodejs-tutorial-bf-v4.md
+      - name: 2. Add telemetry to Application Insights
+        displayName: Application insight, kusto
+        href: luis-tutorial-bot-nodejs-appinsights.md      
 - name: Samples
   items:
   - name: Code samples
@@ -94,16 +119,19 @@
   - name: Best practices
     href: luis-concept-best-practices.md
     displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
+  - name: Using LUIS and QnA Maker
+    href: choose-natural-language-processing-service.md
+    displayName: nlp, qna maker
   - name: Plan your app
-    displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
+    displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
-  - name: Author App
+  - name: Authoring and runtime keys
+    displayName: shared, transfer, ownership, author, access, import
+    href: luis-concept-keys.md    
+  - name: Author app's model
     items:
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
-    - name: Collaboration
-      displayName: shared, transfer, ownership, author, access, import
-      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
       displayName: import
@@ -112,12 +140,12 @@
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
+    - name: Entity roles
+      href: luis-concept-roles.md
     - name: Utterances
       href: luis-concept-utterance.md
-    - name: Roles
-      href: luis-concept-roles.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
   - name: Improve app performance
@@ -130,6 +158,7 @@
       href: luis-concept-feature.md
     - name: Patterns
       href: luis-concept-patterns.md
+      displayName: roles
   - name: Data management
     items:
     - name: Altering data
@@ -138,6 +167,7 @@
       href: luis-concept-data-conversion.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
+      displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
   - name: Test
@@ -151,18 +181,11 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
-  - name: Security
-    items:
-    - name: App access
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
-      href: luis-concept-security.md
-    - name: Authoring and endpoint keys
-      href: luis-concept-keys.md
 - name: How-to guides
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
-    displayName: import
+    displayName: import, export, container
   - name: Build Model
     items:
     - name: Add an intent
@@ -171,7 +194,7 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entity without utterance
       href: luis-how-to-add-entities.md
-      displayName: import
+      displayName: roles, import
     - name: Use prebuilt models
       items:
       - name: Use domains
@@ -191,35 +214,20 @@
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
-      href: luis-tutorial-speech-to-intent.md
-    - name: With a bot
-      items:
-        - name: Web app bot
-          items:
-          - name: Node.js
-            displayName: ABS, azure bot, service
-            href: luis-nodejs-tutorial-build-bot-framework-sample.md
-          - name: C#
-            displayName: ABS, azure bot, service
-            href: luis-csharp-tutorial-build-bot-framework-sample.md
-        - name: Application Insights
-          items:
-          - name: Node.js
-            displayName: Application insight, kusto
-            href: luis-tutorial-function-appinsights.md
-          - name: C#
-            displayName: Application insight, kusto
-            href: luis-tutorial-bot-csharp-appinsights.md
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
   - name: Improve prediction accuracy
     items:
-    - name: Review endpoint utterances
-      displayName: active learning
-      href: luis-how-to-review-endpoint-utterances.md
+    - name: Using the dashboard
+      displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
+      href: luis-how-to-use-dashboard.md        
     - name: Add Phrase list
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
+    - name: Review endpoint utterances
+      displayName: active learning
+      href: luis-how-to-review-endpoint-utterances.md
     - name: Add Patterns
-      displayName: syntax, template
+      displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
@@ -229,45 +237,55 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-      displayName: import
+      displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
-    items:
-    - name: Using the dashboard
-      displayName: analytics, usage
-      href: luis-how-to-use-dashboard.md
-    - name: Using subscription keys with your LUIS app
-      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
+    items:    
+    - name: Authoring and runtime keys
+      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Manage versions
-      href: luis-how-to-manage-versions.md
-      diplayName: import
-    - name: Manage authors and collaborators
+    - name: Migrate to authoring key
+      items: 
+        - name: Overview   
+          href: luis-migration-authoring.md
+        - name: How to Migrate
+          href: luis-migration-authoring-steps.md
+    - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
-    - name: Manage authoring key
-      href: luis-how-to-account-settings.md
-    - name: Spread endpoint quota across keys with Traffic Manager
+    - name: With versions
+      href: luis-how-to-manage-versions.md
+      diplayName: import, export, container
+    - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Migrate to V2 REST API
-    href: luis-migration-api-v1-to-v2.md
+  - name: Migrate API
+    items: 
+    - name: Migrate to V2 REST API
+      href: luis-migration-api-v1-to-v2.md
+    - name: Migrate to V3 REST API
+      href: luis-migration-api-v3.md 
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
+    - name: Use container instances
+      href: deploy-luis-on-container-instances.md
 - name: Reference
   items:
   - name: User privacy
     href: luis-user-privacy.md
-  - name: Authoring and publishing regions
+  - name: Regions
     href: luis-reference-regions.md
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Application settings
+    href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
@@ -278,6 +296,7 @@
       href: luis-reference-prebuilt-currency.md
     - name: DatetimeV2 entity
       href: luis-reference-prebuilt-datetimev2.md
+      displayName: timex
     - name: Dimension entity
       href: luis-reference-prebuilt-dimension.md
     - name: Deprecated entities
@@ -292,6 +311,8 @@
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
+    - name: Ordinal V2 entity
+      href: luis-reference-prebuilt-ordinal-v2.md      
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
     - name: PersonName entity
@@ -304,16 +325,29 @@
       href: luis-reference-prebuilt-url.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
+    displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
+  - name: Custom entity reference
+    items: 
+    - name: Composite entity
+      href: reference-entity-composite.md
+    - name: List entity
+      href: reference-entity-list.md
+    - name: Pattern.any entity
+      href: reference-entity-pattern-any.md
+    - name: Regular expression entity
+      href: reference-entity-regular-expression.md      
+    - name: Simple entity
+      href: reference-entity-simple.md
   - name: Azure CLI
-    href: https://aka.ms/az-cli-cognitiveservices
+    href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
+    href: https://go.microsoft.com/fwlink/?linkid=2092157
   - name: REST APIs
     items:
     - name: Authoring V2 REST APIs
-      href: https://aka.ms/luis-authoring-apis
+      href: https://go.microsoft.com/fwlink/?linkid=2092087
     - name: Endpoint V2 REST API
-      href: https://aka.ms/luis-endpoint-apis
+      href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429
       href: luis-reference-response-codes.md
@@ -386,12 +420,12 @@
 - name: Resources
   items:
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
     href: luis-language-support.md
     displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
-    href: https://aka.ms/luis-roadmap
+    href: https://go.microsoft.com/fwlink/?linkid=2092089
   - name: Glossary
     href: luis-glossary.md
   - name: Troubleshooting
@@ -399,10 +433,12 @@
     displayName: FAQ, import
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS
   - name: UserVoice
-    href: https://aka.ms/luis-uservoice-forum
+    href: https://go.microsoft.com/fwlink/?linkid=2092090
   - name: Search
     href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog

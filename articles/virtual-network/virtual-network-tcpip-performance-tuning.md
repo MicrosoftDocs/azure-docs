@@ -3,7 +3,7 @@ title: TCP/IP performance tuning for Azure VMs | Microsoft Docs
 description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs. 
 services: virtual-network
 documentationcenter: na
-author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
+author: rimayber
 manager: paragk
 editor: ''
 
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
-ms.author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
+ms.author: rimayber
+ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 
 ---
 
@@ -62,7 +63,7 @@ Keep in mind that increasing the MTU won't necessarily create a more efficient n
 
 #### Azure and VM MTU
 
-The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes. But the Virtual Network stack will allow packets up to 2,006 bytes when the Don't Fragment bit is set in the IP header.
+The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes.
 
 Note that the Virtual Network stack isn't inherently inefficient because it fragments packets at 1,400 bytes even though VMs have an MTU of 1,500. A large percentage of network packets are much smaller than 1,400 or 1,500 bytes.
 
@@ -259,7 +260,7 @@ To use accelerated networking, you need to explicitly enable it on each applicab
 
 Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multiprocessor system. In simple terms, RSS allows a system to process more received traffic because it uses all available CPUs instead of just one. For a more technical discussion of RSS, see [Introduction to receive side scaling](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-To get the best performance when accelerated networking is enabled on a VM, you need to enable RSS. RSS can also provide benefits on VMs that don’t use accelerated networking. For an overview of how to determine if RSS is enabled and how to enable it, see [Optimize network throughput for Azure virtual machines](http://aka.ms/FastVM).
+To get the best performance when accelerated networking is enabled on a VM, you need to enable RSS. RSS can also provide benefits on VMs that don’t use accelerated networking. For an overview of how to determine if RSS is enabled and how to enable it, see [Optimize network throughput for Azure virtual machines](https://aka.ms/FastVM).
 
 ### TCP TIME_WAIT and TIME_WAIT assassination
 
@@ -287,7 +288,7 @@ Accelerated networking is designed to improve network performance, including lat
 
 Azure virtual machines have at least one network interface attached to them. They might have several. The bandwidth allocated to a virtual machine is the sum of all outbound traffic across all network interfaces attached to the machine. In other words, the bandwidth is allocated on a per-virtual machine basis, regardless of how many network interfaces are attached to the machine.
 
-Expected outbound throughput and the number of network interfaces supported by each VM size are detailed in [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). To see maximum throughput, select a type, like **General purpose**, and then find the section about the size series on the resulting page (for example, "Dv2-series"). For each series, there's a table that provides networking specifications in the last column, which is titled "Max NICs / Expected network bandwidth (Mbps)."
+Expected outbound throughput and the number of network interfaces supported by each VM size are detailed in [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). To see maximum throughput, select a type, like **General purpose**, and then find the section about the size series on the resulting page (for example, "Dv2-series"). For each series, there's a table that provides networking specifications in the last column, which is titled "Max NICs / Expected network bandwidth (Mbps)."
 
 The throughput limit applies to the virtual machine. Throughput is not affected by these factors:
 
@@ -299,7 +300,7 @@ The throughput limit applies to the virtual machine. Throughput is not affected 
 
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
 
-For more information, see [Virtual machine network bandwidth](http://aka.ms/AzureBandwidth).
+For more information, see [Virtual machine network bandwidth](https://aka.ms/AzureBandwidth).
 
 ### Internet performance considerations
 
@@ -371,4 +372,4 @@ Still, these packet types are indications that TCP throughput isn't achieving it
 
 ## Next steps
 
-Now that you've learned about TCP/IP performance tuning for Azure VMs, you might want to read about other considerations for [planning virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) or [learn more about connecting and configuring virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Now that you've learned about TCP/IP performance tuning for Azure VMs, you might want to read about other considerations for [planning virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) or [learn more about connecting and configuring virtual networks](https://docs.microsoft.com/azure/virtual-network/).

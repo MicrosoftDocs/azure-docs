@@ -3,8 +3,8 @@ title: Learn how to configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 11/14/2018
+ms.topic: conceptual
+ms.date: 05/23/2019
 ms.author: mjbrown
 ---
 
@@ -30,6 +30,11 @@ Use the following steps to enable time to live on a container with no expiration
    * Click **Save** to save the changes.
 
    ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- When DefaultTimeToLive is null then your Time to Live is Off
+- When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
+- When DefaultTimeToLive has any other Int value (except 0) your Time to Live setting is On
 
 ## Enable time to live on a container using SDK
 

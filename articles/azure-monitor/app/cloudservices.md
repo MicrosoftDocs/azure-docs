@@ -36,7 +36,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md), and maybe setting up a [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
+Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
 
@@ -56,7 +56,7 @@ The telemetry from your app is stored, analyzed, and displayed in an Azure resou
 Each resource belongs to a resource group. Resource groups are used to manage costs, to grant access to team members, and to deploy updates in a single coordinated transaction. For example, you could [write a script to deploy](../../azure-resource-manager/resource-group-template-deploy.md) an Azure cloud service and its Application Insights monitoring resources all in one operation.
 
 ### Resources for components
-We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/app-insights-dashboards.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
+We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
 
 An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
 
@@ -79,8 +79,9 @@ If you've decided to create a separate resource for each role, and perhaps a sep
 
     ![Application Insights pane](./media/cloudservices/01-new.png)
 
-1. In the **Application Type** drop-down list, select **ASP.NET web application**.  
-    Each resource is identified by an instrumentation key. You might need this key later if you want to manually configure or verify the configuration of the SDK.
+1. In the **Application Type** drop-down list, select **ASP.NET web application**.
+
+Each resource is identified by an instrumentation key. You might need this key later if you want to manually configure or verify the configuration of the SDK.
 
 
 ## Set up Azure Diagnostics for each role
@@ -128,23 +129,58 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
     * [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [For webpages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Set the *ApplicationInsights.config* file to be copied always to the output directory.  
-    A message in the *.config* file asks you to place the instrumentation key there. However, for cloud apps, it's better to set it from the *.cscfg* file. This approach ensures that the role is correctly identified in the portal.
+1. Set the *ApplicationInsights.config* file to be copied always to the output directory.
 
-#### Run and publish the app
+   A message in the *.config* file asks you to place the instrumentation key there. However, for cloud apps, it's better to set it from the *.cscfg* file. This approach ensures that the role is correctly identified in the portal.
+
+## Set up Status Monitor to collect full SQL Queries (optional)
+
+This step is only needed if you want to capture full SQL queries on .NET Framework. 
+
+1. In `\*.csdef` file Add [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) for each role similar to 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Download [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) and [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), put them into the `AppInsightsAgent` folder on each role project. Make sure to copy them to the output directory through Visual Studio file properties or build scripts.
+
+3. On all Worker Roles, add environment variables: 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## Run and publish the app
 
 1. Run your app, and sign in to Azure. 
 
-1. Open the Application Insights resources that you created.  
-    Individual data points are displayed in [Search](../../azure-monitor/app/diagnostic-search.md), and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). 
+1. Open the Application Insights resources that you created.
+
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
 If there is no data, do the following:
+
 1. To view individual events, open the [Search][diagnostic] tile.
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
-    For more information, see [Troubleshooting][qna].
+
+For more information, see [Troubleshooting][qna].
 
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights in the following locations:
@@ -189,18 +225,18 @@ For worker roles, you can track exceptions in two ways:
 ## Performance counters
 The following counters are collected by default:
 
-    * \Process(??APP_WIN32_PROC??)\% Processor Time
-    * \Memory\Available Bytes
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% Processor Time
+* \Process(??APP_WIN32_PROC??)\% Processor Time
+* \Memory\Available Bytes
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* \Processor(_Total)\% Processor Time
 
 For web roles, these counters are also collected:
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 You can specify additional custom or other Windows performance counters by editing *ApplicationInsights.config* [as shown in this example](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
@@ -224,7 +260,7 @@ To get browser-based telemetry, such as page view counts, page load times, or sc
 To make sure your app stays live and responsive, [Set up web tests][availability].
 
 ## Display everything together
-For an overall picture of your system, you can display the key monitoring charts together on one [dashboard](../../azure-monitor/app/app-insights-dashboards.md). For example, you could pin the request and failure counts of each role. 
+For an overall picture of your system, you can display the key monitoring charts together on one [dashboard](../../azure-monitor/app/overview-dashboard.md). For example, you could pin the request and failure counts of each role. 
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 

@@ -1,7 +1,6 @@
 ---
 title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -110,7 +109,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following:
 
-![User with Cluster User role](./media/apache-hbase-rest-sdk/table.png)
+![User with Cluster User role](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## Select data
 

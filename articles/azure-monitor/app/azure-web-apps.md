@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
 
 ---
@@ -34,7 +34,11 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > [!NOTE]
 > If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
 
-## Enable agent-based monitoring .NET
+## Enable agent-based monitoring for .NET applications
+
+> [!NOTE]
+> The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -66,7 +70,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
     * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## Enable agent-based monitoring .NET Core
+## Enable agent-based monitoring for .NET Core applications
 
 The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
@@ -87,7 +91,7 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## Enable client-side monitoring .NET
+## Enable client-side monitoring for .NET applications
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
@@ -104,7 +108,7 @@ Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
 To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
-## Enable client-side monitoring .NET Core
+## Enable client-side monitoring for .NET Core applications
 
 Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present.
 
@@ -160,7 +164,6 @@ The basic structure of the application settings JSON for an app service is below
           }
         }
       ]
-
 ```
 
 For an example of an Azure Resource Manager template with Application settings configured for Application Insights, this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful, specifically the section starting on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
@@ -265,7 +268,7 @@ Below is a sample, replace all instances of  `AppMonitoredSite` with your site n
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -347,6 +350,15 @@ The table below provides a more detailed explanation of what these values mean, 
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application, and will back-off. | Remove the reference.
 |`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| Remove the reference.
 |`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
+
+### APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported
+
+If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded, you might get errors like: 
+
+- 500 URL rewrite error
+- 500.53 URL rewrite module error with message Outbound rewrite rules cannot be applied when the content of the HTTP response is encoded ('gzip'). 
+
+This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set to true and content-encoding being present at the same time. This scenario is not supported yet. The workaround is to remove APPINSIGHTS_JAVASCRIPT_ENABLED from your application settings. Unfortunately this means that if client/browser-side JavaScript instrumentation is still required, manual SDK references are needed for your webpages. Please follow the [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) for manual instrumentation with the JavaScript SDK.
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 

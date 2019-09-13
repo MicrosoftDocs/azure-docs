@@ -4,13 +4,13 @@ description: Azure PowerShell Script Sample - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -27,7 +27,7 @@ This script creates a virtual machine and uses the Azure Virtual Machine custom 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Sample script
 

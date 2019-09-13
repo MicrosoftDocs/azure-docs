@@ -2,25 +2,21 @@
 title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
+For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses nCipher nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
@@ -34,16 +30,16 @@ More information about generating and transferring an HSM-protected key over the
 
 * You generate the key from an offline workstation, which reduces the attack surface.
 * The key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it is transferred to the Azure Key Vault HSMs. Only the encrypted version of your key leaves the original workstation.
-* The toolset sets properties on your tenant key that binds your key to the Azure Key Vault security world. So after the Azure Key Vault HSMs receive and decrypt your key, only these HSMs can use it. Your key cannot be exported. This binding is enforced by the Thales HSMs.
-* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. In addition, the toolset includes attestation from Thales that the KEK is not exportable and was generated inside a genuine HSM that was manufactured by Thales.
-* The toolset includes attestation from Thales that the Azure Key Vault security world was also generated on a genuine HSM manufactured by Thales. This attestation proves to you that Microsoft is using genuine hardware.
+* The toolset sets properties on your tenant key that binds your key to the Azure Key Vault security world. So after the Azure Key Vault HSMs receive and decrypt your key, only these HSMs can use it. Your key cannot be exported. This binding is enforced by the nCipher  HSMs.
+* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. In addition, the toolset includes attestation from nCipher that the KEK is not exportable and was generated inside a genuine HSM that was manufactured by nCipher.
+* The toolset includes attestation from nCipher that the Azure Key Vault security world was also generated on a genuine HSM manufactured by nCipher. This attestation proves to you that Microsoft is using genuine hardware.
 * Microsoft uses separate KEKs and separate Security Worlds in each geographical region. This separation ensures that your key can be used only in data centers in the region in which you encrypted it. For example, a key from a European customer cannot be used in data centers in North American or Asia.
 
-## More information about Thales HSMs and Microsoft services
+## More information about nCipher HSMs and Microsoft services
 
-Thales e-Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, Thales solutions are used by four of the five largest energy and aerospace companies. Their solutions are also used by 22 NATO countries, and secure more than 80 per cent of worldwide payment transactions.
+nCipher Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, nCipher Security cryptographic solutions are used by four of the five largest energy and aerospace companies. Their solutions are also used by 22 NATO countries/regions, and secure more than 80 per cent of worldwide payment transactions.
 
-Microsoft has collaborated with Thales to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
+Microsoft has collaborated with nCipher Security to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
 
 ## Implementing bring your own key (BYOK) for Azure Key Vault
 
@@ -57,8 +53,8 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | --- | --- |
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
-| Thales HSM, smartcards, and support software |You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| nCipher nShield HSMs, smartcards, and support software |You must have access to a nCipher Hardware Security Module and basic operational knowledge of nCipher nShield HSMs. See [nCipher nShield Hardware Security Module](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and nCipher nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
 
@@ -98,119 +94,134 @@ Do not close the Azure PowerShell window.
 
 Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
 
-- - -
+---
 **United States:**
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
-- - -
+---
 **Europe:**
 
 KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
-- - -
+---
 **Asia:**
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
 4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
-- - -
+---
 **Latin America:**
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 
 E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
-- - -
+---
 **Japan:**
 
 KeyVault-BYOK-Tools-Japan.zip
 
 3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
-- - -
+---
 **Korea:**
 
 KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
-- - -
+---
 **South Africa:**
 
 KeyVault-BYOK-Tools-SouthAfrica.zip
 
 C41060C5C0170AAAAD896DA732E31433D14CB9FC83AC3C67766F46D98620784A
 
-- - -
+---
 **UAE:**
 
 KeyVault-BYOK-Tools-UAE.zip
 
 FADE80210B06962AA0913EA411DAB977929248C65F365FD953BB9F241D5FC0D3
 
-- - -
+---
 **Australia:**
 
 KeyVault-BYOK-Tools-Australia.zip
 
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
-- - -
+---
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
-- - -
+---
 **US Government DOD:**
 
 KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
-- - -
+---
 **Canada:**
 
 KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
-- - -
+---
 **Germany:**
 
 KeyVault-BYOK-Tools-Germany.zip
 
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
-- - -
+---
+**Germany Public:**
+
+KeyVault-BYOK-Tools-Germany-Public.zip
+
+54534936D0A0C99C8117DB724C34A5E50FD204CFCBD75C78972B785865364A29
+
+---
 **India:**
 
 KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
-- - -
+---
 **France:**
 
 KeyVault-BYOK-Tools-France.zip
 
 5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
 
-- - -
+---
 **United Kingdom:**
 
 KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
-- - -
+---
+**Switzerland:**
+
+KeyVault-BYOK-Tools-Switzerland.zip
+
+88CF8D39899E26D456D4E0BC57E5C94913ABF1D73A89013FCE3BBD9599AD2FE9
+
+---
+
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
@@ -232,17 +243,17 @@ Copy the package to a USB drive or other portable storage.
 
 For this second step, do the following procedures on the workstation that is not connected to a network (either the Internet or your internal network).
 
-### Step 2.1: Prepare the disconnected workstation with Thales HSM
+### Step 2.1: Prepare the disconnected workstation with nCipher nShield HSM
 
-Install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer.
+Install the nCipher support software on a Windows computer, and then attach a nCipher nShield HSM to that computer.
 
-Ensure that the Thales tools are in your path (**%nfast_home%\bin**). For example, type the following:
+Ensure that the nCipher tools are in your path (**%nfast_home%\bin**). For example, type the following:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
   ```
 
-For more information, see the user guide included with the Thales HSM.
+For more information, see the user guide included with the nShield HSM.
 
 ### Step 2.2: Install the BYOK toolset on the disconnected workstation
 
@@ -258,11 +269,11 @@ For this third step, do the following procedures on the disconnected workstation
 
 ### Step 3.1: Change the HSM mode to 'I'
 
-If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
+If you are using nCipher nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
 ### Step 3.2: Create a security world
 
-Start a command prompt and run the Thales new-world program.
+Start a command prompt and run the nCipher new-world program.
 
    ```cmd
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
@@ -279,14 +290,14 @@ Then do the following:
 
 ### Step 3.3: Change the HSM mode to 'O'
 
-If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
+If you are using nCipher nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
 ### Step 3.4: Validate the downloaded package
 
 This step is optional but recommended so that you can validate the following:
 
-* The Key Exchange Key that is included in the toolset has been generated from a genuine Thales HSM.
-* The hash of the Security World that is included in the toolset has been generated in a genuine Thales HSM.
+* The Key Exchange Key that is included in the toolset has been generated from a genuine nCipher nShield HSM.
+* The hash of the Security World that is included in the toolset has been generated in a genuine nCipher nShield HSM.
 * The Key Exchange Key is non-exportable.
 
 > [!NOTE]
@@ -335,6 +346,9 @@ To validate the downloaded package:
    * For Germany:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
+   * For Germany Public:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
    * For India:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
@@ -344,20 +358,23 @@ To validate the downloaded package:
    * For United Kingdom:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+   * For Switzerland:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SUI-1 -w BYOK-SecurityWorld-pkg-SUI-1
 
      > [!TIP]
-     > The Thales software includes python at %NFAST_HOME%\python\bin
+     > The nCipher nShield software includes python at %NFAST_HOME%\python\bin
      >
      >
 2. Confirm that you see the following, which indicates successful validation: **Result: SUCCESS**
 
-This script validates the signer chain up to the Thales root key. The hash of this root key is embedded in the script and its value should be **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. You can also confirm this value separately by visiting the [Thales website](http://www.thalesesec.com/).
+This script validates the signer chain up to the nShield root key. The hash of this root key is embedded in the script and its value should be **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. You can also confirm this value separately by visiting the [nCipher website](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 You’re now ready to create a new key.
 
 ### Step 3.5: Create a new key
 
-Generate a key by using the Thales **generatekey** program.
+Generate a key by using the nCipher nShield **generatekey** program.
 
 Run the following command to generate the key:
 
@@ -367,14 +384,14 @@ When you run this command, use these instructions:
 
 * The parameter *protect* must be set to the value **module**, as shown. This creates a module-protected key. The BYOK toolset does not support OCS-protected keys.
 * Replace the value of *contosokey* for the **ident** and **plainname** with any string value. To minimize administrative overheads and reduce the risk of errors, we recommend that you use the same value for both. The **ident** value must contain only numbers, dashes, and lower case letters.
-* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the Thales documentation.
+* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the [nCipher documentation.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
 This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_simple_**, followed by the **ident** that was specified in the command. For example: **key_simple_contosokey**. This file contains an encrypted key.
 
 Back up this Tokenized Key File in a safe location.
 
 > [!IMPORTANT]
-> When you later transfer your key to Azure Key Vault, Microsoft cannot export this key back to you so it becomes extremely important that you back up your key and security world safely. Contact Thales for guidance and best practices for backing up your key.
+> When you later transfer your key to Azure Key Vault, Microsoft cannot export this key back to you so it becomes extremely important that you back up your key and security world safely. Contact [nCipher](https://www.ncipher.com/about-us/contact-us) for guidance and best practices for backing up your key.
 >
 
 
@@ -428,6 +445,9 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For Germany:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
+* For Germany Public:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
 * For India:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
@@ -437,14 +457,17 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For United Kingdom:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
+* For Switzerland:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
 
 When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
 You are asked to plug in your security world admin cards.
 
-When the command completes, you see **Result: SUCCESS** and the copy of your key with reduced permissions are in the file named key_xferacId_<contosokey>.
+When the command completes, you see **Result: SUCCESS** and the copy of your key with reduced permissions are in the file named key_xferacId_\<contosokey>.
 
-You may inspects the ACLS using following commands using the Thales utilities:
+You may inspects the ACLS using following commands using the nCipher nShield utilities:
 
 * aclprint.py:
 
@@ -497,6 +520,9 @@ Run one of the following commands, depending on your geographic region or instan
 * For Germany:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For Germany Public:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * For India:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
@@ -506,6 +532,10 @@ Run one of the following commands, depending on your geographic region or instan
 * For United Kingdom:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For Switzerland:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+
 
 When you run this command, use these instructions:
 

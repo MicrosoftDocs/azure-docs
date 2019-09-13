@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Generate metadata for Azure Storage images"
+title: "Tutorial: Generate metadata for Azure images"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to integrate the Azure Computer Vision service into a web app to generate metadata for images.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 01/03/2019
+ms.date: 09/04/2019
 ms.author: pafarley
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
@@ -37,23 +37,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Computer Vision resource
 
-You will need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Computer Vision service.
+You will need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Computer Vision service. 
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com) and click **Create a resource**, followed by **AI + Machine Learning** and **Computer Vision**.
+1. Follow the instructions in [Create an Azure Cognitive Services resource](../../cognitive-services-apis-create-account.md) to create a Computer Vision resource.
 
-    ![Creating a new Computer Vision API subscription](../Images/new-vision-api.png)
+1. Then go to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
-1. In the dialog window, enter "vision-api-key" in the **Name** field and select **F0** as the **Pricing tier**. Select the same **Location** that you selected when you set up your Azure Storage account. Under **Resource group**, select **Use existing** and select the same resource group as well. Check the **I confirm** box, and then click **Create**.
+    ![Azure portal page with the endpoint URL and access keys link outlined](../Images/copy-vision-endpoint.png)
+    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-    ![Subscribing to the Computer Vision API](../Images/create-vision-api.png)
-
-1. Return to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
-
-    ![Viewing the access keys](../Images/copy-vision-endpoint.png)
 
 1. In the next window, copy the value of **KEY 1** to the clipboard.
 
-    ![Copying the access key](../Images/copy-vision-key.png)
+    ![Manage keys dialog, with the copy button outlined](../Images/copy-vision-key.png)
 
 ## Add Computer Vision credentials
 
@@ -133,7 +129,7 @@ Save your changes in Visual Studio and press **Ctrl+F5** to launch the applicati
 
 To view all of the attached metadata, use the Azure Storage Explorer to view the storage container you're using for images. Right-click any of the blobs in the container and select **Properties**. In the dialog, you'll see a list of key-value pairs. The computer-generated image description is stored in the item "Caption," and the search keywords are stored in "Tag0," "Tag1," and so on. When you're finished, click **Cancel** to close the dialog.
 
-![Blob metadata](../Images/blob-metadata.png)
+![Image properties dialog window, with metadata tags listed](../Images/blob-metadata.png)
 
 ## Clean up resources
 

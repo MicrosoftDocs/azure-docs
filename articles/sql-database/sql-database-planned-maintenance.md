@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/30/2019
 ---
 
@@ -36,7 +35,7 @@ On average, 1.7 planned maintenance events occur each month.
 
 ## Resource Health
 
-If your SQL database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#getting-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
+If your SQL database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#get-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
 
 
 ## Next steps

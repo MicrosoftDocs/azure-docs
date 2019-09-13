@@ -1,52 +1,94 @@
 ---
-title: Apache Hive with Data Lake (Apache Hadoop) tools for Visual Studio - Azure HDInsight 
+title: Apache Hive with Data Lake tools for Visual Studio - Azure HDInsight
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 05/14/2019
 ms.author: hrasheed
-
 ---
+
 # Run Apache Hive queries using the Data Lake tools for Visual Studio
 
 Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The Data Lake tools allow you to easily create, submit, and monitor Hive queries to Apache Hadoop on Azure HDInsight.
 
 ## <a id="prereq"></a>Prerequisites
 
-* An Azure HDInsight (Apache Hadoop on HDInsight) cluster
-
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Visual Studio (one of the following versions):
 
+    * Visual Studio 2015, 2017 (any edition)
     * Visual Studio 2013 Community/Professional/Premium/Ultimate with Update 4
-
-    * Visual Studio 2015 (any edition)
-
-    * Visual Studio 2017 (any edition)
 
 * HDInsight tools for Visual Studio or Azure Data Lake tools for Visual Studio. See [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md) for information on installing and configuring the tools.
 
 ## <a id="run"></a> Run Apache Hive queries using the Visual Studio
 
-1. Open **Visual Studio** and select **New** > **Project** > **Azure Data Lake** > **HIVE** > **Hive Application**. Provide a name for this project.
+You have two options for creating and running Hive queries:
 
-2. Open the **Script.hql** file that is created with this project, and paste in the following HiveQL statements:
+* Create ad hoc queries
+* Create a Hive application
 
-   ```hiveql
-   set hive.execution.engine=tez;
-   DROP TABLE log4jLogs;
-   CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-   STORED AS TEXTFILE LOCATION '/example/data/';
-   SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   ```
+### Ad hoc
+
+Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
+
+1. Open **Visual Studio**.
+
+2. From **Server Explorer**, navigate to **Azure** > **HDInsight**.
+
+3. Expand **HDInsight**, and right-click the cluster where you want to run the query, and then select **Write a Hive Query**.
+
+4. Enter the following hive query:
+
+    ```hql
+    SELECT * FROM hivesampletable;
+    ```
+
+5. Select **Execute**. Note that the execution mode is defaulted to **Interactive**.
+
+    ![Screenshot of Execute Interactive Hive queries](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+
+6. To run the same query in **Batch** mode, toggle the drop-down list from **Interactive** to **Batch**. Note that the execution button changes from **Execute** to **Submit**.
+
+    ![Screenshot of submit a hive query](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+
+    The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type `SELECT * FROM`, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs. IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
+
+    ![Screenshot of an HDInsight Visual Studio Tools IntelliSense example 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![Screenshot of an HDInsight Visual Studio Tools IntelliSense example 2](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
+
+7. Select **Submit** or **Submit (Advanced)**.
+
+   If you select the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
+
+    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Submit queries")
+
+### Hive application
+
+1. Open **Visual Studio**.
+
+2. From the menu bar, navigate to **File** > **New** > **Project**.
+
+3. From the **New Project** window, navigate to **Templates** > **Azure Data Lake** > **HIVE (HDInsight)** > **Hive Application**. 
+
+4. Provide a name for this project and then select **OK**.
+
+5. Open the **Script.hql** file that is created with this project, and paste in the following HiveQL statements:
+
+    ```hiveql
+    set hive.execution.engine=tez;
+    DROP TABLE log4jLogs;
+    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE LOCATION '/example/data/';
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    ```
 
     These statements perform the following actions:
 
@@ -67,40 +109,44 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
    * `INPUT__FILE__NAME LIKE '%.log'` - Tells Hive that we should only return data from files ending in .log. This clause restricts the search to the sample.log file that contains the data.
 
-3. From the toolbar, select the **HDInsight Cluster** that you want to use for this query. Select **Submit** to run the statements as a Hive job.
+6. From the toolbar, select the **HDInsight Cluster** that you want to use for this query. Select **Submit** to run the statements as a Hive job.
 
-   ![Submit bar](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![Submit bar](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
-4. The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
+7. The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
 
-   ![job summary displaying a completed job](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![job summary displaying a completed job](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
-5. Use the **Job Output** link to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
+8. Use the **Job Output** link to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
 
-6. You can also run Hive queries without creating a project. Using **Server Explorer**, expand **Azure** > **HDInsight**, right-click your HDInsight server, and then select **Write a Hive Query**.
+### Additional example
 
-7. In the **temp.hql** document that appears, add the following HiveQL statements:
+This example relies on the `log4jLogs` table created in the prior step.
 
-   ```hiveql
-   set hive.execution.engine=tez;
-   CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-   INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-   ```
+1. From **Server Explorer**, right-click your cluster and select **Write a Hive Query**.
+
+2. Enter the following hive query:
+
+    ```hql
+    set hive.execution.engine=tez;
+    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+    ```
 
     These statements perform the following actions:
 
-   * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
+    * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
+    
+    > [!NOTE]  
+    > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
-     > [!NOTE]  
-     > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
+    * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+    
+    * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
 
-   * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+3. Execute the query in **Batch** mode.
 
-   * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
-
-8. From the toolbar, select **Submit** to run the job. Use the **Job Status** to determine that the job has completed successfully.
-
-9. To verify that the job created the table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
+4. To verify that the job created the table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
 
 ## <a id="nextsteps"></a>Next steps
 
@@ -119,31 +165,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 For more information about the HDInsight tools for Visual Studio:
 
 * [Getting started with HDInsight tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png

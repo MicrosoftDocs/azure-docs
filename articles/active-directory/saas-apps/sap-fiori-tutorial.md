@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Fiori | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Fiori.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
@@ -14,366 +14,316 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 09/05/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with SAP Fiori
 
-In this tutorial, you learn how to integrate SAP Fiori with Azure Active Directory (Azure AD).
-Integrating SAP Fiori with Azure AD provides you with the following benefits:
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori
 
-* You can control in Azure AD who has access to SAP Fiori.
-* You can enable your users to be automatically signed-in to SAP Fiori (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+In this tutorial, you'll learn how to integrate SAP Fiori with Azure Active Directory (Azure AD). When you integrate SAP Fiori with Azure AD, you can:
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* Control in Azure AD who has access to SAP Fiori.
+* Enable your users to be automatically signed-in to SAP Fiori with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
+
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with SAP Fiori, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* SAP Fiori single sign-on enabled subscription
-* SAP Fiori V7.20 required atleast
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* SAP Fiori single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SAP Fiori supports **SP** initiated SSO
+
+> [!NOTE]
+> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Azure AD SAML single sign-on](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) information
 
 ## Adding SAP Fiori from the gallery
 
 To configure the integration of SAP Fiori into Azure AD, you need to add SAP Fiori from the gallery to your list of managed SaaS apps.
 
-**To add SAP Fiori from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **SAP Fiori** in the search box.
+1. Select **SAP Fiori** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+## Configure and test Azure AD single sign-on for SAP Fiori
 
-	![The Azure Active Directory button](common/select-azuread.png)
+Configure and test Azure AD SSO with SAP Fiori using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SAP Fiori.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+To configure and test Azure AD SSO with SAP Fiori, complete the following building blocks:
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure SAP Fiori SSO](#configure-sap-fiori-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SAP Fiori test user](#create-sap-fiori-test-user)** - to have a counterpart of B.Simon in SAP Fiori that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button](common/add-new-app.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **SAP Fiori**, select **SAP Fiori** from result panel then click **Add** button to add the application.
+1. Open a new web browser window and sign in to your SAP Fiori company site as an administrator.
 
-	 ![SAP Fiori in the results list](common/search-new-app.png)
+1. Make sure that **http** and **https** services are active and that the relevant ports are assigned to transaction code **SMICM**.
 
-## Configure and test Azure AD single sign-on
+1. Sign in to SAP Business Client for SAP system **T01**, where single sign-on is required. Then, activate HTTP Security Session Management.
 
-In this section, you configure and test Azure AD single sign-on with SAP Fiori based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in SAP Fiori needs to be established.
+	1. Go to transaction code **SICF_SESSIONS**. All relevant profile parameters with current values are shown. They look like the following example:
 
-To configure and test Azure AD single sign-on with SAP Fiori, you need to complete the following building blocks:
+		```
+		login/create_sso2_ticket = 2
+		login/accept_sso2_ticket = 1
+		login/ticketcache_entries_max = 1000
+		login/ticketcache_off = 0  login/ticket_only_by_https = 0 
+		icf/set_HTTPonly_flag_on_cookies = 3
+		icf/user_recheck = 0  http/security_session_timeout = 1800
+		http/security_context_cache_size = 2500
+		rdisp/plugin_auto_logout = 1800
+		rdisp/autothtime = 60
+		```
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure SAP Fiori Single Sign-On](#configure-sap-fiori-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create SAP Fiori test user](#create-sap-fiori-test-user)** - to have a counterpart of Britta Simon in SAP Fiori that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+		>[!NOTE]
+		> Adjust the parameters based on your organization requirements. The preceding parameters are given only as an example.
 
-### Configure Azure AD single sign-on
+	1. If necessary, adjust parameters in the instance (default) profile of the SAP system and restart the SAP system.
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+	1. Double-click the relevant client to enable an HTTP security session.
 
-To configure Azure AD single sign-on with SAP Fiori, perform the following steps:
+	    ![The Current Values of Relevant Profile Parameters page in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-profileparameter.png)
 
-1. Open a new web browser window and sign in to your SAP Fiori company site as an administrator
+	1. Activate the following SICF services:
 
-2. Make sure that **http** and **https** services are active and appropriate ports are assigned in **SMICM** T-Code.
+		```
+		/sap/public/bc/sec/saml2
+		/sap/public/bc/sec/cdc_ext_service
+		/sap/bc/webdynpro/sap/saml2
+		/sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
+		```
 
-3. Sign in to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
+1. Go to transaction code **SAML2** in Business Client for SAP system [**T01/122**]. The configuration UI opens in a new browser window. In this example, we use Business Client for SAP system 122.
 
-	a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
-	```
-	login/create_sso2_ticket = 2
-	login/accept_sso2_ticket = 1
-	login/ticketcache_entries_max = 1000
-	login/ticketcache_off = 0  login/ticket_only_by_https = 0 
-	icf/set_HTTPonly_flag_on_cookies = 3
-	icf/user_recheck = 0  http/security_session_timeout = 1800
-	http/security_context_cache_size = 2500
-	rdisp/plugin_auto_logout = 1800
-	rdisp/autothtime = 60
-	```
-	>[!NOTE]
-	> Adjust above parameters as per your organization requirements, Above parameters are given here as indication only.
+	![The SAP Fiori Business Client sign-in page](./media/sapfiori-tutorial/tutorial-sapnetweaver-sapbusinessclient.png)
 
-	b. If required adjust parameters, in the instance/default profile of SAP system and restart SAP system.
+1. Enter your username and password, and then select **Log on**.
 
-	c. Double click on relevant client to enable HTTP security session.
+	![The SAML 2.0 Configuration of ABAP System T01/122 page in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-userpwd.png)
 
-	![The Certificate download link](./media/sapfiori-tutorial/tutorial-sapnetweaver-profileparameter.png)
-
-	d. Activate below SICF services:
-	```
-	/sap/public/bc/sec/saml2
-	/sap/public/bc/sec/cdc_ext_service
-	/sap/bc/webdynpro/sap/saml2
-	/sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
-	```
-4. Go to Transaction code **SAML2** in business client of SAP system [T01/122]. It will open a user interface in a browser. In this example, we assumed 122 as SAP business client.
-
-	![The Certificate download link](./media/sapfiori-tutorial/tutorial-sapnetweaver-sapbusinessclient.png)
-
-5. Provide your username and password to enter in user interface and click **Edit**.
-
-	![The Certificate download link](./media/sapfiori-tutorial/tutorial-sapnetweaver-userpwd.png)
-
-6. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
+1. In the **Provider Name** box, replace **T01122** with **http:\//T01122**, and then select **Save**.
 
 	> [!NOTE]
-	> By default provider name come as <sid><client> format but Azure AD expects name in the format of <protocol>://<name>, recommending to maintain provider name as https://<sid><client> to allow multiple SAP Fiori ABAP engines to configure in Azure AD.
+	> By default, the provider name is in the format \<sid>\<client>. Azure AD expects the name in the format \<protocol>://\<name>. We recommend that you maintain the provider name as https\://\<sid>\<client> so you can configure multiple SAP Fiori ABAP engines in Azure AD.
 
-	![The Certificate download link](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
+	![The updated provider name in the SAML 2.0 Configuration of ABAP System T01/122 page in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
-7. **Generating Service Provider Metadata**:- Once we are done with configuring the **Local Provider** and **Trusted Providers** settings on SAML 2.0 User Interface, the next step would be to generate the service provider’s metadata file (which would contain all the settings, authentication contexts and other configurations in SAP). Once this file is generated we need to upload this in Azure AD.
+1. Select **Local Provider tab** > **Metadata**.
 
-	![The Certificate download link](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
+1. In the **SAML 2.0 Metadata** dialog box, download the generated metadata XML file and save it on your computer.
 
-	a. Go to **Local Provider tab**.
+	![The Download Metadata link in the SAP SAML 2.0 Metadata dialog box](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
 
-	b. Click on **Metadata**.
+1. In the [Azure portal](https://portal.azure.com/), on the **SAP Fiori** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto populate the **Identifier** and **Reply URL** values in Azure portal.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-8. In the [Azure portal](https://portal.azure.com/), on the **SAP Fiori** application integration page, select **Single sign-on**.
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-    ![Configure single sign-on link](common/select-sso.png)
-
-9. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-10. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-11. On the **Basic SAML Configuration** section, perform the following steps:
-
-	a. Click **Upload metadata file** to upload the **Service Provider metadata file** which you have obtained earlier.
+	a. Click **Upload metadata file**.
 
     ![Upload metadata file](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![choose metadata file](common/browse-upload-metadata.png)
+    ![choose metadata file](common/browse-upload-metadata.png)
 
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox as shown below:
-
-	![SAP Fiori Domain and URLs single sign-on information](common/sp-identifier-reply.png)
-
-	d. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<your company instance of SAP Fiori>`
+	c. When the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values are automatically populated in the **Basic SAML Configuration** pane. In the **Sign on URL** box, enter a URL that has the following pattern: `https:\//\<your company instance of SAP Fiori\>`.
 
 	> [!NOTE]
-	> We have seen few customers reporting an error of incorrect Reply URL configured for their instance. If you receive any such error, you can use following PowerShell script as a work around to set the correct Reply URL for your instance.:
-	```
-	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-	``` 
-	> ServicePrincipal Object ID is to be set by yourself first or you can pass that also here.
+	> A few customers report errors related to incorrectly configured **Reply URL** values. If you see this error, you can use the following PowerShell script to set the correct Reply URL for your instance:
+    >
+	> ```
+	> Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+	> ``` 
+	> 
+	> You can set the `ServicePrincipal` object ID yourself before running the script, or you can pass it here.
 
-12. SAP Fiori application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+1. The SAP Fiori application expects the SAML assertions to be in a specific format. Configure the following claims for this application. To manage these attribute values, in the **Set up Single Sign-On with SAML** pane, select **Edit**.
 
-	![image](common/edit-attribute.png)
+	![The User attributes pane](common/edit-attribute.png)
 
-13. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Attributes & Claims** pane, configure the SAML token attributes as shown in the preceding image. Then, complete the following steps:
 
-	a. Click **Edit icon** to open the **Manage user claims** dialog.
+	1. Select **Edit** to open the **Manage user claims** pane.
 
-	![image](./media/sapfiori-tutorial/nameidattribute.png)
+	1. In the **Transformation** list, select **ExtractMailPrefix()**.
 
-	![image](./media/sapfiori-tutorial/nameidattribute1.png)
+	1. In the **Parameter 1** list, select **user.userprinicipalname**.
 
-	b. From the **Transformation** list, select **ExtractMailPrefix()**.
+	1. Select **Save**.
 
-	c. From the **Parameter 1** list, select **user.userprinicipalname**.
+	   ![The Manage user claims pane](./media/sapfiori-tutorial/nameidattribute.png)
 
-	d. Click **Save**.
-
-14. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+	   ![The Transformation section in the Manage user claims pane](./media/sapfiori-tutorial/nameidattribute1.png)
+    
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-15. On the **Set up SAP Fiori** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up SAP Fiori** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
-### Configure SAP Fiori Single Sign-On
-
-1. Sign in to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
-
-2. For configuring End points for trusted Identity provider (Azure AD) go to **Trusted Providers** tab.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-samlconfig.png)
-
-3. Press **Add** and select **Upload Metadata File** from the context menu.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
-
-4. Upload metadata file, which you have downloaded from the Azure portal.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
-
-5. In the next screen type the Alias name. For example aadsts and press **Next** to continue.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
-
-6. Make sure that your **Digest Algorithm** should be **SHA-256** and don’t require any changes and press **Next**.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
-
-7. On **Single Sign-On Endpoints**, use **HTTP POST** and click **Next** to continue.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
-
-8. On **Single Logout Endpoints** select **HTTPRedirect** and click **Next** to continue.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect1.png)
-
-9. On **Artifact Endpoints**, press **Next** to continue.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-artifactendpoint.png)
-
-10. On **Authentication Requirements**, click **Finish**.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
-
-11. Go to tab **Trusted Provider** > **Identity Federation** (from bottom of the screen). Click **Edit**.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
-
-12. Click **Add** under the **Identity Federation** tab (bottom window).
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
-
-13. From the pop-up window select **Unspecified** from the **Supported NameID formats** and click OK.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
-
-14. Note that **user ID Source** and **user ID mapping mode** values determine the link between SAP user and Azure AD claim.  
-
-	#### Scenario: SAP User to Azure AD user mapping.
-
-	a. NameID details screenshot from SAP.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/nameiddetails.png)
-
-	b. Screenshot mentioning Required claims from Azure AD.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/claimsaad1.png)
-
-	#### Scenario: Select SAP user ID based on configured email address in SU01. In this case email ID should be configured in su01 for each user who requires SSO.
-
-	a.  NameID details screenshot from SAP.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
-
-	b. screenshot mentioning Required claims from Azure AD.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/claimsaad2.png)
-
-15. Click **Save** and then click **Enable** to enable identity provider.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/configuration1.png)
-
-16. Click **OK** once prompted.
-
-	![Configure Single Sign-On](./media/sapfiori-tutorial/configuration2.png)
-
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SAP Fiori.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SAP Fiori.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SAP Fiori**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **SAP Fiori**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-2. In the applications list, select **SAP Fiori**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The SAP Fiori link in the Applications list](common/all-applications.png)
+	![The Add User link](common/add-assign-user.png)
 
-3. In the menu on the left, select **Users and groups**.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+## Configure SAP Fiori SSO
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+1. Sign in to the SAP system and go to transaction code **SAML2**. A new browser window opens with the SAML configuration page.
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+1. To configure endpoints for a trusted identity provider (Azure AD), select the **Trusted Providers** tab.
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+	![The Trusted Providers tab in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-samlconfig.png)
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+1. Select **Add**, and then select **Upload Metadata File** from the context menu.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+	![The Add and Upload Metadata File options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
+
+1. Upload the metadata file that you downloaded in the Azure portal. Select **Next**.
+
+	![Select the metadata file to upload in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
+
+1. On the next page, in the **Alias** box, enter the alias name. For example, **aadsts**. Select **Next**.
+
+	![The Alias box in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
+
+1. Make sure that the value in the **Digest Algorithm** box is **SHA-256**. Select **Next**.
+
+	![Verify the Digest Algorithm value in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
+
+1. Under **Single Sign-On Endpoints**, select **HTTP POST**, and then select **Next**.
+
+	![Single Sign-On Endpoints options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
+
+1. Under **Single Logout Endpoints**, select **HTTP Redirect**, and then select **Next**.
+
+	![Single Logout Endpoints options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect1.png)
+
+1. Under **Artifact Endpoints**, select **Next** to continue.
+
+	![Artifact Endpoints options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-artifactendpoint.png)
+
+1. Under **Authentication Requirements**, select **Finish**.
+
+	![Authentication Requirements options and the Finish option in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
+
+1. Select **Trusted Provider** > **Identity Federation** (at the bottom of the page). Select **Edit**.
+
+	![The Trusted Provider and Identity Federation tabs in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
+
+1. Select **Add**.
+
+	![The Add option on the Identity Federation tab](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
+
+1. In the **Supported NameID Formats** dialog box, select **Unspecified**. Select **OK**.
+
+	![The Supported NameID Formats dialog box and options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
+
+	The values for **User ID Source** and **User ID Mapping Mode** determine the link between the SAP user and the Azure AD claim.  
+
+    **Scenario 1**: SAP user to Azure AD user mapping
+
+	1. In SAP, under **Details of NameID Format "Unspecified"**, note the details:
+
+		![The Details of NameID Format "Unspecified" dialog box in SAP](./media/sapfiori-tutorial/nameiddetails.png)
+
+	1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Azure AD.
+
+		![The User Attributes & Claims dialog box in the Azure portal](./media/sapfiori-tutorial/claimsaad1.png)
+
+    **Scenario 2**: Select the SAP user ID based on the configured email address in SU01. In this case, the email ID should be configured in SU01 for each user who requires SSO.
+
+	1.  In SAP, under **Details of NameID Format "Unspecified"**, note the details:
+
+	    ![The Details of NameID Format "Unspecified" dialog box in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
+
+	1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Azure AD.
+
+	   ![The User Attributes & Claims dialog box in the Azure portal](./media/sapfiori-tutorial/claimsaad2.png)
+
+1. Select **Save**, and then select **Enable** to enable the identity provider.
+
+	![The Save and Enable options in SAP](./media/sapfiori-tutorial/configuration1.png)
+
+1. Select **OK** when prompted.
+
+	![The OK option in SAML 2.0 Configuration dialog box in SAP](./media/sapfiori-tutorial/configuration2.png)
 
 ### Create SAP Fiori test user
 
-In this section, you create a user called Britta Simon in SAP Fiori. Please work your in house SAP expert team or work with your organization SAP partner to add the users in the SAP Fiori platform.
+In this section, you create a user named Britta Simon in SAP Fiori. Work with your in-house SAP team of experts or your organization SAP partner to add the user in the SAP Fiori platform.
 
-### Test single sign-on
+## Test SSO
 
-1. Once the identity provider Azure AD was activated, try accessing below URL to check SSO (there will no prompt for username & password)
+1. After the identity provider Azure AD is activated in SAP Fiori, try to access one of the following URLs to test single sign-on (you shouldn't be prompted for a username and password):
 
-	`https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
-
-	(or) use the URL below
-
-    `https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
+	* https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
+	* https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
 
 	> [!NOTE]
-	> Replace sapurl with actual SAP hostname.
+	> Replace *sapurl* with the actual SAP host name.
 
-2. The above URL should take you to below mentioned screen. If you are able to reach up to the below page, Azure AD SSO setup is successfully done.
+1. The test URL should take you to the following test application page in SAP. If the page opens, Azure AD single sign-on is successfully set up.
 
-	![Configure Single Sign-On](./media/sapfiori-tutorial/testingsso.png)
+	![The standard test application page in SAP](./media/sapfiori-tutorial/testingsso.png)
 
-3. If username & password prompt occurs, please diagnose the issue by enable the trace using below URL
+1. If you are prompted for a username and password, enable trace to help diagnose the issue. Use the following URL for the trace: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#.
 
-	`https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
+## Additional resources
 
-## Additional Resources
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Try SAP Fiori with Azure AD](https://aad.portal.azure.com/)

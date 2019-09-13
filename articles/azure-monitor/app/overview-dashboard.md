@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
 ---
 
@@ -55,9 +55,12 @@ To navigate back to the overview experience just select:
 
 ![Overview Button](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## Troubleshooting
+
+If you select **Configure tile settings** and set a custom time range in excess of 31 days your dashboard will not display beyond 31 days of data, even with the default data retention of 90 days. There is currently no workaround for this behavior.
+
 ## Next steps
 
 - [Funnels](../../azure-monitor/app/usage-funnels.md)
 - [Retention](../../azure-monitor/app/usage-retention.md)
 - [User Flows](../../azure-monitor/app/usage-flows.md)
-- [Dashboards](../../azure-monitor/app/app-insights-dashboards.md)

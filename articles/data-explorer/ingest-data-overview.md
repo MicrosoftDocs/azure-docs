@@ -47,7 +47,7 @@ Azure Data Explorer currently supports:
 
 ### Ingestion using integration services
 
-* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer using [supported data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). For more information, see [Copy data to or from Azure Data Explorer using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer using [supported data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). For more information, see [Copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
 ### Programmatic ingestion
 
@@ -108,13 +108,13 @@ Before you start to ingest data, you should ask yourself the following questions
 * What are the latency requirements? ​
 * Can one of the existing managed ingestion pipelines be used? ​
 
-For organizations with an existing infrastructure that are based on a messaging service like Event Hub, using a connector is likely the most appropriate solution. Queued ingestion is appropriate for large data volumes.
+For organizations with an existing infrastructure that are based on a messaging service like Event Hub and IoT Hub, using a connector is likely the most appropriate solution. Queued ingestion is appropriate for large data volumes.
 
 ## Supported data formats
 
 For all ingestion methods other than ingest from query, format the data so that Azure Data Explorer can parse it. The supported data formats are:
 
-* CSV, TSV, PSV, SCSV, SOH​
+* CSV, TSV, TSVE, PSV, SCSV, SOH​
 * JSON (line-separated, multi-line), Avro​
 * ZIP and GZIP 
 

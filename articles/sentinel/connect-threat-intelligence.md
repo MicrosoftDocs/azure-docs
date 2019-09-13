@@ -3,7 +3,7 @@ title: Connect threat intelligence data to Azure Sentinel Preview| Microsoft Doc
 description: Learn about how to connect threat intelligence data to Azure Sentinel.
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50

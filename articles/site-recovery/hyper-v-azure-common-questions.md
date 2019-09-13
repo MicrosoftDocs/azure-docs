@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 04/08/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.author: raynew
 
@@ -21,6 +21,10 @@ Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details
 
 ### How do I pay for Azure VMs?
 During replication, data is replicated to Azure storage, and you don't pay any VM changes. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines. After that you're billed for the compute resources that you consume in Azure.
+
+### Is there any difference in cost when replicating to General Purpose v2 storage account?
+
+You will typically see an increase in the transactions cost incurred on GPv2 storage accounts since Azure Site Recovery is transactions heavy. [Read more](../storage/common/storage-account-upgrade.md#pricing-and-billing) to estimate the change.
 
 ## Azure
 

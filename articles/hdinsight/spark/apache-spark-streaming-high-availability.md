@@ -1,7 +1,6 @@
 ---
 title: Create highly available Spark Streaming jobs in YARN - Azure HDInsight
-description: How to set up Spark Streaming for a high-availability scenario.
-services: hdinsight
+description: How to set up Apache Spark Streaming for a high-availability scenario in Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -11,6 +10,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
 ---
+
 # Create high-availability Apache Spark Streaming jobs with YARN
 
 [Apache Spark](https://spark.apache.org/) Streaming enables you to implement scalable, high-throughput, fault-tolerant applications for data streams processing. You can connect Spark Streaming applications on a HDInsight Spark cluster to a variety of data sources, such as Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), raw TCP sockets, or by monitoring the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) filesystem for changes. Spark Streaming supports fault tolerance with the guarantee that any given event is processed exactly once, even with a node failure.
@@ -25,7 +25,7 @@ Spark Streaming represents a continuous stream of data using a *discretized stre
 
 The Spark core uses *resilient distributed datasets* (RDDs). RDDs distribute data across multiple nodes in the cluster, where each node generally maintains its data completely in-memory for best performance. Each RDD represents events collected over a batch interval. When the batch interval elapses, Spark Streaming produces a new RDD containing all the data in that interval. This continuous set of RDDs is collected into a DStream. A Spark Streaming application processes the data stored in each batch's RDD.
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
+![Spark DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## Spark Structured Streaming jobs
 

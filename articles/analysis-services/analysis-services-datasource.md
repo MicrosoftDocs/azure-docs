@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 09/10/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -29,7 +29,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 ||||
 
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because a managed instance runs within Azure VNet with a private IP address, an On-premises Data Gateway is required.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because managed instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an on-premises Data Gateway is required.    
 <a name="databricks">3</a> - Azure Databricks using the Spark connector is currently not supported.   
 <a name="gen2">4</a> - ADLS Gen2 is currently not supported.
 
@@ -47,7 +47,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle |Microsoft OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET |
+| Oracle | OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
 
@@ -71,18 +71,19 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |OData Feed<sup>[1](#tab1400b)</sup>     |  
 |ODBC query     | 
 |OLE DB     |   
-|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|PostgreSQL Database<sup>[1](#tab1400b)</sup>    | 
 |Salesforce Objects<sup>[1](#tab1400b)</sup> |  
 |Salesforce Reports<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Sybase Database     |  
 |TXT file  |
 |XML table<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> Tabular 1400 and higher models only.
+<a name="tab1400b">1</a> - Tabular 1400 and higher models only.   
+<a name="filesSP">2</a> - Files in on-premises SharePoint are not supported.
 
 ## Specifying a different provider
 

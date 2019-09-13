@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure virtual network peering - Resource Manager - different subscriptions
 titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions.
@@ -32,11 +32,11 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Select any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
+If the virtual networks are in different subscriptions, and the subscriptions are associated with different Azure Active Directory tenants, complete the following steps before continuing:
+1. Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
+1. Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
+
 ## <a name="portal"></a>Create peering - Azure portal
-
-If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, follow steps in the CLI and PowerShell section of this article. Portal does not have support to peer virtual networks belonging to subscriptions from different Active Directory Tenants. 
-
-Note that Cloud Shell has limitations in switching subscriptions and tenants due to which VNet Peering or Global VNet Peering between VNets belonging to subscriptions in different Azure Active Directory Tenants will not work. Please use PowerShell or CLI.
 
 The following steps use different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks.
 
@@ -56,7 +56,7 @@ The following steps use different accounts for each subscription. If you're usin
 7. Select **Network contributor** in the **Role** box.
 8. In the **Select** box, select *UserB*, or type UserB's email address to search for it.
 9. Select **Save**.
-10. Under **myVnetA - Access control (IAM)**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Under **myVnetA - Access control (IAM)**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Log out of the portal as UserA, then log in as UserB.
 12. Complete steps 2-3, entering or selecting the following values in step 3:
 
@@ -69,7 +69,7 @@ The following steps use different accounts for each subscription. If you're usin
     - **Location**: *East US*
 
 13. In the **Search resources** box at the top of the portal, type *myVnetB*. Select **myVnetB** when it appears in the search results.
-14. Under **myVnetB**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Under **myVnetB**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Select **Access control (IAM)** under **myVnetB**, and then complete steps 5-10 for myVnetB, entering **UserA** in step 8.
 16. Log out of the portal as UserB and log in as UserA.
 17. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
@@ -95,9 +95,6 @@ The following steps use different accounts for each subscription. If you're usin
 ## <a name="cli"></a>Create peering - Azure CLI
 
 This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. 
-If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
- - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
- - Each user has to accept the guest user invitation from the opposite Azure Active Directory tenant.
 
 The following scripts:
 
@@ -107,7 +104,7 @@ The following scripts:
 Instead of installing the CLI and its dependencies, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Select the **Try it** button in the script that follows, which invokes a Cloud Shell that you can log in to your Azure account with.
 
 1. Open a CLI session and log in to Azure as UserA using the `azure login` command. The account you log in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
-2. Copy the following script to a text editor on your PC, replace `<SubscriptionA-Id>` with the ID of SubscriptionA, then copy the modified script, paste it in your CLI session, and press `Enter`. If you don't know your subscription Id, enter the 'az account show` command. The value for **id** in the output is your subscription Id.
+2. Copy the following script to a text editor on your PC, replace `<SubscriptionA-Id>` with the ID of SubscriptionA, then copy the modified script, paste it in your CLI session, and press `Enter`. If you don't know your subscription Id, enter the `az account show` command. The value for **id** in the output is your subscription Id.
 
     ```azurecli-interactive
     # Create a resource group.
@@ -178,9 +175,6 @@ Any Azure resources you create in either virtual network are now able to communi
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB.
-If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
- - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
- - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
 
 1. Confirm that you have Azure PowerShell version 1.0.0 or higher. You can do this by running the `Get-Module -Name Az` We recommend installing the latest version of the PowerShell [Az module](/powershell/azure/install-az-ps). If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Start a PowerShell session.
@@ -245,10 +239,6 @@ If the virtual networks are in different subscriptions, and the subscriptions ar
 14. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
 
 ## <a name="template"></a>Create peering - Resource Manager template
-
-If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
- - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
- - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
 
 1. To create a virtual network and assign the appropriate [permissions](virtual-network-manage-peering.md#permissions), complete the steps in the [Portal](#portal), [Azure CLI](#cli), or [PowerShell](#powershell) sections of this article.
 2. Save the text that follows to a file on your local computer. Replace `<subscription ID>` with UserA's subscription ID. You might save the file as vnetpeeringA.json, for example.

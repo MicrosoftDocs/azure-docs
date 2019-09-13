@@ -4,10 +4,9 @@ description: Learn how reservation discount is applied to provisioned throughput
 services: cosmos-db
 author: rimman
 manager: kfile
-
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ---
@@ -15,6 +14,12 @@ ms.reviewer: sngun
 # Understand how the reservation discount is applied to Azure Cosmos DB
 
 After you buy an Azure Cosmos DB reserved capacity, the reservation discount is automatically applied to Azure Cosmos DB resources that match the attributes and quantity of the reservation. A reservation covers the throughput provisioned for Azure Cosmos DB resources. It doesn’t cover software, networking, storage, or predefined container charges.
+
+## How reservation discount is applied
+
+A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+
+When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
 ## Reservation discount applied to Azure Cosmos DB accounts
 

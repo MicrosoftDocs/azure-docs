@@ -1,19 +1,18 @@
 ---
 title: Use Apache Spark to analyze data in Azure Data Lake Storage Gen1
-description: Run Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
-services: hdinsight
+description: Run Apache Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/13/2019
 ---
 
 # Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1
 
-In this tutorial, you use [Jupyter Notebook](https://jupyter.org/) available with HDInsight Spark clusters to run a job that reads data from a Data Lake Storage account.
+In this article, you use [Jupyter Notebook](https://jupyter.org/) available with HDInsight Spark clusters to run a job that reads data from a Data Lake Storage account.
 
 ## Prerequisites
 

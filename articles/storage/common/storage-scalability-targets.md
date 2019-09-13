@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
 ---
@@ -38,6 +38,12 @@ When your application reaches the limit of what a partition can handle for your 
 
 For more information on the scale and performance targets for Azure Files and Azure File Sync, see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
 
+> [!IMPORTANT]
+> Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
+>
+> Standard file shares larger than 5 TiB are in preview and have certain limitations.
+> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](../files/storage-files-planning.md#standard-file-shares) section of the Azure Files planning guide.
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### Premium files scale targets
@@ -48,27 +54,7 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 
 #### Premium file share limits
 
-> [!IMPORTANT]
-> Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
-
-|Area  |Target  |
-|---------|---------|
-|Min size                        |100 GiB      |
-|Max size                        |100 TiB      |
-|Minimum size increase/decrease    |1 GiB      |
-|Baseline IOPS    |1 IOPS per GiB up to 100,000|
-|IOPS bursting    |3x IOPS per GiB up to 100,000|
-|Min bandwidth                     |100        |
-|Bandwidth |0.1 MB/s per GiB up to 5 GiB/s     |
-|Maximum number of snapshots        |200       |
-
-#### Premium file limits
-
-|Area  |Target  |
-|---------|---------|
-|Size                  |1 TiB         |
-|Max IOPS per file     |5,000         |
-|Concurrent handles    |2,000         |
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### Azure File Sync scale targets
 
@@ -84,7 +70,7 @@ Azure File Sync has been designed with the goal of limitless usage, but limitles
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## See Also
+## See also
 
 - [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)

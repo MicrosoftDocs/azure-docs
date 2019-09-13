@@ -1,6 +1,6 @@
 ---
-title: Age Prebuilt entity
-titleSuffix: Azure
+title: Age Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains age prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: conceptual
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,9 @@ The prebuilt age entity captures the age value both numerically and in terms of 
 Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) GitHub repository
 
 ## Resolution for prebuilt age entity
+
+### API version 2.x
+
 The following example shows the resolution of the **builtin.age** entity.
 
 ```json
@@ -29,12 +32,6 @@ The following example shows the resolution of the **builtin.age** entity.
     "intent": "None",
     "score": 0.8236133
   },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.8236133
-    }
-  ],
   "entities": [
     {
       "entity": "90 day old",
@@ -47,6 +44,70 @@ The following example shows the resolution of the **builtin.age** entity.
       }
     }
   ]
+}
+```
+
+### Preview API version 3.x
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "A 90 day old utilities bill is quite late.",
+    "prediction": {
+        "normalizedQuery": "a 90 day old utilities bill is quite late.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.558252
+            }
+        },
+        "entities": {
+            "age": [
+                {
+                    "number": 90,
+                    "unit": "Day"
+                }
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "A 90 day old utilities bill is quite late.",
+    "prediction": {
+        "normalizedQuery": "a 90 day old utilities bill is quite late.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.558252
+            }
+        },
+        "entities": {
+            "age": [
+                {
+                    "number": 90,
+                    "unit": "Day"
+                }
+            ],
+            "$instance": {
+                "age": [
+                    {
+                        "type": "builtin.age",
+                        "text": "90 day old",
+                        "startIndex": 2,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

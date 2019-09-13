@@ -3,13 +3,13 @@ title: "Tutorial: Translator Speech API C#"
 titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech API to translate text in real time.
 services: cognitive-services
-author: v-jerkin
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: v-jerkin
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Tutorial: Translator Speech application in C#
@@ -28,7 +28,7 @@ A Visual Studio solution file for this application is [available on GitHub](http
 
 ## Prerequisites
 
-For this tutorial, you need any edition of Visual Studio 2017, including the Community Edition.
+For this tutorial, you need any edition of Visual Studio 2019, including the Community Edition.
 
 The Visual Studio solution also builds an installer for the application. You need the [WiX Toolset](http://wixtoolset.org/) and the [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) to support this functionality.
 

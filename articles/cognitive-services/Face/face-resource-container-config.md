@@ -1,16 +1,16 @@
 ---
-title: Configure containers
-titlesuffix: Face - Azure Cognitive Services
+title: Configure containers - FACE API
+titleSuffix: Azure Cognitive Services
 description: Configuration settings for containers.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: diberry
+ms.date: 09/06/2019
+ms.author: dapine
 ---
 
 # Configure Face Docker containers
@@ -26,11 +26,11 @@ The **Face** container runtime environment is configured using the `docker run` 
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Face_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Cognitive Services_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
-* Azure portal: **Face's** Resource Management, under **Keys**
+* Azure portal: **Cognitive Services** Resource Management, under **Keys**
 
 ## ApplicationInsights setting
 
@@ -38,11 +38,13 @@ This setting can be found in the following place:
 
 ## Billing configuration setting
 
-The `Billing` setting specifies the endpoint URI of the _Face_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Face_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the _Cognitive Services_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Cognitive Services_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following place:
 
-* Azure portal: **Face's** Overview, labeled `Endpoint`
+* Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
+
+Remember to add the _Face_ routing to the endpoint URI as shown in the example. 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
@@ -131,12 +133,14 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{BILLING_KEY} | The endpoint key of the Face resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value including region.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | The endpoint URL value.|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](face-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure Face Resource keys page. 
+> The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page. 
 
 ## Face container Docker examples
 
@@ -148,8 +152,8 @@ The following Docker examples are for the face container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### Logging example 
@@ -157,7 +161,7 @@ The following Docker examples are for the face container.
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

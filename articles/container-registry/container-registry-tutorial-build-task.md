@@ -3,10 +3,11 @@ title: Tutorial - Automate container image builds - Azure Container Registry Tas
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
@@ -15,9 +16,11 @@ ms.custom: "seodec18, mvc"
 
 # Tutorial: Automate container image builds in the cloud when you commit source code
 
-In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds in the cloud when you commit source code to a Git repository.
 
-In this tutorial, part two in the series:
+In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile when you commit source code to a Git repo. To create a [multi-step task](container-registry-tasks-multi-step.md) that uses a YAML file to define steps to build, push, and optionally test multiple containers on code commit, see [Tutorial: Run a multi-step container workflow in the cloud when you commit source code](container-registry-tutorial-multistep-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md)
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Create a task
@@ -31,51 +34,13 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed  and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
-## Prerequisites
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### Get sample code
-
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
-
-### Container registry
-
-You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
-
-## Overview of ACR Tasks
-
-A task defines the properties of an automated build, including the location of the container image source code and the event that triggers the build. When an event defined in the task occurs, such as a commit to a Git repository, ACR Tasks initiates a container image build in the cloud. By default, it then pushes a successfully built image to the Azure container registry specified in the task.
-
-ACR Tasks currently support the following triggers:
-
-* Commit to a Git repository
-* Base image update
-
-In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
-
-## Create a build task
-
-In this section, you first create a GitHub personal access token (PAT) for use with ACR Tasks. Then, you create a task that triggers a build when code is committed to your fork of the repository.
-
-### Create a GitHub personal access token
-
-To trigger a build on a commit to a Git repository, ACR Tasks need a personal access token (PAT) to access the repository. Follow these steps to generate a PAT in GitHub:
-
-1. Navigate to the PAT creation page on GitHub at https://github.com/settings/tokens/new
-1. Enter a short **description** for the token, for example, "ACR Tasks Demo"
-1. Under **repo**, enable **repo:status** and **public_repo**
-
-   ![Screenshot of the Personal Access Token generation page in GitHub][build-task-01-new-token]
-
-1. Select the **Generate token** button (you may be asked to confirm your password)
-1. Copy and save the generated token in a **secure location** (you use this token when you define a task in the following section)
-
-   ![Screenshot of the generated Personal Access Token in GitHub][build-task-02-generated-token]
-
-### Create the build task
+## Create the build task
 
 Now that you've completed the steps required to enable ACR Tasks to read commit status and create webhooks in a repository, you can create a task that triggers a container image build on commits to the repo.
 
-First, populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever they appear in the example commands.
+First, populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -83,7 +48,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Now, create the task by executing following [az acr task create][az-acr-task-create] command:
+Now, create the task by executing the following [az acr task create][az-acr-task-create] command:
 
 ```azurecli-interactive
 az acr task create \
@@ -91,7 +56,6 @@ az acr task create \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
@@ -104,14 +68,6 @@ This task specifies that any time code is committed to the *master* branch in th
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -324,12 +280,11 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

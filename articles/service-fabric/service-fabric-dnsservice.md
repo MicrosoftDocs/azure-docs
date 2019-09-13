@@ -3,7 +3,7 @@ title: Azure Service Fabric DNS service | Microsoft Docs
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: vturecek
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # DNS Service in Azure Service Fabric
@@ -175,7 +175,7 @@ DNS queries that target a partition are formatted as follows:
 Where:
 
 - *First-Label-Of-Partitioned-Service-DNSName* is the first part of your service DNS name.
-- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "--". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* is the name of the partition. 
 - *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* is the remaining part of your service DNS name.

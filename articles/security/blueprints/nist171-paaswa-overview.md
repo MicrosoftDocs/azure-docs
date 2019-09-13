@@ -72,9 +72,9 @@ The following section details the deployment and implementation elements.
 **Bastion host**: The bastion host is the single point of entry that users can use to access the deployed resources in this environment. The bastion host provides a secure connection to deployed resources by allowing only remote traffic from public IP addresses on a safe list. To permit remote desktop traffic, the source of the traffic must be defined in the NSG.
 
 This solution creates a VM as a domain-joined bastion host with the following configurations:
--	[Antimalware extension](https://docs.microsoft.com/azure/security/azure-security-antimalware).
--	[Azure Diagnostics extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
--	[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) using Key Vault.
+-	[Antimalware extension](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
+-	[Azure Diagnostics extension](../../virtual-machines/windows/extensions-diagnostics-template.md).
+-	[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) using Key Vault.
 -	An [auto-shutdown policy](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of VM resources when not in use.
 -	[Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) is enabled so that credentials and other secrets run in a protected environment that is isolated from the running operating system.
 
@@ -90,17 +90,17 @@ Use of App Service Environment for this architecture provides the following cont
 
 - Host inside a secured Azure virtual network and network security rules.
 - Self-signed internal load balancer certificate for HTTPS communication. As a best practice, Microsoft recommends the use of a trusted certificate authority for enhanced security.
-- [Internal load balancing mode](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (mode 3).
-- Disable [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings).
-- Change [TLS cipher](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings).
-- Control [inbound traffic N/W ports](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic).
-- [Web application firewall – restrict data](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
-- Allow [Azure SQL Database traffic](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview).
+- [Internal load balancing mode](../../app-service/environment/app-service-environment-with-internal-load-balancer.md) (mode 3).
+- Disable [TLS 1.0](../../app-service/environment/app-service-app-service-environment-custom-settings.md).
+- Change [TLS cipher](../../app-service/environment/app-service-app-service-environment-custom-settings.md).
+- Control [inbound traffic N/W ports](../../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+- [Web application firewall – restrict data](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+- Allow [Azure SQL Database traffic](../../app-service/environment/app-service-app-service-environment-network-architecture-overview.md).
 
 ### Virtual network
 The architecture defines a private virtual network with an address space of 10.200.0.0/16.
 
-**Network security groups**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain access control lists that allow or deny traffic within a virtual network. NSGs can be used to secure traffic at a subnet or individual VM level. The following NSGs exist:
+**Network security groups**: [NSGs](../../virtual-network/virtual-network-vnet-plan-design-arm.md) contain access control lists that allow or deny traffic within a virtual network. NSGs can be used to secure traffic at a subnet or individual VM level. The following NSGs exist:
 - One NSG for Application Gateway
 - One NSG for App Service Environment
 - One NSG for SQL Database
@@ -126,28 +126,28 @@ Azure encrypts all communications to and from Azure data centers by default. All
 The architecture protects data at rest through encryption, database auditing, and other measures.
 
 **Azure Storage**:
-To meet requirements for encrypted data at rest, all [Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This feature helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST SP 800-171.
+To meet requirements for encrypted data at rest, all [Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](../../storage/common/storage-service-encryption.md). This feature helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST SP 800-171.
 
 **Azure Disk Encryption**:
-[Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) uses the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Key Vault to help control and manage the disk-encryption keys.
+[Disk Encryption](../azure-security-disk-encryption-overview.md) uses the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Key Vault to help control and manage the disk-encryption keys.
 
 **Azure SQL Database**:
 The SQL Database instance uses the following database security measures:
 -	[Active Directory authentication and authorization](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication) enables identity management of database users and other Microsoft services in one central location.
--	[SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) tracks database events and writes them to an audit log in an Azure storage account.
+-	[SQL database auditing](../../sql-database/sql-database-auditing.md) tracks database events and writes them to an audit log in an Azure storage account.
 -	SQL Database is configured to use [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). It performs real-time encryption and decryption of the database, associated backups, and transaction log files to protect information at rest. Transparent data encryption provides assurance that stored data hasn't been subject to unauthorized access.
 -	[Firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) prevent all access to database servers until proper permissions are granted. The firewall grants access to databases based on the originating IP address of each request.
--	[SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) enables the detection and response to potential threats as they occur. It provides security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
+-	[SQL Threat Detection](../../sql-database/sql-database-threat-detection.md) enables the detection and response to potential threats as they occur. It provides security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
 -	[Encrypted columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive data never appears as plain text inside the database system. After data encryption is enabled, only client applications or application servers with access to the keys can access plain-text data.
 - [Dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking the data to nonprivileged users or applications. It can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. Dynamic data masking helps to reduce access so that sensitive data doesn't exit the database via unauthorized access. *Customers are responsible for adjusting settings to adhere to their database schema.*
 
 ### Identity management
 The following technologies provide capabilities to manage access to data in the Azure environment:
 -	[Azure AD](https://azure.microsoft.com/services/active-directory/) is Microsoft's multitenant cloud-based directory and identity management service. All users for this solution are created in Azure AD and include users who access the SQL database.
--	Authentication to the application is performed by using Azure AD. For more information, see how to [integrate applications with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). The database column encryption also uses Azure AD to authenticate the application to SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--	[Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) can be used by administrators to define fine-grained access permissions. With it, they can grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted access for Azure resources, administrators can allow only certain actions for accessing resources and data. Subscription access is limited to the subscription administrator.
-- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) can be used by customers to minimize the number of users who have access to certain information. Administrators can use Azure AD Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality also can be used to enforce on-demand, just-in-time administrative access when needed.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities that affect an organization’s identities. It configures automated responses to detected suspicious actions related to an organization’s identities. It also investigates suspicious incidents to take appropriate action to resolve them.
+-	Authentication to the application is performed by using Azure AD. For more information, see how to [integrate applications with Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). The database column encryption also uses Azure AD to authenticate the application to SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-	[Azure RBAC](../../role-based-access-control/role-assignments-portal.md) can be used by administrators to define fine-grained access permissions. With it, they can grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted access for Azure resources, administrators can allow only certain actions for accessing resources and data. Subscription access is limited to the subscription administrator.
+- [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) can be used by customers to minimize the number of users who have access to certain information. Administrators can use Azure AD Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality also can be used to enforce on-demand, just-in-time administrative access when needed.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detects potential vulnerabilities that affect an organization’s identities. It configures automated responses to detected suspicious actions related to an organization’s identities. It also investigates suspicious incidents to take appropriate action to resolve them.
 
 ### Security
 **Secrets management**:
@@ -170,34 +170,34 @@ Security Center provides prioritized security alerts and incidents. Security Cen
 The architecture reduces the risk of security vulnerabilities by using an application gateway with a web application firewall configured and the OWASP rule set enabled. Additional capabilities include:
 
 - [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- Enable [SSL offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
+- Enable [SSL offload](../../application-gateway/create-ssl-portal.md).
 - Disable [TLS v1.0 and v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- [Web application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (prevention mode).
+- [Web application firewall](../../application-gateway/waf-overview.md) (prevention mode).
 - [Prevention mode](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) with OWASP 3.0 rule set.
 - Enable [diagnostics logging](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
-- [Custom health probes](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal).
+- [Custom health probes](../../application-gateway/quick-create-portal.md).
 - [Security Center](https://azure.microsoft.com/services/security-center) and [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) provide additional protection and notifications. Security Center also provides a reputation system.
 
 ### Logging and auditing
 
 Azure services extensively log system and user activity, as well as system health:
-- **Activity logs**: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. Activity logs can help determine an operation's initiator, time of occurrence, and status.
-- **Diagnostic logs**: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include Windows event system logs, Storage logs, Key Vault audit logs, and Application Gateway access and firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. Users can configure the retention period, up to 730 days, to meet their specific requirements.
+- **Activity logs**: [Activity logs](../../azure-monitor/platform/activity-logs-overview.md) provide insight into operations performed on resources in a subscription. Activity logs can help determine an operation's initiator, time of occurrence, and status.
+- **Diagnostic logs**: [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) include all logs emitted by every resource. These logs include Windows event system logs, Storage logs, Key Vault audit logs, and Application Gateway access and firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. Users can configure the retention period, up to 730 days, to meet their specific requirements.
 
 **Azure Monitor logs**: Logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. After the data is collected, it's organized into separate tables for each data type within Log Analytics workspaces. In this way, all data can be analyzed together, regardless of its original source. Security Center integrates with Azure Monitor logs. Customers can use Kusto queries to access their security event data and combine it with data from other services.
 
-The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
--	[Active Directory assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval. It provides a prioritized list of recommendations specific to the deployed server infrastructure.
-- [SQL assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): The SQL Health Check solution assesses the risk and health of server environments on a regular interval. It provides customers with a prioritized list of recommendations specific to the deployed server infrastructure.
-- [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution. It also reports how many agents are unresponsive and the number of agents that submit operational data.
--	[Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
+The following Azure [monitoring solutions](../../monitoring/monitoring-solutions.md) are included as a part of this architecture:
+-	[Active Directory assessment](../../azure-monitor/insights/ad-assessment.md): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval. It provides a prioritized list of recommendations specific to the deployed server infrastructure.
+- [SQL assessment](../../azure-monitor/insights/sql-assessment.md): The SQL Health Check solution assesses the risk and health of server environments on a regular interval. It provides customers with a prioritized list of recommendations specific to the deployed server infrastructure.
+- [Agent Health](../../monitoring/monitoring-solution-agenthealth.md): The Agent Health solution reports how many agents are deployed and their geographic distribution. It also reports how many agents are unresponsive and the number of agents that submit operational data.
+-	[Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
 
-**Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) stores, runs, and manages runbooks. In this solution, runbooks help collect logs from SQL Database. Customers can use the Automation [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) solution to easily identify changes in the environment.
+**Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) stores, runs, and manages runbooks. In this solution, runbooks help collect logs from SQL Database. Customers can use the Automation [Change Tracking](../../automation/change-tracking.md) solution to easily identify changes in the environment.
 
 **Azure Monitor**:
 [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends. Organizations can use it to audit, create alerts, and archive data. They also can track API calls in their Azure resources.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible application performance management service for web developers on multiple platforms. Application Insights detects performance anomalies. Customers can use it to monitor the live web application. Application Insights includes powerful analytics tools to help customers diagnose issues and understand what users do with their app. It&#39;s designed to help customers continuously improve performance and usability.
+**Application Insights**: [Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible application performance management service for web developers on multiple platforms. Application Insights detects performance anomalies. Customers can use it to monitor the live web application. Application Insights includes powerful analytics tools to help customers diagnose issues and understand what users do with their app. It&#39;s designed to help customers continuously improve performance and usability.
 
 ## Threat model
 

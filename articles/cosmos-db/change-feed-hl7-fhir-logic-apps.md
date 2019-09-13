@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/08/2017
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---

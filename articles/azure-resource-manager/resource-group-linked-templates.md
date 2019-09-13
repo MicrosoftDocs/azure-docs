@@ -1,19 +1,10 @@
 ---
 title: Link templates for Azure deployment | Microsoft Docs
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/18/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -68,11 +59,12 @@ To nest the template within the main template, use the **template** property and
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2018-07-01",
+            "apiVersion": "2019-04-01",
             "name": "[variables('storageName')]",
             "location": "West US",
-            "properties": {
-              "accountType": "Standard_LRS"
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Standard_LRS"
             }
           }
         ]
@@ -85,14 +77,14 @@ To nest the template within the main template, use the **template** property and
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> For two resources defined inside a nest template and one resource depends on the other, the value of the dependency is simply the name of the depended resource:
+> For two resources defined inside a nested template and one resource depends on the other, the value of the dependency is simply the name of the dependent resource:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> You can't use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+> You can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 
@@ -145,6 +137,51 @@ To pass a value from the main template to the linked template, use **parameters*
           "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
         }
      }
+  }
+]
+```
+
+## Using copy
+
+To create multiple instances of a resource with a nested template, add the copy element at the level of the **Microsoft.Resources/deployments** resource.
+
+The following example template shows how to use copy with a nested template.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy":{
+      "name": "storagecopy",
+      "count": 2
+    },
+    "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "kind": "StorageV2",
+            "sku": {
+              "name": "Standard_LRS"
+            }
+            // no, copy doesn't work here
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
+      }
+    }
   }
 ]
 ```
@@ -436,6 +473,8 @@ done
 Although the linked template must be externally available, it doesn't need to be generally available to the public. You can add your template to a private storage account that is accessible to only the storage account owner. Then, you create a shared access signature (SAS) token to enable access during deployment. You add that SAS token to the URI for the linked template. Even though the token is passed in as a secure string, the URI of the linked template, including the SAS token, is logged in the deployment operations. To limit exposure, set an expiration for the token.
 
 The parameter file can also be limited to access through a SAS token.
+
+Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../storage/common/storage-network-security.md).
 
 The following example shows how to pass a SAS token when linking to a template:
 

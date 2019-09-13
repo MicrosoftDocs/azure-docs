@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -54,11 +54,6 @@ SELECT TOP 10 *
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
 
--- Find a query with the Label 'My Query'
--- Use brackets when querying the label column, as it it a key word
-SELECT  *
-FROM    sys.dm_pdw_exec_requests
-WHERE   [label] = 'My Query';
 ```
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
@@ -73,6 +68,12 @@ SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query')
 ;
+
+-- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
+SELECT  *
+FROM    sys.dm_pdw_exec_requests
+WHERE   [label] = 'My Query';
 ```
 
 ### STEP 2: Investigate the query plan
@@ -165,33 +166,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
 ## Monitor tempdb
-High tempdb utilization can be the root cause for slow performance and out of memory issues. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following information describes how to identify tempdb usage per query on each node. 
+Tempdb is used to hold intermediate results during query execution. High utilization of the tempdb database can lead to slow query performance. Each node in Azure SQL Data Warehouse has approximately 1 TB of raw space for tempdb. Below are tips for monitoring tempdb usage and for decreasing tempdb usage in your queries. 
 
-Create the following view to associate the appropriate node ID for sys.dm_pdw_sql_requests. Having the node ID will enable you to use other pass-through DMVs and join those tables with sys.dm_pdw_sql_requests.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-To monitor tempdb, run the following query:
+### Monitoring tempdb with views
+To monitor tempdb usage, first install the [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) view from the [Microsoft Toolkit for SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). You can then execute the following query to see the tempdb usage per node for all executed queries:
 
 ```sql
 -- Monitor tempdb
@@ -216,12 +194,19 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
 	INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
 	INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-	INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+	INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
 	AND es.session_id <> @@SPID
 	AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+If you have a query that is consuming a large amount of memory or have received an error message related to allocation of tempdb, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) to monitor ShuffleMove operations. 
+
+The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so the data volume will not exceed the 1TB per node tempdb limit. You can also scale your cluster to a larger size which will spread the tempdb size across more nodes reducing the tempdb on each individual node.
+
+In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into tempdb causing queries to fail.  Consider running with a larger [resource class](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) to avoid spilling into tempdb.
+
 ## Monitor memory
 
 Memory can be the root cause for slow performance and out of memory issues. Consider scaling your data warehouse if you find SQL Server memory usage reaching its limits during query execution.
@@ -272,6 +257,31 @@ SELECT
 FROM sys.dm_pdw_nodes_tran_database_transactions t
 JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
+```
+
+## Monitor PolyBase load
+The following query provides a ballpark estimate of the progress of your load. The query only shows files currently being processed. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## Next steps

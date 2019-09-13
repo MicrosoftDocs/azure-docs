@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.date: 08/23/2019
 ms.author: bwren
 ---
 
 # Create custom fields in a Log Analytics workspace in Azure Monitor
 
 > [!NOTE]
-> This article describes how to parse text data in a Log Analytics workspace as it's collected. There are advantages to parsing text data in a query after it's collected as described in [Parse text data in Azure Monitor](../log-query/parse-text.md).
+> This article describes how to parse text data in a Log Analytics workspace as it's collected. We recommend parsing text data in a query filter after it's collected following the guidance described in [Parse text data in Azure Monitor](../log-query/parse-text.md). It provides several advantages over using custom fields.
 
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
@@ -76,7 +76,7 @@ You can view a list of all custom fields in your management group from the **Adv
 There are two ways to remove a custom field.  The first is the **Remove** option for each field when viewing the complete list as described above.  The other method is to retrieve a record and click the button to the left of the field.  The menu will have an option to remove the custom field.
 
 ## Sample walkthrough
-The following section walks through a complete example of creating a custom field.  This example extracts the service name in Windows events that indicate a service changing state.  This relies on events created by Service Control Manager in the System sign on Windows computers.  If you want to follow this example, you must be [collecting Information events for the System log](data-sources-windows-events.md).
+The following section walks through a complete example of creating a custom field.  This example extracts the service name in Windows events that indicate a service changing state.  This relies on events created by Service Control Manager during system startup on Windows computers.  If you want to follow this example, you must be [collecting Information events for the System log](data-sources-windows-events.md).
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 

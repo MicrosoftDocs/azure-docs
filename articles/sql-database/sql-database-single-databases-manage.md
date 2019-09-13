@@ -7,10 +7,9 @@ ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Create and manage SQL Database servers and single databases in Azure SQL Database

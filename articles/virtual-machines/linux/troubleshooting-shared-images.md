@@ -4,18 +4,19 @@ description: Learn how to troubleshoot issues with shared image galleries.
 services: virtual-machine-windows
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 09/20/2018
-ms.author: akjosh; cynthn
+ms.date: 04/25/2019
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: 
 ---
 

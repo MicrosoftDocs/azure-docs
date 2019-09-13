@@ -53,7 +53,7 @@ The subnet of the target VM is selected based on the name of the subnet of the s
 
 - If a subnet with the same name as the source VM subnet is available in the target network, that subnet is set for the target VM.
 - If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
-- You can modify the in the **Compute and Network** settings for the VM.
+- You can modify the target subnet in the **Compute and Network** settings for the VM.
 
     ![Compute and Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -81,7 +81,7 @@ Different address space<br/><br/> The next available IP address in the target su
 **Target network** | **Details**
 --- | ---
 Target network is the failover VNet | - Target IP address is static, but not the same IP address as that reserved for failover.<br/><br/>  - The assigned address is the next available address from the end of the subnet range.<br/><br/> For example: If the source IP address is 10.0.0.19 and failover network uses range 10.0.0.0/24, then the next IP address assigned to the target VM is 10.0.0.254.
-Target network isn't the failover VNet | - Target IP address will be static with the same IP address reserved for failover.<br/><br/>  - If the same IP address is already assigned, then the IP address is the next one available at the each of the subnet range.<br/><br/> For example: If the source static IP address is 10.0.0.19 and failover is on an network that isn't the failover network, with the range 10.0.0.0/24, then the target static IP address will be 10.0.0.0.19 if available, and otherwise it will be 10.0.0.254.
+Target network isn't the failover VNet | - Target IP address will be static with the same IP address reserved for failover.<br/><br/>  - If the same IP address is already assigned, then the IP address is the next one available at the end of the subnet range.<br/><br/> For example: If the source static IP address is 10.0.0.19 and failover is on an network that isn't the failover network, with the range 10.0.0.0/24, then the target static IP address will be 10.0.0.0.19 if available, and otherwise it will be 10.0.0.254.
 
 - The failover VNet is the target network that you select when you set up disaster recovery.
 - We recommend that you always use a non-production network for test failover.
@@ -92,5 +92,3 @@ Target network isn't the failover VNet | - Target IP address will be static with
 
 - Review [networking guidance](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM disaster recovery.
 - [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.
-
-If the target network chosen is the failover vnet” and 2nd point to say “If the target network chosen is different from the failover vnet but has the same subnet range as failover vnet”

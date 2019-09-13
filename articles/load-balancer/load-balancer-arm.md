@@ -3,14 +3,14 @@ title: Azure Resource Manager support for Load Balancer | Microsoft Docs
 description: Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Using Azure Resource Manager Support with Azure Load Balancer

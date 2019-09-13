@@ -1,17 +1,26 @@
 - name: Azure Dev Spaces
+  href: ./index.yml
   items:
   - name: Overview
-    href: index.yml
+    items: 
+    - name: About Azure Dev Spaces
+      href: about.md
   - name: Quickstarts
     items:
-    - name: Java (VS Code & CLI)
-      href: quickstart-java.md
-    - name: .NET Core (VS Code & CLI)
-      href: quickstart-netcore.md
-    - name: .NET Core (Visual Studio 2017)
-      href: quickstart-netcore-visualstudio.md
-    - name: Node.js (VS Code & CLI)
-      href: quickstart-nodejs.md
+    - name: Team development
+      href: quickstart-team-development.md
+    - name: Debug and iterate
+      items:
+      - name: Use Visual Studio Code and Java
+        href: quickstart-java.md
+      - name: Use Visual Studio Code and .NET Core
+        href: quickstart-netcore.md
+      - name: Use Visual Studio Code and Node.js
+        href: quickstart-nodejs.md
+      - name: Use Visual Studio and .NET Core
+        href: quickstart-netcore-visualstudio.md
+    - name: Develop using the CLI
+      href: quickstart-cli.md
   - name: Tutorials
     items:
     - name: Java (VS Code & CLI)
@@ -30,7 +39,7 @@
         href: multi-service-netcore.md
       - name: 3 - Team development
         href: team-development-netcore.md
-    - name: .NET Core (Visual Studio 2017)
+    - name: .NET Core (Visual Studio)
       items:
       - name: 1 - Get started
         href: get-started-netcore-visualstudio.md
@@ -50,8 +59,12 @@
     items:
     - name: How Dev Spaces Works
       href: how-dev-spaces-works.md
+    - name: How VS Code works with Dev Spaces
+      href: how-vs-code-works-with-dev-spaces.md
   - name: How to
     items:
+    - name: Install Azure Dev Spaces
+      href: how-to/install-dev-spaces.md
     - name: Create a Kubernetes cluster using Azure Cloud Shell
       href: how-to/create-cluster-cloud-shell.md
     - name: Share Azure Dev Spaces
@@ -60,13 +73,21 @@
       href: how-to/manage-secrets.md
     - name: Use a custom NuGet feed
       href: how-to/use-custom-nuget-feed.md
+    - name: Use a private Helm repository
+      href: how-to/use-private-helm-repo.md
     - name: Use kubectl with Azure Dev Spaces
       href: how-to/use-kubectl-with-azure-dev-spaces.md
     - name: Upgrade Azure Dev Spaces tools
       href: how-to/upgrade-tools.md
     - name: Using CI/CD with Azure Dev Spaces
       href: how-to/setup-cicd.md
+    - name: Use Azure Dev Spaces plug-in for Jenkins
+      href: ../jenkins/tutorial-jenkins-dev-spaces.md
     - name: Business continuity and disaster recovery for Azure Dev Spaces
       href: how-to/dev-spaces-business-continuity.md
+    - name: Interact with Windows containers
+      href: how-to/run-dev-spaces-windows-containers.md
+    - name: Use traefik for custom ingress and HTTPS
+      href: how-to/ingress-https-traefik.md
   - name: Troubleshooting
     href: troubleshooting.md

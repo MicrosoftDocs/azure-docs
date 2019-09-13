@@ -5,11 +5,11 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 0203/26/2019
+ms.date: 03/26/2019
 ms.author: bwren
 ---
 
@@ -46,7 +46,7 @@ The following table lists the different ways that you can use Logs in Azure Moni
 
 
 ## How is data in Azure Monitor Logs structured?
-Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](../platform/manage-access.md). You can [create multiple workspaces](manage-access.md#determine-the-number-of-workspaces-you-need) in your subscription to manage different sets of log data. Each workspace contains multiple tables that each store data from a particular source. While all tables share [some common properties](log-standard-properties.md), each has a unique set of properties depending on the kind of data it stores. A new workspace will have standard set of tables, and more tables will be added by different monitoring solutions and other services that write to the workspace.
+Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](../platform/design-logs-deployment.md). Each workspace contains multiple tables that each store data from a particular source. While all tables share [some common properties](log-standard-properties.md), each has a unique set of properties depending on the kind of data it stores. A new workspace will have standard set of tables, and more tables will be added by different monitoring solutions and other services that write to the workspace.
 
 Log data from Application Insights uses the same Log Analytics engine as workspaces, but it's stored separately for each monitored application. Each application has a standard set of tables to hold data such as application requests, exceptions, and page views.
 
@@ -74,7 +74,7 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 | Data | Description |
 |:---|:---|
 | Azure Active Directory audit logs | Configured through Diagnostic settings for each directory. See [Integrate Azure AD logs with Azure Monitor logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Activity logs | Stored separately by default and can be used for near real time alerts. Install Activity Log Analytics solution to write to Log Analytics workspace. See [Collect and analyze Azure activity logs in Log Analytics](collect-activity-logs.md). |
+| Activity logs | Stored separately by default and can be used for near real time alerts. Install Activity log Analytics solution to write to Log Analytics workspace. See [Collect and analyze Azure activity logs in Log Analytics](activity-log-collect.md). |
 
 ### Azure resources
 
@@ -107,7 +107,7 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 
 | Data | Description |
 |:---|:---|
-| Azure Monitor for Containers | Inventory and performance data collected by [Azure Monitor for containers](../insights/container-insights-overview.md). See [Container data-collection details](../insights/container-insights-analyze.md#container-data-collection-details) for a list of the tables. |
+| Azure Monitor for containers | Inventory and performance data collected by [Azure Monitor for containers](../insights/container-insights-overview.md). See [Container data-collection details](../insights/container-insights-log-search.md#container-records) for a list of the tables. |
 | Azure Monitor for VMs | Map and performance data collected by [Azure Monitor for VMs](../insights/vminsights-overview.md). See [How to query logs from Azure Monitor for VMs](../insights/vminsights-log-search.md) for details on querying this data. |
 
 ### Custom 

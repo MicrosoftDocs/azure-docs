@@ -1,14 +1,14 @@
 ---
-title: Add intents
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add intents - LUIS
+titleSuffix: Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/19/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -37,16 +37,25 @@ Example utterances are text examples of user questions or commands. To teach Lan
 
     LUIS converts all utterances to lowercase and adds spaces around tokens such as hyphens.
 
-## Intent prediction discrepancy errors 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-An utterance in an intent might have an intent prediction discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
+## Intent prediction errors 
 
-![Screenshot of Intents details page, with utterance prediction discrepancy errors](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+An example utterance in an intent might have an intent prediction error between the intent the example utterance is currently in and the prediction intent determined during training. 
 
-In the top navigation, select **Train**. The prediction discrepancy is now gone.
+To find utterance prediction errors and fix them, use the **Filter** option's **Evaluation** options of Incorrect and Unclear combined with the **View** option of **Detailed view**. 
 
-> [!Note]
-> When a red line is under a word or phrase in the example utterance, an [entity prediction error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
+![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.
+
+![![When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Each row shows the current training's prediction score for the example utterance, the nearest rival's score, which is the difference in these two scores. 
+
+### Fixing intents
+
+To learn how to fix intent prediction errors, use the [Summary Dashboard](luis-how-to-use-dashboard.md). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.  
 
 ## Add a custom entity
 
@@ -64,7 +73,7 @@ The text is highlighted in blue, indicating an entity.
 
 ## Add a prebuilt entity
 
-For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity).
+For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ## Using the contextual toolbar
 

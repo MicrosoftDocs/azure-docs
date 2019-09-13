@@ -3,18 +3,11 @@ title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # Common Cloud Service startup tasks
@@ -69,7 +62,7 @@ The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and c
 ### Example of managing the error level
 This example adds a compression section and a compression entry for JSON to the *Web.config* file, with error handling and logging.
 
-The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
+The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

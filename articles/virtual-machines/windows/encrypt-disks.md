@@ -4,13 +4,13 @@ description: Encrypt virtual disks on a Windows VM for enhanced security by usin
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -21,7 +21,7 @@ ms.author: cynthn
 # Encrypt virtual disks on a Windows VM
 For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted by using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article describes how to encrypt virtual disks on a Windows VM by using Azure PowerShell. You can also [encrypt a Linux VM by using the Azure CLI](../linux/encrypt-disks.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Overview of disk encryption
 Virtual disks on Windows VMs are encrypted at rest by using BitLocker. There's no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in an Azure Key Vault by using software protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. Cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You keep control of these cryptographic keys and can audit their use. 
@@ -86,7 +86,7 @@ You can store cryptographic keys by using either software or Hardware Security M
 For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). The following example creates a key named *myKey*:
 
 ```azurepowershell-interactive
-Add-AzureKeyVaultKey -VaultName $keyVaultName `
+Add-AzKeyVaultKey -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
 ```

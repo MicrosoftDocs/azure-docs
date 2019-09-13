@@ -1,29 +1,29 @@
 ---
-title: 'Quickstart: Ingest data from Event Hub into Azure Data Explorer'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
+title: 'Ingest data from Event Hub into Azure Data Explorer'
+description: 'In this article, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 02/02/2018
+ms.topic: conceptual
+ms.date: 07/17/2019
 
 # Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
 ---
 
-# Quickstart: Ingest data from Event Hub into Azure Data Explorer
+# Ingest data from Event Hub into Azure Data Explorer
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this quickstart, you create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this article, you create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* [A test cluster and database](create-cluster-database-portal.md)
+* [A test cluster and database](create-cluster-database-portal.md).
 
 * [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub. Download the sample app to your system.
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
 ## Sign in to the Azure portal
 
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an event hub
 
-In this quickstart, you generate sample data and send it to an event hub. The first step is to create an event hub. You do this by using an Azure Resource Manager template in the Azure portal.
+In this article, you generate sample data and send it to an event hub. The first step is to create an event hub. You do this by using an Azure Resource Manager template in the Azure portal.
 
 1. To create an event hub, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
 
@@ -55,7 +55,7 @@ In this quickstart, you generate sample data and send it to an event hub. The fi
     |---|---|---|
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your event hub.|
     | Resource group | *test-hub-rg* | Create a new resource group. |
-    | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs. Create the event hub namespace in the same Location as the Kusto cluster for best performance (most important for event hub namespaces with high throughput).
+    | Location | *West US* | Select *West US* for this article. For a production system, select the region that best meets your needs. Create the event hub namespace in the same Location as the Kusto cluster for best performance (most important for event hub namespaces with high throughput).
     | Namespace name | A unique namespace name | Choose a unique name that identifies your namespace. For example, *mytestnamespace*. The domain name *servicebus.windows.net* is appended to the name you provide. The name can contain only letters, numbers, and hyphens. The name must start with a letter, and it must end with a letter or number. The value must be between 6 and 50 characters long.
     | Event hub name | *test-hub* | The event hub sits under the namespace, which provides a unique scoping container. The event hub name must be unique within the namespace. |
     | Consumer group name | *test-group* | Consumer groups enable multiple consuming applications to each have a separate view of the event stream. |
@@ -115,15 +115,18 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
 
     Target table:
 
-    There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected.
-    You can also use dynamic routing, where your data includes the necessary routing information.
+    There are two options for routing the ingested data: *static* and *dynamic*. 
+    For this article, you use static routing, where you specify the table name, data format, and mapping. Therefore, leave **My data includes routing info** unselected.
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. |
-    | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**.|
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. Supported compression options: GZip |
+    | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**. Required for JSON, MULTILINE JSON, or AVRO, and optional for other formats.|
     | | |
+
+    > [!NOTE]
+    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
 
 ## Copy the connection string
 
@@ -181,7 +184,9 @@ With the app generating data, you can now see the flow of that data from the eve
     ![Message result set](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes so you may experience a latency.
+    > * Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes or 500 MB of data, by default, so you may experience a latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options. 
+    > * Event Hub ingestion includes Event Hub response time of 10 seconds or 1 MB. 
+    > * Configure your table to support streaming and remove the lag in response time. See [streaming policy](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## Clean up resources
 
@@ -199,5 +204,4 @@ If you don't plan to use your event hub again, clean up **test-hub-rg**, to avoi
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
+* [Query data in Azure Data Explorer](web-query-data.md)

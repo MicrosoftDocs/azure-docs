@@ -5,11 +5,11 @@ description: Learn how to troubleshoot Windows VM issues in Azure by connecting 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -24,7 +24,7 @@ If your Windows virtual machine (VM) in Azure encounters a boot or disk error, y
 > [!Important]
 > The scripts in this article only apply to the VMs that use [Managed Disk](../windows/managed-disks-overview.md). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Recovery process overview
 We can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM.
@@ -124,8 +124,8 @@ $diskName = 'newOSDisk'
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'StandardLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType = 'Standard_LRS'
 
 #Provide the Azure region (e.g. westus) where Managed Disks will be located.
 #This location should be same as the snapshot location

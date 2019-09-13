@@ -1,12 +1,11 @@
 ---
 title: Add/remove an Azure File Sync server endpoint | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -46,10 +45,15 @@ If you desire to discontinue using Azure File Sync for a given server endpoint, 
 
 To ensure that all tiered files are recalled before removing the server endpoint, disable cloud tiering on the server endpoint, and then execute the following PowerShell cmdlet to recall all tiered files within your server endpoint namespace:
 
-```powershell
+```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
+Specifying `-Order CloudTieringPolicy` will recall the most recently modified files first.
+Other optional but useful parameters to consider are:
+* `-ThreadCount` determines the how many files can be recalled in parallel.
+* `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
+* `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
 > [!Note]  
 > If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  

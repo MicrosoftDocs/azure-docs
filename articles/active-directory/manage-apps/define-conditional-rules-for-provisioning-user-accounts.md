@@ -3,8 +3,8 @@ title: Provision apps with scoping filters | Microsoft Docs
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: H1Hack27Feb2017
 
 ms.collection: M365-identity-device-management
@@ -103,7 +103,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 13. Select **Save** on the **Attribute Mapping** screen. 
 
 >[!IMPORTANT] 
-> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application.
+> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](skip-out-of-scope-deletions.md).
 
 
 ## Related articles

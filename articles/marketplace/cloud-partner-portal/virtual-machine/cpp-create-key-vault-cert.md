@@ -1,20 +1,12 @@
 ---
-title: Create an Azure Key Vault certificate | Microsoft Docs
+title: Create an Azure Key Vault certificate | Azure Marketplace
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Create certificates for Azure Key Vault
@@ -204,7 +196,7 @@ You can now store the certificates, contained in the .pfx file, to the new key v
     "dataType" :"pfx",
     "password": "$certpassword"
     }
-    "@
+"@
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)

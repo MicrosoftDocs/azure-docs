@@ -1,14 +1,14 @@
 ---
 title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 03/05/2019
-ms.author: raynew
+ms.date: 04/16/2019
+ms.author: dacurwin
 ms.custom: mvc
 ---
 
@@ -67,11 +67,11 @@ Now create a vault:
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Change the storage redundancy configuration (LRS/GRS) of the vault with [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), as follows:
+3. Change the storage redundancy configuration (LRS/GRS) of the vault with [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), as follows:
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > Storage Redundancy can be modified only if there are no backup items protected to the vault.
@@ -99,7 +99,6 @@ Enable backup as follows:
         -Name "myVM" `
         -Policy $policy
     ```
-
 
 ## Start a backup job
 
@@ -141,7 +140,7 @@ Run an ad hoc backup job as follows:
     ```
     Output is similar to the following example, which shows the job as **InProgress**:
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
@@ -154,7 +153,7 @@ Run an ad hoc backup job as follows:
 ## Clean up the deployment
 
 If you no longer need to back up the VM, you can clean it up.
-- If you want to try out restoring the VM, skip the clean up.
+- If you want to try out restoring the VM, skip the clean-up.
 - If you used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to leave the resource group and VM in place.
 
 Disable protection, remove the restore points and vault. Then delete the resource group and associated VM resources, as follows:

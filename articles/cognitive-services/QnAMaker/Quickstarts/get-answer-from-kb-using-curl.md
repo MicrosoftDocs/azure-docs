@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 04/05/2019
+ms.topic: quickstart
+ms.date: 07/16/2019
 ms.author: diberry
 ---
 
@@ -47,7 +47,7 @@ To generate an answer with CURL, complete the following steps:
           "questions": [
             "How do I programmatically update my Knowledge Base?"
           ],
-          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
           "score": 100.0,
           "id": 18,
           "source": "Custom Editorial",
@@ -64,9 +64,11 @@ To generate an answer with CURL, complete the following steps:
 
 ## Use staging endpoint with cURL
 
-If you want to get an answer from the staging endpoint, use the querystring boolean parameter `isTest` with the value of `true`.
+If you want to get an answer from the staging endpoint, use the `isTest` body property.
 
-`isTest=true`
+```json
+isTest:true
+```
 
 ## Next steps
 

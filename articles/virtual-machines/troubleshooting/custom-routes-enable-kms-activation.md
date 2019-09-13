@@ -11,7 +11,7 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
@@ -23,7 +23,7 @@ This article describes how to resolve the KMS activation problem that you might 
 
 ## Symptom
 
-You enable [forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) on Azure virtual network subnets to direct all Internet-bound traffic back to your on-premises network. In this scenario, the Azure virtual machines (VMs) that run Windows Server 2012 R2 (or later versions of Windows) can successfully activate Windows. However, VMs that run earlier version of Windows fail to activate Windows.
+You enable [forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) on Azure virtual network subnets to direct all Internet-bound traffic back to your on-premises network. In this scenario, the Azure virtual machines (VMs) that run Windows fail to activate Windows.
 
 ## Cause
 
@@ -47,7 +47,10 @@ To add the custom route, follow these steps:
 
 ### For Resource Manager VMs
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+> [!NOTE] 
+> Activation uses public IP addresses and will be affected by a Standard SKU Load Balancer configuration. Carefully review [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) to learn about the requirements.
 
 1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Run the following commands:
@@ -64,6 +67,12 @@ To add the custom route, follow these steps:
     Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
 
     Set-AzRouteTable -RouteTable $RouteTable
+
+    # Next, attach the route table to the subnet that hosts the VMs
+
+    Set-AzVirtualNetworkSubnetConfig -Name "Subnet01" -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/24" -RouteTable $RouteTable
+
+    Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
 

@@ -1,12 +1,11 @@
 ---
-title: Create and customize recovery plans for disaster recovery using Azure Site Recovery | Microsoft Docs
+title: Create and customize recovery plans for disaster recovery using Azure Site Recovery 
 description: Learn how to create and customize recovery plans for disaster recovery using the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 09/09/2019
 ms.author: raynew
 ---
 
@@ -67,15 +66,15 @@ You can customize a recovery plan by adding a script or manual action. Note that
     VMM to secondary VMM | Script | Script
 
 1. In the recovery plan, click the step to which the action should be added, and specify when the action should occur:
-    a. If you want the action to occur before the machines in the group are started after failover, select **Add pre-action**.
-    b. If you want the action to occur after the machines in the group start after failover, select **Add post action**. To move the position of the action, select the **Move Up** or **Move Down** buttons.
+    1. If you want the action to occur before the machines in the group are started after failover, select **Add pre-action**.
+    1. If you want the action to occur after the machines in the group start after failover, select **Add post action**. To move the position of the action, select the **Move Up** or **Move Down** buttons.
 2. In **Insert action**, select **Script** or **Manual action**.
-3. If you want to add a manual action, do the following"
-    a. Type in a name for the action, and type in action instructions. The person running the failover will see these instructions.
-    b. Specify whether you want to add the manual action for all types of failover (Test, Failover, Planned failover (if relevant)). Then click **OK**.
+3. If you want to add a manual action, do the following:
+    1. Type in a name for the action, and type in action instructions. The person running the failover will see these instructions.
+    1. Specify whether you want to add the manual action for all types of failover (Test, Failover, Planned failover (if relevant)). Then click **OK**.
 4. If you want to add a script, do the following:
-    a. If you're adding a VMM script, select **Failover to VMM script**, and in **Script Path** type the relative path to the share. For example, if the share is located at \\<VMMServerName>\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.
-    b. If you're adding an Azure automation run book, specify the **Azure Automation Account** in which the runbook is located, and select the appropriate **Azure Runbook Script**.
+    1. If you're adding a VMM script, select **Failover to VMM script**, and in **Script Path** type the relative path to the share. For example, if the share is located at \\\<VMMServerName>\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.
+    1. If you're adding an Azure automation run book, specify the **Azure Automation Account** in which the runbook is located, and select the appropriate **Azure Runbook Script**.
 5. Run a test failover of the recovery plan to ensure that the script works as expected.
 
 ## Watch a video

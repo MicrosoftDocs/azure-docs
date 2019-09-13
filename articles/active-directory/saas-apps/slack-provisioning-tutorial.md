@@ -3,9 +3,8 @@ title: 'Tutorial: Configure Slack for automatic user provisioning with Azure Act
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -15,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
-ms.reviewer: asmalser
+ms.author: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -119,7 +117,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
   
-  * Slack's **userName** attribute has to be under 21 characters and have a unique value.
+* Slack's **userName** attribute has to be under 21 characters and have a unique value.
+
+* Slack only allows matching with the attributes **userName** and **email**.  
 
 ## Additional Resources
 

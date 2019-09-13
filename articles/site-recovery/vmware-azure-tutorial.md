@@ -1,12 +1,11 @@
 ---
-title: Set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery | Microsoft Docs
+title: Set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -176,7 +175,7 @@ Enable replication for VMs as follows:
 1. In **Source**, select **On-premises**, and select the configuration server in **Source location**.
 1. In **Machine type**, select **Virtual Machines**.
 1. In **vCenter/vSphere Hypervisor**, select the vSphere host, or vCenter server that manages the host.
-1. Select the process server (installed by default on the configuration server VM). Then select **OK**.
+1. Select the process server (installed by default on the configuration server VM). Then select **OK**. Health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server cannot be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
 1. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. We're using the Resource Manager deployment model. 
 1. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
 1. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.

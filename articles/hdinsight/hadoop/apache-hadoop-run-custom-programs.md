@@ -1,7 +1,6 @@
 ---
 title: Run custom MapReduce programs - Azure HDInsight 
-description: When and how to run custom MapReduce programs in HDInsight.
-services: hdinsight
+description: When and how to run custom Apache MapReduce programs on Azure HDInsight clusters.
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -34,7 +33,6 @@ In most HDInsight processing scenarios it is simpler and more efficient to use a
 Custom map/reduce components are typically written in Java. Hadoop provides a streaming interface that also allows components to be used that are developed in other languages such as C#, F#, Visual Basic, Python, and JavaScript.
 
 * For a walkthrough on developing custom Java MapReduce programs, see [Develop Java MapReduce programs for Hadoop on HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
-* To see an example using Python, see [Develop Python streaming MapReduce programs for HDInsight](apache-hadoop-streaming-python.md).
 
 Consider creating your own map and reduce components for the following conditions:
 
@@ -72,6 +70,5 @@ The most common MapReduce programs are written in Java and compiled to a jar fil
 
 * [Use C# with MapReduce streaming on Apache Hadoop in HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Develop Java MapReduce programs for Apache Hadoop on HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [Develop Python streaming MapReduce programs for HDInsight](apache-hadoop-streaming-python.md)
 * [Use Azure Toolkit for Eclipse to create Apache Spark applications for an HDInsight cluster](../spark/apache-spark-eclipse-tool-plugin.md)
 * [Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight](python-udf-hdinsight.md)

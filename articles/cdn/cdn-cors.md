@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +26,7 @@ There are two types of CORS requests, *simple requests* and *complex requests.*
 
 ### For simple requests:
 
-1. The browser sends the CORS request with an additional **Origin** HTTP request header. The value of this header is the origin that served the parent page, which is defined as the combination of *protocol,* *domain,* and *port.*  When a page from https://www.contoso.com attempts to access a user's data in the fabrikam.com origin, the following request header would be sent to fabrikam.com:
+1. The browser sends the CORS request with an additional **Origin** HTTP request header. The value of this header is the origin that served the parent page, which is defined as the combination of *protocol,* *domain,* and *port.*  When a page from https\://www.contoso.com attempts to access a user's data in the fabrikam.com origin, the following request header would be sent to fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
@@ -81,7 +81,7 @@ If the regular expression matches, your rule will replace the **Access-Control-A
 ![Rules example with regular expression](./media/cdn-cors/cdn-cors-regex.png)
 
 #### Request header rule for each origin.
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1). As with the regular expression method, the rules engine alone sets the CORS headers. 
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers. 
 
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 

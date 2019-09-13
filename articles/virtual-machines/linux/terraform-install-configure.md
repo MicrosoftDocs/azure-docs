@@ -4,18 +4,18 @@ description: Learn how to install and configure Terraform to create Azure resour
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jeconnoc
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
-ms.author: echuvyrov
+ms.author: gwallace
 ---
 
 # Install and configure Terraform to provision VMs and other infrastructure into Azure
@@ -43,10 +43,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 To enable Terraform to provision resources into Azure, create an [Azure AD service principal](/cli/azure/create-an-azure-service-principal-azure-cli). The service principal grants your Terraform scripts to provision resources in your Azure subscription.
 
-If you have multiple Azure subscriptions, first query your account with [az account show](/cli/azure/account#az-account-show) to get a list of subscription ID and tenant ID values:
+If you have multiple Azure subscriptions, first query your account with [az account list](/cli/azure/account#az-account-list) to get a list of subscription ID and tenant ID values:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 To use a selected subscription, set the subscription for this session with [az account set](/cli/azure/account#az-account-set). Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the subscription you want to use:

@@ -1,15 +1,15 @@
 ---
-title: How to use Queue storage from Python | Microsoft Docs
+title: How to use Queue storage from Python - Azure Storage
 description: Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages.
-services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
 
-ms.devlang: python
-ms.topic: article
+ms.author: mhopkins
 ms.date: 12/14/2018
-ms.author: tamram
+ms.service: storage
 ms.subservice: queues
+ms.topic: conceptual
+ms.reviewer: cbrooks
 ---
 
 # How to use Queue storage from Python
@@ -110,10 +110,11 @@ each message using a for loop. It also sets the invisibility timeout to
 five minutes for each message.
 
 ```python
-messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
+messages = queue_service.get_messages(
+    'taskqueue', num_messages=16, visibility_timeout=5*60)
 for message in messages:
     print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
+    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
 ## How To: Change the Contents of a Queued Message
@@ -126,7 +127,8 @@ message appears immediately and the content is updated.
 ```python
 messages = queue_service.get_messages('taskqueue')
 for message in messages:
-    queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+    queue_service.update_message(
+        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
 ## How To: Get the Queue Length

@@ -72,13 +72,9 @@ In this section, you configure Docker to load the device model files from the **
       depends_on:
         - storageadapter
       environment:
-        - PCS_IOTHUB_CONNSTRING
-        - PCS_STORAGEADAPTER_WEBSERVICE_URL=http://storageadapter:9022/v1
-        - PCS_AUTH_ISSUER
-        - PCS_AUTH_AUDIENCE
-        - PCS_AUTH_REQUIRED
-        - PCS_CORS_WHITELIST
-        - PCS_APPLICATION_SECRET
+        - PCS_KEYVAULT_NAME
+        - PCS_AAD_APPID
+        - PCS_AAD_APPSECRET
       # How one could mount custom device models
       volumes:
         - /tmp/devicemodels:/app/webservice/data/devicemodels:ro
@@ -89,13 +85,14 @@ In this section, you configure Docker to load the device model files from the **
 1. Copy the existing device model files from the container to the new location. First, find the container ID for the device simulation container:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Then copy the device model files to the **tmp** folder in the virtual machine. The following command assumes the container ID is c378d6878407 -- replace this value with your device simulation container ID:
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Keep the **bash** window with your SSH session open.
@@ -117,13 +114,13 @@ In this section, you configure Docker to load the device model files from the **
     If you want to see status of the running Docker containers and their container IDs, use the following command:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     If you want to see the log from the device simulation container, run the following command. Replace the container ID with the ID of your device simulation container:
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## Run simulation

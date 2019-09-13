@@ -45,5 +45,5 @@ The Bing Web Search API is easy to call from any programming language that can m
 
 * Use our [Python quickstart](quickstarts/python.md) to make your first call to the Bing Web Search API.  
 * [Build a single-page web app](tutorial-bing-web-search-single-page-app.md).
-* Review [Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.  
+* Review [Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation.  
 * Learn more about [use and display requirements](UseAndDisplayRequirements.md) for Bing Web Search.  

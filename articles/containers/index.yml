@@ -63,6 +63,7 @@ sections:
     - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Create a multi-container app in Web App for Containers</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Build and deploy container images with Azure Container Registry Tasks</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Build and deploy a container to Azure Container Instances</a>
+    - html: <a href="/azure/openshift/tutorial-create-cluster">Create an Azure Red Hat OpenShift cluster</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list

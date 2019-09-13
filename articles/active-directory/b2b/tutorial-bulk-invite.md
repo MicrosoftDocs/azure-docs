@@ -1,6 +1,6 @@
 ---
 
-title: Tutorial to bulk invite B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Tutorial for bulk inviting B2B collaboration users - Azure Active Directory | Microsoft Docs
 description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users.
 
 services: active-directory
@@ -11,6 +11,7 @@ ms.date: 08/14/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 
 #customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
@@ -105,7 +106,7 @@ foreach ($email in $invitations)
    {New-AzureADMSInvitation `
       -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
       -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.azure.com `
+      -InviteRedirectUrl https://myapps.microsoft.com `
       -InvitedUserMessageInfo $messageInfo `
       -SendInvitationMessage $true
    }

@@ -6,7 +6,6 @@ author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
@@ -33,7 +32,7 @@ This article assumes you're familiar with the basics of the WebJobs SDK, C# clas
 
 To complete the steps in this article:
 
-* [Install Visual Studio 2017 version 15.6 or later](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload.
+* [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload.
 
   If you already have Visual Studio, but don't have that workload, add the workload by selecting **Tools** > **Get Tools and Features**.
 

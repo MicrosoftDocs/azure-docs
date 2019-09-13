@@ -3,7 +3,7 @@ title: Generate a device connection string for Azure IoT Central | Microsoft Doc
 description: As a device developer, how do I generate a connection string for device that needs to connect to an IoT Central application?
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,20 +12,20 @@ manager: philmea
 
 # Generate a device connection string to connect to an Azure IoT Central application
 
-This article describes how, as a device developer, to generate a connection string for device that needs to connect to an IoT Central application. The procedure described in this article show you how to quickly connect a single device using a shared access signature (SAS). This approach is useful when you're experimenting with IoT Central or testing devices. For alternative approaches to use in a production environment, see [Device connectivity in Azure IoT Central](concepts-connectivity.md).
+This article describes how, as a device developer, to generate a connection string for device that needs to connect to an IoT Central application. The procedure described in this article shows you how to quickly connect a single device using a shared access signature (SAS). This approach is useful when you're experimenting with IoT Central or testing devices. For alternative approaches to use in a production environment, see [Device connectivity in Azure IoT Central](concepts-connectivity.md).
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-1. A development machine with [Node.js](https://nodejs.org/) version 8.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
+- An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+- A development machine with [Node.js](https://nodejs.org/) version 8.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
 ## Get connection information
 
 The following steps describe how to get the information you need to generate a SAS connection string for a device:
 
-1. In the **Explorer**, find the real device you want to connect to your application:
+1. In the **Device Explorer**, find the real device you want to connect to your application:
 
     ![Select a real device](media/howto-generate-connection-string/real-devices.png)
 

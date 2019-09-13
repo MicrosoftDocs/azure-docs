@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ---
 
 # Connectivity architecture for a managed instance in Azure SQL Database
@@ -75,13 +74,13 @@ Microsoft manages the managed instance by using a management endpoint. This endp
 When connections start inside the managed instance (as with backups and audit logs), traffic appears to start from the management endpoint's public IP address. You can limit access to public services from a managed instance by setting firewall rules to allow only the managed instance's IP address. For more information, see [Verify the managed instance's built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Traffice that goes to Azure services that are inside the managed instance's region is optimized and for that reason not NATed to manged instance management endpoint public IP address. For that reason if you need to use IP based firewall rules, most commonly for storage, service needs to be in a different region from managed instance.
+> Traffic that goes to Azure services that are inside the managed instance's region is optimized and for that reason not NATed to managed instance management endpoint public IP address. For that reason if you need to use IP based firewall rules, most commonly for storage, service needs to be in a different region from managed instance.
 
 ## Network requirements
 
 Deploy a managed instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
-- **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance, and you can't later add resources in the subnet.
+- **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance, and you can't later add other types of resources in the subnet.
 - **Network security group (NSG):** An NSG that's associated with the virtual network must  define [inbound security rules](#mandatory-inbound-security-rules) and [outbound security rules](#mandatory-outbound-security-rules) before any other rules. You can use an NSG to control access to the managed instance's data endpoint by filtering traffic on port 1433 and ports 11000-11999 when managed instance is configured for redirect connections.
 - **User defined route (UDR) table:** A UDR table that's associated with the virtual network must include specific [entries](#user-defined-routes).
 - **No service endpoints:** No service endpoint should be associated with the managed instance's subnet. Make sure that the service endpoints option is disabled when you create the virtual network.
@@ -106,7 +105,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
-> Ensure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 80, 443, 12000. Managed Instance provisioning through Azure Resource Manager deployments will fail if inbound and output rules are configured separately for each port. If these ports are in separate rules, the deployment will fail with error code `VnetSubnetConflictWithIntendedPolicy`
+> Ensure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 80, 443, 12000. Managed Instance provisioning through Azure Resource Manager deployments will fail if inbound and outbound rules are configured separately for each port. If these ports are in separate rules, the deployment will fail with error code `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
@@ -223,7 +222,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 
 In addition, you can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through the virtual network gateway or virtual network appliance (NVA).
 
-If the virtual network includes a custom DNS, the custom DNS server must be able to resolve host names in \*.core.windows.net zone. Using additional features like Azure AD Authentication might require resolving additional FQDNs. For more information, see [Set up a custom DNS](sql-database-managed-instance-custom-dns.md).
+If the virtual network includes a custom DNS, the custom DNS server must be able to resolve public dns records. Using additional features like Azure AD Authentication might require resolving additional FQDNs. For more information, see [Set up a custom DNS](sql-database-managed-instance-custom-dns.md).
 
 ## Next steps
 
@@ -234,4 +233,4 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
   - From the [Azure portal](sql-database-managed-instance-get-started.md).
   - By using [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://portal.azure.com/). 
+  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

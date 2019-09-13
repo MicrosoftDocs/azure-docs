@@ -1,16 +1,16 @@
 ---
 title: Translator Text API Detect Method
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Detect method.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # Translator Text API 3.0: Detect
@@ -44,8 +44,8 @@ Request headers include:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
+    <td>Authentication header(s)</td>
+    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -154,7 +154,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>429</td>
-    <td>The caller is sending too many requests.</td>
+    <td>The server rejected the request because the client has exceeded request limits.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -172,10 +172,6 @@ If an error occurs, the request will also return a JSON error response. The erro
 
 The following example shows how to retrieve languages supported for text translation.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
-
----

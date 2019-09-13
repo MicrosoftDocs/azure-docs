@@ -26,7 +26,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 ## Add a Co-Administrator
 
 > [!TIP]
-> You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
+> You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](https://docs.microsoft.com/powershell/module/servicemanagement/azure). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Service Administrator.
 
@@ -125,7 +125,7 @@ There are two ways to change the Service Administrator. You can change in the **
 
 Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, open **Subscriptions** in the Azure portal and then select a subscription to see the directory.
 
-If you are signed in with a work or school account, you can add other accounts in your organization as Service Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator, but can't add john@notcontoso.com unless john@notcontoso.com has presence in the contoso.com directory. Users signed in with work or school accounts can continue to add Microsoft account users as Service Administrator.
+If you are signed in with a work or school account, you can add other accounts in your organization as Service Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator, but can't add john@notcontoso.com unless john@notcontoso.com has presence in the contoso.com directory. Users signed in with work or school accounts can continue to add Microsoft account users as Service Administrator. There can only be one Service Administrator per Azure subscription.
 
   | Sign-in method | Add Microsoft account user as a Service Administrator? | Add work or school account in the same organization as a Service Administrator? | Add work or school account in different organization as a Service Administrator? |
   | --- | --- | --- | --- |

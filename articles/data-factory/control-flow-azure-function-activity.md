@@ -3,14 +3,14 @@ title: Azure Function Activity in Azure Data Factory | Microsoft Docs
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
 services: data-factory
 documentationcenter: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-author: sharonlo101
-ms.author: shlo
-manager: craigg
 ---
 
 # Azure Function activity in Azure Data Factory
@@ -23,7 +23,7 @@ For an eight-minute introduction and demonstration of this feature, watch the fo
 
 ## Azure Function linked service
 
-The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the generic user error *Error calling endpoint*.
+The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content is not a valid JObject*.
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -47,11 +47,22 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
 
-## More info
+## Routing and queries
 
-The Azure Function Activity supports **routing**. For example, if your app uses the following routing - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - then the `functionName` is `functionName/{value}`, which you can parameterize to provide the desired `functionName` at runtime.
+The Azure Function Activity supports **routing**. For example, if your Azure Function has the endpoint  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, then the `functionName` to use in the Azure Function Activity is `<functionName>/<value>`. You can parameterize this function to provide the desired `functionName` at runtime.
 
-The Azure Function Activity also supports **queries**. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
+The Azure Function Activity also supports **queries**. A query has to be included as part of the `functionName`. For example, when the function name is `HttpTriggerCSharp` and the query that you want to include is `name=hello`, then you can construct the `functionName` in the Azure Function Activity as `HttpTriggerCSharp?name=hello`. This function can be parameterized so the value can be determined at runtime.
+
+## Timeout and long running functions
+
+Azure Functions times out after 230 seconds regardless of the `functionTimeout` setting you've configured in the settings. For more information, see [this article](../azure-functions/functions-versions.md#timeout). To work around this behavior, follow an async pattern or use Durable Functions. The benefit of Durable Functions is that they offer their own state-tracking mechanism, so you won't have to implement your own.
+
+Learn more about Durable Functions in [this article](../azure-functions/durable/durable-functions-overview.md). You can set up an Azure Function Activity to call the Durable Function, which will return a response with a different URI, such as [this example](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Because `statusQueryGetUri` returns HTTP Status 202 while the function is running, you can poll the status of the function by using a Web Activity. Simply set up a Web Activity with the `url` field set to `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. When the Durable Function completes, the output of the function will be the output of the Web Activity.
+
+
+## Sample
+
+You can find a sample of a Data Factory that uses an Azure Function to extract the content of a tar file [here](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## Next steps
 

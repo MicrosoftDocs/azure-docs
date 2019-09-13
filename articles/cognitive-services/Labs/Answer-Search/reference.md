@@ -10,7 +10,8 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Project Answer Search v7 reference
@@ -31,7 +32,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 The request must use the HTTPS protocol and include following query parameter:
--  q=<URL> - The query that identifies the object of search
+-  `q=<URL>` - The query that identifies the object of search
 
 For examples that show how to make requests, see [C# quickstart](c-sharp-quickstart.md) or [Java quickstart](java-quickstart.md). 
 

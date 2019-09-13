@@ -1,7 +1,7 @@
 ---
-title: Data extraction
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Learn what kind of data can be extracted from Language Understanding (LUIS)
+title: Data extraction - LUIS
+titleSuffix: Azure Cognitive Services
+description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/24/2019
 ms.author: diberry
 ---
 
-# Data extraction from intents and entities
+# Extract data from utterance text with intents and entities
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
 The hardest data to extract is the machine-learned data because it isn't an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
@@ -143,166 +143,15 @@ For example, in German, the word `das Bauernbrot` is tokenized into `das bauern 
 
 ## Simple entity data
 
-A [simple entity](luis-concept-entity-types.md) is a machine-learned value. It can be a word or phrase.
-
-`Bob Jones wants 3 meatball pho`
-
-In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
-
-The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Data object|Entity name|Value|
-|--|--|--|
-|Simple Entity|"Customer"|"bob jones"|
-
-## Hierarchical entity data
-
-[Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you're looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity.
-
-`book 2 tickets to paris`
-
-In the previous utterance, `paris` is labeled a `Location::ToLocation` child of the `Location` hierarchical entity.
-
-The data returned from the endpoint includes the entity name and child name, the discovered text from the utterance, the location of the discovered text, and the score:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Data object|Parent|Child|Value|
-|--|--|--|--|
-|Hierarchical Entity|Location|ToLocation|"paris"|
+A [simple entity](reference-entity-simple.md) is a machine-learned value. It can be a word or phrase.
 
 ## Composite entity data
-[Composite](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
-`book 2 tickets to paris`
-
-Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS](luis-reference-regions.md) website, indicates a composite entity.
-
-![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
-
-Composite entities are returned in a `compositeEntities` array and all entities within the composite are also returned in the `entities` array:
-
-```JSON
-  "entities": [
-    {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
-    },
-    {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
-        "value": "2"
-      }
-    },
-    {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
-    }
-  ],
-  "compositeEntities": [
-    {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
-        {
-          "type": "builtin.number",
-          "value": "2"
-        },
-        {
-          "type": "Location::ToLocation",
-          "value": "paris"
-        }
-      ]
-    }
-  ]
-```    
-
-|Data object|Entity name|Value|
-|--|--|--|
-|Prebuilt Entity - number|"builtin.number"|"2"|
-|Hierarchical Entity - Location|"Location::ToLocation"|"paris"|
+A [composite entity](reference-entity-composite.md) is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
 
 ## List entity data
 
-A [list](luis-concept-entity-types.md) entity isn't machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list.
-
-Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206).
-
-|List item|Item synonyms|
-|---|---|
-|Seattle|sea-tac, sea, 98101, 206, +1 |
-|Paris|cdg, roissy, ory, 75001, 1, +33|
-
-`book 2 tickets to paris`
-
-In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Another example utterance, using a synonym for Paris:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
 
 ## Prebuilt entity data
 [Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following text is an example utterance with the returned prebuilt entities:
@@ -389,35 +238,8 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Regular expression entity data
-[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+A [regular expression entity](reference-entity-regular-expression.md) extracts an entity based on a regular expression pattern you provide.
 
 ## Extracting names
 Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you're extracting, you have several options. The following suggestions are not rules but more guidelines.
@@ -427,13 +249,18 @@ Getting names from an utterance is difficult because a name can be almost any co
 [PersonName](luis-reference-prebuilt-person.md) and [GeographyV2](luis-reference-prebuilt-geographyV2.md) entities are available in some [language cultures](luis-reference-prebuilt-entities.md). 
 
 ### Names of people
-People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+
+People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](luis-concept-roles.md) of first and last name. 
+
+If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ### Names of places
-Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+
+Location names are set and known such as cities, counties, states, provinces, and countries/regions. Use the prebuilt entity **[geographyV2](luis-reference-prebuilt-geographyv2.md)** to extract location information.
 
 ### New and emerging names
-Some apps need to be able to find new and emerging names such as products or companies. These types of names is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern roles data
 Roles are contextual differences of entities.
@@ -497,49 +324,8 @@ Roles are contextual differences of entities.
 ```
 
 ## Pattern.any entity data
-Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
 ## Sentiment analysis
 If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.

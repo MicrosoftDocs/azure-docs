@@ -1,0 +1,83 @@
+### YamlMime:Landing
+
+title: Azure Blockchain Service Documentation
+summary: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
+
+metadata:
+  title: Azure Blockchain Service Documentation - Tutorials, API Reference
+  description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 08/29/2019
+
+landingContent:
+  - title: About Azure Blockchain Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Blockchain Service?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Private consortium blockchain networks
+            url: consortium.md
+          - text: Data access and security
+            url: data-security.md
+          - text: Development tools
+            url: develop.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Create a blockchain member - Portal
+            url: create-member.md
+          - text: Create a blockchain member - CLI
+            url: create-member-cli.md
+      - linkListType: quickstart
+        links:
+          - text: Use Visual Studio Code to connect to a consortium network
+            url: connect-vscode.md
+          - text: Use MetaMask to connect and Remix to deploy a smart contract
+            url: connect-metamask.md
+          - text: Use Geth to connect to a transaction node
+            url: connect-geth.md
+          - text: Use Truffle to connect to a transaction node
+            url: connect-truffle.md
+      - linkListType: tutorial
+        links:
+          - text: Use Visual Studio Code to create, build, and deploy smart contracts
+            url: send-transaction.md
+      - linkListType: video
+        links:
+          - text: Deploy and configure your network
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+          - text: Write and test smart contracts with VS Code
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+          - text: Send data to the ledger
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+          - text: Publish events and ledger data
+            url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage blockchain members - CLI
+            url: manage-cli.md
+          - text: Manage consortium members - PowerShell
+            url: manage-consortium-powershell.md
+          - text: Configure transaction nodes
+            url: configure-transaction-nodes.md
+          - text: Configure Active Directory access
+            url: configure-aad.md
+
+  - title: API
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/blockchain

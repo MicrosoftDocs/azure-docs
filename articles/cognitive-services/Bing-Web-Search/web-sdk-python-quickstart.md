@@ -88,8 +88,8 @@ If the response contains web pages, images, news, or videos, the first result fo
     # Replace with your subscription key.
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
-    # Instantiate the client.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+    # Instantiate the client and replace with your endpoint.
+    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")
@@ -159,7 +159,9 @@ If the response contains web pages, images, news, or videos, the first result fo
         print("Didn't find any videos...")
     ```
 
-1. Replace `subscription_key` with a valid subscription key.
+1. Replace `SUBSCRIPTION_KEY` with a valid subscription key.
+
+1. Replace `YOUR_ENDPOINT` with your endpoint url in portal.
 
 1. Run the program. For example: `python your_program.py`.
 

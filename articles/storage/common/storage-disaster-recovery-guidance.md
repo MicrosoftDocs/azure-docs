@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
@@ -32,8 +33,11 @@ All storage accounts are replicated for redundancy. Which redundancy option you 
 
 Other Azure Storage redundancy options include zone-redundant storage (ZRS), which replicates your data across availability zones in a single region, and locally redundant storage (LRS), which replicates your data in a single data center in a single region. If your storage account is configured for ZRS or LRS, you can convert that account to use GRS or RA-GRS. Configuring your account for geo-redundant storage incurs additional costs. For more information, see [Azure Storage replication](storage-redundancy.md).
 
+> [!NOTE]
+> Geo-zone-redundant storage (GZRS) and read-access geo-zone-redundant storage (RA-GZRS) are currently in preview, but are not yet available in the same regions as customer-managed account failover. For this reason, customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS/RA-GZRS accounts.
+
 > [!WARNING]
-> Geo-redundant storage carries a risk of data loss. Data is replicated to the secondary region asynchronously, meaning there is a delay between when data  written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that have not yet been replicated to the secondary endpoint will be lost. 
+> Geo-redundant storage carries a risk of data loss. Data is replicated to the secondary region asynchronously, meaning there is a delay between when data  written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that have not yet been replicated to the secondary endpoint will be lost.
 
 ## Design for high availability
 
@@ -109,7 +113,7 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 ## About the preview
 
-account failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. account failover is currently available in these regions:
+Account failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. account failover is currently available in these regions:
 
 - US West 2
 - US West Central
@@ -160,7 +164,6 @@ Keep in mind that any data stored in a temporary disk is lost when the VM is shu
 The following features or services are not supported for account failover for the preview release:
 
 - Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
-- Storage accounts using Azure Data Lake Storage Gen2 hierarchical namespace cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - After the failover is complete the following features will stop working if originally enabled: [Event subscriptions](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [Lifecycle policies](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts),  [Storage Analytics Logging](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).

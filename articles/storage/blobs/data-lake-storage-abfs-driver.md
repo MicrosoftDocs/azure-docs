@@ -1,10 +1,10 @@
 ---
 title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
 description: The ABFS Hadoop Filesystem driver
-services: storage
-author: jamesbak
+author: normesta
 ms.topic: conceptual
-ms.author: jamesbak
+ms.author: normesta
+ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
@@ -49,11 +49,11 @@ The ABFS driver supports two forms of authentication so that the Hadoop applicat
 
 All configuration for the ABFS driver is stored in the <code>core-site.xml</code> configuration file. On Hadoop distributions featuring [Ambari](https://ambari.apache.org/), the configuration may also be managed using the web portal or Ambari REST API.
 
-Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
 ### Hadoop documentation
 
-The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
 
 ## Next steps
 

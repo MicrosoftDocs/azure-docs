@@ -12,6 +12,8 @@ manager: philmea
 
 # Connect an MXChip IoT DevKit device to your Azure IoT Central application
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a device developer, to connect a MXChip IoT DevKit (DevKit) device to your Microsoft Azure IoT Central application.
 
 ## Before you begin
@@ -19,7 +21,7 @@ This article describes how, as a device developer, to connect a MXChip IoT DevKi
 To complete the steps in this article, you need the following resources:
 
 1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](http://mxchip.com/az3166).
+1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## Sample Devkits application
 
@@ -245,4 +247,4 @@ Toggle settings
 
 ## Next steps
 
-Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Now that you've learned how to connect a MXChip IoT DevKit to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

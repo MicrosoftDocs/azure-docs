@@ -7,24 +7,21 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Remediate non-compliant resources with Azure Policy
 
-Resources that are non-compliant to a **deployIfNotExists** policy can be put into a compliant
-state through **Remediation**. Remediation is accomplished by instructing Policy to run the
+Resources that are non-compliant to a **deployIfNotExists** policy can be put into a compliant state
+through **Remediation**. Remediation is accomplished by instructing Azure Policy to run the
 **deployIfNotExists** effect of the assigned policy on your existing resources. This article shows
-the steps needed to understand and accomplish remediation with Policy.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+the steps needed to understand and accomplish remediation with Azure Policy.
 
 ## How remediation security works
 
-When Policy runs the template in the **deployIfNotExists** policy definition, it does so using a
-[managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
-Policy creates a managed identity for each assignment, but must have details about what roles to
-grant the managed identity. If the managed identity is missing roles, this error is displayed
-during the assignment of the policy or an initiative. When using the portal, Policy will
+When Azure Policy runs the template in the **deployIfNotExists** policy definition, it does so using
+a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure Policy creates a managed identity for each assignment, but must have details about what roles
+to grant the managed identity. If the managed identity is missing roles, this error is displayed
+during the assignment of the policy or an initiative. When using the portal, Azure Policy will
 automatically grant the managed identity the listed roles once assignment is started.
 
 ![Managed identity - missing role](../media/remediate-resources/missing-role.png)
@@ -47,7 +44,7 @@ example](../concepts/effects.md#deployifnotexists-example).
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -60,15 +57,11 @@ the role. To get the ID for the 'Contributor' role in your environment, use the 
 az role definition list --name 'Contributor'
 ```
 
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
-```
-
 ## Manually configure the managed identity
 
-When creating an assignment using the portal, Policy both generates the managed identity and grants
-it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create the
-managed identity and assign it permissions must be done manually:
+When creating an assignment using the portal, Azure Policy both generates the managed identity and
+grants it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create
+the managed identity and assign it permissions must be done manually:
 
 - While using the SDK (such as Azure PowerShell)
 - When a resource outside the assignment scope is modified by the template
@@ -130,7 +123,8 @@ using **Access control (IAM)** or by editing the policy or initiative assignment
 
 To add a role to the assignment's managed identity, follow these steps:
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
+   for and selecting **Policy**.
 
 1. Select **Assignments** on the left side of the Azure Policy page.
 
@@ -142,13 +136,19 @@ To add a role to the assignment's managed identity, follow these steps:
    /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
    ```
 
-   The name of the managed identity is the last portion of the assignment resource ID, which is `2802056bfc094dfb95d4d7a5` in this example. Copy this portion of the assignment resource ID.
+   The name of the managed identity is the last portion of the assignment resource ID, which is
+   `2802056bfc094dfb95d4d7a5` in this example. Copy this portion of the assignment resource ID.
 
-1. Navigate to the resource or the resources parent container (resource group, subscription, management group) that needs the role definition manually added.
+1. Navigate to the resource or the resources parent container (resource group, subscription,
+   management group) that needs the role definition manually added.
 
-1. Click the **Access control (IAM)** link in the resources page and click **+ Add role assignment** at the top of the access control page.
+1. Click the **Access control (IAM)** link in the resources page and click **+ Add role assignment**
+   at the top of the access control page.
 
-1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition. Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the search completes, click the object with the same name to select ID and click **Save**.
+1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition.
+   Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the
+   **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the
+   search completes, click the object with the same name to select ID and click **Save**.
 
 ## Create a remediation task
 
@@ -162,7 +162,8 @@ option to trigger a **remediation task**. This option is what creates a deployme
 
 To create a **remediation task**, follow these steps:
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
+   for and selecting **Policy**.
 
    ![Search for Policy in All Services](../media/remediate-resources/search-policy.png)
 
@@ -170,27 +171,39 @@ To create a **remediation task**, follow these steps:
 
    ![Select Remediation on the Policy page](../media/remediate-resources/select-remediation.png)
 
-1. All **deployIfNotExists** policy assignments with non-compliant resources are included on the **Policies to remediate** tab and data table. Click on a policy with resources that are non-compliant. The **New remediation task** page opens.
+1. All **deployIfNotExists** policy assignments with non-compliant resources are included on the
+   **Policies to remediate** tab and data table. Click on a policy with resources that are
+   non-compliant. The **New remediation task** page opens.
 
    > [!NOTE]
-   > An alternate way to open the **remediation task** page is to find and click on the policy from the
-   > **Compliance** page, then click the **Create Remediation Task** button.
+   > An alternate way to open the **remediation task** page is to find and click on the policy from
+   > the **Compliance** page, then click the **Create Remediation Task** button.
 
-1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy is assigned (including down to the individual resource objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
+1. On the **New remediation task** page, filter the resources to remediate by using the **Scope**
+   ellipses to pick child resources from where the policy is assigned (including down to the
+   individual resource objects). Additionally, use the **Locations** drop-down to further filter the
+   resources. Only resources listed in the table will be remediated.
 
    ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
 
-1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks progress.
+1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The
+   policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks
+   progress.
 
    ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
 
-1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task is shown along with a list of the resources being remediated.
+1. Click on the **remediation task** from the policy compliance page to get details about the
+   progress. The filtering used for the task is shown along with a list of the resources being
+   remediated.
 
-1. From the **remediation task** page, right-click on a resource to view either the remediation task's deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
+1. From the **remediation task** page, right-click on a resource to view either the remediation
+   task's deployment or the resource. At the end of the row, click on **Related events** to see
+   details such as an error message.
 
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
-Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy compliance page.
+Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the
+policy compliance page.
 
 ### Create a remediation task through Azure CLI
 
@@ -210,9 +223,9 @@ remediation](/cli/azure/policy/remediation) commands.
 
 ### Create a remediation task through Azure PowerShell
 
-To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation` commands. Replace
-`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
-policy assignment ID.
+To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation`
+commands. Replace `{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your
+**deployIfNotExists** policy assignment ID.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -221,13 +234,14 @@ policy assignment ID.
 Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.
+For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
+module.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md)
-- Review the [Policy definition structure](../concepts/definition-structure.md)
-- Review [Understanding policy effects](../concepts/effects.md)
-- Understand how to [programmatically create policies](programmatically-create.md)
-- Learn how to [get compliance data](getting-compliance-data.md)
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)
+- Review examples at [Azure Policy samples](../samples/index.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
+- Review [Understanding policy effects](../concepts/effects.md).
+- Understand how to [programmatically create policies](programmatically-create.md).
+- Learn how to [get compliance data](getting-compliance-data.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

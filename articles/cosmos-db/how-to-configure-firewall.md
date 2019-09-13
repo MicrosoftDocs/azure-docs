@@ -1,12 +1,11 @@
 ---
 title: Configure an IP firewall for your Azure Cosmos DB account
-description: Learn how to configure IP access control policies for firewall support on Azure Cosmos DB database accounts.
-author: kanshiG
+description: Learn how to configure IP access control policies for firewall support on Azure Cosmos accounts.
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: govindk
-
+ms.date: 07/25/2019
+ms.author: mjbrown
 ---
 
 # Configure IP firewall in Azure Cosmos DB
@@ -28,7 +27,7 @@ When IP access control is turned on, the Azure portal provides the ability to sp
 > [!NOTE]
 > After you enable an IP access control policy for your Azure Cosmos DB account, all requests to your Azure Cosmos DB account from machines outside the allowed list of IP address ranges are rejected. Browsing the Azure Cosmos DB resources from the portal is also blocked to ensure the integrity of access control.
 
-### Allow requests from the Azure portal 
+### Allow requests from the Azure portal
 
 When you enable an IP access control policy programmatically, you need to add the IP address for the Azure portal to the **ipRangeFilter** property to maintain access. The portal IP addresses are:
 
@@ -76,7 +75,7 @@ When you scale out your cloud service by adding role instances, those new instan
 
 ### Requests from virtual machines
 
-You can also use [virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to host middle-tier services by using Azure Cosmos DB. To configure your Cosmos DB account to allow access from virtual machines, you must configure the public IP address of the virtual machine and/or virtual machine scale set as one of the allowed IP addresses for your Azure Cosmos DB account by [configuring the IP access control policy](#configure-ip-policy). 
+You can also use [virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to host middle-tier services by using Azure Cosmos DB. To configure your Cosmos DB account such that it allows access from virtual machines, you must configure the public IP address of the virtual machine and/or virtual machine scale set as one of the allowed IP addresses for your Azure Cosmos DB account by [configuring the IP access control policy](#configure-ip-policy). 
 
 You can retrieve IP addresses for virtual machines in the Azure portal, as shown in the following screenshot:
 
@@ -90,21 +89,24 @@ When you access your Azure Cosmos DB account from a computer on the internet, th
 
 ## <a id="configure-ip-firewall-arm"></a>Configure an IP firewall by using a Resource Manager template
 
-To configure access control to your Azure Cosmos DB account, make sure that the Resource Manager template specifies the **ipRangeFilter** attribute with a list of allowed IP ranges. For example, add the following JSON code to your template:
+To configure access control to your Azure Cosmos DB account, make sure that the Resource Manager template specifies the **ipRangeFilter** attribute with a list of allowed IP ranges. If configuring IP Firewall to an already deployed Cosmos account, ensure the `locations` array matches what is currently deployed. You cannot simultaneously modify the `locations` array and other properties. For more information and samples of ARM Templates for Azure Cosmos DB see, [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-samples.md)
 
 ```json
-   {
-     "apiVersion": "2015-04-08",
-     "type": "Microsoft.DocumentDB/databaseAccounts",
-     "kind": "GlobalDocumentDB",
-     "name": "[parameters('databaseAccountName')]",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "databaseAccountOfferType": "Standard",
-       "name": "[parameters('databaseAccountName')]",
-       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-     }
-   }
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2016-03-31",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
+    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  }
+}
 ```
 
 ## <a id="configure-ip-firewall-cli"></a>Configure an IP access control policy by using the Azure CLI
@@ -134,6 +136,37 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
+## <a id="configure-ip-firewall-ps"></a>Configure an IP access control policy by using PowerShell
+
+The following script shows how to create an Azure Cosmos DB account with IP access control:
+
+```azurepowershell-interactive
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
+$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
+
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "ipRangeFilter"=$ipRangeFilter
+}
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 ## <a id="troubleshoot-ip-firewall"></a>Troubleshoot issues with an IP access control policy
 
 You can troubleshoot issues with an IP access control policy by using the following options: 
@@ -157,5 +190,4 @@ To configure a virtual network service endpoint for your Azure Cosmos DB account
 
 * [Virtual network and subnet access control for your Azure Cosmos DB account](vnet-service-endpoint.md)
 * [Configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
-
 

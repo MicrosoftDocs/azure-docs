@@ -1,7 +1,7 @@
 ---
 title: Object detection - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to object detection using the Computer Vision API.
+description: Learn concepts related to the object detection feature of the Computer Vision API - usage and limits.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Object detection
+# Detect common objects in images
 
 Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each object found. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same tag in an image.
 
-The Detect API applies tags based on the objects or living things identified in the image. At this point, there is no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the Detect API only finds objects and living things, while the Tag API can also include contextual terms like "indoor", which can't be localized with bounding boxes.
+The Detect API applies tags based on the objects or living things identified in the image. There is currently no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the Detect API only finds objects and living things, while the Tag API can also include contextual terms like "indoor", which can't be localized with bounding boxes.
 
 ## Object detection example
 
@@ -95,5 +95,5 @@ It's important to note the limitations of object detection so you can avoid or m
 
 The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. You can call this API through a native SDK or through REST calls. Include `Objects` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"objects"` section.
 
-* [Quickstart: Analyze an image (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Quickstart: Computer Vision .NET SDK)](./quickstarts-sdk/csharp-sdk.md)
 * [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)

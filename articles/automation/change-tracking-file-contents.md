@@ -4,8 +4,8 @@ description: Use the file content change feature of Change tracking to view the 
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm

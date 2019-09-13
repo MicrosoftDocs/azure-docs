@@ -26,16 +26,16 @@ Service Fabric clusters running in Azure are built on top of virtual machine sca
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Manage credentials
-One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To log in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI](https://github.com/azure/azure-cli).
+One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To sign in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI](https://github.com/azure/azure-cli).
 
 A service principal can be created with the following steps:
 
-1. Log in to the Azure CLI (`az login`) as a user with access to the virtual machine scale set
+1. Sign in to the Azure CLI (`az login`) as a user with access to the virtual machine scale set
 2. Create the service principal with `az ad sp create-for-rbac`
 	1. Make note of the appId (called 'client ID' elsewhere), name, password, and tenant for later use.
 	2. You will also need your subscription ID, which can be viewed with `az account list`
 
-The fluent compute library can log in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
+The fluent compute library can sign in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

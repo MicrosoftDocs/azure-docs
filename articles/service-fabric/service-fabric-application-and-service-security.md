@@ -3,7 +3,7 @@ title: Learn about Azure Service Fabric application security | Microsoft Docs
 description: An overview of how to securely run microservices applications on Service Fabric. Learn how to run services and startup script under different security accounts, authenticate and authorize users, manage application secrets, secure service communications, use an API gateway, and secure application data at rest. 
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Service Fabric application and service security
@@ -32,7 +32,7 @@ The first step to making API-level trust decisions is authentication. Authentica
 
 If services can be accessed directly, an authentication service like Azure Active Directory or a dedicated authentication microservice acting as a security token service (STS) can be used to authenticate users. Trust decisions are shared between services with security tokens or cookies. 
 
-For ASP.NET Core, the primary mechanism for [authenticating users](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is the ASP.NET Core Identity membership system. ASP.NET Core Identity stores user information (including sign-in information, roles, and claims) in a data store configured by the developer. ASP.NET Core Identity supports two-factor authentication.  External authentication providers are also supported, so users can log in using existing authentication processes from providers like Microsoft, Google, Facebook, or Twitter. 
+For ASP.NET Core, the primary mechanism for [authenticating users](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is the ASP.NET Core Identity membership system. ASP.NET Core Identity stores user information (including sign-in information, roles, and claims) in a data store configured by the developer. ASP.NET Core Identity supports two-factor authentication.  External authentication providers are also supported, so users can sign in using existing authentication processes from providers like Microsoft, Google, Facebook, or Twitter.
 
 ### Authorization
 After authentication, services need to authorize user access or determine what a user is able to do. This process allows a service to make APIs available to some authenticated users, but not to all. Authorization is orthogonal and independent from authentication, which is the process of ascertaining who a user is. Authentication may create one or more identities for the current user.

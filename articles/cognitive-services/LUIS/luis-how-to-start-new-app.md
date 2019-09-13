@@ -1,6 +1,6 @@
 ---
-title: Create a new app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Create a new app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/28/2019
+ms.topic: conceptual
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 
@@ -17,6 +17,7 @@ ms.author: diberry
 There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 ## Using the LUIS portal
+
 You can create a new app in the LUIS portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
@@ -34,6 +35,8 @@ You can create a new app with the authoring APIs in a couple of ways:
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
  
+
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## Create new app in LUIS
 
@@ -60,12 +63,21 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 Possible errors are: 
 
-* An app with that name already exists. Reimport the app, and set the **Optional Name** to a new name. 
+* An app with that name already exists. To fix this, reimport the app, and set the **Optional Name** to a new name. 
 
-## Export app
+## Export app for backup
 
-1. On **My Apps** page, select **Import new app**.
-1. In the **Import new app** dialog, select the JSON file defining the LUIS app.
+1. On **My Apps** page, select **Export**.
+1. Select **Export as JSON**. Your browser downloads the active version of the app.
+1. Add this file to your backup system to archive the model.
+
+## Export app for containers
+
+1. On **My Apps** page, select **Export**.
+1. Select **Export as container** then select which published slot (production or stage) you want to export.
+1. Use this file with your [LUIS container](luis-container-howto.md). 
+
+    If you are interested in exporting a trained but not yet published model to use with the LUIS container, go to the **Versions** page and export from there. 
 
 ## Delete app
 

@@ -1,20 +1,12 @@
 ---
-title: Publish Dynamics 365 for Customer Engagement application offer - Azure Marketplace | Microsoft Docs
+title: Publish Dynamics 365 for Customer Engagement application offer | Azure Marketplace 
 description: Describes the process and steps for publishing a Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Dynamics 365 for Customer Engagement 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Publish a Dynamics 365 for Customer Engagement offer

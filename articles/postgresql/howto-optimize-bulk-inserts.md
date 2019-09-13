@@ -1,14 +1,14 @@
 ---
-title: Optimize bulk inserts on an Azure Database for PostgreSQL server
-description: This article describes how you can optimize bulk insert operations on an Azure Database for PostgreSQL server.
+title: Optimize bulk inserts on an Azure Database for PostgreSQL - Single Server
+description: This article describes how you can optimize bulk insert operations on an Azure Database for PostgreSQL - Single Server.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 5/6/2019
 ---
 
-# Optimize bulk inserts and use transient data on an Azure Database for PostgreSQL server 
+# Optimize bulk inserts and use transient data on an Azure Database for PostgreSQL - Single Server 
 This article describes how you can optimize bulk insert operations and use transient data on an Azure Database for PostgreSQL server.
 
 ## Use unlogged tables

@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2019
+ms.date: 06/21/2019
 ms.author: wesmc
 # As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
 ---
@@ -90,12 +90,12 @@ You also need a _service connection string_ to enable the back-end service appli
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 Make a note of the service connection string, which looks like:
 
-`HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+`HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 You use this value later in the quickstart. The service connection string is different from the device connection string.
 
@@ -121,15 +121,13 @@ The device SDK sample application can be run on a physical Android device or an 
    > * The versions of the Android Gradle plugin and Gradle referenced in the project are out of date for your version of Android Studio. Follow [these instructions](https://developer.android.com/studio/releases/gradle-plugin) to reference and install the correct versions of the plugin and Gradle for your installation.
    > * The license agreement for the Android SDK has not been signed. Follow the instructions in the Build output to sign the license agreement and download the SDK.
 
-
 4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a physical Android device or an Android emulator. For more information on running an Android app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Once the app loads, click the **Start** button to start sending telemetry to your IoT Hub:
 
-    ![Application](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Sample screenshot of client device android app](media/quickstart-control-device-android/sample-screenshot.png)
 
 This app needs to be left running on a phycial device or emulator while you execute the service SDK sample to update the telemetry interval during run-time.
-
 
 ## Read the telemetry from your hub
 
@@ -142,12 +140,12 @@ In this section, you will use the Azure Cloud Shell with the [IoT extension](htt
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     The following screenshot shows the output as the IoT hub receives telemetry sent by the Android device:
 
-      ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
+      ![Read the device messages using the Azure CLI](media/quickstart-control-device-android/read-data.png)
 
 By default the telemetry app is sending telemetry from the Android device every 5 seconds. In the next section, you will use a direct method call to update the telemetry interval for the Android IoT device.
-
 
 ## Call the direct method
 
@@ -164,7 +162,7 @@ An IoT Hub back-end service application typically runs in the cloud where it is 
 2. In Android Studio, open *gradle.properties* for the sample project and update the value for **ConnectionString** and **DeviceId** properties with your service connection string you noted earlier and the Android device ID you registered.
 
     ```
-    ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}
+    ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}
     DeviceId=MyAndroidDevice
     ```
 
@@ -175,7 +173,6 @@ An IoT Hub back-end service application typically runs in the cloud where it is 
    >
    > * The versions of the Android Gradle plugin and Gradle referenced in the project are out of date for your version of Android Studio. Follow [these instructions](https://developer.android.com/studio/releases/gradle-plugin) to reference and install the correct versions of the plugin and Gradle for your installation.
    > * The license agreement for the Android SDK has not been signed. Follow the instructions in the Build output to sign the license agreement and download the SDK.
-
 
 4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a separate physical Android device or an Android emulator. For more information on running an Android app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
@@ -188,8 +185,6 @@ An IoT Hub back-end service application typically runs in the cloud where it is 
 6. The app will receive an acknowledgement indicating whether the method executed successfully or not.
 
     ![Direct Method Acknowledgement](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## Clean up resources
 

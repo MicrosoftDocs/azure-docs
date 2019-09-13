@@ -1,7 +1,6 @@
 ---
 title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight 
 description: Step-by-step instructions on how to use Zeppelin notebooks with Apache Spark clusters on Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -87,7 +86,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 6. Select the **Bar Chart** icon to change the display.  **settings**, which appears after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
 
-    ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Run a Spark SQL statement using the notebook")
+    ![Run a Spark SQL statement using the notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Run a Spark SQL statement using the notebook1")
 
 7. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, `Temp`, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
 
@@ -105,7 +104,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
      The following screenshot shows the output.
 
-     ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook")
+     ![Run a Spark SQL statement using the notebook2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook2")
 
 9. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, and then select **Interpreter**.  
 
@@ -126,17 +125,17 @@ In this article, you will see how to use the [spark-csv](https://search.maven.or
 
 2. Scroll to **livy**, then select **edit**.
 
-    ![Change interpreter settings](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Change interpreter settings")
+    ![Change interpreter settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Change interpreter settings1")
 
 3. Add a new key called `livy.spark.jars.packages`, and set its value in the format `group:id:version`. So, if you want to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package, you must set the value of the key to `com.databricks:spark-csv_2.10:1.4.0`.
 
-    ![Change interpreter settings](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Change interpreter settings")
+    ![Change interpreter settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Change interpreter settings2")
 
     Select **Save** and then restart the Livy interpreter.
 
 4. If you want to understand how to arrive at the value of the key entered above, here's how.
    
-    a. Locate the package in the Maven Repository. For this tutorial, we used [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Locate the package in the Maven Repository. For this article, we used [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**.
    

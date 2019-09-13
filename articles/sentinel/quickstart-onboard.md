@@ -4,16 +4,17 @@ description: Learn how to collect data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 08/22/2019
 ms.author: rkarlin
 #As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
@@ -38,7 +39,7 @@ After you connect your data sources, choose from a gallery of expertly created d
 - Log Analytics workspace. Learn how to [create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
-- To use Azure Sentinel, you need either contributor or viewer permissions on the resource group that the workspace belongs to
+- To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to
 - Additional permissions may be needed to connect specific data sources
  
 ## Enable Azure Sentinel <a name="enable"></a>
@@ -54,9 +55,9 @@ After you connect your data sources, choose from a gallery of expertly created d
    ![search](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - **Workspace location**  It's important to understand that all the data you stream to Azure Sentinel is stored in the geographic location of the workspace you selected.  
    > - Default workspaces created by Azure Security Center will not appear in the list; you can't install Azure Sentinel on them.
-   > - Azure Sentinel can run on workspaces that are deployed in any of the following regions:  Australia Southeast, Canada Central, Central India, East US, East US 2 EUAP (Canary), Japan East, Southeast Asia, UK South, West Europe, West US 2.
+   > - Azure Sentinel can run on workspaces that are deployed in any of the following regions: Australia East, Australia Southeast, Canada Central, Central India, East US, East US 2 EUAP (Canary), Japan East, Southeast Asia, UK South, West Europe, West US 2, West Central US, France Central, Korea Central, North Europe, East US 2, East Asia, West US, Central US, South Central US.
+
 
 6. Click **Add Azure Sentinel**.
   

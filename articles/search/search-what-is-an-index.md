@@ -2,12 +2,12 @@
 title: Create an index definition and concepts - Azure Search
 description: Introduction to index terms and concepts in Azure Search, including component parts and physical structure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
 ---
 # Create a basic index in Azure Search
@@ -30,7 +30,7 @@ Arriving at the right index design is typically achieved through multiple iterat
   
    When you click **Create**, all of the physical structures supporting your index are created in your search service.
 
-3. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-fiddler.md). You now have a JSON representation of the index you created in the portal. 
+3. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-get-started-postman.md). You now have a JSON representation of the index you created in the portal. 
 
    You are switching to a code-based approach at this point. The portal is not well-suited for iteration because you cannot edit an index that is already created. But you can use Postman and REST for the remaining tasks.
 
@@ -42,13 +42,13 @@ Arriving at the right index design is typically achieved through multiple iterat
 
 Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to an existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
 
-Code, rather than a portal approach, is recommended for iterative design. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
+Code, rather than a portal approach, is recommended for iterative design. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-get-started-postman.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
 
 ## Components of an index
 
 Schematically, an Azure Search index is composed of the following elements. 
 
-The [*fields collection*](#fields-collection) is typically the largest part of an index, where each field is named, typed, and attributed with allowable behaviors that determine how it is used. Other elements include [suggesters](#suggesters), [scoring profiles](#scoring-profiles), [analyzers](#analyzers) with component parts to support customization, and [CORS](#cors) options.
+The [*fields collection*](#fields-collection) is typically the largest part of an index, where each field is named, typed, and attributed with allowable behaviors that determine how it is used. Other elements include [suggesters](#suggesters), [scoring profiles](#scoring-profiles), [analyzers](#analyzers) with component parts to support customization, [CORS](#cors) and [encryption key](#encryption-key) options.
 
 ```json
 {
@@ -120,6 +120,15 @@ The [*fields collection*](#fields-collection) is typically the largest part of a
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -145,22 +154,28 @@ As you define your schema, you must specify the name, type, and attributes of ea
 You can find more detailed information about Azure Search's [supported data types here](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### Index attributes
+
+Exactly one field in your index must be the designated as a **key** field that uniquely identifies each document.
+
+Other attributes determine how a field is used in an application. For example, the **searchable** attribute is assigned to every field that should be included in a full text search. 
+
+The APIs you use to build an index have varying default behaviors. For the [REST APIs](https://docs.microsoft.com/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, **searchable** and **retrievable** are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
+
 | Attribute | Description |
 | --- | --- |
-| *Key* |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
-| *Retrievable* |Specifies whether a field can be returned in a search result. |
-| *Filterable* |Allows the field to be used in filter queries. |
-| *Sortable* |Allows a query to sort search results using this field. |
-| *Facetable* |Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
-| *Searchable* |Marks the field as full-text searchable. |
+| `key` |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
+| `retrievable` |Specifies whether a field can be returned in a search result. |
+| `filterable` |Allows the field to be used in filter queries. |
+| `Sortable` |Allows a query to sort search results using this field. |
+| `facetable` |Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
+| `searchable` |Marks the field as full-text searchable. |
 
-You can find more detailed information about Azure Search's [index attributes here](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## Storage implications
 
 The attributes you select have an impact on storage. The following screenshot illustrates index storage patterns resulting from various combinations of attributes.
 
-The index is based on the [built-in realestate sample](search-get-started-portal.md) data source, which you can index and query in the portal. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
+The index is based on the [built-in real estate sample](search-get-started-portal.md) data source, which you can index and query in the portal. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
@@ -197,6 +212,10 @@ The following options can be set for CORS:
   If you want to allow access to all origins, include `*` as a single item in the **allowedOrigins** array. *This is not recommended practice for production search services* but it is often useful for development and debugging.
 
 + **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
+
+## Encryption Key
+
+While all Azure search indexes are encrypted by default using Microsoft managed keys, indexes can be configured to be encrypted with **customer managed keys** in Key Vault. To learn more, see [Manage encryption keys in Azure Search](search-security-manage-encryption-keys.md).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Connect a Raspberry Pi to your Azure IoT Central application (Python) | M
 description: As a device developer, how to connect a Raspberry Pi to your Azure IoT Central application using Python.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,6 +14,8 @@ manager: timlt
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a device developer, to connect a Raspberry Pi to your Microsoft Azure IoT Central application using the Python programming language.
 
 ## Before you begin
@@ -22,6 +24,9 @@ To complete the steps in this article, you need the following components:
 
 * An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A Raspberry Pi device running the Raspbian operating system. The Raspberry Pi must be able to connect to the internet. For more information, see [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
+
+> [!TIP]
+> To learn about setting up and connecting to a Raspberry Pi device, visit [Get started with Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
 
 ## **Sample Devkits** application
 
@@ -56,12 +61,37 @@ The following steps describe how to download and configure the sample Python app
 * Sends telemetry and property values to Azure IoT Central.
 * Responds to setting changes made in Azure IoT Central.
 
-To configure the device, [follow the step-by-step instructions on GitHub](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md).
+1. Connect to a shell environment on your Raspberry Pi, either from the Raspberry Pi desktop or remotely using SSH.
 
-1. When the device is configured, your device starts sending telemetry measurements to Azure IoT Central.
+1. Run the following command to install the IoT Central Python client:
+
+    ```bash
+    pip install iotc
+    ```
+
+1. Download the sample Python code:
+
+    ```bash
+    curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
+    ```
+
+1. Edit the `app.py` file you downloaded and replace the `DEVICE_ID`, `SCOPE_ID`, and `PRIMARY/SECONDARY device KEY` placeholders with the connection values you made a note of previously. Save your changes.
+
+    > [!TIP]
+    > In the shell on the Raspberry Pi, you can use either the **nano** or **vi** text editors.
+
+1. Use the following command to run the sample:
+
+    ```bash
+    python app.py
+    ```
+
+    Your Raspberry Pi starts sending telemetry measurements to Azure IoT Central.
+
 1. In your Azure IoT Central application, you can see how the code running on the Raspberry Pi interacts with the application:
 
     * On the **Measurements** page for your real device, you can see the telemetry sent from the Raspberry Pi.
+    * On the **Properties** page, you can see the **Die Number** device property.
     * On the **Settings** page, you can change the settings on the Raspberry Pi such as voltage and fan speed. When the Raspberry Pi acknowledges the change, the setting shows as **synced**.
 
 ## Raspberry Pi Device template details
@@ -110,6 +140,4 @@ Toggle settings
 
 ## Next steps
 
-Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, here are the suggested next steps:
-
-* [Connect a generic Node.js client application to Azure IoT Central](howto-connect-nodejs.md)
+Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

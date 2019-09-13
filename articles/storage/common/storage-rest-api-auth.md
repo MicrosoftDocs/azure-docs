@@ -1,24 +1,26 @@
 ---
-title: Calling Azure Storage Services REST API operations including authentication | Microsoft Docs
-description: Calling Azure Storage Services REST API operations including authentication
+title: Calling Azure Storage Services REST API operations with Shared Key authorization | Microsoft Docs
+description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
 # Using the Azure Storage REST API
 
-This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It is written from the point of view of someone who knows nothing about REST and no idea how to make a REST call, but is a developer. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
+This article shows you how to use the Blob Storage Service REST APIs and how to authorize the call to the service. It's written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
 ## Prerequisites 
 
 The application lists the containers in blob storage for a storage account. To try out the code in this article, you need the following items: 
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
+* Install [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
     - Azure development
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -43,20 +45,19 @@ This command clones the repository to your local git folder. To open the Visual 
 
 REST means *representational state transfer*. For a specific definition, check out [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what's happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn't care from what platform it's called – what's important is the information passed in the request and the data provided in the response.
+Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It's independent of what's happening on either side, and what other software is used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn't care from what platform it's called – what's important is the information passed in the request and the data provided in the response.
 
-Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through **all** of the storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
+Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface. Sometimes, though, the features haven't surfaced through **all** of the storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
 
 ## About the sample application
 
 The sample application lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, other REST calls are easier to figure out. 
 
-If you look at the [Blob Service REST
-API](/rest/api/storageservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
+If you look at the [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
 
 ## REST API Reference: List Containers API
 
-Let's look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/List-Containers2) operation so you understand where some of the fields come from in the request and response in the next section with the code.
+Let's look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/List-Containers2) operation. This information will help you understand where some of the fields come from in the request and response.
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
@@ -76,22 +77,22 @@ To use additional parameters, append them to the resource string with the value,
 This section lists the required and optional request headers. Three of the headers are required: an *Authorization* header, *x-ms-date* (contains the UTC time for the request), and *x-ms-version* (specifies the version of the REST API to use). Including *x-ms-client-request-id* in the headers is optional – you can set the value for this field to anything; it is written to the storage analytics logs when logging is enabled.
 
 [Request Body](/rest/api/storageservices/List-Containers2#request-body)**:**
-There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
 
 [Response Status Code](/rest/api/storageservices/List-Containers2#status-code)**:**
 Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). To see error codes specific to the Storage REST APIs, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Response Headers](/rest/api/storageservices/List-Containers2#response-headers)**:**
-These include *Content Type*; *x-ms-request-id* (the request id you passed in, if applicable); *x-ms-version* (indicates the version of the Blob service used), and the *Date* (UTC, tells what time the request was made).
+These include *Content Type*; *x-ms-request-id*, which is the request ID you passed in; *x-ms-version*, which indicates the version of the Blob service used; and the *Date*, which is in UTC and tells what time the request was made.
 
 [Response Body](/rest/api/storageservices/List-Containers2#response-body):
 This field is an XML structure providing the data requested. In this example, the response is a list of containers and their properties.
 
 ## Creating the REST request
 
-A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](https://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
+A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](https://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class. The ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
 
-In our sample project, the code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
+In our sample project, the code for creating the Authorization header is in a separate class. The idea is that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
 To build the request, which is an HttpRequestMessage object, go to ListContainersAsyncREST in Program.cs. The steps for building the request are: 
 
@@ -267,12 +268,13 @@ Now that you understand how to create the request, call the service, and parse t
 ## Creating the authorization header
 
 > [!TIP]
-> Azure Storage now supports Azure Active Directory (Azure AD) integration for blobs and queues. Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authenticate with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
+> Azure Storage now supports Azure Active Directory (Azure AD) integration for blobs and queues. Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authorize with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 
-There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+There is an article that explains conceptually (no code) how to [Authorize requests to Azure Storage](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 Let's distill that article down to exactly is needed and show the code.
 
-First, use a Shared Key authentication. The authorization header format looks like this:
+First, use Shared Key authorization. The authorization header format looks like this:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -319,33 +321,35 @@ Here's the code used to create that output:
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
-                    where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
-                    orderby kvp.Key
-                    select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
+        where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
+        orderby kvp.Key
+        select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
 
-    StringBuilder sb = new StringBuilder();
+    StringBuilder headersBuilder = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
     //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
-        StringBuilder headerBuilder = new StringBuilder(kvp.Key);
+        headersBuilder.Append(kvp.Key);
         char separator = ':';
 
         // Get the value for each header, strip out \r\n if found, then append it with the key.
-        foreach (string headerValues in kvp.Value)
+        foreach (string headerValue in kvp.Value)
         {
-            string trimmedValue = headerValues.TrimStart().Replace("\r\n", String.Empty);
-            headerBuilder.Append(separator).Append(trimmedValue);
+            string trimmedValue = headerValue.TrimStart().Replace("\r\n", string.Empty);
+            headersBuilder.Append(separator).Append(trimmedValue);
 
-            // Set this to a comma; this will only be used 
-            //   if there are multiple values for one of the headers.
+            // Set this to a comma; this will only be used
+            // if there are multiple values for one of the headers.
             separator = ',';
         }
-        sb.Append(headerBuilder.ToString()).Append("\n");
+
+        headersBuilder.Append("\n");
     }
-    return sb.ToString();
-}      
+
+    return headersBuilder.ToString();
+}
 ```
 
 **Canonicalized Resource**
@@ -357,9 +361,9 @@ This part of the signature string represents the storage account targeted by the
 /contosorest/\ncomp:list
 ```
 
-If you have query parameters, this includes those as well. Here's the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn't need all of them.
+If you have query parameters, this example includes those parameters as well. Here's the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs. You want to include all possibilities, even if the ListContainers method doesn't need all of them.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -375,7 +379,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -413,7 +417,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-When you run this code, the resulting MessageSignature looks like this:
+When you run this code, the resulting MessageSignature looks like this example:
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
@@ -427,11 +431,11 @@ SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 
 The AuthorizationHeader is the last header placed in the request headers before posting the response.
 
-That covers everything you need to know, along with the code, to put together a class you can use to create a request to be used to call the Storage Services REST APIs.
+That covers everything you need to know to put together a class with which you can create a request to call the Storage Services REST APIs.
 
 ## How about another example? 
 
-Let's look at how to change the code to call ListBlobs for container *container-1*. This is almost identical to the code for listing containers, the only differences being the URI and how you parse the response. 
+Let's look at how to change the code to call ListBlobs for container *container-1*. This code is almost identical to the code for listing containers, the only differences being the URI and how you parse the response. 
 
 If you look at the reference documentation for [ListBlobs](/rest/api/storageservices/List-Blobs), you find that the method is *GET* and the RequestURI is:
 
@@ -563,10 +567,11 @@ Content-Length: 1135
 
 ## Summary
 
-In this article, you learned how to make a request to the blob storage REST API to retrieve a list of containers or a list of blobs in a container. You also learned how to create the authorization signature for the REST API call, how to use it in the REST request, and how to examine the response.
+In this article, you learned how to make a request to the blob storage REST API. With the request, you can retrieve a list of containers or a list of blobs in a container. You learned how to create the authorization signature for the REST API call and how to use it in the REST request. Finally, you learned how to examine the response.
 
 ## Next steps
 
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api)
 * [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)
+* [Table Service REST API](/rest/api/storageservices/table-service-rest-api)

@@ -2,16 +2,15 @@
 title: Reference inputs and outputs in cognitive search pipelines - Azure Search
 description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in a cognitive search pipeline in Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 # How to reference annotations in a cognitive search skillset
 
@@ -31,13 +30,13 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 <a name="example-1"></a>
 ## Example 1: Simple annotation reference
 
-In Azure Blob storage, suppose you have a variety of files containing references to people's names that you want to extract using named entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
+In Azure Blob storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
 
 Because the default context is `"/document"`, the list of people can now be referenced as `"/document/people"`. In this specific case `"/document/people"` is an annotation, which could now be mapped to a field in an index, or used in another skill in the same skillset.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -93,7 +92,7 @@ When annotations are arrays or collections of strings, you might want to target 
 
 Sometimes you need to group all annotations of a particular type to pass them to a particular skill. Consider a hypothetical custom skill that identifies the most common last name from all the last names extracted in Example 2. To provide just the last names to the custom skill, specify the context as `"/document"` and the input as `"/document/people/*/lastname"`.
 
-Note that the cardinality of `"/document/people/*/lastname"` is larger than that of document. There may be 10 lastname nodes while there is only one document node for this document. In that case, the system will automatically create an array of  `"/document/people/*/lastname"` containing all of the elements in the document.
+Notice that the cardinality of `"/document/people/*/lastname"` is larger than that of document. There may be 10 lastname nodes while there is only one document node for this document. In that case, the system will automatically create an array of  `"/document/people/*/lastname"` containing all of the elements in the document.
 
 ```json
   {

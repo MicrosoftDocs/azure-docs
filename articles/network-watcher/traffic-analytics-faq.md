@@ -3,8 +3,8 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Traffic Analytics frequently asked questions
@@ -92,12 +92,19 @@ You can use traffic analytics for NSGs in any of the following supported regions
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
+- West US
 - West US 2
+- South Central US
+- Central US
 - East US
+- East US 2
 - France Central
 - West Europe
+- North Europe
 - UK South
+- Australia East
 - Australia Southeast
+- East Asia
 - Southeast Asia 
 - Korea Central
 - Central India
@@ -127,12 +134,6 @@ No. You can store raw logs in any storage account where an NSG is enabled for fl
 ## What if I can't configure an NSG for traffic analytics due to a "Not found" error?
 
 Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
-
-## Why am I getting the error "Failed to update flow logs settings for ... InternalServerError..." when enabling NSG's in US Gov Virginia?
-
-This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Please contact support if the problem persists. 
 
 ## What if I am getting the status, “Failed to load,” under the NSG flow logs page?
 
@@ -236,7 +237,6 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## How is Traffic Analytics priced?
 
 Traffic Analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
@@ -244,12 +244,30 @@ Traffic Analytics is metered. The metering is based on processing of flow log da
 For example, as per the [pricing plan](https://azure.microsoft.com/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
+## How frequently does Traffic Analytics process data?
+
+Refer to the [data aggregation section](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+
+## How does Traffic Analytics decide that an IP is malicious? 
+
+Traffic Analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services,the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, please raise a support ticket to know the details.
+
+## How can I set alerts on Traffic Analytics data?
+
+Traffic Analytics does not have inbuilt support for alerts. However, since Traffic Analytics data is stored in Log Analytics you can write custom queries and set alerts on them. 
+Steps :
+- You can use the shortlink for Log Analytics in Traffic Analytics. 
+- Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
+- Click "New alert rule" to create the alert
+- Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
+
 ## How can I navigate by using the keyboard in the geo map view?
 
 The geo map page contains two main sections:
     
-- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
-- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries.
+- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries/regions, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
+- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
     
 ### Keyboard navigation on the banner
     

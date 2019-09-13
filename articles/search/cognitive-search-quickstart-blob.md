@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Build an AI-powered index in Azure portal - Azure Search'
+title: 'Quickstart: Learn cognitive search AI enrichment in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
-# Quickstart: Create an AI indexing pipeline using cognitive skills and sample data
+# Quickstart: Create an AI enrichment pipeline using cognitive skills in Azure Search
 
 Azure Search integrates with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), adding content extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
 
@@ -24,13 +24,12 @@ In this quickstart, create your first enrichment pipeline in the [Azure portal](
 > * Run the wizard (an entity skill detects people, location, and organizations)
 > * Use [**Search explorer**](search-explorer.md) to query the enriched data
 
-This quickstart runs on the Free service, but the number of free transactions is limited to 20 documents per day. If you want to run this quickstart more than once in the same day, use a smaller file set so that you can fit in more runs.
+This quickstart runs on the Free service, but the number of free transactions is limited to 20 documents per day. If you want to run this quickstart more than once daily, use a smaller file set so that you can fit in more runs.
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing is charged at preview pricing, as described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides the AI. This quickstart includes steps for adding these resources in-line, when specifying the pipeline. It's not necessary to set up accounts in advance.
 
-Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md) except for Azure Table Storage, which is not supported for AI indexing. This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
+Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md). This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
 
 ### Set up Azure Blob service and load sample data
 
@@ -161,11 +160,13 @@ Another important concept is that skills operate over input fields. In the porta
 
 Finally, you learned that viewing results is achieved by querying the index. In the end, what Azure Search provides is a searchable index, which you can query using either the [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Search feature, you can certainly do so.
 
-## Clean up resources
+## Clean up
 
-If your exploration is concluded, the fastest way to clean up is by deleting the resource group containing the Azure Search service and Azure Blob service.  
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content you created for this exercise. In the portal, the resource group name is on the Overview page of each service.
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
 
 ---
@@ -21,17 +21,18 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][Python Azure Service Bus package]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
+In this tutorial, you learn how to create Python applications to send messages to and receive messages from a Service Bus queue. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article.
+    1. Read the quick **overview** of Service Bus **queues**. 
+    2. Create a Service Bus **namespace**. 
+    3. Get the **connection string**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> To install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](../python-how-to-install.md).
-> 
-> See full documentation of Service Bus Python SDK [here](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > You will create a **queue** in the Service Bus namespace by using Python in this tutorial. 
+1. Install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](/azure/python/python-sdk-azure-install). See full documentation of Service Bus Python SDK [here](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Create a queue
 The **ServiceBusClient** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
@@ -40,7 +41,7 @@ The **ServiceBusClient** object enables you to work with queues. Add the followi
 from azure.servicebus import ServiceBusClient
 ```
 
-The following code creates a **ServiceBusClient** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your namespace, shared access signature (SAS) key name, and value.
+The following code creates a **ServiceBusClient** object. Replace `<CONNECTION STRING>` with your servicebus connectionstring.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -55,11 +56,8 @@ sb_client.create_queue("taskqueue")
 The `create_queue` method also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5 GB, and the TTL value to 1 minute:
 
 ```python
-queue_options = Queue()
-queue_options.max_size_in_megabytes = '5120'
-queue_options.default_message_time_to_live = 'PT1M'
-
-sb_client.create_queue("taskqueue", queue_options)
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
+                       default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
 For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
@@ -72,12 +70,13 @@ The following example demonstrates how to send a test message to the queue named
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
@@ -91,10 +90,11 @@ Messages are received from a queue using the `get_receiver` method on the `Servi
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
-## Receive the message from the queue
+# Receive the message from the queue
 with queue_client.get_receiver() as queue_receiver:
     messages = queue_receiver.fetch_next(timeout=3)
     for message in messages:
@@ -121,6 +121,9 @@ Service Bus provides functionality to help you gracefully recover from errors in
 There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
 In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **at least once processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 Now that you have learned the basics of Service Bus queues, see these articles to learn more.

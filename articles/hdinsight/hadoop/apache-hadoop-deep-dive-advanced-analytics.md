@@ -1,7 +1,6 @@
 ---
 title: Deep dive - advanced analytics - Azure HDInsight
-description: Learn how advanced analytics uses algorithms to process big data.
-services: hdinsight
+description: Learn how advanced analytics uses algorithms to process big data in Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -11,6 +10,7 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ---
+
 # Deep dive - advanced analytics
 
 ## What is advanced analytics for HDInsight?
@@ -19,7 +19,7 @@ HDInsight provides the ability to obtain valuable insight from large amounts of 
 
 ## Advanced analytics process
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 After you've identified the business problem and have started collecting and processing your data, you need to create a model that represents the question you wish to predict. Your model will use one or more machine learning algorithms to make the type of prediction that best fits your business needs.  The majority of your data should be used to train your model, with the rest used to test or evaluate it. 
 
@@ -29,7 +29,7 @@ After you create, load, test, and evaluate your model, the next step is to deplo
 
 Advanced analytics solutions provide a set of machine learning algorithms. Here is a summary of the categories of algorithms and associated common business use cases.
 
-![Machine Learning Use Cases](./media/apache-hadoop-deep-dive-advanced-analytics/ml-use-cases.png)
+![Machine Learning Use Cases](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Along with selecting the best-fitting algorithm(s), you need to consider whether or not you need to provide data for training. Machine learning algorithms are categorized as follows:
 
@@ -94,7 +94,7 @@ There are three key tasks in this advanced analytics scenario:
 
 This example uses the CIFAR-10 image set compiled and distributed by Alex Krizhevsky, Vinod Nair, and Geoffrey Hinton. The CIFAR-10 dataset contains 60,000 32×32 color images belonging to 10 mutually exclusive classes:
 
-![Images](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
+![Images](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 For more details on the dataset, see Alex Krizhevsky’s [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
@@ -107,7 +107,7 @@ The dataset was partitioned into a training set of 50,000 images and a test set 
 
 The entire preprocessing/scoring of the 10,000 images takes less than one minute on a cluster with 4 worker nodes. The model accurately predicts the labels of ~9,100 (91%) images. A confusion matrix illustrates the most common classification errors. For example, the matrix shows that mislabeling dogs as cats and vice versa occurs more frequently than for other label pairs.
 
-![Results](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
+![Results](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### Try it Out!
 

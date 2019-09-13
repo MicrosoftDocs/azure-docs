@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 08/19/2019
 ms.author: spelluru
 
 ---
@@ -23,21 +23,37 @@ In this tutorial, you, as a student, connect to a virtual machine (VM) in a clas
 In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
-> * Use registration link 
-> * Connect to the virtual machine
+> * Register to the lab
+> * Start the VM
+> * Connect to the VM
 
-## Use the registration link
+## Register to the lab
 
-1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). 
+1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet. 
 1. Sign in to the service using your school account to complete the registration. 
 2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
-3. Wait until the virtual machine is ready, and then **start** the VM. This process takes some time.  
+3. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
+    1. At the top of the tile, you see the **name of the lab**.
+    1. To its right, you see the icon representing the **operating system (OS)** of the VM. In this example, it's Windows OS. 
+    1. The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. 
+    1. You see icons/buttons at the bottom of the tile to start/stop the VM, and connect to the VM. 
+    1. To the right of the buttons, you see the status of the VM. Confirm that you see the status of the VM is **Stopped**. 
+
+        ![VM in stopped state](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## Start the VM
+1. **Start** the VM by selecting the first button as shown in the following image. This process takes some time.  
 
     ![Start the VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. Confirm that the status of the VM is set to **Running**. 
 
-## Connect to the virtual machine
+    ![VM in running state](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
 
-1. Select **Connect** on the tile for the virtual machine of the lab that you want to access. 
+    Notice that the icon of the first button changed to represent a **stop** operation. You can select this button to stop the VM. 
+
+## Connect to the VM
+
+1. Select the second button as shown in the following image to **connect** to the lab's VM. 
 
     ![Connect to VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Do one of the following steps: 
