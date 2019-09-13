@@ -293,7 +293,9 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 ## Remote Licensing model isn't configured
 
-If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode." If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
+
+If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
 If you see either of these messages, this means you need to open the Group Policy editor and manually configure the licensing mode to **Per user**. The manual configuration process is different depending on which version of Windows 10 Enterprise multi-session you're using. The following sections explain how to check your version number and what to do for each.
 
@@ -307,7 +309,11 @@ To check which version of Windows 10 Enterprise multi-session you have:
 1. Sign in with your admin account.
 2. Enter "About" into the search bar next to the Start menu.
 3. Select **About your PC**.
-4. Check the version number.
+4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
+   
+    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
+
+Now that you know your version number, skip ahead to the relevant section.
 
 ### Version 1809
 
@@ -320,11 +326,13 @@ To upgrade to Windows 10, version 1903:
 3. Run **gpedit.msc** to open the Group Policy editor.
 4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
 5. Select **Set the Remote Desktop licensing mode**.
-6. Select **Enabled**.
-7. Select **Specify the licensing mode for the RD Session Host server**, then select **Per User**.
-8. Select **Apply**.
-9. Select **OK**.
-10. Restart your computer.
+6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
+    
+    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
+
+7. Select **Apply**.
+8. Select **OK**.
+9.  Restart your computer.
 
 To redeploy the host pool with the latest image:
 
@@ -333,11 +341,10 @@ To redeploy the host pool with the latest image:
 3. Run **gpedit.msc** to open the Group Policy editor.
 4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
 5. Select **Set the Remote Desktop licensing mode**.
-6. Select **Enabled**.
-7. Select **Specify the licensing mode for the RD Session Host server**, then select **Per User**.
-8. Select **Apply**.
-9. Select **OK**.
-10. Restart your computer.
+6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**.
+7. Select **Apply**.
+8. Select **OK**.
+9.  Restart your computer.
 
 ### Version 1903
 
@@ -347,8 +354,10 @@ If your version number says "1903," follow these instructions:
 2. Run **gpedit.msc** to open the Group Policy editor.
 3. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
 4. Select **Set the Remote Desktop licensing mode**.
-5. Select **Enabled**.
-6. Select **Specify the licensing mode for the RD Session Host server**, then select **Per User**.
+6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
+    
+    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
+
 7. Select **Apply**.
 8. Select **OK**.
 9.  Restart your computer.
