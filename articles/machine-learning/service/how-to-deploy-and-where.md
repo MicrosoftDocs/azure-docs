@@ -1,4 +1,3 @@
-
 ---
 title: How and where to deploy models 
 titleSuffix: Azure Machine Learning service
@@ -10,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 
 ms.custom: seoapril2019
 ---
