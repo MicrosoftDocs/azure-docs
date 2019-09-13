@@ -105,7 +105,7 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 * Cloud-to-device messages
 * Identity registry operations
 
-Traffic is measured for your IoT hub on a per-unit basis. When you create an IoT hub, you select its tier, edition, and number of units. The B1, B2, S1 and S2 editions can have up to 200 units. The B3 and S3 editions are limited to 10 units. After your hub is created, you can change the number of units available within its edition, upgrade or downgrade between editions within its tier (B1 to B2, or vice-versa), or upgrade from the basic to the standard tier (B1 to S1) without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).  
+Traffic is measured for your IoT hub on a per-unit basis. When you create an IoT hub, you choose its tier and edition, and set the number of units available. The B1, B2, S1 and S2 editions can have up to 200 units. The B3 and S3 editions can have up to 10 units. After your hub is created, you can change the number of units available within its edition, upgrade or downgrade between editions within its tier (B1 to B2), or upgrade from the basic to the standard tier (B1 to S1) without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).  
 
 As an example of each tier's traffic capabilities, device-to-cloud messages follow these sustained throughput guidelines:
 
@@ -115,7 +115,7 @@ As an example of each tier's traffic capabilities, device-to-cloud messages foll
 | B2, S2 |Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) |Average of 4,167 messages/minute per unit<br/>(6 million messages/day per unit) |
 | B3, S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
-Device-to-cloud messaging is only one of the metrics you need to consider when designing an IoT solution. For more comprehensive information, see [IoT Hub quotas and throttles](iot-hub-devguide-quotas-throttling.md) and design your solution accordingly.
+Device-to-cloud throughput is only one of the metrics you need to consider when designing an IoT solution. For more comprehensive information, see [IoT Hub quotas and throttles](iot-hub-devguide-quotas-throttling.md).
 
 ### Identity registry operation throughput
 
