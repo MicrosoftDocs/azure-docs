@@ -129,7 +129,7 @@ In this section, you will create a SQL database server in Azure.
 
 ## Create a private endpoint
 
-In this section, you will create a private storage account and add a private endpoint to it. 
+In this section, you will create a SQL server and add a private endpoint to it. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
@@ -228,7 +228,7 @@ After you've created **myVm*, connect to it from the internet as follows:
 4. Close the remote desktop connection to *myVm*. 
 
 ## Clean up resources 
-When you're done using the private endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
+When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
 2. Select **Delete resource group**. 
 3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
