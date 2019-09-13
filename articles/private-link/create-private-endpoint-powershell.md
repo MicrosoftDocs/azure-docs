@@ -1,25 +1,25 @@
 ---
-title: 'Create an Azure private endpoint using Azure PowerShell| Microsoft Docs'
+title: 'Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs'
 description: Learn about Azure Private Link
 services: virtual-network
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
 # Create a private endpoint using Azure PowerShell
-A private endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with private link resources. 
+A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Azure private endpoint using Azure PowerShell. Then, you can securely access the storage account from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using Azure PowerShell. Then, you can securely access the  SQL Database Server from the VM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
-Before you can create your private link, you must create a resource group host the virtual network and the private endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
+Before you can create your resources, you must create a resource group that hosts the Virtual Network and the private endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
 
 ```azurepowershell
 
@@ -28,12 +28,12 @@ New-AzResourceGroup `
   -Location westcentralus
 ```
 
-## Create a virtual network
-In this section, you create a virtual network and a subnet. Next, you associate the subnet your virtual network.
+## Create a Virtual Network
+In this section, you create a virtual network and a subnet. Next, you associate the subnet your Virtual Network.
 
-### Create a virtual network
+### Create a Virtual Network
 
-Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *MyVirtualNetwork*:
+Create a Virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a Virtual Network named *MyVirtualNetwork*:
  
 ```azurepowershell
 
@@ -44,9 +44,9 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-### Add a subnet
+### Add a Subnet
 
-Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
+Azure deploys resources to a subnet within a Vrtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -56,17 +56,17 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-### Associate the subnet to the virtual network
+### Associate the Subnet to the Virtual Network
 
-You can write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). This command creates the subnet:
+You can write the subnet configuration to the Virtual Network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). This command creates the subnet:
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## Create a virtual machine
+## Create a Virtual Machine
 
-Create a VM in the virtual network with [New-AzVM](/powershell/module/az.compute/new-azvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM:
+Create a VM in the Virtual Network with [New-AzVM](/powershell/module/az.compute/new-azvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -91,29 +91,34 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## Create a storage account
+## Create a SQL Database Server 
 
-Create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create a  SQL Database Server by using theNew-AzSqlServer command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
-```azurepowershell
-$storageAccount = New-AzStorageAccount -ResourceGroupName "myResourceGroup" `
-  -Name "mystorageaccount" `
-  -Location "westcentralus" `
-  -SkuName Standard_RAGRS `
-  -Kind StorageV2 `
-  -NetworkRuleSet (@{defaultAction="Deny"})
-``` 
+$adminSqlLogin = "SqlAdmin"
+$password = "ChangeYourAdminPassword1"
+
+$server = New-AzSqlServer -ResourceGroupName "myResourceGroup" `
+    -ServerName "myserver" `
+    -Location "WestCentralUS" `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+
+New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
+    -ServerName "myserver"`
+    -DatabaseName "myda"`
+    -RequestedServiceObjectiveName "S0" `
+    -SampleName "AdventureWorksLT"
 
 
-## Create a private endpoint
+## Create a Private Endpoint
 
-Create a private endpoint for the storage account in your virtual network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
+Private Endpoint for the SQL Database Server in your Virtual Network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" ` 
-  -PrivateLinkServiceId $storageAccount.Id ` 
-  -GroupId "blob" 
+  -PrivateLinkServiceId $server.ResourceId ` 
+  -GroupId "sqlServer" 
  
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "MyVirtualNetwork"  
  
@@ -128,16 +133,16 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
-## Configure the private DNS zone 
-Create a private DNS zone for storage blob domain and create an association link with the virtual network: 
+## Configure the Private DNS Zone 
+Create a private DNS zone for SQL Database Server domain and create an association link with the virtual network: 
 
 ```azurepowershell
 
 $zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" ` 
-  -Name "privatelink.blob.core.windows.net"  
+  -Name "privatelink.database.windows.net" 
  
 $link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" ` 
-  -ZoneName "privatelink.blob.core.windows.net"` 
+  -ZoneName "privatelink.database.windows.net"` 
   -Name "mylink" `  
   -VirtualNetworkId $virtualNetwork.Id  
  
@@ -148,7 +153,7 @@ foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
 Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
 $recordName = $fqdn.split('.',2)[0] 
 $dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.blob.core.windows.net"  ` 
+New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  ` 
 -ResourceGroupName "myResourceGroup" -Ttl 600 ` 
 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
 } 
@@ -181,29 +186,29 @@ mstsc /v:<publicIpAddress>
 3. Select **OK**. 
 4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
-## Access storage account privately from the VM
+## Access SQL Database Server privately from the VM
 
 1. In the Remote Desktop of myVM, open PowerShell.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net`
-    You'll receive a message similar to this:
-    ```azurepowershell
+2. Enternslookup myserver.database.windows.net You'll receive a message similar to this:
+    Azure PowerShellCopy
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mystorageaccount123123.privatelink.blob.core.windows.net
+    Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
-    Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from *mystorageaccount*. 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    Aliases:  myserver.database.windows.net
+3. Install SQL Server Management Studio
+4. In Connect to server, enter or select this information:
+  	Setting	Value
+	  Server type	Select Database Engine.
+	  Server name	Select myserver.database.windows.net
+	  Username	Enter a username provided during creation.
+	  Password	Enter a password provided during creation.
+	  Remember password	Select Yes.
+5. Select Connect.
+6. Browse Databases from left menu. 
+7. (Optionally) Create or query information from mydatabase
+8. Close the remote desktop connection to *myVM*. 
 
 
 Additional options to access the storage account:
