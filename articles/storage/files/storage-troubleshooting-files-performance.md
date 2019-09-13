@@ -94,7 +94,7 @@ This is a known issue with the implementation of SMB client on Linux.
 
 - Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
-- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentc, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 
 ## High latencies for metadata heavy workloads involving extensive open/close operations.
 
