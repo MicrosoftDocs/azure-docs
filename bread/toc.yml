@@ -621,7 +621,7 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
-  - name: Private link
+  - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
   - name: Azure Cache for Redis
