@@ -98,7 +98,7 @@
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
-  - name: Events and Messaging
+  - name: Events and messaging
     items:
     - name: Designing for identical input
       href: functions-idempotent.md
