@@ -45,11 +45,11 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
 
-   ![Show View dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer1.png)
+   ![Show View dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
 1. Right-click the **Azure** node, and then select **Sign in**.
 1. In the **Azure Sign In** dialog box, choose the authentication method, select **Sign in**, and enter your Azure credentials.
 
-   ![Azure Sign In dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer2.png)
+   ![Azure Sign In dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
 
 1. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
@@ -57,11 +57,11 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 1. On the **Azure Explorer** tab, expand **HDInsight** to see the HDInsight Spark clusters under your subscription.
 
-   ![HDInsight Spark clusters in Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer3.png)
+   ![HDInsight Spark clusters in Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer3.png)
 
 1. You can further expand a cluster name node to see the resources (for example, storage accounts) associated with the cluster.
 
-   ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer4.png)
+   ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer4.png)
 
 ## Link a cluster
 
@@ -120,22 +120,25 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    ![Create New File dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
 1. Paste the following code in the text editor:
 
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
-   
-        object MyClusterApp{
-          def main (arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("MyClusterApp")
-            val sc = new SparkContext(conf)
-   
-            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-   
-            //find the rows that have only one digit in the seventh column in the CSV
-            val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
-   
-            rdd1.saveAsTextFile("wasb:///HVACOut")
-          }        
-        }
+    ```scala
+    import org.apache.spark.SparkConf
+    import org.apache.spark.SparkContext
+
+    object MyClusterApp{
+        def main (arg: Array[String]): Unit = {
+        val conf = new SparkConf().setAppName("MyClusterApp")
+        val sc = new SparkContext(conf)
+
+        val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
+        //find the rows that have only one digit in the seventh column in the CSV
+        val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
+
+        rdd1.saveAsTextFile("wasb:///HVACOut")
+        }        
+    }
+    ```
+
 1. Run the application on an HDInsight Spark cluster:
 
    a. From Package Explorer, right-click the project name, and then select **Submit Spark Application to HDInsight**.
@@ -189,7 +192,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 
 1. Expand the cluster name to see the storage account and the default storage container for the cluster.
 
-   ![Storage account and default storage container](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer5.png)
+   ![Storage account and default storage container](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer5.png)
 
 1. Select the storage container name associated with the cluster. In the right pane, double-click the **HVACOut** folder. Open one of the **part-** files to see the output of the application.
 
@@ -252,16 +255,16 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
 
-    ![HDInsight Spark clusters in Azure Explorer role reader](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer6.png)
+    ![HDInsight Spark clusters in Azure Explorer role reader](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer6.png)
 
 3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and password.
 
-    ![HDInsight Spark clusters in Azure Explorer link](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer7.png)
+    ![HDInsight Spark clusters in Azure Explorer link](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer7.png)
 
 4. If the cluster is linked successfully, HDInsight will be refreshed.
    The stage of the cluster will become linked.
   
-    ![HDInsight Spark clusters in Azure Explorer linked](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer8.png)
+    ![HDInsight Spark clusters in Azure Explorer linked](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer8.png)
 
 ### Link cluster by expanding Jobs node
 
@@ -269,7 +272,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 2. Click **Link this cluster** to link cluster.
 
-    ![HDInsight Spark clusters in Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer9.png)
+    ![HDInsight Spark clusters in Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer9.png)
 
 ### Link cluster from Spark Submission window
 
@@ -277,23 +280,23 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 2. Right click the package. Then select **Submit Spark Application to HDInsight**.
 
-   ![HDInsight Spark clusters in Azure Explorer submit](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer11.png)
+   ![HDInsight Spark clusters in Azure Explorer submit](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer11.png)
 
 3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can click **Link this cluster** to link cluster.
 
-   ![HDInsight Spark clusters in Azure Explorer link this](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer15.png)
+   ![HDInsight Spark clusters in Azure Explorer link this](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer15.png)
 
 ### View Storage Accounts
 
 * For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up.
 
-   ![HDInsight Spark clusters in Azure Explorer storage](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer13.png)
+   ![HDInsight Spark clusters in Azure Explorer storage](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer13.png)
 
-   ![HDInsight Spark clusters in Azure Explorer denied](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer12.png)
+   ![HDInsight Spark clusters in Azure Explorer denied](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer12.png)
 
 * For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up.
 
-   ![HDInsight Spark clusters in Azure Explorer denied2](./media/apache-spark-eclipse-tool-plugin/eclipse-view explorer14.png)
+   ![HDInsight Spark clusters in Azure Explorer denied2](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer14.png)
 
 ## Known problems
 
