@@ -146,6 +146,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
