@@ -16,11 +16,9 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 You can create and manage read replicas using the Azure CLI.
 
 ### Prerequisites
+
+- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the master server.
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ### Prepare the master server
