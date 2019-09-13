@@ -5,17 +5,17 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
 # Disable network policies for private endpoints
 
-Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy private endpoints on a given subnet, an explicit disable setting is required. This setting is only applicable for private endpoints. NSG support on any other workload on the subnet is controlled based on the security rules definition. 
+Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy a Private Endpoint on a given subnet, an explicit disable setting is required on that subnet. This setting is only applicable for the Private Endpoint. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
  
-When using the portal to create a private endpoint, this setting is disabled as part of the create process. Deployment with other clients requires an additional step to change this property. You can disable the setting using the cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
+When using the portal to create a private endpoint, this setting is automatically disabled as part of the create process. Deployment using other clients requires an additional step to change this setting. You can disable the setting using cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
  
-The following examples describe how to disable private endpoints network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
+The following examples describe how to disable `PrivateEndpointNetworkPolicies` for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
 
 ## Using Azure PowerShell
 This section describes how to disable subnet private endpoint policies using Azure PowerShell.

@@ -13,18 +13,15 @@ ms.author: kumud
 ---
 # What is Azure Private Link? (Preview)
 
-Azure Private Link provides private connectivity between applications running in different virtual networks and to Azure PaaS services (such as Storage, SQL Database, etc.) using the Microsoft network. Azure Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. Azure Private Link also extends this ability to customer-owned services and shared marketplace services run by partners. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned services, and shared partner services. The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service. A connection is established between the provider and the consumer based on an approval call flow. After the connection is established, all data that flows between the service provider and service consumer is isolated from the internet and stays on the Microsoft backend. Both the provider and the consumer must be on Azure to use the Azure Private Link service. There is no need for any sort of gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses to communicate with the service.   
+Azure Private Link provides private connectivity between your VNets, Azure Pass Services ((E.g. Storage and SQL Database), and other services created using Private Link. The data between your VNets and the services traverses over the Microsoft backbone, eliminating exposure to the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services. The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service. A connection is established between the provider and the consumer based on an approval workflow. After the connection is established, all data between the service provider and service consumer is isolated from the Internet and stays on the Microsoft backend. Both the provider and the consumer must be on Azure to use the Azure Private Link service. With Private Link you do not need gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses to communicate with the service.   
+
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
 ## Why use Azure Private Link?
-Before Azure Private Link, Azure shared PaaS was accessed over either 1) Public endpoints (internet routable public IP addresses exposed by the service) or 2) Virtual network service endpoints. In both cases, Azure customers have to configure their network security groups (NSGs) to allow access to internet-routable service public IP addresses to access the service. Accessing services over public IP addresses poses a security risk. Moreover, there is a risk of data exfiltration with both access methods. 
- 
-Similarly, shared services offered by Microsoft partners and customer-owned services that reside in one virtual network are accessed over either 1) Public endpoints or 2) Virtual network peering. In the first method, NSGs need to allow access to internet-routable address space which poses a security risk. In the second method, virtual network peering imposes restrictions in terms of non-overlapping IP address space requirements.  
- 
-Azure Private Link addresses these issues and allows you to set up TCP connectivity between applications that run in different virtual networks and to Azure PaaS services in a simple, secure, and scalable manner.
+Use Azure Private Link to access Azure services or your own services privately and securely. Previously, Azure services (such as Storage, SQL, etc.) or customer-owned services needed to be accessed over Public IP endpoints. With Azure Private Link, this is no longer the case. The need for Internet exposed endpoints is removed. You can privately connect to services in other Virtual Networks easily and securely.
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
@@ -53,7 +50,7 @@ For more information about Private Endpoint, see [What is Private Endpoint?](pri
  The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
 
 
-|Scenario  |Supported services   |Available regions |Time of availability   |
+|Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
 |Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
@@ -83,5 +80,11 @@ For FAQs, see [Azure Private Link FAQs](private-link-faq.md).
 For limits, see [Azure Private Link limits](../azure-subscription-service-limits.md#private-link-limits).
 
 ## Next steps
-- [Create a Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
+- [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
+
+
  
