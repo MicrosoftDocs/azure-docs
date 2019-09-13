@@ -1,13 +1,15 @@
 ---
 title: Use Caffe on Azure HDInsight Spark for distributed deep learning
-description: Use Caffe on Azure HDInsight Spark for distributed deep learning
+description: Use Caffe on Apache Spark for distributed deep learning in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
 ---
+
 # Use Caffe on Azure HDInsight Spark for distributed deep learning
 
 
@@ -59,7 +61,7 @@ The second step is to download, compile, and install protobuf 2.5.0 for Caffe du
 
 To get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions on an existing cluster, or use script actions during the cluster creation. For more information on the script actions, see the documentation [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-![Script Actions to Install Dependencies](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![Script Actions to Install Dependencies](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## Step 2: Build Caffe on Apache Spark for HDInsight on the head node
@@ -169,7 +171,8 @@ For this example, since you are using CPU rather than GPU, you should change the
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 You can change other lines as needed.
 
@@ -178,7 +181,7 @@ The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) define
 - change the "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" to "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 For more information on how to define the network, check the [Caffe documentation on MNIST dataset](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
@@ -198,15 +201,15 @@ If you want to know what happened, you usually need to get the Spark driver's lo
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![YARN UI](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 You can take a look at how many resources are allocated for this particular application. You can click the "Scheduler" link, and then you will see that for this application, there are nine containers running. you ask YARN to provide eight executors, and another container is for driver process. 
 
-![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![YARN Scheduler](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 You may want to check the  driver logs or container logs if there are failures. For driver logs, you can click the application ID in YARN UI, then click the "Logs" button. The driver logs are written into stderr.
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![YARN UI 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 For example, you might see some of the error below from the driver logs, indicating you allocate too many executors.
 
