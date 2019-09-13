@@ -56,7 +56,7 @@ The following table applies to U-SQL.
 
 ## Azure functions
 
-### Error code:  3602 (AzureFunctionInvalidHttpMethod)
+### Error code:  3602
 
 - **Message**: Invalid HttpMethod: {method}. 
 
@@ -64,7 +64,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: The Http methods that are supported are PUT, POST, GET, DELETE, OPTIONS, HEAD, and TRACE.
 
-### Error code:  3603 (AzureFunctionInvalidResponseContent)
+### Error code:  3603
 
 - **Message**: Response content is not a valid JObject. 
 
@@ -72,7 +72,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`.
 
-### Error code:  3606 (AzureFunctionKeyNotDefined)
+### Error code:  3606
 
 - **Message**: Azure function activity missing function key. 
 
@@ -80,7 +80,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionKey'.
 
-### Error code:  3607 (AzureFunctionFunctionNameNotDefined)
+### Error code:  3607
 
 - **Message**: Azure function activity missing function name.
 
@@ -88,7 +88,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionName'.
 
-### Error code:  3608 (AzureFunctionFunctionCallFailed)
+### Error code:  3608
 
 - **Message**: Call to provided Azure function '{FunctionName}' failed with status-'{statusCode}' and message - '{message}'. 
 
@@ -96,7 +96,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Fix the azure function details and retry again.
 
-### Error code:  3609 (AzureFunctionNotDefined)
+### Error code:  3609
 
 - **Message**: Azure function activity missing functionAppUrl. 
 
@@ -104,7 +104,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionAppUrl'.
 
-### Error code:  3610 (AzureFunctionErrorCallingEndpoint)
+### Error code:  3610
 
 - **Message**: There was an error while calling endpoint. 
 
@@ -113,7 +113,7 @@ The following table applies to U-SQL.
 - **Recommendation**: Please make sure the value for 'functionAppUrl' in the activity JSON is correct and try again.
 
 
-### Error code:  3611 (AzureFunctionMethodNotDefined)
+### Error code:  3611
 
 - **Message**: Azure function activity missing Method in JSON. 
 
@@ -122,7 +122,7 @@ The following table applies to U-SQL.
 - **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'method'.
 
 
-### Error code:  3612 (AzureFunctionLinkedServiceNotDefined)
+### Error code:  3612
 
 - **Message**: Azure function activity missing LinkedService definition in JSON.
 
