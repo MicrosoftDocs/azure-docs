@@ -13,21 +13,21 @@ ms.date: 09/12/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Schema drift is the case where your sources often change metadata. Fields, columns, and, types can be added, removed or changed on the fly. Without handling for schema drift, your data flow becomes vulnerable to upstream data source changes. Typical ETL patterns fail when incoming columns and fields change because they tend to be tied to those source names.
+Schema drift is the case where your sources often change metadata. Fields, columns, and, types can be added, removed, or changed on the fly. Without handling for schema drift, your data flow becomes vulnerable to upstream data source changes. Typical ETL patterns fail when incoming columns and fields change because they tend to be tied to those source names.
 
-In order to protect against schema drift, it is important to have the facilities in a data flow tool to allow you, as a Data Engineer, to:
+To protect against schema drift, it's important to have the facilities in a data flow tool to allow you, as a Data Engineer, to:
 
-* Define sources that have mutable field names, data types, values and sizes
+* Define sources that have mutable field names, data types, values, and sizes
 * Define transformation parameters that can work with data patterns instead of hard-coded fields and values
 * Define expressions that understand patterns to match incoming fields, instead of using named fields
 
 Azure Data Factory natively supports flexible schemas that change from execution to execution so that you can build generic data transformation logic without the need to recompile your data flows.
 
-You need to make an architectural decision in your data flow to accept schema drift throughout your flow. When you do this, you can protect against schema changes from the sources. However, you will lose early-binding of your columns and types throughout your data flow. Azure Data Factory treats schema drift flows as late-binding flows, so when you build your transformations, the drifted column names will not be available to you in the schema views throughout the flow.
+You need to make an architectural decision in your data flow to accept schema drift throughout your flow. When you do this, you can protect against schema changes from the sources. However, you'll lose early-binding of your columns and types throughout your data flow. Azure Data Factory treats schema drift flows as late-binding flows, so when you build your transformations, the drifted column names won't be available to you in the schema views throughout the flow.
 
 ## Schema drift in source
 
-In a source transformation, schema drift is defined as reading columns that are not defined your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
+In a source transformation, schema drift is defined as reading columns that are'nt defined your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
 
 ![Schema drift source](media/data-flow/schemadrift001.png "Schema drift source")
 
@@ -39,7 +39,7 @@ In a sink transformation, schema drift is when you write additional columns on t
 
 ![Schema drift sink](media/data-flow/schemadrift002.png "Schema drift sink")
 
-If schema drift is enabled, make sure the **Auto Mapping** slider in the Mapping tab is turned on. With this slider on, all incoming columns will be written to your destination. Otherwise you must use rule-based mapping to write drifted columns.
+If schema drift is enabled, make sure the **Auto-mapping** slider in the Mapping tab is turned on. With this slider on, all incoming columns will be written to your destination. Otherwise you must use rule-based mapping to write drifted columns.
 
 ![Sink auto mapping](media/data-flow/automap.png "Sink auto mapping")
 
@@ -48,14 +48,14 @@ If schema drift is enabled, make sure the **Auto Mapping** slider in the Mapping
 When your data flow has drifted columns, you can access them in your transformations with the following methods:
 
 * Use the `byPosition` and `byName` expressions to explicitly reference a column by name or position number.
-* Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position or type
+* Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position, or type
 * Add rule-based mapping in a Select or Sink transformation to match drifted columns to columns aliases via a pattern
 
 For more information on how to implement column patterns, see [Column patterns in Mapping Data Flow](concepts-data-flow-column-pattern.md).
 
 ### Map drifted columns quick action
 
-If you want to be able to explicitly reference drifted columns, you can quickly generate mappings for these columns via a data preview quick action. If [debug mode](concepts-data-flow-debug-mode.md) is on, go to the Data Preview tab and click **Refresh** to fetch a data preview. If data factory detects that drifted columns exist, you can click **Map Drifted** and generate a derived column that allows you to reference all drifted columns in schema views downstream.
+To explicitly reference drifted columns, you can quickly generate mappings for these columns via a data preview quick action. Once [debug mode](concepts-data-flow-debug-mode.md) is on, go to the Data Preview tab and click **Refresh** to fetch a data preview. If data factory detects that drifted columns exist, you can click **Map Drifted** and generate a derived column that allows you to reference all drifted columns in schema views downstream.
 
 ![Map drifted](media/data-flow/mapdrifted1.png "Map drifted")
 
@@ -64,4 +64,4 @@ In the generated Derived Column transformation, each drifted column will be mapp
 ![Map drifted](media/data-flow/mapdrifted2.png "Map drifted")
 
 ## Next steps
-In the [Data Flow Expression Language](data-flow-expression-functions.md) you will find additional facilities for column patterns and schema drift including "byName" and "byPosition".
+In the [Data Flow Expression Language](data-flow-expression-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".
