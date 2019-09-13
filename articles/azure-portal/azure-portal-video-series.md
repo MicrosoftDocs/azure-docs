@@ -29,6 +29,6 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 
 ## Next steps:
 
-Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/en-us/resources/videos/index/?tag=microsoft-azure-portal).
+Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
 
 
