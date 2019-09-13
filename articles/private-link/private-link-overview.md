@@ -53,7 +53,7 @@ For more information about Private Endpoint, see [What is Private Endpoint?](pri
  The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
 
 
-|Scenario  |Supported services   |Available regions |Time of availability   |
+|Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
 |Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
@@ -83,5 +83,11 @@ For FAQs, see [Azure Private Link FAQs](private-link-faq.md).
 For limits, see [Azure Private Link limits](../azure-subscription-service-limits.md#private-link-limits).
 
 ## Next steps
-- [Create a Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
+- [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
+
+
  
