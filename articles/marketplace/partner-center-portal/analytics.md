@@ -239,7 +239,7 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Cloud Instance Name: Azure Government | Order| Government-specific Microsoft clouds for one of the following governments: China, Germany, or The United States of America.| |
 | Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer’s Azure Subscription.||
 | Customer Communication Language  | Customer| The language preferred by the customer for communication.||
-| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer’s Azure Subscription.|  |
+| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the name in a customer’s Azure Subscription.|  |
 | Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer’s Azure Subscription.|  |
 | Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer’s Azure Subscription.||
 | Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer’s Azure Subscription.| |
