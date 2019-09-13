@@ -23,14 +23,12 @@ landingContent:
         links:
           - text: What is QnA Maker
             url: overview/overview.md
-    linkLists:
       - linkListType: concept
         links:
           - text: Development lifecycle
             url: concepts/development-lifecycle-knowledge-base.md
           - text: Data sources
             url: concepts/data-sources-supported.md
-    linkLists:
       - linkListType: get-started
         links:
           - text: "Video: Build a bot in minutes"
