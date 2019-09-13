@@ -104,6 +104,7 @@ Lack of support for directory leases.
 
 - If possible, avoid excessive opening/closing handle on the same directory within a short period of time.
 - For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=\<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with cache coherency, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 - For Linux VMs, upgrade the kernel to 4.20 or higher.
 
 ## Low IOPS on CentOS/RHEL
