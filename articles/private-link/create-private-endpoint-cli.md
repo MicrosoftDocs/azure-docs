@@ -161,13 +161,12 @@ In this section, you will connect to the SQL Database Server from the VM using t
 ```
  3. Install SQL Server Management Studio 
  4. In Connect to server, enter or select this information: 
-
-     Server type: Select Database Engine.
-     Server name: Select myserver.database.windows.net
-     Username: Enter a username provided during creation.
-     Password: Enter a password provided during creation.
-     Remember password: Select Yes.
-
+ Server type: Select Database Engine.
+ Server name: Select myserver.database.windows.net
+ Username: Enter a username provided during creation.
+ Password: Enter a password provided during creation.
+ Remember password: Select Yes.
+ 
  5. Select **Connect**.
  6. Browse **Databases** from left menu.
  7. (Optionally) Create or query information from *mydatabase*
