@@ -23,7 +23,7 @@ Software requirements:
 
 What's included in the sample package?
 * Unity scene with geometry, sound sources, and gameplay controls
-* Project Acoustics plug-in 
+* Project Acoustics plug-in
 * Baked acoustics assets for the scene
 
 ## Import the sample package
@@ -40,8 +40,8 @@ Import the sample package to a new Unity project.
 
 To import the package into an existing project, see [Unity integration](unity-integration.md) for additional steps and notes.
 
->[!NOTE] 
->Several errors will be displayed in the console log after the importing is complete.  Continue to the next step and restart Unity.
+>[!NOTE]
+>Several errors will be displayed in the console log after the import is complete. Continue to the next step and restart Unity.
 
 ## Restart Unity
 The bake portion of the acoustics toolkit requires the .NET 4.*x* scripting runtime version. Package import updates your Unity player settings. Restart Unity for this setting to take effect.
@@ -53,7 +53,7 @@ To verify that the setting took effect, open the **Player** settings:
 ![The Unity Player settings panel with .NET 4.*x* selected](media/net45.png)  
 
 >[!NOTE]
->This screenshot was taken from Unity 2018.*x*. The image may very in newer versions of Unity.
+>This screenshot was taken from Unity 2018.*x*. The image may differ in newer versions of Unity.
 
 ## Open the Project Acoustics bake window
 Select **Window > Acoustics** from the Unity menu:
@@ -65,33 +65,33 @@ A floating **Acoustics** window will open. This window is where you set the prop
 ![The Unity editor with Acoustics window open](media/unity-editor-plugin-window.png)  
 
 ## Experiment with design controls
-Open the sample scene in the *ProjectAcousticsSample* folder, and select the play button in the Unity editor. Use W, A, S, D, and the mouse to move around. To compare how the scene sounds with and without acoustics, press the **R** button until the overlay text turns red and shows "Acoustics: Disabled." To see keyboard shortcuts for more controls, press **F1**. You can also right-click to select an action and then left-click to do it.
+Open the sample scene in the *ProjectAcousticsSample* folder, and select the play button in the Unity editor. Use W, A, S, D, and the mouse to move around. To compare how the scene sounds with and without acoustics, press the key until the overlay text turns red and shows "Acoustics: Disabled." To see keyboard shortcuts for more controls, press F1. You can also right-click to select an action and then left-click to do it.
 
-The script *AcousticsAdjust* is attached to the sound sources in the sample scene, which enables the per-source design parameters. 
+The script *AcousticsAdjust* is attached to the sound sources in the sample scene, which enables the per-source design parameters.
 
 ![The Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
 The following sections explore some of the effects that can be produced by using the available controls. For detailed information about each control, see the [Project Acoustics Unity Design Tutorial](unity-workflow.md).
 
 ### Modify distance-based attenuation
-The audio DSP in the **Project Acoustics** Unity spatializer plugin respects the per-source distance-based attenuation that's built into the Unity Editor. Controls for distance-based attenuation are in the **Audio Source** component, which is in the **Inspector** panel of sound sources, under **3D Sound Settings**:
+The audio DSP in the **Project Acoustics** Unity spatializer plug-in respects the per-source distance-based attenuation that's built into the Unity Editor. Controls for distance-based attenuation are in the **Audio Source** component, which is in the **Inspector** panel of sound sources, under **3D Sound Settings**:
 
 ![Unity distance attenuation options panel](media/distance-attenuation.png)
 
-Project Acoustics computes in a "simulation region" box that's centered around the player location. Since the acoustics assets in the sample package were fixed at a simulation region size of 45 meters surrounding the player, the sound attenuation should be designed to fall to 0 at about 45 m.
+Project Acoustics computes in a "simulation region" box that's centered around the player location. The acoustics assets in the sample package were baked at a simulation region size of 45 meters surrounding the player. So, the sound attenuation should be designed to fall to 0 at about 45 m.
 
 ### Modify occlusion and transmission
 * If the **Occlusion** multiplier is greater than 1 (the default is 1), occlusion will be exaggerated. To make the occlusion effect more subtle, set it to less than 1.
 
-* To enable through-wall transmission, move the **Transmission (dB)** slider off the lowest level.
+* To enable through-wall transmission, move the **Transmission (dB)** slider away from the lowest level.
 
 ### Modify wetness for a source
-* To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. **Project Acoustics** computes wet levels throughout the space from simulation, which vary smoothly with distance and provides perceptual distance cues. Increasing the distance warp exaggerates this effect by increasing distance-related wet levels. Warping values of less than 1 make the distance-based reverberation change more subtle. 
+* To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. Project Acoustics computes wet levels throughout the space from simulation, which vary smoothly with distance and provides perceptual distance cues. Increasing the distance warp exaggerates this effect by increasing distance-related wet levels. Warping values of less than 1 make the distance-based reverberation change more subtle. 
 To make finer adjustments to this effect, change the **Wetness (dB)** setting.
 
 * To increase the decay time throughout the space, adjust the **Decay Time Scale**. If the simulation result for a particular source-listener location pair is a decay time of 1.5 seconds and the **Decay Time Scale** is set to 2, the decay time that's applied to the source is 3 seconds.
 
 ## Next steps
-* Read full details on the [Unity-based Project Acoustics design controls](unity-workflow.md).
+* Read details on the [Unity-based Project Acoustics design controls](unity-workflow.md).
 * Further explore the concepts behind the [design process](design-process.md).
 * [Create an Azure account](create-azure-account.md) to explore the pre-bake and bake processes.

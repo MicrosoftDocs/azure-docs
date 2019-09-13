@@ -15,31 +15,32 @@ ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unreal/Wwise Quickstart
-In this quickstart, you'll experiment with Project Acoustics design controls using provided sample content for the Unreal Engine and Wwise.
+In this quickstart, you'll experiment with Project Acoustics design controls by using provided sample content for the Unreal Engine and Wwise.
 
-Software requirements for using sample content:
+Software requirements for using the sample content:
 * [Unreal Engine](https://www.unrealengine.com/) 4.22
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## Download the sample package
-Download the [Project Acoustics Unreal + Wwise sample package](https://www.microsoft.com/download/details.aspx?id=58090). The sample package contains an Unreal Engine project, the Wwise project for that Unreal project, and the Project Acoustics Wwise plugin.
+Download the [Project Acoustics Unreal + Wwise sample package](https://www.microsoft.com/download/details.aspx?id=58090). The sample package contains an Unreal Engine project, the Wwise project for that Unreal project, and the Project Acoustics Wwise plug-in.
 
 ## Set up the Project Acoustics sample project
-To set up the Project Acoustics Unreal/Wwise sample project, you'll need to first install the Project Acoustics plugin into Wwise. Then deploy the Wwise binaries to the Unreal project, and adjust the Wwise's Unreal plugin to support Project Acoustics.
+To set up the Project Acoustics Unreal/Wwise sample project, first install the Project Acoustics plug-in into Wwise. Then deploy the Wwise binaries to the Unreal project, and adjust the Wwise's Unreal plug-in to support Project Acoustics.
 
-### Install the Project Acoustics Wwise plugin
-Open Wwise Launcher, then in the **Plugins** tab, under **Install New Plugins**, select **Add From Directory**. Choose the `AcousticsWwisePlugin\ProjectAcoustics` directory that was included in the package you downloaded.
+### Install the Project Acoustics Wwise plug-in
+Open Wwise Launcher. On the **Plugins** tab, under **Install New Plugins**, select **Add From Directory**. Choose the `AcousticsWwisePlugin\ProjectAcoustics` directory that was included in the package that you downloaded.
 
-![Screenshot of Wwise Launcher showing Install Wwise Plugin option](media/wwise-install-new-plugin.png)
+![The option to install the Wwise plug-in in Wwise Launcher](media/wwise-install-new-plugin.png)
 
 ### Add Wwise binaries to the Project Acoustics Unreal sample project
-From Wwise Launcher, click the **Unreal Engine** tab, then click the hamburger menu next to **Recent Unreal Engine Projects** and select **Browse for project**. Open the sample Unreal project `.uproject` file in the package `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
+1. In Wwise Launcher, select the **Unreal Engine** tab. 
+1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects** and select **Browse for project**. Open the sample Unreal project `.uproject` file in the package `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
 
-![Screenshot of Wwise Launcher Unreal tab](media/wwise-unreal-tab.png)
+   ![The Unreal tab in Wwise Launcher](media/wwise-unreal-tab.png)
 
-Then, next to the Project Acoustics sample project, click **Integrate Wwise in Project**.
+3. Next to the Project Acoustics sample project, select **Integrate Wwise in Project**.
 
-![Screenshot of Wwise Launcher showing Acoustics Game Unreal Project](media/wwise-acoustics-game-project.png)
+   ![Screenshot of Wwise Launcher showing Acoustics Game Unreal Project](media/wwise-acoustics-game-project.png)
 
 ### Extend Wwise's Unreal plugin functionality
 The Project Acoustics Unreal plugin requires additional behavior be exposed from the Wwise Unreal plugin API. Run the batch file provided with the Project Acoustics Unreal plugin to automate these modifications:
