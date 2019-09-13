@@ -38,7 +38,7 @@ landingContent:
             url: create-private-endpoint-portal.md
 
   # Card (optional)
-  - title: Build your own Private :ink service
+  - title: Build your own Private Link service
     linkLists:
       - linkListType: concept
         links:
