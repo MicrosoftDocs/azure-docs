@@ -54,7 +54,7 @@ Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourc
  
 #### Approve a Private Endpoint connection 
  
-Use the `Approve-AzPrivateEndpointConnection` cmdlet to approve a Private Pndpoint connection. 
+Use the `Approve-AzPrivateEndpointConnection` cmdlet to approve a Private Endpoint connection. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
