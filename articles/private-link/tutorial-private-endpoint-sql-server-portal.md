@@ -1,9 +1,8 @@
 ---
-title: 'Connect privately to a SQL Server in Azure using Azure portal'
+title: 'Manage Private Endpoints in Azure'
 description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can prvately connect to it.
 ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 09/09/2019
