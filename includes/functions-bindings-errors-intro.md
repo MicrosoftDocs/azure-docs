@@ -15,7 +15,7 @@ Errors raised in an Azure Functions can come from any of the following origins:
 
 Following solid error handling practices is important to avoid loss of data or missed messages. Recommended error handling practices include the following actions:
 
-- Enable Application Insights
+- Enable Application Insights, which logs exception traces and other data.
 - Use structured error handling
 - Design for idempotency
 - Implement retry policies (where appropriate)
