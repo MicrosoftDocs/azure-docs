@@ -1,6 +1,6 @@
 ---
-title: What is Azure Private Link Service?
-description: Learn about Azure Private Link Service.
+title: What is Azure Private Link service?
+description: Learn about Azure Private Link service.
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
@@ -29,37 +29,37 @@ Azure Private Link service allows you to create a service in your Virtual Networ
     
 ### Share your service
 
-After you create a Private Link Service, the Azure infrastructure will generate a globally unique "alias" based on the name you provide for your service. You can share the alias with your customers offline or advertise it publicly. Consumers can start a Private Link connection using this alias.
+After you create a Private Link service, the Azure infrastructure will generate a globally unique "alias" based on the name you provide for your service. You can share the alias with your customers offline or advertise it publicly. Consumers can start a Private Link connection using this alias.
  
 ### Manage your connection requests
 
-After a consumer initiates a connection, the service provider can accept or reject the connection request. All connection requests will be listed under the **privateendpointconnections** property on the Private Link Service.
+After a consumer initiates a connection, the service provider can accept or reject the connection request. All connection requests will be listed under the **privateendpointconnections** property on the Private Link service.
  
 ### Delete your service
 
-If the Private Link Service is no longer in use, you can delete it. However, before your delete the service, ensure that there are no private endpoint connections associated with it. You can reject all connections and delete the service.
+If the Private Link service is no longer in use, you can delete it. However, before your delete the service, ensure that there are no private endpoint connections associated with it. You can reject all connections and delete the service.
 
 ## Properties
 
-A Private Link Service specifies the following properties: 
+A Private Link service specifies the following properties: 
 
 |Property |Explanation  |
 |---------|---------|
-|Provisioning State (provisioningState)  |A read-only property that lists the current provisioning state for Private Link Service. Applicable provisioning states are: "Deleting; Failed; Succeeded; Updating". When the provisioning state is "Succeeded", you have successfully provisioned your Private Link Service.        |
-|Alias (alias)     | Alias is a globally unique read-only string for your service. It helps you mask the customer data for your service and at the same time creates an easy-to-share name for your service. When you create a Private Link Service, Azure generates the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.          |
-|Visibility (visibility)     | Visibility is the property that controls the exposure settings for your Private Link Service. Service providers can choose to limit the exposure to their service to subscriptions with role-based access control (RBAC) permissions, a restricted set of subscriptions, or all Azure subscriptions.          |
-|Auto Approval (autoApproval)    |   Auto-approval controls the automated access to the Private Link Service. The subscriptions specified in the auto-approval list are approved automatically when a connection is requested from private endpoints in those subscriptions.          |
+|Provisioning State (provisioningState)  |A read-only property that lists the current provisioning state for Private Link service. Applicable provisioning states are: "Deleting; Failed; Succeeded; Updating". When the provisioning state is "Succeeded", you have successfully provisioned your Private Link service.        |
+|Alias (alias)     | Alias is a globally unique read-only string for your service. It helps you mask the customer data for your service and at the same time creates an easy-to-share name for your service. When you create a Private Link service, Azure generates the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.          |
+|Visibility (visibility)     | Visibility is the property that controls the exposure settings for your Private Link service. Service providers can choose to limit the exposure to their service to subscriptions with role-based access control (RBAC) permissions, a restricted set of subscriptions, or all Azure subscriptions.          |
+|Auto Approval (autoApproval)    |   Auto-approval controls the automated access to the Private Link service. The subscriptions specified in the auto-approval list are approved automatically when a connection is requested from private endpoints in those subscriptions.          |
 |FQDN (fqdns)    |   FQDN stands for fully qualified domain name. Service provider can share a service’s FQDNs at the time of creation. These are propagated to consumers at the time of connection. Consumers can use these FQDNs to configure their DNS to resolve to private endpoints on their side. The alias is used for the connection request, not the FQDN. FQDNs are for DNS configurations.      |
 |Load Balancer Frontend IP Configuration (loadBalancerFrontendIpConfigurations)    |    Private Link service is tied to the frontend IP address of a Standard Load Balancer. All traffic destined for the service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running. Load balancer frontend IP configurations are different than NAT IP configurations.      |
-|NAT IP Configuration (ipConfigurations)    |    This property refers to the NAT (Network Address Translation) IP configuration for the Private Link Service. The NAT IP can be chosen from any subnet in a service provider's virtual network. Private Link service performs destination side NAT-ing on the Private Link traffic. This ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space. On the destination side (service provider side), the NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.       |
+|NAT IP Configuration (ipConfigurations)    |    This property refers to the NAT (Network Address Translation) IP configuration for the Private Link service. The NAT IP can be chosen from any subnet in a service provider's virtual network. Private Link service performs destination side NAT-ing on the Private Link traffic. This ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space. On the destination side (service provider side), the NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.       |
 |Network Interfaces (networkInterfaces)     |  A read-only property referencing the network interfaces created for the Private Link Service. You can't manage networkInterfaces.       |
-|Private endpoint connections (privateEndpointConnections)     |  This property lists the private endpoints connecting to Private Link Service. Multiple private endpoints can connect to the same Private Link service and the service provider can control the state for individual private endpoints.        |
+|Private endpoint connections (privateEndpointConnections)     |  This property lists the private endpoints connecting to Private Link service. Multiple private endpoints can connect to the same Private Link service and the service provider can control the state for individual private endpoints.        |
 |||
 
 
 ### Details
 
-- Private Link Service can be accessed from approved private endpoints in the same region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
+- Private Link service can be accessed from approved private endpoints in the same region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
  
 - When creating a Private Link Service, a network interface is created for the lifecycle of the resource. This interface is not manageable by the customer.
  
@@ -67,9 +67,9 @@ A Private Link Service specifies the following properties:
  
 - A single Private Link Service can be accessed from multiple Private Endpoints belonging to different VNets, subscriptions and/or Active Directory tenants. The connection is established through a connection workflow. 
  
-- Multiple Private Link Services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
  
-- Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link Service, you can't delete the NAT IP addresses. This is done to ensure that active connections are not impacted while deleting the NAT IP addresses.
+- Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link service, you can't delete the NAT IP addresses. This is done to ensure that active connections are not impacted while deleting the NAT IP addresses.
 
 
 ## Alias
@@ -113,8 +113,8 @@ The following table lists known limitations when using the Private Link service:
 
 |Limitation |Description |Mitigation |
 |---------|---------|---------|
-|Support only for IPv4    | Private Link service doesn’t support IPv6 traffic.         |  Use Private Link Service for IPv4 traffic only        |
-|Support only for TCP-traffic     | Private Link service doesn’t support non-TCP  traffic.         |Use Private Link Service for IPv4 traffic only          |
+|Support only for IPv4    | Private Link service doesn’t support IPv6 traffic.         |  Use Private Link service for IPv4 traffic only        |
+|Support only for TCP-traffic     | Private Link service doesn’t support non-TCP  traffic.         |Use Private Link service for IPv4 traffic only          |
 |Support only for Azure Resource Manager virtual networks      |   Private Link service can be created only in Azure Resource Manager VNets.      |    Use Azure Resource Manager VNets for Private Link.      |
 |Support for deploying Private Link service using Standard Load Balancer.       |    Private Link service can't be associated with the basic load balancer.       |     Use Standard Load Balancer to create your Private Link service.     |
 |Support for same region scenarios for Private Link service    |   Connecting to a Private Link service (your own) from a private endpoint in a different region is not supported.      |    Private Link service and private endpoint need to be in the same region during Preview.      |
