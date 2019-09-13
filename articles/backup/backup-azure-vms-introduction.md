@@ -144,43 +144,6 @@ The backups for your virtual machines with each disk size up to 30TB and a maxim
 
 All Azure Virtual Machines with large disks having backup configured should be successfully backed up.
 
-Execute the following cmdlets from an elevated PowerShell terminal:
-
-1. Sign in to your Azure account.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Select the subscription that you want to register for the upgrade:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Register this subscription in the preview program:
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Wait for 30 minutes for the subscription to be enrolled in the preview.
-
- 4. To check the status, run the following cmdlets:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-5. When the subscription shows as registered, run the following command:
-
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Encrypted VMs with disks larger than 4 TB aren't supported in this preview.
-
-
-
 ## Next steps
 
 Now, [prepare for Azure VM backup](backup-azure-arm-vms-prepare.md).
