@@ -10,9 +10,9 @@ ms.author: allensu
 
 # Move Azure Virtual Network to another region using Azure Powershell
 
-There are various scenarios in which you'd want to move your existing Azure Virtual Networks (VNETs) from one region to another. For example, you may want to create a virtual network with the same address space and options for testing and availability of your existing virtual network. You may also want to move a production virtual network to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing Azure Virtual Networks (VNETs) from one region to another. For example, you may want to create a virtual network with the same configuration for testing and availability of your existing virtual network. You may also want to move a production virtual network to another region as part of disaster recovery planning.
 
-You can use an Azure Resource Manager template to complete the move of the virtual network to another region by exporting the virtual network to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+You can use an Azure Resource Manager template to complete the move of the virtual network to another region. You do this by exporting the virtual network to a template, modifying the parameters to match the destination region, and then deploying the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## Prerequisites
@@ -21,9 +21,9 @@ You can use an Azure Resource Manager template to complete the move of the virtu
 
 - To export a virtual network and deploy a template to create a virtual network in another region, you'll need the Network Contributor role or higher.
 
-- Virtual network peerings won't be recreated and will fail if they're still present in the template.  You will have to remove any virtual network peers before exporting the template and then re-establish the peers after the move of the virtual network.
+- Virtual network peerings won't be recreated and will fail if they're still present in the template.  You'll have to remove any virtual network peers before exporting the template and then re-establish the peers after the move of the virtual network.
     
-- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
+- Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
 - Verify that your Azure subscription allows you to create virtual networks in the target region that's used. Contact support to enable the required quota.
 
@@ -31,7 +31,7 @@ You can use an Azure Resource Manager template to complete the move of the virtu
 
 
 ## Prepare and move
-The following steps show how to prepare the virtual network for the move using an Resource Manager template, and move the virtual network to the target region using PowerShell commands.
+The following steps show you how to prepare the virtual network for the move using a Resource Manager template, and move the virtual network to the target region using Azure PowerShell commands.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -63,7 +63,7 @@ The following steps show how to prepare the virtual network for the move using a
    Export-AzResourceGroup -ResourceGroupName <resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **myResourceGroupVNET.json** and open it in a editor of your choice:
+5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **myResourceGroupVNET.json** and open it in an editor of your choice:
    
    ```azurepowershell
    notepad myResourceGroupVNET.json
@@ -129,7 +129,7 @@ The following steps show how to prepare the virtual network for the move using a
                                     },
     ```
 
-    * **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **myResourceGroupVNET.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **myResourceGroupVNET.json** file:
+    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **myResourceGroupVNET.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **myResourceGroupVNET.json** file:
     
     ```json
                  "subnets": [

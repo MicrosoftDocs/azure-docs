@@ -253,9 +253,9 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
-  - name: Move
+  - name: Move across regions
     items:
-    - name: Virtual networks
+    - name: Virtual networks - PowerShell
       href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
   - name: Troubleshoot
     items:
