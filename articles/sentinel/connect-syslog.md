@@ -47,7 +47,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
     1. Select **Data**, followed by **Syslog**.
     1. Then, in the table set which facilities you want Syslog to collect. You should either add or select the facilities that your Syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in Syslog-d in the folder: /etc/rsyslog.d/security-config-omsagent.conf, and in r-Syslog under /etc/syslog-ng/security-config-omsagent.conf.
         
-        If you want to use anomalous SSH login detection with the data that you collect, select both **auth** and **authpriv**. See the following section for additional details.
+        If you want to use anomalous SSH login detection with the data that you collect, select both **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
         
        > [!NOTE]
        > If you select the checkbox to **Apply below configuration to my machines**, then this configuration will apply to all the Linux machines connected to this workspace. You can see this configuration in your Syslog machine under 
@@ -59,7 +59,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 1. To use the relevant schema in Log Analytics for the Syslog logs, search for **Syslog**.
 1. You can use the Kusto function described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages and then save them as a new Log Analytics function and then use the function as a new data type.
 
-### Configure the Syslog data connector for anomalous SSH login detection
+### Configure the Syslog connector for anomalous SSH login detection
 
 > [!IMPORTANT]
 > This anomalous SSH login detection is currently in public preview.
