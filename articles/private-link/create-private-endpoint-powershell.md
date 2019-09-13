@@ -93,7 +93,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 ## Create a SQL Database Server 
 
-Create a  SQL Database Server by using theNew-AzSqlServer command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create a  SQL Database Server by using the New-AzSqlServer command. Remember that the name of your SQL Database server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 $adminSqlLogin = "SqlAdmin"
 $password = "ChangeYourAdminPassword1"
@@ -210,15 +210,8 @@ mstsc /v:<publicIpAddress>
 7. (Optionally) Create or query information from mydatabase
 8. Close the remote desktop connection to *myVM*. 
 
-
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
- 
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
-
-
 ## Clean up resources 
-When you're done using the private endpoint, storage account and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
+When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
