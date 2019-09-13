@@ -54,8 +54,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
     
     Add the facilities that your syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in **Syslog-d** in the `/etc/rsyslog.d/security-config-omsagent.conf` folder, and in **r-Syslog** from `/etc/syslog-ng/security-config-omsagent.conf`.
     
-    > [!NOTE]
-    > If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
+    If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
 
 6. When you have added all the facilities that you want to monitor, and adjusted any severity options for each one, select the checkbox **Apply below configuration to my machines**.
 
