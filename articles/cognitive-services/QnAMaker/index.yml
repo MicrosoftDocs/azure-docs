@@ -17,20 +17,30 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 landingContent:
-  - title: About QnA Maker (LUIS)
+  - title: About QnA Maker
     linkLists:
       - linkListType: overview
         links:
           - text: What is QnA Maker
             url: overview/overview.md
-          - text: What is a knowledge base
-            url: concepts/knowledge-base.md
+    linkLists:
+      - linkListType: concept
+        links:
           - text: Development lifecycle
             url: concepts/development-lifecycle-knowledge-base.md
           - text: Data sources
             url: concepts/data-sources-supported.md
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: "Video: Build a bot in minutes"
+            url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
   - title: Create and edit knowledge base
     linkLists:
+      - linkListType: concept
+        links: 
+          - text: What is a knowledge base
+            url: concepts/knowledge-base.md        
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
@@ -61,8 +71,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: "Video: Build a bot in minutes"
-            url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+
           - text: "Portal: Create a QnA Bot"
             url: tutorials/create-qna-bot.md
           - text: ".Net: Create a bot with QnA Maker and Language Understanding"
