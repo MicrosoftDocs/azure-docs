@@ -13,71 +13,67 @@ ms.subservice: cognitive-search
 ---
 
 # Working with skillsets
+This article is for for developers who need a deeper understanding of how the enrichmemt pipeline works and on assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search please start with
++ [What is "cognitive search" in Azure Search?](cognitive-search-concept-intro.md)
++ [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
 
-Skillsets are where you author and organize the AI enrichment pipeline to apply to each document. 
+## Specify the Skillset
+A skillset is a reusable resource in Azure Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures from raw content.
 
 A skillset has three properties:
-
 
 +	```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill
 +	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
 +	```knowledgeStore```, the storage account where your enriched documents will be projected
 
+
+
 Skillsets are authored in JSON. You can build complex skillsets with looping and [branching](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) using the [expression language](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. These concepts are best described with an example. To illustrate some of the concepts and capabilities, we'll walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you'll need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
-
-## Specify the Skillset
-
-Skillsets are authored in JSON, you can build complex skillsets with looping and [branching](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) using the expression language. The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for each operator in the context. These concepts are best described with an example, to illustrate some of the concepts and capabilities, we will walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you will need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
-
 
 ### Enrichment tree
 
-To see how a skillset progressively enriches your document, let’s start with how the document initially looks. The output of document cracking is dependent on the data source and the specific parsing mode selected. The document cracking result is also the state of the document that the [field mappings](search-indexer-field-mappings.md) uses for adding content to the search index.
-![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")\
+To envision how a skillset progressively enriches your document, let’s start with what the document looks like before any enrichment. The output of document cracking is dependent on the data source and the specific parsing mode selected. This is also the state of the document that the [field mappings](search-indexer-field-mappings.md) can source content from when adding data to the search index.
+![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 
-The enrichment tree is the JSON representation of the document and enrichments as it flows through the enrichment pipeline. This tree is instantiated as the output of document cracking. The following table shows the state of a document entering into the enrichment pipeline:
+Once a document is in the enrichment pipeline, it is represented as a tree of content and associated enrichments. This tree is instantiated as the output of document cracking. The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types, it is not a valid JSON object but can be projected into a valid JSON format. The following table shows the state of a document entering into the enrichment pipeline:
 
-|Data Source\Parsing Mode|Default|JSON|JSON Lines/CSV|
-|---|---|---|---|
-|Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|/document/{key1}<br>/document/{key2}<br>… |
-|SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |N/A|
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|N/A|
+|Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
+|---|---|---|
+|Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
  As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 
 The tree is instantiated as the output of document cracking and the table above describes the state of a document entering into the enrichment pipeline. As skills execute, they add new nodes to the enrichment tree and those new nodes can then be used as inputs for downstream skills, projecting to the knowledge store or mapping to index fields. Enrichments are not mutable, nodes can only be created not edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.
 
-
 ### Context
-
 Each skill requires a context. A context determines:
-
 +	The number of times the skill executes, based on the nodes selected. For context values of type collection, adding an ```/*``` at the end will result in the skill being invoked once for each instance in the collection. 
-+	Where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node.
-+	The nodes to be enriched. For contexts that contain multiple nested collections the context performs the equivalent of a flatmap {>>Reference LINQ `SelectMany`? Not sure if the audience will recognize flatmap? <<} to yield a set of nodes that will be enriched.
-+	Where in the tree the input is evaluated. Inputs can only be sourced from nodes scoped by the context. 
++	Where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node. 
++	Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input the the skill. For example if you have an enrichment tree with a list of countries, each enriched with a list of states containing a list of zipcodes.
+
+|Context|Input|Shape of Input|Skill Invocation|
+|---|---|---|---|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |A list of all zipcodes in the country |Once per country |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |A list of zipcodes in the state | Once per combination of country and state|
 
 ### SourceContext
 
-The `sourceContext` is only used in shaper skills and projections. It is used to construct multi-level, nested objects. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section.
+The `sourceContext` is only used in [shaper skills](cognitive-search-skill-shaper.md) and [projections](knowledge-store-projection-overview.md). It is used to construct multi-level, nested objects. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section.
 
 ### Projections
 
 Projection is the process of selecting the nodes from the enrichment tree to be saved in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. To learn more about working with projections, see [working with projections](knowledge-store-projection-overview.md).
 
-|Source |Destination |Selector |
-|---|---|---|
-|Document content |Index| Field mapping |
-|Enrichment (skill) output| Index| Output field mapping |
-|Document content |Knowledge store |Projection |
-|Enrichment output |Knowledge store |Projection |
+![Field mapping options](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Field mapping options for enrichment pipeline")
 
-The matrix above describes the type of selector you choose given the source and destination of the data.
+The digram above describes the selector you work with based on where you are in the enrichment pipeline.
 
 ## Generate enriched data 
 
-Let’s now step through the hotel reviews skillset and look at:
+Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](media/cognitive-search-working-with-skillsets/sample-skillset.md) the skillset. Wea re going to look at:
 
 * how the enrichment tree evolves with the execution of each skill 
 * how the context and inputs work to determine how many times a skill executes 
@@ -87,44 +83,41 @@ Since we're using the delimited text parsing mode for the indexer, a document wi
 
 ### Skill #1: Split skill 
 
-![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-before.png "Enrichment tree after document cracking and before skill execution")
+![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Enrichment tree after document cracking and before skill execution")
 
-{>> Can this be delivered in SVG? If not, please resize so that all images have same size nodes and crop to a max dimension of 1200px <<}
-
-With the skill context of ```"/document/reviews_text"```, this skill will execute once for the `review_text`. The skill output is a list where the `review_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
+With the skill context of ```"/document/reviews_text"```, this skill will execute once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
 
 The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping.
 
 
-The root node for all enrichments is `"/document"`. When working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When working with CSV data, as we are in this example, the column names will map to nodes beneath `"/document"`. {>> Please confirm this rewrite <<}
-
+The root node for all enrichments is `"/document"`. When working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When working with CSV data, as we are in this example, the column names will map to nodes beneath `"/document"`. 
 To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you will need to specify it as ```"/document/reviews_text/pages/*"```.
  
- ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-after.png "Enrichment tree after  skill #1 executes")
-{>> Can "reviews_text" be shifted to side of node to avoid being obscured? <<} 
+ ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
- ### Skill #2: Key phrases skill 
+### Skill #2 Language detection
+ While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Like the split skill that preceeded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
+ ![enrichment tree after skill #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enrichment tree after  skill #2 executes")
+ 
+ ### Skill #3: Key phrases skill 
 
-Given the context of ```/document/reviews_text/pages/*``` the key phrases skill will be invoked once for each of the items in the `pages` collection. The output from the skill will be a node {>> nodes? <<} under the associated page element. {>> Please confirm this rewrite. <<}
+Given the context of ```/document/reviews_text/pages/*``` the key phrases skill will be invoked once for each of the items in the `pages` collection. The output from the skill will be a node under the associated page element. 
 
  You should now be able to look at the rest of the skills in the skillset and visualize how the tree of enrichments will continue to grow with the execution of each skill. Some skills, such as the merge skill and the shaper skill, also create new nodes but only use data from existing nodes and don't create net new enrichments.
 
-![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enrichment-tree-projections.png "Enrichment tree after  all skills")
+![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Enrichment tree after  all skills")
 
-{>> Can `reviews_text` and `pages` be moved to side of node in image? Is `Keyphrases` accurately capitalized? Can image be delivered in SVG (preferred for conceptual art)? If not,    <<}
+The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes will need to be addressed individually and will not be part of the object returned when selecting the parent node.
 
-The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes will need to be addressed individually. {>> Rephrase / rewrite? 'The nodes will need to be addressed individually' by whom or what? <<}
-
-## Keep enrichments in a knowledge store 
+## Save enrichments in a knowledge store 
 
 Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections of your enriched document. To learn more about the knowledge store see [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
 
 ### Slicing projections
 
-When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. If you add a table with a source path that is a child of an existing table projection, the resulting child node will not be a child of the existing table projection, but instead will be projected into the new, related, table. {>> Please confirm this rewrite.<<} This slicing technique allows you to define a single node in a shaper skill that can be the source for all your table projections. 
+When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. If you add a table with a source path that is a child of an existing table projection, the resulting child node will not be a child of the existing table projection, but instead will be projected into the new, related, table. This slicing technique allows you to define a single node in a shaper skill that can be the source for all your table projections. 
 
 ### Shaping projections
-
 
 There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the shaper skill. You could also inline shape a projection within the projection definition itself.
 
@@ -145,24 +138,6 @@ To extend the example, you could choose to remove the inline shaping and use a s
     "description": null,
     "context": "/document",
     "inputs": [        
-        {
-            "name": "name",
-            "source": "/document/name",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "reviews_date",
-            "source": "/document/reviews_date",
-            "sourceContext": null,
-            "inputs": []
-        },    
-       {
-            "name": "reviews_rating",
-            "source": "/document/reviews_rating",
-            "sourceContext": null,
-            "inputs": []
-        },
         {
             "name": "reviews_text",
             "source": "/document/reviews_text",
@@ -271,18 +246,6 @@ The inline shaping approach does not require a shaper skill as all shapes needed
                 "sourceContext": "/document",     
                 "inputs": [
                     {
-                        "name": "name",
-                        "source": "/document/name"
-                    },
-                    {
-                        "name": "reviews_date",
-                        "source": "/document/reviews_date"
-                    },
-                    {
-                        "name": "reviews_rating",
-                        "source": "/document/reviews_rating"
-                    },
-                    {
                         "name": "reviews_text",
                         "source": "/document/reviews_text"
                     },
@@ -330,10 +293,8 @@ The inline shaping approach does not require a shaper skill as all shapes needed
     }
 ]
 ```
-
-{>> maybe change `kpidv2` to `KeyPhraseid` to match `PagesId` ? <<}
   
-One observation from both the approaches is how values of `"Keyphrases"` are projected using the `"sourceContext"`. The `"Keyphrases"` node, which contains a collection of strings, is itself a child {>> s/child/descendant/ ? <<} of the review text. However, because projections require a JSON object and the review text is a primitive, the `"sourceContext"` is used to wrap the review text into an object with a named property. This technique enables even primitives to be projected independently.
+One observation from both the approaches is how values of `"Keyphrases"` are projected using the `"sourceContext"`. The `"Keyphrases"` node, which contains a collection of strings, is itself a child of the page text. However, because projections require a JSON object and the page is a primitive (string), the `"sourceContext"` is used to wrap the keyphrase into an object with a named property. This technique enables even primitives to be projected independently.
 
 ## Next steps
 
