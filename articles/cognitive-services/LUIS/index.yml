@@ -108,10 +108,12 @@ landingContent:
     linkLists:   
       - linkListType: reference
         links: 
-          - text: QnA Maker API
-            url: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase
+          - text: Authoring APIs
+            url: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
+          - text: V3 Prediction endpoint APIs
+            url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8
           - text: .Net SDK reference documentation 
-            url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+            url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
           - text: Azure PowerShell
             url: https://docs.microsoft.com/en-us/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
           - text: Azure Command-Line Interface (CLI)
