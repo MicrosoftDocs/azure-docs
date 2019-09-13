@@ -20,7 +20,7 @@ Security should be a primary focus whenever developing applications. The importa
 
 The diagram below illustrates the default and **insecure** approach:
 
-![Container security](media/container-security.svg)
+![Container security](../media/container-security.svg)
 
 As an alternative and **secure** approach, consumers of Cognitive Services containers could augment a container with a front-facing component, keeping the container endpoint private. Let's consider a scenario where we use [Istio][istio] as an ingress gateway. Istio supports HTTPS/SSL and client-certificate authentication. In this scenario, the Istio frontend exposes the container access, presenting the client certificate that is whitelisted beforehand with Istio.
 
@@ -28,5 +28,5 @@ As an alternative and **secure** approach, consumers of Cognitive Services conta
 
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com
-[request-authentication]: authentication.md
-[az-security]: ../security/fundamentals/overview.md
+[request-authentication]: ../../authentication.md
+[az-security]: ../../../security/fundamentals/overview.md
