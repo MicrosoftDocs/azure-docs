@@ -985,6 +985,8 @@
         href: predictixpricereporting-tutorial.md
       - name: Printix
         href: printix-tutorial.md
+      - name: Prisma Cloud
+        href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: productboard
