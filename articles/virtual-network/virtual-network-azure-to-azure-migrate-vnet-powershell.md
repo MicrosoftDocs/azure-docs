@@ -199,7 +199,7 @@ The following steps show you how to prepare the virtual network for the move usi
 
 11. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
-    ```azurpowershell-interactive
+    ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
