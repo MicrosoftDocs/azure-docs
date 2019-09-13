@@ -4,7 +4,7 @@ description: Shows how resource types handle complete mode deletion in Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
 ---
 
@@ -1817,6 +1817,7 @@ Jump to a resource provider namespace:
 > | servers/restorableDroppedDatabases | No |
 > | servers/serviceobjectives | No |
 > | servers/tdeCertificates | No |
+> | virtualClusters | No |
 
 ## Microsoft.SqlVirtualMachine
 

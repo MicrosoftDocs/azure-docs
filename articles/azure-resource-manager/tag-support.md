@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
 ---
 
@@ -1815,6 +1815,7 @@ Jump to a resource provider namespace:
 > | servers/restorableDroppedDatabases | No | No |
 > | servers/serviceobjectives | No | No |
 > | servers/tdeCertificates | No | No |
+> | virtualClusters | No | No |
 
 <a id="sqlnote" />
 
