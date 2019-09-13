@@ -61,13 +61,13 @@ landingContent:
             url: search-limits-quotas-capacity.md
 
   # Card
-  - title: Indexing
+  - title: Indexing your data
     linkLists:
       - linkListType: concept
         links:
-          - text: Defining an index
+          - text: Define an index
             url: search-what-is-an-index.md
-          - text: Loading an index
+          - text: Load an index
             url: search-what-is-data-import.md
           - text: Use indexers
             url: search-indexer-overview.md
@@ -89,6 +89,14 @@ landingContent:
   # Card
   - title: Cognitive search enrichment
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Skillsets
+            url: cognitive-search-defining-skillset.md
+          - text: Knowlede store
+            url: knowledge-store-concept-intro.md
+          - text: Projections
+            url: knowledge-store-projection-overview.md
       - linkListType: how-to-guide
         links:
           - text: Attach Cognitive Services
@@ -97,9 +105,13 @@ landingContent:
             url: cognitive-search-defining-skillset.md
           - text: Create a knowledge store
             url: knowledge-store-create-portal.md
-            
+      - linkListType: reference
+        links:
+          - text: Predefined skills
+            url: cognitive-search-predefined-skills.md
+
   # Card
-  - title: Queries
+  - title: Querying your data
     linkLists:
       - linkListType: concept
         links:
@@ -111,9 +123,9 @@ landingContent:
             url: query-lucene-syntax.md
       - linkListType: how-to-guide
         links:
-          - text: Examples of simple queries
+          - text: Create a simple query
             url: search-query-simple-examples.md
-          - text: Examples of full syntax
+          - text: Use full syntax
             url: search-query-lucene-examples.md
       - linkListType: reference
         links:
