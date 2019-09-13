@@ -35,7 +35,7 @@ Configuring a managed instance to function as a publisher and/or a distributor r
 - That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been established between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure Storage Account share for the replication working directory.
-- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share. 
+- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error "failed to connect to azure storage '' with os error 53" you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance Subnet.
 
 
  > [!NOTE]
