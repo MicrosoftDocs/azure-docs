@@ -62,3 +62,5 @@ To quickly get started with your first API request, you can learn to:
 * The [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) article describes how to search and get images from the web.
 
 * The [Sending and working with search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) article describes how to make, customize, and pivot search queries.
+
+* [Compare the Bing Search APIs](../Bing-web-search/bing-api-comparison.md)
