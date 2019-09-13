@@ -369,24 +369,3 @@ Document ID: 0
 		cat
 		veterinarian
 ```
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
-
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Next steps
-
-
-> [!div class="nextstepaction"]
-> [Text Analytics With Power BI](../../tutorials/tutorial-power-bi-key-phrases.md)
-
-
-* [Text Analytics overview](../../overview.md)
-* [Sentiment analysis](../../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../../how-tos/text-analytics-how-to-language-detection.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).

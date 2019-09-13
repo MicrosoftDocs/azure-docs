@@ -15,7 +15,7 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
-- id: text-analytics-programming-languages
+- id: programming-languages-set-two
   title: Programming languages
   prompt: Choose a programming language
   pivots:

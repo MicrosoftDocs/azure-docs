@@ -387,13 +387,3 @@ Document ID: 4
          Key phrases:
                 fútbol
 ```
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Text Analytics With Power BI](../../tutorials/tutorial-power-bi-key-phrases.md)
-
-## See also
-
- [Text Analytics overview](../../overview.md)  
- [Frequently asked questions (FAQ)](../../text-analytics-resource-faq.md)
