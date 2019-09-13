@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
 ---
 # Security features to help protect cloud workloads that use Azure Backup
