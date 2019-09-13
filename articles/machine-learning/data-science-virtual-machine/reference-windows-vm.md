@@ -13,7 +13,7 @@ ms.topic: reference
 
 ---
 
-# Windows Data Science Virtual Machine Reference
+# Reference: Windows Data Science Virtual Machine
 
 ## Tools installed on the DVSM
 
