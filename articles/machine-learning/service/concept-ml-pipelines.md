@@ -81,7 +81,7 @@ There are two Python packages for pipelines with Azure Machine Learning: [azurem
 
 + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
-+ Learn how to [run batch predictions on large data](how-to-run-batch-predictions.md).
++ Learn how to [run batch predictions on large data](tutorial-pipeline-batch-scoring-classification.md).
 
 + See the [SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py).
 

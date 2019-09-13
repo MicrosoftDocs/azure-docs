@@ -13,7 +13,7 @@ ms.author: kumud
 ---
 # What is Azure Private Link? (Preview)
 
-Azure Private Link provides private connectivity between applications running in different virtual networks and to Azure PaaS services (such as Storage, SQL, Cosmos DB etc.) using the Microsoft network. Azure Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. Azure Private Link also extends this ability to customer-owned services and shared marketplace services run by partners. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned services, and shared partner services. The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service. A connection is established between the provider and the consumer based on an approval call flow. After the connection is established, all data that flows between the service provider and service consumer is isolated from the internet and stays on the Microsoft backend. Both the provider and the consumer must be on Azure to use the Azure Private Link service. There is no need for any sort of gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses to communicate with the service.   
+Azure Private Link provides private connectivity between applications running in different virtual networks and to Azure PaaS services (such as Storage, SQL Database, etc.) using the Microsoft network. Azure Private Link simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. Azure Private Link also extends this ability to customer-owned services and shared marketplace services run by partners. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned services, and shared partner services. The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service. A connection is established between the provider and the consumer based on an approval call flow. After the connection is established, all data that flows between the service provider and service consumer is isolated from the internet and stays on the Microsoft backend. Both the provider and the consumer must be on Azure to use the Azure Private Link service. There is no need for any sort of gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses to communicate with the service.   
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -50,12 +50,12 @@ For more information about Private Endpoint, see [What is Private Endpoint?](pri
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## Availability 
- The following table lists the Private Link services and the regions where they are available:
+ The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
 
 
 |Scenario  |Supported services   |Available regions |Time of availability   |
 |---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS; WestUS2  |  Preview  |
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  | Azure Data Lake Storage Gen2        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  |  Azure SQL Database         | Azure Public cloud regions         |   Preview      |
