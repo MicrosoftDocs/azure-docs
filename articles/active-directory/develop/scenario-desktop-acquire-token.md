@@ -30,6 +30,8 @@ The web API is defined by its `scopes`. Whatever the experience you provide in y
 - Systematically attempting to get a token from the token cache by calling `AcquireTokenSilent`
 - If this call fails, use the `AcquireToken` flow that you want to use (here represented by `AcquireTokenXX`)
 
+### In MSAL.NET
+
 ```CSharp
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
@@ -47,12 +49,52 @@ catch(MsalUiRequiredException ex)
                     .ExecuteAsync();
 }
 ```
+### In MSAL for iOS and macOS
+
+Objective-C:
+
+```objective-c
+MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
+    
+MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
+[application acquireTokenSilentWithParameters:silentParams completionBlock:^(MSALResult *result, NSError *error) {
+    
+    // Check the error
+    if (error && [error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
+    {
+        // Interactive auth will be required, call acquireTokenWithParameters:error:
+    }
+}];
+```
+Swift:
+
+```swift
+guard let account = try? application.account(forIdentifier: accountIdentifier) else { return }
+let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
+application.acquireTokenSilent(with: silentParameters) { (result, error) in
+            
+	guard let authResult = result, error == nil else {
+                
+	let nsError = error! as NSError
+                
+		if (nsError.domain == MSALErrorDomain &&
+			nsError.code == MSALError.interactionRequired.rawValue) {
+                    
+			// Interactive auth will be required, call acquireToken()
+			return
+		}
+		return
+	}
+}
+```
 
 Here is now the detail of the various ways to acquire tokens in a desktop application
 
 ## Acquiring a token interactively
 
 The following example shows minimal code to get a token interactively for reading the user's profile with Microsoft Graph.
+
+### In MSAL.NET
 
 ```CSharp
 string[] scopes = new string[] {"user.read"};
@@ -71,13 +113,47 @@ catch(MsalUiRequiredException)
 }
 ```
 
+### In MSAL for iOS and macOS
+
+Objective-C:
+
+```objective-c
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
+	if (!error)	
+	{
+		// You'll want to get the account identifier to retrieve and reuse the account
+		// for later acquireToken calls
+		NSString *accountIdentifier = result.account.identifier;
+            
+		NSString *accessToken = result.accessToken;
+	}
+}];
+```
+
+Swift:
+
+```swift
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
+                
+	guard let authResult = result, error == nil else {
+		print(error!.localizedDescription)
+		return
+	}
+                
+	// Get access token from result
+	let accessToken = authResult.accessToken
+})
+```
+
 ### Mandatory parameters
 
 `AcquireTokenInteractive` has only one mandatory parameter ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for the Microsoft Graph, the required scopes can be found in api reference of each Microsoft graph API in the section named "Permissions". For instance, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), the scope "User.Read", "Contacts.Read" will need to be used. See also [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 On Android, you need to also specify the parent activity (using `.WithParentActivityOrWindow`, see below) so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception will be thrown when calling `.ExecuteAsync()`.
 
-### Specific optional parameters
+### Specific optional parameters in MSAL.NET
 
 #### WithParentActivityOrWindow
 
