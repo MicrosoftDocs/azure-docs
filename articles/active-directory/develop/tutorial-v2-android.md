@@ -173,7 +173,7 @@ This tutorial will create a new project. If you want to download the completed t
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:0.3.+'
+    implementation 'com.microsoft.identity.client:msal:1.0.+'
     ```
 
 ### Use MSAL
