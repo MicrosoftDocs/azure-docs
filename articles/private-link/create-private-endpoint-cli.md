@@ -79,7 +79,7 @@ az sql db create \
 Note the SQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` 
 You will use the SQL Server ID in the next step. 
 
-Note the storage account ID is similar to ``` */subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount*```
+Note the storage account ID is similar to ``` /subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount```
 You will use the storage account ID in the next step. 
 
 ## Create the Private Endpoint 
@@ -161,12 +161,12 @@ In this section, you will connect to the SQL Database Server from the VM using t
  3. Install SQL Server Management Studio 
  4. In Connect to server, enter or select this information: 
 
-| Setting | Value |
-| Server type | Select Database Engine. |
-| Server name | Select myserver.database.windows.net |
-| Username | Enter a username provided during creation. |
-| Password | Enter a password provided during creation. |
-| Remember password | Select Yes. |
+   | Setting | Value |
+   | Server type | Select Database Engine. |
+   | Server name | Select myserver.database.windows.net |
+   | Username | Enter a username provided during creation. |
+   | Password | Enter a password provided during creation. |
+   | Remember password | Select Yes. |
 
  5. Select **Connect**.
  6. Browse **Databases** from left menu.
