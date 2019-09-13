@@ -120,4 +120,4 @@ Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
 
 ##  Next steps
 
-- Learn about [Azure private link](private-link-overview.md)
+- Learn about [Azure Private Link](private-link-overview.md)
