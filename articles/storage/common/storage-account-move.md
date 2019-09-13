@@ -13,7 +13,7 @@ ms.reviewer: dineshm
 
 # Move an Azure Storage account to another region
 
-To move a storage account, create a copy of your storage account in another region, and then move data to that account by using AzCopy or another of your choice.
+To move a storage account, create a copy of your storage account in another region. Then, move data to that account by using AzCopy or another of your choice.
 
 This article shows you how to do this by using Azure portal and PowerShell. 
 
@@ -202,13 +202,14 @@ The following table lists these features along with guidance for adding them to 
 
 | Feature    | Guidance    |
 |--------|-----------|
-| **Lifecycle management policies** | link |
-| **Static websites** | [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view) |
-| **Event subscriptions** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
+| **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
+| **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
+| **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
 | **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
 | **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
->[!NOTE] If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account. 
+> [!NOTE] 
+> If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account. 
 
 ### Move data to the new storage account
 
