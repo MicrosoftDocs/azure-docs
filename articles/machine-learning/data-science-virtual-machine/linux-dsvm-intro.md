@@ -1,123 +1,134 @@
 ---
-title: 'Quickstart: Create a CentOS Linux'
-titleSuffix: Azure Data Science Virtual Machine 
-description: Create and configure a Linux Data Science Virtual Machine in Azure for analytics and machine learning.
-services: machine-learning
+title: 'Quickstart: Create a CentOS Data Science Virtual Machine'
+description: Configure and create a Data Science Virtual Machine for Linux (CentOS) to do analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/16/2018
+ms.date: 09/13/2019
 
 ---
-# Quickstart: Set up a Linux CentOS Data Science Virtual Machine in Azure
-
-The Linux Data Science Virtual Machine (DSVM) is a CentOS-based Azure virtual machine. The Linux DSVM comes with a collection of preinstalled tools that you can use for data analytics and machine learning. 
-
-The key software components included in a Linux DSVM are:
-
-* Linux CentOS distribution operating system.
-* Microsoft Machine Learning Server.
-* Anaconda Python distribution (versions 3.5 and 2.7), including popular data analysis libraries.
-* JuliaPro, a curated distribution of the Julia language and popular scientific and data analytics libraries.
-* Spark Standalone instance and single-node Hadoop (HDFS, YARN).
-* JupyterHub, a multiuser Jupyter notebook server that support R, Python, PySpark, and Julia kernels.
-* Azure Storage Explorer.
-* Azure CLI, the Azure command-line interface for managing Azure resources.
-* PostgresSQL database.
-* Machine learning tools:
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), a deep learning software toolkit from Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit), a fast machine learning system that supports techniques like online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/), a tool that provides fast and accurate boosted tree implementation.
-  * [Rattle](https://togaware.com/rattle/), a tool that makes getting started with data analytics and machine learning in R easy. Rattle offers both GUI-based data exploration and modeling by using automatic R code generation.
-* Azure SDK in Java, Python, Node.js, Ruby, and PHP.
-* Libraries in R and Python to use in Azure Machine Learning and other Azure services.
-* Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi).
-
-Data science involves iterating on a sequence of tasks:
-
-1. Find, load, and pre-process data.
-1. Build and test models.
-1. Deploy the models for consumption in intelligent applications.
-
-Data scientists use various tools to complete these tasks. It can be time-consuming to find the correct versions of the software, and then download, compile, and install the software.
-
-The Linux DSVM can ease this burden substantially. Use the Linux DSVM to jump-start your analytics project. The Linux DSVM helps you work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an easy-to-use IDE for developing and testing your code. The Azure SDK, included in the DSVM, helps you build your applications by using various services on Linux for the Microsoft cloud platform. Other languages are preinstalled, including Ruby, Perl, PHP, and Node.js.
-
-There are no software charges for the DSVM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine you provision with the DSVM image. For more information about the compute fees, see the [Data Science Virtual Machine for Linux (CentOS) listing](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) in Azure Marketplace.
+# Quickstart: Set up a CentOS (Linux) Data Science Virtual Machine in Azure
 
 ## Prerequisites
 
-Before you can create a Linux Data Science Virtual Machine, you must have these prerequisites:
+To create a CentOS Data Science Virtual Machine, you must have an **Azure subscription**. [Create a free subscription](https://azure.com/free).
 
-* **Azure subscription**: To get an Azure subscription, see [Create a free Azure account](https://azure.microsoft.com/free/).
-* **Azure storage account**: To get an Azure storage account, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md). If you don't want to use an existing Azure storage account, you can create a storage account when you create the DSVM.
+## Create your CentOS Data Science Virtual Machine
 
-## Other versions of the Data Science Virtual Machine
+Here are the steps to create an instance of the CentOS Data Science Virtual Machine:
 
-The Data Science Virtual Machine is also available in these versions:
+1. Go to the [Azure portal](https://portal.azure.com). You might be prompted to sign in to your Azure account if you're not already signed in. 
+1. Type "data science virtual machine" into the search bar and select the CentOS DSVM.
 
-* [Ubuntu](dsvm-ubuntu-intro.md): The Ubuntu image has many of the same tools as the CentOS image, including deep learning frameworks. 
-* [Windows](provision-vm.md)
+    ![CentOS search result](./media/linux-dsvm-intro/search-centos.png)
 
-## Create a Linux Data Science Virtual Machine
+1. On the subsequent window, select **Create**.
 
-To create an instance of the Linux DSVM:
+    ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/Create_Linux.png)
 
-1. Go to the virtual machine listing in the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-1. Select **Create** to open the wizard.
-
-   ![The wizard that configures a Data Science Virtual Machine](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-1. Enter or select the following information for each step of the wizard:
+1. You should be redirected to the "Create a virtual machine" blade.
    
-   **1** **Basics**:
+   ![Basics tab corresponding to Ubuntu Virtual Machine](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
 
-      * **Name**: The name of the data science server you're creating.
-      * **User name**: The first account sign-in ID.
-      * **Password**: The first account password. (You can use an SSH public key instead of a password.)
-      * **Subscription**: If you have more than one subscription, select the subscription on which the machine will be created and billed. You must have permissions to create resources for the subscription.
-      * **Resource group**: You can create a new resource group or use an existing group.
-      * **Location**: Select a datacenter to use for the DSVM. In most cases, select the datacenter that holds most of your data or that's closest to your physical location (for the fastest network access).
-   
-   **2** **Size**: Select a server type that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
-   
-   
-   **3** **Settings**:
-      * **Disk type**: If you prefer a solid-state drive (SSD), select **Premium**. Otherwise, select **Standard**.
-      * **Storage account**: You can create a new Azure storage account in your subscription or use an existing Azure account in the same location that you selected in the **Basics** step of the wizard.
-      * **Other parameters**: In most cases, use the default values to configure other parameters. To see non-default values, hover over the informational link for the parameter.
-   
-   **4** **Summary**: Verify that the information you entered is correct.
-   
-   **5** **Buy**: To start the provisioning, select **Buy**. A link to the terms of the transaction is provided. There are no additional charges for the DSVM beyond the compute for the server size you select in **Size**.
+1. Enter the following information to configure each step of the wizard:
 
-Provisioning takes 10-20 minutes. The status of the provisioning is displayed in the Azure portal.
+    1. **Basics**:
+    
+       * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
+       * **Resource group**: Create a new group or use an existing one.
+       * **Virtual machine name**: Enter the name of the virtual machine. This is how it will appear in your Azure portal.
+       * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
+       * **Image**: Leave the default value.
+       * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/linux/sizes.md).
+       * **Authentication type**: For quicker setup, select "Password." 
+         
+         > [!NOTE]
+         > If you intend to use JupyterHub, make sure to select "Password," as JupyterHub is *not* configured to use SSH public keys.
 
-## How to access the Linux Data Science Virtual Machine
+       * **Username**: Enter the administrator username. This is the username you will use to log into your virtual machine, and need not be the same as your Azure username. Do *not* use capitalized letters.
+         
+         > [!NOTE]
+         > If you use capitalized letters in your username, JupyterHub will not work, and you will encounter a 500 internal server error.
 
-After the DSVM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of the wizard for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY or install the X2Go client.
+       * **Password**: Enter the password you will use to log into your virtual machine.    
+    
+   1. Select **Review + create**.
+   1. **Review+create**
+      * Verify that all the information you entered is correct. 
+      * Select **Create**.
+    
+    The provisioning should take about 5 minutes. The status is displayed in the Azure portal.
+
+## How to access the Ubuntu Data Science Virtual Machine
+
+You can access the Ubuntu DSVM in one of three ways:
+
+  1. SSH for terminal sessions
+  1. X2Go for graphical sessions
+  1. JupyterHub and JupyterLab for Jupyter notebooks
+
+You can also attach a Data Science Virtual Machine to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Azure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
+### SSH
+
+After the VM is created, if it was configured with SSH access, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [PuTTY](https://www.putty.org). If you prefer a graphical desktop (X Window System), you can use X11 forwarding on PuTTY.
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 
-## Install and configure the X2Go client
+### X2Go
 
-The Linux DSVM is provisioned with X2Go Server and ready to accept client connections. To connect to the Linux DSVM graphical desktop, complete the following procedure on your client:
+The Linux VM is already provisioned with X2Go Server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
-1. Run the X2Go client. Select **New Session**. A configuration window with multiple tabs opens. Enter the following configuration parameters:
+1. Make note of the virtual machine's public IP address, which you can find in the Azure portal by opening the virtual machine you just created.
+
+   ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+
+1. Run the X2Go client. If the "New Session" window does not pop up automatically, go to Session -> New Session.
+
+1. On the resulting configuration window, enter the following configuration parameters:
    * **Session tab**:
-     * **Host**: Enter the host name or IP address of your Linux DSVM.
-     * **Login**: Enter the username on the Linux DSVM.
-     * **SSH Port**: Leave the default value, **22**.
-     * **Session Type**: Change the value to **XFCE**. Currently, the Linux DSVM supports only the XFCE desktop.
-   * **Media** tab: You can turn off sound support and client printing if you don't need to use them.
-   * **Shared folders**: If you want directories from your client machines mounted on the Linux DSVM, add the client machine directories that you want to share with the DSVM.
+     * **Host**: Enter the IP address of your VM, which you made note of earlier.
+     * **Login**: Enter the username on the Linux VM.
+     * **SSH Port**: Leave it at 22, the default value.
+     * **Session Type**: Change the value to **XFCE**. Currently, the Linux VM supports only the XFCE desktop.
+   * **Media tab**: You can turn off sound support and client printing if you don't need to use them.
+   * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
-After you sign in to the DSVM by using either the SSH client or the XFCE graphical desktop through the X2Go client, you're ready to begin using the tools that are installed and configured on the DSVM. On XFCE, you can see application menu shortcuts and desktop icons for many of the tools.
+   ![X2go configuration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
+1. Select **OK**.
+1. Click on the box in the right pane of the X2Go window in order to bring up the log-in screen for your VM.
+1. Enter the password for your VM.
+1. Select **OK**.
+1. You may have to give X2Go permission to bypass your firewall in order to finish connecting.
+1. You should now see the graphical interface for your Ubuntu DSVM. 
 
+
+### JupyterHub and JupyterLab
+
+The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multiuser Jupyter server. To connect, take the following steps:
+
+   1. Make note of the public IP address for your VM, by searching for and selecting your VM in the Azure portal.
+      ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+
+   1. From your local machine, open a web browser and navigate to https:\//your-vm-ip:8000, replacing "your-vm-ip" with the IP address you took note of earlier.
+   1. Enter the username and password that you used to create the VM, and sign in. 
+
+      ![Enter Jupyter login](./media/dsvm-ubuntu-intro/jupyter-login.png)
+
+   1. Browse the many sample notebooks that are available.
+
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub, and then browse to the URL https:\//your-vm-ip:8000/user/your-username/lab, replacing "your-username" with the username you chose when configuring the VM.
+
+You can set JupyterLab as the default notebook server by adding this line to `/etc/jupyterhub/jupyterhub_config.py`:
+
+```python
+c.Spawner.default_url = '/lab'
+```
 
 ## Next steps
 
@@ -127,3 +138,4 @@ Here's how you can continue your learning and exploration:
 * Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` in the shell in the virtual machine for a basic introduction and for pointers to more information about the tools installed on the DSVM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://aka.ms/tdsp).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
+* Consult the appropriate [reference documentation](./reference-centos-vm.md) for this virtual machine.

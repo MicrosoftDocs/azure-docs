@@ -14,6 +14,40 @@ ms.topic: reference
 
 # Reference: CentOS (Linux) Data Science Virtual Machine
 
+The Linux Data Science Virtual Machine (DSVM) is a CentOS-based Azure virtual machine. The Linux DSVM comes with a collection of preinstalled tools that you can use for data analytics and machine learning. 
+
+The key software components included in a Linux DSVM are:
+
+* Linux CentOS distribution operating system.
+* Microsoft Machine Learning Server.
+* Anaconda Python distribution (versions 3.5 and 2.7), including popular data analysis libraries.
+* JuliaPro, a curated distribution of the Julia language and popular scientific and data analytics libraries.
+* Spark Standalone instance and single-node Hadoop (HDFS, YARN).
+* JupyterHub, a multiuser Jupyter notebook server that support R, Python, PySpark, and Julia kernels.
+* Azure Storage Explorer.
+* Azure CLI, the Azure command-line interface for managing Azure resources.
+* PostgresSQL database.
+* Machine learning tools:
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), a deep learning software toolkit from Microsoft Research.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit), a fast machine learning system that supports techniques like online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/), a tool that provides fast and accurate boosted tree implementation.
+  * [Rattle](https://togaware.com/rattle/), a tool that makes getting started with data analytics and machine learning in R easy. Rattle offers both GUI-based data exploration and modeling by using automatic R code generation.
+* Azure SDK in Java, Python, Node.js, Ruby, and PHP.
+* Libraries in R and Python to use in Azure Machine Learning and other Azure services.
+* Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi).
+
+Data science involves iterating on a sequence of tasks:
+
+1. Find, load, and pre-process data.
+1. Build and test models.
+1. Deploy the models for consumption in intelligent applications.
+
+Data scientists use various tools to complete these tasks. It can be time-consuming to find the correct versions of the software, and then download, compile, and install the software.
+
+The Linux DSVM can ease this burden substantially. Use the Linux DSVM to jump-start your analytics project. The Linux DSVM helps you work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an easy-to-use IDE for developing and testing your code. The Azure SDK, included in the DSVM, helps you build your applications by using various services on Linux for the Microsoft cloud platform. Other languages are preinstalled, including Ruby, Perl, PHP, and Node.js.
+
+There are no software charges for the DSVM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine you provision with the DSVM image. For more information about the compute fees, see the [Data Science Virtual Machine for Linux (CentOS) listing](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) in Azure Marketplace.
+
 ## Tools installed on the Linux Data Science Virtual Machine
 
 ### Machine Learning Server

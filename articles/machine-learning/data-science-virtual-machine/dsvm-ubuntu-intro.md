@@ -60,7 +60,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
     
     The provisioning should take about 5 minutes. The status is displayed in the Azure portal.
 
-## How to access the Data Science Virtual Machine for Linux
+## How to access the Ubuntu Data Science Virtual Machine
 
 You can access the Ubuntu DSVM in one of three ways:
 
@@ -108,7 +108,7 @@ The Linux VM is already provisioned with X2Go Server and ready to accept client 
 
 ### JupyterHub and JupyterLab
 
-The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multiuser Jupyter server. To connect, follow the following steps:
+The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multiuser Jupyter server. To connect, take the following steps:
 
    1. Make note of the public IP address for your VM, by searching for and selecting your VM in the Azure portal.
       ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
