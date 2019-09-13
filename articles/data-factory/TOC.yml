@@ -614,6 +614,12 @@
     items:
     - name: Process fixed-width text files
       href: how-to-fixed-width.md
+  - name: SSIS migration from on-premises
+    items:
+    - name: SSIS migration overview
+      href: scenario-ssis-migration-overview.md
+    - name: SSISDB migration to Azure SQL Database managed instance
+      href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
   - name: .NET
