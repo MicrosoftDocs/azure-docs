@@ -33,7 +33,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareAccount](/powershell/module/az.resources/new-azdatashareaccount) | Creates a data share account. |
+| [New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | Creates a data share account. |
 |||
 
 ## Next steps

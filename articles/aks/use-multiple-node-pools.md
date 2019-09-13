@@ -31,7 +31,7 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `az
 
 ### Install aks-preview CLI extension
 
-To use multiple node pools, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To use multiple node pools, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -43,14 +43,13 @@ az extension update --name aks-preview
 
 ### Register multiple node pool feature provider
 
-To create an AKS cluster that can use multiple node pools, first enable two feature flags on your subscription. Multi-node pool clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *MultiAgentpoolPreview* and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that can use multiple node pools, first enable a feature flag on your subscription. Register the *MultiAgentpoolPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
@@ -60,7 +59,6 @@ It takes a few minutes for the status to show *Registered*. You can check on the
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -73,7 +71,7 @@ az provider register --namespace Microsoft.ContainerService
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
+* Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* feature for your subscription. You can't add or manage node pools with an existing AKS cluster created before this feature was successfully registered.
 * You can't delete the first node pool.
 * The HTTP application routing add-on can't be used.
 * You can't add/update/delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
@@ -82,7 +80,7 @@ While this feature is in preview, the following additional limitations apply:
 
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
-* All node pools must reside in the same subnet
+* All node pools must reside in the same subnet.
 
 ## Create an AKS cluster
 
@@ -96,7 +94,7 @@ az group create --name myResourceGroup --location eastus
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
@@ -167,14 +165,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## Upgrade a node pool
  
 > [!NOTE]
-> Upgrade and scale operations on a cluster or node pool are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error will be returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool which are explained [below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool. The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
-Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -237,16 +235,14 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 An AKS cluster has two cluster resource objects. The first is a control plane Kubernetes version. The second is an agent pool with a Kubernetes version. A control plane maps to one or many node pools and each has their own Kubernetes version. The behavior for an upgrade operation depends on which resource is targeted and what version of the underlying API is called.
 
 1. Upgrading the control plane requires using `az aks upgrade`
-   * If the cluster has a single agent pool, both the control plane and single agent pool will be upgraded together
-   * If the cluster has multiple agent pools, only the control plane will be upgraded
+   * This will upgrade all node pools in the cluster as well
 1. Upgrading with `az aks nodepool upgrade`
    * This will upgrade only the target node pool with the specified Kubernetes version
 
 The relationship between Kubernetes versions held by node pools must also follow a set of rules.
 
-1. You cannot downgrade either the control plane or node pool Kubernetes version.
-1. If a control plane Kubernetes version is not specified, the default will be the current existing control plane version.
-1. If a node pool Kubernetes version is not specified, the default will be the control plane version.
+1. You cannot downgrade the control plane nor a node pool Kubernetes version.
+1. If a node pool Kubernetes version is not specified, the default used will fall back to the control plane version.
 1. You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
 1. A node pool Kubernetes version must be the same major version as the control plane.
 1. A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.

@@ -7,6 +7,14 @@
     href: Home.md
 - name: Quickstarts
   items:
+  - name: Using the client SDK
+    items:
+    - name: .NET SDK
+      href: quickstarts-sdk/csharp-sdk.md
+    - name: Python SDK
+      href: quickstarts-sdk/python-sdk.md
+    - name: Java SDK
+      href: quickstarts-sdk/java-sdk.md
   - name: Using the REST API
     items:
     - name: Analyze a remote image
@@ -21,12 +29,8 @@
         href: QuickStarts/javascript-analyze.md
       - name: Node.js
         href: QuickStarts/node-analyze.md
-      - name: PHP
-        href: QuickStarts/php-analyze.md
       - name: Python
         href: QuickStarts/python-analyze.md
-      - name: Ruby
-        href: QuickStarts/ruby-analyze.md
     - name: Analyze a local image
       items:
       - name: C#
@@ -47,12 +51,8 @@
         href: QuickStarts/javascript-thumb.md
       - name: Node.js
         href: QuickStarts/node-thumb.md
-      - name: PHP
-        href: QuickStarts/php-thumb.md
       - name: Python
         href: QuickStarts/python-thumb.md
-      - name: Ruby
-        href: QuickStarts/ruby-thumb.md
     - name: Extract text (Read API)
       items:
       - name: C#
@@ -77,30 +77,12 @@
         href: QuickStarts/javascript-print-text.md
       - name: Node.js
         href: QuickStarts/node-print-text.md
-      - name: PHP
-        href: QuickStarts/php-print-text.md
       - name: Python
         href: QuickStarts/python-print-text.md
-      - name: Ruby
-        href: QuickStarts/ruby-print-text.md
     - name: Use a domain model
       items:
-      - name: PHP
-        href: QuickStarts/php-domain.md
       - name: Python
         href: QuickStarts/python-domain.md
-  - name: Using the .NET SDK
-    items:
-    - name: Analyze an image
-      href: quickstarts-sdk/csharp-analyze-sdk.md
-    - name: Generate a thumbnail
-      href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extract text
-      href: quickstarts-sdk/csharp-hand-text-sdk.md
-  - name: Using the Python SDK
-    href: quickstarts-sdk/python-sdk.md
-  - name: Using the Java SDK
-    href: quickstarts-sdk/java-sdk.md
 - name: Tutorials
   items:
   - name: Generate metadata for images

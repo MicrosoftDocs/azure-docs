@@ -94,7 +94,7 @@ The simplest way to authenticate an cloud-based .NET application is with a manag
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 
@@ -114,7 +114,7 @@ This operation will return a series of key / value pairs.
 }
 ```
 
-Take note of the clientId, clientSecret, subscriptionId, and tenantId, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
+Take note of the clientId and clientSecret, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
 
 You will also need the appID of the service principal. You can find it by running [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) with the `--show-mine` parameter:
 
@@ -152,7 +152,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate to your key vault
 
-This .NET quickstart relies on environment variables to store credentials that should not but put in code. 
+This .NET quickstart relies on environment variables to store credentials that should not be put in code. 
 
 Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
 
@@ -160,10 +160,6 @@ Before you build and run your app, use the `setx` command to set the `akvClientI
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
@@ -174,7 +170,7 @@ Assign these environment variables to strings in your code, and then authenticat
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [SetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires the URL of your key vault, which is in the form `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. It also requires a name for the secret -- we're using "mySecret".  You may wish to assign these strings to a variables for resue.
+Now that your application is authenticated, you can put a secret into your keyvault using the [SetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires the URL of your key vault, which is in the form `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. It also requires a name for the secret -- we're using "mySecret".  You may wish to assign these strings to a variables for reuse.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

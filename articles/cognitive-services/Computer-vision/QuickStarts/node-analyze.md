@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, Node.js"
+title: "Quickstart: Analyze a remote image with the REST API and Node.js"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Node.js.
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, seo-javascript-september2018
 ---
 # Quickstart: Analyze a remote image using the Computer Vision REST API with Node.js
 
