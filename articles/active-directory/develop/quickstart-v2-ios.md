@@ -35,7 +35,7 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 > **Prerequisites**
 > * XCode 10+
 > * iOS 10+ 
-> * macOS 10.11+
+> * macOS 10.12+
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
@@ -202,6 +202,22 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
          return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
      }
 
+ ```
+
+[!NOTE] On iOS 13+, if you adopt `UISceneDelegate` instead of `UIApplicationDelegate`, place this code into the `scene:openURLContexts:` callback instead (See [Apple's documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback needs to be placed into both places.
+
+ ```swift
+ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        guard let urlContext = URLContexts.first else {
+            return
+        }
+        
+        let url = urlContext.url
+        let sourceApp = urlContext.options.sourceApplication
+        
+        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
+    }
  ```
 
 Finally, your app must has an `LSApplicationQueriesSchemes` entry in your ***Info.plist*** alongside the `CFBundleURLTypes`. The sample comes with this included. 
