@@ -85,7 +85,7 @@ You will see a list of activities logged over the last seven days.
 
 ## Accessing audit logs through the Azure AD reporting API
 
-Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../azure/active-directory/reports-monitoring/concept-reporting-api.md).
+Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### Prerequisites
 
