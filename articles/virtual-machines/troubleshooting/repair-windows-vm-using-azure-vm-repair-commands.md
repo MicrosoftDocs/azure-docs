@@ -66,7 +66,7 @@ az extension add -n vm-repair
 If you have previously used the *az vm repair* commands, apply any updates to the vm-repair extension.
 
 ```azurepowershell-interactive
-az extension update -n vm-repair``
+az extension update -n vm-repair
 ```
 
 3. Run *az vm repair create*. This command will create a copy of the OS disk for the non-functional VM, create a repair VM, and attach the disk.
@@ -78,13 +78,13 @@ az vm repair create -g MyResourceGroup -n myVM --repair-username username --repa
 4. Run *az vm repair run*. This command will run the specified repair script on the attached disk via the repair VM.
 
 ```azurepowershell-interactive
-az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose``
+az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
 ```
 
 5. Run *az vm repair restore*. This command will swap the repaired OS disk with the original OS disk of the VM.
 
 ```azurepowershell-interactive
-az vm repair restore -g MyResourceGroup -n MyVM --verbose``
+az vm repair restore -g MyResourceGroup -n MyVM --verbose
 ```
 
 ## Verify and enable boot diagnostics
@@ -94,7 +94,7 @@ The following example enables the diagnostic extension on the VM named ``myVMDep
 Azure CLI
 
 ```azurepowershell-interactive
-az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/``
+az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 
 ## Next steps
