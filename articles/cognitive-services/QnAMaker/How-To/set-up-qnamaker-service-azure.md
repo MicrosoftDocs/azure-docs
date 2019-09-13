@@ -108,7 +108,7 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |Application Insights|✔|Can be shared|
 |Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
 
-Learn more about the [App service](../../app-service/index.yml) and [Search service](../../search/index.yml).
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 ### Using a single Search service
 
@@ -201,7 +201,7 @@ The management service of QnA Maker is used only for the QnA Maker portal and fo
 
 ## Next steps
 
-Learn more about the [App service](../../app-service/index.yml) and [Search service](../../search/index.yml).
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Create and publish a knowledge base](../Quickstarts/create-publish-knowledge-base.md)
