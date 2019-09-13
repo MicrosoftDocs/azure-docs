@@ -801,6 +801,19 @@ For more sample projects and examples, see these sample repos in GitHub:
 * [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## Download a model
+If you want to download your model to use it in your own execution environment, you can do so with the following SDK / CLI commands:
+
+SDK:
+```python
+model_path = Model(ws,'mymodel').download()
+```
+
+CLI:
+```azurecli-interactive
+az ml model download --model-id mymodel:1 --target-dir model_folder
+```
+
 ## Package models
 
 In some cases, you might want to create a Docker image without deploying the model (if, for example, you plan to [deploy to Azure App Service](how-to-deploy-app-service.md)). Or you might want to download the image and run it on a local Docker installation. You might even want to download the files used to build the image, inspect them, modify them, and build the image manually.
