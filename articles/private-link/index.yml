@@ -10,7 +10,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 09/06/2019
+  ms.date: 09/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -18,11 +18,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure private link
+  - title: About Azure Private Link
     linkLists:
       - linkListType: overview
         links:
-          - text: What is private link?
+          - text: What is Private Link?
             url: private-link-overview.md      
 
   # Card (optional)
@@ -30,24 +30,24 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is a private endpoint?
+          - text: What is a Private Endpoint?
             url: private-endpoint-overview.md
       - linkListType: quickstart
         links:
-          - text: Create a private endpoint
+          - text: Create a Private Endpoint
             url: create-private-endpoint-portal.md
 
   # Card (optional)
-  - title: Build your own private link service
+  - title: Build your own Private :ink service
     linkLists:
       - linkListType: concept
         links:
-          - text: What is private link service?
+          - text: What is Private Link service?
             url: private-link-service-overview.md
       
       - linkListType: how-to-guide
         links:
-          - text: Create a private link service
+          - text: Create a Private Link service
             url: create-private-link-service-powershell.md   
   
   # Card
