@@ -21,6 +21,7 @@ metadata:
 landingContent:
   - title: About Language Understanding (LUIS)
     linkLists:
+
       - linkListType: overview
         links:
           - text: What is language understanding
@@ -34,7 +35,12 @@ landingContent:
           - text: The authoring cycle of your app
             url: luis-concept-app-iteration.md
 
-  - title: Create intents, entities and features
+      - linkListType: get-started
+        links:
+          - text: "AI Roadshow: LUIS"
+            url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+
+  - title: Create intents, entities, and features
     linkLists: 
       - linkListType: concept
         links:
@@ -46,6 +52,12 @@ landingContent:
             url: luis-concept-utterance.md   
           - text: Phrase lists features
             url: luis-concept-feature.md
+
+      - linkListType: quickstart
+        links: 
+          - text: "Portal: Create a new LUIS app"
+            url: get-started-portal-build-app.md
+
       - linkListType: how-to-guide
         links: 
           - text: Create a new LUIS app
@@ -56,10 +68,7 @@ landingContent:
             url: luis-how-to-add-example-utterances.md
           - text: Add phrase list feature
             url: luis-how-to-add-features.md
-      - linkListType: quickstart
-        links: 
-          - text: "Portal: Create a new LUIS app"
-            url: get-started-portal-build-app.md
+
   - title: Version, train, test, and publish
     linkLists: 
       - linkListType: concept
@@ -69,7 +78,14 @@ landingContent:
           - text: Interactive testing
             url: luis-concept-test.md
           - text: Batch testing
-            url: luis-concept-batch-test.md   
+            url: luis-concept-batch-test.md
+
+      - linkListType: quickstart
+        links: 
+          - text: "Portal: Deploy app to prediction endpoint"
+            url: get-started-portal-deploy-app.md
+
+
       - linkListType: how-to-guide
         links: 
           - text: Versioning your app
@@ -82,10 +98,8 @@ landingContent:
             url: luis-how-to-train.md
           - text: Publish to use prediction endpoint 
             url: luis-how-to-publish-app.md
-      - linkListType: quickstart
-        links: 
-          - text: "Portal: Deploy app to prediction endpoint"
-            url: get-started-portal-deploy-app.md
+
+            
   - title: Get prediction from endpoint
     linkLists:   
       - linkListType: quickstart
