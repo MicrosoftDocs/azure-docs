@@ -5,7 +5,7 @@ summary: Learn about the QnA Maker service and how this service's knowledge base
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/03/2019
+  ms.date: 09/16/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -23,8 +23,65 @@ landingContent:
         links:
           - text: What is QnA Maker
             url: what-is-luis.md
+          - text: What is a knowledge base
+            url: concepts/knowledge-base.md
+          - text: Development lifecycle
+            url: concepts/development-lifecycle-knowledge-base
+          - text: Data sources
+            url: concepts/data-sources-supported.md
+  - title: Create and edit knowledge base
+    linkLists:
+      - linkListType: get-started
+        links:
           - text: "Quickstart: Create a new knowledge base"
             url: how-to/create-knowledge-base.md
-          - text: "Quickstart: Get answer using postman"
+          - text: "Quickstart: Add questions and answer"
+            url: quickstarts/add-question-metadata-portal.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Use follow-up prompts to create multiple turns of a conversation
+            url: how-to/multiturn-conversation.md
+          - text: Add chit-chit
+            url: how-to/chit-chat-knowledge-base.md     
+          - text: Add a secured SharePoint data source
+            url: how-to/add-sharepoint-datasources.md                     
+  - title: Get answer from knowledge base
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: "Quickstart: Using Postman"
             url: quickstarts/get-answer-from-kb-using-postman.md
-
+          - text: "Quickstart: Using cURL"
+            url: quickstarts/get-answer-from-kb-using-curl.md  
+          - text: "Quickstart: Using REST and C#"
+            url: quickstarts/get-answer-from-knowledge-base-csharp.md     
+          - text: "Quickstart: Using NuGet and C#"
+            url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base       
+  - title: QnA Maker bots
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: "Video: Build a bot in minutes"
+            url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+          - text: "Portal: Create a QnA Bot"
+            url: tutorials/create-qna-bot.md
+          - text: ".Net: Create a bot with QnA Maker and Language Understanding"
+            url: tutorials/integrate-qnamaker-luis.md
+          - text: ".Net sample: QnA Maker support bot"
+            url: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support
+          - text: Other bot samples
+            url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
+  - title: Reference
+    linkLists:   
+      - linkListType: reference
+        links: 
+          - text: Authoring APIs
+            url: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase
+          - text: Generate Answer APIs
+            url: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime
+          - text: .Net SDK reference documentation 
+            url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/en-us/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list             
