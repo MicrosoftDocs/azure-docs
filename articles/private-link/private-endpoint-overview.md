@@ -105,8 +105,6 @@ The Azure service provider will create a canonical name DNS record (CNAME) on th
  
 Your applications don't need to change the connection URL. When attempting to resolve using a public DNS, the DNS server will now resolve to your private endpoints. The process does not impact your applications. 
  
-For more details, please see the tutorial for how to configure the DNS settings for your private endpoints.
-
 ## Limitations
  
 The following table includes a list of known limitations when using private endpoints: 
