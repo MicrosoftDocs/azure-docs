@@ -38,13 +38,16 @@ If you haven't already, create your first application by following the .NET desk
 > [!div class="nextstepaction"]
 > [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
 
+> [!div class="nextstepaction"]
+> [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
+
 ## Overview
 
 You write a desktop application, and you want to sign in users to your application and call web APIs such as the Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
 
 - You can use the interactive token acquisition:
 
-  - If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application.
+  - If your desktop application supports graphical controls, for instance if it's a Windows.Form application, a WPF application or a macOS native application.
   - Of if it's a .NET Core application and you agree to have the authentication interaction with Azure AD happen in the system browser
 
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or AAD joined to acquire a token silently by using Integrated Windows Authentication.
