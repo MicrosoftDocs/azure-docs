@@ -70,15 +70,15 @@ If you would rather integrate with an existing workspace, perform the following 
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. List all of the existing workspaces in the specified subscription using the following command:
+3. The following example displays the list of workspaces in your subscriptions in the default JSON format. 
 
     ```
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    In the output, find the workspace name and then copy the full resource ID of that Log Analytics workspace under the field **id**.  This replaces the placeholder value for the `--workspace-resource-id` parameter. The string value must be within the double quotes.
+    In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
  
-4. Run the following command to enable the monitoring add-on:
+4. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
