@@ -114,6 +114,7 @@ On the **Protection Goal** page, select the following values:
 |---------|-----------|
 | Where are your machines located? |Select **On-premises**.|
 | Where do you want to replicate your machines? |Select **To Azure**.|
+| Are you performing a migration? | Select **Yes**, and then check the box next to **I underdstand, but I would like to continue with Azure Site Recovery.**
 | Are your machines virtualized? |Select **Not virtualized / Other**.|
 
 When you're done, select **OK** to move to the next section.
