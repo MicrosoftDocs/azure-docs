@@ -1,19 +1,19 @@
 ---
-title: 'Create an Azure private endpoint using Azure portal| Microsoft Docs'
-description: Learn about Azure private endpoint
+title: 'Create an Azure Private Endpoint using Azure portal| Microsoft Docs'
+description: Learn about Azure Private Endpoint
 services: virtual-network
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 09/09/2019
+ms.date: 09/13/2019
 ms.author: kumud
 
 ---
 # Create a Private Endpoint using the Azure portal
-A private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
+Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with a Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
 
 
 ## Sign in to Azure
@@ -21,7 +21,7 @@ In this Quickstart, you will learn how to create a VM on an Azure virtual networ
 Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a VM
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (an  storage account in this example).
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (a storage account in this example).
 
 ### Create the virtual network
 
@@ -133,7 +133,7 @@ In this section, you will create a private storage account using a Private Endpo
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 9. When you see the **Validation passed** message, select **Create**. 
-10. Browse to the storage account resource that you juts created.
+10. Browse to the storage account resource that you just created.
 11. Select **Access Keys** from the left content menu.
 12. Select **Copy** on the connection string for key1.
  
@@ -207,4 +207,4 @@ When you're done using the Private Endpoint, storage account and the VM, delete 
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
 
 ## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure private endpoint?](private-endpoint-overview.md).
+In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
