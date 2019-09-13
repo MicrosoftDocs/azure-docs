@@ -55,7 +55,7 @@ az vm create \
 
 ## Create a SQL Database Server 
 Create a SQL Database Server with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
-Azure CLICopyTry It 
+
 ```azurecli-interactive
 # Create a logical server in the resource group 
 az sql server create \ 
@@ -76,8 +76,11 @@ az sql db create \
     --capacity 1 
 ```
 
-Note the SQL Server ID is similar to /subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver. You will use the SQL Server ID in the next step. 
-Note the storage account ID is similar to  */subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount*. You will use the storage account ID in the next step. 
+Note the SQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` 
+You will use the SQL Server ID in the next step. 
+
+Note the storage account ID is similar to ``` */subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount*```
+You will use the storage account ID in the next step. 
 
 ## Create the Private Endpoint 
 Create a private endpoint for the storage account in your Virtual Network: 
@@ -144,19 +147,19 @@ Connect to the VM *myVm* from the internet as follows:
 
 In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
-2. Enter nslookup myserver.database.windows.net 
-You'll receive a message similar to this: 
+ 1. In the Remote Desktop of *myVM*, open PowerShell.
+ 2. Enter nslookup myserver.database.windows.net 
+      You'll receive a message similar to this: 
 
-Azure PowerShellCopy 
-Server:  UnKnown 
-Address:  168.63.129.16 
-Non-authoritative answer: 
-Name:    myserver.privatelink.database.windows.net 
-Address:  10.0.0.5 
-Aliases:  myserver.database.windows.net 
-3. Install SQL Server Management Studio 
-4. In Connect to server, enter or select this information: 
+      Azure PowerShellCopy 
+      Server:  UnKnown 
+      Address:  168.63.129.16 
+      Non-authoritative answer: 
+      Name:    myserver.privatelink.database.windows.net 
+      Address:  10.0.0.5 
+      Aliases:  myserver.database.windows.net 
+ 3. Install SQL Server Management Studio 
+ 4. In Connect to server, enter or select this information: 
 
 | Setting | Value |
 | Server type | Select Database Engine. |
@@ -165,10 +168,10 @@ Aliases:  myserver.database.windows.net
 | Password | Enter a password provided during creation. |
 | Remember password | Select Yes. |
 
-5. Select **Connect**.
-6. Browse **Databases** from left menu.
-7. (Optionally) Create or query information from *mydatabase*
-8. Close the remote desktop connection to *myVm*.
+ 5. Select **Connect**.
+ 6. Browse **Databases** from left menu.
+ 7. (Optionally) Create or query information from *mydatabase*
+ 8. Close the remote desktop connection to *myVm*.
 
 Additional options to access the storage account:
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
