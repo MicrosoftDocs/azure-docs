@@ -40,7 +40,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 2. In the **Syslog** blade, select **Open connector page**.
 
-3. For step 1, install the Linux agent:
+3. Install the Linux agent:
     
     - If your Linux virtual machine is in Azure, select **Download and install agent on Azure Linux virtual machine**. In the **Virtual machines** blade, select the virtual machines to install the agent on, and then click **Connect**.
     - If your Linux machine isn't in Azure, select **Download and install agent on Linux non-Azure machine**. In the **Direct agent** blade, copy the command for **DOWNLOAD AND ONBOARD AGENT FOR LINUX** and run it on your computer. 
@@ -48,14 +48,14 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
    > [!NOTE]
    > Make sure you configure security settings for these computers according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy, and change the ports and protocols in the daemon to align with security requirements.
 
-4. For step 2, select **Open your workspace advanced settings configuration**.
+4. Select **Open your workspace advanced settings configuration**.
 
 5. On the **Advanced settings** blade, select **Data** > **Syslog**. Then add the facilities for the connector to collect.
     
-    Add the facilities that your syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in **Syslog-d** in the `/etc/rsyslog.d/security-config-omsagent.conf` folder, and in **r-Syslog** from /etc/syslog-ng/security-config-omsagent.conf`.
-        
-        > [!NOTE]
-        > If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
+    Add the facilities that your syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in **Syslog-d** in the `/etc/rsyslog.d/security-config-omsagent.conf` folder, and in **r-Syslog** from `/etc/syslog-ng/security-config-omsagent.conf`.
+    
+    > [!NOTE]
+    > If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
 
 6. When you have added all the facilities that you want to monitor, and adjusted any severity options for each one, select the checkbox **Apply below configuration to my machines**.
 
