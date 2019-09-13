@@ -75,5 +75,5 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 Learn how to [secure your vault](key-vault-secure-your-key-vault.md).
 
 <!--Image references-->
-[1]: ./media/key-vault-overview/AzureKeyVault_whatis.png
+[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
