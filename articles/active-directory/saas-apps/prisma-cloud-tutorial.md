@@ -84,11 +84,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://app2.prismacloud.io/customer/<CUSTOMERID>`
 
-    b. In the **Reply URL** text box, type a URL:
-    `https://api2.prismacloud.io/saml`
+    b. The **Reply URL** values are fixed and already pre-populated in Azure portal. You need to select the appropriate URL according to your requirement.
 
 	> [!NOTE]
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Prisma Cloud Client support team](mailto:support@paloaltonetworks.com) to get the value. The Reply URL is fixed and already pre-populated in Azure portal. You need to select the appropriate URL according to your requirement. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Prisma Cloud Client support team](mailto:support@paloaltonetworks.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
