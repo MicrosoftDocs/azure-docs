@@ -48,6 +48,7 @@ Again the redirect URIs to use in desktop application will depend on the flow yo
   > [!IMPORTANT]
   > Today MSAL.NET uses another Redirect URI by default in desktop applications running on Windows (`urn:ietf:wg:oauth:2.0:oob`). In the future we'll want to change this default, and therefore we recommend that you use `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+- If you're building a native Objective-C or Swift app for macOS, you'll want to register the redirectUri based on your application's bundle identifier in the following format: **msauth.<your.app.bundle.id>://auth** (replace <your.app.bundle.id> with your application's bundle identifier)
 - If your app is only using Integrated Windows authentication, Username/Password, you don't need to register a redirect URI for your application. Indeed, these flows do a round trip to the Microsoft identity platform v2.0 endpoint and your application won't be called back on any specific URI. 
 - In order to distinguish Device Code Flow, Integrated Windows Authentication and Username/Password from a confidential client application flow, which doesn't have redirect URIs either (the client credential flow used in daemon applications), you need to express that your application is a public client application. This configuration is achieved by going to the **Authentication** section for your application, and in the **Advanced settings** subsection, choose **Yes**, to the question **Treat application as a public client** (in the **Default client type** paragraph)
 
