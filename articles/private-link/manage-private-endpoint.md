@@ -5,7 +5,7 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
