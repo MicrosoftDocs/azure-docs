@@ -119,8 +119,6 @@ In this section, you will create a SQL database server in Azure.
     | Server admin login| Enter an administrator name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
     | Location | Select an Azure region where you want to want your SQL Server to reside. |
-
-    |||
     
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
