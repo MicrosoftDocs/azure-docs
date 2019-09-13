@@ -23,7 +23,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Private Link?
-            url: private-link-overview.md      
+            url: private-link-overview.md
+      - linkListType: video
+        links:
+          - text: Working with Private Link
+            url: https://aka.ms/privatelinkvideo                 
 
   # Card (optional)
   - title: Connect to an Azure service
