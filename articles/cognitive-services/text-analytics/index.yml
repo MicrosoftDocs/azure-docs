@@ -62,7 +62,7 @@ landingContent:
         - text: Entity recognition
           url: how-tos/text-analytics-how-to-entity-linking.md
         - text: Keyword extraction
-          url: how-tos/text-analytics-how-to-keyword-detection.md
+          url: how-tos/text-analytics-how-to-keyword-extraction.md
         - text: Language detection
           url: how-tos/text-analytics-how-to-language-detection.md
 
@@ -94,7 +94,7 @@ landingContent:
         - text: Install and run Text Analytics containers
           url: how-tos/text-analytics-how-to-install-containers.md
         - text: Configure Text Analytics containers
-          url: text-analytics-container-config.md
+          url: text-analytics-resource-container-config.md
         - text: Deploy a container instance to Azure
           url: how-tos/text-analytics-how-to-use-container-instances.md
         - text: Deploy a container to Azure Kubernetes Service (AKS)
