@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 09/13/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -96,10 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
-1. Alibaba Cloud Service (Role-based SSO) require roles to be configured in Azure AD. The role claim is pre-defined in the template and does not require any manual configuration but the specific roles need to be configured.
-
-	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD.
+1. Alibaba Cloud Service (Role-based SSO) require roles to be configured in Azure AD. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
