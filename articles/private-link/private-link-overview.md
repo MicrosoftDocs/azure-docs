@@ -20,11 +20,7 @@ Azure Private Link provides private connectivity between applications running in
 >
 
 ## Why use Azure Private Link?
-Before Azure Private Link, Azure shared PaaS was accessed over either 1) Public endpoints (internet routable public IP addresses exposed by the service) or 2) Virtual network service endpoints. In both cases, Azure customers have to configure their network security groups (NSGs) to allow access to internet-routable service public IP addresses to access the service. Accessing services over public IP addresses poses a security risk. Moreover, there is a risk of data exfiltration with both access methods. 
- 
-Similarly, shared services offered by Microsoft partners and customer-owned services that reside in one virtual network are accessed over either 1) Public endpoints or 2) Virtual network peering. In the first method, NSGs need to allow access to internet-routable address space which poses a security risk. In the second method, virtual network peering imposes restrictions in terms of non-overlapping IP address space requirements.  
- 
-Azure Private Link addresses these issues and allows you to set up TCP connectivity between applications that run in different virtual networks and to Azure PaaS services in a simple, secure, and scalable manner.
+Use Azure Private Link to access Azure services or your own services privately and securely. Previously, Azure services (such as Storage, SQL, etc.) or customer-owned services needed to be accessed over Public IP endpoints. With Azure Private Link, this is no longer the case, the need for Internet exposed endpoints or Public IP endpoints is removed. You can privately connect to services in other Virtual Networks easily and securely.
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
