@@ -19,7 +19,7 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 In this featured video, we explore the self-help support options available in the Azure portal. 
 
-> [VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
+> [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
 [Explore self-help support options](https://www.youtube.com/watch?v=gNhzR5FE9DY)
 

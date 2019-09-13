@@ -66,7 +66,7 @@ We pre-populated your Favorites in the sidebar with links to commonly used servi
 >
 Watch this video for a demo on how to use global search in the Azure portal.
 
-> [VIDEO > https://www.youtube.com/embed/nZ7WwTZcQbo]
+> [!VIDEO > https://www.youtube.com/embed/nZ7WwTZcQbo]
 
 [How to use global search in the Azure portal](https://www.youtube.com/watch?v=nZ7WwTZcQbo)
 
