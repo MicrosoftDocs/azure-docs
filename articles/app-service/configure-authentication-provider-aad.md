@@ -18,17 +18,17 @@ ms.custom: seodec18
 ms.custom: fasttrack-edit
 
 ---
+
 # Configure your App Service app to use Azure Active Directory sign-in
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 > [!NOTE]
 > At this time, AAD V2 (including MSAL) is not supported for Azure App Service and Azure Functions.
->
 
 This article shows you how to configure Azure App Service to use Azure Active Directory as an authentication provider.
 
-It's recommended that you configure each App Service app with its own registration, so it has its own permissions and consent. Also, consider using separate app registrations for separate deployment slots. This avoids permission sharing between environments, so that an issue in new code you're testing does not affect production.
+Each App Service app should have its own permissions and consent. Thus, recommend practice is to configure each App Service app with its own registration. In addition, you can best avoid permission sharing between environments by using separate app registrations for separate deployment slots. This helps any issues in new code that you're testing from affecting the production app.
 
 ## <a name="express"> </a>Configure with express settings
 
