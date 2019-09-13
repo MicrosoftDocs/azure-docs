@@ -5,11 +5,11 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
-# Disable network policies for private endpoints
+# Disable network policies for Private Endpoints
 
 Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy private endpoints on a given subnet, an explicit disable setting is required. This setting is only applicable for private endpoints. NSG support on any other workload on the subnet is controlled based on the security rules definition. 
  
@@ -67,5 +67,5 @@ This section describes how to disable subnet private endpoint policies using Azu
 } 
 ```
 ## Next steps
-- Learn more about [Azure private endpoint](private-endpoint-overview.md)
+- Learn more about [Azure Private Endpoint](private-endpoint-overview.md)
  
