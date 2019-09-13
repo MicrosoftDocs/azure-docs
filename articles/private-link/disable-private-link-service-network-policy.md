@@ -1,21 +1,21 @@
 ---
-title: 'Disable network policies for Azure private link service NAT IP '
-description: Learn how to disable network policies for private endpoints.
+title: 'Disable network policies for Azure Private Link service source IP address '
+description: Learn how to disable network policies for Azure private Link
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
-# Disable network policies for private link service NAT IP 
+# Disable network policies for Private Link service source IP
 
-Network policies like network security groups (NSG) are not supported for private link service NAT IPs. In order to choose a private link service NAT IP from a given subnet, an explicit disable setting `privateLinkServiceNetworkPolicies` is required. This setting is only applicable for private link service NAT IP. NSG support on any other workload on the subnet is controlled based on the security rules definition. 
+In order to choose a source IP address for your Private Link service from a subnet, an explicit disable setting `privateLinkServiceNetworkPolicies` is required. This setting is only applicable for the specific private IP address you chose as the source IP of the Private Link service. For the other resources in your subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
  
 When using any Azure client (PowerShell, CLI or templates), an additional step is required to change this property. You can disable the policy using the cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
  
-Below examples describe how to disable private link service network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*. 
+Follow the steps below to disable private link service network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*. 
 
 ## Using Azure PowerShell
 This section describes how to disable subnet private endpoint policies using Azure PowerShell.
@@ -68,5 +68,5 @@ This section describes how to disable subnet private endpoint policies using Azu
  
 ```
 ## Next steps
-- Learn more about [Azure private endpoint](private-endpoint-overview.md)
+- Learn more about [Azure Private Endpoint](private-endpoint-overview.md)
  
