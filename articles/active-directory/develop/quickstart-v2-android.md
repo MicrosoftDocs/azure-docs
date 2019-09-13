@@ -68,7 +68,7 @@ We will now look at these files in more detail and call out the MSAL specific co
 
 ### Add MSAL to the app
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ is used to install it by adding the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ is installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle  
 implementation 'com.microsoft.identity.client:msal:1.0.0'
@@ -124,15 +124,12 @@ In `onCreateView()`, a single account `PublicClientApplication` is created using
 
 #### Sign in a user
 
-The code to sign in a user is in `initializeUI()`, in the `signInButton` click handler. Note that signing in a user is an asynchronous operation. A callback is passed to call the Microsoft Graph API and update the UI once the user signs in:
+The code to sign in a user is in `initializeUI()`, in the `signInButton` click handler. Note that signing in a user is an asynchronous operation. A callback is passed that calls the Microsoft Graph API and update the UI once the user signs in:
 
 ```java
 signInButton.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
-        if (mSingleAccountApp == null) {
-            return;
-        }
-
+        ...
         mSingleAccountApp.signIn(getActivity(), null, getScopes(), getAuthInteractiveCallback());
     }
 });
@@ -140,7 +137,7 @@ signInButton.setOnClickListener(new View.OnClickListener() {
 
 #### Sign out a user
 
-The code to sign out a user is also in `initializeUI()`, in the `signOutButton` click handler.  Note that signing a user out is an asynchronous operation. A callback is created to update the  UI once the user account is signed out:
+The code to sign out a user is in `initializeUI()`, in the `signOutButton` click handler.  Note that signing a user out is an asynchronous operation. A callback is created to update the  UI once the user account is signed out:
 
 ```java
 /**
@@ -162,7 +159,7 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### Get a token interactively or silently
 
-Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to the permissions your app has requested. For example, 
+Some situations require users to interact with Microsoft identity platform. In these cases, the user may need to select their account, enter their credentials, or consent to the permissions your app has requested. Some other situations when the user may be prompted are:
 
 * The first time users sign in to the application
 * If a user resets their password, they will need to enter their credentials 
@@ -176,9 +173,8 @@ The code to get a token interactively, that is with UI that will involve the use
 ```java
 callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
-        if (mSingleAccountApp == null) {
-            return;
-        }
+        
+        ...
 
         /**
             * If acquireTokenSilent() returns an error that requires an interaction,
@@ -200,9 +196,7 @@ Apps shouldn't require their users to sign in every time they request a token. I
 callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        if (mSingleAccountApp == null) {
-            return;
-        }
+        ...
 
         /**
             * Once you've signed the user in,
@@ -215,13 +209,11 @@ callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
 
 #### Load an account
 
-The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account is loaded, changes, or an error occurs is passed to MSAL to handle those situations:
+The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account is loaded, changes, or an error occurs is passed to MSAL:
 
 ```java
 private void loadAccount() {
-    if (mSingleAccountApp == null) {
-        return;
-    }
+    ...
 
     mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback() {
         @Override
@@ -277,6 +269,10 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 
 This is the configuration file for a MSAL app that uses a single account.
 
+See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
+
+Note the presence of `"account_mode" : "SINGLE"` which configures this app for using a single account.
+
 ```json
 {
   "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
@@ -295,9 +291,6 @@ This is the configuration file for a MSAL app that uses a single account.
   ]
 }
 ```
-
-See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
-Note the presence of `"account_mode" : "SINGLE"` which configures this app for using a single account.
 
 ### MultipleAccountModeFragment.java
 
@@ -332,7 +325,7 @@ Note that the created `MultipleAccountPublicClientApplication` object is stored 
 
 #### Get a token interactively or silently
 
-Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to the permissions your app has requested. For example, 
+Some situations require users to interact with Microsoft identity platform. In these cases, the user may need to select their account, enter their credentials, or consent to the permissions your app has requested. Some other situations when the user may be prompted are:
 
 * The first time users sign in to the application
 * If a user resets their password, they will need to enter their credentials 
@@ -341,7 +334,7 @@ Some situations require users to interact with Microsoft identity platform. In t
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
-The code to get a token interactively, that is with UI that will involve the user, is in `initializeUI()`, in the `callGraphApiInteractiveButton` click handler:
+The code to get a token interactively, that is with UI that involves the user, is in `initializeUI()`, in the `callGraphApiInteractiveButton` click handler:
 
 ```java
 callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
@@ -366,15 +359,13 @@ callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, `acquireTokenSilentAsync()` allows apps to request tokens silently as shown in `initializeUI()`, in the `callGraphApiSilentButton` click handler:
+Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, `acquireTokenSilentAsync()` allows apps to request tokens without prompting the user, as shown in `initializeUI()` in the `callGraphApiSilentButton` click handler:
 
 ```java
 callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        if (mMultipleAccountApp == null) {
-            return;
-        }
+        ...
 
         /**
             * Performs acquireToken without interrupting the user.
@@ -392,7 +383,7 @@ callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
 
 #### Load an account
 
-The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account is loaded, changes, or an error occurs is passed to MSAL to handle those situations:
+The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so a callback to handle when the account is loaded, changes, or an error occurs is passed to MSAL to handle those situations:
 
 ```java
 /**
@@ -400,9 +391,7 @@ The code to load an account is in `loadAccount()`.  Loading the user's account i
     * In the shared device mode, if the user is signed out from the device, the app can also perform the clean-up work in onAccountChanged().
     */
 private void loadAccount() {
-    if (mMultipleAccountApp == null) {
-        return;
-    }
+    ...
 
     mMultipleAccountApp.getAccounts(new IPublicClientApplication.LoadAccountsCallback() {
         @Override
@@ -418,7 +407,6 @@ private void loadAccount() {
     });
 }
 ```
-
 
 #### Remove an account
 
@@ -450,6 +438,10 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 
 This is the configuration file for a MSAL app that uses multiple accounts.
 
+See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
+
+Note that unlike the [auth_config_multiple_account.json](#auth_config_multiple_account.json) configuration file, there is no `"account_mode" : "SINGLE"` because this is a multiple account app.
+
 ```json
 {
   "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
@@ -467,10 +459,6 @@ This is the configuration file for a MSAL app that uses multiple accounts.
   ]
 }
 ```
-
-See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
-
-Note that unlike the [auth_config_multiple_account.json](#auth_config_multiple_account.json) configuration file, there is no `"account_mode" : "SINGLE"` because this is a multiple account app.
 
 ## Next steps
 
