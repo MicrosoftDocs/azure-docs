@@ -151,22 +151,22 @@ In this section, you will connect to the SQL Database Server from the VM using t
  2. Enter nslookup myserver.database.windows.net 
       You'll receive a message similar to this: 
 
-      Azure PowerShellCopy 
+```
       Server:  UnKnown 
       Address:  168.63.129.16 
       Non-authoritative answer: 
       Name:    myserver.privatelink.database.windows.net 
       Address:  10.0.0.5 
       Aliases:  myserver.database.windows.net 
+```
  3. Install SQL Server Management Studio 
  4. In Connect to server, enter or select this information: 
 
-   | Setting | Value |
-   | Server type | Select Database Engine. |
-   | Server name | Select myserver.database.windows.net |
-   | Username | Enter a username provided during creation. |
-   | Password | Enter a password provided during creation. |
-   | Remember password | Select Yes. |
+     Server type: Select Database Engine.
+     Server name: Select myserver.database.windows.net
+     Username: Enter a username provided during creation.
+     Password: Enter a password provided during creation.
+     Remember password: Select Yes.
 
  5. Select **Connect**.
  6. Browse **Databases** from left menu.
