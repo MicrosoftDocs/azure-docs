@@ -130,7 +130,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 ## Create and attach remote compute target
 
-Azure Machine Learning service pipelines cannot be run locally, and only run on cloud resources. Remote compute targets are reusable virtual compute environments where you run experiments and work-flows. Run the following code to create a GPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target, and attach it to your workspace. See the [conceptual article](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target) for more information on compute targets.
+Since ML pipelines cannot be run locally, you need to run them on cloud resources. We refer to these as remote compute targets, which are reusable virtual compute environments in which you run experiments and ML workflows. Run the following code to create a GPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target, and attach it to your workspace. See the [conceptual article](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target) for more information on compute targets.
 
 
 ```python
@@ -155,7 +155,7 @@ except ComputeTargetException:
 
 To do the scoring, you create a batch scoring script `batch_scoring.py`, and write it to the current directory. The script takes input images, applies the classification model, and outputs the predictions to a results file.
 
-The script `batch_scoring.py` takes the following parameters, which get passed from the `PythonScriptStep` that you create later:
+The script `batch_scoring.py` takes the following parameters, which get passed from the pipeline step that you create later in this tutorial:
 
 - `--model_name`: the name of the model being used
 - `--label_dir` : the directory holding the `labels.txt` file 
@@ -284,7 +284,8 @@ if __name__ == "__main__":
 
 ```
 
-The pipeline in this tutorial only has one step and writes the output to a file, but for multi-step pipelines, you also use `ArgumentParser` to define a directory to write output data for input to subsequent steps. See the [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) for an example of passing data between multiple pipeline steps using the `ArgumentParser` design pattern.
+> [!TIP]
+> The pipeline in this tutorial only has one step and writes the output to a file, but for multi-step pipelines, you also use `ArgumentParser` to define a directory to write output data for input to subsequent steps. See the [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) for an example of passing data between multiple pipeline steps using the `ArgumentParser` design pattern.
 
 ## Build and run the pipeline
 
@@ -484,7 +485,7 @@ auth_header = interactive_auth.get_authentication_header()
 
 Get the REST url from the `endpoint` property of the published pipeline object. You can also find the REST url in your workspace in the portal. Build an HTTP POST request to the endpoint, specifying your authentication header. Additionally, add a JSON payload object with the experiment name and the batch size parameter. As a reminder, the `param_batch_size` is passed through to your `batch_scoring.py` script because you defined it as a `PipelineParameter` object in the step configuration.
 
-Make the request to trigger the run. Access the `Id` key from the response dict to get the value of the run id.
+Make the request to trigger the run. Access the `Id` key from the response dictionary to get the value of the run id.
 
 ```python
 import requests
@@ -540,4 +541,4 @@ In this machine learning pipelines tutorial, you did the following tasks:
 > * Created a scoring script to run batch predictions with a pre-trained Tensorflow model
 > * Published a pipeline and enabled it to be run from a REST endpoint
 
-See the [how-to](how-to-create-your-first-pipeline.md) for additional detail on building pipelines with the machine learning SDK.
+See the [notebook repository](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) for additional examples of building pipelines with the machine learning SDK.
