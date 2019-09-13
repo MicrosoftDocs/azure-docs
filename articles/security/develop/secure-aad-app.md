@@ -27,11 +27,11 @@ This sample is targeted toward experienced developers on Azure who work within t
 
 
 In developing and deploying this app, you'll learn how to: 
-- Create an Azure Key Vault instance, store and retrieve secrets from it. - 
-- Deploy the Azure Web App which is dedicated isolated with frond end firewall access. 
+- Create an Azure Key Vault instance, store, and retrieve secrets from it.
+- Deploy the Azure Web App, which is dedicated isolated with frond end firewall access. 
 - Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset. 
 - Enable encryption of data in transit and at rest by using Azure services. 
-- Set up the Azure policy and security center to evaluate the compliances 
+- Set up the Azure policy and security center to evaluate the compliancies 
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
@@ -47,19 +47,19 @@ The architecture consists of these components:
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the gateway and firewall for our application architecture.
 - [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview). Provides an extensible Application Performance Management (APM) service on multiple platforms.
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
-- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis/).Provides cloud-based identity and access management service,sign in and access resources.
+- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis/).Provides cloud-based identity and access management service, sign in and access resources.
 - [Azure DNS](https://docs.microsoft.com/en-us/azure/dns/dns-overview). Provide the service to host the domain.
 - [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/). Provides to scale your applications and create high availability for your services
 - [Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview/).  Provides an HTTP-based service for hosting web applications.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/). provides advanced threat protection across your hybrid workloads in the cloud
 - [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview). Provides evaluating your resources for non-compliance with assigned policies.
 
 ## Threat model
 Threat modeling is the process of identifying potential security threats to your business and application and then ensuring that a proper mitigation plan is in place.
 
-This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. This saves time and money later.
+This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. Time and money will be saved later by using this.
 
-This is the threat model for the sample app:
+Here is the threat model for the sample app:
 
 ![Threat model](./media/secure-add-app/threat-model.png)
 
@@ -77,7 +77,7 @@ The four phases are:
 - Deploy Azure Key Vault.
 - Deploy Azure Web Apps.
 - Deploy Application Gateway with web application firewall.
-- Congiure the AAD with Deployed App
+- Configure the AAD with Deployed App
 
 Each phase builds upon the preceding one by using configuration from the previously deployed resources.
 
@@ -95,31 +95,32 @@ To deploy Azure Key Vault by using Powershell:
 3. Create the resource group for the instance.
 4. Create the Azure Key Vault instance in the resource group created in step 3.
 
-# These are the Azure AD users that will have admin permissions to the Key Vault
+#### These are the Azure AD users that will have admin permissions to the Key Vault
 $keyVaultAdminUsers = @($user1,user2)
 
-# Register the Az Providers
+#### Register the Az Providers
 Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# Create the Azure Key Vault instance
+#### Create the Azure Key Vault instance
  New-AzKeyVault -Name $kvName 
                 -ResourceGroupName $ResourceGroup 
                 -Location 'East US'
                 -EnabledForDiskEncryption
 
-# Add the Administrator policies to the Key Vault
+#### Add the Administrator policies to the Key Vault
 foreach ($keyVaultAdminUser in $keyVaultAdminUsers) {
     $UserObjectId = (Get-AzADUser -SearchString $keyVaultAdminUser).Id
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -ObjectId $UserObjectId 
         -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
 }
 
-# To create an access policy to allow a user to get and list cryptographic keys, certificates and secrets if you know the User Principal Name:
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName
-  -UserPrincipalName 'user1@contoso.com
-  -PermissionsToCertificates list,get
-  -PermissionsToKeys list,get
-  -PermissionsToSecrets list,get
+#### To create an access policy to allow a user to get and list cryptographic keys, certificates and secrets if you know the User Principal Name:
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName 
+                           -ResourceGroupName $resourceGroupName 
+                           -UserPrincipalName 'user1@contoso.com 
+                           -PermissionsToCertificates list, get 
+                           -PermissionsToKeys list, get 
+                           -PermissionsToSecrets list, get 
 
 It's a best practice to use managed identities for Azure resources in apps that use Key Vault to access resources. Your security posture increases when access keys to Key Vault aren't stored in code or in configuration.
 
@@ -207,7 +208,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 #Configure the certificate for the application gateway. This certificate is used to decrypt and reencrypt the traffic on the application gateway
 
-$passwd = ConvertTo-SecureString  "Pcidss@283489" -AsPlainText -Force 
+$passwd = ConvertTo-SecureString  "P@ssword!1" -AsPlainText -Force 
 $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\Feroz\Securities\Certificates\contosowebstores.com.cer" -Password $passwd 
 
 #Create the HTTP listener for the application gateway
@@ -243,23 +244,21 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 #### Deploy Azure Web Apps
 Azure App Service enables you to build and host web apps using the languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
 
-# Create an App Service plan in Free tier.
+#### Create an App Service plan in Free tier.
 New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
-# Create a web app.
+#### Create a web app.
 New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
 
 Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
 Read-Host "Press [Enter] key when ready ..."
 
-# Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
-# hostname "www" and point it your web app's default domain name.
+#### Before continuing, go to your DNS configuration UI for your custom domain and follow the instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the hostname "www" and point it your web app's default domain name.
 
-# Upgrade App Service plan to Shared tier (minimum required by custom domains)
+#### Upgrade App Service plan to Shared tier (minimum required by custom domains)
 Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
 
-# Add a custom domain name to the web app. 
+#### Add a custom domain name to the web app. 
 Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `-HostNames @($fqdn,"$webappname.azurewebsites.net")
 
 ## Guidance and recommendations
@@ -276,14 +275,14 @@ Blocking unused ports and limiting the attack surface exposure is a security bes
 App Service instances can be integrated with virtual networks. This integration allows them to be configured with network security group policies that manage the
 app's incoming and outgoing traffic.
 
-1. To enable this feature, on the Azure App service instance blade, under **Settings**, select **Networking**. In the right pane, under **VNet Integration**, select **Click here to configure**.
+1. To enable this feature, on the Azure App service instance blade, under Settings, selects Networking. In the right pane, under **VNet Integration**, select **Click here to configure**.
 
    ![New virtual network integration](./media/secure-web-app/app-vnet-menu.png)
 
     *New virtual network integration for App Service*
 1. On the next page, select **Add VNET (preview)**.
 
-1. On the next menu, select the virtual network created in the deployment that starts with `hello-vnet`. You can either create a new subnet or select an existing one.
+1. On the next menu, select the virtual network created in the deployment that starts with `aad-vnet`. You can either create a new subnet or select an existing one.
    In this case, create a new subnet. Set the **Address range** to **10.0.3.0/24** and name the subnet **app-subnet**.
 
    ![App Service virtual network configuration](./media/secure-web-app/app-vnet-config.png)
@@ -332,12 +331,6 @@ Now that you've enabled the virtual network integration, you can add network sec
    ![Add rules for Azure Service Health probes](./media/secure-web-app/nsg-create-healthprobes.png)
 
     *Add rules for Azure Service Health probes (App Service Environment only)*
-
-7. In the outbound security rules, create a new outbound security rule that allows the App Service instance to communicate with the PostgreSQL database. Configure it like this:
-
-   ![Rule to allow outbound PostgreSQL connections](./media/secure-web-app/nsg-outbound-postgresql.png)
-
-   *Add a rule to allow outbound PostgreSQL connections*
 
 To limit the attack surface, modify the App Service network settings to allow only the application gateway to access the application.
 You do this by going into the App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service.
@@ -456,7 +449,7 @@ Best practices for implementing a secure hybrid network that extends an on-premi
    git clone https://github.com/Azure-Samples/AAD-Security tutorial-project
    ```
 ## Update the redirect URLs
-1.	Navigate back to to the Azure portal. In the left-hand navigation pane, select the Azure Active Directory service, and then select App registrations.
+1.	Navigate back to the Azure portal. In the left-hand navigation pane, select the Azure Active Directory service, and then select App registrations.
 2.	In the resultant screen, select the WebApp-OpenIDConnect-DotNet-code-v2 application.
 3.	In the Authentication tab:
     o	In the Redirect URIs section, select Web in the combo-box and add the following redirect URIs.
@@ -470,7 +463,7 @@ Best practices for implementing a secure hybrid network that extends an on-premi
 Publishing the sample
     1.	From the Overview tab of the App Service, download the publish profile by clicking the Get publish profile link and save it. Other deployment mechanisms, such as from source control, can also be used.
     2.	Switch to Visual Studio and go to the WebApp-OpenIDConnect-DotNet-code-v2 project. Right click on the project in the Solution Explorer and select Publish. Click Import Profile on the bottom bar, and import the publish profile that you downloaded earlier.
-    3.	Click on Configure and in the Connection tab, update the Destination URL so that it is a https in the home page url, for example https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Click Next.
+    3.	Click on Configure and in the Connection tab, update the Destination URL so that it is an https in the home page url, for example https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Click Next.
     4.	On the Settings tab, make sure Enable Organizational Authentication is NOT selected. Click Save. Click on Publish on the main screen.
     5.	Visual Studio will publish the project and automatically open a browser to the URL of the project. If you see the default web page of the project, the publication was successful.
 #### Implement Multi-Factor Authentication for Azure Active Directory
