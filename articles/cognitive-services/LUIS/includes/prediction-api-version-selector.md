@@ -7,5 +7,5 @@ ms.author: diberry
 ---
 
 > [!div class="op_single_selector"]
-> - [Prediction API V3](sdk-cshar-quickstart-query-prediction-endpoint-v3.md)
-> - [Prediction API v2](sdk-cshar-quickstart-query-prediction-endpoint.md)
+> - [Prediction API V3](../sdk-cshar-quickstart-query-prediction-endpoint-v3.md)
+> - [Prediction API v2](../sdk-cshar-quickstart-query-prediction-endpoint.md)

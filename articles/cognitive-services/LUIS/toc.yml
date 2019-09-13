@@ -27,7 +27,7 @@
     - name: Query prediction endpoint V3
       href: sdk-csharp-quickstart-query-prediction-endpoint-v3.md
     - name: Query prediction endpoint V2
-      href: sdk-csharp-quickstart-query-prediction-endpoint-v2.md
+      href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use Python SDK
     items: 
     - name: Create and manage app
