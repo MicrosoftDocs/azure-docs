@@ -13,7 +13,7 @@ ms.subservice: cognitive-search
 ---
 
 # Working with skillsets
-This article is for for developers who need a deeper understanding of how the enrichmemt pipeline works and on assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search please start with
+This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search please start with:
 + [What is "cognitive search" in Azure Search?](cognitive-search-concept-intro.md)
 + [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
 
