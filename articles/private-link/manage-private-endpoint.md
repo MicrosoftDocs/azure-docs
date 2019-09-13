@@ -4,7 +4,7 @@ description: Learn how to manage private endpoint connections in Azure
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
-ms.topic: concept
+ms.topic: article
 ms.date: 09/12/2019
 ms.author: kumud
 
