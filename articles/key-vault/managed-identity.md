@@ -45,7 +45,7 @@ To set up a managed identity in the portal, you will first create an application
 
 1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**. 
 
-![](./media/managed-identity-system-assigned.png)
+	![](./media/managed-identity-system-assigned.png)
 
 ### Azure CLI
 
@@ -84,12 +84,16 @@ Make a note of the `PrincipalId`, which will be needed in next section.
 ### Azure portal
 
 1.	Navigate to Key Vault resource. 
+
 1.	Select **Access policies** and click **Add Access Policy**. 
+
 1.	In **Secret permissions**, select **Get, List**. 
+
 1.	Choose **Select Principal**, and in the search field enter the name of the app.  Select the app in the result list and click **Select**. 
+
 1.	Click **Add** to finish adding the new access policy.
 
-![](./media/managed-identity-access-policy.png)
+	![](./media/managed-identity-access-policy.png)
 
 ### Azure CLI
 
@@ -105,5 +109,3 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 - See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
 - Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
 - Review [Azure Key Vault best practices](key-vault-best-practices.md)
-
- 
