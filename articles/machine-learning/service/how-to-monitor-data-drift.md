@@ -128,7 +128,6 @@ There are multiple ways to view drift metrics:
 
 * Use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
-* View the metrics in the Azure portal on your model.
 * View the metrics from the **Models** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
@@ -154,7 +153,7 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen on the model details page in your [workspace landing page (preview)](https://ml.azure.com).
+The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your [workspace landing page (preview)](https://ml.azure.com).
 
 ![Azure portal Data Drift](media/how-to-monitor-data-drift/drift-config.png)
 
