@@ -6,7 +6,7 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
