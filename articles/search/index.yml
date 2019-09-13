@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Search documentation # < 60 chars
-summary: Enterprise cloud search over private, heterogenous content with AI enrichment if content is unstructured or unsearchable in raw form. Learn how to build a single fast index, accessed using simple-to-advanced query syntax for a broad range of scenarios. 
+summary: Enterprise cloud search over private, heterogenous content with AI enrichment if content is unstructured or unsearchable in raw form. Learn how to build a single fast index, searchableusing simple-to-advanced syntax for a broad range of scenarios. 
 
 metadata:
   title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Enterprise cloud search over private, heterogenous content with AI enrichment if content is unstructured or unsearchable in raw form. Learn how to build a single fast index, accessed using simple-to-advanced query syntax for a broad range of scenarios. 
+  description: Enterprise cloud search over private, heterogenous content with AI enrichment if content is unstructured or unsearchable in raw form. Learn how to build a single fast index, searchable using simple-to-advanced syntax for a broad range of scenarios. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: cognitive-search
@@ -29,12 +29,10 @@ landingContent:
             url: search-what-is-azure-search.md
           - text: What is cognitive search?
             url: cognitive-search-concept-intro.md
-          - text: Indexing and query engine
-            url: search-lucene-query-architecture.md
       - linkListType: architecture
         links:
-          - text: Choose a free-form text search technology
-            url: azure/architecture/data-guide/scenarios/search
+          - text: Full text search engine
+            url: search-lucene-query-architecture.md
 
   # Card
   - title: Get started
@@ -43,9 +41,9 @@ landingContent:
         links:
           - text: Set up Azure Search
             url: search-create-service-portal.md
-          - text: Create an index in the portal
+          - text: Set up an index
             url: search-get-started-portal.md
-          - text: Add cognitive skills to indexing
+          - text: Set up a cognitive search pipeline
             url: cognitive-search-quickstart-blob.md
       - linkListType: learn
         links:
@@ -53,7 +51,7 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
 
   # Card
-  - title: Plan service configuration
+  - title: Service configuration
     linkLists:
       - linkListType: concept
         links:
@@ -61,8 +59,6 @@ landingContent:
             url: search-sku-tier.md
           - text: Service limits
             url: search-limits-quotas-capacity.md
-          - text: Security and data privacy
-            url: search-security-overview
 
   # Card
   - title: Indexing
@@ -70,7 +66,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Defining an index
-            url: search-what-is-an-index 
+            url: search-what-is-an-index.md
           - text: Loading an index
             url: search-what-is-data-import.md
           - text: Use indexers
@@ -89,27 +85,6 @@ landingContent:
         links:
           - text: Create Index (REST)
             url: https://docs.microsoft.com/rest/api/searchservice/create-index
-  # Card
-  - title: Queries
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Overview
-            url: search-query-overview.md
-          - text: Simple syntax (default)
-            url: query-simple-syntaxt.md
-          - text: Full Lucene syntax
-            url: query-lucene-syntax.md
-      - linkListType: how-to-guide
-        links:
-          - text: Examples of simple queries
-            url: search-query-simple-examples.md
-          - text: Examples of full syntax
-            url: search-query-lucene-examples.md
-      - linkListType: reference
-        links:
-          - text: Search Documents (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/search-documents
 
   # Card
   - title: Cognitive search enrichment
@@ -122,3 +97,25 @@ landingContent:
             url: cognitive-search-defining-skillset.md
           - text: Create a knowledge store
             url: knowledge-store-create-portal.md
+            
+  # Card
+  - title: Queries
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview
+            url: search-query-overview.md
+          - text: Simple syntax (default)
+            url: query-simple-syntax.md
+          - text: Full Lucene syntax
+            url: query-lucene-syntax.md
+      - linkListType: how-to-guide
+        links:
+          - text: Examples of simple queries
+            url: search-query-simple-examples.md
+          - text: Examples of full syntax
+            url: search-query-lucene-examples.md
+      - linkListType: reference
+        links:
+          - text: Search Documents (REST)
+            url: https://docs.microsoft.com/rest/api/searchservice/search-documents
