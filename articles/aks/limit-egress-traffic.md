@@ -105,6 +105,9 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in private preview) enabled
 
+> [!CAUTION]
+> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+
 The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
 
 | FQDN                                    | Port      | Use      |
@@ -115,6 +118,9 @@ The following FQDN / application rules are required for AKS clusters that have t
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on sends telemetry data to applications insights endpoint. |
 
 ## Required by Windows Server based nodes (in public preview) enabled
+
+> [!CAUTION]
+> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
 
 The following FQDN / application rules are required for Windows server based AKS clusters:
 
