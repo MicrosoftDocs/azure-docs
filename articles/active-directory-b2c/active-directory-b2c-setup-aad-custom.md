@@ -200,3 +200,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
 1. Select the Azure AD sign in button, for example, *Contoso Employee*, and then enter the credentials for a user in your Azure AD organizational tenant. You're asked to authorize the application, and then enter information for your profile.
 
 If the sign in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
+## Next steps
+
+When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development. To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](active-directory-b2c-troubleshoot-custom.md).
