@@ -85,28 +85,34 @@ After you have the access token, it's easy to call a web API. Your app will use 
         queue.add(request);
 ```
 
-### iOS
+### MSAL for iOS and macOS
+
+The methods to acquire tokens return an `MSALResult` object. `MSALResult` exposes an `accessToken` property which can be used to call a web API. Access token should be added to the HTTP authorization header, before making the call to access the protected Web API.
+
+Objective-C:
+
+```objective-c
+NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
+urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
+urlRequest.HTTPMethod = @"GET";
+urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
+        
+NSURLSessionDataTask *task =
+[[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
+     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
+[task resume];
+```
+
+Swift:
 
 ```swift
-        let url = URL(string: kGraphURI)
-        var request = URLRequest(url: url!)
-
-        // Put access token in HTTP request.
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                self.updateLogging(text: "Couldn't get graph result: \(error)")
-                return
-            }
-            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                self.updateLogging(text: "Couldn't deserialize result JSON")
-                return
-            }
-
-            // Successfully got data from Graph.
-            self.updateLogging(text: "Result from Graph: \(result))")
-        }.resume()
+let urlRequest = NSMutableURLRequest()
+urlRequest.url = URL(string: "https://contoso.api.com")!
+urlRequest.httpMethod = "GET"
+urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
+     
+let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
+task.resume()
 ```
 
 ### Xamarin
