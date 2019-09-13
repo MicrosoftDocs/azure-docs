@@ -28,7 +28,7 @@ The knowledge store supports two types of projections:
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
-To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md)
+To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
 ## Projection groups
 
