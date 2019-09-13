@@ -89,7 +89,7 @@
       items:
         - name: Deploy Azure AD Application Proxy
           href: deploy-azure-app-proxy.md
-        - name: Configure support for profile synchronization for SharePoint Server
+        - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Troubleshoot
       items:
