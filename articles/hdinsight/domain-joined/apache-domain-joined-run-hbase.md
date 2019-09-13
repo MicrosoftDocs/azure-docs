@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Configure Apache HBase policies in HDInsight with Enterprise Security Package - Azure
+title: Tutorial - Configure Apache HBase with Enterprise Security Package - Azure
 description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 09/04/2019
 ---
 
 # Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package
@@ -95,7 +95,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
 2. The **List of Policies** screen will display all Ranger policies created for this cluster. One pre-configured policy may be listed. Click **Add New Policy**.
 
-    ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Apache Ranger HBase policies list](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. On the **Create Policy** screen, enter the following values:
 
@@ -114,7 +114,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    * `*` indicates zero or more occurrences of characters.
    * `?` indicates single character.
 
-   ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Apache Ranger policy create sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
@@ -133,7 +133,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    |Select User  | marketing_user1 |
    |Permissions  | Read |
 
-   ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Apache Ranger policy create marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Click **Add** to save the policy.
 

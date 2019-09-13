@@ -186,7 +186,7 @@ The following information can be helpful when you work with [resources](resource
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -197,43 +197,32 @@ The following information can be helpful when you work with [resources](resource
 * If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *don't hard-code* the namespace. Use the **reference** function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you're using for the storage account in your template:
    
    ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
    
-   If the storage account is deployed in the same template that you're creating, you don't need to specify the provider namespace when you reference the resource. The following example shows the simplified syntax:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   If you have other values in your template that are configured to use a public namespace, change these values to reflect the same **reference** function. For example, you can set the **storageUri** property of the virtual machine diagnostics profile:
+   If the storage account is deployed in the same template that you're creating and the name of the storage account is not shared with another resource in the template, you don't need to specify the provider namespace or the apiVersion when you reference the resource. The following example shows the simplified syntax:
    
    ```json
    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
    }
    ```
-   
+     
    You also can reference an existing storage account that is in a different resource group:
 
    ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```

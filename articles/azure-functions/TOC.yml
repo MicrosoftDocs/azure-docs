@@ -212,6 +212,7 @@
       href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
+    displayName: App Insights, Application Insights, logs, logging
   - name: Secure
     items:
     - name: Buy SSL cert
@@ -250,6 +251,8 @@
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
     - name: Customize HTTP function endpoint
       href: functions-create-serverless-api.md
+    - name: Manage on-premises resources
+      href: functions-hybrid-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
@@ -272,8 +275,10 @@
       items: 
       - name: Functions 1.x
         href: functions-bindings-cosmosdb.md
+        displayName: Azure Cosmos DB
       - name: Functions 2.x
         href: functions-bindings-cosmosdb-v2.md
+        displayName: Azure Cosmos DB
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs

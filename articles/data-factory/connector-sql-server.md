@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -295,6 +295,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
 
 **Example 1: Append data**
 
@@ -321,7 +322,8 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
             },
             "sink": {
                 "type": "SqlSink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }
