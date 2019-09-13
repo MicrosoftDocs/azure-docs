@@ -20,7 +20,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 ### Supported regions
 
-Soft delete is currently supported in the West Central US region and East Asia.
+Soft delete is currently supported in the West Central US, East Asia, Canada Central, Canada East, France Central, France South, Korea Central, Korea South, UK South, UK West, Australia East, Australia South East, North Europe, West US, West US2, Central US, South East Asia, North Central US, South Central US, Japan East, Japan West, India South, India Central , India West, East US 2, Switzerland North, Switzerland West and all National region.
 
 ### Soft delete for VMs
 
@@ -95,23 +95,23 @@ No, it is built and enabled by default for all the recovery services vaults.
 #### Can I configure the number of days for which my data will be retained in soft-deleted state after delete operation is complete?
 
 No, it is fixed to 14 days of additional retention after the delete operation.
-  
+ 
 #### Do I need to pay the cost for this additional 14-day retention?
 
 No, this 14-day additional retention comes for free of cost as a part of soft-delete functionality.
-  
+ 
 #### Can I perform a restore operation when my data is in soft delete state?
 
 No, you need to undelete the soft deleted resource in order to restore. The undelete operation will bring the resource back into the **Stop protection with retain data state** where you can restore to any point in time. Garbage collector remains paused in this state.
-  
+ 
 #### Will my snapshots follow the same lifecycle as my recovery points in the vault?
 
 Yes.
-  
+ 
 #### How can I trigger the scheduled backups again for a soft-deleted resource?
 
 Undelete followed by resume operation will protect the resource again. Resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that is past its expiry date, you are advised to do it before triggering the resume operation.
-  
+ 
 #### Can I delete my vault if there are soft deleted items in the vault?
 
 Recovery Services vault cannot be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted after 14 days of delete operation. You can delete the vault only after all the soft deleted items have been purged.  
