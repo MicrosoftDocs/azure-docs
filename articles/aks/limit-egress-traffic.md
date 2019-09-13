@@ -12,7 +12,7 @@ ms.author: mlearned
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
 
-# Limit egress traffic for cluster nodes and control access to required ports and services in Azure Kubernetes Service (AKS)
+# Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR). Configure your preferred firewall and security rules to allow these required ports and addresses.
 
