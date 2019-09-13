@@ -78,11 +78,13 @@ This detection requires a specific configuration of the Syslog data connector:
     > [!div class="mx-imgBorder"]
     > ![Facilities required for anomalous SSH login detection](./media/connect-syslog/facilities-ssh-detection.png)
 
-2. Allow sufficient time for syslog information to be collected. Then from your Sentinel workspace, select your time period and run the following query:
+2. Allow sufficient time for syslog information to be collected. Then, navigate to **Azure Sentinel - Logs**, and copy and paste the following query:
     
     	Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
     
-    If the count is zero, confirm the configuration of the connector and that the monitored computers do have successful login activity for the time period specified for your query.
+    Change the **Time range** if required, and select **Run**.
+    
+    If the resulting count is zero, confirm the configuration of the connector and that the monitored computers do have successful login activity for the time period you specified for your query.
     
     If the count is greater than zero, your syslog data is suitable for anomalous SSH login detection. You enable this detection from **Analytics** >  **Active rules** > **(Preview) Anomalous SSH Login Detection**.
 
