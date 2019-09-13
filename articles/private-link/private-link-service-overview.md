@@ -86,7 +86,8 @@ Private Link service provides you rich set of options for controlling the exposu
 - Visibility: Restricted by subscriptions: 
     - Intake parameter:  {sub1, sub2, sub3}.  
     - Exposed to customer with RBAC permissions and to user subscriptions in your selected list. 
-    - Costumers not in visibility list will not be able to find the service even with alias information.
+    - Cosumers not in the visibility list will not be able to find the service even with alias information.
+
 ## Control service access 
  
 Consumers having exposure (controlled by visibility setting) to your Private Link service can create a private endpoint in their VNets and request a connection to your Private Link service. The private endpoint connection will be created in "Pending" state on the Private Link service object. The service provider is responsible for acting on the connection request. You can either approve the connection, reject the connection, or delete the connection. Only connections that are approved can send traffic to Private Link service.  
