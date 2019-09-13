@@ -474,9 +474,12 @@ Limitations:
 - Restore of `.BAK` file of a database that contains any limitation described in this document (for example, `FILESTREAM` or `FILETABLE` objects) cannot be restored on Managed Instance.
 - `.BAK` files that contain multiple backup sets can't be restored. 
 - `.BAK` files that contain multiple log files can't be restored.
-- Backups that contain databases bigger than 8TB, active in-memory OLTP objects, or more than 280 files can't be restored on a General Purpose instance. 
+- Backups that contain databases bigger than 8TB, active in-memory OLTP objects, or number of files that would exceed 280 files per instance can't be restored on a General Purpose instance. 
 - Backups that contain databases bigger than 4TB or in-memory OLTP objects with the total size larger than the size described in [resource limits](sql-database-managed-instance-resource-limits.md) cannot be restored on Business Critical instance.
 For information about restore statements, see [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+
+ > [!IMPORTANT]
+ > The same limitations apply to built-in point-in-time restore operation. As an example, General Purpose database greater than 4 TB cannot be restored on Business Critical instance. Business Critical database with In-memory OLTP files or more than 280 files cannot be restored on General Purpose instance.
 
 ### Service broker
 
