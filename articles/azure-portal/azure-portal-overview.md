@@ -64,6 +64,11 @@ We pre-populated your Favorites in the sidebar with links to commonly used servi
 > [!TIP]
 > The quickest way to find a resource, service, or documentation is to use *Search* in the global header. Use the breadcrumb links to go back to previous pages.
 >
+Watch this video for a demo on how to use global search in the Azure portal.
+
+> [VIDEO > https://www.youtube.com/embed/nZ7WwTZcQbo]
+
+[How to use global search in the Azure portal](https://www.youtube.com/watch?v=nZ7WwTZcQbo)
 
 ## Next steps
 
