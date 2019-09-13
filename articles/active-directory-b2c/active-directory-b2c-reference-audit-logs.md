@@ -96,7 +96,7 @@ To authenticate to the Azure AD reporting API you first need to register an appl
 To download the Azure AD B2C audit logs via the API, you'll want to filter the logs to the **B2C** category. To filter by category, use the query string parameter when calling the Azure AD reporting API endpoint, as shown below:
 
 ```HTTP
-https://graph.microsoft.com/beta/auditLogs/directoryAudits?filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
+https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
 ### PowerShell script
