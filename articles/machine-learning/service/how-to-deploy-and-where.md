@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 
 ms.custom: seoapril2019
 ---
@@ -760,7 +760,7 @@ For a utility that can create client libraries from the specification, see [swag
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning pipelines.
 
-For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](how-to-run-batch-predictions.md).
+For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a> IoT Edge inference
 Support for deploying to the edge is in preview. For more information, see [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
@@ -800,6 +800,19 @@ For more sample projects and examples, see these sample repos in GitHub:
 
 * [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+## Download a model
+If you want to download your model to use it in your own execution environment, you can do so with the following SDK / CLI commands:
+
+SDK:
+```python
+model_path = Model(ws,'mymodel').download()
+```
+
+CLI:
+```azurecli-interactive
+az ml model download --model-id mymodel:1 --target-dir model_folder
+```
 
 ## Package models
 
