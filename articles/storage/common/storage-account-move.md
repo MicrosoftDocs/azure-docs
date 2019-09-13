@@ -13,7 +13,7 @@ ms.reviewer: dineshm
 
 # Move an Azure Storage account to another region
 
-To move a storage account, create a copy of your storage account in another region, and then move data to that account by using AzCopy.
+To move a storage account, create a copy of your storage account in another region, and then move data to that account by using AzCopy or another of your choice.
 
 This article shows you how to do this by using Azure portal and PowerShell. 
 
@@ -196,19 +196,19 @@ Deploy the template to create a new storage account in the target region.
 
 ### Configure the new storage account
 
-Some settings don't export to a template. You'll have to manually add those settings to the new storage account. Here's a list of those settings:
+Some features won't export to a template, so you'll have to add them to the new storage account. 
 
-- Lifecycle management policies. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view).
+The following table lists these features along with guidance for adding them to your new storage account.
 
-- Static websites. See [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md).
+| Feature    | Guidance    |
+|--------|-----------|
+| **Lifecycle management policies** | link |
+| **Static websites** | [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view) |
+| **Event subscriptions** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
-- Event subscriptions. See [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md).
-
-- Alerts. See [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md).
-
-- Content Delivery Network (CDN). 
-
-  If you set up a Content Delivery Network (CDN) in the source account, just change the origin of your existing CDN to the static website or blob URL in your new account. See [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md).
+>[!NOTE] If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account. 
 
 ### Move data to the new storage account
 
