@@ -259,6 +259,7 @@ Local credential management varies depending on Linux distribution. If your Linu
 1. Open your local credential management tool, find your saved credentials.
 2. Look for entries with key `<connection_type_key>/<corrupted_connection_name>` (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Delete these entries and add the connections back.
+---
 
 If you still come across this error after doing these steps, or if you'd like to share what you think corrupts the connections, [open an issue](https://github.com/microsoft/AzureStorageExplorer/issues) on our GitHub page.
 
