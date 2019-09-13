@@ -53,7 +53,7 @@ For more information about Private Endpoint, see [What is Private Endpoint?](pri
 |Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
 |Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
-|Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
+|Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS       | Preview         |
 |  | Azure Data Lake Storage Gen2        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
 |  |  Azure SQL Database         | Azure Public cloud regions         |   Preview      |
 ||Azure SQL Data Warehouse|Azure Public cloud regions|Preview|

@@ -6,7 +6,7 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
