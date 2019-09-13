@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Search documentation # < 60 chars
-summary: Enterprise cloud search over private, heterogenous content with AI enrichment if content is unstructured or unsearchable in raw form. Learn how to build a single fast index, searchableusing simple-to-advanced syntax for a broad range of scenarios. 
+summary: Enterprise cloud search over private heterogenous content, applying AI enrichment if your content is unstructured or unsearchable in its raw form. Learn how to build a single fast index, searchable using simple-to-advanced query syntax for a broad range of scenarios. 
 
 metadata:
   title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Enterprise cloud search over private, heterogenous content with AI enrichment if content is unstructured or unsearchable in raw form. Learn how to build a single fast index, searchable using simple-to-advanced syntax for a broad range of scenarios. 
+  description: Enterprise cloud search over private heterogenous content, applying AI enrichment if your content is unstructured or unsearchable in its raw form. Learn how to build a single fast index, searchable using simple-to-advanced query syntax for a broad range of scenarios. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: cognitive-search
