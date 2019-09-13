@@ -54,19 +54,19 @@ The following steps show you how to prepare the virtual network for the move usi
 3. Obtain the resource ID of the virtual network you want to move to the target region and place it in a variable using [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
 
     ```azurepowershell-interactive
-    $sourceVNETID = (Get-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resource-group-name>).Id
+    $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
 4. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
-   Export-AzResourceGroup -ResourceGroupName <resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
+   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
 5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
-   notepad <resource-group-name>.json
+   notepad <source-resource-group-name>.json
    ```
 
 6. To edit the parameter of the virtual network name, change the property **defaultValue** of the source virtual network name to the name of your target virtual network, ensure the name is in quotes:
@@ -76,7 +76,7 @@ The following steps show you how to prepare the virtual network for the move usi
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualNetworks_myVNET1_name": {
-        "defaultValue": "myVNET1-MOVE",
+        "defaultValue": "<target-virtual-network-name>",
         "type": "String"
         }
     ```
@@ -118,7 +118,7 @@ The following steps show you how to prepare the virtual network for the move usi
                                 "type": "Microsoft.Network/virtualNetworks",
                                 "apiVersion": "2019-06-01",
                                 "name": "[parameters('virtualNetworks_myVNET1_name')]",
-                                "location": "TARGET REGION",
+                                "location": "<target-region",
                                 "properties": {
                                     "provisioningState": "Succeeded",
                                     "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
@@ -200,14 +200,14 @@ The following steps show you how to prepare the virtual network for the move usi
 11. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
     ```azurpowershell-interactive
-    New-AzResourceGroup -Name <resource-group-name> -location <target-region>
+    New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
 12. Deploy the edited **<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
-    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <resource-group-name>.json
+    New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
     ```
 
@@ -215,13 +215,13 @@ The following steps show you how to prepare the virtual network for the move usi
     
     ```azurepowershell-interactive
 
-    Get-AzResourceGroup -Name <resource-group-name>
+    Get-AzResourceGroup -Name <target-resource-group-name>
 
     ```
 
     ```azurepowershell-interactive
 
-    Get-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resource-group-name>
+    Get-AzVirtualNetwork -Name <target-virtual-network-name> -ResourceGroupName <target-resource-group-name>
 
     ```
 
@@ -231,7 +231,7 @@ After the deployment, if you wish to start over or discard the virtual network i
 
 ```azurepowershell-interactive
 
-Remove-AzResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ```
 
@@ -241,13 +241,13 @@ To commit the changes and complete the move of the virtual network, delete the s
 
 ```azurepowershell-interactive
 
-Remove-AzResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name <source-resource-group-name>
 
 ```
 
 ``` azurepowershell-interactive
 
-Remove-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resource-group-name>
+Remove-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>
 
 ```
 
