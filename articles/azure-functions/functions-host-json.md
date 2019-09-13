@@ -180,6 +180,19 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md).
 
+```json
+{
+    "extensions": {
+        "http": {
+            "routePrefix": "api",
+            "maxOutstandingRequests": 200,
+            "maxConcurrentRequests": 100,
+            "dynamicThrottlesEnabled": true
+        }
+}
+```
+
+
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## logging
