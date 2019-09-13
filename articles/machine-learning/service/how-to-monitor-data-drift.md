@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
+ms.date: 09/13/2019
 ---
 
 # Detect data drift (preview) on models deployed to Azure Kubernetes Service (AKS)
@@ -154,17 +154,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen on the model details page in the Azure portal or your workspace landing page (preview).
+The configuration of the data drift detector can be seen on the model details page in your [workspace landing page (preview)](https://ml.azure.com).
 
-![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
+![Azure portal Data Drift](media/how-to-monitor-data-drift/drift-config.png)
 
-## View results in Azure portal
+## View results in your workspace landing page
 
-To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (preview)' tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [workspace landing page (preview)](https://ml.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A **Data drift** tab is now available visualizing the data drift metrics. 
 
-![Azure portal Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
+[![workspace landing page Data Drift](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
-The results are also available in the model details in your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Receiving drift alerts
 
