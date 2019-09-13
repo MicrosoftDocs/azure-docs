@@ -56,10 +56,79 @@ The following table applies to U-SQL.
 
 ## Azure functions
 
-| Error code | Error message                           | Description                                                  | Recommendation                           |
-| ------------ | --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 3600         | Response content is not a valid JObject. | The Azure function that was called didn't return a JSON payload in the response. Azure function activity in Data Factory supports only JSON response content. | Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`. |
-| 3600         | Invalid HttpMethod: '...'.               | The HTTP method specified in the   activity payload is not supported by the Azure function activity. | Use a supported HTTP method, such as PUT, POST, GET, DELETE, OPTIONS, HEAD, or TRACE. |
+### Error code:  3602 (AzureFunctionInvalidHttpMethod)
+
+- **Message**: Invalid HttpMethod: {method}. 
+
+- **Cause**: Http method specified in the activity payload is not supported by Azure Function Activity. 
+
+- **Recommendation**: The Http methods that are supported are PUT, POST, GET, DELETE, OPTIONS, HEAD, and TRACE.
+
+### Error code:  3603 (AzureFunctionInvalidResponseContent)
+
+- **Message**: Response content is not a valid JObject. 
+
+- **Cause**: The Azure function that was called didn't return a JSON payload in the response. Azure function activity in Data Factory supports only JSON response content. 
+
+- **Recommendation**: Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`.
+
+### Error code:  3606 (AzureFunctionKeyNotDefined)
+
+- **Message**: Azure function activity missing function key. 
+
+- **Cause**: Azure function activity definition is not complete. 
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionKey'.
+
+### Error code:  3607 (AzureFunctionFunctionNameNotDefined)
+
+- **Message**: Azure function activity missing function name.
+
+- **Cause**: Azure function activity definition is not complete. 
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionName'.
+
+### Error code:  3608 (AzureFunctionFunctionCallFailed)
+
+- **Message**: Call to provided Azure function '{FunctionName}' failed with status-'{statusCode}' and message - '{message}'. 
+
+- **Cause**: Azure function details in activity definition may be incorrect. 
+
+- **Recommendation**: Fix the azure function details and retry again.
+
+### Error code:  3609 (AzureFunctionNotDefined)
+
+- **Message**: Azure function activity missing functionAppUrl. 
+
+- **Cause**: Azure function activity definition is not complete. 
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionAppUrl'.
+
+### Error code:  3610 (AzureFunctionErrorCallingEndpoint)
+
+- **Message**: There was an error while calling endpoint. 
+
+- **Cause**: Function URL may be incorrect.
+
+- **Recommendation**: Please make sure the value for 'functionAppUrl' in the activity JSON is correct and try again.
+
+
+### Error code:  3611 (AzureFunctionMethodNotDefined)
+
+- **Message**: Azure function activity missing Method in JSON. 
+
+- **Cause**: Azure function activity definition is not complete.
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'method'.
+
+
+### Error code:  3612 (AzureFunctionLinkedServiceNotDefined)
+
+- **Message**: Azure function activity missing LinkedService definition in JSON.
+
+- **Cause**: Azure function activity definition is not complete.
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has linked service details.
 
 
 
