@@ -83,7 +83,7 @@ Each time a CDN POP needs to fill its cache, it makes a request to the origin fo
 
 - TTL influence: A higher TTL for an object means it needs to be fetched from the origin less frequently. It also means clients, such as browsers, can cache the object longer, which can reduce the transactions to the CDN.
 
-## Which origin services are elligible for free data transfer with Azure CDN from Microsoft? 
+## Which origin services are eligible for free data transfer with Azure CDN from Microsoft? 
 If you use one of the following Azure services as your CDN origin, you will not be charged from Data transfer from the Origin to the CDN PoPs. 
 
 - Azure Storage
@@ -106,7 +106,7 @@ If you use one of the following Azure services as your CDN origin, you will not 
 - Azure API Management
 - Azure Batch 
 - Azure Data Explorer
-- HD Insight
+- HDInsight
 - Azure Cosmos DB
 - Azure Data Lake Store
 - Azure Machine Learning service 
