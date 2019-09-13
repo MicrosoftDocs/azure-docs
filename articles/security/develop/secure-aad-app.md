@@ -112,7 +112,7 @@ To deploy Azure Key Vault by using Powershell:
     $UserObjectId = (Get-AzADUser -SearchString $keyVaultAdminUser).Id
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -ObjectId $UserObjectId 
     -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
-}
+    }
 
 #### To create an access policy to allow a user to get and list cryptographic keys, certificates and secrets if you know the User Principal Name:
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName 
@@ -245,21 +245,21 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 Azure App Service enables you to build and host web apps using the languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
 
 #### Create an App Service plan in Free tier.
-New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
 #### Create a web app.
-New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
 
-Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
-Read-Host "Press [Enter] key when ready ..."
+    Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
+    Read-Host "Press [Enter] key when ready ..."
 
 #### Before continuing, go to your DNS configuration UI for your custom domain and follow the instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the hostname "www" and point it your web app's default domain name.
 
 #### Upgrade App Service plan to Shared tier (minimum required by custom domains)
-Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
+    Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
 
 #### Add a custom domain name to the web app. 
-Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `-HostNames @($fqdn,"$webappname.azurewebsites.net")
+    Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `-HostNames @($fqdn,"$webappname.azurewebsites.net")
 
 ## Guidance and recommendations
 
