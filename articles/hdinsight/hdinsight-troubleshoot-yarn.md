@@ -28,27 +28,27 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 1. Select the **Ambari Views** icon, and then select the grid pattern. Next, select **YARN Queue Manager**.
 
-    ![Select the Ambari Views icon](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Select the Ambari Views icon](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Select the **default** queue.
 
-    ![Select the default queue](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Select the default queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. For the **default** queue, change the **capacity** from 50% to 25%. For the **thriftsvr** queue, change the **capacity** to 25%.
 
-    ![Change the capacity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Change the capacity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. To create a new queue, select **Add Queue**.
 
-    ![Select Add Queue](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Select Add Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Name the new queue.
 
-    ![Name the queue Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Name the queue Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Leave the **capacity** values at 50%, and then select the **Actions** button.
 
-    ![Select the Actions button](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Select the Actions button](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Select **Save and Refresh Queues**.
 
-    ![Select Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Select Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 These changes are visible immediately on the YARN Scheduler UI.
 
