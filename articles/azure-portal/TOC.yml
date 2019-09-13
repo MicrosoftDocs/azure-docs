@@ -4,6 +4,8 @@
   items:
   - name: About the Azure portal
     href: azure-portal-overview.md
+  - name: Get started with Azure Quickstart Center
+    href: azure-portal-quickstart-center.md
   - name: Supported browsers and devices
     href: azure-portal-supported-browsers-devices.md 
 - name: Concepts
