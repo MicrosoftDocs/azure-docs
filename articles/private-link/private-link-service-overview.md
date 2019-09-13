@@ -80,7 +80,7 @@ Private Link service provides you rich set of options for controlling the exposu
     - Your service is not exposed from consumer side. 
     - Only exposed to customers with RBAC permissions.
 - Visibility: Anyone with Alias: 
-    - Intake parameter: {*}. 
+    - Intake parameter: {}. 
     - Exposed to all Azure customers. All Azure subscriptions can find your service. 
     - Customers will need your alias for finding your service. You need to share the alias offline.  
 - Visibility: Restricted by subscriptions: 
