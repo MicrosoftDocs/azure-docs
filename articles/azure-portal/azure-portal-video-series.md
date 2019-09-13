@@ -13,7 +13,7 @@ manager: mtillman
 ---
 # Azure portal how-to video series
 
-The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist to give you more interactive demos to help you be more efficient and productive.
+The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
@@ -25,7 +25,7 @@ In this featured video, we explore the self-help support options available in th
 
 ## Video playlist
 
-Explore the [Azure Portal How to series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) for some great tips on how make the most of the Azure portal. Subscribe to the channel to be notified when new videos are added.
+Explore the [Azure portal How to series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) for some great tips on how to make the most of the Azure portal. Subscribe to the channel to be notified when new videos are added.
 
 ## Next steps:
 
