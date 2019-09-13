@@ -47,6 +47,7 @@ This article lists SQL Database features that are currently in public preview. F
 | <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> | Migrate database from on-premises that already have enabled Transparent Data Encryption (TDE) with existing TDE keys. |
 | <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> | Keep a copy of the instance in another region and ensure that your data will be available even in the regional disaster scenario. |
 
+---
 ## Updates
 
 For a list of SQL Database updates and improvements, see [SQL Database service updates](https://azure.microsoft.com/updates/?product=sql-database).
