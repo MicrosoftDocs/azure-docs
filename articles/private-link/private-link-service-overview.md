@@ -61,7 +61,7 @@ A Private Link Service specifies the following properties:
  
 - A single Private Link Service can be accessed from multiple Private Endpoints belonging to different VNets, Subscriptions and/or AD Tenants. The connection is established through a connection workflow.   
  
-- Multiple Private Link Services can be created on the same standard load balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per standard load balancer and per subscription. For details, see Azure limits. 
+- Multiple Private Link Services can be created on the same standard load balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per standard load balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
  
 - Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, Service Providers can assign up to eight NAT IPs per Private Link service. With each NAT IP, you can assign more ports for your TCP connections and thus scale out. Once you add multiple NAT IP to Private Link Service, you can't delete the NAT IPs. This is done to ensure that active connections are not impacted while deleting the NAT IPs.
 
