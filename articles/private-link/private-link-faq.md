@@ -17,17 +17,15 @@ ms.author: kumud
 ### What is Azure Private Link service and Private Endpoint?
 
 - **Azure Private Endpoint**: Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. 
-- **Azure Private Link service**: Azure Private Link service is a service created by  a service provider. Currently, a Private Link Service can be attached to the frontend IP configuration of a Standard Load Balancer. You can also connect to Azure services via Private Endpoints.
+- **Azure Private Link service**: Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. You can also connect to Azure services via Private Endpoints.
 
 ### How can I access control my PaaS resources over Private Link?
 
-Today, we don't offer any ACL-ing mechanism on the Azure service side to protect the resource from traffic that comes from a private endpoint over private link. However, there are two mechanisms with which a PaaS resources administrator can secure the resources over Private Link:
-
-- For private endpoint connection, PaaS admins can choose whether to approve the connection request or not. After it's approved, all data will flow.  
+Today, we don't offer any ACL-ing mechanism on the Azure service side to protect the resource from traffic that comes from a private endpoint over Private Link. However, for a Private Endpoint connection, a PaaS resources administrator can choose whether to approve the connection request or not. After it's approved, all data will flow.  
  
 ### Can I connect my service to multiple Private Endpoints?
 
-Yes. One Private Link service can connect to multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link Service.  
+Yes. One Private Link service can connect to multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
  
 ### Is my data over Private Link always private?
 
@@ -42,11 +40,11 @@ VNet Service Endpoints and Private Endpoints are independent of each other.
 
 ### What is the relationship between Private Link service and Private Endpoint?
 
-It is a one to many relationship. One Private Link service can connect to multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.  
+It is a one-to-many relationship. One Private Link service can connect to multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.  
  
-### Does the data always stay off internet?
+### Does the data always stay off the internet?
 
-All data over Azure Private Link stays on the Microsoft network. It doesn’t traverse internet.  
+All data over Azure Private Link stays on the Microsoft network. It doesn’t traverse the internet.  
  
 ### What is the difference between a VNet service endpoint and a private endpoint?
 
@@ -56,7 +54,7 @@ VNet service endpoints and private endpoints are independent of each other. VNet
 
 No. VNet service endpoints and private endpoints are independent technologies/resources. They can complement each other and both will co-exist. Some functionality and use cases may overlap. You can choose the model that fits your needs.  
  
-### I am a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP address space and don’t overlap with my IP address space?
+### I am a service provider using Azure Private Link. Do I need to make sure all my customers have a unique IP address space and don’t overlap with my IP address space?
 
 No. Azure private link uses NAT-ing underneath. Therefore, you aren't required to have non-overlapping address space with your customers.   
  
@@ -74,13 +72,13 @@ The following are the prerequisites for creating a Private Link service:
 
 You can scale your Private Link service in a few different ways:  
 
-- Add backend VMs to the pool behind your Standard Load Balancer 
-- Add NAT IP to the Private Link service. We allow up to eight NAT IP addresses per Private Link service.  
+- Add backend virtual machines (VMs) to the pool behind your Standard Load Balancer. 
+- Add NAT IP addresses to the Private Link service. We allow up to eight NAT IP addresses per Private Link service.  
 - Add a new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
  
 ### How should I control the exposure of my Private Link service?
 
-You can control the exposure using the visibility configuration on Private Link service. Visibility support three settings:
+You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
 
 - **None** - Only subscriptions with RBAC access can locate the service. 
 - **Restrictive** - Only subscriptions that are whitelisted and with RBAC access can locate the service. 
@@ -96,7 +94,7 @@ No. Private Link service doesn’t require a dedicated subnet for NAT IP address
 
 ### How do I know the source info if the connections are NAT-ed on the destination side?
 
-Azure Private Link supports TCP proxy V2 which allows carrying source info to the end destination. You need to configure your service to receive and consume TCP proxy V2 packets.
+Azure Private Link supports TCP proxy V2 which allows carrying source info to the end destination. You must configure your service to receive and consume TCP proxy V2 packets.
  
 ## Private Endpoint 
  
