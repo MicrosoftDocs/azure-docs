@@ -38,11 +38,11 @@ landingContent:
     linkLists: 
       - linkListType: concept
         links:
-          - text: Intents summarizes complete utterance
+          - text: Intents
             url: luis-concept-intent.md
-          - text: Entity data is pulled from the utterance
+          - text: Entities
             url: luis-concept-entity-types.md
-          - text: Understand a good example utterance
+          - text: A good example utterance
             url: luis-concept-utterance.md   
           - text: Phrase lists features
             url: luis-concept-feature.md
