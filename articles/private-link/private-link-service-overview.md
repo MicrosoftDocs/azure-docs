@@ -11,7 +11,7 @@ ms.author: kumud
 ---
 # What is Azure Private Link Service?
 
-Azure Private Link service is a service you can create in your virtual network (VNet) and deliver it privately to your customers. Your customers can access this service by mapping it to private endpoint inside thier VNets. This article explains Private Link service concepts to help you use them effectively. 
+Azure Private Link service is a service you can create in your virtual network (VNet) and deliver it privately to your customers. Your customers can access this service by mapping it to private endpoint inside their VNets. This article explains Private Link service concepts to help you use them effectively. 
 
 ## Workflow
 
