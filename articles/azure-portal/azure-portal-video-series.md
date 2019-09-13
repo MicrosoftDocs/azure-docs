@@ -25,7 +25,7 @@ In this featured video, we explore the self-help support options available in th
 
 ## Video playlist
 
-Explore the [Azure portal How to series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) for some great tips on how to make the most of the Azure portal. Subscribe to the channel to be notified when new videos are added.
+Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) for some great tips on how to make the most of the Azure portal. Subscribe to the channel to be notified when new videos are added.
 
 ## Next steps:
 
