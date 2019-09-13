@@ -275,7 +275,7 @@ Blocking unused ports and limiting the attack surface exposure is a security bes
 App Service instances can be integrated with virtual networks. This integration allows them to be configured with network security group policies that manage the
 app's incoming and outgoing traffic.
 
-1. To enable this feature, on the Azure App service instance blade, under **Settings**, select **Networking**. In the right pane, configure under **VNet Integration**
+1. To enable this feature, on the Azure App service instance blade, under **Settings**, selects **Networking**. In the right pane, configure under **VNet Integration**
 
    ![New virtual network integration](./media/secure-web-app/app-vnet-menu.png)
 
