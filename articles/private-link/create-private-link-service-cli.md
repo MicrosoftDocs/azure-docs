@@ -1,6 +1,6 @@
 ---
-title: 'Create an Azure private link service using Azure CLI'
-description: Learn how to create an Azure private link service using Azure CLI
+title: 'Create an Azure Private Link service using Azure CLI'
+description: Learn how to create an Azure Private Link service using Azure CLI
 services: virtual-network
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
@@ -10,13 +10,13 @@ ms.date: 09/11/2019
 ms.author: kumud
 
 ---
-# Create a private Link service using Azure CLI
-This article shows you how to create a private link service in Azure using Azure CLI.
+# Create a Private Link service using Azure CLI
+This article shows you how to create a Private Link service in Azure using Azure CLI.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use the latest Azure CLI version. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
-## Create a private link service
+## Create a Private Link service
 ### Create a resource group
 
 Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *westcentralus* location:
@@ -42,21 +42,23 @@ Create a public IP with [az network public-ip create](/cli/azure/network/az-netw
 ```azurecli-interactive
 az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku standard
 ```
-### Create a Standard Load Balancer 
-Create a standard load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). This example creates a standard load balancer named *myLoadBalancer*  using public IP *myPublicIP* in resource group named *myResourceGroup*. 
-```azurecli-interactive
-az network lb create --resource-group myResourceGroup --name myLoadBalancer --sku standard --public-ip-address myPublicIP --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool  
-```
-### Disable private link service network policies on subnet 
-Private link service requires a NAT IP from any subnet of your choice  within a virtual network. Currently, we don’t support Network Policies on these NAT IPs.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable private link service network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
+
+### Create a Internal Load Balancer 
+Create a internal load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). This example creates a internal load balancer named *myILB* in resource group named *myResourceGroup*. 
 
 ```azurecli-interactive
-az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name MySubnet --disable-private-link-service-network-policies true 
+az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
+```
+### Disable Private Link service network policies on subnet 
+Private Link service requires a NAT IP from any subnet of your choice  within a virtual network. Currently, we don’t support Network Policies on these NAT IPs.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable Private Link service network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
+
+```azurecli-interactive
+az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## Create a private link service  
+## Create a Private Link service  
  
-Create a private link service using Standard Load Balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/az-network-private-link-service-create). This example creates a private link service named *myPLS* using Standard Load Balancer named *myLoadBalancer* in resource group named *myResourceGroup*. 
+Create a Private Link service using Standard Load Balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/az-network-private-link-service-create). This example creates a Private Link service named *myPLS* using Standard Load Balancer named *myLoadBalancer* in resource group named *myResourceGroup*. 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -64,15 +66,15 @@ az network private-link-service create \
 --name myPLS \
 --vnet-name myVirtualNetwork \
 --subnet mySubnet \
---lb-name myLoadBalancer \
+--lb-name myILB \
 --lb-frontend-ip-configs myFrontEnd \
 --location westcentralus 
 ```
 Once created, take note of the Private Link Service ID. You will need that later for requesting connection to this service.  
  
-At this stage, your private link service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating private link service using Azure CLI.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end-to-end traffic flows, you can strongly advised to configure your application behind your Standard Load Balancer.  
+At this stage, your Private Link service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating Private Link service using Azure CLI.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end-to-end traffic flows, you can strongly advised to configure your application behind your Standard Load Balancer.  
  
-Next, we will demonstrate how to map this service to a private endpoint in different virtual network using Azure CLI. Again, the example is limited to creating the private endpoint and connecting to private link service created above using Azure CLI. Additionally, you can create virtual machines in the virtual network to send/receive traffic to the private endpoint.        
+Next, we will demonstrate how to map this service to a private endpoint in different virtual network using Azure CLI. Again, the example is limited to creating the private endpoint and connecting to Private Link service created above using Azure CLI. Additionally, you can create virtual machines in the virtual network to send/receive traffic to the private endpoint.        
  
 ## Private endpoints
 
@@ -105,7 +107,7 @@ az network vnet subnet update \
 --disable-private-endpoint-network-policies true 
 ```
 ## Create private endpoint and connect to private link service 
-Create a private endpoint for consuming private link service created above in your virtual network:
+Create a private endpoint for consuming Private Link service created above in your virtual network:
   
 ```azurecli-interactive
 az network private-endpoint create \
@@ -117,15 +119,15 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-You can get the *private-connection-resource-id* with `az network private-link-service show` on private link service. The ID will look like:   
+You can get the *private-connection-resource-id* with `az network private-link-service show` on Private Link service. The ID will look like:   
 /subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
-## Show private link service connections 
+## Show Private Link service connections 
  
-See connection requests on your private link service  using [az network private-link-service show](/cli/azure/network/az-network-private-link-service-show).    
+See connection requests on your Private Link service  using [az network private-link-service show](/cli/azure/network/az-network-private-link-service-show).    
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```
 ## Next steps
-- Learn more about [Azure private link service](private-link-service-overview.md)
+- Learn more about [Azure Private Link service](private-link-service-overview.md)
  
