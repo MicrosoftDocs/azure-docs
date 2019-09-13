@@ -234,7 +234,7 @@ When the AKS cluster was created, [Azure Monitor for containers](../azure-monito
 
 ## Delete the cluster
 
-When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
