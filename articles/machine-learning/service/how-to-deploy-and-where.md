@@ -1,7 +1,8 @@
+
 ---
 title: How and where to deploy models 
 titleSuffix: Azure Machine Learning service
-description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
+description: 'Learn how and where to deploy your Azure Machine Learning service models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,65 +17,65 @@ ms.custom: seoapril2019
 
 # Deploy models with the Azure Machine Learning service
 
-Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices.
+Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
-The workflow is similar regardless of [where you deploy](#target) your model:
+The workflow is similar no matter [where you deploy](#target) your model:
 
 1. Register the model.
-1. Prepare to deploy (specify assets, usage, compute target).
+1. Prepare to deploy. (Specify assets, usage, compute target.)
 1. Deploy the model to the compute target.
-1. Test the deployed model, also called web service.
+1. Test the deployed model, also called a web service.
 
-For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
+For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning service](concept-model-management-and-deployment.md).
 
 ## Prerequisites
 
 - An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
-- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
+- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 ## Connect to your workspace
 
-The following code demonstrates how to connect to an Azure Machine Learning service workspace using information cached to the local development environment:
-
-**Using the SDK**
-
-```python
-from azureml.core import Workspace
-ws = Workspace.from_config(path=".file-path/ws_config.json")
-```
-
-For more information on using the SDK to connect to a workspace, see the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace).
-
-**Using the CLI**
-
-When using the CLI, use the `-w` or `--workspace-name` parameter to specify the workspace for the command.
-
-**Using VS Code**
-
-When using VS Code, the workspace is selected using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
-
-## <a id="registermodel"></a> Register your model
-
-A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
-
-> [!TIP]
-> When registering a model, you provide either a path to a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process; it does not need to match the path used in the entry script. For more information, see [What is get_model_path](#what-is-get_model_path).
-
-Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model:
-
-### Register a model from an Experiment Run
-
-The code snippets in this section demonstrate registering a model from a training run:
-
-> [!IMPORTANT]
-> These snippets assume that you have previously performed a training run and have access to the `run` object (SDK example) or run ID value (CLI example). For more information on training models, see [Create and use compute targets for model training](how-to-set-up-training-targets.md).
+The following code shows how to connect to an Azure Machine Learning service workspace by using information cached to the local development environment:
 
 + **Using the SDK**
 
-  When using the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) or [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
+   ```python
+   from azureml.core import Workspace
+   ws = Workspace.from_config(path=".file-path/ws_config.json")
+   ```
+
+  For more information on using the SDK to connect to a workspace, see the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) documentation.
+
++ **Using the CLI**
+
+   When using the CLI, use the `-w` or `--workspace-name` parameter to specify the workspace for the command.
+
++ **Using VS Code**
+
+   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
+
+## <a id="registermodel"></a> Register your model
+
+A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
+
+> [!TIP]
+> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [What is get_model_path?](#what-is-get_model_path).
+
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. The following examples demonstrate how to register a model.
+
+### Register a model from an experiment run
+
+The code snippets in this section demonstrate how to register a model from a training run:
+
+> [!IMPORTANT]
+> To use these snippets, you need to have previously performed a training run and you need to have access to the `Run` object (SDK example) or the run ID value (CLI example). For more information on training models, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+
++ **Using the SDK**
+
+  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or an [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
   + Register a model from an `azureml.core.Run` object:
  
@@ -83,7 +84,7 @@ The code snippets in this section demonstrate registering a model from a trainin
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) reference.
+    The `model_path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) documentation.
 
   + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
 
@@ -94,9 +95,9 @@ The code snippets in this section demonstrate registering a model from a trainin
         print(run.model_id)
     ```
 
-    In this example, the `metric` and `iteration` parameters are not specified, which causes the iteration with the best primary metric to be registered. The `model_id` value returned from the run is used instead of a model name.
+    In this example, the `metric` and `iteration` parameters aren't specified, so the iteration with the best primary metric will be registered. The `model_id` value returned from the run is used instead of a model name.
 
-    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) reference.
+    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) documentation.
 
 + **Using the CLI**
 
@@ -106,19 +107,19 @@ The code snippets in this section demonstrate registering a model from a trainin
 
   [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
-  The `--asset-path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
+  The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
 + **Using VS Code**
 
-  Register models using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
+  Register models using any model files or folders by using the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
 ### Register a model from a local file
 
-You can register a model by providing a **local path** to the model. You can provide either a folder or a single file. You can use this method to register both models trained with Azure Machine Learning service and then downloaded, or models trained outside Azure Machine Learning.
+You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with the Azure Machine Learning service and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-+ **ONNX example with the Python SDK:**
++ **Using the SDK and ONNX**
 
     ```python
     import os
@@ -136,7 +137,7 @@ You can register a model by providing a **local path** to the model. You can pro
                             description = "MNIST image classification CNN from ONNX Model Zoo",)
     ```
 
-  To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files.
 
 + **Using the CLI**
 
@@ -144,64 +145,63 @@ You can register a model by providing a **local path** to the model. You can pro
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  To include multiple files in the model registration, set `-p` to the directory that contains the files.
+  To include multiple files in the model registration, set `-p` to the path of a folder that contains the files.
 
 **Time estimate**: Approximately 10 seconds.
 
-For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+For more information, see the documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-For more information on working with models trained outside Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
+For more information on working with models trained outside the Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
 ## Choose a compute target
 
-The following compute targets, or compute resources, can be used to host your web service deployment. 
+You can use the following compute targets, or compute resources, to host your web service deployment:
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## Prepare to deploy
 
-Deploying the model requires several things:
+To deploy the model, you need the following items:
 
-* An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
-
-    > [!IMPORTANT]
-    > The entry script is specific to your model; it must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
-    >
-    > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning to it to the client.
+* **An entry script**. This script accepts requests, scores the requests by using the model, and returns the results.
 
     > [!IMPORTANT]
-    > The Azure Machine Learning SDK does not provide a way for web service or IoT Edge deployments to access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
+    > * The entry script is specific to your model. It must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
     >
-    > Another alternative that may work for your scenario is [batch predictions](tutorial-pipeline-batch-scoring-classification.md), which does provide access to datastores when scoring.
+    >   If the request data is in a format that's not usable by your model, the script can transform it into an acceptable format. It can also transform the response before returning it to the client.
+    >
+    > * The Azure Machine Learning SDK doesn't provide a way for web services or IoT Edge deployments to access your data store or datasets. If your deployed model needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
+    >
+    >   An alternative that might work for your scenario is [batch prediction](how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
 
-* **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
+* **Dependencies**, like helper scripts or Python/Conda packages required to run the entry script or model.
 
-* The __deployment configuration__ for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
+* **The deployment configuration** for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
 
-These entities are encapsulated into an __inference configuration__, and a __deployment configuration__. The inference configuration references the entry script and other dependencies. These configurations are defined programmatically when using the SDK, and as JSON files when using the CLI to perform the deployment.
+These items are encapsulated into an *inference configuration* and a *deployment configuration*. The inference configuration references the entry script and other dependencies. You define these configurations programmatically when you use the SDK to perform the deployment. You define them in JSON files when you use the CLI.
 
-### <a id="script"></a> 1. Define your entry script & dependencies
+### <a id="script"></a> 1. Define your entry script and dependencies
 
-The entry script receives data submitted to a deployed web service, and passes it to the model. It then takes the response returned by the model and returns that to the client. **The script is specific to your model**; it must understand the data that the model expects and returns.
+The entry script receives data submitted to a deployed web service and passes it to the model. It then takes the response returned by the model and returns that to the client. *The script is specific to your model*. It must understand the data that the model expects and returns.
 
 The script contains two functions that load and run the model:
 
-* `init()`: Typically this function loads the model into a global object. This function is run only once when the Docker container for your web service is started.
+* `init()`: Typically, this function loads the model into a global object. This function is run only once, when the Docker container for your web service is started.
 
-* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
+* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs of the run typically use JSON for serialization and deserialization. You can also work with raw binary data. You can transform the data before sending it to the model or before returning it to the client.
 
 #### What is get_model_path?
 
-When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
+When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
 
-When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
+When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
 
 > [!IMPORTANT]
-> If you trained a model using automated machine learning, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated ml, see [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment).
+> If you used automated machine learning to train a model, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated machine learning, see [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) on GitHub.
 
-The below example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
+The following example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
@@ -211,16 +211,16 @@ model_path = Model.get_model_path('sklearn_mnist')
 
 #### (Optional) Automatic schema generation
 
-To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
+To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. The Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
 
-The following types are currently supported:
+These types are currently supported:
 
 * `pandas`
 * `numpy`
 * `pyspark`
-* standard Python object
+* Standard Python object
 
-To use schema generation, include the `inference-schema` package in your conda environment file.
+To use schema generation, include the `inference-schema` package in your Conda environment file.
 
 ##### Example dependencies file
 
@@ -236,16 +236,16 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-If you want to use automatic schema generation, your entry script **must** import the `inference-schema` packages.
+If you want to use automatic schema generation, your entry script must import the `inference-schema` packages.
 
-Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The scikit-learn example below uses schema generation.
+Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 ##### Example entry script
 
 The following example demonstrates how to accept and return JSON data:
 
 ```python
-#example: scikit-learn and Swagger
+#Example: scikit-learn and Swagger
 import json
 import numpy as np
 from sklearn.externals import joblib
@@ -258,10 +258,10 @@ from inference_schema.parameter_types.numpy_parameter_type import NumpyParameter
 
 def init():
     global model
-    # note here "sklearn_regression_model.pkl" is the name of the model registered under
-    # this is a different behavior than before when the code is run locally, even though the code is the same.
+    # Note that here "sklearn_regression_model.pkl" is the name of the model registered under.
+    # This is a different behavior than before when the code is run locally, even though the code is the same.
     model_path = Model.get_model_path('sklearn_regression_model.pkl')
-    # deserialize the model file back into a sklearn model
+    # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
 
@@ -274,14 +274,14 @@ output_sample = np.array([3726.995])
 def run(data):
     try:
         result = model.predict(data)
-        # you can return any datatype as long as it is JSON-serializable
+        # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
     except Exception as e:
         error = str(e)
         return error
 ```
 
-The following example demonstrates how to define the input data as a `<key: value>` dictionary, using a Dataframe. This method is supported for consuming the deployed web service from Power BI ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -299,22 +299,22 @@ from inference_schema.parameter_types.pandas_parameter_type import PandasParamet
 
 def init():
     global model
-    # replace model_name with your actual model name, if needed
+    # Replace model_name with your actual model name, if necessary.
     model_path = Model.get_model_path('model_name')
-    # deserialize the model file back into a sklearn model
+    # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
 
 input_sample = pd.DataFrame(data=[{
-    # This is a decimal type sample. Use the data type that reflects this column in your data
+    # This is a decimal type sample. Use the data type that reflects this column in your data.
     "input_name_1": 5.1,
-    # This is a string type sample. Use the data type that reflects this column in your data
+    # This is a string type sample. Use the data type that reflects this column in your data.
     "input_name_2": "value2",
-    # This is a integer type sample. Use the data type that reflects this column in your data
+    # This is an integer type sample. Use the data type that reflects this column in your data.
     "input_name_3": 3
 }])
 
-# This is a integer type sample. Use the data type that reflects the expected result
+# This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
 
@@ -323,25 +323,25 @@ output_sample = np.array([0])
 def run(data):
     try:
         result = model.predict(data)
-        # you can return any datatype as long as it is JSON-serializable
+        # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
     except Exception as e:
         error = str(e)
         return error
 ```
 
-For more example scripts, see the following examples:
+For more examples, see the following scripts:
 
-* Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
-* Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
+* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
 <a id="binary"></a>
 
 #### Binary data
 
-If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
+If your model accepts binary data, like an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
 
 Here's an example of a `score.py` that accepts binary data:
 
@@ -359,13 +359,13 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
-        # For this example, just return the URL for GETs
+        # For this example, just return the URL for GETs.
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
+        # For a real-world solution, you would load the data from reqBody
+        # and send it to the model. Then return the response.
 
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
@@ -374,9 +374,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> The `AMLRequest` class is in the `azureml.contrib` namespace. Things in this namespace change frequently as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
+> The `AMLRequest` class is in the `azureml.contrib` namespace. Entities in this namespace change frequently as we work to improve the service. Anything in this namespace should be considered a preview that's not fully supported by Microsoft.
 >
-> If you need to test this on your local development environment, you can install the components by using the following command:
+> If you need to test this in your local development environment, you can install the components by using the following command:
 >
 > ```shell
 > pip install azureml-contrib-services
@@ -386,7 +386,7 @@ def run(request):
 
 #### Cross-origin resource sharing (CORS)
 
-Cross-origin resource sharing is a way to allow resources on a web page to be requested from another domain. CORS works based on HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) on Wikipedia.
+Cross-origin resource sharing is a way to allow resources on a web page to be requested from another domain. CORS works via HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in Wikipedia.
 
 To configure your model deployment to support CORS, use the `AMLResponse` class in your entry script. This class allows you to set the headers on the response object.
 
@@ -402,16 +402,16 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
-        # For this example, just return the URL for GETs
+        # For this example, just return the URL for GETs.
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
+        # For a real-world solution, you would load the data from reqBody
+        # and send it to the model. Then return the response.
 
         # For demonstration purposes, this example
-        # adds a header and returns the request body
+        # adds a header and returns the request body.
         resp = AMLResponse(reqBody, 200)
         resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
         return resp
@@ -420,9 +420,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> The `AMLResponse` class is in the `azureml.contrib` namespace. Things in this namespace change frequently as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
+> The `AMLResponse` class is in the `azureml.contrib` namespace. Entities in this namespace change frequently as we work to improve the service. Anything in this namespace should be considered a preview that's not fully supported by Microsoft.
 >
-> If you need to test this on your local development environment, you can install the components by using the following command:
+> If you need to test this in your local development environment, you can install the components by using the following command:
 >
 > ```shell
 > pip install azureml-contrib-services
@@ -430,9 +430,9 @@ def run(request):
 
 ### 2. Define your InferenceConfig
 
-The inference configuration describes how to configure the model to make predictions. This configuration is not part of your entry script; it references your entry script and is used to locate all the resources required by the deployment. It is used later when actually deploying the model.
+The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
-Inference configuration can use Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace, and then using it with the inference configuration:
+Inference configuration can use Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
 
 ```python
 from azureml.core import Environment
@@ -445,7 +445,7 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a conda file:
+You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -455,43 +455,43 @@ inference_config = InferenceConfig(runtime="python",
                                    conda_file="env/myenv.yml")
 ```
 
-For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class reference.
+For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 
-For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
 ### CLI example of InferenceConfig
 
 [!INCLUDE [inference config](../../../includes/machine-learning-service-inference-config.md)]
 
-The following command demonstrates how to deploy a model using the CLI:
+The following command demonstrates how to deploy a model by using the CLI:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
 
-In this example, the configuration contains the following items:
+In this example, the configuration specifies the following settings:
 
-* That this model requires Python
-* The [entry script](#script), which is used to handle web requests sent to the deployed service
-* The conda file that describes the Python packages needed to inference
+* That the model requires Python.
+* The [entry script](#script), which is used to handle web requests sent to the deployed service.
+* The Conda file that describes the Python packages needed for inference.
 
-For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
-### 3. Define your Deployment configuration
+### 3. Define your deployment configuration
 
-Before deploying, you must define the deployment configuration. __The deployment configuration is specific to the compute target that will host the web service__. For example, when deploying locally you must specify the port where the service accepts requests. The deployment configuration is not part of your entry script. It is used to define the characteristics of the compute target that will host the model and entry script.
+Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.
 
-You may also need to create the compute resource. For example, if you do not already have an Azure Kubernetes Service associated with your workspace.
+You might also need to create the compute resource, if, for example, you don't already have an Azure Kubernetes Service (AKS) instance associated with your workspace.
 
 The following table provides an example of creating a deployment configuration for each compute target:
 
 | Compute target | Deployment configuration example |
 | ----- | ----- |
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-Each of these classes for local, ACI, and AKS web services can be imported from `azureml.core.webservice`:
+The classes for local, Azure Container Instances, and AKS web services can be imported from `azureml.core.webservice`:
 
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
@@ -499,10 +499,10 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 #### Profiling
 
-Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can profile your model using either the SDK or CLI. The following examples show how to use profiling from the SDK:
+Before you deploy your model as a service, you might want to profile it to determine optimal CPU and memory requirements. You can use either the SDK or the CLI to profile your model. The following examples show how to profile a model by using the SDK.
 
 > [!IMPORTANT]
-> When using profiling, the inference configuration that you provide cannot reference an Azure Machine Learning environment. Instead, define the software dependencies using the `conda_file` parameter of the `InferenceConfig` object.
+> When you use profiling, the inference configuration that you provide can't reference an Azure Machine Learning environment. Instead, define the software dependencies by using the `conda_file` parameter of the `InferenceConfig` object.
 
 ```python
 import json
@@ -516,7 +516,7 @@ profiling_results = profile.get_results()
 print(profiling_results)
 ```
 
-This code displays a result similar to the following text:
+This code displays a result similar to the following output:
 
 ```python
 {'cpu': 1.0, 'memoryInGB': 0.5}
@@ -526,7 +526,7 @@ Model profiling results are emitted as a `Run` object.
 
 For information on using profiling from the CLI, see [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
-For more information, see the following reference documents:
+For more information, see these documents:
 
 * [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 * [profile()](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
@@ -534,11 +534,11 @@ For more information, see the following reference documents:
 
 ## Deploy to target
 
-Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different, as you must provide a reference to the AKS cluster.
+Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
 
 ### <a id="local"></a> Local deployment
 
-To deploy locally, you need to have Docker installed on your local machine.
+To deploy a model locally, you need to have Docker installed on your local machine.
 
 #### Using the SDK
 
@@ -551,11 +551,11 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-For more information, see the reference documentation for [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
+For more information, see the documentation for [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 #### Using the CLI
 
-To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model:
+To deploy a model by using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model:
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
@@ -563,32 +563,32 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
 
-For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
+For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
-### <a id="notebookvm"></a> NotebookVM web service (DEVTEST)
+### <a id="notebookvm"></a> Notebook VM web service (dev/test)
 
 See [Deploy a model to Notebook VMs](how-to-deploy-local-container-notebook-vm.md).
 
-### <a id="aci"></a> Azure Container Instances (DEVTEST)
+### <a id="aci"></a> Azure Container Instances (dev/test)
 
 See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-### <a id="aks"></a>Azure Kubernetes Service (DEVTEST & PRODUCTION)
+### <a id="aks"></a>Azure Kubernetes Service (dev/test and production)
 
 See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## Consume web services
 
-Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
-If you have enabled key authentication for your service, you need to provide a service key as a token in your request header.
-If you have enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
+Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages.
+If you've enabled key authentication for your service, you need to provide a service key as a token in your request header.
+If you've enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
 
 > [!TIP]
-> You can retrieve the schema JSON document after deploying the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service, such as `service.swagger_uri`, to get the URI to the local web service's Swagger file.
+> You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
 
 ### Request-response consumption
 
-Here is an example of how to invoke your service in Python:
+Here's an example of how to invoke your service in Python:
 ```python
 import requests
 import json
@@ -614,11 +614,11 @@ print(response.elapsed)
 print(response.json())
 ```
 
-For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+For more information, see [Create client applications to consume web services](how-to-consume-web-service.md).
 
 ### Web service schema (OpenAPI specification)
 
-If you used the automatic schema generation with the deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). For example, `print(service.swagger_uri)`. Use a GET request (or open the URI in a browser) to retrieve the specification.
+If you used automatic schema generation with your deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (For example, `print(service.swagger_uri)`.) Use a GET request or open the URI in a browser to retrieve the specification.
 
 The following JSON document is an example of a schema (OpenAPI specification) generated for a deployment:
 
@@ -754,120 +754,138 @@ The following JSON document is an example of a schema (OpenAPI specification) ge
 }
 ```
 
-For more information on the specification, see the [Open API specification](https://swagger.io/specification/).
+For more information, see [OpenAPI specification](https://swagger.io/specification/).
 
 For a utility that can create client libraries from the specification, see [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a> Batch inference
-Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
+Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning pipelines.
 
-For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
+For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a> IoT Edge inference
-Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
+Support for deploying to the edge is in preview. For more information, see [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 
 ## <a id="update"></a> Update web services
 
 [!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
-## Continuous model deployment 
+## Continuously deploy models
 
-You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps, you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
+You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning service workspace.
 
-1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure Pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
 
 1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
-1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager.
+1. Use service connections to set up a service principal connection to your Azure Machine Learning service workspace so you can access your artifacts. Go to project settings, select **Service connections**, and then select **Azure Resource Manager**:
 
-    [![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
+    [![Select Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
-1. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters.
+1. In the **Scope level** list, select **AzureMLWorkspace**, and then enter the rest of the values:
 
-    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+    ![Select AzureMLWorkspace](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. Next, to continuously deploy your machine learning model using the Azure Pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
+1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines, select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment:
 
-    [![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
+    [![Select AzureML Model](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
-1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
+1. Enable the model trigger on your model artifact. When you turn on the trigger, every time the specified version (that is, the newest version) of that model is registered in your workspace, an Azure DevOps release pipeline is triggered.
 
-    [![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
+    [![Enable the model trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
-For more sample projects and examples, see the following sample repos:
+For more sample projects and examples, see these sample repos in GitHub:
 
-* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
-* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+* [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+## Download a model
+If you want to download your model to use it in your own execution environment, you can do so with the following SDK / CLI commands:
+
+SDK:
+```python
+model_path = Model(ws,'mymodel').download()
+```
+
+CLI:
+```azurecli-interactive
+az ml model download --model-id mymodel:1 --target-dir model_folder
+```
 
 ## Package models
 
-In some cases, you may want to create a Docker image without deploying the model. For example, when you plan on [deploying to Azure App Service](how-to-deploy-app-service.md). Or you may want to download the image and run on a local Docker install. You may even want to download the files used to build the image, inspect them, modify them, and build it manually.
+In some cases, you might want to create a Docker image without deploying the model (if, for example, you plan to [deploy to Azure App Service](how-to-deploy-app-service.md)). Or you might want to download the image and run it on a local Docker installation. You might even want to download the files used to build the image, inspect them, modify them, and build the image manually.
 
-Model packaging enables you to do both. It packages up all the assets needed to host a model as a web service and allows you to download either a fully built Docker image or the files needed to build one. There are two ways to use model packaging:
+Model packaging enables you to do these things. It packages all the assets needed to host a model as a web service and allows you to download either a fully built Docker image or the files needed to build one. There are two ways to use model packaging:
 
-* __Download packaged model__: You download a Docker image containing the model and other files needed to host it as a web service.
-* __Generate dockerfile__: You download the dockerfile, model, entry script, and other assets needed to build a Docker image. You can then inspect the files or make changes before building the image locally.
+**Download a packaged model:** Download a Docker image that contains the model and other files needed to host it as a web service.
 
-Both packages can be used to get a local Docker image. 
+**Generate a Dockerfile:** Download the Dockerfile, model, entry script, and other assets needed to build a Docker image. You can then inspect the files or make changes before you build the image locally.
+
+Both packages can be used to get a local Docker image.
 
 > [!TIP]
-> Creating a package is similar to deploying a model, as it uses a registered model and inference configuration.
+> Creating a package is similar to deploying a model. You use a registered model and an inference configuration.
 
 > [!IMPORTANT]
-> Functionality such as downloading a fully built image or building an image locally requires a working [Docker](https://www.docker.com) installation on your development environment.
+> To download a fully built image or build an image locally, you need to have [Docker](https://www.docker.com) installed in your development environment.
 
 ### Download a packaged model
 
-The following example demonstrates how to build an image, which is registered in the Azure Container Registry for your workspace:
+The following example builds an image, which is registered in the Azure container registry for your workspace:
 
 ```python
 package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-After creating a package, you can use `package.pull()` to pull the image to your local Docker environment. The output of this command will display the name of the image. For example, `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. After downloading, use the `docker images` command to list the local images:
+After you create a package, you can use `package.pull()` to pull the image to your local Docker environment. The output of this command will display the name of the image. For example: 
+
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
+
+After you download the model, use the `docker images` command to list the local images:
 
 ```text
 REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
 myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
 ```
 
-To start a local container using this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned from the `docker images` command:
+To start a local container based on this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned by the `docker images` command.
 
 ```bash
 docker run -p 6789:5001 --name mycontainer <imageid>
 ```
 
-This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`.
+This command starts the latest version of the image named `myimage`. It maps local port 6789 to the port in the container on which the web service is listening (5001). It also assigns the name `mycontainer` to the container, which makes the container easier to stop. After the container is started, you can submit requests to `http://localhost:6789/score`.
 
-### Generate dockerfile and dependencies
+### Generate a Dockerfile and dependencies
 
-The following example demonstrates how to download the dockerfile, model, and other assets needed to build the image locally. The `generate_dockerfile=True` parameter indicates that we want the files, not a fully built image:
+The following example shows how to download the Dockerfile, model, and other assets needed to build an image locally. The `generate_dockerfile=True` parameter indicates that you want the files, not a fully built image.
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
 package.wait_for_creation(show_output=True)
-# Download the package
+# Download the package.
 package.save("./imagefiles")
-# Get the Azure Container Registry that the model/dockerfile uses
+# Get the Azure container registry that the model/Dockerfile uses.
 acr=package.get_container_registry()
 print("Address:", acr.address)
 print("Username:", acr.username)
 print("Password:", acr.password)
 ```
 
-This code downloads the files needed to build the image to the `imagefiles` directory. The dockerfile included in the save files references a base image stored in an Azure Container Registry. When building the image on your local Docker installation, you must use the address, user name, and password to authenticate to this registry. Use the following steps to build the image using a local Docker installation:
+This code downloads the files needed to build the image to the `imagefiles` directory. The Dockerfile included in the saved files references a base image stored in an Azure container registry. When you build the image on your local Docker installation, you need to use the address, user name, and password to authenticate to the registry. Use the following steps to build the image by using a local Docker installation:
 
-1. From a shell or command-line session, use the following command to authenticate Docker with the Azure Container Registry. Replace `<address>`, `<username>`, and `<password>` with the values retrieved using `package.get_container_registry()`:
+1. From a shell or command-line session, use the following command to authenticate Docker with the Azure container registry. Replace `<address>`, `<username>`, and `<password>` with the values retrieved by `package.get_container_registry()`.
 
     ```bash
     docker login <address> -u <username> -p <password>
     ```
 
-2. To build the image, use the following command. Replace `<imagefiles>` with the path to the directory where `package.save()` saved the files:
+2. To build the image, use the following command. Replace `<imagefiles>` with the path of the directory where `package.save()` saved the files.
 
     ```bash
     docker build --tag myimage <imagefiles>
@@ -875,7 +893,7 @@ This code downloads the files needed to build the image to the `imagefiles` dire
 
     This command sets the image name to `myimage`.
 
-To verify that the image has been built, use the `docker images` command. You should see the `myimage` image in the list:
+To verify that the image is built, use the `docker images` command. You should see the `myimage` image in the list:
 
 ```text
 REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
@@ -889,7 +907,7 @@ To start a new container based on this image, use the following command:
 docker run -p 6789:5001 --name mycontainer myimage:latest
 ```
 
-This command starts the latest version of the image named `myimage`. It maps the local port of 6789 to the port in the container that the web service is listening on (5001). It also assigns the name `mycontainer` to the container, which makes it easier to stop. Once started, you can submit requests to `http://localhost:6789/score`.
+This command starts the latest version of the image named `myimage`. It maps local port 6789 to the port in the container on which the web service is listening (5001). It also assigns the name `mycontainer` to the container, which makes the container easier to stop. After the container is started, you can submit requests to `http://localhost:6789/score`.
 
 ### Example client to test the local container
 
@@ -899,28 +917,28 @@ The following code is an example of a Python client that can be used with the co
 import requests
 import json
 
-# URL for the web service
+# URL for the web service.
 scoring_uri = 'http://localhost:6789/score'
 
-# Two sets of data to score, so we get two results back
+# Two sets of data to score, so we get two results back.
 data = {"data":
         [
             [ 1,2,3,4,5,6,7,8,9,10 ],
             [ 10,9,8,7,6,5,4,3,2,1 ]
         ]
         }
-# Convert to JSON string
+# Convert to JSON string.
 input_data = json.dumps(data)
 
-# Set the content type
+# Set the content type.
 headers = {'Content-Type': 'application/json'}
 
-# Make the request and display the response
+# Make the request and display the response.
 resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
 ```
 
-For more example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
+For example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
 
 ### Stop the Docker container
 
@@ -935,13 +953,13 @@ docker kill mycontainer
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
 
-For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Next steps
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 
