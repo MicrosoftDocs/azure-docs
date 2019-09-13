@@ -34,21 +34,14 @@ Azure security groups can't be moved from one region to another. You can however
 The following steps show how to prepare the network security group for the configuration and security rule move using an Resource Manager template, and move the NSG configuration and security rules to the target region using the portal.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ### Export the template and deploy from the portal
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
-    
-    ```azurepowershell-interactive
-    Connect-AzAccount
-    ```
-3. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-4. Locate the Resource Group that contains the source NSG and click on it.
-5. Select > **Settings** > **Export template**.
-6. Choose **Deploy** in the **Export template** blade.
-7. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
-8. To edit the parameter of the NSG name, change the **value** property under **parameters**:
+1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+2. Locate the Resource Group that contains the source NSG and click on it.
+3. Select > **Settings** > **Export template**.
+4. Choose **Deploy** in the **Export template** blade.
+5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
+6. To edit the parameter of the NSG name, change the **value** property under **parameters**:
     
     ```json
      {
@@ -63,13 +56,13 @@ The following steps show how to prepare the network security group for the confi
 
     ```
 
-9. Change the source NSG value in the editor to a name of your choice for the target NSG. Ensure you enclose the name in quotes.
+7. Change the source NSG value in the editor to a name of your choice for the target NSG. Ensure you enclose the name in quotes.
 
-10. Click **Save** in the editor.
+8.  Click **Save** in the editor.
 
-11. Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
+9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
 
-12. To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under **resources** in the online editor:
+10. To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under **resources** in the online editor:
 
        ```json
             "resources": [
