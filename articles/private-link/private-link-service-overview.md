@@ -11,7 +11,7 @@ ms.author: kumud
 ---
 # What is Azure Private Link Service?
 
-Using Azure Private Link technology, you can create your own Private Link Service in your virtual network (VNet). You can deliver this service privately to your customers by mapping it to private endpoint inside your customer's VNet. This article explains Private Link service concepts to help you use them effectively. 
+Azure Private Link service is a service you can create in your virtual network (VNet) and deliver it privately to your customers. Your customers can access this service by mapping it to private endpoint inside thier VNets. This article explains Private Link service concepts to help you use them effectively. 
 
 ## Workflow
 
@@ -21,7 +21,7 @@ Using Azure Private Link technology, you can create your own Private Link Servic
 - Choose a name, location, virtual network for your service.  
 - Create either an internal load balancer (ILB) or a public load balancer. 
     > [!NOTE]
-    > Azure Private Link Service is only supported on Standard Load Balancer. 
+    > Azure Private Link service is only supported on Standard Load Balancer. 
 - Map the backend resources from selected VNet to the load balancer. It is advisable to have at least one backend resource behind the load balancer.  
 - Create a Private Link Service using the load balancer. In the load balancer selection process, choose frontend IP configuration where you want to receive the traffic. Choose a subnet for NAT IPs for Private Link Service. It is recommended to have at least eight NAT IPs available in the subnet.  All consumer traffic will appear to originate from this pool of private IP to the service provider. Choose appropriate properties/settings for the Private Link Service.    
  
@@ -42,9 +42,9 @@ A Private Link Service specifies the following properties:
 |---------|---------|
 |Provisioning State (provisioningState)  |A read-only property listing the current provisioning state for Private Link Service. Applicable provisioning states are: "Deleting; Failed; Succeeded; Updating". When the provisioning state is "Succeeded", you have successfully provisioned your Private Link Service         |
 |Alias (alias)     | Alias is a globally unique read-only string for your service. It helps you mask the customer data for your service and at the same time create an easy to share name for your service. When you create a Private Link Service, Azure will generate the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.          |
-|Visibility (visibility)     | Visibility is the property that controls the exposure settings for your Private Link Service. Service Providers can choose to limit the exposure to their service to subscriptions with RBAC permissions, restricted set of subscriptions, or all Azure subscriptions.          |
-|Auto Approval (autoApproval)    |   Auto-Approval controls the automated access to the Private Link Service. The subscriptions specified in auto-approval list will be approved automatically when connection is requested from private endpoints in those subscriptions.          |
-|FQDN (fqdns)    |   FQDN stands for Fully Qualified Domain Name. Service Provider can share service’s FQDNs at the time of creation. These will be propagated to consumers at time of connection. Consumers can use these FQDNs to configure their DNS to resolve to private endpoint on their side. The alias is used for connection request, not FQDN. FQDNs are for DNS configurations.      |
+|Visibility (visibility)     | Visibility is the property that controls the exposure settings for your Private Link Service. Service providers can choose to limit the exposure to their service to subscriptions with RBAC permissions, restricted set of subscriptions, or all Azure subscriptions.          |
+|Auto Approval (autoApproval)    |   Auto-approval controls the automated access to the Private Link Service. The subscriptions specified in auto-approval list will be approved automatically when connection is requested from private endpoints in those subscriptions.          |
+|FQDN (fqdns)    |   FQDN stands for Fully Qualified Domain Name. Service provider can share service’s FQDNs at the time of creation. These will be propagated to consumers at time of connection. Consumers can use these FQDNs to configure their DNS to resolve to private endpoint on their side. The alias is used for connection request, not FQDN. FQDNs are for DNS configurations.      |
 |Load Balancer Frontend IP Configuration (loadBalancerFrontendIpConfigurations)    |    Private link service is tied to frontend IP of a Standard Load Balancer.  All traffic destined for Service will reach the frontend of SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running. Load balancer frontend IP configurations are different than NAT IP configurations.      |
 |NAT IP Configuration (ipConfigurations)    |    This property refers to the NAT (Network Address Translation) IP configuration for the Private Link Service. The NAT IP can be chosen from any subnet in service provider's virtual network. Private link service performs destination side NAT-ing on the private link traffic. This ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space. On the destination side (service provider side), NAT IP will show up as Source IP for all packets received by your service and destination IP for all packets send by your service.       |
 |Network Interfaces (networkInterfaces)     |  A read-only property referencing to the network interfaces created for the Private Link Service. You can't manage the networkInterfaces.       |
@@ -63,7 +63,7 @@ A Private Link Service specifies the following properties:
  
 - Multiple Private Link Services can be created on the same standard load balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per standard load balancer and per subscription. For details, see Azure limits. 
  
-- Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, Service Providers can assign up to eight NAT IPs per private link service. With each NAT IP, you can assign more ports for your TCP connections and thus scale out. Once you add multiple NAT IP to Private Link Service, you can't delete the NAT IPs. This is done to ensure that active connections are not impacted while deleting the NAT IPs.
+- Private Link Service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IPs per private link service. With each NAT IP, you can assign more ports for your TCP connections and thus scale out. Once you add multiple NAT IP to Private Link Service, you can't delete the NAT IPs. This is done to ensure that active connections are not impacted while deleting the NAT IPs.
 
 ## Alias
 **Alias** is a globally unique name for your Service. It helps you mask the customer data for your service and at the same time create an easy to share name for your service. When you create a private link service, Azure will generate an alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.  
@@ -74,7 +74,7 @@ Alias is composed of three parts: *Prefix*.*GUID*.*Suffix*
 Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice  
 
 ## Control service exposure 
-Private link service provides you rich set of options for controlling the exposure of your service the "Visibility" settings.  You can make the service private for consumption from different VNets you own (RBAC permissions only), restrict the exposure to limited set of subscriptions that you trust or make it public so that all Azure subscriptions can request connections on the private link service.  Only consumers that you expose your service to can request a connection through different Azure clients. Having access to Alias info doesn’t provide the ability to request connection. Your visibility settings decide whether a consumer can request a connection to your service or not. If the consumer's subscription falls within your visibility scope settings and has the correct alias, the consumer can request a connection. Following options are provided for your visibility settings:   
+Private Link service provides you rich set of options for controlling the exposure of your service using the "Visibility" settings.  You can make the service private for consumption from different VNets using you own (RBAC permissions only), restrict the exposure to limited set of subscriptions that you trust or make it public so that all Azure subscriptions can request connections on the private link service.  Only consumers that you expose your service to can request a connection through different Azure clients. Having access to Alias info doesn’t provide the ability to request connection. Your visibility settings decide whether a consumer can request a connection to your service or not. If the consumer's subscription falls within your visibility scope settings and has the correct alias, the consumer can request a connection. Following options are provided for your visibility settings:   
 - Visibility: Role Base Access Control Only: 
     - Intake parameter: {}. 
     - Your service is not exposed from consumer side. 
