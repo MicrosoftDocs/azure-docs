@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/12/2019
 ms.author: diberry
 ---
 
@@ -89,6 +89,13 @@ The migration process is available if you are the owner of any LUIS apps.
 1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps your can author.
 
     ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+
+
+## App contributor begins the migration process
+
+Follow the same steps as the app owner for migration. The process creates a new authoring resource of kind `LUIS.Authoring`. 
+
+You need to migrate your account in order to be added as a contributor to migrated apps owned by others.  
 
 ## After the migration process, add contributors to your authoring resource
 
