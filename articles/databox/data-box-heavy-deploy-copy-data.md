@@ -329,7 +329,7 @@ For step-by-step instructions, go to [Tutorial: Use the data copy service to cop
 3. You can then copy data via SMB or NFS tools.
 4. Repeat these steps to connect and copy data to the second node of your Data Box Heavy.
 
-For step-by-step instructions, go to [Tutorial: Use Data Box to Heavy import data as managed disks in Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+For step-by-step instructions, go to [Tutorial: Use Data Box Heavy to import data as managed disks in Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 

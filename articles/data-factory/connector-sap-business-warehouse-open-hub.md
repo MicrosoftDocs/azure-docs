@@ -172,7 +172,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP BW Open Hub as source
 
-To copy data from SAP BW Open Hub, The following properties are supported in the copy activity **source** section:
+To copy data from SAP BW Open Hub, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

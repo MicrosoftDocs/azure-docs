@@ -3,7 +3,7 @@ title: Errors and exceptions (MSAL) | Microsoft identity platform
 description: Learn how to handle errors and exceptions, conditional access, and claims challenges in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: jmprieur
 manager: CelesteDG
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 09/08/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -25,9 +25,9 @@ This article gives an overview of the different types of errors and recommendati
 
 ## MSAL error handling basics
 
-Exceptions and errors in the Microsoft Authentication Library (MSAL) are intended for app developers--not for displaying to end users. Exception messages aren't localized.
+Exceptions in Microsoft Authentication Library (MSAL) are intended for app developers to troubleshoot and not for displaying to end users. Exception messages are not localized.
 
-For a list of protocol error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
+When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions.  For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
 During silent or interactive token acquisition, apps may come across errors during the sign-in experience such as errors about consents, conditional access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
 
@@ -258,13 +258,96 @@ Here are the common exceptions that might be thrown and some possible mitigation
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Could not identify logged in user| The library was unable to query the current Windows logged-in user or this user isn't AD or AAD joined (work-place joined users aren't supported). Mitigation 1: on UWP, check that the application has the following capabilities: Enterprise Authentication, Private Networks (Client and Server), User Account Information. Mitigation 2: Implement your own logic to fetch the username (for example, john@contoso.com) and use the `AcquireTokenByIntegratedWindowsAuth` form that takes in the username.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| This method relies on a protocol exposed by Active Directory (AD). If a user was created in Azure Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by AAD ("federated" users) can benefit from this non-interactive method of authentication. Mitigation: Use interactive authentication.|
 
+### `MsalUiRequiredException`
+
+One of common status codes returned from MSAL.NET when calling `AcquireTokenSilent()` is `MsalError.InvalidGrantError`. This status code means that the application should call the authentication library again, but in interactive mode (AcquireTokenInteractive or AcquireTokenByDeviceCodeFlow for public client applications, and do a challenge in Web apps). This is because additional user interaction is required before authentication token can be issued.
+
+Most of the time when `AcquireTokenSilent` fails, it is because the token cache doesn't have tokens matching your request. Access tokens expire in 1 hour, and `AcquireTokenSilent` will try to fetch a new one based on a refresh token (in OAuth2 terms, this is the "Refresh Token' flow). This flow can also fail for various reasons, for example if a tenant admin configures more stringent login policies. 
+
+The interaction aims at having the user do an action. Some of those conditions are easy for users to resolve (for example, accept Terms of Use with a single click), and some can't be resolved with the current configuration (for example, the machine in question needs to connect to a specific corporate network). Some help the user setting-up Multi-factor authentication, or install Microsoft Authenticator on their device.
+
+### `MsalUiRequiredException` classification enumeration
+
+MSAL exposes a `Classification` field, which you can read to provide a better user experience, for example to tell the user that their password expired or that they'll need to provide consent to use some resources. The supported values are part of the `UiRequiredExceptionClassification` enum:
+
+| Classification    | Meaning           | Recommended handling |
+|-------------------|-------------------|----------------------|
+| BasicAction | Condition can be resolved by user interaction during the interactive authentication flow. | Call AcquireTokenInteractively(). |
+| AdditionalAction | Condition can be resolved by additional remedial interaction with the system, outside of the interactive authentication flow. | Call AcquireTokenInteractively() to show a message that explains the remedial action. Calling application may choose to hide flows that require additional_action if the user is unlikely to complete the remedial action. |
+| MessageOnly      | Condition can't be resolved at this time. Launching interactive authentication flow will show a message explaining the condition. | Call AcquireTokenInteractively() to show a message that explains the condition. AcquireTokenInteractively() will return UserCanceled error after the user reads the message and closes the window. Calling application may choose to hide flows that result in message_only if the user is unlikely to benefit from the message.|
+| ConsentRequired  | User consent is missing, or has been revoked. | Call AcquireTokenInteractively() for user to give consent. |
+| UserPasswordExpired | User's password has expired. | Call AcquireTokenInteractively() so that user can reset their password. |
+| PromptNeverFailed| Interactive Authentication was called with the parameter prompt=never, forcing MSAL to rely on browser cookies and not to display the browser. This has failed. | Call AcquireTokenInteractively() without Prompt.None |
+| AcquireTokenSilentFailed | MSAL SDK doesn't have enough information to fetch a token from the cache. This can be because no tokens are in the cache or an account wasn't found. The error message has more details.  | Call AcquireTokenInteractively(). |
+| None    | No further details are provided. Condition may be resolved by user interaction during the interactive authentication flow. | Call AcquireTokenInteractively(). |
+
+## Code example
+
+```csharp
+AuthenticationResult res;
+try
+{
+ res = await application.AcquireTokenSilent(scopes, account)
+        .ExecuteAsync();
+}
+catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantError)
+{
+ switch (ex.Classification)
+ {
+  case UiRequiredExceptionClassification.None:
+   break;
+  case UiRequiredExceptionClassification.MessageOnly:
+  // You might want to call AcquireTokenInteractive(). Azure AD will show a message
+  // that explains the condition. AcquireTokenInteractively() will return UserCanceled error
+  // after the user reads the message and closes the window. The calling application may choose
+  // to hide features or data that result in message_only if the user is unlikely to benefit 
+  // from the message
+  try
+  {
+   res = await application.AcquireTokenInteractive(scopes)
+                          .ExecuteAsync();
+  }
+  catch (MsalClientException ex2) when (ex2.ErrorCode == MsalError.AuthenticationCanceledError)
+  {
+   // Do nothing. The user has seen the message
+  }
+  break;
+
+  case UiRequiredExceptionClassification.BasicAction:
+  // Call AcquireTokenInteractive() so that the user can, for instance accept terms
+  // and conditions
+
+  case UiRequiredExceptionClassification.AdditionalAction:
+  // You might want to call AcquireTokenInteractive() to show a message that explains the remedial action. 
+  // The calling application may choose to hide flows that require additional_action if the user 
+  // is unlikely to complete the remedial action (even if this means a degraded experience)
+
+  case UiRequiredExceptionClassification.ConsentRequired:
+  // Call AcquireTokenInteractive() for user to give consent.
+  
+  case UiRequiredExceptionClassification.UserPasswordExpired:
+  // Call AcquireTokenInteractive() so that user can reset their password
+  
+  case UiRequiredExceptionClassification.PromptNeverFailed:
+  // You used WithPrompt(Prompt.Never) and this failed
+  
+  case UiRequiredExceptionClassification.AcquireTokenSilentFailed:
+  default:
+  // May be resolved by user interaction during the interactive authentication flow.
+  res = await application.AcquireTokenInteractive(scopes)
+                         .ExecuteAsync(); break;
+ }
+}
+```
+
+
 ## JavaScript errors
 
 MSAL.js provides error objects that abstract and classify the different types of common errors. It also provides interface to access specific details of the errors such as error messages to handle them appropriately.
 
 ### Error object
 
-```javascript                                
+```javascript
 export class AuthError extends Error {
     // This is a short code describing the error
     errorCode: string;
@@ -294,7 +377,11 @@ The following error types are available:
 
 - `InteractionRequiredAuthError`: Error class, extends `ServerError` to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include `"interaction_required"`, `"login_required"`, and `"consent_required"`.
 
+<<<<<<< HEAD
 For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method, as follows:
+=======
+For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
+>>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 ```javascript
 function authCallback(error, response) {
@@ -321,6 +408,7 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### Interaction required, errors
 
+<<<<<<< HEAD
 An error is returned when you attempt to use a non-interactive method of acquiring a token such as `acquireTokenSilent`, but MSAL couldn't do it silently.
 
 Possible reasons are:
@@ -328,6 +416,15 @@ Possible reasons are:
 - you need to sign in
 - you need to consent
 - you need to go through a multi-factor authentication experience.
+=======
+An error is returned, when you attempt to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`) and MSAL couldn't do it silently.
+
+Possible reasons are:
+
+* the user needs to sign in
+* the user needs to consent
+* the user needs to go through a multi-factor authentication experience.
+>>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 The remediation is to call an interactive method such as `acquireTokenPopup` or `acquireTokenRedirect`:
 
@@ -352,6 +449,10 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## Conditional Access and claims challenges
+<<<<<<< HEAD
+=======
+When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
+>>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
@@ -366,8 +467,12 @@ When calling an API requiring Conditional Access from MSAL.NET, your application
 To handle the claim challenge, you'll need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
 
 ### JavaScript
+<<<<<<< HEAD
 
 When using `acquireTokenSilent` to get tokens silently with MSAL.js, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
+=======
+When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
+>>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 
@@ -404,17 +509,28 @@ See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.m
 
 ## Retrying after errors and exceptions
 
+You're expected to implement you own retry policies when calling MSAL. MSAL makes HTTP calls to the AAD service, and occasional failures can occur, for example the network can go down or the server is overloaded.  
+
 ### HTTP error codes 500-600
 
 MSAL.NET implements a simple retry-once mechanism for errors with HTTP error codes 500-600.
 
 ### HTTP 429
+<<<<<<< HEAD
 
 When the Service Token Server (STS) is overloaded with too many requests, it returns HTTP error 429 with a hint about how long until you can try again in the `Retry-After` response field.
 
 ### .NET
 
 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can use additional information from the error code to improve the reliability of your applications. In the case described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.
+=======
+
+When the Service Token Server (STS) is overloaded with too many requests, it returns an HTTP error 429 with a hint about when you can try again in terms of time. The error can be read from `Retry-After` response field.
+
+#### .NET
+
+The [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) exception surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can therefore leverage additional information from the error code to improve the reliability of your applications. In the case we just described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.
+>>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 Here is an example for a daemon application using the client credentials flow. You can adapt this to any of the methods for acquiring a token.
 
