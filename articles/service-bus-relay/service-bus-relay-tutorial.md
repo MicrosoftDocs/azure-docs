@@ -21,24 +21,25 @@ ms.author: spelluru
 
 This tutorial describes how to build a WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
-Working through this tutorial gives you an understanding of the steps that are required to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each endpoint exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
+Working through this tutorial gives you an understanding of the steps to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each endpoint exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
-After you work through the sequence of sections in this tutorial, you'll have a running service. You'll also have a client that can invoke the operations of the service. The first section describes how to set up an account. The next sections describe how to define a service that uses a contract, how to implement the service, and how to configure the service in code. They also describe how to host and run the service. The service that is created is self-hosted and the client and service run on the same computer. You can configure the service by using either code or a configuration file.
+After you work through the sequence of sections in this tutorial, you'll have a running service. You'll also have a client that can invoke the operations of the service. The first section describes how to set up an account. The next sections describe how to define a service that uses a contract, how to implement the service, and how to configure the service in code. They also describe how to host and run the service. The service is self-hosted and the client and service run on the same computer. You can configure the service by using either code or a configuration file.
 
 The final three sections describe how to create a client application, configure the client application, and create and use a client that can access the functionality of the host.
 
-You take the following steps in this tutorial:
+You do the following tasks in this tutorial:
 
 > [!div class="checklist"]
 >
-> * Create a Relay namespace
-> * Create a WCF service contract
-> * Implement the WCF contract
-> * Host and run the WCF service to register with the Relay service
-> * Create a WCF client for the service contract
-> * Configure the WCF client
-> * Implement the WCF client
-> * Run the applications
+> * Install prerequisites for this tutorial.
+> * Create a Relay namespace.
+> * Create a WCF service contract.
+> * Implement the WCF contract.
+> * Host and run the WCF service to register with the Relay service.
+> * Create a WCF client for the service contract.
+> * Configure the WCF client.
+> * Implement the WCF client.
+> * Run the applications.
 
 ## Prerequisites
 
@@ -114,7 +115,7 @@ The service contract specifies what operations the service supports. Operations 
 
     A channel is the WCF object through which the host and client pass information to each other. Later, you'll write code against the channel to echo information between the two applications.
 
-1. Select **Build** > **Build Solution** or press Ctrl+Shift+B to confirm the accuracy of your work so far.
+1. Select **Build** > **Build Solution** or select Ctrl+Shift+B to confirm the accuracy of your work so far.
 
 ### Example of a WCF contract
 
@@ -148,7 +149,7 @@ Now that the interface is created, you can implement the interface.
 
 ## Implement the WCF contract
 
-Creating an Azure relay requires that you first create the contract, which is defined by using an interface. For more information about creating the interface, see the previous section. The next procedure implements the interface. This task involves creating a class named `EchoService` that implements the user-defined `IEchoContract` interface. After you implement the interface, you then configure the interface using an *App.config* configuration file. The configuration file contains necessary information for the application. This information includes the name of the service, the name of the contract, and the type of protocol that is used to communicate with the relay service. The code used for these tasks is provided in the example that follows the procedure. For a more general discussion about how to implement a service contract, see [Implementing Service Contracts](/dotnet/framework/wcf/implementing-service-contracts).
+Creating an Azure relay requires that you first create the contract by using an interface. For more information about creating the interface, see the previous section. The next procedure implements the interface. This task involves creating a class named `EchoService` that implements the user-defined `IEchoContract` interface. After you implement the interface, you then configure the interface using an *App.config* configuration file. The configuration file contains necessary information for the application. This information includes the name of the service, the name of the contract, and the type of protocol that is used to communicate with the relay service. The code used for these tasks is provided in the example that follows the procedure. For a more general discussion about how to implement a service contract, see [Implementing Service Contracts](/dotnet/framework/wcf/implementing-service-contracts).
 
 1. Create a new class named `EchoService` directly after the definition of the `IEchoContract` interface. The `EchoService` class implements the `IEchoContract` interface.
 
@@ -179,7 +180,7 @@ Creating an Azure relay requires that you first create the contract, which is de
     }
     ```
 
-1. Select **Build** > **Build Solution** or press Ctrl+Shift+B.
+1. Select **Build** > **Build Solution** or select Ctrl+Shift+B.
 
 ### Define the configuration for the service host
 
@@ -215,7 +216,7 @@ The configuration file is similar to a WCF configuration file. It includes the s
 
     The endpoint defines where the client will look for the host application. Later, the tutorial uses this step to create a URI that fully exposes the host through Azure Relay. The binding declares that we're using TCP as the protocol to communicate with the relay service.
 
-1. Select **Build** > **Build Solution** or press Ctrl+Shift+B to confirm the accuracy of your work so far.
+1. Select **Build** > **Build Solution** or select Ctrl+Shift+B to confirm the accuracy of your work so far.
 
 ### Example of implementation of a service contract
 
@@ -322,7 +323,7 @@ For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoServ
     IEndpointBehavior serviceRegistrySettings = new ServiceRegistrySettings(DiscoveryType.Public);
     ```
 
-    This step informs the relay service that your application can be found publicly by examining the ATOM feed for your project. If you set `DiscoveryType` to `private`, a client could still access the service. However, the service wouldn't appear when it searches the `Relay` namespace. Instead, the client would have to know the endpoint path beforehand.
+    This step informs the relay service that your application can be found publicly by examining the Atom feed for your project. If you set `DiscoveryType` to `private`, a client could still access the service. However, the service wouldn't appear when it searches the `Relay` namespace. Instead, the client would have to know the endpoint path beforehand.
 
 1. Apply the service credentials to the service endpoints defined in the *App.config* file:
 
@@ -334,7 +335,7 @@ For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoServ
     }
     ```
 
-    As stated previously, you could have declared multiple services and endpoints in the configuration file. If you had, this code would traverse the configuration file and search for every endpoint to which it should apply your credentials. However, for this tutorial, the configuration file has only one endpoint.
+    As stated previously, you could have declared multiple services and endpoints in the configuration file. If you had, this code would traverse the configuration file and search for every endpoint to which it should apply your credentials. For this tutorial, the configuration file has only one endpoint.
 
 ### Open the service host
 
@@ -344,7 +345,7 @@ For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoServ
     host.Open();
     ```
 
-2. Inform the user that the service is running, and explain how to shut down the service.
+1. Inform the user that the service is running, and explain how to shut down the service.
 
     ```csharp
     Console.WriteLine("Service address: " + address);
@@ -352,13 +353,13 @@ For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoServ
     Console.ReadLine();
     ```
 
-3. When finished, close the service host.
+1. When finished, close the service host.
 
     ```csharp
     host.Close();
     ```
 
-4. Press Ctrl+Shift+B to build the project.
+1. Select Ctrl+Shift+B to build the project.
 
 ### Example that hosts a service in a console application
 
@@ -476,7 +477,7 @@ The next task is to create a client application and define the service contract 
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
 
-1. Press Ctrl+Shift+B to build the client.
+1. Select Ctrl+Shift+B to build the client.
 
 ### Example of the EchoClient project
 
@@ -514,8 +515,8 @@ namespace Microsoft.ServiceBus.Samples
 In this step, you create an *App.config* file for a basic client application that accesses the service created previously in this tutorial. This *App.config* file defines the contract, binding, and name of the endpoint. The code used for these tasks is provided in the example following the procedure.
 
 1. In **Solution Explorer**, in the **EchoClient** project, double-click **App.config** to open the file in the Visual Studio editor.
-2. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
-3. Within the `system.serviceModel` element, add a `<client>` element.
+1. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
+1. Within the `system.serviceModel` element, add a `<client>` element.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -529,7 +530,7 @@ In this step, you create an *App.config* file for a basic client application tha
 
     This code declares that you're defining a WCF-style client application.
 
-4. Within the `client` element, define the name, contract, and binding type for the endpoint.
+1. Within the `client` element, define the name, contract, and binding type for the endpoint.
 
     ```xml
     <endpoint name="RelayEndpoint"
@@ -539,7 +540,7 @@ In this step, you create an *App.config* file for a basic client application tha
 
     This code defines the name of the endpoint. It also defines the contract defined in the service and the fact that the client application uses TCP to communicate with Azure Relay. The endpoint name is used in the next step to link this endpoint configuration with the service URI.
 
-5. Select **File** > **Save All**.
+1. Select **File** > **Save All**.
 
 ### Example of the App.config file
 
@@ -728,7 +729,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Run the applications
 
-1. Press Ctrl+Shift+B to build the solution. This action builds both the client project and the service project that you created in the previous steps.
+1. Select Ctrl+Shift+B to build the solution. This action builds both the client project and the service project that you created in the previous steps.
 1. Before running the client application, you must make sure that the service application is running. In **Solution Explorer**, right-click the **EchoService** solution, then select **Properties**.
 1. In **Property Pages**, **Common Properties** > **Startup Project**, then choose **Multiple startup projects**. Make sure **EchoService** appears first in the list.
 1. Set the **Action** box for both the **EchoService** and **EchoClient** projects to **Start**.
@@ -740,9 +741,9 @@ namespace Microsoft.ServiceBus.Samples
     ![Project dependencies][6]
 
 1. Select **OK** to close **Property Pages**.
-1. Press **F5** to run both projects.
-1. Both console windows open and prompt you for the namespace name. The service must run first, so in the **EchoService** console window, enter the namespace and then press **Enter**.
-1. Next, the console prompts you for your SAS key. Enter the SAS key and press Enter.
+1. Select F5 to run both projects.
+1. Both console windows open and prompt you for the namespace name. The service must run first, so in the **EchoService** console window, enter the namespace and then select Enter.
+1. Next, the console prompts you for your SAS key. Enter the SAS key and select Enter.
 
     Here is example output from the console window. The values here are just examples.
 
