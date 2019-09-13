@@ -391,13 +391,12 @@ Azure services extensively log system and user activity, as well as system healt
         These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate 
 tables for each data type within Log Analytics workspaces, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs 
 allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
+
 The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
-        - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments 
-            on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.        
-        - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, 
-            as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
-        - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure 
-            subscriptions for a customer.
+
+  - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
+  - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
+  - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
 ### Azure Monitor: 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 ### Application Insights: 
@@ -406,23 +405,22 @@ The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-
 ### Azure Key Vault
 Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below:
 
-        - Data stored in Key Vault includes:
-        - Data stored in Key Vault includes:
-        - Application insight key
-        - Data Storage Access key
-        - Connection string
-        - Data table name
-        - User Credentials
-        - Advanced access policies are configured on a need basis
-        - Key Vault access policies are defined with minimum required permissions to keys and secrets
-        - All keys and secrets in Key Vault have expiration dates
-        - All keys in Key Vault are protected by HSM [Key Type = HSM Protected 2048-bit RSA Key]
-        - All users/identities are granted minimum required permissions using Role Based Access Control (RBAC)
-        - Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
-        - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
-        - Permitted cryptographic operations for keys are restricted to the ones required
+     - Data stored in Key Vault includes:
+     - Data stored in Key Vault includes:
+     - Application insight key
+     - Data Storage Access key
+     - Connection string
+     - Data table name
+     - User Credentials
+     - Advanced access policies are configured on a need basis
+     - Key Vault access policies are defined with minimum required permissions to keys and secrets
+     - All keys and secrets in Key Vault have expiration dates
+     - All keys in Key Vault are protected by HSM [Key Type = HSM Protected 2048-bit RSA Key]
+     - All users/identities are granted minimum required permissions using Role Based Access Control (RBAC)
+     - Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
+     - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
+     - Permitted cryptographic operations for keys are restricted to the ones required
 
-## VPN and ExpressRoute
 ### VPN and ExpressRoute
 A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
 
