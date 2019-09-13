@@ -50,7 +50,7 @@ Create a internal load balancer with [az network lb create](/cli/azure/network/l
 az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
 ```
 ### Disable Private Link service network policies on subnet 
-Private Link service requires a NAT IP from any subnet of your choice  within a virtual network. Currently, we don’t support Network Policies on these NAT IPs.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable Private Link service network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
+Private Link service requires an IP from any subnet of your choice  within a virtual network. Currently, we don’t support Network Policies on these IPs.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable Private Link service network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
