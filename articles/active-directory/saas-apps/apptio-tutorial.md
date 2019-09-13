@@ -85,6 +85,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Identifier** text box, type a URL:
     `urn:federation:apptio`
 
+1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
@@ -92,9 +94,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Apptio** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-> [!NOTE]
-> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
 
 ### Create an Azure AD test user
 
