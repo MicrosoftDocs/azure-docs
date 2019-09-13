@@ -47,7 +47,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
     1. Select **Data**, followed by **Syslog**.
     1. Then, in the table set which facilities you want Syslog to collect. You should either add or select the facilities that your Syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in Syslog-d in the folder: /etc/rsyslog.d/security-config-omsagent.conf, and in r-Syslog under /etc/syslog-ng/security-config-omsagent.conf.
         
-        If you want to use anomalous SSH login detection with the data that you collect, select both **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
+        If you want to use anomalous SSH login detection with the data that you collect, specify both **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
         
        > [!NOTE]
        > If you select the checkbox to **Apply below configuration to my machines**, then this configuration will apply to all the Linux machines connected to this workspace. You can see this configuration in your Syslog machine under 
@@ -86,7 +86,7 @@ This detection requires a specific configuration of the Syslog data connector:
     
     If the resulting count is zero, confirm the configuration of the connector and that the monitored computers do have successful login activity for the time period you specified for your query.
     
-    If the count is greater than zero, your syslog data is suitable for anomalous SSH login detection. You enable this detection from **Analytics** >  **Active rules** > **(Preview) Anomalous SSH Login Detection**.
+    If the resulting count is greater than zero, your syslog data is suitable for anomalous SSH login detection. You enable this detection from **Analytics** >  **Rule templates** > **(Preview) Anomalous SSH Login Detection**.
 
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
