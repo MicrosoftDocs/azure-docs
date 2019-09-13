@@ -347,6 +347,23 @@ Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MS
     }
 ```
 
+**If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate.swift` instead.
+If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback would need to be placed into both files.
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        guard let urlContext = URLContexts.first else {
+            return
+        }
+        
+        let url = urlContext.url
+        let sourceApp = urlContext.options.sourceApplication
+        
+        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
+    }
+```
+
 #### Acquire Tokens
 
 Now, we can implement the application's UI processing logic and get tokens interactively through MSAL.
@@ -621,7 +638,7 @@ func updateSignOutButton(enabled : Bool) {
 
 ### Multi-account applications
 
-This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires some additional work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts()` method.
+This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires some additional work from apps. You will need to create UI to help users select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts()` method.
 
 ## Test your app
 
