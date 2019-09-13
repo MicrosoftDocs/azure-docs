@@ -1,5 +1,5 @@
 ---
-title: Single and multiple account public client apps
+title: Single and multiple account public client apps | Azure
 description: An overview of single and multiple account public client apps.
 services: active-directory
 documentationcenter: ''
