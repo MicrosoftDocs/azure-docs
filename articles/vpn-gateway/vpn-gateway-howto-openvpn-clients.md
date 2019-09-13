@@ -63,9 +63,9 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
 5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) for information about how to extract a private key.
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-7. Double-click the profile file to create the profile in tunnelblik.
-8. Launch Tunnelblik from the applications folder.
-9. Click on the Tunnelblik icon in the system tray and pick connect.
+7. Double-click the profile file to create the profile in Tunnelblick.
+8. Launch Tunnelblick from the applications folder.
+9. Click on the Tunnelblick icon in the system tray and pick connect.
 
 > [!IMPORTANT]
 >Only iOS 11.0 and above and MacOS 10.13 and above are supported with OpenVPN protocol.

@@ -1,6 +1,6 @@
 ---
-title: Get intent, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: Get intent, C# - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this C# quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using C# so that I can see the JSON prediction response.
 ---

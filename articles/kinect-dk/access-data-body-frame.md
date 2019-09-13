@@ -2,7 +2,8 @@
 title: Access Azure Kinect DK data in a body frame
 description: Describe the APIs to access the data stored in a body frame
 author: qm13
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
@@ -71,4 +72,4 @@ k4a_capture_release(input_capture);
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Azure Kinect Body Tracking SDK](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+>[Azure Kinect Body Tracking SDK](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)

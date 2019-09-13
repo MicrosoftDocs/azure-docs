@@ -4,7 +4,7 @@ description: Describes how to specify whether to use a complete or incremental d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
@@ -15,7 +15,9 @@ For both modes, Resource Manager tries to create all resources specified in the 
 
 ## Complete mode
 
-In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](resource-group-authoring-templates.md#condition) evaluates to false, aren't deleted.
+In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](conditional-resource-deployment.md) evaluates to false, aren't deleted.
+
+Be careful using complete mode with [copy loops](resource-group-create-multiple.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 
 There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted. 
 

@@ -2,23 +2,21 @@
 title: OCR cognitive search skill - Azure Search
 description: Extract text from image files using optical character recognition (OCR) in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 # OCR cognitive skill
 
 Optical character recognition (OCR) skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
-+ When textExtractionAlgorithm is set to "handwritten", the ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) functionality is used.
-+ When textExtractionAlgorithm is set to "printed", the ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) functionality is used for languages other than English. For English, the new ["Recognize Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) functionality for printed text is used.
++ The ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) API is used for languages other than English. 
++ For English, the new ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API is used.
 
 The **OCR** skill extracts text from image files. Supported file formats include:
 
@@ -43,8 +41,9 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | detectOrientation	| Enables autodetection of image orientation. <br/> Valid values: true / false.|
 |defaultLanguageCode | <p>	Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak). <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language will be set to English. If the language is explicitly set to "unk", the language will be auto-detected. </p> |
-| textExtractionAlgorithm | "printed" or "handwritten". The "handwritten" text recognition OCR algorithm is currently in preview and only supported in English. |
 |lineEnding | The value to use between each detected line. Possible values: 'Space','CarriageReturn','LineFeed'.  The default is 'Space' |
+
+Previously, there was a parameter called "textExtractionAlgorithm" for specifying whether the skill should extract "printed" or "handwritten" text.  This parameter is deprecated and no longer necessary as the latest Read API algorithm is capable of extracting both types of text at once.  If your skill definition already includes this parameter, you do not need to remove it, but it will no longer be used and both types of text will be extracted going forward regardless of what it is set to.
 
 ## Skill inputs
 

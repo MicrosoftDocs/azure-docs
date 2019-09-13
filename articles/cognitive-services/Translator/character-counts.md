@@ -1,6 +1,6 @@
 ---
 title: Character Counts - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How the Translator Text API counts characters.
 services: cognitive-services
 author: swmachan

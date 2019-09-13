@@ -10,7 +10,6 @@ ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
@@ -51,7 +50,7 @@ If you want to create a self signed certificate quickly for testing, you can use
 
 	$fileName = "exportedcert.pfx"
 	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+When creating a self signed cert, you will need to ensure the subject name has the format of CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
 
 ## Application certificates 
 

@@ -126,6 +126,49 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
+### Recommendation
+
+```json
+{
+	"schemaId":"Microsoft.Insights/activityLogs",
+	"data":{
+		"status":"Activated",
+		"context":{
+			"activityLog":{
+				"channels":"Operation",
+				"claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+				"caller":"Microsoft.Advisor",
+				"correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+				"description":"A new recommendation is available.",
+				"eventSource":"Recommendation",
+				"eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+				"httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+				"eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+				"level":"Informational",
+				"operationName":"Microsoft.Advisor/recommendations/available/action",
+				"properties":{
+					"recommendationSchemaVersion":"1.0",
+					"recommendationCategory":"HighAvailability",
+					"recommendationImpact":"Medium",
+					"recommendationName":"Enable Soft Delete to protect your blob data",
+					"recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+					"recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+				},
+				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+				"resourceGroupName":"CONTOSO",
+				"resourceProviderName":"MICROSOFT.STORAGE",
+				"status":"Active",
+				"subStatus":"",
+				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
+				"submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+				"resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+			}
+		},
+		"properties":{}
+	}
+}
+```
+
 ### ServiceHealth
 
 ```json

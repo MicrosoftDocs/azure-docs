@@ -180,7 +180,7 @@ The following example shows a REST API that returns an error message formatted i
 
 The following example shows a C# class that returns an error message:
 
-```C#
+```csharp
 public class ResponseContent
 {
   public string version { get; set; }

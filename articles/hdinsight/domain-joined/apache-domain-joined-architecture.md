@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
-description: Learn how to plan HDInsight security with Enterprise Security Package.
+description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -32,7 +32,7 @@ The following things are created automatically:
 
 To summarize, you need to set up an environment with:
 
-- An Active Directory domain (managed by Azure AD DS).
+- An Active Directory domain (managed by Azure AD DS). **The domain name must be 39 characters or less to work with Azure HDInsight.**
 - Secure LDAP (LDAPS) enabled in Azure AD DS.
 - Proper networking connectivity from the HDInsight virtual network to the Azure AD DS virtual network, if you choose separate virtual networks for them. A VM inside the HDInsight virtual network should have a line of sight to Azure AD DS through virtual network peering. If HDInsight and Azure AD DS are deployed in the same virtual network, the connectivity is automatically provided, and no further action is needed.
 

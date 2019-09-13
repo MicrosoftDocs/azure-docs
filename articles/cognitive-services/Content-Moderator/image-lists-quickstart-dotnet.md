@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Check images against custom lists in C# - Content Moderator"
-titlesuffix: Azure Cognitive Services
+title: "Check images against custom lists in C# - Content Moderator"
+titleSuffix: Azure Cognitive Services
 description: How to moderate images with custom image lists using the Content Moderator SDK for C#.
 services: cognitive-services
 author: sanjeev3
@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
 #As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 
-# Quickstart: Moderate with custom image lists in C#
+# Moderate with custom image lists in C#
 
 This article provides information and code samples to help you get started using 
 the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
@@ -30,7 +30,7 @@ the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Az
 > [!NOTE]
 > There is a maximum limit of **5 image lists** with each list **not to exceed 10,000 images**.
 
-The console application for this quickstart simulates some of the tasks you
+The console application for this guide simulates some of the tasks you
 can perform with the image list API.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
@@ -304,7 +304,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## Create a method to add a collection of images to the list
 
-Add the following method to the **Program** class. This quickstart does not demonstrate how to apply tags to images in the list. 
+Add the following method to the **Program** class. This guide does not demonstrate how to apply tags to images in the list. 
 
 ```csharp
 /// <summary>

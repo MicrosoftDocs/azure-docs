@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
@@ -51,9 +50,9 @@ This guide shows you how to configure your API Management service instance to us
 
     Specify the **Authorization grant types** by checking the desired types. **Authorization code** is specified by default.
 
-    Enter the **Authorization endpoint URL**. For Azure Active Directory, this URL will be similar to the following URL, where `<client_id>` is replaced with the client id that identifies your application to the OAuth 2.0 server.
+    Enter the **Authorization endpoint URL**. For Azure Active Directory, this URL will be similar to the following URL, where `<tenant_id>` is replaced with the ID of your Azure AD tenant.
 
-    `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
+    `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     The **Authorization request method** specifies how the authorization request is sent to the OAuth 2.0 server. By default **GET** is selected.
 

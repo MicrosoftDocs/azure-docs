@@ -13,7 +13,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
@@ -51,7 +51,7 @@ Many modern apps have a single-page app front end that primarily is written in J
 
 In this flow, the app receives tokens directly from the Microsoft identity platform authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
 
-![Implicit authentication flow](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Shows the implicit authentication flow](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 To see this scenario in action, try one of the single-page app code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
@@ -76,7 +76,7 @@ Further details of different types of tokens used in the Microsoft identity plat
 
 In web server apps, the sign-in authentication flow takes these high-level steps:
 
-![Web app authentication flow](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![Shows the web app authentication flow](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the Microsoft identity platform endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
@@ -102,7 +102,7 @@ A Web API can give users the power to opt in or opt out of specific functionalit
 
 A Web API can receive access tokens from all types of apps, including web server apps, desktop and mobile apps, single-page apps, server-side daemons, and even other Web APIs. The high-level flow for a Web API looks like this:
 
-![Web API authentication flow](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![Shows the web API authentication flow](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
@@ -114,7 +114,7 @@ Device-installed apps, such as mobile and desktop apps, often need to access bac
 
 In this flow, the app receives an authorization code from the Microsoft identity platform endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
-![Native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
+![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## Daemons and server-side apps
 
@@ -122,6 +122,6 @@ Apps that have long-running processes or that operate without interaction with a
 
 In this flow, the app interacts directly with the `/token` endpoint to obtain access:
 
-![Daemon app authentication flow](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![Shows the daemon app authentication flow](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 To build a daemon app, see the [client credentials documentation](v2-oauth2-client-creds-grant-flow.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

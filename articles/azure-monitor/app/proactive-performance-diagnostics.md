@@ -52,7 +52,7 @@ The notifications include diagnostic information. Here's an example:
 
 ## Configure Email Notifications
 
-Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](../../azure-monitor/app/resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
+Smart Detection notifications are enabled by default and sent to those who have [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
   
   ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   

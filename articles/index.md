@@ -104,14 +104,14 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Secure and manage resources</h3>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
-                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
-                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
-                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
+                                                    <li><a class="barLink" href="/azure/lighthouse/">Azure Lighthouse</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@ featureFlags:
                                                             .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt="">
                                                             Python</a>
                                                     </li>
@@ -159,12 +159,12 @@ featureFlags:
                                                             PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/javascript/azure/">
+                                                        <a class="barLink" href="/azure/javascript/">
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/">
+                                                        <a class="barLink" href="/azure/go/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
                                                             Go</a>
                                                     </li>
@@ -377,7 +377,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/welcome">
-                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
@@ -719,6 +719,12 @@ featureFlags:
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/data-share/">
+                                                <img src="media/index/data-share.svg" alt="" />
+                                                <p>Azure Data Share</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Blockchain</h3>
                                     <ul>
@@ -848,6 +854,12 @@ featureFlags:
                                             <a href="/azure/container-instances/">
                                                 <img src="media/index/ContainerInstances.svg" alt="" />
                                                 <p>Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                <p>Cognitive Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1148,6 +1160,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-pnp/">
+                                                <img src="media/index/cloud-check.svg" alt="" />
+                                                <p>IoT Plug and Play</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT solution accelerators</p>
@@ -1384,6 +1402,12 @@ featureFlags:
                                                 <p>Billing</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Media</h3>
                                     <ul>
@@ -1509,9 +1533,9 @@ featureFlags:
                                     <h3>Mobile</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service-mobile/">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>App Service - Mobile Apps</p>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1527,12 +1551,6 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/appcenter/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                <p>Visual Studio App Center</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/azure-maps/">
                                                 <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
@@ -1542,6 +1560,12 @@ featureFlags:
                                             <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>App Service - Mobile Apps</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1665,7 +1689,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/azure-threat-detection">
+                                            <a href="/azure/security/fundamentals/threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Azure Advanced Threat Protection</p>
                                             </a>
@@ -1806,6 +1830,12 @@ featureFlags:
                                             <a href="/azure/avere-vfxt/">
                                                 <img src="media/index/avere.svg" alt="" />
                                                 <p>Avere vFXT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/fxt-edge-filer/">
+                                                <img src="media/index/azure-fxt-edge-filer.svg" alt="" />
+                                                <p>Azure FXT Edge Filer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2302,7 +2332,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <p>Real-time analytics on fast moving streams of data from applications and devices</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2556,6 +2586,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/data-share/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-share.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Share</h3>
+                                                    <p>A simple and safe service for sharing big data with external organizations</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2712,6 +2761,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Easily run containers with a single command</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2964,6 +3032,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Easily run containers with a single command</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3913,6 +4000,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-pnp/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-check.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Plug and Play</h3>
+                                                    <p>Connect devices to your IoT solution without writing any device code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -4658,6 +4764,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>Manage customer resources at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5022,18 +5147,18 @@ featureFlags:
                         <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
-                                <a href="/azure/app-service-mobile">
+                                <a href="/appcenter">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service - Mobile Apps</h3>
-                                                    <p>Build and host the backend for any mobile app</p>
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Ship apps faster by automating application lifecycles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5079,25 +5204,6 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/appcenter">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio App Center</h3>
-                                                    <p>Ship apps faster by automating application lifecycles</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/azure-maps">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5135,6 +5241,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/app-service-mobile">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service - Mobile Apps</h3>
+                                                    <p>Build and host the backend for any mobile app</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -5526,7 +5651,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/azure-threat-detection">
+                                <a href="/azure/security/fundamentals/threat-detection">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5973,6 +6098,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/fxt-edge-filer/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/azure-fxt-edge-filer.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure FXT Edge Filer</h3>
+                                                    <p>Hybrid storage optimization solution for HPC environments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -6220,10 +6364,10 @@ featureFlags:
                                                     Azure for Python Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/python/azure">Get started</a>
+                                                    <a href="/azure/python">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API reference</a>
+                                                    <a href="/python/api/?view=azure-python">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6244,7 +6388,7 @@ featureFlags:
                                                     Azure for Node.js Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Get started</a>
+                                                    <a href="/azure/javascript/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API reference</a>
@@ -6292,7 +6436,7 @@ featureFlags:
                                                     Azure for Go Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Get started</a>
+                                                    <a href="/azure/go/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API Reference</a>

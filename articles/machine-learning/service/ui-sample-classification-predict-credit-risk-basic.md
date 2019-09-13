@@ -1,11 +1,11 @@
 ---
-title: "Classification: Predict credit risk"
+title: "Visual interface example #3: Classification to predict credit risk"
 titleSuffix: Azure Machine Learning service
 description: Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
@@ -74,3 +74,4 @@ Explore the other samples available for the visual interface:
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

@@ -574,6 +574,6 @@ After building the solution, do the following to run the application:
 Now that you've built an application that uses the Azure Relay service, see the following articles to learn more:
 
 * [Azure Relay overview](relay-what-is-it.md)
-* [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
+* [How to use the WCF relay service with .NET](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

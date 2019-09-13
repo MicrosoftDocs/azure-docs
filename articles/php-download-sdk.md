@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
+ms.author: yaya
 
 ---
 # Download the Azure SDK for PHP

@@ -177,7 +177,7 @@ See [File and compression formats in Azure Data Factory](data-factory-supported-
 ## JSON example: Copy data from on-premises HDFS to Azure Blob
 This sample shows how to copy data from an on-premises HDFS to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
-The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from HDFS to Azure Blob Storage by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from HDFS to Azure Blob Storage by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. A linked service of type [OnPremisesHdfs](#linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

@@ -5,6 +5,7 @@
   - name: About Azure Digital Twins
     href: about-digital-twins.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Find available rooms
     href: quickstart-view-occupancy-dotnet.md
@@ -18,7 +19,7 @@
         href: tutorial-facilities-udf.md
       - name: Notify with Logic Apps
         href: tutorial-facilities-events.md
-      - name: Visualize events with TSI
+      - name: Visualize events with Time Series Insights
         href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
@@ -66,36 +67,12 @@
       href: how-to-navigate-apis.md
     - name: Common query patterns
       href: how-to-query-common-apis.md
+  - name: Register your app with legacy AAD
+    href: how-to-use-legacy-aad.md
 - name: Reference
   items:
   - name: User-defined functions client library
     href: reference-user-defined-functions-client-library.md
-- name: Related
-  items:
-  - name: Solutions
-    items:
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform Services
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Maps
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
   - name: Azure Digital Twins samples for C# (.NET)

@@ -47,7 +47,7 @@ landingContent:
       - linkListType: download
         links:
           - text: Samples - JavaScript, Angular
-            url: sample-v2-code.md#single-page-applications-spa
+            url: sample-v2-code.md#single-page-applications
           - text: Sample - SPA with Azure AD B2C
             url: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
   - title: Build a web app that signs in users

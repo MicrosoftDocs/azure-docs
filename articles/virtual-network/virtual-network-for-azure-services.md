@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: malop;kumud
+ms.author: malop
+ms.reviewer: kumud
 
 ---
 
@@ -39,7 +40,7 @@ Deploying services within a virtual network provides the following capabilities:
 - Service instances are deployed into a subnet in a virtual network. Inbound and outbound network access for the subnet must be opened through [network security groups](security-overview.md#network-security-groups), per guidance provided by the service.
 - Certain services also impose restrictions on the subnet they are deployed in, limiting the application of policies, routes or combining VMs and service resources within the same subnet. Check with each service on the specific restrictions as they may change over time. Examples of such services are Azure NetApp Files, Dedicated HSM, Azure Container Instances, App Service. 
 - Optionally, services might require a [delegated subnet](virtual-network-manage-subnet.md#add-a-subnet) as an explicit identifier that a subnet can host a particular service. By delegating, services get explicit permissions to create service-specific resources in the delegated subnet.
-- See an example of a REST API response on a [virtual network with a delegated subnet](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get_virtual_network_with_a_delegated_subnet). A comprehensive list of services that are using the delegated subnet model can be obtained via the [Available Delegations](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list) API.
+- See an example of a REST API response on a [virtual network with a delegated subnet](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get-virtual-network-with-a-delegated-subnet). A comprehensive list of services that are using the delegated subnet model can be obtained via the [Available Delegations](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list) API.
 
 ### Services that can be deployed into a virtual network
 

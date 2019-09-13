@@ -2,16 +2,15 @@
 title: Key phrase extraction cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 #	Key Phrase Extraction cognitive skill
 
@@ -29,7 +28,7 @@ This capability is useful if you need to quickly identify the main talking point
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 

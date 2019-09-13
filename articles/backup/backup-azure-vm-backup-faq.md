@@ -1,13 +1,13 @@
 ---
 title: Frequently asked questions about backing up Azure VMs with Azure Backup
 description: Answers to common questions about backing up Azure VMs with Azure Backup.
-services: backup
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.author: sogup
+ms.date: 06/28/2019
+ms.author: dacurwin
 ---
 # Frequently asked questions-Back up Azure VMs
 
@@ -40,10 +40,6 @@ If you're a VM contributor, you can enable backup on the VM. If you're using a c
 If your Recovery Services vault and VM have different resource groups, make sure you have write permissions in the resource group for the Recovery Services vault.  
 
 
-### What Azure VMs can you back up using Azure Backup?
-
-Review the [support matrix](backup-support-matrix-iaas.md) for support details and limitations.
-
 ### Does an on-demand backup job use the same retention schedule as scheduled backups?
 No. Specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
 
@@ -67,17 +63,12 @@ If you lock the resource group created by Azure Backup Service, backups will sta
 
 User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Does the backup policy consider Daylight Saving Time (DST)?
-No. The date and time on your local computer is local with current daylight savings applied. The time set for scheduled backups might differ from the local time due to DST.
-
-### How many data disks can I attach to a VM backed up by Azure Backup?
-Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Does Azure backup support standard SSD managed disk?
-Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
+Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
-Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Instant Restore.
+Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup.
 
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
@@ -87,6 +78,8 @@ We're running private preview for an SAP HANA backup with an RPO of 15 minutes. 
 ### What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
 The scheduled backup will be triggered within 2 hours of the scheduled backup time. For ex. If 100 VMs have backup start time scheduled at 2:00 am, then by max 4:00 am all the 100VMs will have backup job in progress. If scheduled backups have been paused due to outage and resumed/retried then backup can start outside of this scheduled 2hr window.
 
+### What is the minimum allowed retention range for daily backup point?
+Azure Virtual Machine backup policy supports a minimum retention range of 7 days up to 9999 days. Any modification to an existing VM backup policy with less than 7 days will require an update to meet the minimum retention range of 7 days.
 
 ## Restore
 
@@ -120,7 +113,13 @@ Yes. Even if you delete the VM, you can go to corresponding backup item in the v
 For Managed Disk Azure VM, restoring to the availability sets is enabled by providing an option in template while restoring as managed Disks. This template has the input parameter called **Availability sets**.
 
 ### How do we get faster restore performances?
-For faster restore performance, we are moving to [Instant Restore](backup-instant-restore-capability.md) capability.
+[Instant Restore](backup-instant-restore-capability.md) capability helps in faster backups and instant restores from the snapshots.
+
+### What happens when we change the key vault settings for the encrypted VM?
+
+After you change the KeyVault settings for the encrypted VM, backups will continue to work with the new set of details, However, after the restore from a recovery point prior to the change, you will have to restore the secrets in a KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Operations like secret/key roll-over do not require this step and the same KeyVault can be used after restore.
 
 ## Manage VM backups
 

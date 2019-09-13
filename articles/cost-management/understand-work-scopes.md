@@ -106,7 +106,7 @@ Represents a single account owner for one or more Azure subscriptions. It doesn'
 
 Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
 
-Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../billing/billing-manage-access.md#give-access-to-billing).
+Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
 ## Microsoft Customer Agreement scopes
 
@@ -137,6 +137,18 @@ Customer Agreement billing scopes support the following roles:
 Azure subscriptions are nested under invoice sections, like how they are under EA enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups that are under their respective scopes. However, they don't have access to see or manage resources in the Azure portal. Billing users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, filter costs to the specific subscriptions and resource groups they need to report on.
 
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they are both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
+
+## AWS scopes
+
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
+
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
+
+    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
+    
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
+
+    Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
 ## Cloud Solution Provider (CSP) scopes
 

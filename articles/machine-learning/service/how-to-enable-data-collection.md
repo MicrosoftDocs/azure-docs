@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
 
 ---
@@ -105,7 +105,7 @@ To enable it, you need to:
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-1. Go to  [Azure Portal](https://portal.azure.com).
+1. Go to  [Azure portal](https://portal.azure.com).
 
 1. Open your workspace.
 
@@ -140,6 +140,8 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Select **Update** to apply the change.
 
+  You can also access these settings in your [workspace landing page (preview)](https://ml.azure.com).
+
 + Option 2 - Use Python to disable data collection:
 
   ```python 
@@ -168,7 +170,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data through Power BI
 
-1. Download and Open [PowerBi Desktop](https://www.powerbi.com)
+1. Download and Open [Power BI Desktop](https://www.powerbi.com)
 
 1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 

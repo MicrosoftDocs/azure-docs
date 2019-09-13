@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -24,7 +24,7 @@ You can select **Engine**, **Service**, and **Metrics** categories.
 
 ### Engine
 
-Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
+Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
 
 |XEvent categories |Event name  |
 |---------|---------|
@@ -62,7 +62,7 @@ Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/sql/analysis-
 
 ### All metrics
 
-The Metrics category logs the same [Server metrics](analysis-services-monitor.md#server-metrics) displayed in Metrics.
+The Metrics category logs the same [Server metrics](analysis-services-monitor.md#server-metrics) to the AzureMetrics table. If you're using query [scale-out](analysis-services-scale-out.md) and need to separate metrics for each read replica, use the AzureDiagnostics table instead, where **OperationName** is equal to **LogMetric**.
 
 ## Setup diagnostics logging
 
@@ -156,27 +156,53 @@ To view your diagnostic data, in Log Analytics workspace, open **Logs**  from th
 
 In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
-### Example query
-This query calculates and returns CPU for each query end/refresh end event for a model database and server:
+### Example queries
+
+#### Example 1
+
+The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in [Log Analytics Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### Example 2
+
+The following query returns memory and QPU consumption for a server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### Example 3
+
+The following query returns the Rows read/sec Analysis Services engine performance counters for a server.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
 

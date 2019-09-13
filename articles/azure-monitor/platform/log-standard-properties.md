@@ -10,17 +10,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
 ---
 
 # Standard properties in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
-Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
+> [!NOTE]
+> Some of the standard propertis will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the property in the output.
 
 ## TimeGenerated and timestamp
-The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created. It provides a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results.
+The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
+
+**TimeGenerated** and **timestamp** provide a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results. 
 
 ### Examples
 
@@ -43,6 +46,20 @@ exceptions
 | sort by timestamp asc 
 ```
 
+## \_TimeReceived
+The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
+
+The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and and the total time for the record to be available for log queries.
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
 ## Type and itemType
 The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
@@ -53,7 +70,11 @@ The following query returns the count of records by type collected over the past
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
+
 ```
+## \_ItemId
+The **\_ItemId** property holds a unique identifier for the record.
+
 
 ## \_ResourceId
 The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
@@ -130,6 +151,7 @@ union withsource = tt *
 
 ## \_BilledSize
 The **\_BilledSize** property specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
+
 
 ### Examples
 To see the size of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:

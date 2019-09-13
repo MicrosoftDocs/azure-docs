@@ -14,42 +14,41 @@ ms.date: 07/01/2019
 ms.author: banders
 
 ---
-# Get billing ownership of Azure subscriptions from other users
+# Get billing ownership of Azure subscriptions from other accounts
 
-You might want to take ownership of Azure subscriptions if the existing billing owner is leaving your organization, or you want to pay for the subscriptions through your billing account.
-
-You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing responsibilities of subscriptions to your invoice section.
-
-To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+You might want to take over ownership of Azure subscriptions if the existing billing owner is leaving your organization, or you want to pay for the subscriptions through your billing account. Taking ownership transfers billing responsibilities of subscriptions to your account.
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
+To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+
 ## Request billing ownership
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement.
 
 2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
-   <!-- Todo - Add a screenshot -->
+3. Select **Invoice sections** from the left-hand side. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections**.
+   
+   ![Screenshot that shows selecting invoice sections](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
 
-4. Select **Transfer requests** from the lower-left side.
+4. Select an invoice section from the list. Once you take over the ownership of the subscriptions, they will be billed to this invoice section.
 
-5. From the top of the page, select **Add**.
+5. Select **Transfer requests** from the lower-left side and then select **Add**.
+ 
+   ![Screenshot that shows selecting transfer requests](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests.png)
 
-6. Enter the email address of the user you're requesting billing ownership from. The user must be an account administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](billing-view-all-accounts.md).
+6. Enter the email address of the user you're requesting billing ownership from. The user must be an Account Administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](billing-view-all-accounts.md). Select **Send transfer request**.
 
-   ![Screenshot that shows adding a new transfer request](./media/billing-mca-request-billing-ownership/mca-new-transfer-request.png)
+   ![Screenshot that shows sending a transfer request](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
 
-7. Select **Send transfer request**.
-
-8. The user gets an email with instructions to review your transfer request.
+7. The user gets an email with instructions to review your transfer request.
 
    ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
-9. To approve the transfer request, the user selects the link in the email and follows the instructions.
+8. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
     ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
 
@@ -61,14 +60,16 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
-   <!-- Todo - Add a screenshot -->
 
-4. Select **Transfer requests** from the lower-left side.
+3. Select **Invoice sections** from the left-hand side. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections**.
+   
+   ![Screenshot that shows selecting invoice sections](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
 
-5. The Transfer requests page displays the following information:
+4. Select the invoice section from the list for which you sent the transfer request.
 
-    ![Screenshot that shows list of transfer requests](./media/billing-mca-request-billing-ownership/mca-view-transfer-requests.png)
+5. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:
+
+    ![Screenshot that shows list of transfer requests](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
 
    |Column|Definition|
    |---------|---------|
@@ -89,9 +90,10 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    |Canceled|Someone with access to the transfer request canceled the request|
    |Declined|The user declined the transfer request|
 
-6. Select a transfer request to view details. The transfer details page displays the following information:
-   <!-- Todo - Add a screenshot -->
-
+7. Select a transfer request to view details. The transfer details page displays the following information:
+   
+   ![Screenshot that shows list of transferred subscriptions](./media/billing-mca-request-billing-ownership/mca-transfer-completed.png)
+    
    |Column  |Definition|
    |---------|---------|
    |Transfer request ID|The unique ID for your transfer request. If you submit a support request, share the ID with Azure support to expedite your support request|
@@ -100,6 +102,33 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    |Transfer request expires on| The date when the transfer request expires|
    |Recipient's email address|The email address of the user that you sent the request to transfer billing ownership|
    |Transfer link sent to recipient|The url that was sent to the user to review the transfer request|
+
+## Supported subscription types
+
+You can request billing ownership of the subscription types listed below.
+
+- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)\* 
+- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)\*
+- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)\*
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
+- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) 
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
+- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
+- [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
+- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
+- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
+- [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)\*
+- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)\*
+- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)\*
+- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)\*
+
+\* Any credit available on the subscription will not be available in the new account after the transfer.
+
+\*\* Only supported for subscriptions in accounts that are created during sign-up on the Azure website.
+
 
 ## Additional information
 
@@ -127,7 +156,7 @@ Azure Reservations don't automatically move with subscriptions. [Contact Azure s
 
 ### Access to Azure services
 
-Access to Azure resources that was set using Azure RBAC (role-based access control) is not affected during the transition.
+Access for existing users, groups, or service principals that was assigned using (Azure RBAC (role-based access control))[../role-based-access-control/overview.md] is not affected during the transition.
 
 ### Azure support plan
 
@@ -137,13 +166,9 @@ Azure support doesn't transfer with the subscriptions. If the user transfers all
 
 The original billing owner of the subscriptions is responsible for any charges that were reported up to the point that the transfer is completed. Your invoice section is responsible for charges reported from the time of transfer onwards. There may be some charges that took place before transfer but was reported afterwards. These charges show up on your invoice section.
 
-### Supported offers
-
-Subscription of any types or offers, except CSP offers can be transferred.
-
 ### Cancel a transfer request
 
-You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, go to the transfer details page and select cancel from the bottom of the page.
+You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, go to the [transfer details page](#check-the-transfer-request-status) and select cancel from the bottom of the page.
 
 ### Software as a Service (SaaS) transfer
 

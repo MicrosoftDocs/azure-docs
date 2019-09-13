@@ -49,7 +49,7 @@ If you reach or surpass these limits, or send too large of a portion of the quot
 
 Limits for [multi-service subscriptions](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
 
-These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 character per second.
+These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 characters per second.
 
 ## Latency
 

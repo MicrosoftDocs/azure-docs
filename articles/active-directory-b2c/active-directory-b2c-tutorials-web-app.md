@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Enable authentication in a web application - Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Enable authentication in a web application - Azure Active Directory B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -28,8 +28,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application. 
-- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+* [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application.
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 
 ## Update the application
 
@@ -54,14 +54,21 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 The following two projects are in the sample solution:
 
-- **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
+- **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up and sign in users.
 - **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
 
-You change the sample to use the application that's registered in your tenant, which includes the application ID and the key that you previously recorded. You also configure the user flows that you created. The sample defines the configuration values as settings in the Web.config file. To change the settings:
+You change the sample to use the application that's registered in your tenant, which includes the application ID and the key that you previously recorded. You also configure the user flows that you created. The sample defines the configuration values as settings in the *Web.config* file.
+
+Update the settings in the Web.config file to work with your user flow:
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
-2. In the **TaskWebApp** project, open the **Web.config** file. Replace the value for `ida:Tenant` with the name of the tenant that you created. Replace the value for `ida:ClientId` with the application ID that you recorded. Replace the value of `ida:ClientSecret` with the key that you recorded.
-3. In the **Web.config** file, replace the value for `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`. Replace the value for `ida:EditProfilePolicyId` with `b2c_1_profileediting1`. Replace the value for `ida:ResetPasswordPolicyId` with `b2c_1_passwordreset1`.
+1. In the **TaskWebApp** project, open the **Web.config** file.
+    1. Replace the value of `ida:Tenant` and `ida:AadInstance` with the name of the tenant that you created.
+    1. Replace the value of `ida:ClientId` with the application ID that you recorded.
+    1. Replace the value of `ida:ClientSecret` with the key that you recorded. You must XML-encode the client secret before adding it to your Web.config.
+    1. Replace the value of `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`.
+    1. Replace the value of `ida:EditProfilePolicyId` with `b2c_1_profileediting1`.
+    1. Replace the value of `ida:ResetPasswordPolicyId` with `b2c_1_passwordreset1`.
 
 ## Run the sample
 
@@ -72,9 +79,9 @@ You change the sample to use the application that's registered in your tenant, w
 
 1. Click **Sign up / Sign in** to sign up as a user of the application. The **b2c_1_signupsignin1** user flow is used.
 2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, select **Sign up now**. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
-3. Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes. 
+3. Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up workflow](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.png)
+    ![Sign-up page shown as part of sign-in/sign-up workflow](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 

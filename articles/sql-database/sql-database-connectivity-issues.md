@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/14/2019
 ---
 # Working with SQL Database connection issues and transient errors

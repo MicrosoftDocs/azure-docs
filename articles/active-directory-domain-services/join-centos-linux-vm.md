@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Join a CentOS VM to a managed do
 description: Join a CentOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Join a CentOS Linux virtual machine to a managed domain
@@ -27,9 +27,9 @@ This article shows you how to join a CentOS Linux virtual machine in Azure to an
 To perform the tasks listed in this article, you need:
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
-4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](active-directory-ds-getting-started-password-sync.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
+4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## Provision a CentOS Linux virtual machine
@@ -47,30 +47,31 @@ Provision a CentOS virtual machine in Azure, using any of the following methods:
 ## Connect remotely to the newly provisioned Linux virtual machine
 The CentOS virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Follow the instructions in the article [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Configure the hosts file on the Linux virtual machine
 In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 In the hosts file, enter the following value:
 
+```console
+127.0.0.1 contoso-centos.contoso.com contoso-centos
 ```
-127.0.0.1 contoso-centos.contoso100.com contoso-centos
-```
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
+
+Here, 'contoso.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
 Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## Join the Linux virtual machine to the managed domain
@@ -78,8 +79,8 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
-    ```
-    sudo realm discover CONTOSO100.COM
+    ```console
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -92,12 +93,11 @@ Now that the required packages are installed on the Linux virtual machine, the n
 2. Initialize Kerberos. In your SSH terminal, type the following command:
 
     > [!TIP]
-    > * Specify a user who belongs to the 'AAD DC Administrators' group.
+    > * Specify a user who belongs to the 'AAD DC Administrators' group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)
     > * Specify the domain name in capital letters, else kinit fails.
-    >
 
-    ```
-    kinit bob@CONTOSO100.COM
+    ```console
+    kinit bob@CONTOSO.COM
     ```
 
 3. Join the machine to the domain. In your SSH terminal, type the following command:
@@ -105,9 +105,10 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > [!TIP]
     > Use the same user account you specified in the preceding step ('kinit').
     >
+    > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
-    ```
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    ```console
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
@@ -116,28 +117,31 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CentOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
-    ```
-    ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
+1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO.COM' in this case.)
+    
+    ```console
+    ssh -l bob@CONTOSO.COM contoso-centos.contoso.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    ```
+   
+    ```console
     pwd
     ```
 
 3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
-    ```
+    
+    ```console
     id
     ```
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
+Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domain-join-issues) article.
 
 ## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

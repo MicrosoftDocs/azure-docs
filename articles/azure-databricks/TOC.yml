@@ -17,6 +17,8 @@
   items:
   - name: Query SQL Server running in Docker container
     href: vnet-injection-sql-server.md
+  - name: Access storage using Azure Key Vault
+    href: store-secrets-azure-key-vault.md
   - name: Use Cosmos DB service endpoint
     href: service-endpoint-cosmosdb.md
   - name: Perform ETL operations

@@ -22,30 +22,9 @@ The Body Tracking SDK requires a NVIDIA GPU installed in the host PC. The recomm
 
 ## Install software
 
-### [CUDA 10.0](https://developer.nvidia.com/cuda-10.0-download-archive)
-
-Follow the on-screen prompts to install CUDA 10.0 and all patches.
-
->[!NOTE]
-> If installing with the "Express" installation options fails, please select "Custom" installation option and click "Next".
-> Then expand the "CUDA" tag and unselect "Visual Studio Integration".
-
-![CUDA installation Image1](./media/quickstarts/install-cuda1.png)![CUDA installation Image2](./media/quickstarts/install-cuda2.png)
-
-### [cuDNN v7.5.x for CUDA 10.0](https://developer.nvidia.com/rdp/cudnn-archive)
-
-Sign in to NVIDIA Developer site with your Developer Program membership and download the `cudnn64_7.dll`. Ensure the dll path is added to the "Environment Variables - Path":
-1. Launch "Control Panel" -> Select "System and Security" -> Select "System" -> Select "Advanced system settings"
-
-    ![Setup system path 1](./media/quickstarts/install-system-path1.png)
-
-2. Select "Environment Variables" -> Double-click the "Path" variable under "System variables" block -> Make sure the path that contains your `cudnn64_7.dll` is there.
-
-    ![Setup system path 2](./media/quickstarts/install-system-path2.png)
-
 ### [Install the latest NVIDIA Driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
-CUDA 10.0 installs an older version of the NVIDIA graphics driver. Download and install the latest NVIDIA driver for your graphics card.
+Download and install the latest NVIDIA driver for your graphics card. Older drivers may not be compatible with the CUDA binaries redistributed with the body tracking SDK.
 
 ### [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 

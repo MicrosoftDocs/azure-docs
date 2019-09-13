@@ -7,7 +7,7 @@ author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article

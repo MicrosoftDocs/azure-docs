@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-manager: craigg
 ms.date: 12/18/2018
 ---
 # In-Memory sample

@@ -18,7 +18,7 @@ ms.author: bwren
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-For example, you can use Microsoft Flow to use LAzure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
+For example, you can use Microsoft Flow to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
 
 The tutorial in this article shows you how to create a flow that automatically sends the results of an Azure Monitor log query by email, just one example of how you can use the Log Analytics connector in Microsoft Flow. 
 

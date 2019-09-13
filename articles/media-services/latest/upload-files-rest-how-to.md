@@ -20,7 +20,7 @@ ms.author: juliako
 
 In Media Services, you upload your digital files into a blob container associated with an asset. The [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files). Once the files are uploaded into the asset's container, your content is stored securely in the cloud for further processing  and streaming.
 
-This article shows you how to upload a local file suing REST.
+This article shows you how to upload a local file using REST.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ You see the **Response** with the info about asset's URLs. Copy the first URL an
 
 ## Upload a file to blob storage using the upload URL
 
-Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ## Next steps
 

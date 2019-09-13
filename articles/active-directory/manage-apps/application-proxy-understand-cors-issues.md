@@ -96,7 +96,7 @@ Content-Type: text/plain; charset=utf-8\
 Expires: -1\
 Vary: Accept-Encoding\
 Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**Access-Control-Allow-Origin: https://corswebclient-contoso.msappproxy.net**\
+**Access-Control-Allow-Origin: https\://corswebclient-contoso.msappproxy.net**\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17

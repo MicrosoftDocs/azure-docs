@@ -87,7 +87,7 @@ The following table shows the types of blob operations that are disabled for the
 - For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
 - The minimum retention interval is 1 day. The maximum is 146,000 days (400 years).
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
-- For a container, a maximum of 7 time-based retention policy audit logs are retained for the duration of the policy.
+- For a container, a maximum of 7 time-based retention policy audit logs are retained for a locked policy.
 
 ### Legal hold
 - For a storage account, the maximum number of containers with a legal hold setting is 1,000.
@@ -172,7 +172,7 @@ Yes. To document compliance, Microsoft retained a leading independent assessment
 
 **Does the feature apply to only block blobs, or to page and append blobs as well?**
 
-Immutable storage can be used with any blob type, but we recommend that you use it mostly for block blobs. Unlike block blobs, page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed.
+Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs. Unlike block blobs, any new page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed. Therefore, setting a WORM policy on a container that stores VHDs (page blobs) for any active Virtual Machines is strongly discouraged as it will lock the VM disk.
 
 **Do I need to create a new storage account to use this feature?**
 
@@ -186,7 +186,7 @@ Yes, a container can have both a legal hold and a time-based retention policy at
 
 No, Legal Hold is just the general term used for a non time-based retention policy. It does not need to only be used for litigation related proceedings. Legal Hold policies are useful for disabling overwrite and deletes for protecting important enterprise WORM data, where the retention period is unknown. You may use it as an enterprise policy to protect your mission critical WORM workloads or use it as a staging policy before a custom event trigger requires the use of a time-based retention policy. 
 
-**Can I remove a *locked* time-based retention policy or legal hold?**
+**Can I remove a _locked_ time-based retention policy or legal hold?**
 
 Only unlocked time-based retention policies can be removed from a container. Once a time-based retention policy is locked, it cannot be removed; only effective retention period extensions are allowed. Legal hold tags can be deleted. When all legal tags are deleted, the legal hold is removed.
 

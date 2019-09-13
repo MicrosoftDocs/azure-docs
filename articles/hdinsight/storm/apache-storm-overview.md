@@ -41,7 +41,7 @@ Storm on HDInsight provides the following features:
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-To get started using Storm, see [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
+To get started using Storm, see [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md).
 
 ## How does Apache Storm work
 
@@ -61,11 +61,11 @@ The Nimbus node provides functionality similar to the Apache Hadoop JobTracker, 
 
 The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
 
-![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/nimbus.png)
+![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## Ease of creation
 
-You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Get started with Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
+You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Ease of use
 
@@ -173,5 +173,5 @@ For an example topology that demonstrates how to configure logging, see [Java-ba
 
 Learn more about real-time analytics solutions with Apache Storm on HDInsight:
 
-* [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)
+* [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md)
 * [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -111,13 +111,13 @@ The following properties are supported for ODBC linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by ODBC dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by ODBC dataset.
 
-To copy data from/to ODBC-compatible data store, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from/to ODBC-compatible data store, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
+| type | The type property of the dataset must be set to: **OdbcTable** | Yes |
 | tableName | Name of the table in the ODBC data store. | No for source (if "query" in activity source is specified);<br/>Yes for sink |
 
 **Example**
@@ -126,7 +126,8 @@ To copy data from/to ODBC-compatible data store, set the type property of the da
 {
     "name": "ODBCDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "OdbcTable",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
@@ -138,17 +139,19 @@ To copy data from/to ODBC-compatible data store, set the type property of the da
 }
 ```
 
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
+
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by ODBC source.
 
 ### ODBC as source
 
-To copy data from ODBC-compatible data store, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from ODBC-compatible data store, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **OdbcSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
@@ -172,7 +175,7 @@ To copy data from ODBC-compatible data store, set the source type in the copy ac
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "OdbcSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -182,6 +185,8 @@ To copy data from ODBC-compatible data store, set the source type in the copy ac
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ### ODBC as sink
 
@@ -228,80 +233,6 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
     }
 ]
 ```
-
-## IBM Informix source
-
-You can copy data from IBM Informix database using the generic ODBC connector.
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Informix to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. For example, you can use driver "IBM INFORMIX ODBC DRIVER (64-bit)". See [Prerequisites](#prerequisites) section for details.
-
-Before you use the Informix source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
-
-Create an ODBC linked service to link an IBM Informix data store to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
-
-## Microsoft Access source
-
-You can copy data from Microsoft Access database using the generic ODBC connector.
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Microsoft Access to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
-
-Before you use the Microsoft Access source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
-
-Create an ODBC linked service to link a Microsoft Access database to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
 
 ## SAP HANA sink
 

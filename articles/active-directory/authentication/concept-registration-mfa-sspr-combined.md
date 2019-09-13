@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -132,7 +132,11 @@ A user who has previously set up at least one method that can be used for Multi-
 
 ## Next steps
 
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+
+[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 
 [Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 

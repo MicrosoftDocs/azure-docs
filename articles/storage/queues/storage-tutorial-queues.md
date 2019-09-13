@@ -1,15 +1,14 @@
 ---
 title: Tutorial - Work with Azure storage queues - Azure Storage
 description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages.
-services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 04/24/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
-ms.date: 04/24/2019
+ms.reviewer: cbrooks
 # Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 
@@ -224,6 +223,14 @@ Create a new method to send a message into the queue. Add the following method t
    ```
 
 2. Save the file.
+
+A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, we recommend that you Base64-encode the message.
+
+By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live. To add a message that does not expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## Dequeue messages
 

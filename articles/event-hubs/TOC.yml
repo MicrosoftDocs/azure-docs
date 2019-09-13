@@ -30,6 +30,18 @@
       href: event-hubs-dotnet-standard-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+    - name: Go
+      href: event-hubs-go-get-started-send.md
+    - name: C (send only)
+      href: event-hubs-c-getstarted-send.md
+    - name: Apache Storm (receive only)
+      href: event-hubs-storm-getstarted-receive.md   
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
   - name: Capture events
     items:
     - name: Use the Azure portal to enable Event Hubs Capture
@@ -59,22 +71,38 @@
   items:
   - name: Event Hubs terminology
     href: event-hubs-features.md
+  - name: Event processor host
+    href: event-hubs-event-processor-host.md
   - name: Availability and consistency
     href: event-hubs-availability-and-consistency.md
   - name: Scalability
     href: event-hubs-scalability.md
+  - name: Geo-disaster recovery
+    items:
+    - name: Geo-disaster recovery and Geo-replication
+      href: event-hubs-geo-dr.md  
   - name: Security
     items:
-    - name: Managed identity for Azure resources
-      href: event-hubs-managed-service-identity.md
-    - name: Role-Based Access Control (preview)
-      href: event-hubs-role-based-access-control.md
-    - name: Geo-disaster recovery and Geo-replication
-      href: event-hubs-geo-dr.md
-    - name: Authentication and security model overview
-      href: event-hubs-authentication-and-security-model-overview.md
-    - name: Security Attributes
-      href: event-hubs-security-attributes.md
+    - name: Authorization
+      items:
+      - name: Authorize access to Azure Event Hubs 
+        href: authorize-access-event-hubs.md        
+      - name: Authorize access with Azure Active Directory
+        href: authorize-access-azure-active-directory.md
+      - name: Authorize access with a shared access signature
+        href: authorize-access-shared-access-signature.md
+    - name: Authentication
+      items:
+      - name: Authenticate with Azure Active Directory
+        items: 
+        - name: Authenticate with a managed identity
+          href: authenticate-managed-identity.md
+        - name: Authenticate from an application
+          href: authenticate-application.md
+      - name: Authenticate with a shared access signature
+        href: authenticate-shared-access-signature.md
+    - name: Built-in security controls
+      href: event-hubs-security-controls.md
   - name: AMQP 1.0 protocol guide
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true
@@ -88,44 +116,20 @@
       href: event-hubs-exchange-events-different-protocols.md
     - name: Programming guide
       href: event-hubs-programming-guide.md
-    - name: Receive events using Event Processor Host 
-      href: event-hubs-event-processor-host.md
-  - name: Use client libraries
+    - name: Send, receive, and capture events using Python
+      href: event-hubs-python.md
+  - name: Process data
     items:
-    - name: .NET Framework
-      items:
-      - name: Send and receive events using .NET Framework      
-        href: event-hubs-dotnet-framework-getstarted-send.md
-    - name: Java
-      items:
-      - name: Create a Spring Cloud Stream Binder app
-        href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-        maintainContext: true        
-      - name: Use the Spring Boot Starter for Apache Kafka
-        href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-        maintainContext: true               
-    - name: Python
-      items:
-      - name: Send and receive events using Python
-        href: event-hubs-python-get-started-send.md
-      - name: Send, receive, and capture events using Python
-        href: event-hubs-python.md
-    - name: Node.js
-      items:
-      - name: Send and receive events using Node.js
-        href: event-hubs-node-get-started-send.md
-    - name: Go
-      items:
-      - name: Send and receive events using Go
-        href: event-hubs-go-get-started-send.md
-    - name: C (send only)
-      items:
-      - name: Send events using C
-        href: event-hubs-c-getstarted-send.md
-    - name: Apache Storm (receive only)
-      items:
-      - name: Receive events using Apache Storm
-        href: event-hubs-storm-getstarted-receive.md    
+    - name: Process data using Azure Stream Analytics 
+      href: process-data-azure-stream-analytics.md
+  - name: Integrate with Spring framework
+    items:
+    - name: Create a Spring Cloud Stream Binder app
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+      maintainContext: true        
+    - name: Use the Spring Boot Starter for Apache Kafka
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+      maintainContext: true               
   - name: Integrate with Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs
@@ -160,6 +164,8 @@
       href: event-hubs-service-endpoints.md
     - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
       href: event-hubs-tutorial-virtual-networks-firewalls.md
+    - name: Configure customer-managed keys for encrypting data at rest 
+      href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:
     - name: Exceptions

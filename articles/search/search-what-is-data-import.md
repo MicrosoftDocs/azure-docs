@@ -2,7 +2,7 @@
 title: Data import for data ingestion to a search index - Azure Search
 description: Populate and upload data to an index in Azure Search from external data sources.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual

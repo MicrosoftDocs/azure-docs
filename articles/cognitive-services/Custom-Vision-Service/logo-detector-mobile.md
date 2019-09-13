@@ -1,20 +1,20 @@
 ---
 title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll explore a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. Run the whole app scenario for yourself, or simply complete the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, you'll explore a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
 
 This tutorial will show you how to:
 
@@ -46,7 +46,7 @@ Sign in to the [Custom Vision website](https://customvision.ai/) and create a ne
 
 Next, train the logo detection algorithm by uploading images of Azure service logos and tagging them manually. The AIVisualProvision repository includes a set of training images that you can use. On the website, select the **Add images** button on the **Training Images** tab. Then go to the **Documents/Images/Training_DataSet** folder of the repository. You'll need to manually tag the logos in each image, so if you're only testing out this project, you might want to upload only a subset of the images. Upload at least 15 instances of each tag you plan to use.
 
-After you upload the training images, select the first one on the display. This will bring up the tagging window. Draw boxes and assign tags for each logo in each image. 
+After you upload the training images, select the first one on the display. The tagging window will appear. Draw boxes and assign tags for each logo in each image. 
 
 ![Logo tagging on the Custom Vision website](media/azure-logo-tutorial/tag-logos.png)
 
@@ -58,13 +58,13 @@ After you tag an image, go to the right to tag the next one. Close the tagging w
 
 ## Train the object detector
 
-In the left pane, set the **Tags** switch to **Tagged** to display your images. Then select the green button at the top of the page to train the model. Doing this will teach the algorithm to recognize the same tags in new images. It will also test the model on some of your existing images to generate accuracy scores.
+In the left pane, set the **Tags** switch to **Tagged** to display your images. Then select the green button at the top of the page to train the model. The algorithm will train to recognize the same tags in new images. It will also test the model on some of your existing images to generate accuracy scores.
 
 ![The Custom Vision website, on the Training Images tab. In this screenshot, the Train button is outlined](media/azure-logo-tutorial/train-model.png)
 
 ## Get the prediction URL
 
-After your model is trained, you're ready to integrate it into your app. To do this, you'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). On the **Performance** tab, select the **Prediction URL** button at the top of the page.
+After your model is trained, you're ready to integrate it into your app. You'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). On the **Performance** tab, select the **Prediction URL** button at the top of the page.
 
 ![The Custom Vision website, showing a Prediction API window that displays a URL address and API key](media/azure-logo-tutorial/cusvis-endpoint.png)
 
@@ -90,7 +90,7 @@ The Custom Vision portion of the tutorial is complete. If you want to run the ap
 
 Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![The Computer Vision service in the Azure portal, with the Quick start menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
+![The Computer Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
 Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 

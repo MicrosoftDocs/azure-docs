@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 07/18/2019
 ms.author: aahi
 ---
 
@@ -54,13 +54,6 @@ To set up a console application using the Bing Video Search SDK:
         throw err;
     });
     ```
-
-<!-- Remove until the response can be replace with a sanitized version.
-The code prints `result.value` items to the console without parsing any text. The results will be:
-- _type: 'VideoObjectElementType'
-
-![Video results](media/video-search-sdk-node-results.png)
--->
 
 ## Next steps
 

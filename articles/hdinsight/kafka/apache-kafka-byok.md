@@ -49,11 +49,11 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         a. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Generate a new key in Azure Key Vault")
 
         b. Set **Options** to **Generate** and give the key a name.
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+        ![Generate key name](./media/apache-kafka-byok/apache-kafka-create-key.png "Generate key name")
 
         c. Select the key you created from the list of keys.
 
@@ -75,11 +75,11 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         c. Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
+        ![Set Key Permissions for Azure Key Vault access policy1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Set Key Permissions for Azure Key Vault access policy1")
 
         d. Set **Secret Permissions** to **Get**, **Set**, and **Delete**.
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
+        ![Set Key Permissions for Azure Key Vault access policy2](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Set Key Permissions for Azure Key Vault access policy2")
 
         e. Click on **Save**. 
 
@@ -98,7 +98,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
    To rotate the key, you must have the full url of the new key (See Step 3 of [Setup the Key Vault and Keys](#setup-the-key-vault-and-keys)). Once you have that, go to the Kafka cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
 
-   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## FAQ for BYOK to Apache Kafka
 

@@ -1,26 +1,29 @@
 ---
-title: Create a Cognitive Services account using the Azure CLI
-titlesuffix: Azure Cognitive Services
-description: How to create an Azure Cognitive Services APIs account using the Azure CLI.
+title: Create a Cognitive Services resource using the Azure CLI
+titleSuffix: Azure Cognitive Services
+description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure command line interface.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 07/17/2019
 ms.author: aahi
 ---
 
-# Create a Cognitive Services account using the Azure Command-Line Interface(CLI)
+# Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)
+
+Use this quickstart to get started with Azure Cognitive Services using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications. 
+
 
 In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or more of the Azure Cognitive Services APIs.
 
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+
 ## Prerequisites
 
-* A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
+* A valid Azure subscription - [Create one](https://azure.microsoft.com/free/) for free.
 * The [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Install the Azure CLI and sign in 
 
@@ -34,11 +37,11 @@ You can also use the green **Try It** button to run these commands in your brows
  
 ## Create a new Azure Cognitive Services resource group
 
-Your subscriptions to Cognitive Services are represented by Azure resources. Every Cognitive Services account (and its associated Azure resource) must belong to an Azure resource group.
+Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group.
 
 ### Choose your resource group location
 
-To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az_account_list) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
+To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az-account-list-locations) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
 
 > [!IMPORTANT]
 > * Remember your Azure location, as you will need it when calling the Azure Cognitive Services.
@@ -50,7 +53,7 @@ az account list-locations \
     --out table
 ```
 
-After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az_group_create) command.
+After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
 
 In the example below, replace the azure location `westus2` with one of the Azure locations available for your subscription.
 
@@ -137,7 +140,7 @@ az cognitiveservices account create \
     --yes
 ```
 
-## Get the keys for your subscription
+## Get the keys for your resource
 
 To log into your local installation of the Command-Line Interface(CLI), use the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
@@ -155,11 +158,19 @@ Use the [az cognitiveservices account keys list](https://docs.microsoft.com/cli/
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
+## Pricing tiers and billing
+
+Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
+* maximum number of allowed transactions per second (TPS).
+* service features enabled within the pricing tier.
+* The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
+
+
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+If you want to clean up and remove a Cognitive Services resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
 
-To remove the resource group and its associated resources, including the new storage account, use the az group delete command.
+To remove the resource group and its associated resources, use the az group delete command.
 
 ```azurecli-interactive
 az group delete --name storage-resource-group

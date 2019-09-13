@@ -3,7 +3,7 @@ title: Get started with Azure queue storage and Visual Studio Connected Services
 description: How to get started using Azure queue storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure

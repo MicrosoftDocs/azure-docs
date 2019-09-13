@@ -40,6 +40,9 @@ pip install azure-eventhub
 
 ## Send events
 
+> [!NOTE]
+> This code in this section is for the current stable version (1.3.1) of Event Hubs SDK. If you are looking for the sample code that uses the preview version of the SDK, see [this page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples).
+
 ### Create a Python script to send events
 
 Next, create a Python application that sends events to an event hub:
@@ -141,7 +144,8 @@ last_sn = -1
 last_offset = "-1"
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 try:
-    receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+    receiver = client.add_receiver(
+        CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
     client.run()
     start_time = time.time()
     for event_data in receiver.receive(timeout=100):

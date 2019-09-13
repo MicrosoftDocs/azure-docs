@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Apache Hadoop clusters using Resource Manager - Azure HDInsight'
+title: 'Quickstart: Create Apache Hadoop clusters Resource Manager - Azure HDInsight'
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Resource Manager template
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 ms.service: hdinsight
@@ -18,7 +18,7 @@ In this quickstart, you learn how to create an Apache Hadoop cluster in Azure HD
 
 Similar templates can be viewed at [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). The template reference can be found [here](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).  You can also create a cluster using the [Azure portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  
 
-Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
+Currently HDInsight comes with [seven different cluster types](../hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. Enter or select the following values:
 

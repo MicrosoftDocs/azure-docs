@@ -12,7 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 
 ---
 # How to set up a geo-filtering WAF policy for your Front Door
@@ -29,8 +30,8 @@ You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/o
 
 #### Connect to Azure with an interactive dialog for sign-in
 ```
-Connect-AzAccount
 Install-Module -Name Az
+Connect-AzAccount
 ```
 Make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
 

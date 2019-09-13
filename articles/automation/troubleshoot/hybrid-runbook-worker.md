@@ -4,8 +4,8 @@ description: This article provides information troubleshooting Azure Automation 
 services: automation
 ms.service: automation
 ms.subservice: 
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm

@@ -2,14 +2,12 @@
 title: Troubleshoot common search indexer issues - Azure Search
 description: Fix errors and common problems with indexers in Azure Search, including data source connection, firewall, and missing documents.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
 ---
 
 # Troubleshooting common indexer issues in Azure Search
@@ -40,7 +38,7 @@ You can find out the IP address of your search service by pinging its FQDN (`<yo
 
 #### Indexing isn't enabled
 
-Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## Document Processing Errors
 

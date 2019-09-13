@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
 
 ---
@@ -101,7 +101,7 @@ az role definition create --role-definition data_scientist_role.json
 After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
 
 ```azurecli-interactive
-az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
 

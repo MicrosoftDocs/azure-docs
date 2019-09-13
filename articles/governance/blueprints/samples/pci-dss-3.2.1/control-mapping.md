@@ -17,8 +17,20 @@ PCI-DSS v3.2.1 controls. For more information about the controls, see [PCI-DSS v
 The following mappings are to the **PCI-DSS v3.2.1:2018** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **[Preview] Audit PCI v3.2.1:2018 controls and
+**Definitions** page. Then, find and select the **\[Preview\] Audit PCI v3.2.1:2018 controls and
 deploy specific VM Extensions to support audit requirements** built-in policy initiative.
+
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## 1.3.2 and 1.3.4 Boundary Protection
 
@@ -33,7 +45,7 @@ within the information system.
 - Audit unrestricted network access to storage accounts
 - Access through Internet facing endpoint should be restricted
 
-## 3.4.a, 4.1, 4.1.g, 4.1.h Cryptographic Protection
+## 3.4.a, 4.1, 4.1.g, 4.1.h and 6.5.3 Cryptographic Protection
 
 This blueprint helps you enforce your policy with the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
 definitions which enforce specific cryptograph controls and audit use of weak cryptographic
@@ -48,7 +60,7 @@ Fabric communication.
 - Function App should only be accessible over HTTPS
 - Web Application should only be accessible over HTTPS
 - API App should only be accessible over HTTPS
-- Monitor unencrypted SQL database in Azure Security Center
+- Transparent Data Encryption on SQL databases should be enabled
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
 - Only secure connections to your Redis Cache should be enabled
@@ -85,7 +97,7 @@ appropriate separation of duties.
 - There should be more than one owner assigned to your subscription
 - A maximum of 3 owners should be designated for your subscription 
 
-## 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
+## 3.2, 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
 
 This blueprint helps you restrict and control privileged access rights by assigning [Azure
 Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or
@@ -133,7 +145,7 @@ considered for removal.
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
 
-## 8.2.3.a,b and 8.2.4.a,b Password-based Authentication
+## 8.2.3.a,b, 8.2.4.a,b and 8.2.5 Password-based Authentication
 
 This blueprint helps you enforce strong passwords by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit Windows VMs that don't enforce minimum
@@ -141,12 +153,12 @@ strength and other password requirements. Awareness of VMs in violation of the p
 policy helps you take corrective actions to ensure passwords for all VM user accounts are compliant
 with policy.
 
-- [Preview]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- [Preview]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
 
 ## 10.3 and 10.5.4 Audit Generation
 
@@ -156,7 +168,7 @@ Diagnostic logs provide insight into operations that were performed within Azure
 logs rely on synchronized internal clocks to create a time-correlated record of events across
 resources.
 
-- Monitor unaudited SQL servers in Azure Security Center
+- Auditing should be enabled on advanced data security settings on SQL Server
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 - Deploy Auditing on SQL servers
@@ -184,7 +196,7 @@ articles to learn about the overview and how to deploy this sample:
 
 ## Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

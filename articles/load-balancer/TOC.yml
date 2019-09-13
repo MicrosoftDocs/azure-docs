@@ -61,6 +61,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
     href: load-balancer-standard-diagnostics.md
+  - name: Built-in security controls
+    href: load-balancer-security-controls.md
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer

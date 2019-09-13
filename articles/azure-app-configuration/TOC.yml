@@ -29,6 +29,8 @@
   items:
     - name: Enable dynamic configuration in ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Enable dynamic configuration in a .NET Core app
+      href: enable-dynamic-configuration-dotnet-core.md
     - name: Use feature flags in a .NET Core app
       href: use-feature-flags-dotnet-core.md
     - name: Manage feature flags
@@ -73,10 +75,14 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074664
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Java Spring provider
-          href: https://go.microsoft.com/fwlink/?linkid=2074659
         - name: .NET Azure SDK
           href: https://go.microsoft.com/fwlink/?linkid=2092056
+        - name: Java Spring provider
+          href: https://go.microsoft.com/fwlink/?linkid=2074659
+        - name: Java Azure SDK
+          href: https://go.microsoft.com/fwlink/?linkid=2098196
+        - name: Python Azure SDK
+          href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: REST
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management

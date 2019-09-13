@@ -2,10 +2,14 @@
 title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1 | Microsoft Docs
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter:
 author: njray
 manager: edprice
+ms.author: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 02/22/2019
 tags:
 keywords:
 ---
@@ -16,7 +20,7 @@ You can run an IBM Z Development and Test Environment (zD&T) environment on Azur
 This article shows you how to set up an ADCD instance in a zD&T environment on Azure. ADCDs create complete Z Series operating system implementations for development and testing environments that run in zD&T.
 
 Like zD&T, ADCDs are available only to IBM customers and partners and are exclusively for development and testing purposes. They are not to be used for production environments. Numerous IBM installation packages are available for download through [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html)
-or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+or [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## Prerequisites
 
@@ -34,7 +38,7 @@ or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHa
 
 ## Download the installation packages from Passport Advantage
 
-Access to the ADCD media is required. The steps below assume you are an IBM customers and can use Passport Advantage. IBM partners can use [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Access to the ADCD media is required. The steps below assume you are an IBM customers and can use Passport Advantage. IBM partners can use [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
 > This article assumes that a Windows PC is used to access Azure portal and to download the IBM media. If you are using a Mac or Ubuntu desktop, the commands and process for obtaining the IBM media may differ slightly.

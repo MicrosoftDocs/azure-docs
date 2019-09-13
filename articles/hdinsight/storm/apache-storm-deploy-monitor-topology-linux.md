@@ -9,17 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ---
+
 # Deploy and manage Apache Storm topologies on Azure HDInsight 
 
 In this document, learn the basics of managing and monitoring [Apache Storm](https://storm.apache.org/) topologies running on Storm on HDInsight clusters.
 
 ## Prerequisites
 
-* **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster
+* An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
-* (Optional) **Familiarity with SSH and SCP**: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Optional) **Visual Studio**: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Optional) Familiarity with SSH and SCP: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* (Optional) Visual Studio: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     One of the following versions of Visual Studio:
 
@@ -47,7 +49,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
 3. In the **New Project** dialog box, expand **Installed** > **Templates**, and then select **HDInsight**. From the list of templates, select **Storm Sample**. At the bottom of the dialog box, type a name for the application.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
 4. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
@@ -83,7 +85,7 @@ You can programmatically deploy a topology using the Nimbus service. [https://gi
 
 When a topology is submitted using Visual Studio, the **Storm Topologies** view appears. Select the topology from the list to view information about the running topology.
 
-![visual studio monitor](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![visual studio monitor](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
 > You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.

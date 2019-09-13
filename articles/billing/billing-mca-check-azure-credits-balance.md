@@ -15,7 +15,7 @@ ms.author: banders
 ---
 # Track Microsoft Customer Agreement Azure credit balance
 
-You can check the Azure credit balance for Microsoft Customer Agreement in the Azure portal. You use credits to pay for products that are covered by the credits.
+You can check the Azure credit balance for Microsoft Customer Agreement in the Azure portal. You use credits to pay for charges that are covered by the credits.
 
 You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.(#products-that-arent-covered-by-azure-credits).
 
@@ -23,19 +23,23 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Check your credit balance
 
-1. Sign-in to the [Azure portal]( https://portal.azure.com).
+1. Sign in to the [Azure portal]( https://portal.azure.com).
 
-2. Search for *Cost Management + Billing*.
+2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Go to the billing profile. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then a billing profile.
+3.  Select **Azure credits** from the left-hand side. Depending on your access, you may need to select a billing account or a billing profile and then select **Azure credits**.
 
-4. Select **Azure credits**.
-
-5. The Azure credits page displays the following information:
+4. The Azure credits page displays the following information:
 
    ![Screenshot of credit balance and transactions for a Billing profile](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+
+   | Term               | Definition                           |
+   |--------------------|--------------------------------------------------------|
+   | Estimated balance  | Estimated amount of credits you have after considering all billed and pending transactions |
+   | Current balance    | Amount of credits as of your last invoice. It doesn't include any pending transactions |
+   | Transactions       | All billing transactions that affected your Azure credit balance |
 
    When your estimated balance drops to 0, you are charged for all your usage, including for products that are covered by credits.
 
@@ -43,20 +47,16 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    ![Screenshot of credits lists for a Billing profile](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-Here are the terms shown in the portal:
-
-
-| Term | Definition |
-|---|---|
-| Estimated balance | Estimated amount of credits you have after considering all billed and pending transactions |
-| Current balance | Amount of credits as of your last invoice. It doesn't include any pending transactions |
-| Transactions | All billing transactions that affected your Azure credit balance |
-| Source | The acquisition source of the credit |
-| Start date | The date when you acquired the credit |
-| Expiration date | The date when the credit expires |
-| Balance | The balance as of your last invoice |
-| Original amount | The original amount of credit |
-| Status | The current status of credit. Status can be active, used, expired, or expiring |
+   | Term | Definition |
+   |---|---|
+   | Estimated balance | Amount of Azure credit you have after subtracting unbilled credit eligible charges from your current balance|
+   | Current balance | Amount of Azure credit you have before considering unbilled credit eligible charges. It is calculated by adding new Azure credits you've received to the credit balance at the time of your last invoice|
+   | Source | The acquisition source of the credit |
+   | Start date | The date when you acquired the credit |
+   | Expiration date | The date when the credit expires |
+   | Balance | The balance as of your last invoice |
+   | Original amount | The original amount of credit |
+   | Status | The current status of credit. Status can be active, used, expired, or expiring |
 
 ## How credits are used
 

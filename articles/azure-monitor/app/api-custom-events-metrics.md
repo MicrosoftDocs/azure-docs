@@ -45,6 +45,7 @@ If you don't have a reference on Application Insights SDK yet:
 * Add the Application Insights SDK to your project:
 
   * [ASP.NET project](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core project](../../azure-monitor/app/asp-net-core.md)
   * [Java project](../../azure-monitor/app/java-get-started.md)
   * [Node.js project](../../azure-monitor/app/nodejs.md)
   * [JavaScript in each webpage](../../azure-monitor/app/javascript.md) 
@@ -157,8 +158,6 @@ If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCoun
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -582,7 +581,7 @@ Log a diagnostic event such as entering or leaving a method.
 ---|---
 `message` | Diagnostic data. Can be much longer than a name.
 `properties` | Map of string to string: Additional data used to [filter exceptions](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) in the portal. Defaults to empty.
-`severityLevel` | Supported values: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
+`severityLevel` | Supported values: [SeverityLevel.ts](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 You can search on message content, but (unlike property values) you can't filter on it.
 
@@ -947,7 +946,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();

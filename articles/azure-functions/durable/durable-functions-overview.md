@@ -2,38 +2,20 @@
 title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
-ms.date: 12/22/2018
-ms.author: azfuncdf, glenga
+ms.date: 08/07/2019
+ms.author: cgillum
+ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # What are Durable Functions?
 
-*Durable Functions* are an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
-
-## Benefits
-
-The extension lets you define stateful workflows using an [*orchestrator function*](durable-functions-types-features-overview.md#orchestrator-functions), which can provide the following benefits:
-
-* You can define your workflows in code. No JSON schemas or designers are needed.
-* Other functions can be called both synchronously and asynchronously. Output from called functions can be saved to local variables.
-* Progress is automatically checkpointed when the function awaits. Local state is never lost when the process recycles or the VM reboots.
-
-## Application patterns
-
-The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following are some typical application patterns that can benefit from Durable Functions:
-
-* [Chaining](durable-functions-concepts.md#chaining)
-* [Fan-out/fan-in](durable-functions-concepts.md#fan-in-out)
-* [Async HTTP APIs](durable-functions-concepts.md#async-http)
-* [Monitoring](durable-functions-concepts.md#monitoring)
-* [Human interaction](durable-functions-concepts.md#human)
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows by writing [*orchestrator functions*](durable-functions-orchestrations.md) and stateful entities by writing [*entity functions*](durable-functions-entities.md) using the Azure Functions programming model. Behind the scenes, the extension manages state, checkpoints, and restarts for you, allowing you to focus on your business logic.
 
 ## <a name="language-support"></a>Supported languages
 
@@ -47,9 +29,418 @@ Durable Functions has a goal of supporting all [Azure Functions languages](../su
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
+## Application patterns
+
+The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following sections describe typical application patterns that can benefit from Durable Functions:
+
+* [Function chaining](#chaining)
+* [Fan-out/fan-in](#fan-in-out)
+* [Async HTTP APIs](#async-http)
+* [Monitoring](#monitoring)
+* [Human interaction](#human)
+* [Aggregator](#aggregator)
+
+### <a name="chaining"></a>Pattern #1: Function chaining
+
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
+
+![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
+
+You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example:
+
+#### C#
+
+```csharp
+[FunctionName("Chaining")]
+public static async Task<object> Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    try
+    {
+        var x = await context.CallActivityAsync<object>("F1");
+        var y = await context.CallActivityAsync<object>("F2", x);
+        var z = await context.CallActivityAsync<object>("F3", y);
+        return  await context.CallActivityAsync<object>("F4", z);
+    }
+    catch (Exception)
+    {
+        // Error handling or compensation goes here.
+    }
+}
+```
+
+#### JavaScript (Functions 2.x only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const x = yield context.df.callActivity("F1");
+    const y = yield context.df.callActivity("F2", x);
+    const z = yield context.df.callActivity("F3", y);
+    return    yield context.df.callActivity("F4", z);
+});
+```
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
+
+You can use the `context` parameter [DurableOrchestrationContext] \(.NET\) and the `context.df` object (JavaScript) to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework checkpoints the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the preceding `await` or `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+> [!NOTE]
+> The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object), not only the [DurableOrchestrationContext] parameter.
+
+### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
+
+In the fan out/fan in pattern, you execute multiple functions in parallel and then wait for all functions to finish. Often, some aggregation work is done on the results that are returned from the functions.
+
+![A diagram of the fan out/fan pattern](./media/durable-functions-concepts/fan-out-fan-in.png)
+
+With normal functions, you can fan out by having the function send multiple messages to a queue. Fanning back in is much more challenging. To fan in, in a normal function, you write code to track when the queue-triggered functions end, and then store function outputs.
+
+The Durable Functions extension handles this pattern with relatively simple code:
+
+#### C#
+
+```csharp
+[FunctionName("FanOutFanIn")]
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var parallelTasks = new List<Task<int>>();
+
+    // Get a list of N work items to process in parallel.
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
+    for (int i = 0; i < workBatch.Length; i++)
+    {
+        Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
+        parallelTasks.Add(task);
+    }
+
+    await Task.WhenAll(parallelTasks);
+
+    // Aggregate all N outputs and send the result to F3.
+    int sum = parallelTasks.Sum(t => t.Result);
+    await context.CallActivityAsync("F3", sum);
+}
+```
+
+#### JavaScript (Functions 2.x only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const parallelTasks = [];
+
+    // Get a list of N work items to process in parallel.
+    const workBatch = yield context.df.callActivity("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(context.df.callActivity("F2", workBatch[i]));
+    }
+
+    yield context.df.Task.all(parallelTasks);
+
+    // Aggregate all N outputs and send the result to F3.
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield context.df.callActivity("F3", sum);
+});
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. The .NET `Task.WhenAll` API or JavaScript `context.df.Task.all` API is called, to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `await` or `yield` call on `Task.WhenAll` or `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+> [!NOTE]
+> In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would re-run from the beginning after the process recovers.
+
+### <a name="async-http"></a>Pattern #3: Async HTTP APIs
+
+The async HTTP API pattern addresses the problem of coordinating the state of long-running operations with external clients. A common way to implement this pattern is by having an HTTP endpoint trigger the long-running action. Then, redirect the client to a status endpoint that the client polls to learn when the operation is finished.
+
+![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
+
+Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md) and [JavaScript](quickstart-js-vscode.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+
+The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
+
+```
+> curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+
+{"id":"b79baf67f717453ca9e86c5da21e03ec", ...}
+
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+
+{"runtimeStatus":"Running","lastUpdatedTime":"2019-03-16T21:20:47Z", ...}
+
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+HTTP/1.1 200 OK
+Content-Length: 175
+Content-Type: application/json
+
+{"runtimeStatus":"Completed","lastUpdatedTime":"2019-03-16T21:20:57Z", ...}
+```
+
+Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
+
+The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [orchestration client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
+
+For more information, see the [HTTP features](durable-functions-http-features.md) article, which explains how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
+
+### <a name="monitoring"></a>Pattern #4: Monitor
+
+The monitor pattern refers to a flexible, recurring process in a workflow. An example is polling until specific conditions are met. You can use a regular [timer trigger](../functions-bindings-timer.md) to address a basic scenario, such as a periodic cleanup job, but its interval is static and managing instance lifetimes becomes complex. You can use Durable Functions to create flexible recurrence intervals, manage task lifetimes, and create multiple monitor processes from a single orchestration.
+
+An example of the monitor pattern is to reverse the earlier async HTTP API scenario. Instead of exposing an endpoint for an external client to monitor a long-running operation, the long-running monitor consumes an external endpoint, and then waits for a state change.
+
+![A diagram of the monitor pattern](./media/durable-functions-concepts/monitor.png)
+
+In a few lines of code, you can use Durable Functions to create multiple monitors that observe arbitrary endpoints. The monitors can end execution when a condition is met, or the [DurableOrchestrationClient](durable-functions-instance-management.md) can terminate the monitors. You can change a monitor's `wait` interval based on a specific condition (for example, exponential backoff.) 
+
+The following code implements a basic monitor:
+
+#### C#
+
+```csharp
+[FunctionName("MonitorJobStatus")]
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    int jobId = context.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+
+    while (context.CurrentUtcDateTime < expiryTime)
+    {
+        var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform an action when a condition is met.
+            await context.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration sleeps until this time.
+        var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await context.CreateTimer(nextCheck, CancellationToken.None);
+    }
+
+    // Perform more work here, or let the orchestration end.
+}
+```
+
+#### JavaScript (Functions 2.x only)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const jobId = context.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(context.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform an action when a condition is met.
+            yield context.df.callActivity("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration sleeps until this time.
+        const nextCheck = moment.utc(context.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield context.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform more work here, or let the orchestration end.
+});
+```
+
+When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When the `context.CurrentUtcDateTime` (.NET) or `context.df.currentUtcDateTime` (JavaScript) exceeds the `expiryTime` value, the monitor ends.
+
+### <a name="human"></a>Pattern #5: Human interaction
+
+Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using timeouts and compensation logic.
+
+An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (maybe the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
+
+![A diagram of the human interaction pattern](./media/durable-functions-concepts/approval.png)
+
+You can implement the pattern in this example by using an orchestrator function. The orchestrator uses a [durable timer](durable-functions-timers.md) to request approval. The orchestrator escalates if timeout occurs. The orchestrator waits for an [external event](durable-functions-external-events.md), such as a notification that's generated by a human interaction.
+
+These examples create an approval process to demonstrate the human interaction pattern:
+
+#### C#
+
+```csharp
+[FunctionName("ApprovalWorkflow")]
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    await context.CallActivityAsync("RequestApproval");
+    using (var timeoutCts = new CancellationTokenSource())
+    {
+        DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+        Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
+
+        Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
+        if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
+        {
+            timeoutCts.Cancel();
+            await context.CallActivityAsync("ProcessApproval", approvalEvent.Result);
+        }
+        else
+        {
+            await context.CallActivityAsync("Escalate");
+        }
+    }
+}
+```
+
+#### JavaScript (Functions 2.x only)
+
+```javascript
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("RequestApproval");
+
+    const dueTime = moment.utc(context.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = context.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield context.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield context.df.callActivity("ProcessApproval", approvalEvent.result);
+    } else {
+        yield context.df.callActivity("Escalate");
+    }
+});
+```
+
+To create the durable timer, call `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript). The notification is received by `context.WaitForExternalEvent` (.NET) or `context.df.waitForExternalEvent` (JavaScript). Then, `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript) is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
+An external client can deliver the event notification to a waiting orchestrator function by using either the [built-in HTTP APIs](durable-functions-http-api.md#raise-event) or by using the [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API from another function:
+
+```csharp
+[FunctionName("RaiseEventToOrchestration")]
+public static async Task Run(
+    [HttpTrigger] string instanceId,
+    [OrchestrationClient] DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const isApproved = true;
+    await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
+};
+```
+
+```bash
+curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
+```
+
+### <a name="aggregator"></a>Pattern #6: Aggregator (preview)
+
+The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated may come from multiple sources, may be delivered in batches, or may be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients may need to query the aggregated data.
+
+![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
+
+The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
+
+Using a [Durable Entity function](durable-functions-preview.md#entity-functions), one can implement this pattern easily as a single function.
+
+```csharp
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+        case "add":
+            int amount = ctx.GetInput<int>();
+            currentValue += operand;
+            break;
+        case "reset":
+            currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+Durable Entities can also be modeled as .NET classes. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+
+    public void Reset() => this.CurrentValue = 0;
+
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+Dynamically generated proxies are also available for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
+
+> [!NOTE]
+> Entity functions are currently only available in .NET as part of the [Durable Functions 2.0 preview](durable-functions-preview.md).
+
+## The technology
+
+Behind the scenes, the Durable Functions extension is built on top of the [Durable Task Framework](https://github.com/Azure/durabletask), an open-source library on GitHub that's used to build workflows in code. Like Azure Functions is the serverless evolution of Azure WebJobs, Durable Functions is the serverless evolution of the Durable Task Framework. Microsoft and other organizations use the Durable Task Framework extensively to automate mission-critical processes. It's a natural fit for the serverless Azure Functions environment.
+
+## Code constraints
+
+In order to provide reliable and long-running execution guarantees, orchestrator functions have a set of coding rules that must be followed. For more information, see the [Orchestrator function code constraints](durable-functions-code-constraints.md) article.
+
 ## Billing
 
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../functions-scale.md#consumption-plan), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
 
 ## Jump right in
 
@@ -66,9 +457,13 @@ The following video highlights the benefits of Durable Functions:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
-Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. To learn more about Durable Functions, see [Durable Functions patterns and technical concepts](durable-functions-concepts.md). For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
+For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
+
+> [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204/player]
+
+Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Durable Functions patterns and technical concepts](durable-functions-concepts.md)
+> [Durable Functions function types and features](durable-functions-types-features-overview.md)

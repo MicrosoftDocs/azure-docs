@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: C# SDK query prediction endpoint"
+title: "Quickstart: C# SDK query prediction endpoint - LUIS"
 titleSuffix: Azure Cognitive Services 
 description: Use the C# SDK to send a user utterance to LUIS and receive a prediction. 
 author: diberry
@@ -8,7 +8,7 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
 ---
 

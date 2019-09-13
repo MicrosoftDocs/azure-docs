@@ -3,7 +3,7 @@ title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure

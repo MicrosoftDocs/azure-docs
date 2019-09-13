@@ -3,7 +3,7 @@ title: Debug Windows containers with Service Fabric and VS | Microsoft Docs
 description: Learn how to debug Windows containers in Azure Service Fabric using Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo, mikhegn
+ms.author: mikhegn
 ---
 # How to: Debug Windows containers in Azure Service Fabric using Visual Studio 2019
 
@@ -75,4 +75,4 @@ Below is a list of known limitations with debugging containers in Service Fabric
     Visual Studio supports console and ASP.NET project types for .NET and .NET Core.
 
 ## Next steps
-To learn more about the capabilities of Service Fabric and containers, see Service Fabric containers overview](service-fabric-containers-overview.md).
+To learn more about the capabilities of Service Fabric and containers, see [Service Fabric containers overview](service-fabric-containers-overview.md).

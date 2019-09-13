@@ -8,7 +8,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
+ms.author: tyfox
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
@@ -85,7 +85,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
@@ -146,10 +146,6 @@ It is the same procedure as Grant/revoke HTTP access. If the cluster has been gr
 ## Find the default storage account
 The following PowerShell script demonstrates how to get the default storage account name and the related information:
 
-> [!IMPORTANT]  
-> The values for `DefaultStorageAccount`, and `DefaultStorageContainer` are not returned from [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) when [secure transfer](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account.
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -193,10 +189,6 @@ See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-
 **To submit Apache Hive jobs**
 
 See [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
-
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **To submit Apache Sqoop jobs**
 

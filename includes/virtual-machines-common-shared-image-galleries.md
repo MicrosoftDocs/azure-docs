@@ -68,7 +68,7 @@ The following are other parameters that can be set on your image definition so t
 
 ## Regional Support
 
-Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
+Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Source regions |
@@ -174,7 +174,7 @@ The following SDKs support creating Shared Image Galleries:
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## Templates
 

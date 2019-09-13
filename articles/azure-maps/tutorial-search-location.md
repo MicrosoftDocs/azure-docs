@@ -80,7 +80,7 @@ The Map Control API is a convenient client library that allows you to easily int
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -234,9 +234,9 @@ The map that we've made so far only looks at the longitude/latitude data for the
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    The API `sup` provides an information window anchored at the required position on the map. 
+    The API `*atlas.Popup` provides an information window anchored at the required position on the map. 
 
-2. In the *script* tag, after the `GetMap` function, add the following code to show the moused over result information in the popup.
+2. Add the following code within the `GetMap` function, to show the moused over result information in the popup.
 
     ```JavaScript
     function showPopup(e) {

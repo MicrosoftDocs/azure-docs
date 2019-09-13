@@ -15,7 +15,9 @@ ms.author: sharadag
 
 # ​​Health probes
 
-In order to determine the health of each backend, each Front Door environment periodically sends a synthetic HTTP/HTTPS request to each of your configured backends. Front Door then uses responses from these probes to determine the "best" backends to which it should route real client requests.
+In order to determine the health of each backend, each Front Door environment periodically sends a synthetic HTTP/HTTPS request to each of your configured backends. Front Door then uses responses from these probes to determine the "best" backends to which it should route real client requests. 
+Note that since Front Door have many edge environments globally, health probe requests volume to your backends can be as high as more than one request per second depends on the health probe frequency configured. 
+
 
 
 ## Supported protocols

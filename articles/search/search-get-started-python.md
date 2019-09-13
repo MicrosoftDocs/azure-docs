@@ -1,33 +1,32 @@
 ---
-title: 'Python Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+title: 'Quickstart: Create a search index in Python using REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Search REST API.
 
-ms.date: 06/20/2019
+ms.date: 09/10/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.custom: seodec2018
+ms.topic: quickstart
 ---
 # Quickstart: Create an Azure Search index in Python using Jupyter notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step, starting from scratch. Alternatively, you could run a finished notebook. To download a copy, go to the[azure-search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-The following services and tools are used in this quickstart. 
+The following services and tools are required for this quickstart. 
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), providing Python 3.x and Jupyter Notebooks.
 
@@ -41,7 +40,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -67,6 +66,8 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
+
+   If you get ConnectionError `"Failed to establish a new connection"`, verify that the api-key is a primary or secondary admin key, and that all leading and trailing characters (`?` and `/`) are in place.
 
 1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property of existing indexes.
 
@@ -290,26 +291,13 @@ This step shows you how to query an index using the [Search Documents REST API](
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## Clean up 
+## Clean up
 
-You should delete the index if you no longer need it. A free service is limited to three indexes. You should delete any indexes you are not actively using to make room for other tutorials.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-The easiest way to delete objects is through the portal, but since this is a Python quickstart, the following syntax yields the same result:
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-You can verify index deletion by requesting a list of existing indexes. If hotels-quickstart is gone, then you know your request succeeded.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
