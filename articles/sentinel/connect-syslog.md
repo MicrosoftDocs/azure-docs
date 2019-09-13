@@ -75,8 +75,8 @@ This detection requires a specific configuration of the Syslog data connector:
 
 1. For step 6 in the previous procedure, make sure that both **auth** and **authpriv** are selected as facilities to monitor. For example:
     
-    [!div class="mx-imgBorder"]
-    ![Facilities required for anomalous SSH login detection](./media/connect-syslog/facilities-ssh-detection.png)
+    > [!div class="mx-imgBorder"]
+    > ![Facilities required for anomalous SSH login detection](./media/connect-syslog/facilities-ssh-detection.png)
 
 2. Allow sufficient time for syslog information to be collected. Then from your Sentinel workspace, select your time period and run the following query:
     
