@@ -96,7 +96,8 @@ You'll see the **Getting started** screen, since this is your first experiment w
         File format| Delimited
         Delimiter| Comma
         Encoding| UTF-8
-        Column headers| All files have same headers            Skip rows | None
+        Column headers| All files have same headers
+        Skip rows | None
 
         >[!NOTE]
         > If any of the settings on this form are updated the preview will update accordingly.
