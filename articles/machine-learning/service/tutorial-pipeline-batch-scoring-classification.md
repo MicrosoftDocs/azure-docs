@@ -498,7 +498,7 @@ response = requests.post(rest_endpoint,
 run_id = response.json()["Id"]
 ```
 
-Use the run id to monitor the status of the new run. This will take another 10-15 min to run and will look similar to the previous pipeline run, so if you don't need to see another pipeline run, you can skip watching the full output.
+Use the run ID to monitor the status of the new run. This will take another 10-15 min to run and will look similar to the previous pipeline run, so if you don't need to see another pipeline run, you can skip watching the full output.
 
 ```python
 from azureml.pipeline.core.run import PipelineRun
