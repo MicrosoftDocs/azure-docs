@@ -35,7 +35,10 @@ For Windows, we support the following languages:
 ### Linux
 
 > [!NOTE]
-> Currently, we support only Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on a PC (x86 or x64 for C++ development and x64 for .NET Core, Java, and Python).
+> Currently, we support only Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on the following target architectures:
+> - x86, x64, and ARM64 for C++ development
+> - x64 and ARM64 for Java
+> - x64 for .NET Core and Python
 
 Make sure you have the required libraries installed by running the following shell commands:
 
