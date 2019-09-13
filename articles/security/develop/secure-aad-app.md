@@ -414,7 +414,7 @@ Azure services extensively log system and user activity, as well as system healt
    - All keys and secrets in Key Vault have expiration dates
    - All keys in Key Vault are protected by HSM [Key Type = HSM Protected       
      2048-bit RSA Key]
-   - All users/identities are granted minimum required permissions using Role     Based Access Control (RBAC)
+   - All users/identities are granted minimum required permissions using          Role-Based Access Control (RBAC)
    - Applications do not share a Key Vault unless they trust each other and       they need access to the same secrets at runtime
    - Diagnostics logs for Key Vault are enabled with a retention period of at     least 365 days.
    - Permitted cryptographic operations for keys are restricted to the ones       required
@@ -536,27 +536,27 @@ To create this workspace:
 
    For example, to connect the application gateway, take these steps:
 
-      1. Open the Azure Application Gateway instance blade.
-      2. Under **Monitoring**, select **Diagnostic settings**.
-      3. Select **Add diagnostic setting**.
+     1. Open the Azure Application Gateway instance blade.
+     2. Under **Monitoring**, select **Diagnostic settings**.
+     3. Select **Add diagnostic setting**.
 
-      ![Add Application Gateway diagnostics](./media/secure-aad-app/sentinel-gateway-connector.png)
+     ![Add Application Gateway diagnostics](./media/secure-aad-app/sentinel-gateway-connector.png)
          
-      *Add Application Gateway diagnostics*
+     *Add Application Gateway diagnostics*
 
-      4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
+     4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
 
-      ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
+     ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
 ## Cost considerations
-    If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
+   If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
 
-    To deploy the resources in the sample app with the security features, you need to pay for some premium features. As the app scales and the free tiers and trials offered by Azure need to be upgraded to meet application requirements, your costs might increase. Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs.
+   To deploy the resources in the sample app with the security features, you need to pay for some premium features. As the app scales and the free tiers and trials offered by Azure need to be upgraded to meet application requirements, your costs might increase. Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your costs.
 
 ## Next steps
-    The following articles can help you design, develop, and deploy secure applications.
+   The following articles can help you design, develop, and deploy secure applications.
 
 - [Design](secure-design.md)
 - [Develop](secure-develop.md)
