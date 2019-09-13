@@ -100,10 +100,10 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup.</
+## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup.
 
 **Error code**: UserErrorUnsupportedDiskSize <br>
-**Error message**: The configured disk size(s) is currently not supported by Azure Backup.</ <br>
+**Error message**: The configured disk size(s) is currently not supported by Azure Backup. <br>
 
 Ensure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s). For more information refer this [article](https://aka.ms/large-disk-support).
 
