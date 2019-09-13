@@ -13,7 +13,7 @@ ms.subservice: cognitive-search
 ---
 
 # Working with skillsets
-This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search please start with:
+This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search, start with:
 + [What is "cognitive search" in Azure Search?](cognitive-search-concept-intro.md)
 + [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
 
@@ -52,7 +52,7 @@ For the rest of this document, we will assume we are working with [hotel reviews
 Each skill requires a context. A context determines:
 +	The number of times the skill executes, based on the nodes selected. For context values of type collection, adding an ```/*``` at the end will result in the skill being invoked once for each instance in the collection. 
 +	Where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node. 
-+	Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input the the skill. For example if you have an enrichment tree with a list of countries, each enriched with a list of states containing a list of zipcodes.
++	Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input the skill. For example if you have an enrichment tree with a list of countries, each enriched with a list of states containing a list of zipcodes.
 
 |Context|Input|Shape of Input|Skill Invocation|
 |---|---|---|---|
@@ -69,11 +69,11 @@ Projection is the process of selecting the nodes from the enrichment tree to be 
 
 ![Field mapping options](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Field mapping options for enrichment pipeline")
 
-The digram above describes the selector you work with based on where you are in the enrichment pipeline.
+The diagram above describes the selector you work with based on where you are in the enrichment pipeline.
 
 ## Generate enriched data 
 
-Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](media/cognitive-search-working-with-skillsets/sample-skillset.md) the skillset. Wea re going to look at:
+Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](media/cognitive-search-working-with-skillsets/sample-skillset.md) the skillset. We are going to look at:
 
 * how the enrichment tree evolves with the execution of each skill 
 * how the context and inputs work to determine how many times a skill executes 
@@ -96,7 +96,7 @@ To access any of the enrichments added to a node by a skill, the full path for t
  ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
 ### Skill #2 Language detection
- While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Since it is not blocked by requiring any inputs, it will execute in parallel with the previous skill. Like the split skill that preceeded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
+ While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Since it is not blocked by requiring any inputs, it will execute in parallel with the previous skill. Like the split skill that preceded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
  ![enrichment tree after skill #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enrichment tree after  skill #2 executes")
  
  ### Skill #3: Key phrases skill 
