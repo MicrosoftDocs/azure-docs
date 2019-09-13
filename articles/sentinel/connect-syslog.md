@@ -1,5 +1,5 @@
 ---
-title: Connect Syslog data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Syslog data to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Syslog data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,16 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
 
 ---
 # Connect your external solution using Syslog
-
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect any on-premises appliance that supports Syslog to Azure Sentinel. This is done by using an agent based on a Linux machine between the appliance and Azure Sentinel. If your Linux machine is in Azure, you can stream the logs from your appliance or application to a dedicated workspace you create in Azure and connect it. If your Linux machine is not in Azure, you can stream the logs from your appliance to a dedicated on premises VM or machine onto which you install the Agent for Linux. 
 
@@ -50,7 +45,10 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 1. Under **Configure the logs to be connected** in the Syslog connector setup window, follow the instructions:
     1. Click the link to **Open your workspace advanced settings configuration**. 
     1. Select **Data**, followed by **Syslog**.
-    1. Then, in the table set which facilities you want Syslog to collect. You should either add or select the facilities that your Syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in Syslog-d in the folder: /etc/rsyslog.d/security-config-omsagent.conf, and in r-Syslog under /etc/syslog-ng/security-config-omsagent.conf. 
+    1. Then, in the table set which facilities you want Syslog to collect. You should either add or select the facilities that your Syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in Syslog-d in the folder: /etc/rsyslog.d/security-config-omsagent.conf, and in r-Syslog under /etc/syslog-ng/security-config-omsagent.conf.
+        
+        If you want to use anomalous SSH login detection with the data that you collect, select both **auth** and **authpriv**. See the following section for additional details.
+        
        > [!NOTE]
        > If you select the checkbox to **Apply below configuration to my machines**, then this configuration will apply to all the Linux machines connected to this workspace. You can see this configuration in your Syslog machine under 
 1. Click **Press here to open the configuration blade**.
@@ -61,8 +59,31 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 1. To use the relevant schema in Log Analytics for the Syslog logs, search for **Syslog**.
 1. You can use the Kusto function described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages and then save them as a new Log Analytics function and then use the function as a new data type.
 
+### Configure the Syslog data connector for anomalous SSH login detection
 
+> [!IMPORTANT]
+> This anomalous SSH login detection is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+The syslog data that you collect can be used with machine learning (ML) to identify anomalous Secure Shell (SSH) login activity. Scenarios include:
+
+- Impossible travel – when two successful login events occur from two locations that are impossible to reach within the timeframe of the two login events.
+- Unexpected location – the location from where a successful login event occurred is suspicious. For example, the location has not been seen recently.
+ 
+This detection requires a specific configuration of the Syslog data connector: 
+
+1. For step 6 in the previous procedure, make sure that both **auth** and **authpriv** are selected as facilities to monitor. For example:
+    
+    ![Facilities required for anomalous SSH login detection](./media/connect-syslog/facilities-ssh-detection.png)
+
+2. Allow sufficient time for syslog information to be collected. Then from your Sentinel workspace, select your time period and run the following query:
+    
+    	Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    
+    If the count is zero, confirm the configuration of the connector and that the monitored computers do have successful login activity for the time period specified for your query.
+    
+    If the count is greater than zero, your syslog data is suitable for anomalous SSH login detection. You enable this detection from **Analytics** >  **Active rules** > **(Preview) Anomalous SSH Login Detection**.
 
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
