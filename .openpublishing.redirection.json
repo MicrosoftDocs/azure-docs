@@ -3061,6 +3061,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/key-vault/key-vault-whatis.md",
+      "redirect_url": "/azure/key-vault/basic-concepts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-versions.md",
       "redirect_url": "/azure/key-vault",
       "redirect_document_id": false
