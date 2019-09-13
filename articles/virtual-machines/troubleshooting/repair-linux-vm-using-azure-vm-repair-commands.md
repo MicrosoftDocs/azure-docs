@@ -34,7 +34,7 @@ Follow these steps to troubleshoot the VM issue:
 1. Launch Azure Cloud Shell
 2. Run az extension add/update
 3. Run az vm repair create
-4. Run az vm repair run
+4. Perform mitigation steps
 5. Run az vm repair restore
 
 For additional documentation and instructions, see [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair).
