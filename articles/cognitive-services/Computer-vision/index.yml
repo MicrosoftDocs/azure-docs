@@ -40,7 +40,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-hand-text-sdk.md
+            url: quickstarts-sdk/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
 
@@ -54,7 +54,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-analyze-sdk.md
+            url: quickstarts-sdk/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
@@ -70,7 +70,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-analyze-sdk.md
+            url: quickstarts-sdk/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
@@ -101,6 +101,8 @@ landingContent:
             url: concept-detecting-faces.md
       - linkListType: quickstart
         links:
+          - text: Using the .NET SDK
+            url: quickstarts-sdk/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
