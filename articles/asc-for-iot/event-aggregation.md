@@ -56,6 +56,7 @@ After analysis, Azure Security Center for IoT creates security alerts for suspic
 
 Aggregation start time, end time and hit count for each event are logged in the event **ExtraDetails** field within Log Analytics for use during investigations. 
 
+Each aggregated event represents a 24 hour period of collected alerts. Using the event options menu on the upper left of each event, you can **dismiss** each individual aggregated event.    
 
 ## Event aggregation twin configuration
 Make changes to the configuration of Azure Security Center for IoT event aggregation inside the [agent configuration object](how-to-agent-configuration.md) of the module twin identity of the **azureiotsecurity** module.

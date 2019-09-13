@@ -79,6 +79,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Name | Azure Government endpoint | Azure Commercial endpoint |
 | --- | --- | --- |
 | Portal | https:\//portal.azure.us | https:\//portal.azure.com |
+| Azure Cloud Shell |  https:\//portal.azure.us | https:\//portal.azure.com |
 | Active Directory Endpoint and Authority | https:\//login.microsoftonline.us | https:\//login.microsoftonline.com <br/> https:\//login.windows.net |
 | Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
 | Active Directory Graph API | https:\//graph.windows.net/ | https:\//graph.windows.net/ |
