@@ -22,11 +22,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is QnA Maker
-            url: what-is-luis.md
+            url: overview/overview.md
           - text: What is a knowledge base
             url: concepts/knowledge-base.md
           - text: Development lifecycle
-            url: concepts/development-lifecycle-knowledge-base
+            url: concepts/development-lifecycle-knowledge-base.md
           - text: Data sources
             url: concepts/data-sources-supported.md
   - title: Create and edit knowledge base
