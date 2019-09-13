@@ -133,6 +133,40 @@ The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. Th
 - To sign in users and acquire tokens, follow [this tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
 - To call the Microsoft Graph API, follow [this tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
+## MSAL for iOS and macOS
+
+MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
+
+For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
+
+Objective-C:
+
+```objective-c
+MSALAADAuthority *aadAuthority =
+                [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
+                                                   audienceType:MSALAzureADMultipleOrgsAudience
+                                                      rawTenant:nil
+                                                          error:nil];
+                                                          
+MSALPublicClientApplicationConfig *config =
+                [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
+                                                                redirectUri:@"<your-redirect-uri-here>"
+                                                                  authority:aadAuthority];
+                                                                  
+NSError *applicationError = nil;
+MSALPublicClientApplication *application =
+                [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
+```
+
+Swift:
+
+```swift
+let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
+        
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
+if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
+```
+
 ## Next steps
 
 Learn more about:
