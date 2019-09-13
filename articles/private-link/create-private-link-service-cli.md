@@ -42,16 +42,18 @@ Create a public IP with [az network public-ip create](/cli/azure/network/az-netw
 ```azurecli-interactive
 az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku standard
 ```
-### Create a Standard Load Balancer 
-Create a standard load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). This example creates a standard load balancer named *myLoadBalancer*  using public IP *myPublicIP* in resource group named *myResourceGroup*. 
+
+### Create a Internal Load Balancer 
+Create a internal load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). This example creates a internal load balancer named *myILB* in resource group named *myResourceGroup*. 
+
 ```azurecli-interactive
-az network lb create --resource-group myResourceGroup --name myLoadBalancer --sku standard --public-ip-address myPublicIP --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool  
+az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
 ```
 ### Disable Private Link service network policies on subnet 
 Private Link service requires a NAT IP from any subnet of your choice  within a virtual network. Currently, we don’t support Network Policies on these NAT IPs.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable Private Link service network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
 
 ```azurecli-interactive
-az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name MySubnet --disable-private-link-service-network-policies true 
+az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
 ## Create a Private Link service  
@@ -64,7 +66,7 @@ az network private-link-service create \
 --name myPLS \
 --vnet-name myVirtualNetwork \
 --subnet mySubnet \
---lb-name myLoadBalancer \
+--lb-name myILB \
 --lb-frontend-ip-configs myFrontEnd \
 --location westcentralus 
 ```
