@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: aahi
-zone_pivot_groups: text-analytics-programming-languages
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Quickstart: Use the Text Analytics client library for detecting language
@@ -24,8 +24,10 @@ Use the Text Analytics client library to perform:
 * Entity recognition
 * Key phrase extraction
 
+<!--
 > [!TIP]
-> Want to use the Text Analytics REST API instead? Use these links to find sample code for sending REST requests in: [Java](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Python](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Ruby](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Node.js](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Go](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+> Want to use the Text Analytics REST API instead? Use these links to find sample code for sending REST requests in: [Java](https://github.com/aahill/cognitive-services-REST-api-samples/tree/master/java/Language/TextAnalytics), [Python](https://github.com/aahill/cognitive-services-REST-api-samples/tree/master/python/Language), [Ruby](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Node.js](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Go](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
+-->
 
 ::: zone pivot="programming-language-csharp"
 
