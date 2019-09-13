@@ -98,6 +98,9 @@
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
+  - name: Events and Messaging
+    items:
+    - name: Designing for identical input
   - name: Triggers and bindings
     items:
     - name: About triggers and bindings
