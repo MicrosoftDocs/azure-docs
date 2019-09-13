@@ -110,7 +110,7 @@ The following script provides an example of using PowerShell to query the Azure 
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
 $loginURL       = "https://login.microsoftonline.com"
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
 Write-Output "Searching for events starting $7daysago"
@@ -123,7 +123,7 @@ $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2
 if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-     $url = "https://graph.microsoft.com/beta/auditLogs/directoryAudits?\`$filter=loggedByService eq 'B2C' and activityDateTime gt  " + $7daysago
+    $url = "https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?`$filter=loggedByService eq 'B2C' and activityDateTime gt  " + $7daysago
 
     # loop through each query page (1 through n)
     Do {
