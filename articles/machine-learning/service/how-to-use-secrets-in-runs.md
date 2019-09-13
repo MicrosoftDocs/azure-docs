@@ -1,6 +1,6 @@
 ---
 title: Use secrets in training runs
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Pass secrets to training runs in secure fashion using Workspace Key Vault
 services: machine-learning
 author: rastala
@@ -65,4 +65,4 @@ The set and get methods also have batch versions [set_secrets](https://docs.micr
 ## Next steps
 
  * [View example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Learn about enterprise security with Azure Machine Learning service](concept-enterprise-security.md)
+ * [Learn about enterprise security with Azure Machine Learning](concept-enterprise-security.md)

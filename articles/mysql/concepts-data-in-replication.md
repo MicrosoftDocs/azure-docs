@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/13/2019
 ---
 
 # Replicate data into Azure Database for MySQL
@@ -17,6 +17,8 @@ The main scenarios to consider using Data-in Replication are:
 
 - **Hybrid Data Synchronization:** With Data-in Replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL. This synchronization is useful for creating hybrid applications. This method is appealing when you have an existing local database server but want to move the data to a region closer to end users.
 - **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in Replication to synchronize data between Azure Database for MySQL and different cloud providers, including virtual machines and database services hosted in those clouds.
+ 
+For migration scenarios, use the [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)(DMS).
 
 ## Limitations and considerations
 
@@ -41,3 +43,4 @@ The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-dat
 ## Next steps
 - Learn how to [set up data-in replication](howto-data-in-replication.md)
 - Learn about [replicating in Azure with read replicas](concepts-read-replicas.md)
+- Learn about how to [migrate data with minimal downtime using DMS](howto-migrate-online.md)

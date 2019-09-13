@@ -236,7 +236,7 @@
     - name: Getting Started
       href: automation-dsc-getting-started.md
       displayName: DSC
-    - name: Manage a Linux configuration
+    - name: Manage the configuration of a machine
       href: automation-quickstart-dsc-configuration.md
       displayName: DSC, state configuration, config, node configuration, node
   - name: Onboarding
