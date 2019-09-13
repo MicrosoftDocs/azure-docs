@@ -24,9 +24,9 @@ This article shows how to programmatically create an individual enrollment for a
 
 1. Verify you have the [.NET Core SDK](https://www.microsoft.com/net/download/windows) installed on your computer.
 
-1. Verify to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you continue.
+1. Complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you continue.
 
-1. (Optional) If you want to enroll a simulated device at the end of this quickstart, follow the procedure in [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) up to the step where you get an endorsement key for the device. Note the endorsement key, registration ID, and, optionally, the device ID, because you need to use them later in this quickstart.
+1. (Optional) If you want to enroll a simulated device at the end of this quickstart, follow the procedure in [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) up to the step where you get an endorsement key for the device. Save the endorsement key, registration ID, and, optionally, the device ID, because you need to use them later in this quickstart.
 
    > [!NOTE]
    > Don't follow the steps to create an individual enrollment by using the Azure portal.
