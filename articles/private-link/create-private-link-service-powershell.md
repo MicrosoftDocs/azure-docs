@@ -101,9 +101,12 @@ Get details about your private link service with [New-AzPrivateLinkService](/pow
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
-## Create a Private Endpoint
 
-  
+At this stage, your Private Link Service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating Private Link Service using PowerShell.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end to end traffic flows, you can strongly advised to configure your application behind your standard load balancer. 
+
+Next we will demonstrate how to map this service to a private endpoint in different VNet using PowerShell. Again, the example is limited to creating the Private Endpoint and connecting to Private Link Service created above. You can create Virtual Machines in the Virtual Network to send/receive traffic to the private endpoint for building your scenario. 
+
+## Create a Private Endpoint
 ### Create a virtual network
 Create a virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a virtual network named *vnetPE* in resource group named *myResourceGroup*:
  
