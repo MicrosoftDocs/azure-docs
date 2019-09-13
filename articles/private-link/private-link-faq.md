@@ -5,7 +5,7 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
@@ -22,7 +22,7 @@ ms.author: kumud
 ### Can I connect my service to multiple Private Endpoints?
 Yes. One Private Link service can connect to multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
  
-### Is my data over Private Link always private?
+### Is data transferred over Private Link always private?
 Yes. All data over Azure Private Link stays on the Microsoft backbone. It doesn’t traverse the internet.  
  
 ### What is the difference between a VNet Service Endpoint and a Private Endpoint?
@@ -40,7 +40,7 @@ All data over Azure Private Link stays on the Microsoft network. It doesn’t tr
 ### What is the difference between a VNet service endpoint and a private endpoint?
 VNet service endpoints and private endpoints are independent of each other. VNet service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. On the other hand, a private endpoint is a networking resource that acts as an entry point for service traffic in your network and uses Azure Private Link technology.  
  
-### Will VNet service endpoints be deprecated once Private Endpoints are available? 
+### Will VNet Service Endpoints be deprecated once Private Endpoints are available? 
 No. VNet Service Endpoints and Private Endpoints are independent technologies/resources. They can complement each other and both will co-exist. Some functionality and use cases may overlap, you can choose the model that fits your needs.  
  
 ### I am a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 
