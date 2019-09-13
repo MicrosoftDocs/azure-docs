@@ -111,7 +111,7 @@ The following steps show how to prepare the public IP for the configuration move
     ```
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+    * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **<resource-group-name>.json** file:
 
     ```json
           "resources": [
