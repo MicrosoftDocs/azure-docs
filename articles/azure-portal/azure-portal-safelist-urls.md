@@ -17,58 +17,42 @@ For good performance and connectivity between your local- or wide-area network a
 
 ## Azure portal URLs for proxy bypass
 
-The URL endpoints to safelist for the Azure portal differ, depending on the Azure cloud where your organization is deployed. This article lists the URLs to safelist for the following clouds:
+The URL endpoints to safelist for the Azure portal are specific to the Azure cloud where your organization is deployed. Select your cloud, then add the list of URLs to your proxy server or firewall to allow network traffic to these endpoints to bypass restrictions.
 
-* [Worldwide Cloud](#worldwide-cloud)
-* [U.S. Government Cloud](#us-government-cloud)
-* [China Government Cloud](#china-government-cloud)
-
-Add the following list of URLs to your proxy server or firewall to allow network traffic to these endpoints to bypass restrictions:
-
-### Worldwide Cloud
+#### [Public Cloud](#tab/public-cloud)
 
 * *.aadcdn.microsoftonline-p.com
-* *.account.microsoft.com
-* *.aimon.applicationinsights.io
 * *.aka.ms
+* *.applicationinsights.io
 * *.azure.com
+* *.azure.net
 * *.azureafd.net
 * *.azure-api.net
 * *.azuredatalakestore.net
 * *.azureedge.net
-* *.exp.azure.com
-* *.ext.azure.com
-* *.gfx.ms
-* *.hosting.portal.azure.net
 * *.loganalytics.io
-* *.marketplaceapi.microsoft.com
 * *.microsoft.com
 * *.microsoftonline.com
 * *.microsoftonline-p.com
 * *.msauth.net
 * *.msftauth.net
-* *.portal.azure.com
-* *.portalext.visualstudio.com
-* *.sts.microsoft.com
 * *.trafficmanager.net
-* *.vortex.data.microsoft.com
-* *.vscommerce.visualstudio.com
-* *.vssps.visualstudio.com
+* *.visualstudio.com
 * *.windows.net
 * *.windows-int.net
-* *.wpc.azureedge.net
 
-### U.S. Government Cloud
+#### [U.S. Government Cloud](#tab/us-government-cloud)
 
 * *.azure.us
 * *.loganalytics.us
 * *.microsoft.us
 * *.microsoftonline.us
+* *.msauth.net
 * *.usgovcloudapi.net
 * *.usgovtrafficmanager.net
 * *.windowsazure.us
 
-### China Government Cloud
+#### [China Government Cloud](#tab/china-government-cloud)
 
 * *.azure.cn
 * *.microsoft.cn
@@ -77,6 +61,8 @@ Add the following list of URLs to your proxy server or firewall to allow network
 * *.trafficmanager.cn
 * *.chinacloudsites.cn
 * *.windowsazure.cn
+
+---
 
 > [!NOTE]
 > Traffic to these endpoints uses standard TCP ports for HTTP (80) and HTTPS (443).
