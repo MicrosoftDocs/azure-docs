@@ -20,16 +20,16 @@ ms.author: Zhchia
 
 # Tutorial: Configure Foodee for automatic user provisioning
 
-This article demonstrates how to configure Azure Active Directory (Azure AD) in Foodee and Azure AD to automatically provision and deprovision users or groups to Foodee.
+This article shows you how to configure Azure Active Directory (Azure AD) in Foodee and Azure AD to automatically provision or deprovision users or groups to Foodee.
 
 > [!NOTE]
-> The tutorial describes a connector that's built on top of the Azure AD User Provisioning service. To learn what this service does and how it works, and to get answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> The article describes a connector that's built on top of the Azure AD User Provisioning service. To learn what this service does and how it works, and to get answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> This connector is currently in preview. For more information about the general Azure terms-of-use feature for preview features, go to the[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) site.
+> This connector is currently in preview. For more information about the Azure terms-of-use feature for preview features, go to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-This tutorial assumes that you've already met the following prerequisites:
+This tutorial assumes that you've met the following prerequisites:
 
 * An Azure AD tenant, installed
 * [A Foodee tenant](https://Foodee.com/pricing/), installed
@@ -44,9 +44,10 @@ Before you configure and enable automatic user provisioning, you should decide w
 ## Important tips for assigning users to Foodee 
 
 When you're assigning users, keep the following tips in mind:
+
 * We recommend that you assign only a single Azure AD user to Foodee to test the configuration of automatic user provisioning. You can assign additional users or groups later.
 
-* When you're assigning a user to Foodee, select any valid application-specific role (if it's available) in the assignment pane. Users who have the *Default Access* role are excluded from provisioning.
+* When you're assigning a user to Foodee, select any valid application-specific role, if it's available, in the **Assignment** pane. Users who have the *Default Access* role are excluded from provisioning.
 
 ## Set up Foodee for provisioning
 
@@ -60,10 +61,9 @@ Before you configure Foodee for automatic user provisioning by using Azure AD, y
 
 	![The Foodee Enterprise Portal left-pane menu](media/Foodee-provisioning-tutorial/scim.png)
 
-1. Copy the value in the **API Token** box. You will enter the value in the **Secret Token** box in the **Provisioning** tab of your Foodee application in the Azure portal.
+1. Copy the value in the **API Token** box for later use. You'll enter it in the **Secret Token** box in the **Provisioning** tab of your Foodee application in the Azure portal.
 
 	![Foodee](media/Foodee-provisioning-tutorial/token.png)
-
 
 ## Add Foodee from the gallery
 
@@ -79,7 +79,7 @@ To add Foodee from the Azure AD application gallery, do the following:
 
 	![The Enterprise applications pane](common/enterprise-applications.png)
 
-1. To add a new application, select the **New application** button at the top of the pane.
+1. To add a new application, select **New application** at the top of the pane.
 
 	![The New application button](common/add-new-app.png)
 
@@ -87,20 +87,20 @@ To add Foodee from the Azure AD application gallery, do the following:
 
 	![Foodee in the results list](common/search-new-app.png)
 
-## Configuring automatic user provisioning to Foodee 
+## Configure automatic user provisioning to Foodee 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Foodee based on user or group assignments in Azure AD.
+In this section, you configure the Azure AD provisioning service to create, update, and disable users or groups in Foodee based on user or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Foodee, following the instructions provided in the [Foodee Single sign-on tutorial](Foodee-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
+> You can also enable SAML-based single sign-on for Foodee by following the instructions in the [Foodee single sign-on tutorial](Foodee-tutorial.md). You can configure single sign-on independent of automatic user provisioning, though these two features complement each other.
 
-### To configure automatic user provisioning for Foodee in Azure AD:
+Configure automatic user provisioning for Foodee in Azure AD by doing the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. In the [Azure portal](https://portal.azure.com), select **Enterprise Applications** > **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Enterprise applications pane](common/enterprise-applications.png)
 
-1. In the applications list, select **Foodee**.
+1. In the **Applications** list, select **Foodee**.
 
 	![The Foodee link in the Applications list](common/all-applications.png)
 
@@ -163,8 +163,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 The preceding operation starts the initial synchronization of the users or groups that you've defined in the **Scope** drop-down list. The initial sync takes longer to perform than subsequent syncs. For more information, see [How long will it take to provision users?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
 You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report. The report describes all actions that are performed by the Azure AD provisioning service on Foodee. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-
 
 ## Additional resources
 
