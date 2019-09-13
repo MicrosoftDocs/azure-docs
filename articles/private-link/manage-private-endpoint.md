@@ -75,7 +75,7 @@ Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceG
  
 ### Azure CLI 
  
-Use `az network private-link-service update` for managing your Private Endpoint connections. The connextion state is specified in the ```azurecli connection-status``` parameter. 
+Use `az network private-link-service update` for managing your Private Endpoint connections. The connection state is specified in the ```azurecli connection-status``` parameter. 
 ```azurecli
 az network private-link-service connection update -g myResourceGroup -n myPrivateEndpointConnection1 --service-name myPLS --connection-status Approved 
 ```
