@@ -89,7 +89,7 @@ The following steps show you how to prepare the virtual network for the move usi
                     "type": "Microsoft.Network/virtualNetworks",
                     "apiVersion": "2019-06-01",
                     "name": "[parameters('virtualNetworks_myVNET1_name')]",
-                    "location": "TARGET REGION",
+                    "location": "<target-region>",
                     "properties": {
                         "provisioningState": "Succeeded",
                         "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
@@ -200,7 +200,7 @@ The following steps show you how to prepare the virtual network for the move usi
 11. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
     ```azurpowershell-interactive
-    New-AzResourceGroup -Name <resource-group-name> -location TARGET REGION
+    New-AzResourceGroup -Name <resource-group-name> -location <target-region>
     ```
     
 12. Deploy the edited **<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
