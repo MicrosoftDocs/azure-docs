@@ -272,25 +272,25 @@ To remove a managed identity for your logic app by using the Azure portal, follo
 
 1. On the logic app menu, under **Settings**, select **Identity**.
 
-   * System-assigned: Under **System assigned** > **Status**, select **Off** > **Save** > **Yes**.
+   * System-assigned: Select **System assigned** > **Status** > **Off** > **Save** > **Yes**.
 
      ![Turn off system-assigned identity](./media/create-managed-service-identity/turn-off-system-assigned-identity.png)
 
-   * User-assigned: 
+   * User-assigned: Select **User assigned** and the managed identity that you want to remove. Select **Remove**.
+
+     ![Turn off user-assigned identity](./media/create-managed-service-identity/turn-off-user-assigned-identity.png)
 
 1. To remove the managed identity's access on the target resource, go to the Azure resource where you want to remove access for the managed identity.
 
-1. From the resource's menu, select **Access control (IAM)**. On the toolbar, select **Remove**.
+1. From the resource's menu, select **Access control (IAM)**. Under the toolbar, select **Role assignments**.
+
+1. In the roles list, select the managed identities that you want to remove. On the toolbar, select **Remove**.
 
    > [!TIP]
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-1. Under **Add role assignment**, select the **Role** for the identity. Learn more about [role-based access control (RBAC) roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
-
-   ![Assign role](./media/create-managed-service-identity/assign-role.png)
-
-
+1. 
 
 ### Disable managed identity in Azure Resource Manager deployment template
 
