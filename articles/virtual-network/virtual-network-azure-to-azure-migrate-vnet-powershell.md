@@ -1,6 +1,6 @@
 ---
-title: Move Azure Virtual Network to another Azure region using PowerShell
-description: Use Azure Resource Manager template to move Azure Virtual Network from one Azure region to another using PowerShell.
+title: Move Azure Virtual Network to another Azure region using Azure PowerShell
+description: Use Azure Resource Manager template to move Azure Virtual Network from one Azure region to another using Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 08/26/2019
 ms.author: allensu
 ---
 
-# Move Azure Virtual Network to another region
+# Move Azure Virtual Network to another region using Azure Powershell
 
 There are various scenarios in which you'd want to move your existing Azure Virtual Networks (VNETs) from one region to another. For example, you may want to create a virtual network with the same address space and options for testing and availability of your existing virtual network. You may also want to move a production virtual network to another region as part of disaster recovery planning.
 
@@ -44,7 +44,7 @@ The following steps show how to prepare the virtual network for the move using a
     Connect-AzAccount
     ```
 
-2. Obtain the subscription ID where you wish to deploy the target virtual network and place in a variable using[Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+2. Obtain the subscription ID where you wish to deploy the target virtual network and place in a variable using [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
    
     ```azurepowershell-interactive
     Get-AzSubscription | format-table
@@ -54,10 +54,10 @@ The following steps show how to prepare the virtual network for the move using a
 3. Obtain the resource ID of the virtual network you want to move to the target region and place it in a variable using [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
 
     ```azurepowershell-interactive
-    $sourceVNETID = (Get-AzVirtualNetwork -Name myVNET1 -ResourceGroupName <resource-group-name>).Id
+    $sourceVNETID = (Get-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resource-group-name>).Id
 
     ```
-4. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
+4. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -203,7 +203,7 @@ The following steps show how to prepare the virtual network for the move using a
     New-AzResourceGroup -Name <resource-group-name> -location TARGET REGION
     ```
     
-12. Deploy the edited **myResourceGroupVNET.json** file to the resource group created in the previous step using[New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+12. Deploy the edited **myResourceGroupVNET.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

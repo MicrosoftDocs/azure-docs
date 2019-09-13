@@ -256,7 +256,7 @@
   - name: Move
     items:
     - name: Virtual networks
-      href: virtual-network-azure-to-azure-migrate-vnet.md
+      href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
