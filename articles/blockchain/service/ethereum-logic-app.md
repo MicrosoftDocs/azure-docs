@@ -63,23 +63,30 @@ In the search box, enter "Ethereum". From the triggers list, select **When a HTT
 
 Connectors require an API connection for the connector. To set up a connection to an Azure Blockchain Service member, you need the following information.
 
+### Get the RPC endpoint
 
+The RPC endpoint is the HTTP URL including the address and access key of your Azure Blockchain Service member transaction node.
 
-### RPC endpoint
+Portal:
+For your Azure Blockchain Service  member  , go to, transaction node > access keys
+copy the value for Http 1 or 2.
 
-To get the RPC endpoint:
-
-
-
-from DevKit
+DevKit
+In the Azure Blockchain DevKit extension, right click the consortium, select Copy RPC endpoint.
 
 ### Private key 
+
+Your ethereum account public and private key is generated from a 12 word mnemonic. DevKit generates a mnemonic when you connect to a Azure Blockchain Service consortium member. 
+
 from devkit F1 Azure Blockchain: Retrieve private key
 Select mnemonic you saved when connecting to the consortium member. The private key is copied to your clipboard.
 
 ### Account address and password
 
 The member account and password is required to authenticate to the management smart contract at the root contract address. The password is set when you create the member. If you need to reset the password, select the **Member account** address link on the Azure Blockchain Service member's overview page.
+
+From the portal, go to your Azure Blockchain Service overview page.
+Copy the account address.
 
 ## Get smart contract details
 
