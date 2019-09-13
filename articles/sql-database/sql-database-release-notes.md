@@ -46,8 +46,12 @@ This article lists SQL Database features that are currently in public preview. F
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> | Migrate database from on-premises that already have enabled Transparent Data Encryption (TDE) with existing TDE keys. |
 | <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> | Keep a copy of the instance in another region and ensure that your data will be available even in the regional disaster scenario. |
+| <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create server-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
+| [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. |
+| &nbsp; |
 
 ---
+
 ## Updates
 
 For a list of SQL Database updates and improvements, see [SQL Database service updates](https://azure.microsoft.com/updates/?product=sql-database).
