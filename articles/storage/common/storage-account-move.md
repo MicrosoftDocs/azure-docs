@@ -6,34 +6,33 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 09/13/2019
 ms.author: normesta 
 ms.reviewer: dineshm
 ---
 
 # Move an Azure Storage account to another region
 
-You can move a storage account to another region. To accomplish this, deploy a copy of your storage account to another region. Then, move over your data. 
+To move a storage account, export, modify, and deploy an Azure Resource Manager template. You can move your data to the new storage account by using AzCopy.
 
-This article shows you how to move a storage account by using the Azure portal or PowerShell. You'll export the storage account template. Then, modify the template and deploy it to the region of your choice. 
-
-Some settings won't automatically export to a template, so you'll have to make some changes to the storage account after you deploy it. 
+This article shows you how to do this by using Azure portal and PowerShell.
 
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
-
 - For preview features, ensure that your subscription is whitelisted for the target region.
 
 ## Prepare
 
-First, export a Resource Manager template for the storage account. Then, save that template to your local computer so that you can edit it. 
+To get started, export, and then modify a Resource Manager template. 
 
-### Export the template
+### Export a template
+
+This template contains settings that describe your storage account. 
 
 # [Portal](#tab/azure-portal)
 
-To export the template by using Azure portal:
+To export a template by using Azure portal:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
@@ -49,20 +48,13 @@ To export the template by using Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-To export the template by using PowerShell:
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+To export a template by using PowerShell:
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
 
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
-    
-   ```azurepowershell-interactive
-   Connect-AzAccount
-   ```
-
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to move.
 
    ```azurepowershell-interactive
@@ -89,6 +81,8 @@ To export the template by using PowerShell:
 Modify the template by changing the storage account name and region.
 
 # [Portal](#tab/azure-portal)
+
+To deploy the template by using Azure portal:
 
 1. In the Azure portal, select **Create a resource**.
 
@@ -130,6 +124,8 @@ Modify the template by changing the storage account name and region.
 
 # [PowerShell](#tab/azure-powershell)
 
+To deploy the template by using PowerShell:
+
 1. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
     
     ```json
@@ -163,7 +159,7 @@ Modify the template by changing the storage account name and region.
 
 ## Move
 
-Deploy the template.
+Deploy the template to create a new storage account in the target region. 
 
 # [Portal](#tab/azure-portal)
 
@@ -198,9 +194,9 @@ Deploy the template.
    ```
 ---
 
-### Add settings to the target storage account
+### Configure the new storage account
 
-These settings don't export to a template, so you'll have to add them to your new account.
+Some settings don't export to a template. You'll have to manually add those settings to the new storage account. Here's a list of those settings:
 
 - Lifecycle management policies. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#azure-portal-code-view).
 
@@ -216,9 +212,9 @@ These settings don't export to a template, so you'll have to add them to your ne
 
 ### Move data to the new storage account
 
-AzCopy v10 is a command-line tool that presents easy-to=use commands that are optimized for performance.
+AzCopy v10 is a command-line tool that presents easy-to-use commands that are optimized for performance.
 
-For specific guidance, see [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
+Follow the guidance in this section of the AzCopy v10 documentation: [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
 
 ---
 
