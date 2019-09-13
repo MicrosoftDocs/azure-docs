@@ -17,7 +17,7 @@ ms.author: makromer
 # Execute data flow activity in Azure Data Factory
 Use the execute data flow activity to run your ADF data flow in pipeline debug (sandbox) runs and in pipeline triggered runs.
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## Syntax
 

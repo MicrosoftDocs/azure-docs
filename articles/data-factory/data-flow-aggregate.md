@@ -10,7 +10,7 @@ ms.date: 02/01/2019
 
 # Aggregate transformation in Mapping Data Flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 The Aggregate transformation is where you'll define aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT which can be grouped by existing or computed columns.
 
