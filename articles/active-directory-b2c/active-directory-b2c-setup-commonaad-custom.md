@@ -66,8 +66,8 @@ If you want users to sign in by using Azure AD, you need to define Azure AD as a
 You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
 1. Open the *TrustFrameworkExtensions.xml* file.
-2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
-3. Add a new **ClaimsProvider** as follows:
+1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
+1. Add a new **ClaimsProvider** as follows:
 
     ```XML
     <ClaimsProvider>
@@ -117,9 +117,10 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
     </ClaimsProvider>
     ```
 
-4. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
-5. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Contoso Employee`. This value is displayed on the sign-in button on your sign-in page.
-6. Set **client_id** to the application ID of the Azure AD multi-tenant application that you registered earlier.
+1. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
+1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Contoso Employee`. This value is displayed on the sign-in button on your sign-in page.
+1. Set **client_id** to the application ID of the Azure AD multi-tenant application that you registered earlier.
+1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_AADAppSecret`.
 
 ### Restrict access
 
@@ -143,7 +144,7 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 
 1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
 2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
-3. Click **Upload**.
+3. Select **Upload**.
 
 ## Register the claims provider
 
@@ -159,8 +160,8 @@ At this point, the identity provider has been set up, but it’s not available i
 
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
-2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `AzureADExchange`:
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
+1. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `AzureADExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
@@ -183,7 +184,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ## Create an Azure AD B2C application
 
-Communication with Azure AD B2C occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
@@ -199,12 +200,12 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignContoso.xml*.
 1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
-1. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_contoso`
+1. Update the value of **PublicPolicyUri** with the URI for the policy. For example, `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier. For example, *SignUpSignInContoso*.
 1. Save your changes and upload the file.
 1. Under **Custom policies**, select the new policy in the list.
 1. In the **Select application** drop-down, select the Azure AD B2C application that you created earlier. For example, *testapp1*.
-1. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached credentials.
+1. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Azure AD credentials.
 1. Select the Azure AD sign in button, for example, *Contoso Employee*, and then enter the credentials for a user in one of your Azure AD organizational tenants. You're asked to authorize the application, and then enter information for your profile.
 
 If the sign in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.

@@ -127,7 +127,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 1. Set value of the **METADATA** to `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, where `your-AD-tenant-name` is your Azure AD tenant name. For example, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 1. Open your browser and go to the **METADATA** URL that you just updated, look for the **issuer** object, and then copy and paste the value into the value for **ProviderName** in the XML file.
 1. Set **client_id** to the application ID from the application registration.
-1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_ContosoAppSecret`.
+1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that you created earlier. For example, `B2C_1A_ContosoAppSecret`.
 
 ### Upload the extension file for verification
 
@@ -152,7 +152,7 @@ At this point, the identity provider has been set up, but it's not yet available
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in page. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
-2. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
+1. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
@@ -191,12 +191,12 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInContoso.xml*.
 1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
-1. Update the value of **PublicPolicyUri** with a URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_contoso`
+1. Update the value of **PublicPolicyUri** with the URI for the policy. For example, `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier. For example, *SignUpSignInContoso*.
 1. Save your changes and upload the file.
 1. Under **Custom policies**, select the new policy in the list.
 1. In the **Select application** drop-down, select the Azure AD B2C application that you created earlier. For example, *testapp1*.
-1. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached credentials.
+1. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Azure AD credentials.
 1. Select the Azure AD sign in button, for example, *Contoso Employee*, and then enter the credentials for a user in your Azure AD organizational tenant. You're asked to authorize the application, and then enter information for your profile.
 
 If the sign in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
