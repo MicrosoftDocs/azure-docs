@@ -46,7 +46,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
     - If your Linux machine isn't in Azure, select **Download and install agent on Linux non-Azure machine**. In the **Direct agent** blade, copy the command for **DOWNLOAD AND ONBOARD AGENT FOR LINUX** and run it on your computer. 
     
    > [!NOTE]
-   > Make sure you configure security settings for these computers according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements.
+   > Make sure you configure security settings for these computers according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy, and change the ports and protocols in the daemon to align with security requirements.
 
 4. For step 2, select **Open your workspace advanced settings configuration**.
 
