@@ -120,7 +120,7 @@ We recommend that you set up and validate a full HADR solution and security desi
            2.  Evaluate and test the data path between the SAP application layer and the SAP DBMS layer.
                     1.  Placement of [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver, Hybris, or S/4HANA isn't supported.
                     2.  Placement of the SAP application layer and SAP DBMS in different Azure virtual networks that aren't peered isn't supported.
-                    3.  You can use [Application security group and network security group rules](https://docs.microsoft.com/azure/virtual-network/security-overview) to define routes between the SAP application layer and the SAP DBMS layer.
+                    3.  You can use [application security group and network security group rules](https://docs.microsoft.com/azure/virtual-network/security-overview) to define routes between the SAP application layer and the SAP DBMS layer.
            3.  Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer. Keep in mind that different OS levels are needed to support Accelerated Networking in Azure:
                     1. Windows Server 2012 R2 or later.
                     1. SUSE Linux 12 SP3 or later.
@@ -185,8 +185,8 @@ During this phase, you usually deploy development systems, unit testing systems,
 7.	Recheck SAP support notes, the SAP HANA hardware directory, and the SAP PAM. Make sure there were no changes in supported VMs for Azure, supported OS releases in those VMs, and supported SAP and DBMS releases.
 8.	Check [the SAP website](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) for new HANA-certified SKUs in Azure. Compare the pricing of new SKUs with those you planned to use, and eventually make necessary changes to use the ones that have the best price/performance ratio.
 9.	Adapt your deployment scripts to use new VM types and incorporate new Azure features that you want to use.
-10.	After deployment of the infrastructure, test and evaluate the network latency between SAP application layer VMs and DBMS VMs, according to SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against network latency guidance of [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Make sure that none of the restrictions mentioned in [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) and [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) apply to your deployment.
-11.	Make sure your VMs are deployed to the correct [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), as described in [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+10.	After deployment of the infrastructure, test and evaluate the network latency between SAP application layer VMs and DBMS VMs, according to SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Make sure that none of the restrictions mentioned in [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) and [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) apply to your deployment.
+11.	Make sure your VMs are deployed to the correct [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 11.	Perform all the other checks listed for the proof of concept phase before applying the workload.
 12.	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage and network bandwidths of VMs will be reduced as well.
 	1.	[Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -202,44 +202,44 @@ In this phase, collect what you experienced and learned during your non-producti
 1.	Complete necessary SAP release upgrades of your production systems before moving to Azure.
 2.	Agree with the business owners on functional and business tests that need to be conducted after migration of the production system.
 	1.	Make sure these tests are completed with the source systems in the current hosting location. Avoid conducting tests for the first time after the system is moved to Azure.
-2.	Test production migration process into Azure. In case of not moving all production systems to Azure in the same time frame, build groups of production systems that need to be in the same hosting location. Exercise and test data migration. Common methods list like:
-	1.	Using DBMS methods like backup/restore in combination with SQL Server AlwaysOn, HANA System Replication or Log shipping to seed and synchronize database content in Azure
-	2.	Use Backup/restore for smaller databases
-	3.	Use SAP Migration Monitor implemented into SAP SWPM tool to perform heterogeneous migrations
-	4.	Use the [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process if you need to combine with an SAP release upgrade. Keep in mind that not all combinations between source and target DBMS are supported. More information can be found in the specific SAP support notes for the different releases of DMO. For example, [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872)
-	5.	Test whether data transfer through internet or through ExpressRoute is better in throughput in case you need to move backups or SAP export files. For the case of moving data through internet, you might need to change some of your NSG/ASG security rules that you need to have in place for future production systems
-3.	Before moving systems from the old platform into Azure collect resource consumption data, like CPU usage, storage throughput and IOPS data. Especially from the DBMS layer units, but also from the application layer units. Also measure network and storage latency.
-4.	Validate the resources on SAP support notes, SAP HANA hardware directory, and SAP PAM again to make sure that there were no changes in supported VMs for Azure, supported OS releases in those VMs, and supported SAP and DBMS releases 
-4.	Adapt deployment scripts to the latest changes you decided on VM types and Azure functionality
-5.	After deployment of infrastructure and application go through a series of checks in order to validate:
-	1.	The correct VM types got deployed with the correct attributes and storage sizes
-	2.	Check that the VMs are on the correct and desired OS releases and patches and are uniform
-	3.	Check that hardening of the VMs are as required and uniform
-	4.	Check that the correct application releases and patches got installed and deployed
-	5.	The VMs got deployed into Azure Availability Sets as planned
-	6.	Azure Premium Storage was used for the latency sensitive disks or where the [single VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required
-	7.	Check for correct deployment of Azure Write Accelerator
-		1.	Make sure that within the VM, storage spaces, or stripe sets got built correctly across disks that need Azure Write Accelerator support
-			1.	Check [Configure Software RAID on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
-			2.	Check [Configure LVM on a Linux VM in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
-	8.	[Azure managed disks](https://azure.microsoft.com/services/managed-disks/) were used exclusively
-	9.	VMs got deployed into the correct Availability Sets and Availability Zones
-	10.	Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used on the SAP application layer and the SAP DBMS layer
-	11.	No placement of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of an SAP NetWeaver, Hybris, or S/4HANA based SAP systems
-	12.	ASG and NSG rules allow communication as desired and planned and block communication where required
-	13.	Timeout settings as described earlier have been set correctly
-	14.	Make sure that the VMs are deployed using the correct [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) as described in the article [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md)
-	15.	Test and evaluate the network latency between SAP application layer VM and DBMS VM according to SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) and SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against network latency guidance of SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate and good range. Exceptions apply to traffic between VMs and HANA Large Instance units as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
-	15.	Check whether encryption got deployed where necessary and with the encryption method necessary
-	16.	Check whether interfaces and other applications can connect the newly deployed infrastructure
-6.	Create a playbook for reacting to Azure planned maintenance. Define the order of the systems and VMs to be rebooted in case of planned maintenance
+2.	Test the process of migrating production systems to Azure. If you're not moving all production systems to Azure during the same time frame, build groups of production systems that need to be at the same hosting location. Test data migration. Here are some common methods:
+	1.	Use DBMS methods like backup/restore in combination with SQL Server Always On, HANA System Replication, or Log shipping to seed and synchronize database content in Azure.
+	2.	Use backup/restore for smaller databases.
+	3.	Use SAP Migration Monitor, which is integrated into SAP SWPM, to perform heterogeneous migrations.
+	4.	Use the [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process if you need to combine your migration with an SAP release upgrade. Keep in mind that not all combinations of source DBMS and target DBMS are supported. More information can be found in the specific SAP support notes for the different releases of DMO. For example, [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872).
+	5.	Test whether data transfer throughput is better through the internet or through ExpressRoute in case you need to move backups or SAP export files. If you're moving data through the internet, you might need to change some of your network security group/application security group rules that you'll need to have in place for future production systems.
+3.	Before moving systems from your old platform to Azure, collect resource consumption data, like CPU usage, storage throughput, and IOPS data. Especially collect this data from the DBMS layer units, but also collect it from the application layer units. Also measure network and storage latency.
+4.	Recheck SAP support notes, the SAP HANA hardware directory, and the SAP PAM. Make sure there were no changes in supported VMs for Azure, supported OS releases in those VMs, and supported SAP and DBMS releases.
+4.	Update deployment scripts to take into account the latest decisions you've made on VM types and Azure functionality.
+5.	After deploying infrastructure and applications, validate that:
+	1.	The correct VM types were deployed, with the correct attributes and storage sizes.
+	2.	The VMs are on the correct and desired OS releases and patches and are uniform.
+	3.	VMs are hardened as required and in a uniform way.
+	4.	The correct application releases and patches were installed and deployed.
+	5.	The VMs were deployed into Azure availability sets as planned.
+	6.	Azure Premium Storage is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
+	7.	Azure Write Accelerator is deployed correctly.
+		1.	Make sure that, within the VMs, storage spaces or stripe sets were built correctly across disks that need Write Accelerator.
+			1.	Check [configuration of software RAID on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid).
+			2.	Check [configuration of LVM on Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm).
+	8.	[Azure managed disks](https://azure.microsoft.com/services/managed-disks/) are used exclusively.
+	9.	VMs were deployed into the correct availability sets and Availability Zones.
+	10.	[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer.
+	11.	No [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) are in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver, Hybris, or S/4HANA.
+	12.	Application security group and network security group rules allow communication as desired and planned and block communication where required.
+	13.	Timeout settings are been set correctly, as described earlier.
+	14.	VMs are deployed to the correct [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+	15.	Network latency between SAP application layer VMs and DBMS VMs is tested and validated as described in SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance).
+	15.	Encryption was implemented where necessary and with the appropriate encryption method.
+	16.	Interfaces and other applications can connect the newly deployed infrastructure.
+6.	Create a playbook for reacting to planned Azure maintenance. Define the order in which systems and VMs should be rebooted in case of planned maintenance.
  	
 
-## Go Live Phase
-For the Go-Live phase, you need to make sure to follow your playbooks you developed in earlier phases. Execute the steps that you tested and trained. Don't accept last-minute changes in configurations and process. Besides that apply the following measures:
+## Go live phase
+During the go live phase, be sure to follow the playbooks you developed during earlier phases. Execute the steps that you tested and practiced. Don't accept last-minute changes in configurations and processes. Besides that, complete these steps:
 
-1. Verify that Azure portal monitoring and other monitoring tools are working.  Recommended tools are Perfmon (Windows) or SAR (Linux): 
-	1.	CPU Counters 
+1. Verify that Azure portal monitoring and other monitoring tools are working. We recommend Windows Performance Monitor (perfmon) for Windows and SAR for Linux.
+	1.	CPU counters.
 		1.	Average CPU time – Total (all CPU)
 		2.	Average CPU time – each individual processor (so 128 processors on m128 VM)
 		3.	CPU time kernel – each individual processor
