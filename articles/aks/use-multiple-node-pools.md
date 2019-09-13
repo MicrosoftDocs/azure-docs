@@ -72,9 +72,9 @@ az provider register --namespace Microsoft.ContainerService
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
 * Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* feature for your subscription. You can't add or manage node pools with an existing AKS cluster created before this feature was successfully registered.
-* You can't delete the first node pool.
+* You can't delete the default (first) node pool.
 * The HTTP application routing add-on can't be used.
-* You can't add/update/delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
+* You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
 
 While this feature is in preview, the following additional limitations apply:
 
@@ -85,6 +85,8 @@ While this feature is in preview, the following additional limitations apply:
 ## Create an AKS cluster
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+
+It is highly recommended to use the Standard SKU load balancer when utilizing multiple node pools. Read [this document](load-balancer-standard.md) to learn more about using Standard Load Balancers with AKS.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -97,7 +99,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 It takes a few minutes to create the cluster.
@@ -574,7 +577,7 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 ## Assign a public IP per node in a node pool
 
 > [!NOTE]
-> During preview there is a limitation of using this feature with *Standard Load Balancer SKU in AKS (preview)* due to possible load balancer rules conflicting with VM provisioning. While in preview use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
+> During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. While in preview use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
 
 AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
 
