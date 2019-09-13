@@ -86,7 +86,7 @@ Private Link service provides you rich set of options for controlling the exposu
 - Visibility: Restricted by subscriptions: 
     - Intake parameter:  {sub1, sub2, sub3}.  
     - Exposed to customer with RBAC permissions and to user subscriptions in your selected list. 
-    - Cosumers not in the visibility list will not be able to find the service even with alias information.
+    - Consumers not in the visibility list will not be able to find the service even with alias information.
 
 ## Control service access 
  

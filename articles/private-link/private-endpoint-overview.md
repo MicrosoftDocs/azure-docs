@@ -3,7 +3,7 @@ title: What is an Azure Private Endpoint?
 description: Learn about Azure Private Endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure private e so that I can securely connect to my Azure PaaS services within the virtual network.
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 
 ms.service: virtual-network
 ms.topic: article
@@ -12,7 +12,7 @@ ms.author: kumud
 ---
 # What is Azure Private Endpoint?
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet effectively bringing the service into your VNet. The service could be an Azure service such as Storage, SQL, etc. or your very own service.
+Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet effectively bringing the service into your VNet. The service could be an Azure service such as Storage, SQL, etc. or your own service.
   
 ## Private Endpoint properties 
  A Private Endpoint specifies the following properties: 
@@ -44,7 +44,7 @@ Here are some key details about private endpoints:
 
  
 ## Private link resource 
-A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types and corresponding region availabilty for Preview: 
+A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types and corresponding region availability for Preview: 
  
 - **Private link service**: Your own private link service or shared service, available in selected Azure regions. 
 - **Azure storage**: Storage accounts with multiple target subresources available, Available in all Azure regions. 
@@ -97,7 +97,7 @@ For Azure Services, use the recommended zone names as described in the following
 |Storage Account (Microsoft.Storage/storageAccounts)    |    Queue (queue, queue_secondary)     |   privatelink.queue.core.windows.net       |
 |Storage Account (Microsoft.Storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
 |Storage Account (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Data Lake File System gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
+|Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
 ||||
  
 
