@@ -96,7 +96,7 @@ To access any of the enrichments added to a node by a skill, the full path for t
  ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
 ### Skill #2 Language detection
- While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Like the split skill that preceeded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
+ While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Since it is not blocked by requiring any inputs, it will execute in parallel with the previous skill. Like the split skill that preceeded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
  ![enrichment tree after skill #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enrichment tree after  skill #2 executes")
  
  ### Skill #3: Key phrases skill 
