@@ -27,11 +27,11 @@ Here are the steps to create an instance of the CentOS Data Science Virtual Mach
 
 1. On the subsequent window, select **Create**.
 
-    ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/Create_Linux.png)
+    ![Wizard for creating a virtual machine](./media/linux-dsvm-intro/Create_CentOS.png)
 
 1. You should be redirected to the "Create a virtual machine" blade.
    
-   ![Basics tab corresponding to Ubuntu Virtual Machine](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
+   ![Basics tab corresponding to CentOS Virtual Machine](./media/linux-dsvm-intro/review-create-centos.png)
 
 1. Enter the following information to configure each step of the wizard:
 
@@ -62,9 +62,9 @@ Here are the steps to create an instance of the CentOS Data Science Virtual Mach
     
     The provisioning should take about 5 minutes. The status is displayed in the Azure portal.
 
-## How to access the Ubuntu Data Science Virtual Machine
+## How to access the CentOS Data Science Virtual Machine
 
-You can access the Ubuntu DSVM in one of three ways:
+You can access the CentOS DSVM in one of three ways:
 
   1. SSH for terminal sessions
   1. X2Go for graphical sessions
@@ -86,7 +86,7 @@ The Linux VM is already provisioned with X2Go Server and ready to accept client 
 1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Make note of the virtual machine's public IP address, which you can find in the Azure portal by opening the virtual machine you just created.
 
-   ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+   ![CentOS machine IP address](./media/linux-dsvm-intro/centos-ip-address.png)
 
 1. Run the X2Go client. If the "New Session" window does not pop up automatically, go to Session -> New Session.
 
@@ -105,15 +105,16 @@ The Linux VM is already provisioned with X2Go Server and ready to accept client 
 1. Enter the password for your VM.
 1. Select **OK**.
 1. You may have to give X2Go permission to bypass your firewall in order to finish connecting.
-1. You should now see the graphical interface for your Ubuntu DSVM. 
+1. You should now see the graphical interface for your CentOS DSVM. 
 
 
 ### JupyterHub and JupyterLab
 
-The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multiuser Jupyter server. To connect, take the following steps:
+The CentOS DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multiuser Jupyter server. To connect, take the following steps:
 
    1. Make note of the public IP address for your VM, by searching for and selecting your VM in the Azure portal.
-      ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+
+       ![CentOS machine IP address](./media/linux-dsvm-intro/centos-ip-address.png)
 
    1. From your local machine, open a web browser and navigate to https:\//your-vm-ip:8000, replacing "your-vm-ip" with the IP address you took note of earlier.
    1. Enter the username and password that you used to create the VM, and sign in. 
