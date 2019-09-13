@@ -5,13 +5,13 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
-# What is Azure Private Link Service?
+# What is Azure Private Link service?
 
-Azure Private Link service is a service you can create in your virtual network (VNet) and deliver it privately to your customers. Your customers can access this service by mapping it to private endpoint inside their VNets. This article explains Private Link service concepts to help you use them effectively. 
+Azure Private Link service allows you to create a service in your Virtual Network (VNet) and deliver it privately to your customers. Your customers can access this service by mapping it to a private endpoint inside their VNets. This article explains Private Link service concepts to help you use them effectively. 
 
 ## Workflow
 
@@ -20,12 +20,13 @@ Azure Private Link service is a service you can create in your virtual network (
 ### Create your Private Link Service
 
 - Choose a name, location, and virtual network for your service.  
-- Create either an internal load balancer (ILB) or a public load balancer. 
-    > [!NOTE]
-    > Azure Private Link Service is only supported on Standard Load Balancer. 
+- Create either an internal Load Balancer or a public Load Balancer. 
 - Map the backend resources from the selected VNet to the load balancer. It is advisable to have at least one backend resource behind the load balancer.  
 - Create a Private Link Service using the load balancer. In the load balancer selection process, choose the frontend IP configuration where you want to receive the traffic. Choose a subnet for NAT IP addresses for the Private Link Service. It is recommended to have at least eight NAT IP addresses available in the subnet. All consumer traffic will appear to originate from this pool of private IP addresses to the service provider. Choose the appropriate properties/settings for the Private Link Service.    
- 
+
+    > [!NOTE]
+    > Azure Private Link Service is only supported on Standard Load Balancer. 
+    
 ### Share your service
 
 After you create a Private Link Service, the Azure infrastructure will generate a globally unique "alias" based on the name you provide for your service. You can share the alias with your customers offline or advertise it publicly. Consumers can start a Private Link connection using this alias.
