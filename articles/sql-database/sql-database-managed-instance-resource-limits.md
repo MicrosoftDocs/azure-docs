@@ -52,6 +52,7 @@ Managed instance has two service tiers: General Purpose and Business Critical. T
 | Max number of databases per instance | 100 | 100 |
 | Max number of database files per instance | Up to 280 | 32,767 files per database |
 | Max file size | 8 TB | 4 TB |
+| Max log file size | 2 TB | 2 TB |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit | 3 MB/s per vCore<br/>Max 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
@@ -59,9 +60,7 @@ Managed instance has two service tiers: General Purpose and Business Critical. T
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore)<br/>Add more vCores to get more TempDB space. | Limited by the max instance storage size. TempDB log file size is currently limited to 24GB/vCore. |
 | In-memory OLTP | Not supported | Available |
 | Max sessions | 30000 | 30000 |
-| Readable replicas | 0 | 1 (included in price) |
-| Pricing/billing | vCore, reserved storage  <br/> IOPS not charged, Backup storage is not yet charged. | vCore, reserved storage  <br/> IOPS not charged, Backup storage is not yet charged. | 
-| Discount models | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions) | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)|
+| [Read-only replicas](sql-database-read-scale-out.md) | 0 | 1 (included in price) |
 
 > [!NOTE]
 > - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.

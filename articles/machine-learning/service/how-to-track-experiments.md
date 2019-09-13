@@ -1,7 +1,7 @@
 ---
-title: Log metrics during training runs
+title: Log ML experiments & metrics
 titleSuffix: Azure Machine Learning service
-description: You can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the logged results of a run.  
+description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 
 ms.custom: seodec18
 ---
 
-# Track machine learning training metrics with Azure Machine Learning
+# Monitor Azure ML experiment runs and metrics
 
-Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning service.
+Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning service.
 
 > [!NOTE]
 > Azure Machine Learning service may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
@@ -269,7 +269,7 @@ Model training and monitoring occur in the background so that you can run other 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## View the experiment in the Azure portal
+## View the experiment in the Azure portal or your [workspace landing page (preview)](https://ml.azure.com)
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history in two ways:
 
