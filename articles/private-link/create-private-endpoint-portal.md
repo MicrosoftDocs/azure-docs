@@ -1,27 +1,27 @@
 ---
-title: 'Create an Azure Private Endpoint using Azure portal| Microsoft Docs'
+title: 'Manage Private Endpoints in Azure'
 description: Learn about Azure private endpoint
 services: virtual-network
 author: KumudD
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure Private Endpoint
 ms.service: virtual-network
-ms.topic: quickstart
-ms.date: 09/09/2019
+ms.topic: tutorial
+ms.date: 09/16/2019
 ms.author: kumud
 
 ---
-# Create a Private Endpoint using the Azure portal
-A private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
+# Create a Private Endpoint using Azure portal
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with an Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
+A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. 
+In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using Azure PowerShell. Then, you can securely access the  SQL Database Server from the VM.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a VM
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (an  storage account in this example).
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource (a SQL server in Azure in this example).
 
 ### Create the virtual network
 
@@ -45,7 +45,7 @@ In this section, you will create virtual network and the subnet to host the VM t
 
 ### Create virtual machine
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual Machine**.
 
 1. In **Create a virtual machine - Basics**, enter or select this information:
 
@@ -84,62 +84,89 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Public IP | Leave the default **(new) myVm-ip**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP** and **RDP**.|
-    ||
+    |||
+
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create your Private Endpoint
-In this section, you will create a private storage account using a Private Endpoint to it. 
+## Create a SQL database server
+In this section, you will create a SQL database server in Azure. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Storage** > **Storage account**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL database**.
 
-1. In **Create storage account - Basics**, enter or select this information:
+1. In **Create SQL database - Basics**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
+    | **Database details** | |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
-    | Storage account name  | Enter *mystorageaccount*. If this name is taken, create a unique name. |
-    | Region | Select **WestCentralUS**. |
-    | Performance| Leave the default **Standard**. |
-    | Account kind | Leave the default **Storage (general purpose v2)**. |
-    | Replication | Select **Read-access geo-redundant storage (RA-GRS)**. |
+    | Database name  | Enter *mydatabase*. If this name is taken, create a unique name. |
     |||
-  
-3. Select **Next: Networking**.
-4. In **Create a storage account - Networking**, connectivity method, select **Private Endpoint**.
-5. In **Create a storage account - Networking**, select **Add Private Endpoint**. 
-6. In **Create Private Endpoint**, enter or select this information:
+5. In **Server**, select **Create new**. 
+6. In **New server**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. You created this in the previous section.|
-    |Location|Select **WestCentralUS**.|
-    |Name|Enter *myPrivateEndpoint*.  |
-    |Storage sub-resource|Leave the default **Blob**. |
-    | **NETWORKING** |  |
-    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
-    | Subnet | Select *mySubnet*. |
-    | **PRIVATE DNS INTEGRATION**|  |
-    | Integrate with private DNS zone  | Leave the default **Yes**. |
-    | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
+    |Server name  | Enter *myserver*. If this name is taken, create a unique name.|
+    | Server admin login| Enter an administrator name of your choosing. |
+    | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
     |||
+    
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
-9. When you see the **Validation passed** message, select **Create**. 
-10. Browse to the storage account resource that you juts created.
-11. Select **Access Keys** from the left content menu.
-12. Select **Copy** on the connection string for key1.
+9. When you see the Validation passed message, select **Create**. 
+10. When you see the Validation passed message, select Create. 
+
+## Create a private endpoint
+In this section, you will create a private storage account and add a private endpoint to it. 
+
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
+2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+
+1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. You created this in the previous section.|
+    | **INSTANCE DETAILS** |  |
+    | Name | Enter * myPrivateEndpoint*. If this name is taken, create a unique name. |
+    |Region|Select **WestCentralUS**.|
+    |||
+5. Select **Next: Resource**.
+6. In **Create a private endpoint - Resource**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    |Connection method  | Select connect to an Azure resource in my directory.|
+    | Subscription| Select your subscription. |
+    | Resource type | Select **Microsoft.Sql/servers**. |
+    |Target sub-resource |Select *myServer*|
+    |||
+7. Select **Next: Configuration**.
+8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    |**NETWORKING**| |
+    | Virtual network| Select *MyVirtualNetwork*. |
+    | Subnet | Select *mySubnet*. |
+    |**PRIVATE DNS INTEGRATION**||
+    |Integrate with private DNS zone |Select **Yes**. |
+    |Private DNS Zone |Select *(New)privatelink.database.windows.net* |
+    |||
+
+1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
+2. When you see the **Validation passed** message, select **Create**. 
  
 ## Connect to a VM from the internet
 
-Connect to the VM *myVm* from the internet as follows:
+After you've created **myVm*, connect to it from the internet as follows: 
 
 1. In the portal's search bar, enter *myVm*.
 
@@ -162,49 +189,41 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access storage account privately from the VM
-
-In this section, you will connect privately to the storage account using the Private Endpoint.
-
-> [!IMPORTANT]
-> DNS configuration for storage needs a manual modification on the hosts file to include the FQDN of the specific account
-> Please modify the following file using administrator permissions on Windows: c:\Windows\System32\Drivers\etc\hosts or Linux /etc/hosts
-> Include the DNS information for the account from previous step in the following format
-> [Private IP Address] myaccount.blob.core.windows.net
+## Access the SQL database server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net`
+2. Enter `myserver.database.windows.net`. 
+`
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mystorageaccount123123.privatelink.blob.core.windows.net
+    Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
-    Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    Aliases:   myserver.database.windows.net
+3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-Additional options to access the storage account: (*What is the purpose of this section? Can this section be removed?*)
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
- 
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+4. In **Connect to server**, enter or select this information:
 
+    | Setting | Value |
+    | ------- | ----- |
+    | Server type| Select **Database Engine**.|
+    | Server name| Select *myserver.database.windows.net* |
+    | User name | Enter a password provided during the SQL server creation. |
+    |Password |Enter a password provided during the SQL server creation. |
+    |Remember password|Select **Yes**.|
+    |||
+1. Select **Connect**.
+2. Browse databases from left menu.
+3. (Optionally) Create or query information from mydatabase.
+4. Close the remote desktop connection to *myVm*. 
 
 ## Clean up resources 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
+When you're done using the private endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
 2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure private endpoint?](private-endpoint-overview.md).
+In this tutorial, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).

@@ -194,7 +194,7 @@ In this section, you will connect privately to the storage account using the Pri
 12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
 13. Close the remote desktop connection to *myVM*. 
 
-Additional options to access the storage account: (*What is the purpose of this section? Can this section be removed?*)
+Additional options to access the storage account:
 - Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
  
 - The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
