@@ -113,7 +113,7 @@ The following table includes a list of known limitations when using private endp
 |Limitation |Description |Mitigation  |
 |---------|---------|---------|
 |Restrict traffic to selected sources within my virtual network    |<br> Network security group (NSG) is not supported on private endpoints.</br><br>Subnets must have network policies enforcement disabled to deploy private endpoints with NSG disabled.</br>       | Control the traffic by using security rules for outbound traffic on source clients.         |
-|Deploy private endpoints on subnets with service endpoints or specialized workloads     |  Private Endpoints cannot be deployed on subnets with service endpoints enabled or subnets delegated to specialized workloads.        |  Create a separate subnet to deploy the private endpoints.        |
+|Deploy private endpoints on subnets with service endpoints or specialized workloads     |  Private Endpoints cannot be deployed on subnets with service endpoints enabled or subnets delegated to specialized workloads        |  Create a separate subnet to deploy the private endpoints.        |
 |Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
 |    |         |         |
