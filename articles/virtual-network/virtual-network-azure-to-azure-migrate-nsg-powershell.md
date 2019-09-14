@@ -78,7 +78,7 @@ The following steps show how to prepare the network security group for the confi
     ```
 
 
-3.  To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under resources::
+3.  To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under **resources**:
 
     ```json
             "resources": [
