@@ -64,6 +64,8 @@ You can select what happens when an external user, who was added to your directo
 
 When you create a [new catalog](entitlement-management-catalog-create.md), there is a setting to enable users from external directories to request access packages in the catalog. If you don't want external users to have permissions to request access packages in the catalog, set **Enabled for external users** to **No**.
 
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+
 ![New catalog pane](./media/entitlement-management-shared/new-catalog.png)
 
 You can also change this setting after you have created the catalog.
