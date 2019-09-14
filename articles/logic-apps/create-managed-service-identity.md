@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/17/2019
 ---
 
-# Authenticate and access resources with managed identities in Azure Logic Apps
+# Authenticate access to resources with managed identities in Azure Logic Apps
 
 To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Azure Logic Apps currently supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) managed identities but only when using these built-in triggers and actions:
 
