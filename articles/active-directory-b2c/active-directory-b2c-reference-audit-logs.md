@@ -40,7 +40,7 @@ For user object CRUD activities, refer to the **Core Directory** category.
 
 ## Example activity
 
-This example image from the Azure portal shows the data captured when a user signs in with an external identity provider:
+This example image from the Azure portal shows the data captured when a user signs in with an external identity provider, in this case, Facebook:
 
 ![Example of Audit Log Activity Details page in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
@@ -56,30 +56,19 @@ The activity details panel contains the following relevant information:
 | Additional Details | PolicyId | The **Policy ID** of the user flow (policy) being used to sign the user in. |
 | Additional Details | ApplicationId | The **Application ID** of the B2C application that the user is signing in to. |
 
-## Accessing audit logs through the Azure portal
+## Accessing audit logs in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Make sure you are in your Azure AD B2C directory.
-1. Select **Azure Active Directory** in the favorites bar on the left.
+1. Sign in to the [Azure portal](https://portal.azure.com), switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
+1. Under **Activities** in the left menu, select **Audit logs**.
 
-    ![Azure Active Directory button highlighted in left-hand portal menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+A list of activity events logged over the last seven days is displayed. Several filtering options are available, including:
 
-1. Under **Activity**, select **Audit Logs**.
+* **Activity Resource Type** - Filter by the activity types shown in the table in the [Overview of activities available](#overview-of-activities-available-in-the-b2c-category-of-audit-logs) section.
+* **Date** - Filter the date range of the activities shown.
 
-    ![Audit Logs button highlighted in Activity section of menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+If you select a row in the list, the activity details for the event are displayed.
 
-1. In the **Category** dropbox, select **B2C**.
-1. Select **Apply**.
-
-    ![Category and Apply button highlighted in Audit Log filter](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
-
-A list of activity events logged over the last seven days is displayed.
-
-- Use the **Activity Resource Type** dropdown to filter by the activity types outlined above.
-- Use the **Date Range** dropdown to filter the date range of the activities shown.
-- If you select a row in the list, a contextual box on the right shows additional attributes associated with the activity.
-- Select **Download** to download the activity events in a comma-separated values (CSV) file.
-
-You can view the same audit logs with similar filtering capabilities by navigating to **Azure AD B2C** rather than **Azure Active Directory** in the favorites bar on the left. Under **Activities**, select **Audit logs**.
+To download the ist of activity events in a comma-separated values (CSV) file, select **Download**.
 
 ## Accessing audit logs through the Azure AD reporting API
 
@@ -87,7 +76,7 @@ Audit logs are published to the same pipeline as other activities for Azure Acti
 
 ### Prerequisites
 
-To authenticate to the Azure AD reporting API, you first need to register an application. Make sure to follow the steps in [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
+To authenticate to the Azure AD reporting API, you first need to register an Azure Active Directory application in your Azure AD B2C tenant. Follow the steps in [Prerequisites to access the Azure Active Directory reporting API](../active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api).
 
 ### Accessing the API
 
