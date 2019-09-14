@@ -71,7 +71,17 @@ The private link resource owner can perform the following actions over a private
  
 > [!NOTE]
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
- 
+
+## Connecting using Alias
+
+Alias is a unique name provided by the Private Link Service provider. You can request a connection to private link service using either the resource URI or the Alias. The Alias only works when the Private Endpoint connections are requested using manual method. For selecting manual method, set manual request parameter to true during Private Endpoint create flow.  
+
+```azurepowershell
+New-AzPrivateEndpoint -Name <String> -ResourceGroupName <String> -Location <String> -Subnet <PSSubnet> -PrivateLinkServiceConnection <PSPrivateLinkServiceConnection[]> [-ByManualRequest]
+```
+```azurecli
+az network private-endpoint create --connection-name --name --private-connection-resource-id --resource-group --subnet [--location] [--subscription] [--vnet-name] [--manual-request {false, true}]
+```
 ## DNS configuration 
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve into the allocated private IP addresses. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
@@ -116,7 +126,7 @@ The following table includes a list of known limitations when using private endp
 |Deploy private endpoints on subnets with service endpoints or specialized workloads     |  Private Endpoints cannot be deployed on subnets with service endpoints enabled or subnets delegated to specialized workloads        |  Create a separate subnet to deploy the private endpoints.        |
 |Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
-|    |         |         |
+|  Portal support for creating private endpoint using Alias  |   Portal only allows creating private endpoints using resource URI      | Use resource URI for requesting private endpoint connections        |
 
 ## Next steps
 - [Create a private endpoint using the Azure portal](create-private-endpoint-portal.md)
