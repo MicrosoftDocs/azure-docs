@@ -35,8 +35,6 @@ This article lists SQL Database features that are currently in public preview. F
 | Serverless compute tier | For information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
-| Threat detection with managed instances |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
-| Transparent data encryption (TDE) with Bring Your Own Key (BYOK) with managed instances |For information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
 
 ### [Managed Instance](#tab/managed-instance)
@@ -44,13 +42,18 @@ This article lists SQL Database features that are currently in public preview. F
 | Feature | Details |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
-| <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> | Migrate database from on-premises that already have enabled Transparent Data Encryption (TDE) with existing TDE keys. |
+| <a href="https://aka.ms/managed-instance-tde-byok">Transparent data encryption (TDE) with Bring Your Own Key (BYOK)</a> |For information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> | Keep a copy of the instance in another region and ensure that your data will be available even in the regional disaster scenario. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create server-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. |
+| Threat detection |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
 | &nbsp; |
 
 ---
+
+## Fixed known issues
+
+- **Aug 2019** - Contained databases are fully supported in managed instance.
 
 ## Updates
 
