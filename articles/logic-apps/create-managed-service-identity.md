@@ -173,9 +173,68 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 <a name="template-user"></a>
 
-#### Turn on user-assigned identity in an Azure Resource Manager template
+#### Enable managed identity in an Azure Resource Manager template
 
+To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To create a managed identity for your logic app in your template, add the `"identity"` element and `"type"` child property to your logic app's resource definition in your template. Set the `"type"` property to either `"SystemAssigned"` or `"UserAssigned"` as appropriate, for example:
 
+```json
+{
+   "apiVersion": "2016-06-01", 
+   "type": "Microsoft.logic/workflows", 
+   "name": "[variables('logicappName')]", 
+   "location": "[resourceGroup().location]", 
+   "identity": { 
+      "type": "SystemAssigned" 
+   }, 
+   "properties": { 
+      "definition": { 
+         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#", 
+         "actions": {}, 
+         "parameters": {}, 
+         "triggers": {}, 
+         "contentVersion": "1.0.0.0", 
+         "outputs": {} 
+   }, 
+   "parameters": {}, 
+   "dependsOn": [] 
+}
+```
+
+Based on the managed identity that you specify, when Azure creates your logic app, the `"identity"` property includes additional properties:
+
+* If you specify the `"SystemAssigned"` identity, you get the `"principalId"` and `"tenantId"` properties: 
+
+  ```json
+  {
+     "identity": {
+        "type": "SystemAssigned",
+        "principalId": "<principal-ID>",
+        "tenantId": "<Azure-AD-tenant-ID>"
+     }
+  }
+  ```
+
+  | Property | Value | Description |
+  |----------|-------|-------------|
+  | **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant and sometimes appears as an "object ID" or `objectID` |
+  | **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
+  ||||
+
+* If you specify the `"UserAssigned"` identity, you get a `"userAssignedIdentities"` JSON object that includes the `"principalId"` and `"tenantId"` properties: 
+
+  ```json
+  {
+     "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+           "/subscriptions/XXXXXXXXXXXXXXXXX/resourcegroups/fabrikam-managed-identities-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/Fabrikam-user-assigned-identity": {
+              "principalId": "6ab00c0b-8a8b-4a48-b1dc-a9568af7f8df",
+              "clientId": "e3a9dc82-abd5-4fef-8890-3e59093b87f8"
+           }
+        }
+     }
+  }
+   ```
 
 <a name="access-other-resources"></a>
 
