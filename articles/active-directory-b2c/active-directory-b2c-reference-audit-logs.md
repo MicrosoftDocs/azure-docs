@@ -172,64 +172,66 @@ if ($oauth.access_token -ne $null) {
 Here's the JSON representation of the example activity event shown earlier in the article:
 
 ```JSON
-"id": "B2C_DQO3J_4984536",
-"category": "Authentication",
-"correlationId": "00000000-0000-0000-0000-000000000000",
-"result": "success",
-"resultReason": "N/A",
-"activityDisplayName": "Issue an id_token to the application",
-"activityDateTime": "2019-09-14T18:13:17.0618117Z",
-"loggedByService": "B2C",
-"operationType": "",
-"initiatedBy": {
-    "user": null,
-    "app": {
-        "appId": "00000000-0000-0000-0000-000000000000",
-        "displayName": null,
-        "servicePrincipalId": null,
-        "servicePrincipalName": "00000000-0000-0000-0000-000000000000"
-    }
-},
-"targetResources": [
-    {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "displayName": null,
-        "type": "User",
-        "userPrincipalName": null,
-        "groupType": null,
-        "modifiedProperties": []
-    }
-],
-"additionalDetails": [
-    {
-        "key": "TenantId",
-        "value": "test.onmicrosoft.com"
+{
+    "id": "B2C_DQO3J_4984536",
+    "category": "Authentication",
+    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "result": "success",
+    "resultReason": "N/A",
+    "activityDisplayName": "Issue an id_token to the application",
+    "activityDateTime": "2019-09-14T18:13:17.0618117Z",
+    "loggedByService": "B2C",
+    "operationType": "",
+    "initiatedBy": {
+        "user": null,
+        "app": {
+            "appId": "00000000-0000-0000-0000-000000000000",
+            "displayName": null,
+            "servicePrincipalId": null,
+            "servicePrincipalName": "00000000-0000-0000-0000-000000000000"
+        }
     },
-    {
-        "key": "PolicyId",
-        "value": "B2C_1A_signup_signin"
-    },
-    {
-        "key": "ApplicationId",
-        "value": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-        "key": "Client",
-        "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
-    },
-    {
-        "key": "IdentityProviderName",
-        "value": "facebook"
-    },
-    {
-        "key": "IdentityProviderApplicationId",
-        "value": "0000000000000000"
-    },
-    {
-        "key": "ClientIpAddress",
-        "value": "127.0.0.1"
-    }
-]
+    "targetResources": [
+        {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "displayName": null,
+            "type": "User",
+            "userPrincipalName": null,
+            "groupType": null,
+            "modifiedProperties": []
+        }
+    ],
+    "additionalDetails": [
+        {
+            "key": "TenantId",
+            "value": "test.onmicrosoft.com"
+        },
+        {
+            "key": "PolicyId",
+            "value": "B2C_1A_signup_signin"
+        },
+        {
+            "key": "ApplicationId",
+            "value": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+            "key": "Client",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+        },
+        {
+            "key": "IdentityProviderName",
+            "value": "facebook"
+        },
+        {
+            "key": "IdentityProviderApplicationId",
+            "value": "0000000000000000"
+        },
+        {
+            "key": "ClientIpAddress",
+            "value": "127.0.0.1"
+        }
+    ]
+}
 ```
 
 ## Next steps
