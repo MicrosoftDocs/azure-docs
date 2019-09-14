@@ -37,13 +37,6 @@ Azure Private Link provides the following benefits:
  
 - **Extend to your own services**: With Azure Private Link, you can leverage the same experience and functionality to render your own service privately in your customer virtual networks or your own virtual networks on the Azure platform. Azure Private Link works across Active Directory tenants and work on the provider's consumer model with an approval call flow. Moreover, there is no requirement of non-overlapping address spaces as in virtual network peering.
 
-## Private Link service
-The Private Link service is a virtual networking resource, modeled as a network interface card in the service provider's virtual network. This resource is applicable mainly in Microsoft partner service and customer-owned service scenarios. Service providers need to create the resource to let consumers consume the service privately over the Azure Private Link. The resource is tied to the front-end IP configuration of a Standard Load Balancer. The Private Link service serves as a front end for the service provider's applications that are running behind the Standard Load Balancer. Service consumers connect to the Private Link service over the Azure Private Link through private endpoints in the consumer's virtual networks. For more information about the Private Link service, see [What is Private Link service?](private-link-service-overview.md)
-
-## Private Endpoint
-Private Endpoint is a virtual networking resource, modeled as a network interface card, in a service consumer's virtual network. Private endpoints get assigned a private IP address from the customer's virtual network. Private endpoints enable Azure customers to privately connect to supported Azure services through Azure Private Link. These services can include Azure PaaS, Microsoft partner services, and customer-owned services. Supported Azure services are mapped inside the customer's virtual network as private endpoints. Private endpoints are the entry points for the service traffic over Private Links from Azure virtual network resources. The traffic never leaves the Microsoft backbone. These are highly available instances and do not pose any bandwidth restrictions on the service traffic.
-For more information about Private Endpoint, see [What is Private Endpoint?](private-endpoint-overview.md)
-
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## Availability 
