@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Apache Spark Structured Streaming with Apache Kafka - Azure HDInsight'
+title: 'Tutorial Apache Spark Structured Streaming with Apache Kafka - Azure HDInsight'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter notebook from Spark on HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -113,7 +113,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 
 The following diagram shows how communication flows between Spark and Kafka:
 
-![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -122,7 +122,7 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-kafka-spark-structured-streaming/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
     The Azure Resource Manager template is located at **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**.
 

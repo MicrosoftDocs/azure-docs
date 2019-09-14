@@ -186,7 +186,7 @@ Yes, a container can have both a legal hold and a time-based retention policy at
 
 No, Legal Hold is just the general term used for a non time-based retention policy. It does not need to only be used for litigation related proceedings. Legal Hold policies are useful for disabling overwrite and deletes for protecting important enterprise WORM data, where the retention period is unknown. You may use it as an enterprise policy to protect your mission critical WORM workloads or use it as a staging policy before a custom event trigger requires the use of a time-based retention policy. 
 
-**Can I remove a *locked* time-based retention policy or legal hold?**
+**Can I remove a _locked_ time-based retention policy or legal hold?**
 
 Only unlocked time-based retention policies can be removed from a container. Once a time-based retention policy is locked, it cannot be removed; only effective retention period extensions are allowed. Legal hold tags can be deleted. When all legal tags are deleted, the legal hold is removed.
 

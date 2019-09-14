@@ -1,12 +1,12 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
+title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture
 description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
 ---
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices

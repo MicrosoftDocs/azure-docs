@@ -196,8 +196,6 @@ With geo-replicated databases, when you enable auditing on the primary database 
 
     >[!IMPORTANT]
     >With database-level auditing, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. We recommend that you enable only server-level auditing, and leave the database-level auditing disabled for all databases.
-    > [!WARNING]
-    > Using event hub or Azure Monitor logs as targets for audit logs at the server level is currently not supported for secondary geo-replicated databases.
 
 ### <a id="subheading-6">Storage key regeneration</a>
 

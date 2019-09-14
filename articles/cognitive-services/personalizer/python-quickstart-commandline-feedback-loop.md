@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/12/2019
 ms.author: diberry
 #Customer intent: 
 
@@ -43,6 +43,9 @@ After you get a key from your trial subscription or resource, create two [enviro
 
 * `PERSONALIZER_KEY` for the resource key.
 * `PERSONALIZER_ENDPOINT` for the resource endpoint.
+
+In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
+
 
 ### Install the Python library for Personalizer
 
@@ -105,6 +108,8 @@ Next, create a method to return a Personalizer client. The parameter to the meth
 ## Get content choices represented as actions
 
 Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference.
+
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 

@@ -253,8 +253,16 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
+  - name: Move across regions
+    items:
+    - name: Virtual networks - Portal
+      href: virtual-network-azure-to-azure-migrate-vnet-portal.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot virtual network peering issues
+      href: virtual-network-troubleshoot-peering-issues.md
+    - name: Configure and validate VNet or VPN connections
+      href: virtual-network-configure-vnet-connections.md
     - name: Network security groups
       href: diagnose-network-traffic-filter-problem.md
     - name: Routes
