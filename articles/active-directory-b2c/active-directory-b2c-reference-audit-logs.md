@@ -80,7 +80,38 @@ Audit logs are published to the same pipeline as other activities for Azure Acti
 
 ### Prerequisites
 
-To authenticate to the Azure AD reporting API, you first need to register an Azure Active Directory application in your Azure AD B2C tenant. Follow the steps in [Prerequisites to access the Azure Active Directory reporting API](../active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api).
+To authenticate to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
+
+* Microsoft Graph
+  * Application: Read all audit log data
+
+You can use an existing application registration, or create a new one specifically for use with audit log automation.
+
+To create a new application, assign the required API permissions, and create a client secret, perform the following steps:
+
+1. Register application
+    1. Sign in to the [Azure portal](https://portal.azure.com), switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
+    1. Under **Manage** in the left menu, select **App registrations (Legacy)**.
+    1. Select **New application registration**
+    1. Enter a name for the application. For example, *Audit Log App*.
+    1. Enter any valid URL in **Sign-on URL**. For example, *https://localhost*. This endpoint does not need to be reachable, but needs to be a valid URL.
+    1. Select **Create**.
+    1. Record the **Application ID** that appears on the **Registered app** page. You need this value for authentication in automation scripts like the example PowerShell script shown in a later section.
+1. Assign API access permissions
+    1. On the **Registered app** overview page, select **Settings**.
+    1. Under **API ACCESS**, select **Required permissions**.
+    1. Select **Add**, and then **Select an API**.
+    1. Select **Microsoft Graph**, and then **Select**.
+    1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
+    1. Select the **Select** button, and then select **Done**.
+    1. Select **Grant permissions**, and then select **Yes**.
+1. Create client secret
+    1. Under **API ACCESS**, select **Keys**.
+    1. Enter a description for the key in the **Key description** box. For example, *Audit Log Key*.
+    1. Select a validity **Duration**, then select **Save**.
+    1. Record the key's **VALUE**. You need this value for authentication in automation scripts like the example PowerShell script shown in a later section.
+
+You now have an application with the required API access, an application ID, and a key that you can use in your automation scripts. See the PowerShell script section later in this article for an example of how you can get activity events with a script.
 
 ### Accessing the API
 
@@ -93,6 +124,8 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?filter=loggedByServic
 ### PowerShell script
 
 The following PowerShell script shows an example of how to query the Azure AD reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
+
+You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, key, and the name of your Azure AD B2C tenant.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory (see https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)
@@ -135,3 +168,70 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
+
+Here's the JSON representation of the example activity event shown earlier in the article:
+
+```JSON
+"id": "B2C_DQO3J_4984536",
+"category": "Authentication",
+"correlationId": "00000000-0000-0000-0000-000000000000",
+"result": "success",
+"resultReason": "N/A",
+"activityDisplayName": "Issue an id_token to the application",
+"activityDateTime": "2019-09-14T18:13:17.0618117Z",
+"loggedByService": "B2C",
+"operationType": "",
+"initiatedBy": {
+    "user": null,
+    "app": {
+        "appId": "00000000-0000-0000-0000-000000000000",
+        "displayName": null,
+        "servicePrincipalId": null,
+        "servicePrincipalName": "00000000-0000-0000-0000-000000000000"
+    }
+},
+"targetResources": [
+    {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "displayName": null,
+        "type": "User",
+        "userPrincipalName": null,
+        "groupType": null,
+        "modifiedProperties": []
+    }
+],
+"additionalDetails": [
+    {
+        "key": "TenantId",
+        "value": "test.onmicrosoft.com"
+    },
+    {
+        "key": "PolicyId",
+        "value": "B2C_1A_signup_signin"
+    },
+    {
+        "key": "ApplicationId",
+        "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+        "key": "Client",
+        "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+    },
+    {
+        "key": "IdentityProviderName",
+        "value": "facebook"
+    },
+    {
+        "key": "IdentityProviderApplicationId",
+        "value": "0000000000000000"
+    },
+    {
+        "key": "ClientIpAddress",
+        "value": "127.0.0.1"
+    }
+]
+```
+
+## Next steps
+
+You can automate other administration tasks, for example, [manage users with .NET](active-directory-b2c-devquickstarts-graph-dotnet.md).
