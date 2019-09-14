@@ -10,7 +10,7 @@ ms.date: 09/16/2019
 ms.author: kumud
 
 ---
-# Create a private Link service using Azure PowerShell
+# Create a Private Link service using Azure PowerShell
 This article shows you how to create a private link service in Azure using Azure PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -59,7 +59,7 @@ $vnet = New-AzVirtualNetwork `
 -Subnet $frontendSubnet,$backendSubnet,$otherSubnet 
 ```
 ## Create Internal Load Balancer
-Create an internal Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates an internal Standard Load Balancer using the frontend IP configuration and backend pool that you created in the preceding steps:
+Create an internal Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates an internal Standard Load Balancer using the frontend IP configuration, probe, rule and backend pool  that you created in the preceding steps:
 
 ```azurepowershell
 
@@ -70,7 +70,10 @@ $lbName = "lb"
 #Create Internal Load Balancer
 $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name $lbFrontName -PrivateIpAddress 10.0.1.5 -SubnetId $vnet.subnets[0].Id 
 $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name $lbBackendName 
-$NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Sku "Standard" 
+$probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
+  -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
+$rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+$NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $probe -LoadBalancingRule $rule -Sku Standard 
 ```
 ## Create a private link service
 Create a private link service with [New-AzPrivateLinkService](/powershell/module/az.network/new-azloadbalancer).  This example creates a private link service named *myPLS* using Standard Load Balancer in resource group named *myResourceGroup*. 
