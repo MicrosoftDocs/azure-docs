@@ -19,7 +19,7 @@ By default, AKS clusters have unrestricted outbound (egress) internet access. Th
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
 
 > [!IMPORTANT]
-> This document covers only how to lock down the traffic leaving the AKS subnet. AKS has no ingress requirements.  Blocking internal subnet traffic using network security groups (NSGs) and firewalls is not supported. To control and block the traffic within the cluster, use [Network Policies]( use-network-policies).
+> This document covers only how to lock down the traffic leaving the AKS subnet. AKS has no ingress requirements.  Blocking internal subnet traffic using network security groups (NSGs) and firewalls is not supported. To control and block the traffic within the cluster, use [Network Policies](use-network-policies).
 
 ## Before you begin
 
