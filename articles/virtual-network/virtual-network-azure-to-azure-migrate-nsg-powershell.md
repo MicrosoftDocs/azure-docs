@@ -10,18 +10,18 @@ ms.author: allensu
 
 # Move Azure network security group (NSG) to another region using Azure PowerShell
 
-There are various scenarios in which you'd want to move your existing NSGs from one region to another. For example, you may want to create a NSG with the same configuration and security rules for testing. You may also want to move a NSG to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing NSGs from one region to another. For example, you may want to create an NSG with the same configuration and security rules for testing. You may also want to move an NSG to another region as part of disaster recovery planning.
 
-Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of a NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of an NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## Prerequisites
 
 - Make sure that the Azure network security group is in the Azure region from which you want to move.
 
-- Azure network security groups can't be moved between regions.  You will have to associate the new NSG to resources in the target region.
+- Azure network security groups can't be moved between regions.  You'll have to associate the new NSG to resources in the target region.
 
-- To export a NSG configuration and deploy a template to create a NSG in another region, you'll need the Network Contributor role or higher.
+- To export an NSG configuration and deploy a template to create an NSG in another region, you'll need the Network Contributor role or higher.
    
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, public IPs, and virtual networks.
 
