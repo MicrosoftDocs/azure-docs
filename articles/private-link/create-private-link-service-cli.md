@@ -36,13 +36,6 @@ Create a subnet for the virtual network with [az network vnet subnet create](/cl
 ```azurecli-interactive
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
 ```
-### Create a public IP 
-Create a public IP with [az network public-ip create](/cli/azure/network/az-network-public-ip-create). This example creates a public IP named *myPublicIP* in resource group named *myResourceGroup*. 
- 
-```azurecli-interactive
-az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku standard
-```
-
 ### Create a Internal Load Balancer 
 Create a internal load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). This example creates a internal load balancer named *myILB* in resource group named *myResourceGroup*. 
 
