@@ -32,6 +32,11 @@
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
+    - name: Batch scoring with pipelines (advanced)
+      items:
+      - name: Batch score a classification model
+        displayName: pipelines
+        href: tutorial-pipeline-batch-scoring-classification.md
   - name: Visual interface
     items:
     - name: 1. Train regression model
@@ -123,7 +128,7 @@
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
-  - name: Set up development environment 
+  - name: Set up development environment 
     items:
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
@@ -192,7 +197,7 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Use automated ML (Azure portal)
+    - name: Use automated ML (workspace landing page)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
@@ -392,3 +397,4 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
+    

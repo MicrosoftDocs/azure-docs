@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
@@ -44,7 +44,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 ## Send a spell check request
 
-1. Create a URI from your host uri, path, and parameters string. Set it's query to contain the text you want to spell check.
+1. Create a URI from your host uri, path, and parameters string. Set its query to contain the text you want to spell check.
 
    ```ruby
    uri = URI(uri + path + params)

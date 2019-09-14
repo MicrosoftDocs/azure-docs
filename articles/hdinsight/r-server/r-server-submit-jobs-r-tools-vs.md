@@ -50,11 +50,12 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 5. Open the `1-Getting Started with R.R` file in the `A first look at R` solution folder.
 6. Starting at the top of the file, press Ctrl+Enter to send each line, one at a time, to the R Interactive window. Some lines might take a while as they install packages.
     * Alternatively, you can select all lines in the R file (Ctrl+A), then either execute all (Ctrl+Enter), or select the Execute Interactive icon on the toolbar.
-        ![Execute interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive.png)
+
+        ![Execute interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. After running all the lines in the script, you should see an output similar to this:
 
-    ![Workspace](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
+    ![Workspace](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## Submit jobs to an HDInsight ML Services cluster
 
@@ -77,20 +78,20 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
     # Create the Spark Cluster compute context
     mySparkCluster <- RxSpark(
           sshUsername = mySshUsername,
-      sshHostname = mySshHostname,
-      sshSwitches = mySshSwitches,
-      sshProfileScript = mySshProfileScript,
-      consoleOutput = TRUE,
-      hdfsShareDir = myHdfsShareDir,
-      shareDir = myShareDir,
-      sshClientDir = mySshClientDir
+          sshHostname = mySshHostname,
+          sshSwitches = mySshSwitches,
+          sshProfileScript = mySshProfileScript,
+          consoleOutput = TRUE,
+          hdfsShareDir = myHdfsShareDir,
+          shareDir = myShareDir,
+          sshClientDir = mySshClientDir
     )
-    
+
     # Set the current compute context as the Spark compute context defined above
     rxSetComputeContext(mySparkCluster)
     ```
-    
-    ![Setting the Spark context](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
+
+   ![Setting the Spark context](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Execute the following commands in the R Interactive window:
 
@@ -102,23 +103,23 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
 
     You should see an output similar to the following:
 
-    ![Successful rx command execution](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
-
+    ![Successful rx command execution](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png)
+a
 1. Verify that the `rxHadoopCopy` successfully copied the `people.json` file from the example data folder to the newly created `/user/RevoShare/newUser` folder:
 
     1. From your HDInsight ML Services cluster pane in Azure, select **Storage accounts** from the left-hand menu.
 
-        ![Storage accounts](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![Storage accounts](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Select the default storage account for your cluster, making note of the container/directory name.
 
     3. Select **Containers** from the left-hand menu on your storage account pane.
 
-        ![Containers](./media/r-server-submit-jobs-r-tools-vs/containers.png)
+        ![Containers](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. Select your cluster's container name, browse to the **user** folder (you might have to click *Load more* at the bottom of the list), then select *RevoShare*, then **newUser**. The `people.json` file should be displayed in the `newUser` folder.
 
-        ![Copied file](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
+        ![Copied file](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. After you are finished using the current Apache Spark context, you must stop it. You cannot run multiple contexts at once.
 
