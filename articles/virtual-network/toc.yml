@@ -255,6 +255,8 @@
       href: manage-public-ip-address-prefix.md
   - name: Move across regions
     items:
+    - name: Network security groups - Portal
+      href: virtual-network-azure-to-azure-migrate-nsg-portal.md
     - name: Virtual networks - Portal
       href: virtual-network-azure-to-azure-migrate-vnet-portal.md
   - name: Troubleshoot
