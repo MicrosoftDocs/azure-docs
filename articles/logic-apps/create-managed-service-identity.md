@@ -195,9 +195,9 @@ To give a managed identity (system-assigned or user-assigned) access to another 
 
 1. In the Azure portal, go to the Azure resource where you want your managed identity to have access.
 
-1. From the resource's menu, select **Access control (IAM)**. On the toolbar, select **Add** > **Add role assignment**.
+1. From the resource's menu, select **Access control (IAM)** > **Role assignments** where you can view the current role assignments for that resource. On the toolbar, select **Add** > **Add role assignment**.
 
-   ![Add role assignment](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Add role assignment](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
    > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
@@ -228,6 +228,10 @@ To give a managed identity (system-assigned or user-assigned) access to another 
      ![Select user-assigned identity](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
 
 1. When you're done, select **Save**.
+
+   The managed identity and the role that you selected now appear in the role assignments list.
+
+   ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
 
 ### Authenticate with managed identity from logic app
 
