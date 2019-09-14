@@ -1,6 +1,6 @@
 ---
-title: Move Azure network security group (NSG) to another Azure region  
-description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another.
+title: Move Azure network security group (NSG) to another Azure region using the Azure portal 
+description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 08/31/2019
 ms.author: allensu
 ---
 
-# Move Azure network security group (NSG) to another region
+# Move Azure network security group (NSG) to another region using the Azure portal
 
 There are various scenarios in which you'd want to move your existing NSGs from one region to another. For example, you may want to create a NSG with the same configuration and security rules for testing. You may also want to move a NSG to another region as part of disaster recovery planning.
 
@@ -19,11 +19,11 @@ Azure security groups can't be moved from one region to another. You can however
 
 - Make sure that the Azure network security group is in the Azure region from which you want to move.
 
-- Azure network security groups cannot be moved between regions.  You will have to associate the new NSG to resources in the target region.
+- Azure network security groups can't be moved between regions.  You'll have to associate the new NSG to resources in the target region.
 
 - To export a NSG configuration and deploy a template to create a NSG in another region, you'll need the Network Contributor role or higher.
    
-- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, public IPs, and virtual networks.
+- Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, public IPs, and virtual networks.
 
 - Verify that your Azure subscription allows you to create NSGs in the target region that's used. Contact support to enable the required quota.
 
@@ -49,7 +49,7 @@ The following steps show how to prepare the network security group for the confi
     "contentVersion": "1.0.0.0",
     "parameters": {
         "networkSecurityGroups_myVM1_nsg_name": {
-            "value": "null"
+            "value": "<target-nsg-name>"
         }
        }
      }
@@ -70,7 +70,7 @@ The following steps show how to prepare the network security group for the confi
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-06-01",
             "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
-            "location": "TARGET REGION",
+            "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
                 "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
@@ -90,7 +90,7 @@ The following steps show how to prepare the network security group for the confi
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-06-01",
             "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
-            "location": "TARGET REGION",
+            "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
                 "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
