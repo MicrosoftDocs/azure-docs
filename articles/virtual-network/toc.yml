@@ -257,6 +257,8 @@
     items:
     - name: Virtual networks - Portal
       href: virtual-network-azure-to-azure-migrate-vnet-portal.md
+    - name: Public IPs - Portal
+      href: virtual-network-azure-to-azure-migrate-publicip-portal.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
