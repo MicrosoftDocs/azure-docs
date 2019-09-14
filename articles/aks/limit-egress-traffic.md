@@ -50,7 +50,7 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This can be set after the cluster is created. <!--TODO need to wordsmith this-->
+* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created. <!--TODO need to wordsmith this-->
 * TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 * UDP port *53* for DNS is also required if you have pods directly accessing the API server.
@@ -113,7 +113,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
-| raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
+| raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
 | *.gk.<location>.azmk8s.io | HTTPS:443	| Azure policy add-on talks to Gatekeeper audit endpoint running in master server to get the audit results. |
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on sends telemetry data to applications insights endpoint. |
 
@@ -126,9 +126,9 @@ The following FQDN / application rules are required for Windows server based AKS
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | To install windows related binaries |
-| mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows related binaries |
-| kms.core.windows.net | TCP:1688 | To install windows related binaries |
+| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | To install windows-related binaries |
+| mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows-related binaries |
+| kms.core.windows.net | TCP:1688 | To install windows-related binaries |
 
 
 ## Next steps
