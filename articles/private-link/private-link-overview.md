@@ -10,9 +10,9 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: kumud
 
----](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-privatelink/articles/private-link/private-link-service-overview.md)
+---
 # What is Azure Private Link? (Preview)
-Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [Private Endpoint](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-privatelink/articles/private-link/private-endpoint-overview.md) in your virtual network. You can also create your own [Private Link Service](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-privatelink/articles/private-link/private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [Private Endpoint](private-endpoint-overview.md) in your virtual network. You can also create your own [Private Link Service](private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
