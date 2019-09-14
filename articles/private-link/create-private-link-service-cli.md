@@ -6,7 +6,7 @@ author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ms.service: virtual-network
 ms.topic: article
-ms.date: 09/16/2019
+ms.date: 09/11/2019
 ms.author: kumud
 
 ---
@@ -49,6 +49,20 @@ Create a internal load balancer with [az network lb create](/cli/azure/network/l
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
 ```
+
+### Create the load balancer health probe
+
+A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroup \
+    --lb-name myILB \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
 ### Disable Private Link service network policies on subnet 
 Private Link service requires an IP from any subnet of your choice  within a virtual network. Currently, we don’t support Network Policies on these IPs.  Hence, we have to disable the network policies on the subnet. Update the subnet to disable Private Link service network policies with [az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update).
 
