@@ -31,12 +31,6 @@ AppDynamics Application Performance Management (APM) enables application owners 
 
 [Go to the documentation.][appdynamics-doc]
 
-## Microfocus ArcSight
-
-ArcSight has a smart connector for Azure Monitor event hubs.
-
-[Learn more.][arcsight-doc]
-
 ## Atlassian JIRA
 
 ![Atlassian Logo](./media/partners/atlassian.png)
@@ -122,6 +116,23 @@ InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform buil
 LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources -- all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
 [Go to the documentation.][logicmonitor-doc]
+
+## Microfocus
+
+![Microfocus Logo](./media/partners/mf_logo_blue_160.png)     
+
+Microfocus **ArcSight** has a smart connector for Azure Monitor event hubs.
+
+[Learn More](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation.")
+
+Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs and dependencies. It provides a unique combination of quality of service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
+
+Learn More
+- [OB Suite overview](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope is a component in the Operations Bridge Suite.
+
+
 
 ## Moogsoft
 
@@ -238,7 +249,6 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
