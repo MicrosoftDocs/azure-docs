@@ -31,54 +31,36 @@ Azure Public IPs are region specific and can't be moved from one region to anoth
 
 
 ## Prepare and move
-The following steps show how to prepare the public IP for the configuration move using a Resource Manager template, and move the public IP configuration to the target region using Azure PowerShell.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+The following steps show how to prepare the public IP for the configuration move using a Resource Manager template, and move the public IP configuration to the target region using the Azure portal.
 
 ### Export the template and deploy from a script
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
-    
-    ```azurepowershell-interactive
-    Connect-AzAccount
-    ```
-
-3. Obtain the resource ID of the public IP you want to move to the target region and place it in a variable using [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
-
-    ```azurepowershell-interactive
-    $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
-
-    ```
-4. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
-   
-   ```azurepowershell-interactive
-   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
-   ```
-
-5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
-   
-   ```azurepowershell
-   notepad <source-resource-group-name>.json
-
-8. To edit the parameter of the public IP name, change the property **defaultValue** of the source public IP name to the name of your target public IP, ensure the name is in quotes:
+1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+2. Locate the Resource Group that contains the source public IP and click on it.
+3. Select > **Settings** > **Export template**.
+4. Choose **Deploy** in the **Export template** blade.
+5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
+8. To edit the parameter of the public IP name, change the property under **parameters** > **value** from the source public IP name to the name of your target public IP, ensure the name is in quotes:
     
     ```json
-        {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "publicIPAddresses_myVM1pubIP_name": {
-        "defaultValue": "<target-publicip-name>",
-        "type": "String"
-        }
-    }
+            {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "publicIPAddresses_myVM1pubIP_name": {
+            "value": "<target-publicip-name>"
+              }
+             }
+            }
 
     ```
+8.  Click **Save** in the editor.
 
-10. To edit the target region where the public IP will be moved, change the **location** property under resources:
+9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
 
-       ```json
+10. To edit the target region where the public IP will be moved, change the **location** property under **resources**:
+
+    ```json
             "resources": [
             {
             "type": "Microsoft.Network/publicIPAddresses",
@@ -100,15 +82,10 @@ The following steps show how to prepare the public IP for the configuration move
                }
                }
              ]             
-       ```
-  
-11. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
-
-    ```azurepowershell-interactive
-
-    Get-AzLocation | format-table
-    
     ```
+  
+11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
+    
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **<resource-group-name>.json** file:
@@ -154,60 +131,28 @@ The following steps show how to prepare the public IP for the configuration move
 
     For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
 
+ 
+13. Click **Save** in the online editor.
 
-13. Save the **<resource-group-name>.json** file.
+14. Click **BASICS** > **Subscription** to choose the subscription where the target public IP will be deployed.
 
-14. Create a resource group in the target region for the target public IP to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
-    
-    ```azurepowershell-interactive
-    New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
-    ```
-12. Deploy the edited **<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name is not the same as the source resource group of the existing source public IP. 
 
-    ```azurepowershell-interactive
+16. Verify **BASICS** > **Location** is set to the target location where you wish for the public IP to be deployed.
 
-    New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
-    
-    ```
+17. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.
 
-13. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
-    
-    ```azurepowershell-interactive
+18. Check the box under **TERMS AND CONDITIONS**.
 
-    Get-AzResourceGroup -Name <target-resource-group-name>
+19. Click the **Purchase** button to deploy the target public IP.
 
-    ```
-
-    ```azurepowershell-interactive
-
-    Get-AzPublicIPAddress -Name <target-publicip-name> -ResourceGroupName <target-resource-group-name>
-
-    ```
 ## Discard 
 
-After the deployment, if you wish to start over or discard the public ip in the target, delete the resource group that was created in the target and the moved public IP will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
-
-```azurepowershell-interactive
-
-Remove-AzResourceGroup -Name <target-resource-group-name>
-
-```
+If you wish to discard the target public IP, delete the resource group that contains the target public IP.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 
 ## Clean up
 
-To commit the changes and complete the move of the virtual network, delete the source virtual network or resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) or [Remove-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0):
-
-```azurepowershell-interactive
-
-Remove-AzResourceGroup -Name <source-resource-group-name>
-
-```
-
-``` azurepowershell-interactive
-
-Remove-AzPublicIpAddress -Name <source-publicip-name> -ResourceGroupName <resource-group-name>
-
-```
+To commit the changes and complete the move of the public IP, delete the source public IP or resource group. To do so, select the public IP or resource group from your dashboard in the portal and select **Delete** at the top of each page.
 
 ## Next steps
 
