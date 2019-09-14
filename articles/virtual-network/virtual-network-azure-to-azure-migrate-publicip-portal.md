@@ -19,7 +19,7 @@ Azure Public IPs are region specific and can't be moved from one region to anoth
 
 - Make sure that the Azure Public IP is in the Azure region from which you want to move.
 
-- Azure Public IPs cannot be moved between regions.  You'll have to associate the new public ip to resources in the target region.
+- Azure Public IPs can't be moved between regions.  You'll have to associate the new public ip to resources in the target region.
 
 - To export a public IP configuration and deploy a template to create a public IP in another region, you'll need the Network Contributor role or higher.
    
@@ -136,7 +136,7 @@ The following steps show how to prepare the public IP for the configuration move
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target public IP will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name is not the same as the source resource group of the existing source public IP. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name isn't the same as the source resource group of the existing source public IP. 
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the public IP to be deployed.
 
