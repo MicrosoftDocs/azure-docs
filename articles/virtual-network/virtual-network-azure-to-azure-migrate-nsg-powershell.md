@@ -44,19 +44,19 @@ The following steps show how to prepare the network security group for the confi
     Connect-AzAccount
     ```
 
-Obtain the resource ID of the NSG you want to move to the target region and place it in a variable using [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
+2. Obtain the resource ID of the NSG you want to move to the target region and place it in a variable using [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceNSGID = (Get-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-1. Export the source NSG to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Export the source NSG to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
+4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -80,7 +80,7 @@ Obtain the resource ID of the NSG you want to move to the target region and plac
 
 3.  To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under resources::
 
-       ```json
+    ```json
             "resources": [
             {
             "type": "Microsoft.Network/networkSecurityGroups",
@@ -92,7 +92,7 @@ Obtain the resource ID of the NSG you want to move to the target region and plac
                 "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
              }
             }
-       ```
+    ```
   
 4. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
@@ -105,9 +105,9 @@ Obtain the resource ID of the NSG you want to move to the target region and plac
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **<resource-group-name>.json** file:
     
-      ```json
+    ```json
            "resources": [
-        {
+           {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-06-01",
             "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
@@ -135,11 +135,12 @@ Obtain the resource ID of the NSG you want to move to the target region and plac
                             "destinationAddressPrefixes": []
                         }
                     },
-      ```
+    
+    ```
 
-      To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **<resource-group-name>.json** file in the format of the example below:
+    To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **<resource-group-name>.json** file in the format of the example below:
 
-      ```json
+    ```json
            {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2019-06-01",
@@ -162,7 +163,7 @@ Obtain the resource ID of the NSG you want to move to the target region and plac
                 "sourceAddressPrefixes": [],
                 "destinationAddressPrefixes": []
             }
-      ```
+    ```
 
 6.  Save the **<resource-group-name>.json** file.
 
