@@ -12,9 +12,7 @@ ms.author: kumud
 
 ---
 # What is Azure Private Link? (Preview)
-
-Azure Private Link provides private connectivity between your VNets, Azure Pass Services ((E.g. Storage and SQL Database), and other services created using Private Link. The data between your VNets and the services traverses over the Microsoft backbone, eliminating exposure to the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services. The technology works on a provider and consumer model where the provider renders the service and consumer consumes the service. A connection is established between the provider and the consumer based on an approval workflow. After the connection is established, all data between the service provider and service consumer is isolated from the Internet and stays on the Microsoft backend. Both the provider and the consumer must be on Azure to use the Azure Private Link service. With Private Link you do not need gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses to communicate with the service.   
-
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network. You can also create your own Private Link Service in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
