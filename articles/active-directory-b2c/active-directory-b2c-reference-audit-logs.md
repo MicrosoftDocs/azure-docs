@@ -61,7 +61,11 @@ The activity details panel contains the following relevant information:
 1. Sign in to the [Azure portal](https://portal.azure.com), switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
 1. Under **Activities** in the left menu, select **Audit logs**.
 
-A list of activity events logged over the last seven days is displayed. Several filtering options are available, including:
+A list of activity events logged over the last seven days is displayed.
+
+![Example filter with two activity events in Azure portal](media/active-directory-b2c-reference-audit-logs/audit-logs-example-filter.png)
+
+Several filtering options are available, including:
 
 * **Activity Resource Type** - Filter by the activity types shown in the table in the [Overview of activities available](#overview-of-activities-available-in-the-b2c-category-of-audit-logs) section.
 * **Date** - Filter the date range of the activities shown.
