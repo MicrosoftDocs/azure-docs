@@ -10,13 +10,15 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: kumud
 
----
+---](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-privatelink/articles/private-link/private-link-service-overview.md)
 # What is Azure Private Link? (Preview)
-Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network. You can also create your own Private Link Service in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [Private Endpoint](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-privatelink/articles/private-link/private-endpoint-overview.md) in your virtual network. You can also create your own [Private Link Service](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-privatelink/articles/private-link/private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
+
+![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## Why use Azure Private Link?
 Use Azure Private Link to access Azure services or your own services privately and securely. Previously, Azure services (such as Storage, SQL, etc.) or customer-owned services needed to be accessed over Public IP endpoints. With Azure Private Link, this is no longer the case. The need for Internet exposed endpoints is removed. You can privately connect to services in other Virtual Networks easily and securely.
@@ -34,8 +36,6 @@ Azure Private Link provides the following benefits:
 - **Global reach**: With Azure Private Link, you can connect privately to services running in other regions. This means that the consumers virtual network and services can be in different regions. Azure Private Link is global in nature and there are no regional restrictions.   
  
 - **Extend to your own services**: With Azure Private Link, you can leverage the same experience and functionality to render your own service privately in your customer virtual networks or your own virtual networks on the Azure platform. Azure Private Link works across Active Directory tenants and work on the provider's consumer model with an approval call flow. Moreover, there is no requirement of non-overlapping address spaces as in virtual network peering.
-
-![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## Availability 
  The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
