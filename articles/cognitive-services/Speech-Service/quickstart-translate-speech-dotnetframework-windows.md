@@ -12,7 +12,7 @@ ms.date: 08/28/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Translate speech with the Speech SDK for .NET Framework
+# Quickstart: Translate speech with the Speech SDK for .NET Framework (Windows)
 
 Quickstarts are also available for [speech recognition](quickstart-csharp-dotnet-windows.md) and [speech synthesis](quickstart-text-to-speech-dotnet-windows.md).
 
@@ -33,7 +33,7 @@ This quickstart requires:
 
 ## Add sample code
 
-1. Open `Program.cs`, and replace all the code in it with the following.
+1. Open **Program.cs**, and replace all the code in it with the following.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -47,7 +47,7 @@ This quickstart requires:
 
 1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
+1. Choose **Debug** > **Start Debugging** (or select **F5**) to start the **helloworld** application.
 
 1. Speak an English phrase or sentence into your device's microphone. The application transmits your speech to the Speech service, which translates the speech into text in another language (in this case, German). The Speech service sends the translated text back to the application, which displays the translation in the window.
 

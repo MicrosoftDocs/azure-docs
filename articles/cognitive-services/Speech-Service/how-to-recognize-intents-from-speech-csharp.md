@@ -50,15 +50,15 @@ LUIS uses two kinds of keys:
 |Authoring|Lets you create and modify LUIS apps programmatically|
 |Endpoint |Authorizes access to a particular LUIS app|
 
-The endpoint key is the LUIS key needed for this tutorial. This tutorial uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this tutorial, you need the endpoint key type. The tutorial uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key doesn't enable the Speech Services integration and won't work with this tutorial. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial.
+When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech Services integration and won't work with this tutorial. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial.
 
-After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Keys and Endpoints** in the sidebar.
+After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Keys and Endpoints** in the sidebar.
 
 ![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
 
-On the Keys and Endpoint settings page:
+On the **Keys and Endpoint settings** page:
 
 1. Scroll down to the **Resources and Keys** section and select **Assign resource**.
 1. In the **Assign a key to your app** dialog box, make the following changes:
@@ -67,7 +67,9 @@ On the Keys and Endpoint settings page:
    * Under **Subscription Name**, choose the Azure subscription that contains the LUIS resource you want to use.
    * Under **Key**, choose the LUIS resource that you want to use with the app.
 
-In a moment, the new subscription appears in the table at the bottom of the page. Select the icon next to a key to copy it to the clipboard. (You may use either key.)
+   In a moment, the new subscription appears in the table at the bottom of the page. 
+
+1. Select the icon next to a key to copy it to the clipboard. (You may use either key.)
 
 ![LUIS app subscription keys](media/sdk/luis-keys-assigned.png)
 
@@ -77,9 +79,9 @@ In a moment, the new subscription appears in the table at the bottom of the page
 
 ## Add the code
 
-The next thing to do to add code to the project.
+Next, you add code to the project.
 
-1. From **Solution Explorer**, open the file `Program.cs`.
+1. From **Solution Explorer**, open the file **Program.cs**.
 
 1. Replace the block of `using` statements at the beginning of the file with the following declarations:
 
@@ -109,28 +111,28 @@ The next thing to do to add code to the project.
 
    |Placeholder|Replace with|
    |-----------|------------|
-   |`YourLanguageUnderstandingSubscriptionKey`|Your LUIS endpoint key. As previously noted, this item must be a key obtained from your Azure dashboard, not a "starter key." You can find it on your app's **Keys and Endpoints** page (under **Manage**) in the [LUIS portal](https://www.luis.ai/home).|
+   |`YourLanguageUnderstandingSubscriptionKey`|Your LUIS endpoint key. Again, you must get this item from your Azure dashboard, not a "starter key." You can find it on your app's **Keys and Endpoints** page (under **Manage**) in the [LUIS portal](https://www.luis.ai/home).|
    |`YourLanguageUnderstandingServiceRegion`|The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md).|
    |`YourLanguageUnderstandingAppId`|The LUIS app ID. You can find it on your app's **Settings** page in the [LUIS portal](https://www.luis.ai/home).|
 
-With these changes made, you can build (Control-Shift-B) and run (F5) the tutorial application. When prompted, try saying "Turn off the lights" into your PC's microphone. The result is displayed in the console window.
+With these changes made, you can build (**Control+Shift+B**) and run (**F5**) the tutorial application. When you're prompted, try saying "Turn off the lights" into your PC's microphone. The application displays the result in the console window.
 
 The following sections include a discussion of the code.
 
 ## Create an intent recognizer
 
-The first step in recognizing intents in speech is to create a speech configuration from your LUIS endpoint key and region. Speech configurations can be used to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
+First, you need to create a speech configuration from your LUIS endpoint key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
 > Use the key and region of your LUIS subscription, not of a Speech Services subscription.
 
-Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, there's no need to specify the subscription key and endpoint again when creating the recognizer.
+Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, you don't need to specify the subscription key and endpoint again when creating the recognizer.
 
 ## Import a LUIS model and add intents
 
-Now import the model from the LUIS app using `LanguageUnderstandingModel.FromAppId()` and add the LUIS intents that you wish to recognize via the recognizer's `AddIntent()` method. These two steps improve the accuracy of speech recognition by indicating words that the user is likely to use in their requests. It's not necessary to add all the app's intents if you don't need to recognize them all in your application.
+Now import the model from the LUIS app using `LanguageUnderstandingModel.FromAppId()` and add the LUIS intents that you wish to recognize via the recognizer's `AddIntent()` method. These two steps improve the accuracy of speech recognition by indicating words that the user is likely to use in their requests. You don't have to add all the app's intents if you don't need to recognize them all in your application.
 
-Adding intents requires three arguments: the LUIS model (which has been created and is named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
+To add intents, you must provide three arguments: the LUIS model (which has been created and is named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
 
 |`AddIntent()`&nbsp;argument|Purpose|
 |--------|-------|
@@ -155,13 +157,13 @@ With the recognizer created and the intents added, recognition can begin. The Sp
 |Single-shot|`RecognizeOnceAsync()`|Returns the recognized intent, if any, after one utterance.|
 |Continuous|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Recognizes multiple utterances; emits events (for example, `IntermediateResultReceived`) when results are available.|
 
-The tutorial application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
+The tutorial application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
-The tutorial application doesn't parse the JSON result, only displaying it in the console window.
+The tutorial application doesn't parse the JSON result. It only displays the JSON text in the console window.
 
 ![Single LUIS recognition results](media/sdk/luis-results.png)
 

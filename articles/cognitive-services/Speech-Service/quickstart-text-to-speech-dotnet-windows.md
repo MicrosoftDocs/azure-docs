@@ -34,7 +34,7 @@ To complete this project, you'll need:
 
 ## Add sample code
 
-1. Open `Program.cs` and replace the automatically generated code with this sample:
+1. Open **Program.cs** and replace the automatically generated code with this sample:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -48,9 +48,9 @@ To complete this project, you'll need:
 
 1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
+1. Choose **Debug** > **Start Debugging** (or select **F5**) to start the **helloworld** application.
 
-1. Type an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
+1. Enter an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
 
    ![Speech synthesis user interface](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 
