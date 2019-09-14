@@ -43,12 +43,12 @@ The sample app starts on the **Single Account Mode** screen. A default scope, **
 
 Use the app menu to change between single and multiple account mode.
 
-In single account mode, you can sign in using a work or home account:
+In single account mode, sign in using a work or home account:
 
 1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
 2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without re-prompting the user for credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
 
-In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, along with cached tokens for that account.
+In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
 ## How the sample works
 
@@ -79,70 +79,67 @@ You can see this in the sample project in build.gradle (Module: app):
 ```java
 dependencies {
     ...
-    implementation 'com.android.volley:volley:1.1.1'
-    externalImplementation 'com.microsoft.identity.client:msal:1.0.0'
+    implementation 'com.microsoft.identity.client:msal:1.0.0-RC7'
+    ...
 }
 ```
 
-The dependency on `implementation 'com.android.volley:volley:1.1.1'` is for communication with Microsoft Graph.
+This instructs Gradle to download and build MSAL from maven central.
 
 ### MSAL Imports
 
 The imports that are relevant to the MSAL library are `com.microsoft.identity.client.*`.  For example, you'll see `import com.microsoft.identity.client.PublicClientApplication;` which is the namespace for the PublicClientApplication class which represents your public client application.
 
-The imports for `com.android.volley.*` are used as part of calling the Microsoft Graph API.
-
 ### SingleAccountModeFragment.java
 
 This file demonstrates how to create a single account MSAL app and call a Microsoft Graph API.
+
+Single account apps are only used by a single user.  For example, you might just have one account that you sign into your mapping app with.
 
 #### Single account MSAL initialization
 
 In `onCreateView()`, a single account `PublicClientApplication` is created using the config information stored in the `auth_config_single_account.json file`.  This is how you initialize the MSAL library for use in a single-account MSAL app:
 
-    ```java
-    // Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
-    PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
-            R.raw.auth_config_single_account,
-            new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
-                @Override
-                public void onCreated(ISingleAccountPublicClientApplication application) {
-                    /**
-                        * This test app assumes that the app is only going to support one account.
-                        * This requires "account_mode" : "SINGLE" in the config json file.
-                        **/
-                    mSingleAccountApp = application;
-                    loadAccount();
-                }
-    
-                @Override
-                public void onError(MsalException exception) {
-                    logTextView.setText(exception.toString());
-                }
-            });
-    ```
+```java
+...
+// Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
+PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
+        R.raw.auth_config_single_account,
+        new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
+            @Override
+            public void onCreated(ISingleAccountPublicClientApplication application) {
+                /**
+                    * This test app assumes that the app is only going to support one account.
+                    * This requires "account_mode" : "SINGLE" in the config json file.
+                    **/
+                mSingleAccountApp = application;
+                loadAccount();
+            }
+
+            @Override
+            public void onError(MsalException exception) {
+                displayError(exception);
+            }
+        });
+```
 
 #### Sign in a user
 
-The code to sign in a user is in `initializeUI()`, in the `signInButton` click handler. Note that signing in a user is an asynchronous operation. A callback is passed that calls the Microsoft Graph API and update the UI once the user signs in:
+The code to sign in a user is in `initializeUI()`, in the `signInButton` click handler.
+
+Call `signIn()` before trying to acquire tokens. `signIn()` behaves as though `acquireToken()` is called, resulting in an interactive prompt for the user to sign in.
+
+Signing in a user is an asynchronous operation. A callback is passed that calls the Microsoft Graph API and update the UI once the user signs in:
 
 ```java
-signInButton.setOnClickListener(new View.OnClickListener() {
-    public void onClick(View v) {
-        ...
-        mSingleAccountApp.signIn(getActivity(), null, getScopes(), getAuthInteractiveCallback());
-    }
-});
+mSingleAccountApp.signIn(getActivity(), null, getScopes(), getAuthInteractiveCallback());
 ```
 
 #### Sign out a user
 
-The code to sign out a user is in `initializeUI()`, in the `signOutButton` click handler.  Note that signing a user out is an asynchronous operation. A callback is created to update the  UI once the user account is signed out:
+The code to sign out a user is in `initializeUI()`, in the `signOutButton` click handler.  Signing a user out is an asynchronous operation. Signing the user out also clears the token cache for that account. A callback is created to update the UI once the user account is signed out:
 
 ```java
-/**
-    * Removes the signed-in account and cached tokens from this app (or device, if the device is in shared mode).
-    */
 mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
     @Override
     public void onSignOut() {
@@ -159,7 +156,9 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### Get a token interactively or silently
 
-Some situations require users to interact with Microsoft identity platform. In these cases, the user may need to select their account, enter their credentials, or consent to the permissions your app has requested. Some other situations when the user may be prompted are:
+In order to present the fewest number of prompts to the user, you will typically get a token silently. Then, if there is an error, attempt to get to token interactively. Note that the first time the app calls `signIn()`, it effectively acts as a call to `acquireToken()`, which will prompt the user for credentials.
+
+Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
 
 * The first time users sign in to the application
 * If a user resets their password, they will need to enter their credentials 
@@ -171,45 +170,31 @@ Some situations require users to interact with Microsoft identity platform. In t
 The code to get a token interactively, that is with UI that will involve the user, is in `initializeUI()`, in the `callGraphApiInteractiveButton` click handler:
 
 ```java
-callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
-    public void onClick(View v) {
-        
-        ...
-
-        /**
-            * If acquireTokenSilent() returns an error that requires an interaction,
-            * invoke acquireToken() to have the user resolve the interrupt interactively.
-            *
-            * Some example scenarios are
-            *  - password change
-            *  - the resource you're acquiring a token for has a stricter set of requirement than your SSO refresh token.
-            *  - you're introducing a new scope which the user has never consented for.
-            */
-        mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
-    }
-});
+/**
+ * If acquireTokenSilent() returns an error that requires an interaction (MsalUiRequiredException),
+ * invoke acquireToken() to have the user resolve the interrupt interactively.
+ *
+ * Some example scenarios are
+ *  - password change
+ *  - the resource you're acquiring a token for has a stricter set of requirement than your Single Sign-On refresh token.
+ *  - you're introducing a new scope which the user has never consented for.
+ */
+mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, `acquireTokenSilentAsync()` allows apps to request tokens silently as shown in `initializeUI()`, in the `callGraphApiSilentButton` click handler:
+If the user has already signed in, `acquireTokenSilentAsync()` allows apps to request tokens silently as shown in `initializeUI()`, in the `callGraphApiSilentButton` click handler:
 
 ```java
-callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        ...
-
-        /**
-            * Once you've signed the user in,
-            * you can perform acquireTokenSilent to obtain resources without interrupting the user.
-            */
-        mSingleAccountApp.acquireTokenSilentAsync(getScopes(), AUTHORITY, getAuthSilentCallback());
-    }
-});
+/**
+  * Once you've signed the user in,
+  * you can perform acquireTokenSilent to obtain resources without interrupting the user.
+  */
+  mSingleAccountApp.acquireTokenSilentAsync(getScopes(), AUTHORITY, getAuthSilentCallback());
 ```
 
 #### Load an account
 
-The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account is loaded, changes, or an error occurs is passed to MSAL:
+The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account is loaded, changes, or an error occurs is passed to MSAL.  The following code also handles `onAccountChanged()`, which occurs when an account is removed, the user changes to another account, and so on.
 
 ```java
 private void loadAccount() {
@@ -218,6 +203,7 @@ private void loadAccount() {
     mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback() {
         @Override
         public void onAccountLoaded(@Nullable IAccount activeAccount) {
+            // You can use the account data to update your UI or your app database.
             updateUI(activeAccount);
         }
 
@@ -231,19 +217,18 @@ private void loadAccount() {
 
         @Override
         public void onError(@NonNull MsalException exception) {
-            logTextView.setText(exception.toString());
+            displayError(exception);
         }
     });
-}
 ```
 
 #### Call Microsoft Graph
 
-When a user is signed in, the call to Microsoft Graph is made via an HTTP request by `callGraphAPI()`. It passes the access token from the `authenticationResult` so that the token information can be embedded in the call to Microsoft Graph.  
+When a user is signed in, the call to Microsoft Graph is made via an HTTP request by `callGraphAPI()`. This function is a wrapper that simplifies the sample by doing some tasks such as getting the access token from the `authenticationResult` and packaging the call to the MSGraphRequestWrapper, and displaying the results of the call.
 
 ```java
 private void callGraphAPI(final IAuthenticationResult authenticationResult) {
-    MSGraphRequestWrapper.callGraphAPIWithVolley(
+    MSGraphRequestWrapper.callGraphAPIUsingVolley(
             getContext(),
             graphResourceTextView.getText().toString(),
             authenticationResult.getAccessToken(),
@@ -251,15 +236,13 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
                 @Override
                 public void onResponse(JSONObject response) {
                     /* Successfully called graph, process data and send to UI */
-                    Log.d(TAG, "Response: " + response.toString());
-                    displayGraphResult(response);
+                    ...
                 }
             },
             new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d(TAG, "Error: " + error.toString());
-                    displayError(error);
+                    ...
                 }
             });
 }
@@ -271,13 +254,13 @@ This is the configuration file for a MSAL app that uses a single account.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
-Note the presence of `"account_mode" : "SINGLE"` which configures this app for using a single account.
+Note the presence of `"account_mode" : "SINGLE"` which configures this app to use a single account.
 
 ```json
 {
-  "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
+  "client_id" : "<your_client_id_here>",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
+  "redirect_uri" : "<your_redirect_uri_here>",
   "account_mode" : "SINGLE",
   "broker_redirect_uri_registered": true,
   "authorities" : [
@@ -294,11 +277,13 @@ Note the presence of `"account_mode" : "SINGLE"` which configures this app for u
 
 ### MultipleAccountModeFragment.java
 
-This file demonstrates how to create a multiple account MSAL app and call a Microsoft Graph API.
+This file demonstrates how to create a multiple account MSAL app and call a Microsoft Graph API. 
+
+An example of a multiple account app is a mail app that allows you to work with multiple user accounts such as a work account and a personal account.
 
 #### Multiple account MSAL initialization
 
-In `onCreateView()`, a multiple account is created using the config information stored in the `auth_config_multiple_account.json file`:
+In `onCreateView()`, a multiple account app object (`IMultipleAccountPublicClientApplication`) is created using the config information stored in the `auth_config_multiple_account.json file`:
 
 ```java
 // Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
@@ -313,77 +298,16 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(
 
             @Override
             public void onError(MsalException exception) {
-                logTextView.setText(exception.getMessage());
-                removeAccountButton.setEnabled(false);
-                callGraphApiInteractiveButton.setEnabled(false);
-                callGraphApiSilentButton.setEnabled(false);
+                ...
             }
         });
 ```
 
 Note that the created `MultipleAccountPublicClientApplication` object is stored in a class member variable so that it can be used to interact with the MSAL library to acquire tokens and load and remove the user account.
 
-#### Get a token interactively or silently
-
-Some situations require users to interact with Microsoft identity platform. In these cases, the user may need to select their account, enter their credentials, or consent to the permissions your app has requested. Some other situations when the user may be prompted are:
-
-* The first time users sign in to the application
-* If a user resets their password, they will need to enter their credentials 
-* If consent is revoked 
-* If your app explicitly requires consent. 
-* When your application is requesting access to a resource for the first time
-* When MFA or other Conditional Access policies are required
-
-The code to get a token interactively, that is with UI that involves the user, is in `initializeUI()`, in the `callGraphApiInteractiveButton` click handler:
-
-```java
-callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
-    public void onClick(View v) {
-        if (mMultipleAccountApp == null) {
-            return;
-        }
-
-        /**
-            * Acquire token interactively. It will also create an account object for the silent call as a result (to be obtained by getAccount()).
-            *
-            * If acquireTokenSilent() returns an error that requires an interaction,
-            * invoke acquireToken() to have the user resolve the interrupt interactively.
-            *
-            * Some example scenarios are
-            *  - password change
-            *  - the resource you're acquiring a token for has a stricter set of requirement than your SSO refresh token.
-            *  - you're introducing a new scope which the user has never consented for.
-            */
-        mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
-    }
-});
-```
-
-Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, `acquireTokenSilentAsync()` allows apps to request tokens without prompting the user, as shown in `initializeUI()` in the `callGraphApiSilentButton` click handler:
-
-```java
-callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        ...
-
-        /**
-            * Performs acquireToken without interrupting the user.
-            *
-            * This requires an account object of the account you're obtaining a token for.
-            * (can be obtained via getAccount()).
-            */
-        mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
-                accountList.get(accountListSpinner.getSelectedItemPosition()),
-                AUTHORITY,
-                getAuthSilentCallback());
-    }
-});
-```
-
 #### Load an account
 
-The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so a callback to handle when the account is loaded, changes, or an error occurs is passed to MSAL to handle those situations:
+Multiple account apps usually call `GetAccounts()` to select the account to use for MSAL operations. The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so a callback to handle when the account is loaded, changes, or an error occurs is passed to MSAL to handle those situations:
 
 ```java
 /**
@@ -392,37 +316,78 @@ The code to load an account is in `loadAccount()`.  Loading the user's account i
     */
 private void loadAccount() {
     ...
-
     mMultipleAccountApp.getAccounts(new IPublicClientApplication.LoadAccountsCallback() {
         @Override
         public void onTaskCompleted(final List<IAccount> result) {
+            // You can use the account data to update your UI or your app database.
             accountList = result;
             updateUI(accountList);
         }
 
         @Override
         public void onError(MsalException exception) {
-            logTextView.setText(exception.toString());
+            displayError(exception);
         }
     });
 }
 ```
 
-#### Remove an account
+#### Get a token interactively or silently
 
-The code to remove an account and any cached tokens for the account is in `initializeUI()` in the handler for the remove account button. Because removing an account is an asynchronous operation, the `onRemoved` callback is supplied to update the UI.
+Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
+
+* The first time users sign in to the application
+* If a user resets their password, they will need to enter their credentials 
+* If consent is revoked 
+* If your app explicitly requires consent. 
+* When your application is requesting access to a resource for the first time
+* When MFA or other Conditional Access policies are required
+
+Multiple account apps should typically acquire tokens interactively, that is with UI that involves the user, with a call to `acquireToken()`.  The code to get a token interactively is in `initializeUI()`, in the `callGraphApiInteractiveButton` click handler:
 
 ```java
 /**
-    * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
-    */
+ * Acquire token interactively. It will also create an account object for the silent call as a result (to be obtained by getAccount()).
+ *
+ * If acquireTokenSilent() returns an error that requires an interaction,
+ * invoke acquireToken() to have the user resolve the interrupt interactively.
+ *
+ * Some example scenarios are
+ *  - password change
+ *  - the resource you're acquiring a token for has a stricter set of requirement than your SSO refresh token.
+ *  - you're introducing a new scope which the user has never consented for.
+ */
+mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
+```
+
+Apps shouldn't require the user to sign in every time they request a token. If the user has already signed in, `acquireTokenSilentAsync()` allows apps to request tokens without prompting the user, as shown in `initializeUI()` in the `callGraphApiSilentButton` click handler:
+
+```java
+/**
+ * Performs acquireToken without interrupting the user.
+ *
+ * This requires an account object of the account you're obtaining a token for.
+ * (can be obtained via getAccount()).
+ */
+mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
+accountList.get(accountListSpinner.getSelectedItemPosition()),
+AUTHORITY,
+getAuthSilentCallback());
+```
+
+#### Remove an account
+
+The code to remove an account, and any cached tokens for the account, is in `initializeUI()` in the handler for the remove account button. Before you can remove an account, you need an account object which you obtain from MSAL functions like `getAccounts()` and `acquireToken()`. Because removing an account is an asynchronous operation, the `onRemoved` callback is supplied to update the UI.
+
+```java
+/**
+  * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
+  */
 mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelectedItemPosition()),
         new IMultipleAccountPublicClientApplication.RemoveAccountCallback() {
             @Override
             public void onRemoved() {
-                Toast.makeText(getContext(), "Account removed.", Toast.LENGTH_SHORT)
-                        .show();
-
+                ...
                 /* Reload account asynchronously to get the up-to-date list. */
                 loadAccount();
             }
@@ -440,13 +405,14 @@ This is the configuration file for a MSAL app that uses multiple accounts.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
-Note that unlike the [auth_config_multiple_account.json](#auth_config_multiple_account.json) configuration file, there is no `"account_mode" : "SINGLE"` because this is a multiple account app.
+Note that unlike the [auth_config_multiple_account.json](#auth_config_multiple_account.json) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 
 ```json
 {
-  "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
+  "client_id" : "<your_client_id_here>",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
+  "redirect_uri" : "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
   "broker_redirect_uri_registered": true,
   "authorities" : [
     {
