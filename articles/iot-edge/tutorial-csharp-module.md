@@ -207,14 +207,16 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
             {
                 Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
                     $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
+                using (var filteredMessage = new Message(messageBytes))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
             }
 
             // Indicate that the message treatment is completed.
