@@ -1,6 +1,6 @@
 ---
-title: Move Azure network security group (NSG) to another Azure region  
-description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another.
+title: Move Azure network security group (NSG) to another Azure region using Azure PowerShell
+description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another using Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
@@ -8,22 +8,22 @@ ms.date: 08/31/2019
 ms.author: allensu
 ---
 
-# Move Azure network security group (NSG) to another region
+# Move Azure network security group (NSG) to another region using Azure PowerShell
 
 There are various scenarios in which you'd want to move your existing NSGs from one region to another. For example, you may want to create a NSG with the same configuration and security rules for testing. You may also want to move a NSG to another region as part of disaster recovery planning.
 
-Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of a NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of a NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## Prerequisites
 
 - Make sure that the Azure network security group is in the Azure region from which you want to move.
 
-- Azure network security groups cannot be moved between regions.  You will have to associate the new NSG to resources in the target region.
+- Azure network security groups can't be moved between regions.  You will have to associate the new NSG to resources in the target region.
 
 - To export a NSG configuration and deploy a template to create a NSG in another region, you'll need the Network Contributor role or higher.
    
-- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, public IPs, and virtual networks.
+- Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, public IPs, and virtual networks.
 
 - Verify that your Azure subscription allows you to create NSGs in the target region that's used. Contact support to enable the required quota.
 
@@ -31,7 +31,7 @@ Azure security groups can't be moved from one region to another. You can however
 
 
 ## Prepare and move
-The following steps show how to prepare the network security group for the configuration and security rule move using an Resource Manager template, and move the NSG configuration and security rules to the target region using the portal and a script.
+The following steps show how to prepare the network security group for the configuration and security rule move using an Resource Manager template, and move the NSG configuration and security rules to the target region using Azure PowerShell.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -44,11 +44,6 @@ The following steps show how to prepare the network security group for the confi
     Connect-AzAccount
     ```
 
-2. Obtain the subscription ID where you wish to deploy the target NSG with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
-
-    ```azurepowershell-interactive
-    Get-AzSubscription
-    ```
 3. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
 4. Locate the Resource Group that contains the source NSG and click on it.
 5. Select > **Settings** > **Export template**.
