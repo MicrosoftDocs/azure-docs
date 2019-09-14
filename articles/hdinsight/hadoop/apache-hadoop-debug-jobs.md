@@ -9,9 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-
 ---
-# Analyze Apache Hadoop logs
+
+# Analyze Apache Hadoop logs in Azure HDInsight
 
 Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). The logs retain in the Storage account even after the cluster is deleted.
 
@@ -69,7 +69,7 @@ Power Query can be installed from [Microsoft Power Query for Excel](https://www.
 5. Right-click the hadoopservicelog table in the **Navigator** pane and select **Edit**. You shall see four columns. Optionally, delete the **Partition Key**, **Row Key**, and **Timestamp** columns by selecting them, then clicking **Remove Columns** from the options in the ribbon.
 6. Click the expand icon on the Content column to choose the columns you want to import into the Excel spreadsheet. For this demonstration, I chose TraceLevel, and ComponentName: It can give me some basic information on which components had issues.
    
-    ![HDInsight Hadoop logs choose columns](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![HDInsight Hadoop logs choose columns excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "HDInsight Hadoop logs choose columns excel")
 7. Click **OK** to import the data.
 8. Select the **TraceLevel**, Role, and **ComponentName** columns, and then click **Group By** control in the ribbon.
 9. Click **OK** in the Group By dialog box
@@ -89,7 +89,7 @@ You can now use Excel to filter and sort as necessary. You may want to include o
    
         TraceLevel eq 'ERROR'
    
-    ![HDInsight Hadoop logs choose columns](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![HDInsight Hadoop logs choose columns vs](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop logs choose columns vs")
    
     For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
@@ -116,7 +116,7 @@ You can use the YARN UI to do the following:
 
 * **Get cluster status**. From the left pane, expand **Cluster**, and click **About**. This present cluster status details like total allocated memory, cores used, state of the cluster resource manager, cluster version, and so on.
   
-    ![Launch cluster dashboard](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
+    ![Launch cluster dashboard yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Launch cluster dashboard yarn")
 * **Get node status**. From the left pane, expand **Cluster**, and click **Nodes**. This lists all the nodes in the cluster, HTTP address of each node, resources allocated to each node, etc.
 * **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
 

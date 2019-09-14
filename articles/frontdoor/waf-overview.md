@@ -78,7 +78,7 @@ You can configure custom rules WAF as follows:
 
 - **Size constraint:** You can configure custom rules based on the lengths of specific parts of a request such as query string, Uri, or request body.
 
-- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching for granular rate control.
+- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. Note that additional requests above the threshold may be able to get through while requests count are being updated. Rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching for granular rate control.
 
 ### Azure-managed rule sets
 

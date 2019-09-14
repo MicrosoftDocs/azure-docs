@@ -247,7 +247,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
@@ -269,7 +269,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
@@ -277,7 +277,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 
 ms.author: jingwang
 
@@ -30,7 +30,7 @@ You can copy data from DB2 database to any supported sink data store. For a list
 
 Specifically, this DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11:
 
-* IBM DB2 for z/OS 12
+* IBM DB2 for z/OS 12.1
 * IBM DB2 for z/OS 11.1
 * IBM DB2 for z/OS 10.1
 * IBM DB2 for i 7.3
@@ -98,14 +98,16 @@ The following properties are supported for DB2 linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by DB2 dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by DB2 dataset.
 
-To copy data from DB2, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from DB2, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
-| tableName | Name of the table in the DB2 database. | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to: **Db2Table** | Yes |
+| schema | Name of the schema. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -114,15 +116,18 @@ To copy data from DB2, set the type property of the dataset to **RelationalTable
     "name": "DB2Dataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "Db2Table",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<DB2 linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -130,11 +135,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### DB2 as source
 
-To copy data from DB2, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from DB2, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **Db2Source** | Yes |
 | query | Use the custom SQL query to read data. For example: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
@@ -158,7 +163,7 @@ To copy data from DB2, set the source type in the copy activity to **RelationalS
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "Db2Source",
                 "query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""
             },
             "sink": {
@@ -168,6 +173,8 @@ To copy data from DB2, set the source type in the copy activity to **RelationalS
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Data type mapping for DB2
 

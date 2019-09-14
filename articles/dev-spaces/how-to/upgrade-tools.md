@@ -42,6 +42,3 @@ To update the tools in Visual Studio, choose the **Tools > Extensions and Update
 ## Next steps
 
 Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](/azure/dev-spaces).
-
-> [!WARNING]
-> Azure Dev Spaces on existing clusters will not be immediately patched, so to be sure you are using the most recent version on all your Azure deployments, create a new cluster after upgrading the tools.

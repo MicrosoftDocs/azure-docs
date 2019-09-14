@@ -23,9 +23,7 @@ ms.date: 08/14/2019
 
 1. In the **Machine Learning service workspace** pane, select **Create** to begin.
 
-  
-
-1. Configure your new workspace by providing the workspace name, subscription, resource group, and location.
+1. Provide the following information to configure your new workspace:
 
    Field|Description 
    ---|---
