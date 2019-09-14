@@ -58,7 +58,10 @@ The activity details panel contains the following relevant information:
 
 ## View audit logs in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com), switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
+The Azure portal provides access to the audit log events in your Azure AD B2C tenant.
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
 1. Under **Activities** in the left menu, select **Audit logs**.
 
 A list of activity events logged over the last seven days is displayed.
@@ -72,7 +75,7 @@ Several filtering options are available, including:
 
 If you select a row in the list, the activity details for the event are displayed.
 
-To download the ist of activity events in a comma-separated values (CSV) file, select **Download**.
+To download the list of activity events in a comma-separated values (CSV) file, select **Download**.
 
 ## Get audit logs with the Azure AD reporting API
 
@@ -80,12 +83,12 @@ Audit logs are published to the same pipeline as other activities for Azure Acti
 
 ### Enable reporting API access
 
-To authenticate to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
+To allow script- or application-based access to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
 
 * Microsoft Graph
   * Application: Read all audit log data
 
-You can use an existing application registration, or create a new one specifically for use with audit log automation.
+You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
 To create a new application, assign the required API permissions, and create a client secret, perform the following steps:
 
@@ -128,7 +131,8 @@ The following PowerShell script shows an example of how to query the Azure AD re
 You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, key, and the name of your Azure AD B2C tenant.
 
 ```powershell
-# This script requires the registration of a Web Application in Azure Active Directory (see https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api)
+# This script requires the registration of a Web Application in Azure Active Directory:
+# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
