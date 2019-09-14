@@ -272,7 +272,7 @@ To turn off a managed identity for your logic app, you can follow the steps simi
 * [Azure Resource Manager templates](#template-disable)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
 
-<a name="#azure-portal-disable"></a>
+<a name="azure-portal-disable"></a>
 
 ### Disable managed identity in the Azure portal
 
@@ -306,7 +306,7 @@ To remove the managed identity's access from an Azure resource, go to that resou
 
 The managed identity is now removed and no longer has access to the target resource.
 
-<a name="#template-disable"></a>
+<a name="template-disable"></a>
 
 ### Disable managed identity in Azure Resource Manager deployment template
 
