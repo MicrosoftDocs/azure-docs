@@ -45,7 +45,7 @@ Use Azure Private Link to access Azure services or your own services privately a
 |---------|---------|---------|---------|
 |Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS       | Preview         |
-|  | Azure Data Lake Storage Gen2        |  EastUS, WestUS, WestCentralUS, WestUS2       | Preview         |
+|  | Azure Data Lake Storage Gen2        |  EastUS, WestUS, WestCentralUS       | Preview         |
 |  |  Azure SQL Database         | Azure Public cloud regions         |   Preview      |
 ||Azure SQL Data Warehouse|Azure Public cloud regions|Preview|
 
