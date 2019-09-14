@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Private Link documentation
-summary: Learn how to use Azure Private Link. 
+summary: Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network. You can also create your own Private Link Service in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. 
 metadata:
   title: Private Link Documentation - Quickstarts, How to guides, and API references
   description: Learn how to use Azure Private Link service. Quickstarts, tutorials, show you how to deploy a Private Link service.
