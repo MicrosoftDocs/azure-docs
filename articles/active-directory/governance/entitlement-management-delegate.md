@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/14/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -129,6 +129,8 @@ If you want to delegate catalog creation, you add users to the catalog creator r
 1. In the left menu, in the **Entitlement management** section, click **Settings**.
 
 1. Click **Edit**.
+
+    ![Settings to manage the lifecyle of external users](./media/entitlement-management-shared/settings-external-users.png)
 
 1. In the **Delegate entitlement management** section, click **Add catalog creators** to select the users or groups who will be the members for this entitlement management role.
 

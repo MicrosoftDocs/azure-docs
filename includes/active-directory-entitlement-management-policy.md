@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: active-directory
-author: rolyon
+author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 07/31/2019
-ms.author: rolyon
+ms.date: 09/14/2019
+ms.author: ajburnle
 ms.custom: include file
 ---
 
@@ -33,7 +33,7 @@ Follow these steps if you want your policy to be for users in your directory tha
 Follow these steps if you want your policy to be for users not in your directory that can request this access package. The **users not in your directory** refers to users who are in another Azure AD directory, and may not have yet been invited into your directory. Currently, you can only add users from organizations that have Azure AD. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
 
 > [!NOTE]
-> A guest external user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
+> An external guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest user will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently removed. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
 
 1. In the **Users who can request access** section, select **For users not in your directory**.
 

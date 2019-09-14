@@ -52,7 +52,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. If you want to allow users in selected external directories to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.
 
-    ![New catalog pane](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![New catalog pane](./media/entitlement-management-shared/new-catalog.png)
 
 1. Click **Create** to create the catalog.
 
@@ -108,7 +108,9 @@ You can edit the name and description for a catalog. Users see this information 
 
 1. On the catalog's **Overview** page, click **Edit**.
 
-1. Edit the catalog's name or description.
+1. Edit the catalog's name, description, or enabled settings.
+
+    ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Click **Save**.
 

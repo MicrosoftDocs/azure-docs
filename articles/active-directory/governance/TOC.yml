@@ -48,6 +48,8 @@
       href: entitlement-management-request-approve.md
     - name: Delegate tasks
       href: entitlement-management-delegate.md
+    - name: Manage access for external users
+      href: entitlement-management-external-users.md
     - name: View reports and logs
       href: entitlement-management-reports.md
     - name: Troubleshoot
