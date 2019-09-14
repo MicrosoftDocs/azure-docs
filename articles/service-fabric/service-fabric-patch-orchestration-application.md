@@ -273,7 +273,7 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
 
     [![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
-4. Once the node is disabled, the repair task is moved to Executing state. Note, a repair task stuck in preparing state, after because a node is stuck in disabling state can result in blocking new repair task and hence halt patching of cluster.
+4. Once the node is disabled, the repair task is moved to Executing state. Note, a repair task stuck in preparing state, because a node is stuck in disabling state can result in blocking new repair task and hence halt patching of cluster.
 5. Once repair task is in executing state, the patch installation on that node begins. Here on, once the patch is installed, the node may or may not be restarted depending on the patch. Post that the repair task is moved to restoring state, which enables back the node again and then it is marked as completed.
 
    In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus-[NodeName]". The highlighted sections in the images below show the status of windows update on node 'poanode_0' and 'poanode_2':
