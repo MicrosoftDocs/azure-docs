@@ -31,7 +31,7 @@ Azure security groups can't be moved from one region to another. You can however
 
 
 ## Prepare and move
-The following steps show how to prepare the network security group for the configuration and security rule move using an Resource Manager template, and move the NSG configuration and security rules to the target region using Azure PowerShell.
+The following steps show how to prepare the network security group for the configuration and security rule move using a Resource Manager template, and move the NSG configuration and security rules to the target region using Azure PowerShell.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -44,29 +44,41 @@ The following steps show how to prepare the network security group for the confi
     Connect-AzAccount
     ```
 
-3. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-4. Locate the Resource Group that contains the source NSG and click on it.
-5. Select > **Settings** > **Export template**.
-6. Choose **Download** in the **Export template** blade.
-7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template and a shell script and PowerShell script to deploy the template.
-8. To edit the parameter of the NSG name, open the **parameters.json** file and edit the **value** property:
+Obtain the resource ID of the NSG you want to move to the target region and place it in a variable using [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
+
+    ```azurepowershell-interactive
+    $sourceNSGID = (Get-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source-resource-group-name>).Id
+
+    ```
+1. Export the source NSG to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+   
+   ```azurepowershell-interactive
+   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
+   ```
+
+5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
+   
+   ```azurepowershell
+   notepad <source-resource-group-name>.json
+   ```
+
+2. To edit the parameter of the NSG name, change the property **defaultValue** of the source NSG name to the name of your target NSG, ensure the name is in quotes:
     
     ```json
-     {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "networkSecurityGroups_myVM1_nsg_name": {
-            "value": "null"
+            {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "networkSecurityGroups_myVM1_nsg_name": {
+            "defaultValue": "<target-nsg-name>",
+            "type": "String"
+            }
         }
-       }
-     }
 
     ```
 
-9. Change the **null** value in the .json file to a name of your choice for the target NSG. Save the parameters.json file. Ensure you enclose the name in quotes.
 
-10. To edit the target region where the NSG configuration and security rules will be moved, open the **template.json** file:
+3.  To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under resources::
 
        ```json
             "resources": [
@@ -74,7 +86,7 @@ The following steps show how to prepare the network security group for the confi
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-06-01",
             "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
-            "location": "TARGET REGION",
+            "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
                 "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
@@ -82,16 +94,16 @@ The following steps show how to prepare the network security group for the confi
             }
        ```
   
-11. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+4. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
+5.  You can also change other parameters in the **<resource-group-name>.json** if you choose, and are optional depending on your requirements:
 
-    * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **template.json** file:
+    * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **<resource-group-name>.json** file:
     
       ```json
            "resources": [
@@ -125,7 +137,7 @@ The following steps show how to prepare the network security group for the confi
                     },
       ```
 
-      To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **template.json** file in the format of the example below:
+      To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **<resource-group-name>.json** file in the format of the example below:
 
       ```json
            {
@@ -152,14 +164,34 @@ The following steps show how to prepare the network security group for the confi
             }
       ```
 
-13. Save the **template.json** file.
+6.  Save the **<resource-group-name>.json** file.
 
-14. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and NSG into the target region:
+11. Create a resource group in the target region for the target NSG to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+    
+    ```azurepowershell-interactive
+    New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
+    ```
+    
+12. Deploy the edited **<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
-    ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion
+    New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
+    ```
+
+13. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
+    
+    ```azurepowershell-interactive
+
+    Get-AzResourceGroup -Name <target-resource-group-name>
+
+    ```
+
+    ```azurepowershell-interactive
+
+    Get-AzNetworkSecurityGroup -Name <target-nsg-name> -ResourceGroupName <target-resource-group-name>
+
     ```
 
 ## Discard 
@@ -168,7 +200,7 @@ After the deployment, if you wish to start over or discard the NSG in the target
 
 ```azurepowershell-interactive
 
-Remove-AzResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ```
 
@@ -178,13 +210,13 @@ To commit the changes and complete the move of the NSG, delete the source NSG or
 
 ```azurepowershell-interactive
 
-Remove-AzResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name <source-resource-group-name>
 
 ```
 
 ``` azurepowershell-interactive
 
-Remove-AzNetworkSecurityGroup -Name <public-ip> -ResourceGroupName <resource-group-name>
+Remove-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source-resource-group-name>
 
 ```
 
