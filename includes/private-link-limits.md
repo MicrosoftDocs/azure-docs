@@ -20,7 +20,6 @@ ms.custom: include file
 |Number of private link service per subscription         |   32      |
 |Number of IP Configurations on a private link service     |  8 (This number is for the NAT IP addresses used per PLS)       |
 |Number of private endpoints on the same private link service   |  1000       |
-|Number of private endpoints on the same PaaS Resource     |  ~50 (depending on each service like storage, SQL, or Cosmos DB)        |
 
 
 
