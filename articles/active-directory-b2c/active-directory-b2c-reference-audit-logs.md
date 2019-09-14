@@ -56,7 +56,7 @@ The activity details panel contains the following relevant information:
 | Additional Details | PolicyId | The **Policy ID** of the user flow (policy) being used to sign the user in. |
 | Additional Details | ApplicationId | The **Application ID** of the B2C application that the user is signing in to. |
 
-## Accessing audit logs in the Azure portal
+## View audit logs in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
 1. Under **Activities** in the left menu, select **Audit logs**.
@@ -74,11 +74,11 @@ If you select a row in the list, the activity details for the event are displaye
 
 To download the ist of activity events in a comma-separated values (CSV) file, select **Download**.
 
-## Accessing audit logs through the Azure AD reporting API
+## Get audit logs with the Azure AD reporting API
 
 Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
-### Prerequisites
+### Enable reporting API access
 
 To authenticate to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
 
@@ -113,12 +113,12 @@ To create a new application, assign the required API permissions, and create a c
 
 You now have an application with the required API access, an application ID, and a key that you can use in your automation scripts. See the PowerShell script section later in this article for an example of how you can get activity events with a script.
 
-### Accessing the API
+### Access the API
 
 To download Azure AD B2C audit log events via the API, filter the logs on the `B2C` category. To filter by category, use the `filter` query string parameter when you call the Azure AD reporting API endpoint.
 
 ```HTTP
-https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
+https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
 ### PowerShell script
