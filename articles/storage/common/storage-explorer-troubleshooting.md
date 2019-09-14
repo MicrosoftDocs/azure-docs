@@ -11,7 +11,7 @@ ms.author: delhan
 
 # Azure Storage Explorer troubleshooting guide
 
-Microsoft Azure Storage Explorer is a standalone app that makes it easy to work with Azure Storage data on Windows, macOS, and Linux. The app can connect to storage accounts hosted on Azure, National Clouds, and Azure Stack.
+Microsoft Azure Storage Explorer is a standalone app that makes it easy to work with Azure Storage data on Windows, macOS, and Linux. The app can connect to Storage accounts hosted on Azure, National Clouds, and Azure Stack.
 
 This guide summarizes solutions for issues that are commonly seen in Storage Explorer.
 
@@ -19,15 +19,15 @@ This guide summarizes solutions for issues that are commonly seen in Storage Exp
 
 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get RBAC working optimally in Storage Explorer.
 
-### How do I see and access my resources in Storage Explorer?
+### How do I access my resources in Storage Explorer?
 
 If you're having problems accessing storage resources through RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
 
-#### List storage accounts
+#### "Read: List/Get Storage Account(s)" permissions issue
 
-You must have permission to list storage accounts. To get this permission, you must be assigned the _Reader_ role.
+You must have permission to list Storage accounts. To get this permission, you must be assigned the _Reader_ role.
 
-#### List storage account keys
+#### List Storage account keys
 
 Storage Explorer can also use account keys to authenticate requests. You can get access to account keys through more powerful roles, such as the _Contributor_ role.
 
@@ -40,26 +40,26 @@ You must be assigned at least one role that grants access to read data from reso
 
 ### Why do I need a management layer role to see my resources in Storage Explorer?
 
-Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
+Azure Storage has two layers of access: _management_ and _data_. Subscriptions and Storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your Storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
 
 RBAC roles can contain permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
 
 Strictly speaking, the Reader role provides no data layer permissions and isn't necessary for accessing the data layer.
 
-Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources. For example, to display your blob containers, Storage Explorer sends a "list containers" request to the blob service endpoint. To get that endpoint, Storage Explorer searches the list of subscriptions and storage accounts you have access to. But, to find your subscriptions and storage accounts, Storage Explorer also needs access to the management layer.
+Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources. For example, to display your blob containers, Storage Explorer sends a "list containers" request to the blob service endpoint. To get that endpoint, Storage Explorer searches the list of subscriptions and Storage accounts you have access to. But, to find your subscriptions and Storage accounts, Storage Explorer also needs access to the management layer.
 
 If you don’t have a role that grants any management layer permissions, Storage Explorer can’t get the information it needs to connect to the data layer.
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't currently have an RBAC-related solution for this issue. As a workaround, you can request an SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
 Certificate errors typically occur in one of the following situations:
 
-- The app is connected through a *transparent proxy*, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
-- You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that do inject certificates include antivirus and network traffic inspection software.
+- The app is connected through a _transparent proxy_, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
+- You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
 
@@ -70,15 +70,15 @@ This issue may also occur if there are multiple certificates (root and intermedi
 
 If you're unsure of where the certificate is coming from, follow these steps to find it:
 
-1. Install Open SSL.
+1. Install OpenSSL.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions should be sufficient)
     * Mac and Linux: Should be included with your operating system
-2. Run Open SSL.
+2. Run OpenSSL.
     * Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
-    * Mac and Linux: Run **openssl** from a terminal.
+    * Mac and Linux: Run `openssl` from a terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
 4. Look for self-signed certificates. If you're unsure of which certificates are self-signed, make note of anywhere the subject `("s:")` and issuer `("i:")` are the same.
-5. When you find self-signed certificates, for each one, copy and paste everything from (and including) **-----BEGIN CERTIFICATE-----** through **-----END CERTIFICATE-----** into a new .cer file.
+5. When you find self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` through `-----END CERTIFICATE-----` into a new .cer file.
 6. Open Storage Explorer, go to **Edit** → **SSL Certificates** → **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
 
 If you can't find any self-signed certificates by following these steps, contact us through the feedback tool. You can also open Storage Explorer from the command line by using the `--ignore-certificate-errors` flag. When opened with this flag, Storage Explorer ignores certificate errors.
@@ -89,7 +89,7 @@ If you can't find any self-signed certificates by following these steps, contact
 
 Blank sign-in dialog boxes most often occur when Active Directory Federation Services (ADFS) prompts Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
 
-1. On the menu: Go to **Preview** -> **Use Device Code Sign-In**.
+1. On the menu, go to **Preview** -> **Use Device Code Sign-In**.
 2. Open the **Connect** dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
 3. Choose the environment you want to sign in to.
 4. Select **Sign In**.
@@ -206,7 +206,7 @@ If you're connected to Azure through a proxy, verify that your proxy settings ar
 
 ## Connection string doesn't have complete configuration settings
 
-If you receive this error message, it's possible that you don't have the necessary permissions to obtain the keys for your Storage account. To confirm that this is the case, go to the portal and locate your Storage account. You can do this by right-clicking the node for your Storage account and selecting **Open in Portal**. Then, go to the **Access Keys** blade. If you don't have permissions to view keys, you'll see a "You don't have access" message. To work around this issue, you can either obtain the account key from someone else and attach through the name and key, or you can ask someone for an SAS to the Storage account and use it to attach the Storage account.
+If you receive this error message, it's possible that you don't have the necessary permissions to obtain the keys for your Storage account. To confirm that this is the case, go to the portal and locate your Storage account. You can do this by right-clicking the node for your Storage account and selecting **Open in Portal**. Then, go to the **Access Keys** blade. If you don't have permissions to view keys, you'll see a "You don't have access" message. To work around this issue, you can either obtain the account key from someone else and attach through the name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
 
 If you do see the account keys, file an issue in GitHub so that we can help you resolve the issue.
 
@@ -214,7 +214,7 @@ If you do see the account keys, file an issue in GitHub so that we can help you 
 
 If you receive this error message when you try to add a custom connection, the connection data that's stored in the local credential manager might be corrupted. To work around this issue, try deleting your corrupted local connections, and then re-add them:
 
-1. Start Storage Explorer. On the top menu, go to **Help** → **Toggle Developer Tools**.
+1. Start Storage Explorer. From the menu, go to **Help** → **Toggle Developer Tools**.
 2. In the opened window, on the **Application** tab, go to **Local Storage** (left side) → **file://**.
 3. Depending on the type of connection you're having an issue with, look for its key and then copy its value into a text editor. The value is an array of your custom connection names, like the following:
     * Storage accounts
