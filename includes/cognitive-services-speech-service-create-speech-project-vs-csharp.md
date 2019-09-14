@@ -44,7 +44,7 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 
 1. In the search box, type `Microsoft.CognitiveServices.Speech` and select **Enter**.
 
-1. Select **Microsoft.CognitiveServices.Speech**, and then select **Install** to install the latest stable version.
+1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 
    ![Install Microsoft.CognitiveServices.Speech NuGet package](../articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
