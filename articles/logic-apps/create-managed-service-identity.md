@@ -151,10 +151,10 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Resource Name** | Yes | <*user-assigned-identity-name*> | The name to give the user-assigned identity |
+   | **Resource Name** | Yes | <*user-assigned-identity-name*> | The name to give the user-assigned identity. This example uses "Fabrikam-user-assigned-identity". |
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for the Azure subscription to use |
-   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the resource group to use. Create a new group, or select an existing group. |
-   | **Location** | Yes | <*Azure-region*> | The Azure region where to store information about your resource |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the resource group to use. Create a new group, or select an existing group. This example creates a new group named "fabrikam-managed-identities-RG". |
+   | **Location** | Yes | <*Azure-region*> | The Azure region where to store information about your resource. This example uses "West US". |
    |||||
 
 1. In the Azure portal, find and open your logic app in Logic App Designer.
@@ -264,9 +264,15 @@ After you set up your logic app with a managed identity and set up that identity
 
 To turn off a managed identity for your logic app, you can follow the steps similar to how you set up the identity by using the Azure portal, Azure Resource Manager deployment templates, or Azure PowerShell. If you delete your logic app, Azure automatically removes the managed identity from Azure AD.
 
+* [Azure portal](#azure-portal-disable)
+* [Azure Resource Manager templates](#template-disable)
+* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+
+<a name="#azure-portal-disable"></a>
+
 ### Disable managed identity in the Azure portal
 
-#### Disable managed identity on logic app
+#### Disable managed identity for logic app
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
 
@@ -280,6 +286,8 @@ To turn off a managed identity for your logic app, you can follow the steps simi
 
      ![Turn off user-assigned identity](./media/create-managed-service-identity/turn-off-user-assigned-identity.png)
 
+The managed identity is now disabled on your logic app.
+
 #### Disable managed identity on target resource
 
 To remove the managed identity's access from an Azure resource, go to that resource.
@@ -292,11 +300,13 @@ To remove the managed identity's access from an Azure resource, go to that resou
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-1. 
+The managed identity is now removed and no longer has access to the target resource.
+
+<a name="#template-disable"></a>
 
 ### Disable managed identity in Azure Resource Manager deployment template
 
-If you created the logic app's managed identity with an Azure Resource Manager deployment template, set the `"identity"` element's `"type"` property to `"None"`. This action also deletes the principal ID from Azure AD.
+If you created the logic app's managed identity with an Azure Resource Manager deployment template, set the `"identity"` element's `"type"` property to `"None"`. For a system-managed identity, this action also deletes the principal ID from Azure AD.
 
 ```json
 "identity": {
