@@ -43,11 +43,11 @@ Use Azure Private Link to access Azure services or your own services privately a
 
 |Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |WestCentralUS; WestUS; SouthCentralUS; EastUS; NorthUS  |  Preview  |
-|Private Link for Azure PaaS services   | Azure Storage        |  EastUS, WestUS, WestCentralUS       | Preview         |
-|  | Azure Data Lake Storage Gen2        |  EastUS, WestUS, WestCentralUS       | Preview         |
-|  |  Azure SQL Database         | Azure Public cloud regions         |   Preview      |
-||Azure SQL Data Warehouse|Azure Public cloud regions|Preview|
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |West Central US; WestUS; South Central US; East US; North US  |  Preview  |
+|Private Link for Azure PaaS services   | Azure Storage        |  East US, West US, West Central US       | Preview         |
+|  | Azure Data Lake Storage Gen2        |  East US, West US, West Central US       | Preview         |
+|  |  Azure SQL Database         | West Central US; WestUS; South Central US; East US; North US       |   Preview      |
+||Azure SQL Data Warehouse| West Central US; WestUS; South Central US; East US; North US |Preview|
 
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network). 
