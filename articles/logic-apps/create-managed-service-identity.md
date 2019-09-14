@@ -161,7 +161,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 1. On the logic app menu, under **Settings**, select **Identity**. Select **User assigned** > **Add**.
 
-   ![Add user-assigned identity](./media/create-managed-service-identity/add-user-assigned-identity.png)
+   ![Add user-assigned identity](./media/create-managed-service-identity/turn-on-user-assigned-identity.png)
 
 1. Under **Add user assigned managed identity**, in the **Subscription** list, if the Azure subscription that you want isn't selected, select that subscription. From the list that shows *all* the managed identities in that subscription, select the user-assigned identity that you want, and then select **Add**.
 
