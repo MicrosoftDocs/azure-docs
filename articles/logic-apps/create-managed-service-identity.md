@@ -19,13 +19,7 @@ To access resources in other Azure Active Directory (Azure AD) tenants and authe
 * Azure Functions
 * Azure API Management
 
-This article shows how to set up and use both kinds of managed identities for authenticating your logic app. For limits on managed identities per logic app, region, and Azure subscription, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity).
-
-## Limits
-
-* A logic app can have only one managed identity, either system-assigned or user-assigned, but not both.
-
-* Per region, an Azure subscription can have up to 100 logic apps that are each associated with either a system-assigned or user-assigned managed identity.
+This article shows how to set up and use both kinds of managed identities for authenticating your logic app. For limits on the managed identities that you can have per logic app, region, and Azure subscription, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity).
 
 ## Prerequisites
 
