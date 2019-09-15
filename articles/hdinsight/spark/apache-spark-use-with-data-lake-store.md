@@ -51,7 +51,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 ## Use an HDInsight Spark cluster with Data Lake Storage Gen1
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Apache Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
+1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Apache Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
