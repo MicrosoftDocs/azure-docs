@@ -118,9 +118,9 @@ Hybrid connections are configured from the networking section of the function ap
 1. Select the **Enter Manually** button and paste the connection string from the clipboard.
 ![Paste connection](./media/functions-hybrid-powershell/enter-manual-connection.png)  
 1. Restart the Hybrid Connection Manager from PowerShell if it doesn't show as connected.
-```powershell
-Restart-Service HybridConnectionManager
-```
+    ```powershell
+    Restart-Service HybridConnectionManager
+    ```
 
 ## Create an app setting for the password of an administrator account
 
