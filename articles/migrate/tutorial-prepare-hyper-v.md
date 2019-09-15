@@ -94,7 +94,7 @@ To prepare for Hyper-V assessment, do the following:
 1. Verify Hyper-V host settings.
 2. Set up PowerShell remoting on each host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.
 3. If VM disks are located in remote SMB storage, delegation of credentials is needed. 
-    - Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host. T
+    - Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host.
     - You enable each host to act as a delegate for the appliance, as described below.
     - Later, when you set up the appliance, you will enable delegation on the appliance.
 4. Review appliance requirements, and the URL/port access needed for the appliance.
@@ -108,7 +108,7 @@ You can configure these settings manually using the procedures below. Alternativ
 
 The script validates Hyper-V hosts and configures the settings you need to discover and assess Hyper-V VMs. Here's what it does:
 
-- Checks that you're running on the script on a supported PowerShell version.
+- Checks that you're running the script on a supported PowerShell version.
 - Verifies that you (the user running the script) have administrative privileges on the Hyper-V host.
 - Allows you to create a local user account (not administrator) that is used for the Azure Migrate service to communicate with the Hyper-V host. This user account is added to these groups on the host:
     - Remote Management Users

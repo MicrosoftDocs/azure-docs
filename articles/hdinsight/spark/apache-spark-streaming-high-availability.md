@@ -17,7 +17,7 @@ ms.date: 01/26/2018
 
 Spark Streaming creates long-running jobs during which you are able to apply transformations to the data and then push the results out to filesystems, databases, dashboards, and the console. Spark Streaming processes micro-batches of data, by first collecting a batch of events over a defined time interval. Next, that batch is sent on for processing and output. Batch time intervals are typically defined in fractions of a second.
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## DStreams
 
@@ -53,7 +53,7 @@ To create an application that processes each event once (and only once), conside
 
 In HDInsight, cluster work is coordinated by *Yet Another Resource Negotiator* (YARN). Designing high availability for Spark Streaming includes techniques for Spark Streaming, and also for YARN components.  An example configuration using YARN is shown below. 
 
-![YARN Architecture](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![YARN Architecture](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 The following sections describe design considerations for this configuration.
 
