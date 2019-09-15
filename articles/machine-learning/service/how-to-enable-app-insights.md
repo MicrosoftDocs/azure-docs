@@ -14,7 +14,7 @@ ms.custom: seoapril2019
 ---
 # Monitor your Azure Machine Learning models with Application Insights
 
-In this article, you learn how to set up Azure Application Insights for your Azure Machine Learning. Application Insights gives you the opportunity to monitor:
+In this article, you learn how to set up Azure Application Insights for Azure Machine Learning. Application Insights gives you the opportunity to monitor:
 * Request rates, response times, and failure rates.
 * Dependency rates, response times, and failure rates.
 * Exceptions.
@@ -105,7 +105,7 @@ You can enable and disable Application Insights in the Azure portal.
  
 
 ## Evaluate data
-Your service's data is stored in your Application Insights account, within the same resource group as your Azure Machine Learning.
+Your service's data is stored in your Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
 1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com) and click on Application Insights link.
 
