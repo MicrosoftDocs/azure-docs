@@ -18,18 +18,18 @@ ms.author: memildin
 
 # Endpoint protection assessment and recommendations in Azure Security Center
 
-Endpoint protection assessment and recommendations in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) versions of Endpoint protection solutions. This topic explains the scenarios that generate the following two recommendations for Endpoint protection solutions by Azure Security Center.
+Azure Security Center provides health assessments of [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
 
 * **Install endpoint protection solutions on your virtual machine**
 * **Resolve endpoint protection health issues on your machines**
 
 ## Windows Defender
 
-* The **"Install endpoint protection solutions on virtual machine"** recommendation is generated when [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled: False**
+* Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and the result is **AMServiceEnabled: False**
 
-* The **"Resolve endpoint protection health issues on your machines"** recommendation is generated when  [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and either or both of the following occurs:
+* Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) runs and any of the following occurs:
 
-  * At least one of the following properties is false:
+  * Any of the following properties are false:
 
      **AMServiceEnabled**
 
@@ -43,7 +43,7 @@ Endpoint protection assessment and recommendations in Azure Security Center dete
 
      **OnAccessProtectionEnabled**
 
-  * If one or both of the following properties is greater or equal to 7.
+  * If one or both of the following properties are 7 or more.
 
      **AntispywareSignatureAge**
 
@@ -51,9 +51,9 @@ Endpoint protection assessment and recommendations in Azure Security Center dete
 
 ## Microsoft System Center endpoint protection
 
-* The **"Install endpoint protection solutions on virtual machine"** recommendation is generated when importing **SCEPMpModule  ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** and running **Get-MProtComputerStatus** results with **AMServiceEnabled = false**
+* Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when importing **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** and running **Get-MProtComputerStatus** results with **AMServiceEnabled = false**
 
-* The **"Resolve endpoint protection health issues on your machines"** recommendation is generated when **Get-MprotComputerStatus** runs and either or both of the following occurs:
+* Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when **Get-MprotComputerStatus** runs and any of the following occurs:
 
     * At least one of the following properties is false:
 
@@ -77,14 +77,14 @@ Endpoint protection assessment and recommendations in Azure Security Center dete
 
 ## Trend Micro
 
-* The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if one or more of the following checks aren't met:
+* Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
     * The **dsq_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec endpoint protection
-The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if any of the following checks aren't met:
+Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
 
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
@@ -96,7 +96,7 @@ Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-The **"Resolve endpoint protection health issues on your machines"** recommendation is generated if any of the following checks aren't met:  
+Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when any of the following checks aren't met:
 
 * Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -117,13 +117,13 @@ Registry Paths:
 
 ## McAfee endpoint protection for Windows
 
-The **"Install endpoint protection solutions on virtual machine"** recommendation is generated if the following checks aren't met:
+Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
 
 * **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
 * **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-The **"Resolve endpoint protection health issues on your machines"** recommendation is generated if the following checks aren't met:
+Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when any of the following checks aren't met:
 
 * McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
@@ -135,13 +135,13 @@ The **"Resolve endpoint protection health issues on your machines"** recommendat
 
 ## McAfee Endpoint Security for Linux Threat Prevention 
 
-The **Install endpoint protection solutions on virtual machine** recommendation is generated if one or both of the following checks aren't met:  
+Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
 
 - File **/opt/isec/ens/threatprevention/bin/isecav** exits 
 
 - **"/opt/isec/ens/threatprevention/bin/isecav --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
 
-The **Resolve endpoint protection health issues on your machines** recommendation is generated if one or more of the following checks aren't met:
+Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when any of the following checks aren't met:
 
 - **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
 
@@ -151,19 +151,19 @@ The **Resolve endpoint protection health issues on your machines** recommendatio
 
 ## Sophos Antivirus for Linux 
 
-The **Install endpoint protection solutions on virtual machine** recommendation is generated if  one or both of the following checks aren't met:
+Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
 
 - File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
 
 - **"/opt/sophos-av/bin/savdstatus --version"** returns Sophos name = **Sophos Anti-Virus and Sophos version >= 9**
 
-The **Resolve endpoint protection health issues on your machines** recommendation is generated if one or more of the following checks aren't met:
+Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when any of the following checks aren't met:
 
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value   
 
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", returns a value   
 
-- **"/opt/sophos-av/bin/savdstatus --lastupdate"** returns lastUpdate which should be <= 7 days 
+- **"/opt/sophos-av/bin/savdstatus --lastupdate"** returns lastUpdate, which should be <= 7 days 
 
 - **"/opt/sophos-av/bin/savdstatus -v"** is equal to **"On-access scanning is running"** 
 
@@ -178,4 +178,4 @@ Microsoft Antimalware extension logs are available at:
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
