@@ -184,7 +184,7 @@ When you add new resources (VMs, SQL DBs) to your Azure Environment, Security Ce
 
 ![Key areas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. For virtual machines, click **Compute**, under **Prevention** section. Any issues with enabling data or related recommendations will be surfaced in the **Overview** tab, and **Monitoring Recommendations** section.
+1. For virtual machines, click **Compute & apps**, under the **Resource Security Hygiene** section. Any issues with enabling data or related recommendations will be surfaced in the **Overview** tab, and **Monitoring Recommendations** section.
 2. View the **Recommendations** to see what, if any, security risks were identified for the new resource.
 3. It is very common that when new VMs are added to your environment, only the operating system is initially installed. The resource owner might need some time to deploy other apps that will be used by these VMs.  Ideally, you should know the final intent of this workload. Is it going to be an Application Server? Based on what this new workload is going to be, you can enable the appropriate **Security Policy**, which is the third step in this workflow.
 4. As new resources are added to your Azure environment, new alerts may appear in the **Security Alerts** tile. Look for new alerts in this tile and follow the recommendations.
