@@ -52,7 +52,8 @@ In MSAL libraries, the client credentials (secret or certificate) are passed as 
 ### Configuration file
 
 The configuration file defines:
-- the authority or instance and tenantId
+
+- the authority or the cloud instance and tenantId
 - the ClientID that you got from the application registration
 - either a client secret, or a certificate
 
@@ -117,6 +118,7 @@ public class TestData {
 
 > ![NOTE]
 > Either you provide a CONFIDENTIAL_CLIENT_ID or a CONFIDENTIAL_CLIENT_SECRET. Both settings are exclusive.
+
 ---
 
 ### Instantiation of the MSAL application
@@ -164,7 +166,7 @@ import java.util.function.BiFunction;
 
 ---
 
-#### Instantiate the confidential client application With client secrets
+#### Instantiate the confidential client application with client secrets
 
 Here is the code to instantiate the confidential client application with a client secret:
 
@@ -264,12 +266,39 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### Advanced scenario - instantiate the confidential client application With client assertions
+#### Advanced scenario - instantiate the confidential client application with client assertions
 
 # [.NET](#tab/dotnet)
 
-Instead of a client secret or a certificate, the confidential client application can also prove its identity using client assertions
-This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
+Instead of a client secret or a certificate, the confidential client application can also prove its identity using client assertions.
+
+MSAL.NET has two methods to provide signed assertions to the confidential client app:
+
+- .WithClientAssertion()
+- .WithClientClaims()
+
+When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
+
+```CSharp
+string signedClientAssertion = ComputeAssertion();
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientAssertion(signedClientAssertion)
+                                          .Build();
+```
+
+When you use `WithClientClaims`, MSAL.NET will compute itself a signed assertion containing the claims expected by Azure AD plus additional client claims that you want to send.
+Here is a code snippet on how to do that:
+
+```CSharp
+string ipAddress = "192.168.1.2";
+var claims = new Dictionary<string, string> { { "client_ip", ipAddress } };
+X509Certificate2 certificate = ReadCertificate(config.CertificateName);
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithAuthority(new Uri(config.Authority))
+                                          .WithClientClaims(certificate, claims)
+                                          .Build();```
+
+Again, for details, see [Client assertions](msal-net-client-assertions.md).
 
 # [Python](#tab/python)
 
