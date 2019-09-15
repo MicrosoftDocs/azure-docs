@@ -11,7 +11,7 @@ ms.author: kumud
 ---
 # What is Azure Private Link service?
 
-Azure Private Link service is the reference to your own service that is powered by Azure Private Link. Your service that is running behind [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) can be enabled for Private Link access so that consumers to your service can access it privately from their own VNets. Your customers can create a private endpoint inside their VNet and map it to this service which is powered for Private Link. This article explains concepts related to the service provider side. 
+Azure Private Link service is the reference to your own service that is powered by Azure Private Link. Your service that is running behind [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) can be enabled for Private Link access so that consumers to your service can access it privately from their own VNets. Your customers can create a private endpoint inside their VNet and map it to this service. This article explains concepts related to the service provider side. 
 
 ## Workflow
 
@@ -19,17 +19,15 @@ Azure Private Link service is the reference to your own service that is powered 
 
 ### Create your Private Link Service
 
-- Choose a name, location, and virtual network for your service.  
-- Create either an internal Load Balancer or a public Load Balancer. 
-- Map the backend resources from the selected VNet to the load balancer. It is advisable to have at least one backend resource behind the load balancer.  
-- Create a Private Link Service using the load balancer. In the load balancer selection process, choose the frontend IP configuration where you want to receive the traffic. Choose a subnet for NAT IP addresses for the Private Link Service. It is recommended to have at least eight NAT IP addresses available in the subnet. All consumer traffic will appear to originate from this pool of private IP addresses to the service provider. Choose the appropriate properties/settings for the Private Link Service.    
+- Configure your application to run behind a standard load balancer in your virtual network. If you already have your application configured behind a standard load balancer, you can skip this step.   
+- Create a Private Link Service referencing the load balancer above. In the load balancer selection process, choose the frontend IP configuration where you want to receive the traffic. Choose a subnet for NAT IP addresses for the Private Link Service. It is recommended to have at least eight NAT IP addresses available in the subnet. All consumer traffic will appear to originate from this pool of private IP addresses to the service provider. Choose the appropriate properties/settings for the Private Link Service.    
 
     > [!NOTE]
     > Azure Private Link Service is only supported on Standard Load Balancer. 
     
 ### Share your service
 
-After you create a Private Link service, the Azure infrastructure will generate a globally unique "alias" based on the name you provide for your service. You can share the alias with your customers offline or advertise it publicly. Consumers can start a Private Link connection using this alias.
+After you create a Private Link service, Azure will generate a globally unique named moniker called "alias" based on the name you provide for your service. You can share either the alias or resource URI of your service with your customers offline. Consumers can start a Private Link connection using the alias or the resource URI.
  
 ### Manage your connection requests
 
@@ -109,19 +107,12 @@ The action of approving the connections can be automated by using the auto-appro
 
 ## Limitations
 
-The following table lists known limitations when using the Private Link service:
-
-|Limitation |Description |Mitigation |
-|---------|---------|---------|
-|Support only for IPv4    | Private Link service doesn’t support IPv6 traffic.         |  Use Private Link service for IPv4 traffic only        |
-|Support only for TCP-traffic     | Private Link service doesn’t support non-TCP  traffic.         |Use Private Link service for IPv4 traffic only          |
-|Support only for Azure Resource Manager virtual networks      |   Private Link service can be created only in Azure Resource Manager VNets.      |    Use Azure Resource Manager VNets for Private Link.      |
-|Support for deploying Private Link service using Standard Load Balancer.       |    Private Link service can't be associated with the basic load balancer.       |     Use Standard Load Balancer to create your Private Link service.     |
-|Support for same region scenarios for Private Link service    |   Connecting to a Private Link service (your own) from a private endpoint in a different region is not supported.      |    Private Link service and private endpoint need to be in the same region during Preview.      |
-|Supports a single Standard Load Balancer running same Private Link service     |  Private Link service is tied to a single load balancer. You can't have multiple load balancers running same Private Link service.        |    No mitigation during Preview.      |
-|Supports a single Private Link service using same backend pool    |   Multiple Private Link services can't use the same backend pool.        | Each Private Link service should have a dedicated backend pool.          |
-|    |         |         |
-
+The following are the known limitations when using the Private Link service:
+- Supported only on Standard Load Balancer 
+- Supports IPv4 traffic only
+- Only reachable from private endpoints in the same region
+- Create and Manage experience from Azure Portal will be supported in teh future
+- Clients connection information using proxy protocol is not available to service provider
 
 ## Next steps
 - [Create a private link service using Azure PowerShell](create-private-link-service-powershell.md)
