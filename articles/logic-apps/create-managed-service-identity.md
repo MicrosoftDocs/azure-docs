@@ -109,19 +109,19 @@ When Azure creates your logic app, the `"identity"` object includes these additi
 
 | Property | Value | Description |
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant and sometimes appears as an "object ID" or `objectID` |
-| **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
+| **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your logic app in the Azure AD tenant. This GUID sometimes appears as an "object ID" or `objectID`. |
+| **tenantId** | <*Azure-AD-tenant-ID*> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
 ||||
 
 <a name="user-assigned"></a>
 
 ### Enable a user-assigned identity
 
-To set up a user-assigned managed identity for your logic app, you must first create a user-assigned managed identity resource in Azure. You have these options:
+To set up a user-assigned managed identity for your logic app, you must first create that a separate standalone Azure resource for that user-assigned identity. You have these options:
 
 * [Azure portal](#azure-portal-user)
 * [Azure Resource Manager templates](#template-user)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.managedserviceidentity/New-AzUserAssignedIdentity)
 
 <a name="azure-portal-user"></a>
 
@@ -209,8 +209,8 @@ When Azure creates your logic app, the `"identity"` object includes a child `"us
 <!--- Double-check these property descriptions ---->
 | Property | Value | Description |
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant |
-| **clientId** | <*cilent-ID*> | A Globally Unique Identifier (GUID) that represents the Azure resource in the Azure AD tenant |
+| **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your logic app in the Azure AD tenant. |
+| **clientId** | <*cilent-ID*> | A Globally Unique Identifier (GUID) that Azure AD generates to represent an application and service principal for the Azure resource in the Azure AD tenant |
 ||||
 
 <a name="access-other-resources"></a>
@@ -300,11 +300,15 @@ To turn off a managed identity for your logic app, you can follow the steps simi
 
 * [Azure portal](#azure-portal-disable)
 * [Azure Resource Manager templates](#template-disable)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+* [Azure PowerShell - user-assigned identity](https://docs.microsoft.com/powershell/module/az.managedserviceidentity/remove-azuserassignedidentity)
 
 <a name="azure-portal-disable"></a>
 
 ### Disable managed identity in the Azure portal
+
+To stop using a managed identity, disable that identity on [your logic app](#disable-identity-logic-app) and on [your target resource](#disable-identity-target-resource).
+
+<a name="disable-identity-logic-app">
 
 #### Disable managed identity for logic app
 
@@ -321,6 +325,8 @@ To turn off a managed identity for your logic app, you can follow the steps simi
      ![Turn off user-assigned identity](./media/create-managed-service-identity/turn-off-user-assigned-identity.png)
 
 The managed identity is now disabled on your logic app.
+
+<a name="disable-identity-target-resource">
 
 #### Disable managed identity on target resource
 
