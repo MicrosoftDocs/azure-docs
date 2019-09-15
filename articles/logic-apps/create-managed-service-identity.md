@@ -39,9 +39,9 @@ Choose the following steps for enabling either the [system-assigned identity](#s
 
 <a name="system-assigned"></a>
 
-### Enable system-assigned identity
+### Enable a system-assigned identity
 
-You don't have to manually create system-assigned managed identities. To set up a system-assigned managed identity for your logic app, you have these options:
+You don't have to manually create a system-assigned managed identity. To set up a system-assigned managed identity for your logic app, you have these options:
 
 * [Azure portal](#azure-portal-system)
 * [Azure Resource Manager templates](#template-system)
@@ -49,7 +49,7 @@ You don't have to manually create system-assigned managed identities. To set up 
 
 <a name="azure-portal-system"></a>
 
-#### Turn on system-assigned identity in the Azure portal
+#### Enable system-assigned identity in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
 
@@ -70,17 +70,9 @@ You don't have to manually create system-assigned managed identities. To set up 
 
 <a name="template-system"></a>
 
-#### Turn on system-assigned identity in an Azure Resource Manager template
+#### Enable system-assigned identity in an Azure Resource Manager template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To create a system-assigned managed identity for your logic app by using a template, add the `"identity"` element and `"type"` property to your logic app workflow definition in your deployment template:
-
-```json
-"identity": {
-   "type": "SystemAssigned"
-}
-```
-
-For example:
+To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To create a system-assigned managed identity for your logic app by using a template, add the `"identity"` element and `"type"` property to your logic app's resource definition in your deployment template, for example:
 
 ```json
 {
@@ -105,7 +97,7 @@ For example:
 }
 ```
 
-When Azure creates your logic app, that logic app's workflow definition includes these additional properties:
+When Azure creates your logic app, the `"identity"` object includes these additional properties:
 
 ```json
 "identity": {
@@ -123,7 +115,7 @@ When Azure creates your logic app, that logic app's workflow definition includes
 
 <a name="user-assigned"></a>
 
-### Enable user-assigned identity
+### Enable a user-assigned identity
 
 To set up a user-assigned managed identity for your logic app, you must first create a user-assigned managed identity resource in Azure. You have these options:
 
@@ -133,7 +125,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 <a name="azure-portal-user"></a>
 
-#### Turn on user-assigned identity in the Azure portal
+#### Enable user-assigned identity in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the main Azure menu, select **Create a resource**. In the search box, enter "user assigned managed identity", and select **User Assigned Managed Identity**. On the next page, select **Create**.
 
@@ -173,9 +165,9 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 <a name="template-user"></a>
 
-#### Enable managed identity in an Azure Resource Manager template
+#### Enable user-assigned identity in an Azure Resource Manager template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To create a managed identity for your logic app in your template, add the `"identity"` element and `"type"` child property to your logic app's resource definition in your template. Set the `"type"` property to either `"SystemAssigned"` or `"UserAssigned"` as appropriate, for example:
+To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To create a user-assigned managed identity for your logic app in your template, add the `"identity"` element and `"type"` child property to your logic app's resource definition in your template. Set the `"type"` property to `"UserAssigned"`, for example:
 
 ```json
 {
@@ -184,7 +176,7 @@ To automate creating and deploying Azure resources such as logic apps, you can u
    "name": "[variables('logicappName')]", 
    "location": "[resourceGroup().location]", 
    "identity": { 
-      "type": "SystemAssigned" 
+      "type": "UserAssigned" 
    }, 
    "properties": { 
       "definition": { 
@@ -200,33 +192,15 @@ To automate creating and deploying Azure resources such as logic apps, you can u
 }
 ```
 
-Based on the managed identity that you specify, when Azure creates your logic app, the `"identity"` property includes additional properties.
-
-If you specify the `"SystemAssigned"` identity, you get the `"principalId"` and `"tenantId"` properties:
-
-```json
-"identity": {
-   "type": "SystemAssigned",
-   "principalId": "<principal-ID>",
-   "tenantId": "<Azure-AD-tenant-ID>"
-}
-```
-
-| Property | Value | Description |
-|----------|-------|-------------|
-| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant and sometimes appears as an "object ID" or `objectID` |
-| **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
-||||
-
-If you specify the `"UserAssigned"` identity, you get a `"userAssignedIdentities"` JSON object that includes the `"principalId"` and `"tenantId"` properties: 
+When Azure creates your logic app, the `"identity"` object includes a child `"userAssignedIdentities"` object, which includes a child object with information about the user-assigned identity:
 
 ```json
 "identity": {
    "type": "UserAssigned",
    "userAssignedIdentities": {
-      "/subscriptions/XXXXXXXXXXXXXXXXX/resourcegroups/fabrikam-managed-identities-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/Fabrikam-user-assigned-identity": {
-         "principalId": "6ab00c0b-8a8b-4a48-b1dc-a9568af7f8df",
-         "clientId": "e3a9dc82-abd5-4fef-8890-3e59093b87f8"
+      "/subscriptions/<Azure-subscription-ID>/resourcegroups/<user-assigned-managed-identity-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-resource-name>": {
+         "principalId": "<principal-ID>",
+         "clientId": "<client-ID>"
       }
    }
 }
