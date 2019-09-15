@@ -200,7 +200,7 @@ After the connection is successfully added, the resource tree will automatically
 
 #### Connect to an Azure Cosmos DB account by using a connection string
 
-As an alternative to managing Azure Cosmos DB accounts through an Azure subscription, you can also connect to an Azure Cosmos DB by using a connection string. Follow these steps to connect through a connection string:
+As an alternative to managing Azure Cosmos DB accounts through an Azure subscription, you can also connect to Azure Cosmos DB by using a connection string. To do this, follow these steps:
 
 1. On the left side of the resource tree, expand **Local and Attached**, right-click **Azure Cosmos DB Accounts**, and select **Connect to Azure Cosmos DB**.
 
@@ -254,7 +254,7 @@ As you type in the search box, the left pane displays all resources that match t
 ![Storage account search][23]
 
 > [!NOTE]
-> Use the Account Management panel to deselect any subscriptions that don't contain the item you're searching for to speed up your search. You can also right-click a node and select **Search From Here** to start searching from a specific node.
+> To speed up your search, use the Account Management panel to deselect any subscriptions that don't contain the item you're searching for. You can also right-click a node and select **Search From Here** to start searching from a specific node.
 >
 >
 
