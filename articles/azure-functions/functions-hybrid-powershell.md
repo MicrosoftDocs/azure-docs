@@ -24,7 +24,7 @@ The following script enables PowerShell remoting, and it creates a new firewall 
 # For configuration of WinRM, see
 # https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management.
 
-# Enable PowerShell remoting
+# Enable PowerShell remoting.
 Enable-PSRemoting -Force
 
 # Create firewall rule for WinRM. The default HTTPS port is 5986.
@@ -57,7 +57,7 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
 1. Choose the S1 Standard plan, and then select **Apply**.
 
-1. Select **OK** to create the plan, and then configure the remaining **Function App** settings as specified in the table immediately after the following screenshot.
+1. Select **OK** to create the plan, and then configure the remaining **Function App** settings as specified in the table immediately after the following screenshot:
 
     ![PowerShell Core function app](./media/functions-hybrid-powershell/create-function-powershell-app.png)  
 
@@ -73,7 +73,7 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
 1. After your settings are validated, select **Create**.
 
-1. Select the **Notification** icon in the upper-right corner of the portal, and wait for the **Deployment succeeded** message.
+1. Select the **Notification** icon in the upper-right corner of the portal, and wait for the "Deployment succeeded" message.
 
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
@@ -81,13 +81,13 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
 Hybrid connections are configured from the networking section of the function app:
 
-1. Select the **Platform features** tab of the function app, and then select networking. 
+1. Select the **Platform features** tab of the function app, and then select **Networking**. 
    ![App Overview for platform networking](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
 1. Select **Configure your hybrid connections endpoints**.
    ![Networking](./media/functions-hybrid-powershell/select-network-feature.png)  
 1. Select **Add hybrid connection**.
    ![Hybrid Connection](./media/functions-hybrid-powershell/hybrid-connection-overview.png)  
-1. Enter information about the hybrid connection as shown right after the following screenshot. You have the option of making the Endpoint Host match the host name of the on-premises server to make it easier to remember the server later when you're running remote commands. The port matches the default Windows remote management service port that was defined on the server earlier.
+1. Enter information about the hybrid connection as shown right after the following screenshot. You have the option of making the **Endpoint Host** setting match the host name of the on-premises server to make it easier to remember the server later when you're running remote commands. The port matches the default Windows remote management service port that was defined on the server earlier.
   ![Add Hybrid Connection](./media/functions-hybrid-powershell/add-hybrid-connection.png)  
 
     **Hybrid connection name**: ContosoHybridOnPremisesServer
