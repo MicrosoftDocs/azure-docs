@@ -29,9 +29,35 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD entitlement management enables you collaborate with people outside your organization. If you create an access package with a [policy](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory) that allows users not in your directory to request access, a guest user account will be created in your directory when the request is approved.
+Azure AD entitlement management enables you collaborate with people outside your organization. If you create an access package with a [policy](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory) that allows users who are in another Azure AD directory to request access, a guest user account will be created in your directory when the request is approved.
 
 This article describes the settings you can specify to manage access for external users.
+
+## How access works for external users
+
+The following diagram shows an overview of how access to access packages works for external users.
+
+![Diagram showing the lifecyle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
+
+1. An access package is created in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory).
+
+1. An external user (**Requestor A** in this example) uses the My Access portal to [request access](entitlement-management-request-access.md) to the access package.
+
+1. An approver [approves the request](entitlement-management-request-approve.md) (or the request is auto-approved).
+
+1. The request goes into the [delivering state](entitlement-management-process.md).
+
+1. A guest user account is created in your directory (**Requestor A (Guest)** in this example).
+
+1. The guest user is assigned access to all of the resources in the access package.
+
+1. The external user receives an email indicating that their access was [delivered](entitlement-management-process.md).
+
+1. To access the resources, the external user must click the link in the email to complete the invitation process.
+
+1. Depending on the policy settings, the external user eventually loses their access to the access package.
+
+1. Depending on the lifecycle of external users settings, the external user is blocked from signing in and the guest user account is removed.
 
 ## Manage the lifecyle of external users
 
