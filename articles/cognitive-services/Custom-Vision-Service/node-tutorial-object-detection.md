@@ -33,8 +33,8 @@ This article provides information and sample code to help you get started using 
 To install the Custom Vision service SDKs for Node.js in your project, run the following commands:
 
 ```shell
-npm install @azure/cognitiveservices-customvision-training
-npm install @azure/cognitiveservices-customvision-prediction
+npm install azure-cognitiveservices-customvision-prediction
+npm install azure-cognitiveservices-customvision-training
 ```
 
 ## Add the code
@@ -48,8 +48,8 @@ Add the following code to your script to create a new Custom Vision service proj
 ```javascript
 const fs = require('fs');
 const util = require('util');
-const TrainingApi = require("@azure/cognitiveservices-customvision-training");
-const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
+const TrainingApi = require("azure-cognitiveservices-customvision-training");
+const PredictionApi = require("azure-cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -58,7 +58,7 @@ const predictionKey = "<your prediction key>";
 const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
-const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+const endPoint = "<your endpoint url>"
 
 const publishIterationName = "detectModel";
 
