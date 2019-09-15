@@ -28,14 +28,14 @@ Once the confidential client application is constructed, you can acquire a token
 
 The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure AD to use the **application level permissions** declared statically during the application registration. Also, as seen previously, these API permissions must be granted by a tenant administrator
 
-### .NET
+# [.NET](#tab/dotnet)
 
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-### Python
+# [Python](#tab/python)
 
 In MSAL.Python, the configuration file would look like the following code snippet:
 
@@ -48,11 +48,13 @@ In MSAL.Python, the configuration file would look like the following code snippe
 }
 ```
 
-### Java
+# [Java](#tab/java)
 
 ```Java
 public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
 ```
+
+---
 
 ### All
 
@@ -66,7 +68,7 @@ The scope used for client credentials should always be resourceId+"/.default"
 
 ## AcquireTokenForClient API
 
-### .NET
+# [.NET](#tab/dotnet)
 
 ```CSharp
 using Microsoft.Identity.Client;
@@ -100,7 +102,7 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 In MSAL.NET, `AcquireTokenForClient` uses the **application token cache** (All the other AcquireTokenXX methods use the user token cache)
 Don't call `AcquireTokenSilent` before calling `AcquireTokenForClient` as `AcquireTokenSilent` uses the **user** token cache. `AcquireTokenForClient` checks the **application** token cache itself and updates it.
 
-### Python
+# [Python](#tab/python)
 
 ```Python
 # Firstly, looks up a token from cache
@@ -113,7 +115,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-### Java
+# [Java](#tab/java)
 
 ```Java
 ClientCredentialParameters parameters = ClientCredentialParameters
@@ -125,6 +127,8 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 // You can complete the future in many different ways. Here we use .get() for simplicity
 AuthenticationResult result = future.get();
 ```
+
+---
 
 ### Protocol
 

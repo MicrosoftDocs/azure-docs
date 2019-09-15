@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 09/14/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
@@ -49,7 +49,7 @@ In MSAL libraries, the client credentials (secret or certificate) are passed as 
 > [!IMPORTANT]
 > Even if your application is a console application running as a service, if it's a daemon application it needs to be a confidential client application.
 
-### MSAL.NET
+# [.NET](#tab/dotnet)
 
 Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application.
 
@@ -87,8 +87,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 Finally, instead of a client secret or a certificate, the confidential client application can also prove its identity using client assertions. 
 This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
 
-
-### MSAL.Python
+# [Python](#tab/python)
 
 ```Python
 # Create a preferably long-lived app instance which maintains a token cache.
@@ -103,7 +102,7 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
-### MSAL.Java
+# [Java](#tab/java)
 
 ```Java
 PrivateKey key = getPrivateKey();
@@ -117,6 +116,8 @@ ConfidentialClientApplication cca = ConfidentialClientApplication
   .authority(AUTHORITY_MICROSOFT)
   .build();
 ```
+
+---
 
 ## Next steps
 

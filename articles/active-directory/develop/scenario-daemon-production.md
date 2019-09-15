@@ -39,7 +39,7 @@ You'll need to explain to your customers how to perform these operations. For mo
 
 Here are a few links to learn more:
 
-### .NET
+# [.NET](#tab/dotnet)
 
 - If you have not already, try the quickstart [Acquire a token and call Microsoft Graph API from a console app using app's identity](./quickstart-v2-netcore-daemon.md).
 - Reference documentation for:
@@ -58,10 +58,12 @@ Here are a few links to learn more:
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-### Python
+# [Python](#tab/python)
 
 MSAL Python is currently in public preview. For more info, see [MSAL Python client credentials in-repository sample](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py).
 
-### Java
+# [Java](#tab/java)
 
-MSAL Python is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples).
+msal4j (MSAL.Java) is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples).
+
+---
