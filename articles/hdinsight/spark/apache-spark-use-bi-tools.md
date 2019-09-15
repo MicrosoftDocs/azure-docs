@@ -44,7 +44,7 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
     The output looks like:
 
-    ![Show tables in Spark](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![Show tables in Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.  Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, you connect to the **hvac** table that you created.
 
@@ -57,7 +57,7 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
     The output looks like:
 
-    ![Show rows from hvac table in Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![Show rows from hvac table in Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. From the **File** menu on the notebook, select **Close and Halt**. Shut down the notebook to release the resources.
 
@@ -125,31 +125,32 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 The Power BI service allows you to share reports and dashboards across your organization. In this section, you first publish the dataset and the report. Then, you pin the report to a dashboard. Dashboards are typically used to focus on a subset of data in a report; you have only one visualization in your report, but it's still useful to go through the steps.
 
 1. Open Power BI Desktop.
-2. From the **Home** tab, click **Publish**.
+
+1. From the **Home** tab, click **Publish**.
 
     ![Publish from Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publish from Power BI Desktop")
 
-2. Select a workspace to publish your dataset and report to, then click **Select**. In the following image, the default **My Workspace** is selected.
+1. Select a workspace to publish your dataset and report to, then click **Select**. In the following image, the default **My Workspace** is selected.
 
     ![Select workspace to publish dataset and report to](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Select workspace to publish dataset and report to") 
 
-3. After the publishing is succeeded, click **Open 'BuildingTemperature.pbix' in Power BI**.
+1. After the publishing is succeeded, click **Open 'BuildingTemperature.pbix' in Power BI**.
 
     ![Publish success, click to enter credentials](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publish success, click to enter credentials") 
 
-4. In the Power BI service, click **Enter credentials**.
+1. In the Power BI service, click **Enter credentials**.
 
     ![Enter credentials in Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Enter credentials in Power BI service")
 
-5. Click **Edit credentials**.
+1. Click **Edit credentials**.
 
     ![Edit credentials in Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Edit credentials in Power BI service")
 
-6. Enter the HDInsight login account information, and then click **Sign in**. The default account name is *admin*.
+1. Enter the HDInsight login account information, and then click **Sign in**. The default account name is *admin*.
 
     ![Sign in to Spark cluster](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Sign in to Spark cluster")
 
-7. In the left pane, go to **Workspaces** > **My Workspace** > **REPORTS**, then click **BuildingTemperature**.
+1. In the left pane, go to **Workspaces** > **My Workspace** > **REPORTS**, then click **BuildingTemperature**.
 
     ![Report listed under reports in left pane](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report listed under reports in left pane")
 
@@ -157,15 +158,15 @@ The Power BI service allows you to share reports and dashboards across your orga
 
     The visual you created in Power BI Desktop is now available in the Power BI service. 
 
-8. Hover your cursor over the visualization, and then click the pin icon on the upper right corner.
+1. Hover your cursor over the visualization, and then click the pin icon on the upper right corner.
 
     ![Report in the Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Report in the Power BI service")
 
-9. Select "New dashboard", enter the name `Building temperature`, then click **Pin**.
+1. Select "New dashboard", enter the name `Building temperature`, then click **Pin**.
 
     ![Pin to new dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Pin to new dashboard")
 
-10. In the report, click **Go to dashboard**. 
+1. In the report, click **Go to dashboard**.
 
 Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

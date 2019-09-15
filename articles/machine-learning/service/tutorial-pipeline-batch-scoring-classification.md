@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure ML Pipelines for batch scoring'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Build an ML pipeline for running batch scoring on an image classification model. Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
@@ -28,11 +28,11 @@ In this tutorial you learn the following tasks:
 > * Build, run, and publish a pipeline
 > * Enable a REST endpoint for the pipeline
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Prerequisites
 
-* Complete [Part 1 of the setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning service workspace or notebook virtual machine.
+* Complete [Part 1 of the setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine.
 * After you complete the setup tutorial, open the **tutorials/tutorial-pipeline-batch-scoring-classification.ipynb** notebook using the same notebook server.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` to get the required packages.
@@ -510,7 +510,7 @@ RunDetails(published_pipeline_run).show()
 
 ## Clean up resources
 
-Do not complete this section if you plan on running other Azure Machine Learning service tutorials.
+Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
 ### Stop the notebook VM
 
