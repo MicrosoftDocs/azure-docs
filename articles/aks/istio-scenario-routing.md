@@ -171,7 +171,7 @@ The information at the bottom of the screen shows that the app uses version `1.0
 
 ## Update the application
 
-We let's deploy a new version of the analytics component. This new version `1.1` displays totals and percentages in addition to the count for each category.
+Let's deploy a new version of the analytics component. This new version `1.1` displays totals and percentages in addition to the count for each category.
 
 The following diagram shows what will be running at the end of this section - only version `1.1` of our `voting-analytics` component has traffic routed from the `voting-app` component. Even though version `1.0` of our `voting-analytics` component continues to run and is referenced by the `voting-analytics` service, the Istio proxies disallow traffic to and from it.
 
