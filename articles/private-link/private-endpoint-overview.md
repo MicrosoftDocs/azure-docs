@@ -44,22 +44,28 @@ Here are some key details about private endpoints:
 
  
 ## Private link resource 
-A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types and corresponding region availability for the Preview release: 
+A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types: 
  
-- **Private link service**: Your own private link service or shared service, available in selected Azure regions. 
-- **Azure storage**: Storage accounts with multiple target subresources available. Available in all Azure regions. 
-- **Azure Data Lake Storage Gen2**: Data Lake Storage Gen2 is available using storage accounts with blob subresources. Available in selected Azure regions. 
-- **Azure SQL Database**: Generally available in all Azure regions. 
-- **Azure SQL Data Warehouse**: Generally available in all Azure regions. 
+|Private link resource name  |Resource type   |Subresources  |
+|---------|---------|---------|
+|**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
+|**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Azure Storage**  | (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
+|**Azure Data Lake Storage Gen2**  | (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)       |
  
+ For details on region availability, please review [Private Link availability](private-link-overview.md#availability).
+ 
+  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
  
 You can completely lock down your workloads from accessing public endpoints to connect to a supported Azure service. This control provides an additional network security layer to your resources by providing a built-in exfiltration protection that prevents access to other resources hosted on the same Azure service. 
  
 ## Access to a private link resource using approval workflow 
-You can connect to a private link resource without permissions by using an approval workflow. The private endpoint must be created manually and a subsequent private endpoint connection will be created in a "Pending" state. The private link resource owner is responsible to approve the connection. After it's approved, the private endpoint is enabled to send traffic normally, as shown in the following approval workflow diagram. 
- 
+You can connect to a private link resource using the following connection approval methods:
+- **Automatically** approved when you own or have permission on the specific private link resource. The permission required is based on the private link resource type in the following format: Microsoft.<Provider>/<resource_type>/privateEndpointConnectionApproval/action
+- **Manual** request when you don't have the permission required and would like to request access. An approval workflow will be initiated. The private endpoint and subsequent private endpoint connection will be created in a "Pending" state. The private link resource owner is responsible to approve the connection. After it's approved, the private endpoint is enabled to send traffic normally, as shown in the following approval workflow diagram.  
 
 ![workflow approval](media/private-endpoint-overview/workflow-private-endpoint.png)
  
@@ -115,7 +121,7 @@ The following table includes a list of known limitations when using private endp
 
 |Limitation |Description |Mitigation  |
 |---------|---------|---------|
-|Restrict access to private endpoints using NSG    |<br> Network security group (NSG) is not supported on private endpoints.</br><br>Subnets must have network policies enforcement disabled to deploy private endpoints with NSG disabled.</br> <br>NSG is still enforced on any other workload hosted on the same subnet.</br>      | Control the traffic by using security rules for outbound traffic on source clients.         |
+|Restrict access to private endpoints using NSG    | Network security group (NSG) is not supported on private endpoints.</br><br>Subnets must have [network policies enforcement disabled](disable-private-endpoint-network-policy.md) to deploy private endpoints with NSG disabled.</br> <br>NSG is still enforced on any other workload hosted on the same subnet.</br>      | Control the traffic by using security rules for outbound traffic on source clients.         |
 |Deploy private endpoints on subnets with service endpoints or specialized workloads     |  Private Endpoints cannot be deployed on subnets with service endpoints enabled or subnets delegated to specialized workloads        |  Create a separate subnet to deploy the private endpoints.        |
 |Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
