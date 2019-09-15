@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/03/2019
+ms.date: 09/15/2019
 ms.author: cabailey
 
 ---
@@ -38,20 +38,19 @@ However, if logging information from Azure Information Protection is going to a 
 
 ## Prerequisites
 
-- You must be an Azure Information Protection administrator, Security administrator, or Global administrator for your tenant.
+- One of the following Azure AD administrator roles for your tenant: Azure Information Protection administrator, Security administrator, or Global administrator.
     
     > [!NOTE]
     > You cannot use the Azure Information Protection administrator role if your tenant is on the [unified labeling platform](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 
-- Permissions to read and write to the Log Analytics workspace you're using for Sentinel and Azure Information Protection. For example, a user with the Log Analytics Contributor role, or the Azure role of Owner.
-    
-    For information about read and write permissions to workspaces, see [Manage log data and workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access).
+- Permissions to read and write to the Log Analytics workspace you're using for Sentinel and Azure Information Protection.
 
 - Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/en-us/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## Connect to Azure Information Protection
 
 Use the following instructions if you haven't configured a Log Analytics workspace for Azure Information Protection, or you need to change the workspace that stores the Azure Information Protection logging information. 
+
 1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection**.
 
 2. On the **Azure Information Protection** blade, you see the **STATUS** displays **Not connected**. Select **Open connector page**.
