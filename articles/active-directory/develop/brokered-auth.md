@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 ## Introduction
 
-You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign- On (SSO) and to meet organizational conditional access policies. Integrating with the broker provides the following benefits:
+You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign- On (SSO) and to meet organizational conditional access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
 - Conditional access for:
@@ -43,19 +43,19 @@ The following diagram illustrates the relationship between your app, the Microso
 
 ![Broker Deployment Diagram](./media/brokered-auth/brokered-deployment-diagram.png)
 
-## Installation of apps hosting the Broker
+## Installing apps that host a broker
 
-Broker-hosting apps can be installed by the device owner from their app store (usually Google Play Store) at any time. However, some APIs (resources) are protected using Conditional Access Policies that require devices to be:
+Broker-hosting apps can be installed by the device owner from their app store (typically Google Play Store) at any time. However, some APIs (resources) are protected by Conditional Access Policies that require devices to be:
 
 - registered (workplace joined) and/or
 - enrolled in Device Management or
 - enrolled in Intune App Protection
 
-If a device does not already have a broker, MSAL will instruct the user to install one when the app attempts to get a token interactively. The app will then need to lead the user through the  step to make the devices compliant with the required policy.
+If a device does not already have a broker app installed, MSAL instructs the user to install one as soon as the app attempts to get a token interactively. The app will then need to lead the user through the steps to make the device compliant with the required policy.
 
-## Installing and uninstalling the broker
+## Effects of installing and uninstalling a broker 
 
-### When the broker is installed
+### When a broker is installed
 
 When a broker is installed on a device, all subsequent interactive token requests (calls to `acquireToken()`) are handled by the broker rather than locally by MSAL. Any SSO state previously available to MSAL is not available to the broker. As a result, the user will need to authenticate again, or select an account from the existing list of accounts known to the device.
 
@@ -65,15 +65,15 @@ Installing a broker does not require the user to sign in again. Only when the us
 - The user's account no longer meets a conditional access policy.
 - The user revoked their consent for the app to be associated with their account.
 
-### When the broker is uninstalled
+### When a broker is uninstalled
 
 If there is only one broker hosting app installed, and it is removed, then the user will need to sign in again. Uninstalling the active broker removes the account and associated tokens from the device.
 
 If Intune Company Portal is installed and is operating as the active broker, and Microsoft Authenticator is also installed, then if the Intune Company Portal (active broker) is uninstalled the user will need to sign in again. Once they sign in again, the Microsoft Authenticator app  becomes the active broker.
 
-## Integrating with the broker
+## Integrating with a broker
 
-### Generating a redirect URI for the broker
+### Generating a redirect URI for a broker
 
 You must register a redirect URI that is compatible with the broker. The redirect URI for the broker needs to include your app's package name, as well as the base64 encoded representation of your app's signature.
 
@@ -110,9 +110,9 @@ To use a broker in your app, you must attest that you've configured your broker 
 > [!TIP]
 > The new Azure Portal app registration UI helps you generate the broker redirect URI. If you registered your app using the older experience, or did so using the Microsoft app registration portal, you may need to generate the redirect URI and update the list of redirect URIs in the portal manually.
 
-### Broker related exception
+### Broker related exceptions
 
-MSAL communicates with Broker in two ways:
+MSAL communicates with the broker in two ways:
 
 - Broker bound service
 - Android AccountManager
