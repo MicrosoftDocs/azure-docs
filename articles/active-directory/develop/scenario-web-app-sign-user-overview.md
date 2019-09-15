@@ -39,6 +39,16 @@ If you prefer to stay with ASP.NET, try out the following tutorial:
 > [!div class="nextstepaction"]
 > [Quickstart: ASP.NET web app that signs-in users](quickstart-v2-aspnet-webapp.md)
 
+If you're a Java developer, try out the following quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
+
+Finally, if you develop with Python, try out:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Add sign-in with Microsoft to a Python web app](quickstart-v2-python-webapp.md)
+
 ## Overview
 
 You add authentication to your web app, so that it can sign in users. Adding authentication enables your web app to access limited profile information, and, for instance customize the experience you offer to its users. Web apps authenticate a user in a web browser. In this scenario, the web application directs the user’s browser to sign them in to Azure AD. Azure AD returns a sign-in response through the user’s browser, which contains claims about the user in a security token. Signing-in users leverage the [Open ID Connect](./v2-protocols-oidc.md) standard protocol itself simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps).
@@ -48,7 +58,7 @@ You add authentication to your web app, so that it can sign in users. Adding aut
 As a second phase you can also enable your application to call Web APIs on behalf of the signed-in user. This next phase is a different scenario, which you'll find in [Web App calls Web APIs](scenario-web-app-call-api-overview.md)
 
 > [!NOTE]
-> Adding sign-in to a web app is about protecting the web app, and validating a user token, which is what  **middleware** libraries do. This scenario does not require yet the Microsoft Authentication Libraries (MSAL), which are about acquiring a token to call protected APIs. The authentication libraries will only be introduced in the follow-up scenario when the web app needs to call web APIs.
+> Adding sign-in to a web app is about protecting the web app, and validating a user token, which is what  **middleware** libraries do. In the case of .NET, this scenario does not require yet the Microsoft Authentication Libraries (MSAL), which are about acquiring a token to call protected APIs. The authentication libraries will only be introduced in the follow-up scenario when the web app needs to call web APIs.
 
 ## Specifics
 

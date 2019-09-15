@@ -164,10 +164,10 @@ The initialization code is different depending on the platform. For ASP.NET Core
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core Web Apps (and Web APIs), the code doing the application initialization is located in the `Startup.cs` file, and, to add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
+In ASP.NET Core Web Apps (and Web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This checks that the user is authenticated. The code doing the application initialization is located in the `Startup.cs` file, and, to add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
   > [!NOTE]
-  > If you start your project with default ASP.NET core web project within Visual studio or using `dotnet new mvc` the method `AddAzureAD` is available by default because the related packages are automatically loaded. 
+  > If you start your project with default ASP.NET core web project within Visual studio or using `dotnet new mvc` the method `AddAzureAD` is available by default because the related packages are automatically loaded.
   > However if you build a project from scratch and are trying to use the below code we suggest you to add the NuGet Package **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** to your project to make the `AddAzureAD` method available.
   
 ```CSharp
@@ -223,31 +223,17 @@ The code related to authentication in ASP.NET Web app / Web APIs is located in t
 
 # [Java](#tab/java)
 
-The Java sample uses the Spring framework. The configuration is done in the `src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java` file in the following method:
+The Java sample uses the Spring framework. The application is protected because you implement a Filter, which gets each Http response. In the Java Web app quickstart, this is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. The filter process the OAuth 2.0 authorization code flow and therefore:
 
-```Java
-String getRedirectUrl(String claims, String scope, String registeredRedirectURL, String state, String nonce)
-            throws UnsupportedEncodingException {
+- verifies if the user is authenticated (`isAuthenticated()` method)
+- if the user is not authenticated, it computes the url of the Azure AD authorize endpoints, and redirects the browser to this URI
+- when the response arrives, containing the auth code flow it let's msal4j acquiring the token.
+- when it finally receives the token from the token endpoint (on the redirect Uri), the user is signed in.
 
-String urlEncodedScopes = scope == null ?
-          URLEncoder.encode("openid offline_access profile", "UTF-8") :
-          URLEncoder.encode("openid offline_access profile" + " " + scope, "UTF-8");
+For details see the `doFilter()` method in [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
 
-
-String redirectUrl = authority + "oauth2/v2.0/authorize?" +
-        "response_type=code&" +
-        "response_mode=form_post&" +
-        "redirect_uri=" +  URLEncoder.encode(registeredRedirectURL, "UTF-8") +
-        "&client_id=" + clientId +
-        "&scope=" + urlEncodedScopes +
-        (StringUtils.isEmpty(claims) ? "" : "&claims=" + claims) +
-        "&prompt=select_account" +
-        "&state=" + state
-        + "&nonce=" + nonce;
-
-        return redirectUrl;
-    }
-```
+> [!NOTE]
+> The code of the `doFilter()` is written in a slightly different order, but the flow is the one described.
 
 See [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) for details about the authorization code flow triggered by this method
 
