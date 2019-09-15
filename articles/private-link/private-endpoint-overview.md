@@ -12,7 +12,7 @@ ms.author: kumud
 ---
 # What is Azure Private Endpoint?
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own service.
+Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own [Private Link Service](private-link-service-overview.md).
   
 ## Private Endpoint properties 
  A Private Endpoint specifies the following properties: 
@@ -22,7 +22,7 @@ Azure Private Endpoint is a network interface that connects you privately and se
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
 |Subnet    |  The subnet to deploy and allocate private IP addresses from a virtual network. For subnet requirements, see the Limitations section in this article.         |
-|Private Link Resource    |   The private link resource to connect, from the list of available types. A unique network identifier will be generated for all traffic sent to this resource.       |
+|Private Link Resource    |   The private link resource to connect using resource ID or alias, from the list of available types. A unique network identifier will be generated for all traffic sent to this resource.       |
 |Target subresource   |      The subresource to connect. Each private link resource type has different options to select based on preference.    |
 |Connection approval method    |  Automatic or manual. Based on role-based access control (RBAC) permissions, your private endpoint can be approved automatically. If you try to connect to a private link resource without RBAC, use the manual method to allow the owner of the resource to approve the connection.        |
 |Request Message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
@@ -72,16 +72,9 @@ The private link resource owner can perform the following actions over a private
 > [!NOTE]
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
-## Connecting using Alias
+> [!NOTE]
+> When creating a private endpoint using the alias of a Private Link Service, connection approval method must be manual.
 
-Alias is a unique name provided by the Private Link Service provider. You can request a connection to private link service using either the resource URI or the Alias. The Alias only works when the Private Endpoint connections are requested using manual method. For selecting manual method, set manual request parameter to true during Private Endpoint create flow.  
-
-```azurepowershell
-New-AzPrivateEndpoint -Name <String> -ResourceGroupName <String> -Location <String> -Subnet <PSSubnet> -PrivateLinkServiceConnection <PSPrivateLinkServiceConnection[]> [-ByManualRequest]
-```
-```azurecli
-az network private-endpoint create --connection-name --name --private-connection-resource-id --resource-group --subnet [--location] [--subscription] [--vnet-name] [--manual-request {false, true}]
-```
 ## DNS configuration 
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve into the allocated private IP addresses. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
@@ -122,12 +115,15 @@ The following table includes a list of known limitations when using private endp
 
 |Limitation |Description |Mitigation  |
 |---------|---------|---------|
-|Restrict traffic to selected sources within my virtual network    |<br> Network security group (NSG) is not supported on private endpoints.</br><br>Subnets must have network policies enforcement disabled to deploy private endpoints with NSG disabled.</br>       | Control the traffic by using security rules for outbound traffic on source clients.         |
+|Restrict access to private endpoints using NSG    |<br> Network security group (NSG) is not supported on private endpoints.</br><br>Subnets must have network policies enforcement disabled to deploy private endpoints with NSG disabled.</br> <br>NSG is still enforced on any other workload hosted on the same subnet.</br>      | Control the traffic by using security rules for outbound traffic on source clients.         |
 |Deploy private endpoints on subnets with service endpoints or specialized workloads     |  Private Endpoints cannot be deployed on subnets with service endpoints enabled or subnets delegated to specialized workloads        |  Create a separate subnet to deploy the private endpoints.        |
 |Create a private endpoint to a private link service (your own) from a different region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
 |  Portal support for creating private endpoint using Alias  |   Portal only allows creating private endpoints using resource URI      | Use resource URI for requesting private endpoint connections        |
 
 ## Next steps
-- [Create a private endpoint using the Azure portal](create-private-endpoint-portal.md)
- 
+- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
+- [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
