@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the visual interface'
-titleSuffix: Azure Machine Learning service
-description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
+titleSuffix: Azure Machine Learning
+description: Learn how to build a predictive analytics solution in Azure Machine Learning's visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
 ms.author: peterlu
@@ -101,7 +101,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
 ## Manage models and deployments
 
-The models and web service deployments you create in the visual interface can also be managed from the Azure Machine Learning service workspace.
+The models and web service deployments you create in the visual interface can also be managed from the Azure Machine Learning workspace.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
@@ -114,6 +114,8 @@ The models and web service deployments you create in the visual interface can al
 1. Select **Deployments**, it will list any web services that use the model. Select the web service name, it will go to web service detail page. In this page, you can get more detailed information of the web service.
 
     [![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
+
+You can also find these models and deployments in the **Models** and **Endpoints** sections of your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Clean up resources
 
