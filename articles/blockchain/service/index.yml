@@ -39,6 +39,8 @@ landingContent:
             url: create-member-cli.md
       - linkListType: quickstart
         links:
+          - text: Use Visual Studio Code to connect to a consortium network
+            url: connect-vscode.md
           - text: Use MetaMask to connect and Remix to deploy a smart contract
             url: connect-metamask.md
           - text: Use Geth to connect to a transaction node
@@ -47,7 +49,7 @@ landingContent:
             url: connect-truffle.md
       - linkListType: tutorial
         links:
-          - text: Use smart contracts on Azure Blockchain Service
+          - text: Use Visual Studio Code to create, build, and deploy smart contracts
             url: send-transaction.md
       - linkListType: video
         links:

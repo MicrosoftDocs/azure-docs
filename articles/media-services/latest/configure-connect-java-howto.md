@@ -38,6 +38,9 @@ Also review:
 - [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java)
 - [Java Project Management in VS Code](https://code.visualstudio.com/docs/java/java-project)
 
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
+
 ## Create a Maven project
 
 Open a command-line tool and `cd` to a directory where  you want to create the project.

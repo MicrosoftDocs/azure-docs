@@ -21,6 +21,18 @@ open **Policy** in the Azure portal and select the **Definitions** page. Then, f
 Audit UK OFFICIAL and UK NHS controls and deploy specific VM Extensions to support audit
 requirements** built-in policy initiative.
 
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+
 ## 1 Data in transit protection
 
 The blueprint helps you ensure information transfer with Azure services is secure by assigning [Azure Policy](../../../policy/overview.md)
@@ -166,7 +178,7 @@ multi-factor authentication enabled.
 
 Systems used for administration of a cloud service will have highly privileged access to that
 service. Their compromise would have significant impact, including the means to bypass security
-controls and steal or manipulate large volumes of data. The methods used by the service provider’s
+controls and steal or manipulate large volumes of data. The methods used by the service provider's
 administrators to manage the operational service should be designed to mitigate any risk of
 exploitation that could undermine the security of the service. If this principle isn't implemented,
 an attacker may have the means to bypass security controls and steal or manipulate large volumes of

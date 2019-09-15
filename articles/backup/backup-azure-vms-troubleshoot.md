@@ -20,7 +20,7 @@ This section covers backup operation failure of Azure Virtual machine.
 
 ### Basic troubleshooting
 
-* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verify that another backup service is not running.
    * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
@@ -29,10 +29,10 @@ This section covers backup operation failure of Azure Virtual machine.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
    * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
-    * If Azure Backup is working, then the issue is likely with another backup solution. 
+    * If Azure Backup is working, then the issue is likely with another backup solution.
     * Here is an example of an event viewer error where Azure backup was working fine but "Windows Server Backup" was failing:<br>
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article. 
+    * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
 
 ## Common issues
 
@@ -188,7 +188,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 | **Error code**: VmNotInDesirableState <br/> **Error message**:  The VM isn't in a state that allows backups. |<ul><li>If the VM is in a transient state between **Running** and **Shut down**, wait for the state to change. Then trigger the backup job. <li> If the VM is a Linux VM and uses the Security-Enhanced Linux kernel module, exclude the Azure Linux Agent path **/var/lib/waagent** from the security policy and make sure the Backup extension is installed.  |
 | The VM Agent isn't present on the virtual machine: <br>Install any prerequisite and the VM Agent. Then restart the operation. |Read more about [VM Agent installation and how to validate VM Agent installation](#vm-agent). |
 | **Error code**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Error message**: The snapshot operation failed because of failure to create a secure network communication channel. | <ol><li> Open the Registry Editor by running **regedit.exe** in an elevated mode. <li> Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| **Error code**: ExtensionVCRedistInstallationFailure <br/> **Error message**: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
+| **Error code**: ExtensionVCRedistInstallationFailure <br/> **Error message**: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
 
 
 ## Jobs

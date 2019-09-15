@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka - Azure HDInsight'
+title: 'Tutorial: Apache Storm to read, write with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -376,7 +376,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 
 The following diagram shows how communication flows between Storm and Kafka:
 
-![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
+![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
 
 > [!NOTE]  
 > Other services on the cluster such as SSH and [Apache Ambari](https://ambari.apache.org/) can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -385,7 +385,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
    
     The Azure Resource Manager template is located at **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. It creates the following resources:
     
@@ -467,9 +467,9 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
     The value returned is similar to the following text:
 
-        ```output
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        ```
+    ```output
+    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+     ```
 
     > [!IMPORTANT]  
     > While there may be more than two broker hosts for your cluster, you do not need to provide a full list of all hosts to clients. One or two is enough.
