@@ -16,6 +16,8 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+<br>For region availability see [Private Link availability](#Availability) for details.
+<br>For complete details see [limitations for connecting to an azure service using Private Endpoint](private-endpoint-overview.md#limitations) and [limitations for creating your own Private Link Service](private-link-service-overview.md#limitations).
 >
 
 ![Private endpoint overview](media/private-link-overview/private-endpoint.png)
