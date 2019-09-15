@@ -1,5 +1,5 @@
 ---
-title: Advanced multistage attack detection in Sentinel
+title: Advanced multistage attack detection in Azure Sentinel
 description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
 services: sentinel
 documentationcenter: na
