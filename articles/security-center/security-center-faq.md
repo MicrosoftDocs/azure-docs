@@ -49,7 +49,7 @@ Security Center assesses the configuration of your resources to identify securit
 See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection, agents, and workspaces
-Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets (VMSS), IaaS containers, and non-Azure computers (including on-premises) to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
+Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises) to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
 ### Am I billed for Azure Monitor logs on the workspaces created by Security Center?
 No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, do not incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
@@ -129,8 +129,8 @@ For existing machines on subscriptions onboarded to Security Center before 2019-
 
  For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#scomomsinstalled)
 
-### What happens if a System Center Operations Manager (SCOM) agent is already installed on my VM?<a name="scomomsinstalled"></a>
-Security center will install the Microsoft Monitoring Agent extension side-by-side to the existing System Center Operations Manager agent. The existing SCOM agent will continue to report to the System Center Operations Manager server normally. Please note that the System Center Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the latest version during this process. Note - If System Center Operations Manager agent version 2012 is installed, do not turn automatic provisioning On (manageability capabilities can be lost when the System Center Operations Manager server is also version 2012).
+### What happens if a System Center Operations Manager agent is already installed on my VM?<a name="scomomsinstalled"></a>
+Security center will install the Microsoft Monitoring Agent extension side by side to the existing System Center Operations Manager agent. The existing agent will continue to report to the System Center Operations Manager server normally. Please note that the Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the latest version during this process. Note - If version 2012 of the Operations Manager agent is installed, do not turn automatic provisioning On (manageability capabilities can be lost when the Operations Manager server is also version 2012).
 
 ### What is the impact of removing these extensions?
 If you remove the Microsoft Monitoring Extension, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Security Center determines that the VM is missing the extension and reinstalls the extension.
@@ -154,8 +154,8 @@ You can turn off automatic provisioning for your subscriptions in the security p
 
 You may want to opt out of automatic provisioning if the following applies to you:
 
-- Automatic agent installation by Security Center applies to the entire subscription.  You cannot apply automatic installation to a subset of VMs. If there are critical VMs that cannot be installed with the Microsoft Monitoring Agent, then you should opt out of automatic provisioning.
-- Installation of the Microsoft Monitoring Agent (MMA) extension updates the agent’s version. This applies to a direct agent and a SCOM agent (in the latter, the SCOM and MMA share common runtime libraries - which will be updated in the process). If the installed SCOM agent is version 2012 and is upgraded, manageability capabilities can be lost when the SCOM server is also version 2012. Consider opting out of automatic provisioning if the installed SCOM agent is version 2012.
+- Automatic agent installation by Security Center applies to the entire subscription. You cannot apply automatic installation to a subset of VMs. If there are critical VMs that cannot be installed with the Microsoft Monitoring Agent, then you should opt out of automatic provisioning.
+- Installation of the Microsoft Monitoring Agent (MMA) extension updates the agent’s version. This applies to a direct agent and a System Center Operations Manager agent (in the latter, the Operations Manager and MMA share common runtime libraries - which will be updated in the process). If the installed Operations Manager agent is version 2012 and is upgraded, manageability capabilities can be lost when the Operations Manager server is also version 2012. Consider opting out of automatic provisioning if the installed Operations Manager agent is version 2012.
 - If you have a custom workspace external to the subscription (a centralized workspace) then you should opt out of automatic provisioning. You can manually install the Microsoft Monitoring Agent extension and connect it your workspace without Security Center overriding the connection.
 - If you want to avoid creation of multiple workspaces per subscription and you have your own custom workspace within the subscription, then you have two options:
 
@@ -292,7 +292,7 @@ Security Center is an Azure service that continuously monitors the customer’s 
 Azure Security Center monitors the following Azure resources:
 
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-* Virtual machine scale sets (VMSSs)
+* Virtual machine scale sets
 * Azure Virtual Networks
 * Azure SQL service
 * Azure Storage account
