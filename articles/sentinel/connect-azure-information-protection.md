@@ -34,7 +34,7 @@ However, if logging information from Azure Information Protection is going to a 
 
 - Change the workspace for Azure Information Protection, which you can do by configuring this data connector.
     
-    If you change the workspace, new reporting data for Azure Information Protection will now be stored in the workspace you're using for Azure Sentinel, and historical data isn't available to Azure Sentinel. In addition, if the previous workspace is configured for custome queries, alerts, or REST APIs, these must be reconfigured for the Azure Sentinel workspace if you want to carry on using them for Azure Inforamtion Protection. No reconfiguration is needed for clients and services that use Azure Information Protection.
+    If you change the workspace, new reporting data for Azure Information Protection will now be stored in the workspace you're using for Azure Sentinel, and historical data isn't available to Azure Sentinel. In addition, if the previous workspace is configured for custom queries, alerts, or REST APIs, these must be reconfigured for the Azure Sentinel workspace if you want to carry on using them for Azure Information Protection. No reconfiguration is needed for clients and services that use Azure Information Protection.
 
 ## Prerequisites
 
