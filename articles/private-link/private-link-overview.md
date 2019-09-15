@@ -12,7 +12,7 @@ ms.author: kumud
 
 ---
 # What is Azure Private Link? (Preview)
-Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [Private Endpoint](private-endpoint-overview.md) in your virtual network. You can also create your own [Private Link Service](private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [Private Endpoint](private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone privately, eliminating exposure from the public Internet. You can also create your own [Private Link Service](private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -22,11 +22,11 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
-- **Privately access services on the Azure platform**: With Azure Private Link, you can connect your virtual networks to services delivered on the Azure platform in a secure and scalable manner. Service providers can render their services privately in consumer’s virtual networks and service consumers can consume services privately in their virtual networks on the Azure platform. 
+- **Privately access services on the Azure platform**: With Azure Private Link, you can connect privately from your virtual networks to services delivered on the Azure platform in a secure and scalable manner. 
  
 - **Works with on-premises and peered networks**: With Azure Private Link, customers can access private endpoints over private peering/VPN tunnels (from on-premises) and peered virtual networks. Traffic from the private endpoint to the service are route-optimized and are carried over the Microsoft backbone. There is no need to set up public peering or traverse the internet to reach the service. This ability provides flexibility for customers to migrate their workloads to the cloud.  
  
-- **Data Exfil protection**: With Azure Private Link, you get implicit Data Exfil protection when connecting to Azure PaaS. Individual Azure PaaS resources are mapped to the private endpoints instead of the Azure service. Therefore, a malicious insider can access only the mapped account and no other account thus eliminating the data exfil threat. 
+- **Data Exfiltration protection**: With Azure Private Link, you get implicit Data Exfiltration protection when connecting to Azure PaaS. A Private Endpoint mappes to an individual Azure PaaS resource without any shared access. Providing granular controls to prevenet a malicious insider from accessing other accounts thus eliminating the data exfiltration threat. 
  
 - **Meet compliance needs**: With Azure Private Link, customer information is shared with services on the Azure platform over a secured Microsoft backbone and doesn’t traverse the internet. This helps to prevent information from being compromised and maintains compliance with regulation authorities such as HIPAA or PCI.
  
