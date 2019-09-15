@@ -79,7 +79,7 @@ To remove the agent:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## Next steps
-In this quick start, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)

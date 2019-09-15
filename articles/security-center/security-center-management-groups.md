@@ -49,7 +49,7 @@ You can organize subscriptions into management groups and apply your governance 
 5.  Select **Save**
 
 ### View management groups in the Azure portal
-1. SIgn in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. To view management groups, select **All services** under the Azure main menu.
 3. Under **General**, select **Management Groups**.
 

@@ -19,7 +19,7 @@ ms.author: memildin
  
 A SQL information protection policy can be defined and customized for your entire Azure tenant, in Azure Security Center.
 
-Information protection is an advanced security capability for discovering, classifying, labeling and protecting sensitive data in your Azure data resources. Discovering and classifying your most sensitive data (business, financial, healthcare, PII, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
+Information protection is an advanced security capability for discovering, classifying, labeling and protecting sensitive data in your Azure data resources. Discovering and classifying your most sensitive data (business, financial, healthcare, personally identifiable information, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
 - Helping meet data privacy standards and regulatory compliance requirements
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data
 - Controlling access to and hardening the security of data stores containing highly sensitive data
