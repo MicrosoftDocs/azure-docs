@@ -14,9 +14,9 @@ ms.date: 09/15/2019
 
 # Use Azure Data Factory command activity to run Azure Data Explorer control commands
 
-[Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to perform a combination of activities on the data. ADF allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. The **Azure Data Explorer Command** activity in Azure Data Factory allows you to run [Azure Data Explorer control commands](/azure/kusto/concepts/#control-commands)within an ADF workflow.  
+[Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to perform a combination of activities on the data. ADF allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. The **Azure Data Explorer Command** activity in Azure Data Factory allows you to run [Azure Data Explorer control commands](/azure/kusto/concepts/#control-commands) within an ADF workflow.  
 
-This article teaches you how to create....
+This article teaches you how to create a pipeline with a lookup activity and ForEach containing an Azure Data Explorer command activity.
 
 ## Prerequisites
 
@@ -130,22 +130,18 @@ Your dataset is now ready, and you can continue editing your pipeline.
 
     ```kusto
     .export
-      async compressed
-      into csv h"http://<storageName>.blob.core.windows.net/data/ClusterQueries;<storageKey>" with (
-        sizeLimit=100000,
-        namePrefix=export
-      )
-      <| ClusterQueries | where Database == "@{item().Database}"
+    async compressed
+    into csv h"http://<storageName>.blob.core.windows.net/data/ClusterQueries;<storageKey>" with (
+    sizeLimit=100000,
+    namePrefix=export
+    )
+    <| ClusterQueries | where Database == "@{item().Database}"
     ```
 
-    The command instructs Azure Data Explorer to export the results of a given query into a blob storage, in a compressed format. It runs asynchronously (using the async modifier).
-    The query addresses the database column of each row in the Lookup activity result.
-    screen capture of command    
+    The **Command** instructs Azure Data Explorer to export the results of a given query into a blob storage, in a compressed format. It runs asynchronously (using the async modifier).
+    The query addresses the database column of each row in the Lookup activity result.  The **Command timeout** can be left unchanged.
 
-    screen capture
-    
-    The Command timeout can be left unchanged.
-
+   ![command activity](media/data-factory-command-activity/command.png)    
     > [!NOTE]
     > The command activity has the following limits:
     > * Size limit: 1 MB response size
@@ -154,9 +150,7 @@ Your dataset is now ready, and you can continue editing your pipeline.
 
 1.	Now the pipeline is ready. You can go back to the main pipeline view by clicking the pipeline name.
 
-\\to do: new img with pipeline name - see email from Tomer.
-
-   ![adx command pipeline](media/data-factory-command-activity/adx-command-pipeline.png)
+   ![adx command pipeline](media/data-factory-command-activity/adx-command-pipeline1.png)
 
 1. You can **Publish All** and then **Add trigger** to run the pipeline. Select **Debug** before publishing the pipeline. The pipeline progress can be monitored in **Output** tab.
 
