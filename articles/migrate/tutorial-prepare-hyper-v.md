@@ -108,7 +108,7 @@ You can configure these settings manually using the procedures below. Alternativ
 
 The script validates Hyper-V hosts and configures the settings you need to discover and assess Hyper-V VMs. Here's what it does:
 
-- Checks that you're running on the script on a supported PowerShell version.
+- Checks that you're running the script on a supported PowerShell version.
 - Verifies that you (the user running the script) have administrative privileges on the Hyper-V host.
 - Allows you to create a local user account (not administrator) that is used for the Azure Migrate service to communicate with the Hyper-V host. This user account is added to these groups on the host:
     - Remote Management Users
