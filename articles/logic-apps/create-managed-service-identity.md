@@ -200,41 +200,44 @@ To automate creating and deploying Azure resources such as logic apps, you can u
 }
 ```
 
-Based on the managed identity that you specify, when Azure creates your logic app, the `"identity"` property includes additional properties:
+Based on the managed identity that you specify, when Azure creates your logic app, the `"identity"` property includes additional properties.
 
-* If you specify the `"SystemAssigned"` identity, you get the `"principalId"` and `"tenantId"` properties: 
+If you specify the `"SystemAssigned"` identity, you get the `"principalId"` and `"tenantId"` properties:
 
-  ```json
-  {
-     "identity": {
-        "type": "SystemAssigned",
-        "principalId": "<principal-ID>",
-        "tenantId": "<Azure-AD-tenant-ID>"
-     }
-  }
-  ```
+```json
+"identity": {
+   "type": "SystemAssigned",
+   "principalId": "<principal-ID>",
+   "tenantId": "<Azure-AD-tenant-ID>"
+}
+```
 
-  | Property | Value | Description |
-  |----------|-------|-------------|
-  | **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant and sometimes appears as an "object ID" or `objectID` |
-  | **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
-  ||||
+| Property | Value | Description |
+|----------|-------|-------------|
+| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant and sometimes appears as an "object ID" or `objectID` |
+| **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
+||||
 
-* If you specify the `"UserAssigned"` identity, you get a `"userAssignedIdentities"` JSON object that includes the `"principalId"` and `"tenantId"` properties: 
+If you specify the `"UserAssigned"` identity, you get a `"userAssignedIdentities"` JSON object that includes the `"principalId"` and `"tenantId"` properties: 
 
-  ```json
-  {
-     "identity": {
-        "type": "UserAssigned",
-        "userAssignedIdentities": {
-           "/subscriptions/XXXXXXXXXXXXXXXXX/resourcegroups/fabrikam-managed-identities-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/Fabrikam-user-assigned-identity": {
-              "principalId": "6ab00c0b-8a8b-4a48-b1dc-a9568af7f8df",
-              "clientId": "e3a9dc82-abd5-4fef-8890-3e59093b87f8"
-           }
-        }
-     }
-  }
-   ```
+```json
+"identity": {
+   "type": "UserAssigned",
+   "userAssignedIdentities": {
+      "/subscriptions/XXXXXXXXXXXXXXXXX/resourcegroups/fabrikam-managed-identities-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/Fabrikam-user-assigned-identity": {
+         "principalId": "6ab00c0b-8a8b-4a48-b1dc-a9568af7f8df",
+         "clientId": "e3a9dc82-abd5-4fef-8890-3e59093b87f8"
+      }
+   }
+}
+```
+
+<!--- Double-check these property descriptions ---->
+| Property | Value | Description |
+|----------|-------|-------------|
+| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant |
+| **clientId** | <*cilent-ID*> | A Globally Unique Identifier (GUID) that represents the Azure resource in the Azure AD tenant |
+||||
 
 <a name="access-other-resources"></a>
 
