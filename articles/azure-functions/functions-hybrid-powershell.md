@@ -81,7 +81,7 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
 Hybrid connections are configured from the networking section of the function app:
 
-1. Select the **Platform features** tab of the function app, and then select **Networking**. 
+1. Select the **Platform features** tab in the function app, and then select **Networking**. 
    ![App Overview for platform networking](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
 1. Select **Configure your hybrid connections endpoints**.
    ![Networking](./media/functions-hybrid-powershell/select-network-feature.png)  
@@ -124,7 +124,7 @@ Restart-Service HybridConnectionManager
 
 ## Create an app setting for the password of an administrator account
 
-1. Select the **Platform** tab in the function application.
+1. Select the **Platform features** tab in the function app.
 1. Under **General Settings**, select **Configuration**.
 ![Select Platform configuration](./media/functions-hybrid-powershell/select-configuration.png)  
 1. Expand **New application setting** to create a new setting for the password.
