@@ -12,18 +12,7 @@ ms.date: 01/18/2019
 ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
-# What is Azure Key Vault?
-
-Cloud applications and services use cryptographic keys and secrets to help keep information secure. Azure Key Vault safeguards these keys and secrets. When you use Key Vault, you can encrypt authentication keys, storage account keys, data encryption keys, .pfx files, and passwords by using keys that are protected by hardware security modules (HSMs).
-
-Key Vault helps solve the following problems:
-
-- **Secret management**: Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets.
-- **Key management**: Create and control encryption keys that encrypt your data. 
-- **Certificate management**: Provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with Azure and your internal connected resources. 
-- **Store secrets backed by HSMs**: Use either software or FIPS 140-2 Level 2 validated HSMs to help protect secrets and keys.
-
-## Basic concepts
+# Azure Key Vault basic concepts
 
 Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A vault is logical group of secrets.
 
