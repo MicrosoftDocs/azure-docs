@@ -13,6 +13,7 @@
   items:
   - name: Detect suspicious threats
     href: tutorial-detect-threats.md
+    items:
     - name: Use built-in analytics
       href: tutorial-detect-threats-built-in.md
     - name: Use custom rules
