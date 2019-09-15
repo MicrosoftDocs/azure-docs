@@ -132,8 +132,12 @@
       href: using-metrics.md
   - name: Integrate with other tools
     items:
-    - name: Bulk copy data using Azure Data Factory template
-      href: data-factory-template.md   
+    - name: Azure Data Factory
+      items:
+      - name: Bulk copy data using Azure Data Factory template
+        href: data-factory-template.md 
+      - name: Run control commands using Azure Data Factory
+        href: data-factory-command-activity.md   
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python
