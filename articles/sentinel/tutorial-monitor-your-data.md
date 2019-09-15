@@ -47,7 +47,7 @@ This tutorial helps you monitor your data in Azure Sentinel.
 
 1. Select **View workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md).
 ![view workbooks](./media/tutorial-monitor-data/workbook-graph.png)
-1. After you make your changes, you can save the workbook making sure to save it under the same subscription and resource group. These workbook are displayed under the **My workbook** tab.
+1. After you make your changes, you can save the workbook making sure to save it under the same subscription and resource group. These workbooks are displayed under the **My workbook** tab.
 
 
 ## Create new workbook

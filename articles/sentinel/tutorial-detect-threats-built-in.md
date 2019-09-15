@@ -34,7 +34,6 @@ This tutorial helps you detect threats with Azure Sentinel.
 To enable out-of-the-box detections, go to **Rule templates**. 
 
 This is a list of the template types available:
-[add table with list of types and considerations]
 |Template type|Considerations|
 |----|----|
 |UEBA| For User and entity behavioral analytics templates, you can create multiple analytic detections based on each template. These templates are based on proprietary, Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run.| 

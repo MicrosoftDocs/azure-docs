@@ -62,11 +62,11 @@ The investigation graph enables analysts to ask the right questions for each inv
 - Discover full investigation scope: Expand your investigation scope using built-in exploration queries to surface the full scope of breach.
 - Automatic investigation insights: Insights based on previously known activities provide additional context.​
 
-To use the invesigation graph:
+To use the investigation graph:
 1. Select an incident, then select **Investigate**. You'll only be able to investigate if you used the entity mapping fields when you set up your analytic rule so that Azure Sentinel can enable you to drill down into the logical entities involved in an incident.
 1. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 1. Select each entity to open the **Entities** pane so you can review each entity. 
-1. Expand your investigation by hovering over each entity to reveal a list of questions that was designed by our security experts and analysts per entity type to deepen your investigation. For example, on a computer you can request related alerts. The related alerts are added to the graph. For each entity, you can select the option to open the results in Log analytics to see the raw data for the incidents. The graph provides you with a list of connections that you might not have known about, enabling you to reach full scope of the breach. It also gives you a timeline parallel to the graph. You can hover over the timeline to see which things on the graph occured at what point in time.
+1. Expand your investigation by hovering over each entity to reveal a list of questions that was designed by our security experts and analysts per entity type to deepen your investigation. For example, on a computer you can request related alerts. The related alerts are added to the graph. For each entity, you can select the option to open the results in Log analytics to see the raw data for the incidents. The graph provides you with a list of connections that you might not have known about, enabling you to reach full scope of the breach. It also gives you a timeline parallel to the graph. You can hover over the timeline to see which things on the graph occurred at what point in time.
 
 
 ## Respond to threats

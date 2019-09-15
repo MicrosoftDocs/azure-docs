@@ -86,6 +86,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
 ## Map data types with Azure Sentinel connection options
 
+
 | **Data type** | **How to connect** | **Data connector?** | **Comments** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Connect AWS](connect-aws.md) | V | |
@@ -119,6 +120,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
 | McasShadowItReporting  |  | X | |
 | Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | V | |
+
 
 ## Next steps
 

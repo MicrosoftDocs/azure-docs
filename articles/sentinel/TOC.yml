@@ -12,7 +12,7 @@
 - name: Tutorials
   items:
   - name: Detect suspicious threats
-    items:
+    href: tutorial-detect-threats.md
     - name: Use built-in analytics
       href: tutorial-detect-threats-built-in.md
     - name: Use custom rules
@@ -95,7 +95,7 @@
       href: notebooks.md
     - name: Use bookmarks to hunt
       href: bookmarks.md
-  - name: Resources
+- name: Resources
   items:
   - name: Useful resources
     href: resources.md
