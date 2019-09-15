@@ -29,7 +29,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD entitlement management enables you collaborate with people outside your organization. If you create an access package with a [policy](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory) that allows users who are in another Azure AD directory to request access, a guest user account will be created in your directory when the request is approved.
+Azure AD entitlement management enables you to collaborate with people outside your organization. If you create an access package with a [policy](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory) that allows users who are in another Azure AD directory to request access, a guest user account will be created in your directory when the request is approved.
 
 This article describes the settings you can specify to manage access for external users.
 
@@ -37,11 +37,13 @@ This article describes the settings you can specify to manage access for externa
 
 The following diagram shows an overview of how access to access packages works for external users.
 
-![Diagram showing the lifecyle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
+![Diagram showing the lifecycle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
-1. An access package is created in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory).
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory).
 
-1. An external user (**Requestor A** in this example) uses the My Access portal to [request access](entitlement-management-request-access.md) to the access package.
+1. You send the external user a [My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link) that they can use to request the access package.
+
+1. The external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package.
 
 1. An approver [approves the request](entitlement-management-request-approve.md) (or the request is auto-approved).
 
@@ -57,9 +59,9 @@ The following diagram shows an overview of how access to access packages works f
 
 1. Depending on the policy settings, the external user eventually loses their access to the access package.
 
-1. Depending on the lifecycle of external users settings, the external user is blocked from signing in and the guest user account is removed.
+1. Depending on the lifecycle of external users settings, the external user is blocked from signing in and the guest user account is removed from your directory.
 
-## Manage the lifecyle of external users
+## Manage the lifecycle of external users
 
 You can select what happens when an external user, who was added to your directory through an access package request, loses their last assignment to any access package.
 
@@ -71,7 +73,7 @@ You can select what happens when an external user, who was added to your directo
 
 1. Click **Edit**.
 
-    ![Settings to manage the lifecyle of external users](./media/entitlement-management-shared/settings-external-users.png)
+    ![Settings to manage the lifecycle of external users](./media/entitlement-management-shared/settings-external-users.png)
 
 1. In the **Manage the lifecycle of external users** section, select the different settings for external users.
 
