@@ -56,7 +56,7 @@ The configuration file defines:
 - the authority or the cloud instance and tenantId
 - the ClientID that you got from the application registration
 - either a client secret, or a certificate
-
+ 
 # [.NET](#tab/dotnet)
 
 [appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sample.
@@ -71,8 +71,7 @@ The configuration file defines:
 }
 ```
 
-> ![NOTE]
-> Either you provide a clientSecret or a certificateName. Both settings are exclusive.
+Either you provide a clientSecret or a certificateName. Both settings are exclusive.
 
 # [Python](#tab/python)
 
@@ -116,8 +115,7 @@ public class TestData {
 }
 ```
 
-> ![NOTE]
-> Either you provide a CONFIDENTIAL_CLIENT_ID or a CONFIDENTIAL_CLIENT_SECRET. Both settings are exclusive.
+Either you provide a CONFIDENTIAL_CLIENT_ID or a CONFIDENTIAL_CLIENT_SECRET. Both settings are exclusive.
 
 ---
 
@@ -135,15 +133,11 @@ The daemon application will be presented by an `IConfidentialClientApplication`
 # [.NET](#tab/dotnet)
 
 Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application.
-
+In MSAL.NET, the confidential client application is represented by the `IConfidentialClientApplication` interface.
 Use MSAL.NET namespace in the source code
 
 ```CSharp
 using Microsoft.Identity.Client;
-```
-In MSAL.NET, the confidential client application is represented by the `IConfidentialClientApplication` interface.
-
-```CSharp
 IConfidentialClientApplication app;
 ```
 
@@ -274,8 +268,8 @@ Instead of a client secret or a certificate, the confidential client application
 
 MSAL.NET has two methods to provide signed assertions to the confidential client app:
 
-- .WithClientAssertion()
-- .WithClientClaims()
+- `.WithClientAssertion()`
+- `.WithClientClaims()`
 
 When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
 
@@ -297,6 +291,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithAuthority(new Uri(config.Authority))
                                           .WithClientClaims(certificate, claims)
                                           .Build();```
+```
 
 Again, for details, see [Client assertions](msal-net-client-assertions.md).
 
