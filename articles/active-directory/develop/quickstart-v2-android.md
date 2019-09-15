@@ -31,11 +31,88 @@ This quickstart uses a code sample to demonstrate how an Android application can
 > * Android Studio 
 > * Android 16+ is required 
 
-## Download and run the app
+## Step 1: Download the sample app
 
-1. [Download and extract the Code Sample](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
-1. In Android Studio, open the project from the location you downloaded it, for examples, c:\users\<you>\downloads\azuresamples
-1. Select your emulator or device from Android Studio's **available devices** dropdown, and click the Run button.
+1. [Download and extract the code sample](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+
+## Step 2: Register your application
+
+To register an application object and add that application object's registration information to the sample project manually, follow these steps:
+
+1. Go to the [Azure portal](https://aka.ms/MobileAppReg).
+1. Open the [App registrations blade](https://portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and click **+New registration**.
+1. Enter a **Name** for your app and then, without setting a Redirect URI, click **Register**.
+1. In the **Manage** section, select **Authentication** > **+ Add a platform** > **Android**. (You may have to select **Try out the new experience** near the top of the blade to see the Platform configurations section)
+1. Enter your project's Package Name, which is `com.azuresamples.msalandroidapp`.
+1. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash.** and copy the KeyTool command to use for the platform you are using to develop your Android app.
+
+   > [!Note]
+   > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command.  You'll need keytool, and the OpenSSL\bin directory, in your path.
+
+1. Run the keytool command you copied from the portal in a terminal window.
+1. Enter the generated signature hash into the Portal under **Signature hash**.
+1. Click `Configure` and make a copy of the **MSAL Configuration** so you can enter these values when you configure your app in Android Studio.  Click **Done**.
+
+## Step 3: Add your app registration
+
+1. Open the sample project in Android Studio.
+1. Inside **app** > **res** > **raw**, open **auth_config_multiple_account.json**, add the client id and redirect_uri from the portal.  The configuration file indicates where:
+
+```json
+{
+  "client_id" : "<your_client_id_here>",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "broker_redirect_uri_registered": true,
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "common"
+      }
+    }
+  ]
+}
+```
+
+1. Inside **app** > **res** > **raw**, open **auth_config_single_account.json**, add the client id and redirect_uri from the portal as you did above.
+1. In **app** > **manifests** > **AndroidManifest.xml**, find the `BrowserTabActivity` activity. This entry allows Microsoft to call back to your application after it completes the authentication:
+
+```xml
+...
+<activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!--
+                    Add in your scheme/host from registered redirect URI
+                    note that the leading "/" is required for android:path
+                    For Example:
+                    <data
+                        android:host="com.azuresamples.msalandroidapp"
+                        android:path="/1wIqXSqBj7w+h11ZifsnqwgyKrY="
+                        android:scheme="msauth" />
+                -->
+
+                <data
+                    android:host="YOUR_PACKAGE_NAME - must be registered at https://aka.ms/MobileAppReg"
+                    android:path="/YOUR_DECODED_SIGNATURE_HASH - must be registered at https://aka.ms/MobileAppReg"
+                    android:scheme="msauth" />
+            </intent-filter>
+        </activity>
+```
+
+1. Substitute the package name, for example `com.azuresamples.msalandroidapp`, that you registered in the Azure portal for the `android:host=` value.
+1. Substitute the key hash you got by running keytool earlier, and entered in the Azure portal, for the `android:path=` value. The Signature Hash should not be URL encoded.
+
+## Step 4: Run the sample app
+
+1. Select your emulator or device from Android Studio's **available devices** dropdown and run the app.
 
 The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 

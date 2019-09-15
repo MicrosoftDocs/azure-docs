@@ -222,7 +222,11 @@
     - name: Microsoft Authentication Library (MSAL)
       items:
         - name: Overview
-          href: msal-overview.md
+          href: msal-overview.
+        - name: Accounts & Tenant Profiles
+          href: accounts-overview.md
+        - name: Brokered authentication & authorization
+          href: brokered-auth.md
         - name: Migration
           items:
           - name: Migrate to MSAL.NET
