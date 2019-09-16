@@ -38,9 +38,9 @@ To allow applications from Azure to connect to your Azure Database for PostgreSQ
 ![Configure Allow access to Azure services in the portal](media/concepts-hyperscale-firewall-rules/2-allow-azure-services.png)
 
 ## Troubleshooting the database server firewall
-Consider the following points when access to the Microsoft Azure Database for PostgreSQL Server service does not behave as you expect:
+Consider the following points when access to the Microsoft Azure Database for PostgreSQL - Hyperscale (Citus) service does not behave as you expect:
 
-* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for PostgreSQL Server firewall configuration to take effect.
+* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Hyperscale (Citus) firewall configuration to take effect.
 
 * **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the Azure Database for PostgreSQL server or the password used is incorrect, the connection to the Azure Database for PostgreSQL server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must still provide the necessary security credentials.
 
@@ -49,7 +49,7 @@ For example, using a JDBC client, the following error may appear.
 
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you could try one of the following solutions:
 
-* Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for PostgreSQL Server, and then add the IP address range as a firewall rule.
+* Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Hyperscale (Citus) coordinator node, and then add the IP address range as a firewall rule.
 
 * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
 

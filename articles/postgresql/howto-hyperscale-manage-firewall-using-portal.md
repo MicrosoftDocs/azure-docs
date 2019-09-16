@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 9/12/2019
 ---
 # Create and manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus) using the Azure portal
-Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses.
+Server-level firewall rules can be used to manage access to a Hyperscale (Citus) coordinator node from a specified IP address or range of IP addresses.
 
 ## Prerequisites
 To step through this how-to guide, you need:
