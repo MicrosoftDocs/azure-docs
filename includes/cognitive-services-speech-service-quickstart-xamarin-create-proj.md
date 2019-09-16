@@ -24,9 +24,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
 1. Close Visual Studio Installer.
 
-### Create the project and select the target architecture
-
-Next, create your project:
+### Create the project
 
 1. In the Visual Studio menu bar, choose **File** > **New** > **Project** to display the **Create a new project** window.
 
@@ -71,6 +69,7 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 1. In the **Search** box, enter `Microsoft.CognitiveServices.Speech`, and then choose that package after it appears in the search results.
 
    ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
+   > Note: iOS library inside Microsoft.CognitiveServices.Speech nuget do not have bitcode enabled. In case you need bitcode enabled library for your application, please use Microsoft.CognitiveServices.Speech.Xamarin.iOS nuget for the iOS project specifically.
 
 1. In the package status pane next to the search results, select all projects. **helloworld**, **helloworld.Android**, **helloworld.iOS** and **helloworld.UWP**.
 
@@ -78,6 +77,6 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
 1. In the **Preview Changes** dialog box, select **OK**.
 
-1. In the **License Acceptance** dialog box, view the license, and then select **I Accept** and install speech SDK package reference to all projects. After installation is completed, you may see following warning for helloworld.iOS. This is known issue and should not impact to your app functionality.
+1. In the **License Acceptance** dialog box, view the license, and then select **I Accept** and install speech SDK package reference to all projects. After installation is completed successfully, you may see following warning for helloworld.iOS. This is known issue and should not impact to your app functionality.
 
-> Could not resolve reference "C:\Users\Default\.nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\\libMicrosoft.CognitiveServices.Speech.core.a". If this reference is required by your code, you may get compilation errors.
+> Could not resolve reference "C:\Users\Default\.nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.core.a". If this reference is required by your code, you may get compilation errors.
