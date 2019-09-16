@@ -64,7 +64,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: The Http methods that are supported are PUT, POST, GET, DELETE, OPTIONS, HEAD, and TRACE.
 
-### Error code:  3603
+### Error code:  3602
 
 - **Message**: Response content is not a valid JObject. 
 
@@ -72,7 +72,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`.
 
-### Error code:  3606
+### Error code:  3602
 
 - **Message**: Azure function activity missing function key. 
 
