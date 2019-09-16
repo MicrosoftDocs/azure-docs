@@ -99,9 +99,9 @@ We recommend that you set up and validate a full HADR solution and security desi
         1. Validate again the sizing of your application and the infrastructure you deploy on Azure. If you're moving existing applications, you can often derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article on SAPS ratings](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind.
         1. Evaluate and test the sizing of your Azure VMs with regard to maximum storage throughput and network throughput of the VM types you chose during the planning phase. You can find the data here:
            1.  [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
-           1.  [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It's important to consider the *max uncached disk throughput* for sizing.
+           1.  [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
    1. Storage.
-        1. At a minimum, use [Azure Standard SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) for VMs that represent SAP application layers and for DBMS deployment that isn't performance sensitive.
+        1. At a minimum, use [Azure Standard SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
         1. In general, we don't recommend the use of [Azure Standard HDD disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
         1. Use [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
         1. Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
@@ -135,7 +135,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         3. If you deploy into Azure Availability Zones, you can't use availability sets. But you do need to make sure you deploy the active and passive Central Services nodes into two different Availability Zones. Use Availability Zones that have the lowest latency between them.
             1.   Keep in mind that you need to use [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) for the use case of establishing Windows or Pacemaker failover clusters for the DBMS and SAP Central Services layer across Availability Zones. You can't use [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) for zonal deployments.
    1. Timeout settings.
-        1. Check the SAP NetWeaver developer traces of the SAP instances to make sure there are no connection breaks between enqueue server and the SAP work processes. You can avoid these connection breaks by setting these two registry parameters:
+        1. Check the SAP NetWeaver developer traces of the SAP instances to make sure there are no connection breaks between the enqueue server and the SAP work processes. You can avoid these connection breaks by setting these two registry parameters:
             1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. For more information, see [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).
             2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000. For more information, see [KeepAliveInterval](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)).
         2. To avoid GUI timeouts between on-premises SAP GUI interfaces and SAP application layers deployed in Azure, check whether these parameters are set in the default.pfl or the instance profile:
@@ -149,8 +149,8 @@ We recommend that you set up and validate a full HADR solution and security desi
 1. Test your high availability and disaster recovery procedures.
    1. Simulate failover situations by shutting down VMs (Windows guest operating systems) or putting operating systems in panic mode (Linux guest operating systems). This step will help you figure out whether your failover configurations work as designed.
    2. Measure how long it takes to execute a failover. If the times are too long, consider:
-           1. For SUSE Linux, use SBD devices instead of the Azure Fence agent to speed up failover.
-           2. For SAP HANA, if the reload of data takes too long, consider provisioning more storage bandwidth.
+        1. For SUSE Linux, use SBD devices instead of the Azure Fence agent to speed up failover.
+        2. For SAP HANA, if the reload of data takes too long, consider provisioning more storage bandwidth.
    3. Test your backup/restore sequence and timing and make corrections if you need to. Make sure that backup times are sufficient. You also need to test the restore and time restore activities. Make sure that restore times are within your RTO SLAs wherever your RTO relies on a database or VM restore process.
    4. Test cross-region DR functionality and architecture.
 1. Security checks.
