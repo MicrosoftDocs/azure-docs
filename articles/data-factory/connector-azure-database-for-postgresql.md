@@ -169,9 +169,6 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
     }
 ]
 ```
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ### Azure Database for PostgreSQL as sink
 
