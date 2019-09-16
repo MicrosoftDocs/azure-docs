@@ -86,8 +86,6 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Common query patterns
-            url: stream-analytics-stream-analytics-query-patterns.md
           - text: Introduction to windowing functions
             url: stream-analytics-window-functions.md
           - text: Introduction to geospatial functions
@@ -108,24 +106,6 @@ landingContent:
             url: stream-analytics-javascript-user-defined-functions.md
           - text: Run a C# user-defined function on a Stream Analytics Edge job
             url: stream-analytics-edge-csharp-udf.md
-  - title: Review temporal concepts
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Understand time handling in Stream Analytics
-            url: stream-analytics-time-handling.md
-          - text: Internal checkpoint and replay
-            url: stream-analytics-concepts-checkpoint-replay.md
-  - title: Machine learning with Stream Analytics
-    linkLists: 
-      - linkListType: how-to-guide
-        links:
-          - text: Use machine learning to detect anomalies
-            url: stream-analytics-machine-learning-anomaly-detection.md
-          - text: Perform sentiment analysis with Azure Machine Learning Studio
-            url: stream-analytics-machine-learning-integration-tutorial.md
-          - text: Scale jobs with Machine Learning Studio functions
-            url: stream-analytics-scale-with-machine-learning-functions.md
   - title: Monitor and troubleshoot your job
     linkLists: 
       - linkListType: how-to-guide
@@ -144,6 +124,26 @@ landingContent:
             url: stream-analytics-job-diagram-with-metrics.md
           - text: Troubleshoot data errors
             url: data-errors.md
+  - title: Review temporal concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common query patterns
+            url: stream-analytics-stream-analytics-query-patterns.md
+          - text: Understand time handling in Stream Analytics
+            url: stream-analytics-time-handling.md
+          - text: Internal checkpoint and replay
+            url: stream-analytics-concepts-checkpoint-replay.md
+  - title: Machine learning with Stream Analytics
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Use machine learning to detect anomalies
+            url: stream-analytics-machine-learning-anomaly-detection.md
+          - text: Perform sentiment analysis with Azure Machine Learning Studio
+            url: stream-analytics-machine-learning-integration-tutorial.md
+          - text: Scale jobs with Machine Learning Studio functions
+            url: stream-analytics-scale-with-machine-learning-functions.md
   - title: Try Stream Analytics tutorials and solutions 
     linkLists:
       - linkListType: tutorial
