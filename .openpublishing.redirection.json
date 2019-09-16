@@ -10941,6 +10941,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/guidance/azure-for-aws-professionals.md",
       "redirect_url": "/azure/architecture/aws-professional",
       "redirect_document_id": false

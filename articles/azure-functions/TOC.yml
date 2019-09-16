@@ -11,22 +11,16 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - Visual Studio Code
-    href: functions-create-first-function-vs-code.md
-  - name: Create function - Visual Studio
+  - name: Create function - C#
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
-  - name: Create function - Python
-    href: functions-create-first-function-python.md
+  - name: Create function - JavaScript
+    href: functions-create-first-function-vs-code.md
   - name: Create function - PowerShell
     href: functions-create-first-function-powershell.md
-  - name: Create function - Azure CLI
-    href: functions-create-first-azure-function-azure-cli.md
-  - name: Create function - portal
-    href: functions-create-first-azure-function.md
-  - name: Create function - Linux
-    href: functions-create-first-azure-function-azure-cli-linux.md
+  - name: Create function - Python
+    href: functions-create-first-function-python.md
   - name: Triggers
     items:
     - name: Azure Cosmos DB
@@ -77,10 +71,12 @@
     items:
     - name: C#
       href: /samples/browse/?products=azure-functions&languages=csharp
-    - name: JavaScript
-      href: /samples/browse/?products=azure-functions&languages=javascript
     - name: Java
       href: /samples/browse/?products=azure-functions&languages=java
+    - name: JavaScript
+      href: /samples/browse/?products=azure-functions&languages=javascript
+    - name: PowerShell
+      href: /samples/browse/?products=azure-functions&languages=azurepowershell  
     - name: Python
       href: /samples/browse/?products=azure-functions&languages=python
     - name: TypeScript
@@ -160,12 +156,26 @@
       href: functions-develop-vs.md
     - name: Core Tools development
       href: functions-run-local.md
-    - name: IntelliJ IDEA development
-      href: functions-create-maven-intellij.md
-    - name: Eclipse development
-      href: functions-create-maven-eclipse.md
-    - name: Create Linux function app  
-      href: create-function-app-linux-app-service-plan.md
+    - name: Create functions
+      items:  
+      - name: Azure portal
+        href: functions-create-first-azure-function.md
+      - name: Command line
+        href: functions-create-first-azure-function-azure-cli.md
+      - name: Visual Studio
+        href: create-visual-studio.md  
+      - name: Visual Studio Code
+        href: create-visual-studio-code.md  
+      - name: Java using Eclipse
+        href: functions-create-maven-eclipse.md
+      - name: Java using IntelliJ IDEA
+        href: functions-create-maven-intellij.md
+      - name: Linux App Service plan  
+        href: create-function-app-linux-app-service-plan.md
+      - name: Linux Consumption plan
+        href: functions-create-first-azure-function-azure-cli-linux.md
+      - name: Azure for Students Starter
+        href: functions-create-student-starter.md
     - name: Debug local PowerShell functions
       href: functions-debug-powershell-local.md
     - name: Dependency injection
@@ -178,8 +188,6 @@
       href: functions-manually-run-non-http.md
     - name: Debug Event Grid trigger locally
       href: functions-debug-event-grid-trigger-local.md
-    - name: Azure for Students Starter
-      href: functions-create-student-starter.md
   - name: Deploy
     items:
     - name: Continuous deployment
