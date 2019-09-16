@@ -182,7 +182,7 @@ The following code instantiates a public client application, signing-in users in
 
 Objective-C:
 
-```objective-c
+```objc
 NSError *msalError = nil;
     
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
@@ -201,7 +201,7 @@ You can elaborate the application building by adding a number of modifiers. For 
 
 Objective-C:
 
-```objective-c
+```objc
 MSALAADAuthority *aadAuthority =
                 [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
                                                    audienceType:MSALAzureADMultipleOrgsAudience
