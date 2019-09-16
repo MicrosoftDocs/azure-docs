@@ -12,7 +12,7 @@ ms.author: allensu
 
 There are various scenarios in which you'd want to move your existing NSGs from one region to another. For example, you may want to create an NSG with the same configuration and security rules for testing. You may also want to move an NSG to another region as part of disaster recovery planning.
 
-Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of an NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of an NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ Azure security groups can't be moved from one region to another. You can however
 
 - Verify that your Azure subscription allows you to create NSGs in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
 ## Prepare and move
@@ -56,7 +56,7 @@ The following steps show how to prepare the network security group for the confi
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **<resource-group-name>.json** and open it in an editor of your choice:
+4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -101,9 +101,9 @@ The following steps show how to prepare the network security group for the confi
     Get-AzLocation | format-table
     
     ```
-5.  You can also change other parameters in the **<resource-group-name>.json** if you choose, and are optional depending on your requirements:
+5.  You can also change other parameters in the **\<resource-group-name>.json** if you choose, and are optional depending on your requirements:
 
-    * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **<resource-group-name>.json** file:
+    * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **\<resource-group-name>.json** file:
     
     ```json
            "resources": [
@@ -138,7 +138,7 @@ The following steps show how to prepare the network security group for the confi
     
     ```
 
-    To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **<resource-group-name>.json** file in the format of the example below:
+    To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **\<resource-group-name>.json** file in the format of the example below:
 
     ```json
            {
@@ -165,15 +165,15 @@ The following steps show how to prepare the network security group for the confi
             }
     ```
 
-6.  Save the **<resource-group-name>.json** file.
+6.  Save the **\<resource-group-name>.json** file.
 
-11. Create a resource group in the target region for the target NSG to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+11. Create a resource group in the target region for the target NSG to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-12. Deploy the edited **<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+12. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
