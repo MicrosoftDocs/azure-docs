@@ -23,8 +23,6 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
-
 This quickstart contains a code sample that demonstrates how a native iOS or macOS application can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API.
 
 This quickstart is applicable to both iOS and macOS apps. Some steps are needed only for iOS apps. Those steps call out that they are only for iOS.
@@ -36,6 +34,7 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 > * XCode 10+
 > * iOS 10+ 
 > * macOS 10.12+
+
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
@@ -64,7 +63,6 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 >      - Enter the ***Bundle Identifier*** for your application. 
 >      - Note that the iOS configuration is also applicable to macOS applications.
 > 1. Select `Configure` and save the ***MSAL Configuration*** details for later.
-
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### Step 1: Configure your application
@@ -207,7 +205,9 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
 
  ```
 
-> [!NOTE] On iOS 13+, if you adopt `UISceneDelegate` instead of `UIApplicationDelegate`, place this code into the `scene:openURLContexts:` callback instead (See [Apple's documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback needs to be placed into both places.
+> [!NOTE]
+> On iOS 13+, if you adopt `UISceneDelegate` instead of `UIApplicationDelegate`, place this code into the `scene:openURLContexts:` callback instead (See [Apple's documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
+> If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback needs to be placed into both places.
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
