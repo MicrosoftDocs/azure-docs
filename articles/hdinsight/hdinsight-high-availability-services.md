@@ -40,4 +40,3 @@ It is expected that HDI HA services should only be running on active headnode an
 ### **Some known issues**
 1. When manually start an HA service on the standby headnode, it will not stop until next failover happens.
 2. When an HA service on the active headnode stops, it will not restart until next failover happens or the master-ha-service restarts.
-
