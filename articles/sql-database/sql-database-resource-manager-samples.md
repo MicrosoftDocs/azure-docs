@@ -17,7 +17,7 @@ ms.date: 02/04/2019
 
 Azure Resource Manager templates enable you to define your infrastructure as code and deploy your solutions to Azure cloud.
 
-## [Single database & elastic pool](#tabs/single-database)
+## [Single database & elastic pool](#tab/single-database)
 
 The following table includes links to Azure Resource Manager templates for Azure SQL Database.
 
@@ -36,7 +36,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [HDInsight cluster with a SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | This template allows you to create a HDInsight cluster, a SQL Database server, a SQL Database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | This template allows you to create a Logic App that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
 
-## [Managed Instance](#tabs/managed-instance)
+## [Managed Instance](#tab/managed-instance)
 
 The following table includes links to Azure Resource Manager templates for Azure SQL Database - Managed Instance.
 
