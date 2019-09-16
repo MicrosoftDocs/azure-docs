@@ -70,7 +70,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 Objective-C:
 
-```objective-c
+```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
                                 @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
     
