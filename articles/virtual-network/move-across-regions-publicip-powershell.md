@@ -114,7 +114,16 @@ The following steps show how to prepare the public IP for the configuration move
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
 
            ```json
-
+                "resources": [
+                {
+                    "type": "Microsoft.Network/publicIPAddresses",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+                    "location": "<target-region>",
+                    "sku": {
+                        "name": "Basic",
+                        "tier": "Regional"
+                    },
 
            ```
 
@@ -123,11 +132,28 @@ The following steps show how to prepare the public IP for the configuration move
     * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
             ```json
-                
+                "resources": [
+                {
+                    "type": "Microsoft.Network/publicIPAddresses",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('publicIPAddresses_myPubIP_name')]",
+                    "location": "<target-region>",
+                    "sku": {
+                        "name": "Basic",
+                        "tier": "Regional"
+                    },
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "resourceGuid": "7549a8f1-80c2-481a-a073-018f5b0b69be",
+                        "ipAddress": "52.177.6.204",
+                        "publicIPAddressVersion": "IPv4",
+                        "publicIPAllocationMethod": "Dynamic",
+                        "idleTimeoutInMinutes": 4,
+                        "ipTags": []
             
             ```
 
-    For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+           For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
 13. Save the **\<resource-group-name>.json** file.
