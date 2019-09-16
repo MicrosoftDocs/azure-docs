@@ -7,14 +7,15 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 03/22/2019
+ms.date: 08/22/2019
 ---
 # Azure SQL Database and SQL Data Warehouse data discovery & classification
 
-Data discovery & classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
+Data discovery & classification provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
+
 Discovering and classifying your most sensitive data (business, financial, healthcare, personally identifiable data (PII), and so on.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
 
 - Helping meet data privacy standards and regulatory compliance requirements.
@@ -70,7 +71,7 @@ Once the tenant-wide policy has been defined, you can continue with the classifi
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-2. Navigate to **Advanced Data Security** under the Security heading in your Azure SQL Database pane. Click to enable advanced data security, and then click on the **Data discovery & classification (preview)** card.
+2. Navigate to **Advanced Data Security** under the Security heading in your Azure SQL Database pane. Click to enable advanced data security, and then click on the **Data discovery & classification** card.
 
    ![Scan a database](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -131,12 +132,17 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 - Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
+### Manage classifications using Rest APIs
+
 You can also use REST APIs to programmatically manage classifications. The published REST APIs support the following operations:
 
-- [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)  - Creates or updates the sensitivity label of a given column
+- [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Creates or updates the sensitivity label of a given column
 - [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Deletes the sensitivity label of a given column
+- [Disable Recommendation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) - Disables sensitivity recommendations on a given column
+- [Enable Recommendation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) - Enables sensitivity recommendations on a given column (recommendations are enabled by default on all columns)
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Gets the sensitivity label of a given column
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - Gets the current sensitivity labels of a given database
+
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the recommended sensitivity labels of a given database
 
 ## Manage data discovery and classification using Azure PowerShell

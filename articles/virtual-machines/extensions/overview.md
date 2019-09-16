@@ -10,11 +10,10 @@ tags: azure-resource-manager
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 09/12/2019
 ms.author: roiyz
 ---
 
@@ -46,6 +45,30 @@ You do not need to connect to a VM directly to install or delete the extension. 
 
 ## Anything else I should be thinking about for extensions?
 Extensions install applications, like any applications there are some requirements, for extensions there is a list of supported Windows and Linux OSes, and you need to have the Azure VM agents installed. Some individual VM extension applications may have their own environmental prerequisites, such as access to an endpoint.
+
+## Troubleshoot extensions
+
+Troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. Here is a list of the troubleshooting information available:
+
+| Namespace | Troubleshooting |
+|-----------|-----------------|
+| microsoft.azure.monitoring.dependencyagent.dependencyagentlinux | [Azure Monitor Dependency for Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| microsoft.azure.monitoring.dependencyagent.dependencyagentwindows | [Azure Monitor Dependency for Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| microsoft.azure.security.azurediskencryptionforlinux | [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| microsoft.azure.security.azurediskencryption | [Azure Disk Encryption for Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| microsoft.compute.customscriptextension | [Custom Script for Windows](custom-script-windows.md#troubleshoot-and-support) |
+| microsoft.ostcextensions.customscriptforlinux | [Desired State Configuration for Linux](dsc-linux.md#troubleshoot-and-support) |
+| microsoft.powershell.dsc | [Desired State Configuration for Windows](dsc-windows.md#troubleshoot-and-support) |
+| microsoft.hpccompute.nvidiagpudriverlinux | [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| microsoft.hpccompute.nvidiagpudriverwindows | [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| microsoft.azure.security.iaasantimalware | [Antimalware Extension for Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
+| microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
+| stackify.linuxagent.extension.stackifylinuxagentextension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux.microsoft.ostcextensions | [Reset password (VMAccess) for Linux](vmaccess.md#troubleshoot-and-support) |
+| microsoft.recoveryservices.vmsnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| microsoft.recoveryservices.vmsnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
+
 
 ## Next steps
 * For more information about how the Linux Agent and Extensions work, see [Azure VM extensions and features for Linux](features-linux.md).

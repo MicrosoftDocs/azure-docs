@@ -1,23 +1,74 @@
 ---
-title: What's new in Azure Site Recovery | Microsoft Docs
+title: What's new in Azure Site Recovery
 description: Provides a summary of new features introduced in Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/12/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
 
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
-If you have suggestions for Site Recovery features, we'd love to [hear your feedback](https://feedback.azure.com/forums/256299-site-recovery).
+You can follow and subscribe to Site Recovery update notifications in the [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) channel.
+
+## Supported updates
+
+For Site Recovery components, we support N-4 versions, where N is the latest released version. These are summarized in the following table.
+
+**Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
+--- | --- | --- | --- | --- | ---
+[Rollup 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Rollup 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[Rollup 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[Rollup 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+		
+
+[Learn more](service-updates-how-to.md) about update installation and support.
 
 
-## Installing updates
+## Updates (September 2019)
 
-[Review this article](service-updates-how-to.md) for Site Recovery update support and instructions.
+### Update rollup 40
+
+[Update rollup 40](hhttps://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+
+
+### Azure VM disaster recovery
+
+New features for Azure VM disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMS and NICs.
+**Test failover retains IP address** | You can now retain the IP address of the source VM during a disaster recovery drill, and pick a static IP address for a test failover.
+
+### VMware/physical server disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+New process server alerts | We've added new process server alerts. [Learn more](vmware-physical-azure-monitor-process-server.md). 
+
+### Hyper-V disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.
+
 
 ## Updates (August 2019)
 

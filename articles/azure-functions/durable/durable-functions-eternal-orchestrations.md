@@ -2,11 +2,10 @@
 title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -18,7 +17,7 @@ ms.author: azfuncdf
 
 ## Orchestration history
 
-As explained in [Checkpointing and Replay](durable-functions-checkpointing-and-replay.md), the Durable Task Framework keeps track of the history of each function orchestration. This history grows continuously as long as the orchestrator function continues to schedule new work. If the orchestrator function goes into an infinite loop and continuously schedules work, this history could grow critically large and cause significant performance problems. The *eternal orchestration* concept was designed to mitigate these kinds of problems for applications that need infinite loops.
+As explained in the [orchestration history](durable-functions-orchestrations.md#orchestration-history) topic, the Durable Task Framework keeps track of the history of each function orchestration. This history grows continuously as long as the orchestrator function continues to schedule new work. If the orchestrator function goes into an infinite loop and continuously schedules work, this history could grow critically large and cause significant performance problems. The *eternal orchestration* concept was designed to mitigate these kinds of problems for applications that need infinite loops.
 
 ## Resetting and restarting
 

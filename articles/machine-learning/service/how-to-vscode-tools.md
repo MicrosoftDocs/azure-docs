@@ -1,13 +1,13 @@
 ---
 title: Use Visual Studio Code for machine learning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to install Azure Machine Learning for Visual Studio Code and create a simple experiment in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: shwinne
-author: swinner95
+ms.author: ronglu
+author: ronglums
 ms.date: 7/12/2019
 ms.custom: seodec18
 ---
@@ -15,13 +15,13 @@ ms.custom: seodec18
 
 In this article, you'll learn how to use the extension for Azure Machine Learning for Visual Studio Code to train and deploy machine learning and deep learning models.
 
-The [Azure Machine Learning service](overview-what-is-azure-ml.md) provides support for experiments that you run locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
+[Azure Machine Learning](overview-what-is-azure-ml.md) provides support for experiments that you run locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
 
 You can also deploy these models for your testing and production needs.
 
 ## Prerequisites
 
-+ If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
++ If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 + Visual Studio Code must be installed. Visual Studio Code is a lightweight but powerful source code editor that runs on your desktop. It comes with built-in support for Python and other programming languages. If you haven't already installed Visual Studio Code, [find out how](https://code.visualstudio.com/docs/setup/setup-overview).
 
@@ -63,13 +63,13 @@ To install the Azure Machine Learning extension:
 
    ![Choose the interpreter](./media/vscode-tools-for-ai/python.png)
 
-1. In the lower-right corner of the window, a notification appears, indicating that the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) is being automatically installed. The newly created Python environment is local and private, and it has the Visual Studio Code prerequisites for working with the Azure Machine Learning service.
+1. In the lower-right corner of the window, a notification appears, indicating that the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) is being automatically installed. The newly created Python environment is local and private, and it has the Visual Studio Code prerequisites for working with Azure Machine Learning.
 
    ![Install the Azure Machine Learning SDK for Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## Get started with Azure Machine Learning
 
-Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning service workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources. 
+Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources. 
 
 To create a workspace and add your first experiment:
 
@@ -111,7 +111,7 @@ To create a compute target:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-2. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace. In the following example image, the subscription name is **Free Trial**, and the workspace is **TeamWorkspace**. 
+2. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. In the following example image, the subscription name is **Free Trial**, and the workspace is **TeamWorkspace**. 
 
 3. Under the workspace node, right-click the **Compute** node and choose **Create Compute**.
 
@@ -141,7 +141,7 @@ To run your experiment locally by using Azure Machine Learning:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace. 
+1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. 
 
 1. Under the workspace node, expand the **Compute** node and right-click the **Run Config** of the compute you want to use. 
 
@@ -190,7 +190,7 @@ To run your experiment with Azure Machine Learning on a remote compute target:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace. 
+1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. 
 
 1. In the editor window, right-click your Python script, and select **AML: Run as Experiment in Azure**. 
 
@@ -218,7 +218,7 @@ To register your model:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace.
+1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
 
 1. Under the workspace node, right-click **Models** and choose **Register Model**.
 
@@ -241,13 +241,13 @@ In Visual Studio Code, you can deploy your web service to:
 + Azure Container Instances (ACI) for testing.
 + Azure Kubernetes Service (AKS) for production.
 
-You don't need to create an ACI container to test in advance, because ACI containers are created on the fly. However, you do need to configure AKS clusters in advance. For more information, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md).
+You don't need to create an ACI container to test in advance, because ACI containers are created on the fly. However, you do need to configure AKS clusters in advance. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 To deploy a web service:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and your Azure Machine Learning service workspace.
+1. In the tree view, expand your Azure subscription and your Azure Machine Learning workspace.
 
 1. Under the workspace node, expand the **Models** node.
 

@@ -24,11 +24,9 @@ ms.collection: M365-identity-device-management
 
 When using app passwords, it's important to remember:
 
-- App passwords are auto-generated and only entered once per app.
+- App passwords are auto-generated, and should be created and entered once per app.
 
 - There's a limit of 40 passwords per user. If you try to create one after that limit, you'll be prompted to delete an existing password before being allowed to create the new one.
-
-- Use one app password per device, not per app. For example, create a single password for all the apps on your laptop, and then another single password for all the apps on your desktop.
 
     >[!Note]
     >Office 2013 clients (including Outlook) support new authentication protocols and can be used with two-step verification. This support means that after two-step verification is turned on, you'll no longer need app passwords for Office 2013 clients. For more info, see the [How modern authentication works for Office 2013 and Office 2016 client apps](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) article.
@@ -43,7 +41,7 @@ You can create and delete app passwords, based on how you use two-factor verific
 
 - **Your organization uses two-factor verification and the Additional security verification page.** If you're using your work or school account (such as, alain@contoso.com) with two-factor verification in your organization, you can manage your app passwords from the [Additional security verification page](https://account.activedirectory.windowsazure.com/Proofup.aspx). For detailed instructions, see [Create and delete app passwords using the Additional security verification page](#create-and-delete-app-passwords-from-the-additional-security-verification-page) in this article.
 
-- **Your organization uses two-factor verification and the Office 365 portal.** If you're using your work or school account (such as, alain@contoso.com), two-factor verification, and Office 365 apps in your organization, you can manage your app passwords from the [Office 365 portal page](https://office.portal.com). For detailed instructions, see [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) in this article.
+- **Your organization uses two-factor verification and the Office 365 portal.** If you're using your work or school account (such as, alain@contoso.com), two-factor verification, and Office 365 apps in your organization, you can manage your app passwords from the [Office 365 portal page](https://www.office.com). For detailed instructions, see [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) in this article.
 
 - **You're using two-factor verification with a personal Microsoft account.** If you're using a personal Microsoft account (such as, alain@outlook.com) with two-factor verification, you can manage your app passwords from the [Security basics page](https://account.microsoft.com/security/). For detailed instructions, see [Using app passwords with apps that don't support two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 

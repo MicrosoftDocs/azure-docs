@@ -5,7 +5,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 08/20/2019
+ms.date: 09/04/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
 ---
@@ -18,8 +18,9 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 |  |  |
 |---------|---------|
+| [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
-| [IRS 1075](./irs-1075/index.md)| Provides guardrails for compliance to IRS 1075.|
+| [IRS 1075](./irs-1075/index.md) | Provides guardrails for compliance to IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Provides guardrails for compliance with ISO 27001. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides additional infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
@@ -51,7 +52,7 @@ customizing it for their unique needs.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).

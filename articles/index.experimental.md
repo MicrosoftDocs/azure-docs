@@ -3124,10 +3124,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">Get started</a>
+                                                    <a href="https://docs.microsoft.com/azure/python/python-sdk-azure-overview">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">API reference</a>
+                                                    <a href="https://docs.microsoft.com/azure/python/python-sdk-azure-overview">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>

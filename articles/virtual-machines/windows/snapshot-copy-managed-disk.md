@@ -11,7 +11,7 @@ ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana

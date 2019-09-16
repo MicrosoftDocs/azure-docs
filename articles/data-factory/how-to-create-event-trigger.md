@@ -5,13 +5,14 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
 ---
+
 # Create a trigger that runs a pipeline in response to an event
 
 This article describes the event-based triggers that you can create in your Data Factory pipelines.

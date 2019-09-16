@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 
@@ -177,11 +177,11 @@ The _loop_ and _Task.Delay_ in the following code block are used to simulate ret
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```console
 dotnet run
 ```
 
-The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.css) is available in the QnA Maker C# samples GitHub repository.
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs) is available in the QnA Maker C# samples GitHub repository.
 
 ## Clean up resources
 

@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Mobile app that calls web APIs - code configuration
 
-Once you've created your application, you'll learn how to configure the code from the application's parameters you got at app registration. Mobile applications also have some complex specifics, which have to do with fitting into the framework used to build these apps
+Once you've created your application, you'll learn how to configure the code using the app registration parameters. Mobile applications also have some complex specifics, which have to do with fitting into the framework used to build these apps
 
 ## MSAL libraries supporting mobile apps
 
@@ -35,7 +35,7 @@ The Microsoft libraries supporting mobile apps are:
 
 ## Configuring the application
 
-Mobile applications use the MSAL's `PublicClientApplication` class. Here is how to instantiate it:
+Mobile applications use the `PublicClientApplication` class. Here is how to instantiate it:
 
 ### Android
 
@@ -65,7 +65,7 @@ The following paragraph explains how to configure the code of the application fo
 
 #### Instantiating the application
 
-In Xamarin, or UWP, the simplest way to instantiate the application is as follows, where the `ClientId` is the Guid of your application as registered.
+In Xamarin, or UWP, the simplest way to instantiate the application is as follows, where the `ClientId` is the Guid of your registered app.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -84,7 +84,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-On Android, we recommend you the `CurrentActivityPlugin` [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your `PublicClientApplication` builder code would look like this:
+On Android, we recommend you use the `CurrentActivityPlugin` [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your `PublicClientApplication` builder code would look like this:
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -125,7 +125,7 @@ Finally, there are some specificities to know about the browsers on Android. The
 
 #### UWP specific considerations
 
-On UWP, you can use corporate networks. For information about the UWP specifics, see [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md).
+On UWP, you can use corporate networks. For additional information about using the MSAL library with UWP, see [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md).
 
 ## Configuring the application to use the broker
 
@@ -183,7 +183,7 @@ This method is invoked every time the application is launched, and is used as an
 
 #### Step 3: Set a UIViewController()
 
-With Xamarin iOS, you don't normally need to set an object window, but in this case you do to send and receive responses from a broker. Still in `AppDelegate.cs`, set a ViewController.
+With Xamarin iOS, you don't normally need to set an object window, but in this case you do in order to send and receive responses from a broker. Still in `AppDelegate.cs`, set a ViewController.
 
 Do the following to set the object window:
 

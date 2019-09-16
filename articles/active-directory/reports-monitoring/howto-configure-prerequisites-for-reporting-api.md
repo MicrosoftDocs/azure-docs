@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 08/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 
@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
+The [Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from of programming languages and tools.
 
-The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs.
+The reporting API uses [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) to authorize access to the web APIs.
 
 To prepare your access to the reporting API, you need to:
 
@@ -46,7 +46,7 @@ To get access to the reporting data through the API, you need to have one of the
 
 ## Register an application
 
-You need to register an application even if you're accessing the reporting API using a script. This gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens.
+Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens.
 
 To configure your directory to access the Azure AD reporting API, you must sign in to the [Azure portal](https://portal.azure.com) with an Azure administrator account that is also a member of the **Global Administrator** directory role in your Azure AD tenant.
 
@@ -64,21 +64,21 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. From the **App registrations** page, select **New application registration**.
+3. From the **App registrations** page, select **New registration**.
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
-4. In the **Create** page, perform the following steps:
+4. The **Registration an Application** page:
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. In the **Name** textbox, type `Reporting API application`.
 
-    b. As **Application type**, select **Web app / API**.
+    b. For **Supported accounts type**, select **Accounts in this organizational only**.
 
-    c. In the **Sign-on URL** textbox, type `https://localhost`.
+    c. In the **Redirect URL**  select **Web** textbox, type `https://localhost`.
 
-    d. Select **Create**. 
+    d. Select **Register**. 
 
 
 ## Grant permissions 
@@ -97,48 +97,26 @@ The following section lists the steps for both APIs. If you don't want to access
 
 **To grant your application permissions to use the APIs:**
 
-1. Select your application from the **App Registrations** page and select **Settings**. 
+
+1. Select **API permissions** then **Add a permission**. 
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. On the **Settings** page, select **Required permissions**. 
+2. On the **Request API permissions page**, locate **Support legacy API** **Azure Active Directory Graph**. 
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. On the **Required permissions** page, in the **API** list, click **Windows Azure Active Directory**. 
+3. On the **Required permissions** page, select **Application Permissions**, expand **Directory** checkbox **Directory.ReadAll**.  Select **Add permissions**.
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. On the **Enable Access** page, select **Read directory data** and, deselect **Sign in and read user profile**. 
+4. On the **Reporting API Application - API Permissions** page, select **Grant admin consent**. 
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-5. In the toolbar on the top, click **Save**.
+5. Note: **Microsoft Graph** is added by default during API Registration.
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/15.png)
-
-6. On the **Required permissions** page, in the toolbar on the top, click **Add**.
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/32.png)
-
-7. On the **Add API access** page, click **Select an API**.
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/31.png)
-
-8. On the **Select an API** page, click **Microsoft Graph**, and then click **Select**.
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/33.png)
-
-9. On the **Enable Access** page, select **Read all audit log data**, and then click **Select**.  
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/34.png)
-
-10. On the **Add API access** page, click **Done**.  
-
-11. On the **Required permissions** page, in the toolbar on the top. click **Grant Permissions**, and then click **Yes**.
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/17.png)
-
 
 ## Gather configuration settings 
 
@@ -181,7 +159,7 @@ You need these values when configuring calls to the reporting API.
 
 
 ### Get your application's client secret
-To get your application's client secret, you need to create a new key and save its value upon saving the new key because it is not possible to retrieve this value later anymore.
+ Avoid errors trying to access audit logs or sign-in using the API.
 
 **To get your application's client secret:**
 
@@ -191,17 +169,11 @@ To get your application's client secret, you need to create a new key and save i
 
 2.  Select your application from the **App Registrations** page.
 
-3. On the application page, in the toolbar on the top, select **Settings**. 
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/05.png)
-
-4. On the **Settings** page, in the **API Access** section, click **Keys**. 
+3.  Select **Certificates and Secrets** on the **API Application** page, in the **Client Secrets** section, click **+ New Client Secret**. 
 
     ![Register application](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-5. On the **Keys** page, perform the following steps:
-
-    ![Register application](./media/howto-configure-prerequisites-for-reporting-api/14.png)
+5. On the **Add a client secret** page, add:
 
     a. In the **Description** textbox, type `Reporting API`.
 
@@ -221,7 +193,7 @@ We do not currently support the Microsoft Graph v2 endpoint - make sure to acces
 
 ### Error: Failed to get user roles from AD Graph
 
-You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
+ Sign into your account using both sign-in buttons in the Graph Explorer UI to avoid getting an error when trying to sign in using Graph Explorer. 
 
 ![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
 
@@ -232,21 +204,19 @@ If you run into this error message while trying to access sign-ins using Graph E
 ![Modify permissions UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### Error: Neither tenant is B2C or tenant doesn't have premium license
+### Error: Tenant is not B2C or tenant doesn't have premium license
 
 Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
 
-### Error: User is not in the allowed roles 
+### Error: The allowed roles does not include User. 
 
-If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant. 
+ Avoid errors trying to access audit logs or sign-in using the API. Make sure your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant.
 
 ### Error: Application missing AAD 'Read directory data' permission 
 
-Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
-
 ### Error: Application missing MSGraph API 'Read all audit log data' permission
 
-Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
+Follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
 
 ## Next steps
 

@@ -8,7 +8,6 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: azfuncdf
@@ -141,4 +140,4 @@ You must have a function app in your Azure subscription before you can publish y
 You have used Visual Studio to create and publish a C# durable function app.
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns.](durable-functions-concepts.md)
+> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

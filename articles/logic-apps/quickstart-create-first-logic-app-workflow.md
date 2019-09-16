@@ -6,6 +6,7 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc

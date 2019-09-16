@@ -1,6 +1,6 @@
 ---
 title: Machine learning overview - Azure HDInsight
-description: Describes the machine learning options in HDInsight.
+description: Overview of big data machine learning options for clusters in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -24,7 +24,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 [R](https://www.r-project.org/) is currently the most popular statistical programming language in the world. It is an open source data visualization tool with a community of over 2.5 million users and growing. With its thriving user base, and over 8,000 contributed packages, R is a likely choice for many companies who need machine learning. You can create an HDInsight cluster with ML Services ready to be used with massive datasets and models. This capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
-![Training for prediction with R server](./media/hdinsight-machine-learning-overview/r-training.png)
+![Training for prediction with R server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts.  You also have the option to run R scripts across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
@@ -34,7 +34,7 @@ With ML Services on HDInsight with Spark, you can parallelize training across th
 
 Azure Machine Learning provides tools to model predictive analytics, as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning is a  complete predictive analytics solution in the cloud that you can use to create, test, operationalize, and manage predictive models. Select from a large algorithm library, use a web-based studio for building models, and easily deploy your model as a web service.
 
-![Making advanced analytics accessible to Hadoop with Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
+![Making advanced analytics accessible to Hadoop with Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning studio, and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/studio/import-data.md).
 

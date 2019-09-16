@@ -1,5 +1,5 @@
 ---
-title: Create and test an Azure IoT Plug and Play Preview device | Microsoft Docs
+title: Create and test an IoT Plug and Play Preview device | Microsoft Docs
 description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play Preview device.
 author: dominicbetts
 ms.author: dobett
@@ -32,10 +32,10 @@ In this tutorial, you learn how to:
 To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* Azure IoT Device Workbench extension in VS Code. Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack. Use the following steps to install the extension pack in VS Code:
 
     1. In VS Code, select the **Extensions** tab.
-    1. Search for **Azure IoT Device Workbench**.
+    1. Search for **Azure IoT Tools**.
     1. Select **Install**.
 
 To build the generated C code on Windows in this tutorial, you need:
@@ -58,7 +58,7 @@ To test your device code in this tutorial, you need:
 
 ## Model your device
 
-You use the _digital twin definition language_ to create a device capability model. A model typically consists of multiple _interface_ definition files and a single model file. The **Azure IoT Device Workbench extension for VS Code** includes tools to help you create and edit these JSON files.
+You use the _digital twin definition language_ to create a device capability model. A model typically consists of multiple _interface_ definition files and a single model file. The **Azure IoT Tools for VS Code** includes tools to help you create and edit these JSON files.
 
 ### Create the interface file
 
@@ -295,7 +295,7 @@ Your files are now stored in your company repository.
 
 ## Generate code
 
-You can use the **Azure IoT Device Workbench extension for VS Code** to generate skeleton C code from your model. To generate the skeleton code in VS Code:
+You can use the **Azure IoT Tools for VS Code** to generate skeleton C code from your model. To generate the skeleton code in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -338,7 +338,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 1. To create an IoT hub:
 
     ```azurecli-interactive
-    az group create --name environmentalsensorresources --location eastus
+    az group create --name environmentalsensorresources --location centralus
     az iot hub create --name {your iot hub name} \
       --resource-group environmentalsensorresources --sku F1
     ```

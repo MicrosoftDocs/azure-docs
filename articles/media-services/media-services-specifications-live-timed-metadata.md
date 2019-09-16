@@ -94,7 +94,7 @@ The following documents contain provisions, which, through reference in this tex
 
 Azure Media Services supports real-time in-band metadata for both [RTMP] and Smooth Streaming [MS-SSTR-Ingest] protocols. Real-time metadata can be used to define custom events, with your own unique custom schemas (JSON, Binary, XML), as well as industry defined formats like ID3, or SCTE-35 for ad signaling in a broadcast stream. 
 
-This article provides the details for how to send in custom timed metadata signals using the supported ingest protocols of Media Services. The article also explains how the manifests for HLS, DASH, and Smooth Streaming are decorated with the timed metadata signals, as well as how it is carried in-band when the content is delivered using CMAF (MP4 fragments) or Transport Stream (TS) segments for HLS. 
+This article provides the details for how to send custom timed metadata signals using the supported ingest protocols of Azure Media Services. The article also explains how the manifests for HLS, DASH, and Smooth Streaming are decorated with the timed metadata signals, as well as how it is carried in-band when the content is delivered using CMAF (MP4 fragments) or Transport Stream (TS) segments for HLS. 
 
 Common use case scenarios for timed metadata include:
 
@@ -118,7 +118,7 @@ Azure Media Services Live Events and Packager are capable of receiving these tim
 
 The [RTMP] protocol allows for timed metadata signals to be sent for various scenarios including custom metadata, and SCTE-35 ad signals. 
 
-Advertising signals (cue messages) are sent as [AMF0] cue messages embedded within the [RTMP] stream. The cue messages may be sent sometime before the actual event or [SCTE35] ad splice signal needs to occur. To support this scenario, the actual time of the event is sent within the cue message. For more information, see [AMF0].
+Advertising signals (cue messages) are sent as [AMF0] cue messages embedded within the [RTMP] stream. The cue messages may be sent sometime before the actual event or [SCTE35] ad splice signal needs to occur. To support this scenario, the actual presentation timestamp of the event is sent within the cue message. For more information, see [AMF0].
 
 The following [AMF0] commands are supported by Azure Media Services for RTMP ingest:
 
@@ -135,8 +135,8 @@ The name of the [AMF0] message can be used to differentiate multiple event strea
 
 If you want to provide custom metadata feeds from your upstream encoder, IP Camera, Drone, or device using the RTMP protocol, use the "onUserDataEvent" [AMF0] data message command type.
 
-The **"onUserDataEvent"** data message command MUST carry a message payload with the following definition to be captured by Media Services and packaged into the in-band file format as well as the manifests for HLS, DASH and Smooth.
-It is recommended to send timed-metadata messages no more frequently than once every 0.5 seconds (500ms). Each message could aggregate metadata from multiple frames if you need to provide frame-level metadata. 
+The **"onUserDataEvent"** data message command MUST carry a message payload with the following definition to be captured by Media Services and packaged into the in-band file format as well as the manifests for HLS, DASH and Smooth Streaming.
+It is recommended to send timed-metadata messages no more frequently than once every 0.5 seconds (500ms) or stability issues with the live stream may occur. Each message could aggregate metadata from multiple frames if you need to provide frame-level metadata. 
 If you are sending multi-bitrate streams, it is recommended that you also provide the metadata on a single bitrate only to reduce the bandwidth and avoid interference with video/audio processing. 
 
 The payload for the **"onUserDataEvent"** should be an [MPEGDASH] EventStream XML format message. This makes it easy to pass in custom defined schemas that can be carried in 'emsg' payloads in-band for CMAF [MPEGCMAF] content that is delivered over HLS or DASH protocols. 
@@ -209,7 +209,7 @@ Note that only one "EventType" per "EventStream" is supported at this time. Only
 ### Built-in supported Scheme ID URIs
 | Scheme ID URI                 |  Description                                             |
 |-------------------------------|----------------------------------------------------------|
-| https://aomedia.org/emsg/ID3   | Describes how [ID3v2] metadata can be carried as timed metadata in a CMAF-compatible [MPEGCMAF] fragmented MP4. For more information see the [Timed Metadata in the Common Media Application Format (CMAF)](https://aomediacodec.github.io/av1-id3/) |
+| https:\//aomedia.org/emsg/ID3   | Describes how [ID3v2] metadata can be carried as timed metadata in a CMAF-compatible [MPEGCMAF] fragmented MP4. For more information see the [Timed Metadata in the Common Media Application Format (CMAF)](https://aomediacodec.github.io/av1-id3/) |
 
 ### Event processing and manifest signaling
 
@@ -225,7 +225,7 @@ Individual events or their data payloads are NOT output directly in the HLS, DAS
 
 ### Additional informational constraints and defaults for onUserDataEvent events
 
-- If the timescale is not set in the EventStream element, the RTMP 1Khz timescale is used by default
+- If the timescale is not set in the EventStream element, the RTMP 1 kHz timescale is used by default
 - Delivery of an onUserDataEvent message is limited to once every 500ms max. If you send events more frequently, it can impact the bandwidth and the stability of the live feed
 
 ## 2.1.2 RTMP ad cue signaling with "onCuePoint"

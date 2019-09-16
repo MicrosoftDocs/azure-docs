@@ -5,14 +5,14 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/17/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: jroth
+ms.topic: conceptual
+ms.date: 08/14/2019
 ---
+
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
 
 ## Overview

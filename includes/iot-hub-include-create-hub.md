@@ -38,14 +38,14 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     This screen allows you to set the following values:
 
-    - **Pricing and scale tier**: Your selected tier. You can choose from several tiers depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier.
+    - **Pricing and scale tier**: Your selected tier. You can choose from several tiers, depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier.
 
     - **IoT Hub units**: The number of messages allowed per unit per day depends on your hub's pricing tier. For example, if you want the hub to support ingress of 700,000 messages, you choose two S1 tier units.
     For details about the other tier options, see [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Advanced Settings** > **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs only need four partitions.
+    - **Advanced Settings** > **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs need only four partitions.
 
-1. For this tutorial, accept the default choices, and then select **Review + create** to review your choices. You see something similar to this screen.
+1. For this article, accept the default choices, and then select **Review + create** to review your choices. You see something similar to this screen.
 
    ![Review information for creating the new hub](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 
