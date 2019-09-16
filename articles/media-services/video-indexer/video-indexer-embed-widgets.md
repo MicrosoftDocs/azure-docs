@@ -27,7 +27,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets`|Strings separated by comma|Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>**Note:** The `widgets` URL parameter isn't supported in version 2.<br/>|
+|`widgets`|Strings separated by comma|Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
 |`locale`|A short language code|Controls the insights language. The default value is `en`. <br/> Example: `locale=de`.|
 |`tab`|The default selected tab|Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 
@@ -72,7 +72,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> If you have issues sharing your video URLs, add the `location` parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> If you have issues sharing your video URLs, add the `location` parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## Embedding private content
 
@@ -82,7 +82,7 @@ To embed a private video, you must pass an access token in the **src** attribute
     
 To get the Cognitive Insights widget content, use one of the following:<br/>
 - The [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API.<br/>
-- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL; specify this URL as the **src** value for the iframe, as shown earlier.
+- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL. Specify this URL as the **src** value for the iframe, as shown earlier.
 
 To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with `&allowEdit=true`. 
 
@@ -116,7 +116,7 @@ For more information, see the [Video Indexer - Embed both Widgets demo](https://
 
 ### Embed the Cognitive Insights widget and use Azure Media Player to play the content
 
-This section shows how to achieve interaction between a Cognitive Insights widget and an Azure Media Player instance using the [AMP plug-in](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
+This section shows how to achieve interaction between a Cognitive Insights widget and an Azure Media Player instance by using the [AMP plug-in](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
  
 1. Add a Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantiate Azure Media Player with the Video Indexer plug-in.
@@ -164,11 +164,11 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 
 3. Copy the Cognitive Insights embed code.
 
-You should be able now to communicate with your Azure Media Player.
+You should be able now to communicate with Azure Media Player.
 
 For more information, see the [Azure Media Player + VI Insights demo](https://codepen.io/videoindexer/pen/rYONrO).
 
-### Embed Video Indexer Cognitive Insights widget and use a different video player
+### Embed the Video Indexer Cognitive Insights widget and use a different video player
 
 If you use a video player other than Azure Media Player, you must manually manipulate the video player to achieve the communication. 
 
