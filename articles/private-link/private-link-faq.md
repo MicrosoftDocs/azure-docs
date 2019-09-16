@@ -16,29 +16,22 @@ ms.author: kumud
 
 ### What is Azure Private Link service and Private Endpoint?
 
-- **Azure Private Endpoint**: Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. 
+- **Azure Private Endpoint**: Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. You can use Private Endpoints to connect to an Azure PaaS service that supports Private Link or to your own Private Link Service.
 - **Azure Private Link service**: Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. You can also connect to Azure services via Private Endpoints.
 
 ### Can I connect my service to multiple Private Endpoints?
-Yes. One Private Link service can connect to multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
+Yes. One Private Link service can receive connections from multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
  
 ### Is data transferred over Private Link always private?
 Yes. All data over Azure Private Link stays on the Microsoft backbone. It doesn’t traverse the internet.  
  
 ### What is the difference between a VNet Service Endpoint and a Private Endpoint?
 VNet Service Endpoints and Private Endpoints are independent of each other.
-
-- VNet Service Endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. 
-- Private Endpoint is a networking resource that acts as an entry point for service traffic in your network and uses Azure Private Link technology.  
+- VNet Service Endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Service Endpoints allow you to secure your critical Azure service resources to only your virtual networks, while the traffic is route optimized and stays in the Microsoft backbone network it is sdestined to the Public IP address of the service.
+- Private Endpoint is a networking resource that acts as an entry point in your virtual network and uses Private IP address to reach the services powered by Private Link. The traffic is route optimized and stays in the Microsoft backbone network.   
 
 ### What is the relationship between Private Link service and Private Endpoint?
-It is a one-to-many relationship. One Private Link service can connect to multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.  
- 
-### Does the data always stay off the internet?
-All data over Azure Private Link stays on the Microsoft network. It doesn’t traverse the internet.  
- 
-### What is the difference between a VNet service endpoint and a private endpoint?
-VNet service endpoints and private endpoints are independent of each other. VNet service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. On the other hand, a private endpoint is a networking resource that acts as an entry point for service traffic in your network and uses Azure Private Link technology.  
+It is a one-to-many relationship. One Private Link service can receive connections from multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.    
  
 ### Will VNet Service Endpoints be deprecated once Private Endpoints are available? 
 No. VNet Service Endpoints and Private Endpoints are independent technologies/resources. They can complement each other and both will co-exist. Some functionality and use cases may overlap, you can choose the model that fits your needs.  
@@ -49,10 +42,7 @@ No. Azure Private Link provides this functionality for you. Hence, you are not r
 ## Private Link Service
  
 ### What are the pre-requisites for creating a Private Link service? 
-Following are the pre-requisites for creating Private Link service: 
-- Virtual Network (Azure Resource Manager deployment model)
-- Standard Load Balancer.   
-- TCP traffic only. 
+Your service backends should be in a Virtual network and behind a Standard Load Balancer.
  
 ### How can I scale my Private Link service? 
 You can scale your Private Link service in a few different ways: 
@@ -60,9 +50,7 @@ You can scale your Private Link service in a few different ways:
 - Add an IP to the Private Link service. We allow up to 8 IPs per Private Link service.  
 - Add new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
 
-### Will VNet service endpoints be deprecated after private endpoints are available?
-No. VNet service endpoints and private endpoints are independent technologies/resources. They can complement each other and both will co-exist. Some functionality and use cases may overlap. You can choose the model that fits your needs.  
- 
+
 ### How should I control the exposure of my Private Link service?
 You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
 
@@ -71,7 +59,7 @@ You can control the exposure using the visibility configuration on Private Link 
 - **All** - Everyone can locate the service. 
  
 ### Can I create a Private Link service with Basic Load Balancer? 
-No. Private Link service over a Basic Load Balancer is not supported. Standard Load Balancer is supported.
+No. Private Link service over a Basic Load Balancer is not supported.
  
 ### Is a dedicated subnet required for Private Link service? 
 No. Private Link service doesn’t require a dedicated subnet. You can choose any subnet in your VNet where your service is deployed.   

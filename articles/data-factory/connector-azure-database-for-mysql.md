@@ -190,8 +190,7 @@ To copy data to Azure Database for MySQL, the following properties are supported
 | type | The type property of the copy activity sink must be set to: **AzureMySqlSink** | Yes |
 | preCopyScript | Specify a SQL query for the copy activity to execute before writing data into Azure Database for MySQL in each run. You can use this property to clean up the preloaded data. | No |
 | writeBatchSize | Inserts data into the Azure Database for MySQL table when the buffer size reaches writeBatchSize.<br>Allowed value is integer representing number of rows. | No (default is 10,000) |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br> 
-Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
 
 **Example:**
 
