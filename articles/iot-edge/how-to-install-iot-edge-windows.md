@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/19/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---

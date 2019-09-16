@@ -1,11 +1,11 @@
 ---
-title: Autoprovision devices with DPS using X.509 certificates - Azure IoT Edge | Microsoft Docs 
+title: Automatically provision devices with DPS using X.509 certificates - Azure IoT Edge | Microsoft Docs 
 description: Use X.509 certificates to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 08/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ services: iot-edge
 
 # Create and provision an IoT Edge device using X.509 certificates
 
-Azure IoT Edge devices can be autoprovisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that aren't edge-enabled. If you're unfamiliar with the process of autoprovisioning, review the [autoprovisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that aren't edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
 This article shows you how to create a Device Provisioning Service individual enrollment using X.509 certificates on an IoT Edge device with the following steps:
 
@@ -278,7 +278,7 @@ Install the IoT Edge runtime on the device for which you generated the identity 
 
 For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
-1. Run PowerShell as an administrator. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
+1. Open a PowerShell window in administrator mode. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
 
 1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
 
