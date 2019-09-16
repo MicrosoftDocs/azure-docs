@@ -260,7 +260,7 @@
     - name: Virtual networks - PowerShell
       href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
     - name: Public IPs - PowerShell
-      href: virtual-network-azure-to-azure-migrate-publicip-powershell.md
+      href: move-across-regions-publicip-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
