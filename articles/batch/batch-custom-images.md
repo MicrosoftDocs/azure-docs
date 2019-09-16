@@ -13,10 +13,7 @@ ms.author: lahugh
 
 # Use a managed image to create a pool of virtual machines
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image, or with a custom image (a VM image you have created and configured yourself). The custom image must be a *managed image* resource in the same Azure subscription and region as the Batch account.
-
-> [!NOTE]
-> In most cases, you should create custom images for Batch pools using the [Shared Image Gallery](batch-sig-images.md). If you cannot create custom images with the Shared Image Gallery, use the steps on this page to create a custom image for your pool.
+To create a custom image for your Batch pool's virtual machines (VMs), you can use either the [Shared Image Gallery](batch-sig-images.md), or a *managed image* resource. In most cases, you should create custom images using the Shared Image Gallery. If you cannot create custom images with the Shared Image Gallery, use the steps on this page to create a custom image for your pool.
 
 ## Prerequisites
 
