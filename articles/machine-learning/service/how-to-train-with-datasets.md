@@ -178,7 +178,7 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## Notebook examples
 
-The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as using datasets with ScriptRun and [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
+The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as, using datasets with ScriptRun and [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) objects.
 
 ## Next steps
 
