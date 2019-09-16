@@ -31,7 +31,7 @@ This article also provides additional usage tips for the following tools:
 
 * [Jupyter Notebooks](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
 
-* [Visual Studio Code](#vscode): If you use Visual Studio Code, it has some useful extensions that you can install.
+* [Visual Studio Code](#vscode): If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning service much more convenient and productive.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ The notebook VM is:
 
 + **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
-To stop incurring notebook VM charges, [stop the notebook VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources). 
+To stop incurring notebook VM charges, [stop the notebook VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -223,7 +223,7 @@ The procedure in the [Local computer](#local) section installs necessary compone
     ```shell
     conda activate myenv
     ```
-    
+
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
 
     ```CLI
@@ -249,34 +249,35 @@ The procedure in the [Local computer](#local) section installs necessary compone
     import sys
     sys.path
     ```
-    
+
 1. To configure the Jupyter Notebook to use your Azure Machine Learning service workspace, go to the [Create a workspace configuration file](#workspace) section.
 
 
 ### <a id="vscode"></a>Visual Studio Code
 
-Visual Studio Code is a cross platform code editor. It relies on a local Python 3 and Conda installation for Python support, but it provides additional tools for working with AI. It also provides support for selecting the Conda environment from within the code editor.
+Visual Studio Code is a very popular cross platform code editor that supports an extensive set of programming languages and tools through extensions available in the [Visual Studio marketplace](https://marketplace.visualstudio.com/vscode). The [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installs the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for coding in all types of Python environments (virtual, Anaconda, etc). In addition, it provides convenience features for working with Azure Machine Learning resources and running Azure Machine Learning experiments all without leaving Visual Studio Code.
 
 To use Visual Studio Code for development, do the following:
 
-1. To learn how to use Visual Studio Code for Python development, see [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
-
-1. To select the Conda environment, open VS Code, and then select Ctrl+Shift+P (Linux and Windows) or Command+Shift+P (Mac).
-    The __Command Pallet__ opens.
-
-1. Enter __Python: Select Interpreter__, and then select the Conda environment.
-
-1. To validate that you can use the SDK, create and then run a new Python file (.py) that contains the following code:
-
-    ```python
-    import azureml.core
-    azureml.core.VERSION
-    ```
-
-1. To install the Azure Machine Learning extension for Visual Studio Code, see [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+1. Install the Azure Machine Learning extension for Visual Studio Code, see [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
     For more information, see [Use Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
 
+1. Learn how to use Visual Studio Code for any type of Python development, see [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
+
+    - To select the SDK Python environment containing the SDK, open VS Code, and then select Ctrl+Shift+P (Linux and Windows) or Command+Shift+P (Mac).
+        - The __Command Palette__ opens.
+
+    - Enter __Python: Select Interpreter__, and then select the appropriate environment
+
+1. To validate that you can use the SDK, create a new Python file (.py) that contains the following code:
+
+    ```python
+    #%%
+    import azureml.core
+    azureml.core.VERSION
+    ```
+    Run this code by clicking the "Run cell" CodeLens or simply press shift-enter.
 <a name="aml-databricks"></a>
 
 ## Azure Databricks
