@@ -40,7 +40,7 @@ landingContent:
             url: streaming-technologies.md
           - text: Choose a development tool for your jobs
             url: feature-comparison.md
-  - title: Connect your job to a data input
+  - title: Connect a job to a data source
     linkLists:
       - linkListType: overview
         links:
@@ -134,7 +134,7 @@ landingContent:
             url: stream-analytics-javascript-user-defined-functions.md
           - text: Run a C# user-defined function on a Stream Analytics Edge job
             url: stream-analytics-edge-csharp-udf.md
-  - title: Machine learning with Stream Analytics
+  - title: Analyze with machine learning
     linkLists: 
       - linkListType: how-to-guide
         links:
@@ -144,7 +144,7 @@ landingContent:
             url: stream-analytics-machine-learning-integration-tutorial.md
           - text: Scale jobs with Machine Learning Studio functions
             url: stream-analytics-scale-with-machine-learning-functions.md
-  - title: Developer experience
+  - title: Create and manage jobs with developer tools
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -200,7 +200,7 @@ landingContent:
           url: stream-analytics-tools-for-visual-studio-cicd.md
         - text: Use REST APIs to set up CI/CD for IoT Edge jobs
           url: stream-analytics-cicd-api.md
-  - title: Scale your Stream Analytics job
+  - title: Scale Stream Analytics jobs
     linkLists: 
       - linkListType: how-to-guide
         links:
