@@ -22,9 +22,7 @@ ms.author: rkarlin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Sentinel lets you import data from your organization's threat indicators, which can enhance your security analysts' ability to detect and prioritize known threats.
-
-After you import your threat indicators, several features from Azure Sentinel become available or are significantly enhanced:
+Azure Sentinel lets you import the threat indicators that your organization is using, which can enhance your security analysts' ability to detect and prioritize known threats. Several features from Azure Sentinel then become available or are significantly enhanced:
 
 - **Analytics** includes a set of scheduled rule templates that can be enabled to generate alerts and incidents that are based on matches of log events with threat indicators.
 
@@ -38,7 +36,7 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 ## Integrated threat intelligence platform products
 
-- [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld) ([*guided instructions*](https://medium.com/@antonio.formato/azure-sentinel-minemeld-bring-your-own-threat-intelligence-feeds-7e2f622d6c66))
+- [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld) ([*guided instructions*](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540))
 
 -[ThreatConnect Platform](https://threatconnect.com/solution/)
 
@@ -48,25 +46,25 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 - Azure AD role of either **Global Administrator** or **Security Administrator** to grant permissions to your TIP product or custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
 
-- Read and write permissions to the Azure Sentinel workspace to store the data from your threat indicators.
+- Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
 
 ## Connect Azure Sentinel to your threat intelligence provider
 
-1. [Register an application](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory to get an application ID, application secret (app password), and Azure Active Directory tenant ID. You need these values for when you configure your integrated TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API.
+1. [Register an application](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory to get an application ID, application secret, and Azure Active Directory tenant ID. You need these values for when you configure your integrated TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API.
 
-2. [Configure API permissions](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) on the registered application, and add the Microsoft Graph Application permission **ThreatIndicators.ReadWrite.OwnedBy** to your application registration.
+2. [Configure API permissions](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) for the registered application, and add the Microsoft Graph Application permission **ThreatIndicators.ReadWrite.OwnedBy** to your registered application.
 
-3. Ask your Azure Active Directory tenant administrator to grant consent to the registered application by using the Azure portal: **Azure Active Directory** > **App registrations** > **API permissions** >**Grant consent** button.
+3. Ask your Azure Active Directory tenant administrator to grant admin consent to the registered application for your organization. From the Azure portal: **Azure Active Directory** > **App registrations** > \<*app name*\> **View API Permissions** >**Grant admin consent for \<*organization name*\>**.
 
-4. Configure your TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API to send indicators to Azure Sentinel by specifying the following values:
+4. Configure your TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API to send indicators to Azure Sentinel by specifying the following:
 
-   a. The AppID, App Secret, and Tenant ID from your registered application.
+   a. The values for the registered application's ID, secret, and tenant ID.
    
-   b. For the target product, specify **Azure Sentinel**.
+   b. For the target product, specify Azure Sentinel.
 
-   c. For the action, specify **Alert**.
+   c. For the action, specify alert.
 
-5. Navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence Platforms (Preview)** connector.
+5. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence Platforms (Preview)** connector.
 
 6. Select **Open connector page**, and then **Connect**.
 
