@@ -37,7 +37,7 @@ The methods to acquire tokens return an `MSALResult` object. `MSALResult` expose
 
 Objective-C:
 
-```objective-c
+```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
 urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
 urlRequest.HTTPMethod = @"GET";
