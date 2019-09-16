@@ -66,7 +66,7 @@ There are two primary options for migration to ZRS:
 - Request a live migration.
 
 > [!IMPORTANT]
-> Live migration is not currently supported for premium file shares. Only Manually copying or moving data is currently supported.
+> Live migration is not currently supported for premium file shares. Only manually copying or moving data is currently supported.
 
 If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
@@ -118,7 +118,7 @@ There is no data loss associated with the migration. During the migration proces
 
 **Are any updates required to the application(s) once the migration is complete?**
 
-Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS and any other account configuration options remain unchanged and intact.
+Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS, and any other account configuration options remain unchanged and intact.
 
 **Can I request a live migration of my general-purpose v1 account(s) to ZRS?**
 
