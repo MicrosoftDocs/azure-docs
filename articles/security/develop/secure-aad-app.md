@@ -28,7 +28,7 @@ This sample is targeted toward experienced developers on Azure who work within t
 
 In developing and deploying this app, you'll learn how to 
 - Create an Azure Key Vault instance, store, and retrieve secrets from it.
-- Deploy the Azure Web App, which is dedicated isolated with front end firewall access. 
+- Deploy the Azure Web App, which is dedicated isolated with front-end firewall access. 
 - Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset. 
 - Enable encryption of data in transit and at rest by using Azure services. 
 - Set up the Azure policy and security center to evaluate the compliancies. 
@@ -95,7 +95,7 @@ To deploy Azure Key Vault by using Powershell
 3. Create the resource group for the instance.
 4. Create the Azure Key Vault instance in the resource group created in step 3.
 
-#### These are an Azure AD users that will have admin permissions to the Key Vault
+#### The below Azure AD user will have admin permissions to the Key Vault
     $keyVaultAdminUsers = @($user1,user2)
 
 #### Register the Az Providers
@@ -333,7 +333,7 @@ Now that you've enabled the virtual network integration, you can add network sec
     *Add rules for Azure Service Health probes (App Service Environment only)*
 
 To limit the attack surface, modify the App Service network settings to allow only the application gateway to access the application.
-You do this by going into the App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service.
+To apply the settings go to App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service.
 
 You can retrieve the IP address of the gateway from its overview page. On the **IP Address CIDR** tab, enter the IP address in this format: `<GATEWAY_IP_ADDRESS>/32`.
 
@@ -417,7 +417,7 @@ Azure services extensively log system and user activity, as well as system healt
    - Permitted cryptographic operations for keys are restricted to the ones required
 
 ### VPN and ExpressRoute
-   A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
+   A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needed to be configured by securely establishing a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
 
    By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
 
