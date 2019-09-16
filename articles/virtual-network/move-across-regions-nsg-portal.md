@@ -43,7 +43,7 @@ The following steps show how to prepare the network security group for the confi
 5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 6. To edit the parameter of the NSG name, change the **value** property under **parameters**:
 
-        ```json
+    ```json
             {
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
             "contentVersion": "1.0.0.0",
@@ -54,7 +54,7 @@ The following steps show how to prepare the network security group for the confi
                }
             }
 
-        ```
+    ```
 
 7. Change the source NSG value in the editor to a name of your choice for the target NSG. Ensure you enclose the name in quotes.
 
@@ -64,7 +64,7 @@ The following steps show how to prepare the network security group for the confi
 
 10. To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under **resources** in the online editor:
 
-         ```json
+    ```json
             "resources": [
             {
             "type": "Microsoft.Network/networkSecurityGroups",
@@ -78,7 +78,7 @@ The following steps show how to prepare the network security group for the confi
             }
            ]
 
-         ```
+    ```
   
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
     
@@ -86,7 +86,7 @@ The following steps show how to prepare the network security group for the confi
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **template.json** file:
     
-            ```json
+        ```json
            "resources": [
             {
             "type": "Microsoft.Network/networkSecurityGroups",
@@ -118,7 +118,7 @@ The following steps show how to prepare the network security group for the confi
                     },
                 ]
             }
-            ```
+        ```
 
       To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **template.json** file in the format of the example below:
 
