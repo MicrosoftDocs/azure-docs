@@ -9,9 +9,9 @@ ms.reviewer: vanto
 ms.date: 08/07/2019
 ---
 
-# Private Link Overview
+# Private Link for Azure SQL Database and Data Warehouse (Preview)
 
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to https://docs.microsoft.com/azure/privatelink. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to https://docs.microsoft.com/azure/private-link. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
 > [!IMPORTANT]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database.
@@ -44,9 +44,9 @@ With Private Link, customers can enable cross-premises access to the private end
 
 ### Creation Process
 Private Endpoints can be created using the portal, PowerShell, or Azure CLI:
-- Portal: https://docs.microsoft.com/azure/privatelink/create-privatelink-portal
-- PowerShell: https://docs.microsoft.com/azure/privatelink/create-privatelink-powershell
-- CLI: https://docs.microsoft.com/azure/privatelink/create-privatelink-cli
+- Portal: https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal
+- PowerShell: https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell
+- CLI: https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli
 
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
@@ -148,6 +148,9 @@ The last step is to use [SSMS to connect to the SQL Database](sql-database-conne
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+> [!NOTE]
+> In preview, connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
+
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 
 
