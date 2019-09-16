@@ -45,7 +45,6 @@ You don't have to manually create a system-assigned managed identity. To set up 
 
 * [Azure portal](#azure-portal-system)
 * [Azure Resource Manager templates](#template-system)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
 
 <a name="azure-portal-system"></a>
 
@@ -121,7 +120,6 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 * [Azure portal](#azure-portal-user)
 * [Azure Resource Manager templates](#template-user)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.managedserviceidentity/New-AzUserAssignedIdentity)
 
 <a name="azure-portal-user"></a>
 
@@ -300,7 +298,6 @@ To turn off a managed identity for your logic app, you can follow the steps simi
 
 * [Azure portal](#azure-portal-disable)
 * [Azure Resource Manager templates](#template-disable)
-* [Azure PowerShell - user-assigned identity](https://docs.microsoft.com/powershell/module/az.managedserviceidentity/remove-azuserassignedidentity)
 
 <a name="azure-portal-disable"></a>
 
