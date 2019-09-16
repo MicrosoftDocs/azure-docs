@@ -32,10 +32,7 @@ Azure Private Link provides the following benefits:
  
 - **Global reach**: Connect privately to services running in other regions. This means that the consumer's virtual network could be in region A and it can connect to services behind Private Link in region B.  
  
-- **Extend to your own services**: With Azure Private Link, you can leverage the same experience and functionality to render your own service privately in your customer virtual networks or your own virtual networks on the Azure platform. Azure Private Link works across Active Directory tenants and work on the provider's consumer model with an approval call flow. Moreover, there is no requirement of non-overlapping address spaces as in virtual network peering.
-
-## Why use Azure Private Link?
-Use Azure Private Link to access Azure services or your own services privately and securely. Previously, Azure services (such as Storage, SQL, etc.) or customer-owned services needed to be accessed over Public IP endpoints. With Azure Private Link, this is no longer the case. The need for Internet exposed endpoints is removed. You can privately connect to services in other Virtual Networks easily and securely.
+- **Extend to your own services**: Leverage the same experience and functionality to render your own service privately to your consumers in Azure. By placing your service behind a Standard Load Balancer you can enable it for Private Link. The consumer can then connect directly to your service using a Private Endpoint in their own VNet. You can manage these connection requests using a simple approval call flow. Azure Private Link works for consumers and services belonging to different Active Directory tenants as well. 
 
 ## Availability 
  The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
