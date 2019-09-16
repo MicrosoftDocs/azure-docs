@@ -12,7 +12,7 @@ ms.author: allensu
 
 There are various scenarios in which you'd want to move your existing NSGs from one region to another. For example, you may want to create an NSG with the same configuration and security rules for testing. You may also want to move an NSG to another region as part of disaster recovery planning.
 
-Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of an NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+Azure security groups can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and security rules of an NSG.  You can then stage the resource in another region by exporting the NSG to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ Azure security groups can't be moved from one region to another. You can however
 
 - Verify that your Azure subscription allows you to create NSGs in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
 ## Prepare and move
@@ -42,19 +42,19 @@ The following steps show how to prepare the network security group for the confi
 4. Choose **Deploy** in the **Export template** blade.
 5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 6. To edit the parameter of the NSG name, change the **value** property under **parameters**:
-    
-    ```json
-     {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "networkSecurityGroups_myVM1_nsg_name": {
-            "value": "<target-nsg-name>"
-        }
-       }
-     }
 
-    ```
+        ```json
+            {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+            "networkSecurityGroups_myVM1_nsg_name": {
+               "value": "<target-nsg-name>"
+                }
+               }
+            }
+
+        ```
 
 7. Change the source NSG value in the editor to a name of your choice for the target NSG. Ensure you enclose the name in quotes.
 
@@ -64,7 +64,7 @@ The following steps show how to prepare the network security group for the confi
 
 10. To edit the target region where the NSG configuration and security rules will be moved, change the **location** property under **resources** in the online editor:
 
-       ```json
+         ```json
             "resources": [
             {
             "type": "Microsoft.Network/networkSecurityGroups",
@@ -76,7 +76,9 @@ The following steps show how to prepare the network security group for the confi
                 "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
              }
             }
-       ```
+           ]
+
+         ```
   
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
     
@@ -84,9 +86,9 @@ The following steps show how to prepare the network security group for the confi
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **template.json** file:
     
-      ```json
+            ```json
            "resources": [
-        {
+            {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-06-01",
             "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
@@ -112,9 +114,11 @@ The following steps show how to prepare the network security group for the confi
                             "destinationPortRanges": [],
                             "sourceAddressPrefixes": [],
                             "destinationAddressPrefixes": []
-                        }
+                             }
                     },
-      ```
+                ]
+            }
+            ```
 
       To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **template.json** file in the format of the example below:
 
