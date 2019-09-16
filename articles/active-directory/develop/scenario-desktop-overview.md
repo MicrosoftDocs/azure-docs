@@ -29,7 +29,7 @@ Learn all you need to build a Desktop app that calls web APIs
 
 ## Getting started
 
-If you haven't already, create your first application by following the .NET desktop quickstart or the UWP quickstart:
+If you haven't already, create your first application by following the .NET desktop quickstart, the UWP quickstart or the macOS native app quickstart:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
