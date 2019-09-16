@@ -1,5 +1,5 @@
 ---
-title: ELectric Vehicle Routing using Azure Notebooks (Python) | Microsoft Docs
+title: Electric Vehicle Routing using Azure Notebooks (Python) | Microsoft Docs
 description: EV Routing using Azure Maps routing APIs and Azure Notebooks.
 author: walsehgal
 ms.author: v-musehg
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# ELectric Vehicle Routing using Azure Notebooks (Python)
+# Electric Vehicle Routing using Azure Notebooks (Python)
 
 Azure Maps is a portfolio of geospatial service APIs natively integrated into Azure that enable developers, enterprises and ISVs to create location aware apps and IoT, mobility, logistics and asset tracking solutions.  Also, users can leverage our services to support their scenarios, for example, around data analysis and machine learning (ML).  In order to perform data analysis, users can call directly Azure Maps REST APIs and visualize Azure Maps data using Python. Azure Maps offers a robust set of [routing APIs]([https://docs.microsoft.com/rest/api/maps/route) that allows users to calculate routes between the desired set of points based on various conditions such as vehicle type or reachable area. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to drive time.
 
@@ -84,6 +84,7 @@ import json
 import time
 import aiohttp
 import requests
+import urllib.parse
 from IPython.display import Image, display
 ```
 
@@ -94,11 +95,11 @@ In our scenario, package delivery company has some electric vehicles in their fl
 Run the script below to get bounds for the electric vehicle's reachable range.
 
 ```python
-subscriptionKey = "[Your primary subscriptions key]"
-currentLocation = "34.05220607655166,-118.24339270591734"
+subscriptionKey = "tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA"
+currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
-routeRangeResponse = await (await session.get("https://atlas.microsoft.com/route/range/json?subscription-key={}&api-version=1.0&query={}&travelMode=car&vehicleEngineType=electric&energyBudgetInkWh=20&currentChargeInkWh=35&maxChargeInkWh=80&routeType=eco&constantSpeedConsumptionInkWhPerHundredkm=50,8.2:130,21.3".format(subscriptionKey,currentLocation))).json()
+routeRangeResponse = await (await session.get("https://atlas.microsoft.com/route/range/json?subscription-key={}&api-version=1.0&query={}&travelMode=car&vehicleEngineType=electric&currentChargeInkWh=45&maxChargeInkWh=80&timeBudgetInSec=550&routeType=eco&constantSpeedConsumptionInkWhPerHundredkm=50,8.2:130,21.3".format(subscriptionKey,str(currentLocation[0])+","+str(currentLocation[1])))).json()
 
 polyBounds = routeRangeResponse["reachableRange"]["boundary"]
 
@@ -119,6 +120,9 @@ boundsData = {
                    ]
                 }
              }
+
+
+polyBoundsCenter = list(routeRangeResponse["reachableRange"]["center"].values())
 ```
 
 ## Search electric vehicle charging stations within reachable range
