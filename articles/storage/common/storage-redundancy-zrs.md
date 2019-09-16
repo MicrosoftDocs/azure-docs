@@ -97,7 +97,7 @@ You can request live migration through the [Azure Support portal](https://ms.por
 4. Specify the following values the **Problem** section: 
     - **Severity**: Leave the default value as-is.
     - **Problem Type**: Select **Data Migration**.
-    - **Category**: Select **Migrate to ZRS within a region**.
+    - **Category**: Select **Migrate to ZRS**.
     - **Title**: Type a descriptive title, for example, **ZRS account migration**.
     - **Details**: Type additional details in the **Details** box, for example, I would like to migrate to ZRS from [LRS, GRS] in the \_\_ region. 
 5. Select **Next**.
