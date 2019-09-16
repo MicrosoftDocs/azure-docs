@@ -75,6 +75,11 @@ Now add the C# code that defines the Android specific part of the application.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld.Android/Services/MicrophoneService.cs#code)]
 
+1. After that open `AndroidManifest.xml` under `Properties` folder and add the following uses-permission setting for the microphone (between `<manifest>` and `</manifest>`).
+```xml
+   <uses-permission android:name="android.permission.RECORD_AUDIO" />
+```
+
 ## Add sample code for the `helloworld.iOS` project
 
 Now add the C# code that defines the iOS specific part of the application and also create Apple device specific configurations to the helloworld.iOS project.
