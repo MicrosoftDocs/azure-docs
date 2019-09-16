@@ -35,7 +35,7 @@ To update the agent on a Windows VM to the latest version not installed using th
 
 You can download the latest version of the Windows agent from [here](https://aka.ms/dependencyagentwindows).
 
-#### To upgrade using the Setup Wizard
+#### Using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -51,7 +51,7 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 8. In the **Dependency Agent 9.9.1 Setup** dialog box, the install progress is shown. When the **Completing Dependency Agent Uninstall** page appears, click **Finish**. 
 
-#### To upgrade from the command line
+#### From the command line
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -65,10 +65,48 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 3. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-### Upgrade Linux agent 
+#### Using Desired State Configuration
 
-Upgrade from prior versions (>1.0.0-47) is supported. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
+To upgrade the Dependency agent using Desired State Configuration (DSC), you can use the xPSDesiredStateConfiguration module with the following example code:
 
-Run the following command to upgrade the agent.
+```powershell
+configuration ServiceMap {
 
-`sudo sh ./omsagent-*.universal.x64.sh --upgrade`
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+
+    Node localhost
+    {
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
+
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
+    }
+}
+```
+
+## Upgrade Linux agent 
+
+Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
+
+1. Sign on to the computer with an account that has administrative rights.
+
+2. Run the following command as root`sh InstallDependencyAgent-Linux64.bin -s`. 
+
+If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
