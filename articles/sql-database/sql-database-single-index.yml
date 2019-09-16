@@ -64,19 +64,6 @@ sections:
         html: <p>Help secure your database with Azure AD authentication, virtual networks, firewalls, and Always Encrypted connections. Identify threats and vulnerabilities with built-in security.</p>
         image:
           src: media/index/i_security.svg
-- title: New and preview features
-  items:
-  - type: paragraph
-    text: 'We are continuously improving SQL Database with new features, and we would like to hear your feedback regarding the following new features:'
-  - type: list
-    style: unordered
-    items: 
-    - html: (Preview) <a href="sql-database-service-tier-hyperscale">Hyperscale</a> tier that supports up to 100-TB databases and multiple readable replicas. 
-    - html: (Preview) New SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligent query processing</a> features, such as <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">table variable deferred compilation</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batch mode on rowstore tables</a>, and <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">scalar UDF inlining</a>. 
-    - html: (Preview) New Transact-SQL language functionalities, such as <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregate</a> and <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">bulk import from Azure Blob storage</a>. 
-    - html: (Preview) New SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">build</a> and rebuild clustered columnstore index operations.
-    - html: (Preview) New <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning Services (with R)</a>.
-    - html: (Preview) New <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">serverless compute tier</a> provides compute auto-scaling and bills per second for compute used.
 - title: Five-minute quickstarts 
   items:
   - type: paragraph
