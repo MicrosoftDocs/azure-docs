@@ -85,12 +85,12 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
-    - name: Identity platform best practices
-      href: identity-platform-integration-checklist.md
     - name: Authentication basics
       href: authentication-scenarios.md
     - name: Authentication flows and app scenarios
       href: authentication-flows-app-scenarios.md
+    - name: Identity platform best practices
+      href: identity-platform-integration-checklist.md
     - name: Application scenarios
       items:
       - name: Sign-in audience
