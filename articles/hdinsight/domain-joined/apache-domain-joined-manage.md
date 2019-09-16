@@ -48,6 +48,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > 
    > ![Azure Explorer storage account in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
 3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
@@ -72,6 +73,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > 
    > ![Azure Explorer storage account in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
 3. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
@@ -101,8 +103,8 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 
 Using the standard APIs helps from security perspective. In addition, you get the following benefits:
 
-1.	**Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
-2.	**Audit** – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
+- **Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
+- **Audit** – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
 
 
 
