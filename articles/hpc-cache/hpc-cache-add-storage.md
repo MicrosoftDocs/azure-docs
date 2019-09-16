@@ -32,10 +32,6 @@ From the Azure portal, open your cache instance and click **Storage targets** on
 
 ![screenshot of the storage targets link on the sidebar, under the heading Configure, which is between the category headings Settings and Monitoring](media/hpc-cache-storage-targets-sidebar.png)
 
-![experimental screenshot](media/storage-targets-reduced-ret.png)
-
-![experimental screenshot 2](media/storage-targets-reduced-noret.png)
-
 ## Add a new Azure Blob storage target
 
 A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud filesystem format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
