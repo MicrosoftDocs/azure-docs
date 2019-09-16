@@ -133,7 +133,7 @@ You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detect
 ```azurecli-interactive
 az cognitiveservices account create \
     --name anomaly-detector-resource \
-    --group cognitive-services-resource-group \
+    --resource-group cognitive-services-resource-group \
     --kind AnomalyDetector \
     --sku F0 \
     --location westus2 \
