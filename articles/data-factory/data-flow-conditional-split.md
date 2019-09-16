@@ -10,7 +10,7 @@ ms.date: 02/03/2019
 
 # Mapping data flow conditional split transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![conditional split toolbox](media/data-flow/conditionalsplit2.png "conditional split toolbox")
 

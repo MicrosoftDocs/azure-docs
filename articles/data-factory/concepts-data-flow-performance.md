@@ -10,7 +10,7 @@ ms.date: 05/16/2019
 
 # Mapping data flows performance and tuning guide
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Azure Data Factory Mapping Data Flows provide a code-free browser interface to design, deploy, and orchestrate data transformations at scale.
 

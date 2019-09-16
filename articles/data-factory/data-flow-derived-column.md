@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 
 # Derived Column transformation in Mapping Data Flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use the Derived Column transformation to generate new columns in your data flow or to modify existing fields.
 

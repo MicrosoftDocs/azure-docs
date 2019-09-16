@@ -11,7 +11,7 @@ ms.date: 09/12/2019
 
 # Schema drift in Mapping Data Flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Schema drift is the case where your sources often change metadata. Fields, columns, and, types can be added, removed, or changed on the fly. Without handling for schema drift, your data flow becomes vulnerable to upstream data source changes. Typical ETL patterns fail when incoming columns and fields change because they tend to be tied to those source names.
 

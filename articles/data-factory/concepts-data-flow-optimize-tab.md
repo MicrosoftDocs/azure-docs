@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 
 # Mapping data flow transformation optimize tab
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Each Data Flow transformation has an "Optimize" tab. The optimize tab contains optional settings to configure partitioning schemes for data flows.
 

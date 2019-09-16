@@ -11,7 +11,7 @@ ms.date: 02/07/2019
 
 # Mapping Data Flow Join Transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use Join to combine data from two tables in your Data Flow. Click on the transformation that will be the left relationship and add a Join transformation from the toolbox. Inside the Join transform, you will select another data stream from your data flow to be right relationship.
 

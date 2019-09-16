@@ -11,7 +11,7 @@ ms.date: 02/03/2019
 
 # Azure Data Factory Mapping Data Flow Lookup Transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use Lookup to add reference data from another source to your Data Flow. The Lookup transform requires a defined source that points to your reference table and matches on key fields.
 
