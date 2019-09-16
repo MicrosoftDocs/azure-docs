@@ -32,6 +32,10 @@ From the Azure portal, open your cache instance and click **Storage targets** on
 
 ![screenshot of the storage targets link on the sidebar, under the heading Configure, which is between the category headings Settings and Monitoring](media/hpc-cache-storage-targets-sidebar.png)
 
+![experimental screenshot](media/storage-targets-reduced-ret.png)
+
+![experimental screenshot 2](media/storage-targets-reduced-noret.png)
+
 ## Add a new Azure Blob storage target
 
 A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud filesystem format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
@@ -55,7 +59,7 @@ When finished, click **OK** to add the storage target.
 
 The Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
 
-The storage account owner must explicitly add the rolls [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
+The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target.
 
