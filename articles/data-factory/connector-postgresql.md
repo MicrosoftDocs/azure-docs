@@ -25,6 +25,11 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
+This PostgreSQL connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from PostgreSQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and above**.
@@ -55,8 +60,8 @@ A typical connection string is `Server=<server>;Database=<database>;Port=<port>;
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g. `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
-| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g. `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
+| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g.,  `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g.,  `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
 
 **Example:**
 
@@ -165,7 +170,7 @@ To copy data from PostgreSQL, the following properties are supported:
 }
 ```
 
-If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -216,6 +221,11 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 ```
 
 If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
