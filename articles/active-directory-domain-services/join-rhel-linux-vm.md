@@ -1,147 +1,201 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed domain | Microsoft Docs'
-description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
+title: Join a RHEL VM to Azure AD Domain Services | Microsoft Docs'
+description: Learn how to configure and join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 
-ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
+ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/15/2019
 ms.author: iainfou
 
 ---
-# Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
-This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual machine to an Azure AD Domain Services managed domain.
+# Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to an Azure Active Directory Domain Services (AD DS) managed domain. When you join a VM to an Azure AD DS managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the Azure AD DS managed domain are also applied to let you control access to files or services on the VM.
 
-## Before you begin
-To perform the tasks listed in this article, you need:  
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
-4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
+This article shows you how to join a Red Hat Enterprise Linux (RHEL) VM to an Azure AD DS managed domain.
 
+## Prerequisites
 
-## Provision a Red Hat Enterprise Linux virtual machine
-Provision a RHEL 7 virtual machine in Azure, using any of the following methods:
+To complete this tutorial, you need the following resources and privileges:
+
+* An active Azure subscription.
+    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+
+## Create and connect to a RHEL Linux VM
+
+If you have an existing RHEL Linux VM in Azure, connect to it using SSH, then continue on to the next step to [start configuring the VM](#configure-the-hosts-file).
+
+If you need to create a RHEL Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
+
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-> [!IMPORTANT]
-> * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
-> * Pick a **different subnet** than the one in which you have enabled Azure AD Domain Services.
->
+When you create the VM, pay attention to the virtual network settings to make sure that the VM can communicate with the Azure AD DS managed domain:
 
+* Deploy the VM into the same, or a peered, virtual network in which you have enabled Azure AD Domain Services.
+* Deploy the VM into a different subnet than your Azure AD Domain Services instance.
 
-## Connect remotely to the newly provisioned Linux virtual machine
-The RHEL 7.2 virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
+Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
-Follow the instructions in the article [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Configure the hosts file
 
-
-## Configure the hosts file on the Linux virtual machine
-In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
+To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
 
 ```console
 sudo vi /etc/hosts
 ```
 
-In the hosts file, enter the following value:
+In the *hosts* file, update the *localhost* address. In the following example:
+
+* *contoso.com* is the DNS domain name of your Azure AD DS managed domain.
+* *rhel* is the hostname of your RHEL VM that you're joining to the managed domain.
+
+Update these names with your own values:
 
 ```console
-127.0.0.1 contoso-rhel.contoso.com contoso-rhel
+127.0.0.1 rhel rhel.contoso.com
 ```
 
-Here, 'contoso.com' is the DNS domain name of your managed domain. 'contoso-rhel' is the hostname of the RHEL virtual machine you are joining to the managed domain.
+When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
+## Install required packages
 
-## Install required packages on the Linux virtual machine
-Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
+The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
 
 ```console
-sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
+## Join VM to the managed domain
 
-## Join the Linux virtual machine to the managed domain
-Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
+Now that the required packages are installed on the VM and NTP is configured, join the VM to the Azure AD DS managed domain.
 
-1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
+1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
     sudo realm discover CONTOSO.COM
     ```
 
-   > [!NOTE]
-   > **Troubleshooting:**
-   > If *realm discover* is unable to find your managed domain:
-   >   * Ensure that the domain is reachable from the virtual machine (try ping).
-   >   * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-   >   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+   If the `realm discover` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
 
-2. Initialize Kerberos. In your SSH terminal, type the following command:
+    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+    * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
+    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
-    > [!TIP]
-    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
-    > * Specify the domain name in capital letters, else kinit fails.
+1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
 
     ```console
-    kinit bob@CONTOSO.COM
+    kinit contosoadmin@CONTOSO.COM
     ```
 
-3. Join the machine to the domain. In your SSH terminal, type the following command:
-
-    > [!TIP]
-    > Use the same user account you specified in the preceding step ('kinit').
-    >
-    > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
+1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@CONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
     ```
 
-You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
+It takes a few moments to join the VM to the Azure AD DS managed domain. The following example output shows the VM has successfully joined to the Azure AD DS managed domain:
 
+```output
+Successfully enrolled machine in realm
+```
 
-## Verify domain join
-Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined RHEL VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
+If your VM can't successfully complete the domain-join process, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
-1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO.COM' in this case.)
-    
+## Allow password authentication for SSH
+
+By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to an Azure AD DS managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
+
+1. Open the *sshd_conf* file with an editor:
+
     ```console
-    ssh -l bob@CONTOSO.COM contoso-rhel.contoso.com
+    sudo vi /etc/ssh/sshd_config
     ```
 
-2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    
+1. Update the line for *PasswordAuthentication* to *yes*:
+
+    ```console
+    PasswordAuthentication yes
+    ```
+
+    When done, save and exit the *sshd_conf* file using the `:wq` command of the editor.
+
+1. To apply the changes and let users sign in using a password, restart the SSH service:
+
+    ```console
+    sudo systemctl restart sshd
+    ```
+
+## Grant the 'AAD DC Administrators' group sudo privileges
+
+To grant members of the *AAD DC Administrators* group administrative privileges on the RHEL VM, you add an entry to the */etc/sudoers*. Once added, members of the *AAD DC Administrators* group can use the `sudo` command on the RHEL VM.
+
+1. Open the *sudoers* file for editing:
+
+    ```console
+    sudo visudo
+    ```
+
+1. Add the following entry to the end of */etc/sudoers* file:
+
+    ```console
+    # Add 'AAD DC Administrators' group members as admins.
+    %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
+    ```
+
+    When done, save and exit the editor using the `:wq` command of the editor.
+
+## Sign in to the VM using a domain account
+
+To verify that the VM has been successfully joined to the Azure AD DS managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
+
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@contoso.com` and then enter the address of your VM, such as *rhel.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+
+    ```console
+    ssh -l contosoadmin@CONTOSO.com rhel.contoso.com
+    ```
+
+1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
+
     ```console
     pwd
     ```
 
-3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
-    
+    You should be in the */home* directory with your own directory that matches the user account.
+
+1. Now check that the group memberships are being resolved correctly:
+
     ```console
     id
     ```
 
+    You should see your group memberships from the Azure AD DS managed domain.
 
-## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domain-join-issues) article.
+1. If you signed in to the VM as a member of the *AAD DC Administrators* group, check that you can correctly use the `sudo` command:
 
-## Related Content
-* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
-* [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
-* [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+    ```console
+    sudo yum update
+    ```
+
+## Next steps
+
+If you have problems connecting the VM to the Azure AD DS managed domain or signing in with a domain account, see [Troubleshooting domain join issues](join-windows-vm.md#troubleshoot-domain-join-issues).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md

@@ -65,7 +65,7 @@ In the *hosts* file, update the *localhost* address. In the following example:
 Update these names with your own values:
 
 ```console
-127.0.0.1 centos.contoso.com centos
+127.0.0.1 centos centos.contoso.com
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
@@ -105,7 +105,7 @@ Now that the required packages are installed on the VM and NTP is configured, jo
 1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@CONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
     ```
 
 It takes a few moments to join the VM to the Azure AD DS managed domain. The following example output shows the VM has successfully joined to the Azure AD DS managed domain:
@@ -142,7 +142,7 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 ## Grant the 'AAD DC Administrators' group sudo privileges
 
-To grant members of the *AAD DC Administrators* group administrative privileges on the Ubuntu VM, you add an entry to the */etc/sudoers*. Once added, members of the *AAD DC Administrators* group can use the `sudo` command on the Ubuntu VM.
+To grant members of the *AAD DC Administrators* group administrative privileges on the CentOS VM, you add an entry to the */etc/sudoers*. Once added, members of the *AAD DC Administrators* group can use the `sudo` command on the CentOS VM.
 
 1. Open the *sudoers* file for editing:
 
