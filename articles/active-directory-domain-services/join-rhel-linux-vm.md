@@ -80,7 +80,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
 ## Join VM to the managed domain
 
-Now that the required packages are installed on the VM and NTP is configured, join the VM to the Azure AD DS managed domain.
+Now that the required packages are installed on the VM, join the VM to the Azure AD DS managed domain.
 
 1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
