@@ -33,14 +33,16 @@ This tutorial helps you detect threats with Azure Sentinel.
 
 To enable out-of-the-box detections, go to **Rule templates**. 
 
-This is a list of the template types available:
+This is a list of the template types available.
+
+
 |Template type|Considerations|
 |----|----|
 |UEBA| For User and entity behavioral analytics templates, you can create multiple analytic detections based on each template. These templates are based on proprietary, Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run.| 
 |Microsoft Security| Microsoft security templates generate alerts as raw data from other Microsoft security solutions, such as Microsoft Cloud App Security and Azure Advanced Threat Protection|
 |Fusion|Fusion provides algorithms to aggregate incidents that would otherwise not seem suspicious and colate them for you into investagatable tasks. Fusion is enabled by default.|
 |Machine Learning|When you click **Create rule** for machine learning templates, you can select a playbook to be run automatically and create multiple rules for each machine learning template with various playbooks attached.|
-|Scheduled query|For scheduled query templates, you can create multiple rules  of them - they are the only ones in which you can see the logic and make changes and schedule them to run.
+|Scheduled query|For scheduled query templates, you can create multiple rules  of them - they are the only ones in which you can see the logic and make changes and schedule them to run.|
 
 
 For each of these templates, you can click **Create rule** and it will make them active. For many you can customize them, for instance by adding playbooks for automation.
