@@ -16,7 +16,7 @@ Use the Azure portal to create your cache.
 
 ## Define basic details
 
-![screenshot of project details page in Azure portal](media/create-1.png)
+![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
 In **Project Details**, select the subscription and resource group that will host the Azure HPC Cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subscription) list.
 
@@ -42,7 +42,7 @@ Keep in mind that the actual data transfer rate depends on workload, network spe
 
 For cache storage, Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. The cache contents are continuously assessed and files are moved to long-term storage when they are less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files with additional space for metadata and other overhead.
 
-![screenshot of cache sizing page](media/create-cache-iops.png)
+![screenshot of cache sizing page](media/hpc-cache-create-iops.png)
 
 ## Add storage targets
 
@@ -50,19 +50,21 @@ Storage targets are the back-end, long-term storage for the contents of your cac
 
 You can define storage targets while creating the cache, but you can also add them afterward with the link in the **Configure** section of your cache's page in the portal.
 
-![screenshot of storage targets page](media/create-targets.png)
+![screenshot of storage targets page](media/hpc-cache-storage-targets-pop.png)
 
 Click the **Add storage target link** to define your back-end storage systems. The storage can be Azure Blob containers or on-premises NFS systems.
 
 You can define up to ten different storage targets.
 
-For step-by-step instructions to add a storage target, read [Add storage](hpc-cache-add-storage.md). The procedure is different for Blob storage or for NFS exports.
+Step-by-step instructions to add a storage target are included in [Add storage](hpc-cache-add-storage.md). The procedure is different for Blob storage or for NFS exports.
 
-For both types of storage, you must specify how to find the back-end storage system (either an NFS address or a Blob container name) and the client-facing namespace path.
+Here are some tips: 
 
-When creating a Blob storage target, make sure the cache has access permissions to the storage account, as described in [Add the access control roles](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). If you are not sure the role configuration will be successful, create the cache first and then add the Blob storage afterward.
+* For both types of storage, you must specify how to find the back-end storage system (either an NFS address or a Blob container name) and the client-facing namespace path.
 
-When creating an NFS storage target, specify a [usage model](hpc-cache-add-storage.md#choose-a-usage-model). The usage model setting helps the cache optimize your workflow.
+* When creating a Blob storage target, make sure the cache has access permissions to the storage account, as described in [Add the access control roles](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). If you are not sure the role configuration will be successful, create the cache first and then add the Blob storage afterward.
+
+* When creating an NFS storage target, specify a [usage model](hpc-cache-add-storage.md#choose-a-usage-model). The usage model setting helps the cache optimize your workflow.
 
 ## Add resource tags (optional)
 
@@ -72,11 +74,13 @@ The **Tags** page lets you add [resource tags](https://go.microsoft.com/fwlink/?
 
 After configuring the new cache, click the **Review + create** tab. The portal validates your selections and lets you review your choices. If everything is correct, click **Create**. 
 
-Cache creation takes about 10 minutes. You can track the progress in the Azure portal's notifications panel. When it finishes, a notification appears with a link to the new Azure HPC Cache instance. 
+Cache creation takes about 10 minutes. You can track the progress in the Azure portal's notifications panel. 
 
-The cache also is visible in your subscription's **Resources** list. 
+![screenshot of cache creation "deployment underway" and "notifications" pages in portal](media/hpc-cache-deploy-status.png)
 
-![screenshot of Azure HPC Cache instance in Azure portal](media/finished-hpc-cache.png)
+When creation finishes, a notification appears with a link to the new Azure HPC Cache instance, and the cache appears in your subscription's **Resources** list. 
+
+![screenshot of Azure HPC Cache instance in Azure portal](media/hpc-cache-new-overview.png)
 
 ## Next steps
 
