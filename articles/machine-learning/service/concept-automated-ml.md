@@ -1,7 +1,7 @@
 ---
 title: What is automated ML / automl
-titleSuffix: Azure Machine Learning service
-description: Learn how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
+titleSuffix: Azure Machine Learning
+description: Learn how Azure Machine Learning can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -34,7 +34,7 @@ Data scientists, analysts and developers across industries can use automated ML 
 
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
+Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
 
@@ -48,7 +48,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
   ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-During training, the Azure Machine Learning service creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
+During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
