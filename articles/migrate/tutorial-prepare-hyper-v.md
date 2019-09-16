@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 09/16/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -135,10 +135,10 @@ Run the script as follows:
     ```
     
     Hash values are:
-    Hash | Value
-    --- | ---
-    **MD5** | 0ef418f31915d01f896ac42a80dc414e
-    **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+    | **Hash** | **Value** |
+    | --- | --- |
+    | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
+    | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
 4.	After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
