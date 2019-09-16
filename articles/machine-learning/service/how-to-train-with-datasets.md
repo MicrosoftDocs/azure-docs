@@ -80,7 +80,7 @@ experiment_run.wait_for_completion(show_output=True)
 
 TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries. To leverage this capability, you can pass a TabularDataset as the input in your training configuration, and then retrieve it in your script.
 
-To do so, access the input dataset through the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) object in your training script and use the to_pandas_dataframe() method. 
+To do so, access the input dataset through the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) object in your training script and use the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) method. 
 
 ```Python
 %%writefile $script_folder/train_titanic.py
