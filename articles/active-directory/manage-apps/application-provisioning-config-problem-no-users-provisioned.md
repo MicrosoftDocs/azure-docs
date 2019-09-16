@@ -47,7 +47,7 @@ If you set the **Provisioning Status** to be **On** in the **Azure Active Direct
 
 ## Provisioning logs say users are skipped and not provisioned even though they are assigned
 
-When a user shows up as “skipped” in the provisioning logs, it is important to reivew the **Steps** tab of the log to determine the reason. Below are common reasons and resolutions:
+When a user shows up as “skipped” in the provisioning logs, it is important to review the **Steps** tab of the log to determine the reason. Below are common reasons and resolutions:
 
 - **A scoping filter has been configured** **that is filtering the user out based on an attribute value**. For more information on scoping filters, see [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 - **The user is “not effectively entitled”.** If you see this specific error message, it is because there is a problem with the user assignment record stored in Azure AD. To fix this issue, unassign the user (or group) from the app, and reassign it again. For more information on assignment, see [Assign user or group access](assign-user-or-group-access-portal.md).
