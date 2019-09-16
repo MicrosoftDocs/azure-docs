@@ -37,7 +37,10 @@ This article describes the following use cases:
 
 ## Connect a single device
 
-This approach is useful when you're experimenting with IoT Central or testing devices. You can use the device connection information from your IoT Central application to generate the connection string for a device. For detailed steps, see [How to generate a device connection string to connect to an Azure IoT Central application](howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+This approach is useful when you're experimenting with IoT Central or testing devices. You can use the device connection information from your IoT Central application to connect a device to your IoT Central application using the Device Provisioning Service (DPS). You can find sample DPS device client code for the following languages:
+
+- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
+- [Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
 
 ## Connect devices at scale using SAS
 
@@ -185,8 +188,6 @@ The Azure Device SDKs offer the easiest way for you implement your device code. 
 - [Azure IoT SDK for Node.js](https://github.com/azure/azure-iot-sdk-node)
 - [Azure IoT SDK for Java](https://github.com/azure/azure-iot-sdk-java)
 - [Azure IoT SDK for .NET](https://github.com/azure/azure-iot-sdk-csharp)
-
-Each device connects using a unique connection string that identifies the device. A device can only connect to the IoT hub where it's registered. When you create a real device in your Azure IoT Central application, the application generates the information you need to construct a connection string using `dps-keygen`.
 
 ### SDK features and IoT Hub connectivity
 
