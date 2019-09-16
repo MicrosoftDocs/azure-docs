@@ -146,5 +146,10 @@ To copy data from Oracle Eloqua, set the source type in the copy activity to **E
 ]
 ```
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+
 ## Next steps
 For a list of supported data stored by Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
