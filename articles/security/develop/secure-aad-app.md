@@ -1,5 +1,5 @@
 ---
-title: Develop a secure web application | Microsoft Docs
+title: Develop a secure Azure AD Web application | Microsoft Docs
 description: This simple sample app implements security best practices that improve your application and your organization's security posture when you develop on Azure.
 keywords: na
 services: security
@@ -17,21 +17,21 @@ ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
 ---
-# Develop secure app for a AAD app
-# Overview
+# Develop secure app for a Azure AD app
+## Overview
 
 This sample is a simple Azure Active Directory with web app that links to security resources for developing apps on Azure. The app implements security best practices that can help improve your application and your organization’s security posture when you develop apps on Azure.
 
 The deployment scripts set up the infrastructure. After you run the deployment scripts, you'll need to do some manual configuration in the Azure portal to link the components and services together. 
-This sample is targeted toward experienced developers on Azure who work within the retail industry and want to build a secured Azure active directory with secure Azure infrastructure. 
+This sample is targeted toward experienced developers on Azure who work within the retail industry and want to build a secured Azure Active Directory with secure Azure infrastructure. 
 
 
-In developing and deploying this app, you'll learn how to: 
+In developing and deploying this app, you'll learn how to 
 - Create an Azure Key Vault instance, store, and retrieve secrets from it.
-- Deploy the Azure Web App, which is dedicated isolated with frond end firewall access. 
+- Deploy the Azure Web App, which is dedicated isolated with front end firewall access. 
 - Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset. 
 - Enable encryption of data in transit and at rest by using Azure services. 
-- Set up the Azure policy and security center to evaluate the compliancies 
+- Set up the Azure policy and security center to evaluate the compliancies. 
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
@@ -42,16 +42,16 @@ The app is a typical n-tier application with three tiers. The front end, back en
 
 This solution uses the following Azure services. Details of the deployment architecture are in the Deployment Architecture section. 
 
-The architecture consists of these components:
+The architecture consists of these components
 
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the gateway and firewall for our application architecture.
 - [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview). Provides an extensible Application Performance Management (APM) service on multiple platforms.
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis/).Provides cloud-based identity and access management service, sign in and access resources.
 - [Azure Domain Name System](https://docs.microsoft.com/en-us/azure/dns/dns-overview). Provide the service to host the domain.
-- [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/). Provides to scale your applications and create high availability for your services
+- [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/). Provides to scale your applications and create high availability for your services.
 - [Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview/).  Provides an HTTP-based service for hosting web applications.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/). provides advanced threat protection across your hybrid workloads in the cloud
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/). provides advanced threat protection across your hybrid workloads in the cloud.
 - [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview). Provides evaluating your resources for non-compliance with assigned policies.
 
 ## Threat model
@@ -59,7 +59,7 @@ Threat modeling is the process of identifying potential security threats to your
 
 This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. Time and money will be saved later by using this.
 
-Here is the threat model for the sample app:
+Here is the threat model for the sample app
 
 ![Threat model](./media/secure-aad-app/threat-model.png)
 
@@ -72,12 +72,12 @@ You need an Azure subscription to deploy the sample app's resources. If you don'
 ### Implementation guidance
 The deployment script is one script that can be broken down into four phases. Each phase deploys and configures an Azure resource that's in the [architecture diagram](#architecture).
 
-The four phases are:
+The four phases are
 
 - Deploy Azure Key Vault.
 - Deploy Azure Web Apps.
 - Deploy Application Gateway with web application firewall.
-- Configure the AAD with Deployed App
+- Configure the Azure AD with Deployed App.
 
 Each phase builds upon the preceding one by using configuration from the previously deployed resources.
 
@@ -88,7 +88,7 @@ In this section, you create and deploy an Azure Key Vault instance that is used 
 
 After you complete the deployment, you have an Azure Key Vault instance deployed on Azure.
 
-To deploy Azure Key Vault by using Powershell:
+To deploy Azure Key Vault by using Powershell
  
 1. Declare the variables for Azure Key Vault.
 2. Register the Azure Key Vault provider.
@@ -124,7 +124,7 @@ To deploy Azure Key Vault by using Powershell:
 
 It's a best practice to use managed identities for Azure resources in apps that use Key Vault to access resources. Your security posture increases when access keys to Key Vault aren't stored in code or in configuration.
 
-A root certificate is included in the container. The steps taken to obtain the certificate are:
+A root certificate is included in the container. The steps taken to obtain the certificate are
 
 1. Download the certificate file from the [Certificate Authority](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
 2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
@@ -151,7 +151,7 @@ Save the access policy and then save the new change on the **Access Policies** t
 In web apps, it is not recommended that you expose services directly to the outside world on the internet.
 Load balancing and firewall rules provide more security and control over the incoming traffic and help you manage it.
 
-To deploy an Application Gateway instance:
+To deploy an Application Gateway instance
 
 1. Create the resource group to house the application gateway.
 2. Provision a virtual network to attach to the gateway.
@@ -162,7 +162,7 @@ To deploy an Application Gateway instance:
 
 ```
 Connect-AzAccount
-Select-AzSubscription -SubscriptionId '29d3ac63-5269-4613-be96-dbe5b26e8e07'
+Select-AzSubscription -SubscriptionId '$SubscriptionId'
 New-AzResourceGroup -Name appgw-rg -Location "East US"
 
 #Create a virtual network and a subnet for the application gateway
@@ -173,7 +173,7 @@ $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 
 
 #Assign an address range to be used for the back-end address pool.
 
-$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
+$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.0.0/24
 
 #Create a virtual network with the subnets defined in the preceding steps.
 
@@ -200,7 +200,7 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAdd
 
 #Configure the back-end IP address pool with the IP addresses of the back-end web servers
 
-$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.3.11
+$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.0.0
 
 #Configure the front-end IP port for the public IP endpoint
 
@@ -209,7 +209,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 #Configure the certificate for the application gateway. This certificate is used to decrypt and reencrypt the traffic on the application gateway
 
 $passwd = ConvertTo-SecureString  "P@ssword!1" -AsPlainText -Force 
-$cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\Feroz\Securities\Certificates\contosowebstores.com.cer" -Password $passwd 
+$cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\AAD\Securities\Certificates\sslcert.com.cer" -Password $passwd 
 
 #Create the HTTP listener for the application gateway
 
@@ -219,7 +219,7 @@ $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Http
 
 #$authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
 
-$trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile "C:\Feroz\Securities\Certificates\contosowebstores.com.cer"
+$trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile "C:\AAD\Securities\Certificates\sslcert.com.cer"
 
 #Configure the HTTP settings for the application gateway back end
 
@@ -244,21 +244,21 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 #### Deploy Azure Web Apps
 Azure App Service enables you to build and host web apps using the languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
 
-#### Create an App Service plan in Free tier.
+#### Create an App Service plan in Free tier
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
-#### Create a web app.
+#### Create a web app
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
 
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### Before continuing, go to your Azure Domain Name System configuration UI for your custom domain and follow the instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the hostname "www" and point it your web app's default domain name.
+#### Before continuing, go to your Azure Domain Name System configuration UI for your custom domain and follow the instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the hostname "www" and point it your web app's default domain name
 
 #### Upgrade App Service plan to Shared tier (minimum required by custom domains)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
 
-#### Add a custom domain name to the web app. 
+#### Add a custom domain name to the web app
     Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `-HostNames @($fqdn,"$webappname.azurewebsites.net")
 
 ## Guidance and recommendations
@@ -275,7 +275,7 @@ Blocking unused ports and limiting the attack surface exposure is a security bes
 App Service instances can be integrated with virtual networks. This integration allows them to be configured with network security group policies that manage the
 app's incoming and outgoing traffic.
 
-1. To enable this feature, on the Azure App service instance blade, under **Settings**, selects **Networking**. In the right pane, configure under **VNet Integration**
+1. To enable this feature, on the Azure App service instance blade, under **Settings**, selects **Networking**. In the right pane, configure under **VNet Integration**.
 
    ![New virtual network integration](./media/secure-web-app/app-vnet-menu.png)
 
@@ -309,7 +309,7 @@ Now that you've enabled the virtual network integration, you can add network sec
 
    *Configure the NSG*
 
-4. In the outbound rules for the gateway NSG, add a rule that allows outbound connections to the App Service instance by creating a rule that targets the service tag `AppService`:
+4. In the outbound rules for the gateway NSG, add a rule that allows outbound connections to the App Service instance by creating a rule that targets the service tag `AppService`
 
    ![Add outbound rules for the NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -341,69 +341,66 @@ You can retrieve the IP address of the gateway from its overview page. On the **
 
 *Allow only the gateway IP to access the App Service*
 
-### Azure Domain Name System: 
+### Azure Domain Name System 
 The Azure Domain Name System, or Azure Domain Name System, is responsible for translating (or resolving) a website or service name to its IP address. Azure Domain Name System(https://docs.microsoft.com/azure/dns/dns-overview) is a hosting service for Domain Name System domains that provides name resolution using 
 Azure infrastructure. By hosting domains in Azure, users can manage Domain Name System records using the same credentials, APIs, tools, and billing as other Azure services. Azure Domain Name System also supports private Domain Name System domains.
 
-### Azure Disk Encryption: 
+### Azure Disk Encryption
 Azure Disk Encryption leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
 
 ### Identity management
-The following technologies provide capabilities to manage access to cardholder data in the Azure environment:
+The following technologies provide capabilities to manage access to cardholder data in the Azure environment
 - Azure Active Directory is Microsoft's multi-tenant cloud-based directory and identity management service. All users for this solution are created in Azure Active Directory, including users accessing the Azure WebApp.
 - Azure role-based access control enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted permission for Azure resources, administrators can allow only certain actions for accessing cardholder data. Subscription access is limited to the subscription administrator.
 - Azure Active Directory Privileged Identity Management enables customers to minimize the number of users who have access to certain information such as cardholder data. Administrators can use Azure Active Directory Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality can also be used to enforce on-demand, just-in-time administrative access when needed.
 - Azure Active Directory Identity Protection detects potential vulnerabilities affecting an organization's identities, configures automated responses to detected suspicious actions related to an organization's identities, and investigates suspicious incidents to take appropriate action to resolve them.
-### Secrets management: 
-The solution uses Azure Key Vault for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect and access such data:
+### Secrets management
+The solution uses Azure Key Vault for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect and access such data
    - Advanced access policies are configured on a need basis.
    - Key Vault access policies are defined with minimum required permissions to keys and secrets.
    - All keys and secrets in Key Vault have expiration dates.
-   - All keys in Key Vault are protected by specialized hardware security modules. The key type is an hardware security module (HSM) Protected 2048-bit RSA Key.
-   - With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are   protected by hardware security modules (HSMs) 
+   - All keys in Key Vault are protected by specialized hardware security modules. The key type is a hardware security module (HSM) Protected 2048-bit RSA Key.
+   - With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are   protected by hardware security modules (HSMs). 
    - Use Role-Based Access Control (RBAC) to assign permissions to users, groups, and applications at a certain scope.     
    - Use Key Vault to manage your TLS certificates with autorenewal. 
    - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
    - Permitted cryptographic operations for keys are restricted to the ones required.
-### Azure Security Center: 
+### Azure Security Center
 With Azure Security Center, customers can centrally apply and manage security policies across workloads, limit exposure to threats, and detect and respond to attacks. Additionally, 
    - Azure Security Center accesses existing configurations of Azure services to provide configuration and service recommendations to help improve security posture and protect data.
    - Azure Security Center uses a variety of detection capabilities to alert customers of potential attacks targeting their environments. These alerts contain valuable information about what triggered the alert, the resources targeted, and the source of the attack. Azure Security Center has a set of predefined security alerts, which are triggered when a threat, or suspicious activity takes place. Custom alert rules in Azure Security Center allow customers to define new security alerts based on data that is already collected from their environment.
    - Azure Security Center provides prioritized security alerts and incidents, making it simpler for customers to discover and address potential security issues. A threat intelligence report is generated for each detected threat to assist incident response teams in investigating and remediating threats.
-### Azure Application Gateway: 
-   The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured, and the OWASP ruleset enabled. Additional capabilities include:
-   - End-to-end-SSL
-   - Disable TLS v1.0 and v1.1
-   - Enable TLSv1.2
-   - Web application firewall (prevention mode)
-   - Prevention mode with OWASP 3.0 ruleset
-   - Enable diagnostics logging
-   - Custom health probes
+### Azure Application Gateway 
+   The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured, and the OWASP ruleset enabled. Additional capabilities include
+   - End-to-end-SSL.
+   - Disable TLS v1.0 and v1.1.
+   - Enable TLSv1.2.
+   - Web application firewall (prevention mode).
+   - Prevention mode with OWASP 3.0 ruleset.
+   - Enable diagnostics logging.
+   - Custom health probes.
    - Azure Security Center and Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
 ### Logging and auditing
 Azure services extensively log system and user activity, as well as system health:
-   - Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. 
-   Activity logs can help determine an operation's initiator, time of occurrence, and status.
-   - Diagnostic logs: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include 
-   Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and Firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
-### Azure Monitor logs: 
+   - Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. Activity logs can help determine an operation's initiator, time of occurrence, and status.
+   - Diagnostic logs: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and Firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
+### Azure Monitor logs
    These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate tables for each data type within Log Analytics workspaces, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
 
-   The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
+   The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture
 
    - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
    - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents, which are unresponsive and the number of agents, which are submitting operational data.
    - [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
-### Azure Monitor: 
+### Azure Monitor
    [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
-### Application Insights: 
+### Application Insights 
    [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users actually do with their app. It's designed to help customers continuously improve performance and usability.
 
 ### Azure Key Vault
-   Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below:
+   Create a vault for the organization in which to store keys, and maintain accountability for operational tasks like below
 
-   - Data stored in Key Vault includes:
-   - Data stored in Key Vault includes:
+   - Data stored in Key Vault includes   
    - Application insight key
    - Data Storage Access key
    - Connection string
@@ -414,10 +411,10 @@ Azure services extensively log system and user activity, as well as system healt
    - All keys and secrets in Key Vault have expiration dates
    - All keys in Key Vault are protected by hardware security module (HSM) [Key Type = hardware security module (HSM) Protected       
      2048-bit RSA Key]
-   - All users/identities are granted minimum required permissions using          Role-Based Access Control (RBAC)
-   - Applications do not share a Key Vault unless they trust each other and       they need access to the same secrets at runtime
-   - Diagnostics logs for Key Vault are enabled with a retention period of at     least 365 days.
-   - Permitted cryptographic operations for keys are restricted to the ones       required
+   - All users/identities are granted minimum required permissions using Role-Based Access Control (RBAC)
+   - Applications do not share a Key Vault unless they trust each other and they need access to the same secrets at runtime
+   - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
+   - Permitted cryptographic operations for keys are restricted to the ones required
 
 ### VPN and ExpressRoute
    A secure VPN tunnel or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) needs to be configured to securely establish a connection to the resources deployed as a part of this PaaS web application reference architecture. By appropriately setting up a VPN or ExpressRoute, customers can add a layer of protection for data in transit.
@@ -430,7 +427,7 @@ Azure services extensively log system and user activity, as well as system healt
 
 #### Implement Azure Active Directory OIDC
 
-1. To clone the source code repository, use this Git command:
+1. To clone the source code repository, use this Git command
 
  ``` git
  git clone https://github.com/Azure-Samples/AAD-Security
@@ -438,12 +435,12 @@ Azure services extensively log system and user activity, as well as system healt
 ## Update the redirect URLs
 1.	Navigate back to the Azure portal. In the left-hand navigation pane, select the Azure Active Directory service, and then select App registrations.
 2.	In the resultant screen, select the WebApp-OpenIDConnect-DotNet-code-v2 application.
-3.	In the Authentication tab:
+3.	In the Authentication tab
     o	In the Redirect URIs section, select Web in the combo-box and add the following redirect URIs.
     https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net
     https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc
     o	In the Advanced settings section set Logout URL to https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.	In the Branding tab:
+4.	In the Branding tab
         o	Update the Home page URL to the address of your app service, for example https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o	Save the configuration.
 5.	If your application calls a web api, make sure to apply the necessary changes on the project appsettings.json, so it calls the published API URL instead of localhost.
@@ -460,14 +457,14 @@ Publishing the sample
    Azure creates a default policy specifying that administrators need two-factor authentication to sign in to the portal.
    After enabling this policy, you might be prompted to sign out and sign back in to the Azure portal.
 
-To enable MFA for admin sign-ins:
+To enable MFA for admin sign-ins
 
    1. Go to the **Azure Active Directory** tab in the Azure portal
-   2. Under the security category, select conditional access. You see this screen:
+   2. Under the security category, select conditional access. You see this screen
 
        ![Conditional Access - Policies](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
-If you can't create a new policy:
+If you can't create a new policy
 
    1. Go to the **MFA** tab.
    2. Select the Azure AD Premium **Free trial** link to subscribe to the free trial.
@@ -487,7 +484,7 @@ Return to the conditional access screen.
 
    There's a baseline policy that requires MFA for all Azure administrators. You can enable it immediately in the portal. Enabling this policy might invalidate the current session and force you to sign in again.
 
-   If the baseline policy isn't enabled:
+   If the baseline policy isn't enabled
    1.	Select **Require MFA for admins**.
    2.	Select **Use policy immediately**.
 
@@ -503,7 +500,7 @@ Return to the conditional access screen.
    The sample app is composed of several resources that Azure Sentinel can monitor.
    To set up Azure Sentinel, you first need to create a Log Analytics workspace that stores all the data collected from the various resources.
 
-To create this workspace:
+To create this workspace
 
    1. In the search box in the Azure portal, search for **Log Analytics**. Select **Log Analytics workspaces**.
 
@@ -546,7 +543,7 @@ To create this workspace:
 
    4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
 
-   ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
+    ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
