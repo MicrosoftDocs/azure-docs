@@ -4,7 +4,7 @@ description: Learn how to migrate your application from using the change feed pr
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: maquaran
 ---
 
