@@ -36,7 +36,7 @@ An Azure Machine Learning pipeline is an independently executable workflow of a 
 
 In short, all of the complex tasks of the machine learning lifecycle can be helped with workflows. Other Azure pipeline technologies have their own strengths, such as [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) for data manipulation and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) for continuous integration and deployment. But if your focus is machine learning, Azure Machine Learning pipelines are likely to be the best choice for your workflow needs. 
 
-## What are Azure ML pipelines?
+## What _are_ Azure ML pipelines?
 
 An Azure Machine Learning pipeline performs a complete logical workflow with an ordered sequence of steps. Each step is a discrete processing action. Pipelines run in the context of an Azure Machine Learning [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
 
@@ -68,11 +68,11 @@ When you create and run a `Pipeline` object, the following high-level steps occu
     + When the step completes, its outputs are prepared as inputs to the next step and/or written to storage
     + Resources that are no longer needed are finalized and detached
 
-![Pipeline steps](tk)
+![Pipeline steps](media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 ## How Do I Program Pipelines with the Azure Machine Learning Python SDK?
 
-In the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), a pipeline is a Python object defined in the `azureml.pipeline.core` module. A [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object contains an ordered sequence of one or more [PipelineStep](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) objects. The `PipelineStep` class is abstract and the actual steps will be of subclasses such as [EstimatorStep](https://docs.microsoft.com/    python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py), or [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). The [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) class holds a reusable sequence of steps that can be shared among pipelines. A `Pipeline` executes as part of an `Experiment`.
+In the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), a pipeline is a Python object defined in the `azureml.pipeline.core` module. A [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object contains an ordered sequence of one or more [PipelineStep](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) objects. The `PipelineStep` class is abstract and the actual steps will be of subclasses such as [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py), or [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). The [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) class holds a reusable sequence of steps that can be shared among pipelines. A `Pipeline` executes as part of an `Experiment`.
 
 An Azure Machine Learning pipeline is associated with an Azure Machine Learning service workspace and a pipeline step is associated with a compute target available within that workspace. For more information, see this [article about workspaces](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) or this explanation of [compute targets](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
@@ -82,9 +82,9 @@ The steps within a pipeline may have dependencies on other steps. The Azure Mach
 
 Because steps execute independently, objects to hold the input and output data that flows between steps must be defined externally. This is the role of [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), and associated classes. These data objects are associated with a [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) object that encapsulates their storage configuration. The `PipelineStep` base class is always created with a `name` string, a list of `inputs`, and a list of `outputs`. Usually, it also has a list of `arguments` and often it will have a list of `resource_inputs`. Subclasses will generally have additional arguments as well (for instance, `PythonScriptStep` requires the filename and path of the script to run). 
 
-The execution graph is acyclic, but pipelines can be run on a recurring schedule and can execute Python scripts that can write state information to the file system, making it possible to create complex profiles. If you design your pipeline so that certain steps may run in parallel or asynchronously, the Azure Machine Learning service transparently handles the dependency analysis and coordination of fan-out and fan-in. You generally don't have to concern yourself with the details of the execution graph, but it's available via the (`Pipeline.graph`)[https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes] attribute. 
+The execution graph is acyclic, but pipelines can be run on a recurring schedule and can execute Python scripts that can write state information to the file system, making it possible to create complex profiles. If you design your pipeline so that certain steps may run in parallel or asynchronously, the Azure Machine Learning service transparently handles the dependency analysis and coordination of fan-out and fan-in. You generally don't have to concern yourself with the details of the execution graph, but it's available via the [Pipeline.graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) attribute. 
 
-This snippet shows the objects and calls needed to create and run a `Pipeline`:
+This snippet shows the objects and calls needed to create and run a basic `Pipeline`:
 
 ```python
 ws = Workspace.from_config() 
@@ -128,7 +128,7 @@ As you can see, creating an Azure Machine Learning pipeline is a little more com
 
 Even if you are in the early stages of an ML project or working alone, though, Azure Machine Learning pipelines can help. When programming, you will always spend much more time changing and rerunning your code rather than writing it in the first place. Investing in automating the build process almost always pays off quickly. As soon as you start spending mental effort recreating the configuration and computational state before executing a new idea, that's a signal that you might consider using a pipeline to automate the workflow. 
 
-### When Shouldn't I Use Azure Machine Learning Pipelines?
+### When _Shouldn't_ I Use Azure Machine Learning Pipelines?
 
 It's easy to become enthusiastic about reusing cached results, fine-grained control over compute costs, and process isolation, but pipelines do have costs. Scoping variables to a function, object, or a module goes a heck of a long way to avoiding confusing programmatic state! A pipeline step is much more expensive than a function call! 
 
@@ -140,7 +140,7 @@ Until a project gets large or nears deployment, your pipelines should be coarser
 
 ## Conclusion
 
-Azure Machine Learning pipelines are a powerful facility that begins delivering value in the early development stages. The value increases as the team and project goes. This article has explained how pipelines are specified with the Azure Machine Learning Python SDK and orchestrated on Azure. You've seen some basic source code and been introduced to a few of the `PipelineStep` classes that are available. You should have a sense of when to use Azure Machine Learning pipelines and how Azure runs them. 
+Azure Machine Learning pipelines are a powerful facility that begins delivering value in the early development stages. The value increases as the team and project grows. This article has explained how pipelines are specified with the Azure Machine Learning Python SDK and orchestrated on Azure. You've seen some basic source code and been introduced to a few of the `PipelineStep` classes that are available. You should have a sense of when to use Azure Machine Learning pipelines and how Azure runs them. 
 
 ## Next steps
 
