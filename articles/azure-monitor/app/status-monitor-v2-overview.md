@@ -57,7 +57,7 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 - Does Status Monitor v2 support ASP.NET Core applications?
 
-  *No*. Please follow [these](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) instructions to enable monitoring for ASP.NET Core Applications. There is no need to install StatusMonitor for an ASP.NET Core Application. This is true even if ASP.NET Core Application is hosted in IIS.
+  *No*. For instructions to enable monitoring of ASP.NET Core applications, see [Application Insights for ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). There's no need to install StatusMonitor for an ASP.NET Core application. This is true even if ASP.NET Core application is hosted in IIS.
   
 - How do I verify that the enablement succeeded?
 
