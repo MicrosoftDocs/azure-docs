@@ -23,15 +23,17 @@ A visual state describes the content of an image: an empty room or a room with p
 
 This tutorial will show you how to:
 > [!div class="checklist"]
-> * step 1
-> * step 2
+> * Configure the sample app to use your Custom Vision and IoT Hub resources.
+> * Use the app to train your Custom Vision project.
+> * Use the app to score new images in real time and send results to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisites
 
 * [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
-* IoT Hub and Custom Vision resources
+* [!INCLUDE [create-resources](includes/create-resources.md)]
+* You'll also need to create an IoT Hub resource on Azure.
 * Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can also run the app directly from your PC.
    * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices).  If you need help setting up a new device, see [Setting up your device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
 
@@ -74,22 +76,20 @@ If you're running the sample on your PC, select **Local Machine** for the target
 
 If you're deploying to a IoT device running an ARM processor, you will need to select **ARM** as the target platform and **Remote Machine** as the target device. Provide the IP address of your device when prompted (it must be on the same network as your PC). You can get the IP Address from the Windows IoT default app once you boot the device and connect it to the network. Press F5 to run the program.
 
-## Learn visual states
+When you run the app for the first time, it won't have any knowledge of visual states. It will simply display a status message that there is no model available. 
 
-When you run the app for the first time, it won't have any knowledge of visual states. It will simply display a status message that there is no model available. To set up a model, we need to put the app in the **Capturing Training Images** state. 
+## Capture training images
 
-### Capture training images
-
-To enter the **Capturing Training Images** state and start collecting training images, do one of the following:
-* If on PC, use the button on the top right corner of the UI.
-* If on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can do this through the device entry in the IoT Hub menu in Azure, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+To set up a model, you need to put the app in the **Capturing Training Images** state. Do one of the following:
+* If you're running the app on PC, use the button on the top right corner of the UI.
+* If you're running the app on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can do this through the device entry in the IoT Hub menu in Azure, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
 When the app enters the **Capturing Training Images** state, it'll capture about two images every second until it's reached the desired number of images. By default, this is 30 images, but you can set this parameter by passing the desired number as an argument to the `EnterLearningMode` IoT Hub method. 
 
 While the app is capturing images, you must expose the camera to the types of visual states that you'd like to detect (for example, an empty room, a room with
 people, an empty desk, a desk with a toy truck, and so on).
 
-### Build a Custom Vision model
+## Build a Custom Vision model
 
 Once the app has finished capturing images, it will upload them and then switch to the **Waiting For Trained Model** state. At this point you need to go to the [Custom Vision portal](https://www.customvision.ai/) and build a model based on the new training images. The following animation shows an example of this process.
 
@@ -99,12 +99,12 @@ To repeat this with your own scenario:
 1. Sign in to the [Custom Vision portal](http://customvision.ai).
 1. Find your target project, which should have all the training images that the app uploaded.
 1. For each visual state that you want to identify, select the appropriate images and manually apply a tag.
-    * For example, if this is a classifier to distinguish between an empty room and a room with people in it, we recommend tagging 5 or more images with people as a new class (**People**, for instance), and tagging 5 or more images without people as the **Negative** tag. This will help the model differentiate between the two states.
+    * For example, if this is a classifier to distinguish between an empty room and a room with people in it, we recommend tagging five or more images with people as a new class (**People**, for instance), and tagging five or more images without people as the **Negative** tag. This will help the model differentiate between the two states.
     * As another example, if goal is to approximate how full a shelf is, then you might use tags such as **EmptyShelf**, **PartiallyFullShelf** and **FullShelf**.
 1. When you're finished, select the **Train** button
 1. Once training is complete, the app on your PC or IoT device will detect that a trained iteration is available and will start the process of exporting the trained model to ONNX and downloading it to the device.
 
-### Use the trained model
+## Use the trained model
 
 Once the app downloads the trained model, it will switch to the **Scoring** state and start scoring images from the camera in a continuous loop.
 
@@ -112,13 +112,13 @@ For each captured image, the app will display the top tag on the screen; if it d
 
 In addition, the sample uses a [Sense HAT library](https://github.com/emmellsoft/RPi.SenseHat) to detect when it's running on a Raspberry Pi with a Sense HAT unit, so it can use it as an output display by setting all display lights to red whenever a class is detected and to blank when nothing is detected.
 
-## App lifecycle
+## App life cycle
 
 If you'd like to reset the app back to its original state, you can do so by clicking on the button on the top-right corner of the UI, or by invoking the method `DeleteCurrentModel` through the IoT Hub.
 
-At any point, you can redo the step of uploading training images by issuing the `EnterLearningMode` method again.
+At any point, you can redo the step of uploading training images by clicking the top-right UI button or calling the `EnterLearningMode` method again.
 
-If you're running the app from an IoT device, it can be handy to know its IP address to do things such as establishing a remote connection via the [Windows IoT Remote Client](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab). For this, the app comes with a handy `GetIpAddress` method that can be called through IoT Hub. This IP address is also displayed under the Information menu on the top-right corner of the app UI.
+If you're running the app on a device and need to retrieve the IP address again (to establish a remote connection through the [Windows IoT Remote Client](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab), for example), you can call the `GetIpAddress` method through IoT Hub.
 
 ## Clean up resources
 
@@ -128,11 +128,11 @@ Delete your Custom Vision project if you no longer want to maintain it. On the [
 
 ## Next steps
 
-In this tutorial, you set up and used an application that detects visual state information on an IoT device and sends the results to a central repository. Next, explore the source code on GitHub or make one of the modifications below.
+In this tutorial, you set up and ran an application that detects visual state information on an IoT device and sends the results to a central repository. Next, explore the source code on GitHub or make one of the suggested modifications below.
 
 > [!div class="nextstepaction"]
 > [IoTVisualAlerts sample](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
-* Create a Power BI Dashboard to visualize those IoT Hub alerts sent by the sample when visual alerts are detected. There is a good tutorial [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi).
-* Create a Logic App that responds to those IoT Hub alerts when visual alerts are detected. There is a good tutorial [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) that shows how to do things such as sending an email.
-* Add an IoT Hub method to the sample that makes it switch directly to the ```WaitingForTrainingModel``` state. The idea here is to enable you to build the model with images that go beyond the images captured by the sample itself, so you can simply push that model to the device with a command.
+* Add an IoT Hub method to switch the app directly to the **Waiting For Trained Model** state. This way, you can train the model with images that aren't captured by the device itself and push the new model to the device on command.
+* Follow the [Visualize real-time sensor data](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) tutorial to create a Power BI Dashboard to visualize the IoT Hub alerts sent by the sample.
+* Follow the [IoT remote monitoring](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) tutorial to create a Logic App that responds to the IoT Hub alerts when visual states are detected.
