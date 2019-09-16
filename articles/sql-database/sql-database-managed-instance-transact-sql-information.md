@@ -341,7 +341,7 @@ A managed instance can't access file shares and Windows folders, so the followin
 
 Undocumented DBCC statements that are enabled in SQL Server aren't supported in managed instances.
 
-- Only a limited number of Global `Trace flags` is supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Only a limited number of Global Trace flags are supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) and [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) work with the limited number of global trace-flags.
 - [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruptions are handled by Azure support team. Contact Azure support if you are noticing database corruption that should be fixed.
 
@@ -545,7 +545,7 @@ A managed instance places verbose information in error logs. There are many inte
 
 `RESTORE` statement and built-in point-in time restore do not perform some nessecary checks on restored database:
 - **DBCC CHECKDB** - `RESTORE` statement don't perform `DBCC CHECKDB` on the restored database. If an original database is corrupted, or backup file is corrupted while it is copied to Azure blob Storage, automatic backups will not be taken and Azure support will contact the customer. 
-- Built-in Point-in-time restore process don't check does the automated backup from Business Critical instance contain the [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp). 
+- Built-in Point-in-time restore process doesn't check does the automated backup from Business Critical instance contain the [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp). 
 
 **Workaround**: Make sure that you are executing `DBCC CHECKDB` on the source database before taking a backup, and using `WITH CHECKSUM` option in backup to avoid potential corruptions that could be restored on Managed instance. Make sure that your source database doesn't contain [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp) if you are restoring it on General Purpose tier.
 
@@ -618,7 +618,7 @@ The `tempdb` database is always split into 12 data files and the file structure 
 
 Each General Purpose managed instance has up to 35 TB of storage reserved for Azure Premium Disk space. Each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on the disk isn't charged, but the total sum of Azure Premium Disk sizes can't exceed 35 TB. In some cases, a managed instance that doesn't need 8 TB in total might exceed the 35 TB Azure limit on storage size due to internal fragmentation.
 
-For example, a General Purpose managed instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files files with 1 GB size that are placed on separate 128-GB disks. In this example:
+For example, a General Purpose managed instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1 GB size each that are placed on separate 128-GB disks. In this example:
 
 - The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
