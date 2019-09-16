@@ -24,87 +24,80 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Message**: Error 403.
 
-- **Cause**: The Databricks access token has expired.
+- **Cause**: `The Databricks access token has expired.`
 
-- **Recommendation**: By default, the Databricks access token is valid for 90 days.  Create a new token and update the linked service.
+- **Recommendation**: By default, the Azure Databricks access token is valid for 90 days. Create a new token and update the linked service.
 
 
 ### Error code:  3201
 
-- **Message**: Missing   required field: settings.task.notebook_task.notebook_path.
+- **Message**: `Missing required field: settings.task.notebook_task.notebook_path.`
 
-- **Cause**: Bad authoring: Notebook path not specified correctly.
+- **Cause**: `Bad authoring: Notebook path not specified correctly.`
 
 - **Recommendation**: Specify the notebook path in the Databricks activity.
 
 <br/>
 
-- **Message**: Cluster   ... does not exist.
+- **Message**: `Cluster   ... does not exist.`
 
-- **Cause**: Authoring   error: Databricks cluster does not exist or has been deleted.
+- **Cause**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
 - **Recommendation**: Verify that the Databricks cluster exists.
 
 <br/>
 
-- **Message**: Invalid   Python file URI.... Please visit Databricks user guide for supported URI   schemes.
+- **Message**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
 
-- **Cause**: Bad authoring.
+- **Cause**: `Bad authoring.`
 
 - **Recommendation**: Specify either absolute paths for workspace-addressing schemes, or `dbfs:/folder/subfolder/foo.py` for files stored in Databricks File System.
 
 <br/>
 
-- **Message**: {0}   LinkedService should have domain and accessToken as required properties.
+- **Message**: `{0} LinkedService should have domain and accessToken as required properties.`
 
-- **Cause**: Bad authoring.
-
-- **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
-
-<br/>
-
-- **Message**: {0}   LinkedService should specify either existing cluster ID or new cluster   information for creation.
-
-- **Cause**:  Bad authoring. 
+- **Cause**: `Bad authoring.`
 
 - **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
 
 <br/>
 
-- **Message**: Node   type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2.
+- **Message**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
 
-- **Cause**: Bad authoring.
+- **Cause**:  `Bad authoring.`
+
+- **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/>
+
+- **Message**: `Node type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2.`
+
+- **Cause**: `Bad authoring.`
 
 - **Recommendation**: Refer to the error message. 
 
 <br/>
-
-- **Message**: 
-
-- **Cause**: Bad authoring.
-
-- **Recommendation**: Refer to the error message. 
-
 
 ### Error code:  3202
 
-- **Message**: There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds.
+- **Message**: `There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds.`
 
-- **Cause**: Too many Databricks runs in an hour.
+- **Cause**: `Too many Databricks runs in an hour.`
 
 - **Recommendation**: Check all pipelines that use this Databricks workspace for their job   creation rate.  If pipelines launched   too many Databricks runs in aggregate, migrate some pipelines to a new   workspace.
 
 <br/>
 
-- **Message**: Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.
+- **Message**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
-- **Cause**: Authoring error: No value provided for the parameter.
+- **Cause**: `Authoring error: No value provided for the parameter.`
 
 - **Recommendation**: Inspect the pipeline JSON and ensure all parameters in the baseParameters notebook specify a nonempty value.
 
 <br/>
 
-- **Message**: User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not   authorized to access cluster.
+- **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not   authorized to access cluster.`
 
 - **Cause**: The user who generated the access token isn't allowed to access the   Databricks cluster specified in the linked service.
 
@@ -113,7 +106,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 ### Error code:  3203
 
-- **Message**: The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.
+- **Message**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
 
 - **Cause**: The cluster was terminated. For interactive clusters, this might be a race condition.
 
@@ -122,7 +115,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 ### Error code:  3204
 
-- **Message**: Job execution failed.
+- **Message**: `Job execution failed.`
 
 - **Cause**:  Error messages indicate various issues, such as an unexpected cluster state or a specific activity. Most often no error   message appears at all. 
 
@@ -136,7 +129,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2709
 
-- **Message**: The access token is from the wrong tenant.
+- **Message**: `The access token is from the wrong tenant.`
 
 - **Cause**:  Incorrect Azure Active Directory (Azure AD) tenant.
 
@@ -144,7 +137,7 @@ The following table applies to U-SQL.
 
 <br/>
 
-- **Message**: We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. 
+- **Message**: `We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. `
 
 - **Cause**:  This error is caused by throttling on Data Lake Analytics.
 
@@ -152,7 +145,7 @@ The following table applies to U-SQL.
 
 <br/>
 
-- **Message**: This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.
+- **Message**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
 - **Cause**:  This error is caused by throttling on Data Lake Analytics. 
 
@@ -161,7 +154,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2705
 
-- **Message**: Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
 
 - **Cause**:  The service principal or certificate doesn't have access to the file in storage.
 
@@ -170,7 +163,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2711
 
-- **Message**: Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
 
 - **Cause**:  The service principal or certificate doesn't have access to the file in storage.
 
@@ -178,7 +171,7 @@ The following table applies to U-SQL.
 
 <br/>
 
-- **Message**: Cannot find the 'Azure Data Lake Store' file or folder.
+- **Message**: `Cannot find the 'Azure Data Lake Store' file or folder.`
 
 - **Cause**:  The   path to the U-SQL file is wrong, or the linked service credentials don't have access.
 
@@ -187,7 +180,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2704
 
-- **Message**: Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
 
 - **Cause**:  The service principal or certificate doesn't have access to the file in storage.
 
@@ -196,7 +189,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2707
 
-- **Message**: Cannot resolve the account of   AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'.
+- **Message**: `Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'.`
 
 - **Cause**:  The Data Lake Analytics account in the linked service is wrong.
 
@@ -205,7 +198,7 @@ The following table applies to U-SQL.
 
 ### Error code:  2703
 
-- **Message**: Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:").
+- **Message**: `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:").`
 
 - **Cause**:  The error is from Data Lake Analytics. 
 
@@ -217,7 +210,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3602
 
-- **Message**: Invalid HttpMethod: {method}. 
+- **Message**: `Invalid HttpMethod: {method}.`
 
 - **Cause**: Http method specified in the activity payload is not supported by Azure Function Activity. 
 
@@ -226,7 +219,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3603
 
-- **Message**: Response content is not a valid JObject. 
+- **Message**: `Response content is not a valid JObject.`
 
 - **Cause**: The Azure function that was called didn't return a JSON payload in the response. Azure function activity in Data Factory supports only JSON response content. 
 
@@ -235,7 +228,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3606
 
-- **Message**: Azure function activity missing function key. 
+- **Message**: `Azure function activity missing function key.`
 
 - **Cause**: Azure function activity definition is not complete. 
 
@@ -244,7 +237,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3607
 
-- **Message**: Azure function activity missing function name.
+- **Message**: `Azure function activity missing function name.`
 
 - **Cause**: Azure function activity definition is not complete. 
 
@@ -253,7 +246,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3608
 
-- **Message**: Call to provided Azure function '{FunctionName}' failed with status-'{statusCode}' and message - '{message}'. 
+- **Message**: `Call to provided Azure function '{FunctionName}' failed with status-'{statusCode}' and message - '{message}'.` 
 
 - **Cause**: Azure function details in activity definition may be incorrect. 
 
@@ -262,7 +255,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3609
 
-- **Message**: Azure function activity missing functionAppUrl. 
+- **Message**: `Azure function activity missing functionAppUrl.` 
 
 - **Cause**: Azure function activity definition is not complete. 
 
@@ -271,7 +264,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3610
 
-- **Message**: There was an error while calling endpoint. 
+- **Message**: `There was an error while calling endpoint.`
 
 - **Cause**: Function URL may be incorrect.
 
@@ -280,7 +273,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3611
 
-- **Message**: Azure function activity missing Method in JSON. 
+- **Message**: `Azure function activity missing Method in JSON.` 
 
 - **Cause**: Azure function activity definition is not complete.
 
@@ -289,7 +282,7 @@ The following table applies to U-SQL.
 
 ### Error code:  3612
 
-- **Message**: Azure function activity missing LinkedService definition in JSON.
+- **Message**: `Azure function activity missing LinkedService definition in JSON.`
 
 - **Cause**: Azure function activity definition is not complete.
 
@@ -304,16 +297,16 @@ The following table applies to Azure Batch.
 
 ### Error code:  2500
 
-- **Message**: Hit unexpected exception and execution failed.
+- **Message**: `Hit unexpected exception and execution failed.`
 
-- **Cause**: Can't launch command, or the program returned an error code.
+- **Cause**: `Can't launch command, or the program returned an error code.`
 
 - **Recommendation**:  Ensure that the executable file exists. If the program started, make sure *stdout.txt* and *stderr.txt* were uploaded to the storage account. It's a good practice to emit copious logs in your code for debugging.
 
 
 ### Error code:  2501
 
-- **Message**: Cannot access user batch account; please check batch account settings.
+- **Message**: `Cannot access user batch account; please check batch account settings.`
 
 - **Cause**: Incorrect Batch access key or pool name.
 
@@ -322,7 +315,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2504
 
-- **Message**:  Operation returned an invalid status code 'BadRequest'. 
+- **Message**:  `Operation returned an invalid status code 'BadRequest'.` 
 
 - **Cause**: Too many files in the folderPath of the custom activity. The total   size of resourceFiles can't be more than 32,768 characters.
 
@@ -331,16 +324,16 @@ The following table applies to Azure Batch.
 
 ### Error code:  2505
 
-- **Message**: Cannot create Shared Access Signature unless Account Key credentials are used.
+- **Message**: `Cannot create Shared Access Signature unless Account Key credentials are used.`
 
-- **Cause**: Custom activities support only storage accounts that use an access   key. 
+- **Cause**: Custom activities support only storage accounts that use an access key.
 
 - **Recommendation**: Refer to the error description.
 
 
 ### Error code:  2507
 
-- **Message**: The   folder path does not exist or is empty: ....
+- **Message**: `The folder path does not exist or is empty: ....`
 
 - **Cause**: No files are in the storage account at the specified path.
 
@@ -349,7 +342,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2508
 
-- **Message**:  There are duplicate files in the resource folder.
+- **Message**:  `There are duplicate files in the resource folder.`
 
 - **Cause**: Multiple files of the same name are in different subfolders   of folderPath.
 
@@ -358,7 +351,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2509
 
-- **Message**: Batch   url ... is invalid; it must be in Uri format. 
+- **Message**: `Batch   url ... is invalid; it must be in Uri format.` 
 
 - **Cause**: Batch URLs must be similar to `https://mybatchaccount.eastus.batch.azure.com`
 
@@ -367,7 +360,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2510
 
-- **Message**: An   error occurred while sending the request.
+- **Message**: `An   error occurred while sending the request.`
 
 - **Cause**: The batch URL is invalid. 
 
@@ -381,7 +374,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ### Error code:  2300
 
-- **Message**: Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found.
+- **Message**: `Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found.`
 
 - **Cause**: The provided cluster URI is invalid. 
 
@@ -389,14 +382,14 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Hadoop   job submission failed. Job: …, Cluster: …/. Error: A task was canceled.
+- **Message**: `Hadoop job submission failed. Job: …, Cluster: …/. Error: A task was canceled.`
 
 - **Cause**: The job submission timed out. 
 
 - **Recommendation**: The problem could be either general HDInsight connectivity or network   connectivity. First confirm that the HDInsight Ambari UI is available from any   browser. Confirm that your credentials are still valid. If you're using self-hosted integrated runtime (IR), make sure to do this from the   VM or machine where the self-hosted IR is installed. Then   try submitting the job from Data Factory again. If it still fails, contact the Data Factory team   for support.
 
 
-- **Message**: Unauthorized:   Ambari user name or password is incorrect  <br/><br/>Unauthorized:   User admin is locked out in Ambari.   <br/><br/>403 - Forbidden: Access is denied.
+- **Message**: `Unauthorized: Ambari user name or password is incorrect  <br/><br/>Unauthorized: User admin is locked out in Ambari.   <br/><br/>403 - Forbidden: Access is denied.`
 
 - **Cause**: The credentials for HDInsight are incorrect or expired.
 
@@ -404,7 +397,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: 502 - Web server received an invalid response while acting as a gateway or proxy server.       <br/>Bad gateway.
+- **Message**: `502 - Web server received an invalid response while acting as a gateway or proxy server. <br/>Bad gateway.`
 
 - **Cause**: This error is from HDInsight.
 
@@ -412,7 +405,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Hadoop job submission failed. Job: …, Cluster: ... Error:   {\"error\":\"Unable to service the submit job request as   templeton service is busy with too many submit job requests. Please wait for   some time before retrying the operation. Please refer to the config   templeton.parallellism.job.submit to configure concurrent requests.  <br/><br/>Hadoop   job submission failed. Job: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Queue root.joblauncher   already has 500 applications, cannot accept submission of application:   application_1561147195099_3730\
+- **Message**: `Hadoop job submission failed. Job: …, Cluster: ... Error:   {\"error\":\"Unable to service the submit job request as   templeton service is busy with too many submit job requests. Please wait for some time before retrying the operation. Please refer to the config   templeton.parallellism.job.submit to configure concurrent requests. <br/><br/>Hadoop job submission failed. Job: xx, Cluster: name.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Queue root.joblauncher already has 500 applications, cannot accept submission of application:   application_1561147195099_3730\`
 
 - **Cause**: Too many jobs are being submitted to HDInsight at the same time.
 
@@ -421,7 +414,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ### Error code:  2303
 
-- **Message**: Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr'   for more details.  <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out'   for more details.
+- **Message**: `Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@xx.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' for more details. <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@xx.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' for more details.`
 
 - **Cause**: The job was submitted to HDInsight, and it failed on HDInsight.
 
@@ -430,7 +423,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ### Error code:  2310
 
-- **Message**: Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found.
+- **Message**: `Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found.`
 
 - **Cause**: The provided cluster URI is invalid. 
 
@@ -438,7 +431,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: 502 - Web server received an invalid response while acting as a gateway or proxy server.       <br/>Bad gateway.
+- **Message**: `502 - Web server received an invalid response while acting as a gateway or proxy server. <br/>Bad gateway.`
 
 - **Cause**: This error is from HDInsight.
 
@@ -446,7 +439,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: java.lang.NullPointerException 
+- **Message**: `java.lang.NullPointerException`
 
 - **Cause**: This error happens when the job is submitted to a Spark cluster. 
 
@@ -455,7 +448,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ### Error code:  2347
 
-- **Message**: Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr'   for more details.  <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out'   for more details.
+- **Message**: `Hadoop job failed with exit code '5'. See 'wasbs://adfjobs@xx.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' for more details. <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@xx.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' for more details.`
 
 - **Cause**: The job was submitted to HDInsight, and it failed on HDInsight.
 
@@ -464,29 +457,19 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ### Error code:  2328
 
-- **Message**: Internal server error occurred while processing the request. Please retry the request   or contact support. 
+- **Message**: `Internal server error occurred while processing the request. Please retry the request or contact support. `
 
 - **Cause**: This error happens in HDInsight on-demand.
 
 - **Recommendation**: This error comes from the HDInsight service when the HDInsight provisioning fails. Contact the HDInsight team and provide the on-demand cluster name.
 
 
-### Error code:  3612
-
-- **Message**: Azure function activity missing LinkedService definition in JSON.
-
-- **Cause**: Azure function activity definition is not complete.
-
-- **Recommendation**: Please check the input AzureFunction activity JSON definition has linked service details.
-
- For all other errors, refer to [Troubleshoot by using HDInsight](../hdinsight/hdinsight-troubleshoot-guide.md) and [HDInsight FAQ](https://hdinsight.github.io/).
-
 
 ## Web Activity
 
 ### Error code:  2310
 
-- **Message**:  Invalid HttpMethod: '...'.
+- **Message**:  `Invalid HttpMethod: '...'.`
 
 - **Cause**: Web Activity doesn't support the HTTP method specified in the activity payload.
 
@@ -494,7 +477,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Invalid Server Error 500.
+- **Message**: `Invalid Server Error 500.`
 
 - **Cause**: Internal error on the endpoint.
 
@@ -502,7 +485,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Unauthorized 401.
+- **Message**: `Unauthorized 401.`
 
 - **Cause**: Missing valid authentication on the request.
 
@@ -510,7 +493,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Forbidden 403.
+- **Message**: `Forbidden 403.`
 
 - **Cause**: Missing required permissions.
 
@@ -518,7 +501,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Bad Request 400.
+- **Message**: `Bad Request 400.`
 
 - **Cause**: Invalid HTTP request.
 
@@ -526,7 +509,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Not found 404. 
+- **Message**: `Not found 404.` 
 
 - **Cause**: The resource wasn't found.   
 
@@ -534,7 +517,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Service unavailable.
+- **Message**: `Service unavailable.`
 
 - **Cause**: The service is unavailable.
 
@@ -542,7 +525,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: Unsupported Media Type.
+- **Message**: `Unsupported Media Type.`
 
 - **Cause**: The content type is mismatched with the Web Activity body.
 
@@ -550,7 +533,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: The resource you are looking for has been removed, has had its name changed, or is temporarily unavailable.
+- **Message**: `The resource you are looking for has been removed, has had its name changed, or is temporarily unavailable.`
 
 - **Cause**: The resource isn't available. 
 
@@ -558,7 +541,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: The page you are looking for cannot be displayed because an invalid method (HTTP verb) is being used.
+- **Message**: `The page you are looking for cannot be displayed because an invalid method (HTTP verb) is being used.`
 
 - **Cause**: An incorrect Web Activity method was specified in the request.
 
@@ -566,7 +549,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 <br/>
 
-- **Message**: invalid_payload 
+- **Message**: `invalid_payload`
 
 - **Cause**: The Web Activity body is incorrect.
 
