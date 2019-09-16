@@ -68,7 +68,7 @@ This code creates a generic estimator object, `est`, that specifies
 est = Estimator(source_directory=script_folder,
                 entry_script='train_titanic.py',
                 # pass dataset object as an input with name 'titanic'
-                inputs=[dataset.as_named_input('titanic')],
+                inputs=[titanic_ds.as_named_input('titanic')],
                 compute_target=compute_target,
                 environment_definition= conda_env)
 ```
@@ -125,7 +125,7 @@ from azureml.train.sklearn import SKLearn
 
 script_params = {
     # mount the dataset on the remote compute and pass the mounted path as an argument to the training script
-    '--data-folder': dataset.as_named_input('mnist').as_mount(),
+    '--data-folder': mnist_ds.as_named_input('mnist').as_mount(),
     '--regularization': 0.5
 }
 
@@ -141,6 +141,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 ### Retrieve the data in your training script
+
 After you submit the run, data files referred by the mnist dataset will be mounted to the compute target. The following code shows how to retrieve the data in your script.
 
 ```Python
@@ -177,10 +178,10 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## Notebook examples
 
-The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as using datasets with ScriptRun and [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb). 
+The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as using datasets with ScriptRun and [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## Next steps
 
-* [Auto train machine learning models](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-remote?view=azure-ml-py) with TabularDatasets.
+* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
