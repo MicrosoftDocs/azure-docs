@@ -54,9 +54,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Storage**  | (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)       |
  
- For details on region availability, please review [Private Link availability](private-link-overview.md#availability).
  
-  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
  
@@ -79,18 +77,16 @@ The private link resource owner can perform the following actions over a private
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
 ### Connecting using Alias
-Alias is a unique named moniker that is generated when the service owner create its own private link service behind a standard load balancer. Service owner can share this Alias with its consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) and [az network private-endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) for details. 
+Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) and [az network private-endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) for details. 
 
 ## DNS configuration 
-When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve into the allocated private IP addresses. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
+When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource. 
  
-A given network interface can contain multiple private IP addresses (IPConfigurations), each as a corresponding private IP address and an array of FQDNs that must resolve into the same private IP address. 
- 
 You can use the following options to configure your DNS settings for private endpoints: 
-- **Use the Host file (only recommended for testing)**. You can use the host file on a test virtual machine to override the DNS.  
-- **Use a private DNS zone**. You can use private DNS zones to override the DNS resolution for a given private endpoint. A private DNS zone can be linked to your virtual networks to resolve specific domains.
+- **Use the Host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.  
+- **Use a private DNS zone**. You can use private DNS zones to override the DNS resolution for a given private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 - **Use your custom DNS server**. You can use your own DNS server to override the DNS resolution for a given private link resource. If your DNS server is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
  
 > [!IMPORTANT]
@@ -110,7 +106,7 @@ For Azure services, use the recommended zone names as described in the following
 ||||
  
 
-The Azure service provider will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
+Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  
 Your applications don't need to change the connection URL. When attempting to resolve using a public DNS, the DNS server will now resolve to your private endpoints. The process does not impact your applications. 
  
