@@ -121,6 +121,10 @@
       href: billing-understand-free-service-meter-mapping.md
   - name: Edit profile
     href: billing-how-to-change-azure-account-profile.md
+  - name: Open banking and strong customer authentication
+    href: billing-open-banking-strong-customer-authentication.md 
+  - name: Resolve past due balance
+    href: billing-azure-subscription-past-due-balance.md
   - name: Grant access to billing
     href: billing-manage-access.md
   - name: Microsoft Customer Agreements roles in Azure
@@ -131,6 +135,8 @@
     href: billing-view-all-accounts.md
   - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
+  - name: EA tasks in Microsoft Customer Agreement
+    href: billing-mca-enterprise-operations.md
   - name: EA management
     items:
     - name: Get started in the Azure EA portal
@@ -151,8 +157,6 @@
       href: billing-ea-portal-troubleshoot.md
     - name: EA tasks in Microsoft Customer Agreement
       href: billing-mca-enterprise-operations.md
-  - name: Resolve past due balance
-    href: billing-azure-subscription-past-due-balance.md
   - name: Set up billing account for Microsoft Customer Agreement
     href: billing-mca-setup-account.md
   - name: Sign up with Office 365 account

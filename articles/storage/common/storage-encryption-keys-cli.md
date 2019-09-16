@@ -116,4 +116,4 @@ When you create a new version of a key, you'll need to update the storage accoun
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) 
-- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

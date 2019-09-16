@@ -225,7 +225,7 @@ Review the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequis
 
 ### Can I manually set up the configuration server instead of using a template?
 
-We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) by using the latest version of the Open Virtual Machine Format (OVF) template. If you can't use the template (for example, if you don't have access to the VMware server), [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
+We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) by using the latest version of the Open Virtualization Format (OVF) template. If you can't use the template (for example, if you don't have access to the VMware server), [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
 
 ### Can a configuration server replicate to more than one region?
 
