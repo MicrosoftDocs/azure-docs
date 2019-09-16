@@ -25,6 +25,11 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
+This Marketo connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Marketo to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
@@ -143,6 +148,11 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

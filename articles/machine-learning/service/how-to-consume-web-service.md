@@ -1,6 +1,6 @@
 ---
 title: Create client to consume deployed web service
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to consume a web service that was generated when a model was deployed with Azure Machine Learning model. The web service exposes a REST API. Create clients for this API by using the programming language of your choice. 
 services: machine-learning
 ms.service: machine-learning
@@ -41,7 +41,7 @@ The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core
 * `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
 * `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
-* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md#schema).
+* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 There are a three ways to retrieve this information for deployed web services:
 

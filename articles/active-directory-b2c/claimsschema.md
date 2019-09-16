@@ -67,7 +67,7 @@ The **Protocol** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C. Possible values are:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C. Possible values are:  OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Yes | The claim type name to be used. |
 
 In the following example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the **surname** claim is mapped to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, with OpenIdConnect and OAuth2, the claim is mapped to `family_name`.
