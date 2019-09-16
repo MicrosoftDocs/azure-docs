@@ -94,7 +94,7 @@ To create a new application, assign the required API permissions, and create a c
 
 1. Register application in Azure Active Directory
     1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-    1. Select **Azure Active Directory** (*not* Azure AD B2C) from the left menu. Or, select **All services**, then search for an select **Azure Active Directory**.
+    1. Select **Azure Active Directory** (*not* Azure AD B2C) from the left menu. Or, select **All services**, then search for and select **Azure Active Directory**.
     1. Under **Manage** in the left menu, select **App registrations (Legacy)**.
     1. Select **New application registration**
     1. Enter a name for the application. For example, *Audit Log App*.
