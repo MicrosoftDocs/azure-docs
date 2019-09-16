@@ -160,7 +160,7 @@ Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at
 >[!NOTE]
 >The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
-In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
+In a hybrid environment, you can download and install the Dependency agent manually or using an automated method.
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
