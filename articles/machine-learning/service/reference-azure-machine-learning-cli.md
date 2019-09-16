@@ -1,7 +1,7 @@
 ---
 title: Machine learning CLI extension
-titleSuffix: Azure Machine Learning service
-description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with the Azure Machine Learning Service. 
+titleSuffix: Azure Machine Learning
+description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 05/02/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
 ---
 
-# Use the CLI extension for Azure Machine Learning service
+# Use the CLI extension for Azure Machine Learning
 
-The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with the Azure Machine Learning service. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
+The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
 + Run experiments to create machine learning models
 
@@ -28,7 +28,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Prerequisites
 
-* To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+* To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -55,6 +55,15 @@ To verify that the extension has been installed, use the following command to di
 az ml -h
 ```
 
+## Update the extension
+
+To update the Machine Learning CLI extension, use the following command:
+
+```azurecli-interactive
+az extension update -n azure-cli-ml
+```
+
+
 ## Remove the extension
 
 To remove the CLI extension, use the following command:
@@ -73,7 +82,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Create an Azure Machine Learning service workspace:
++ Create an Azure Machine Learning workspace:
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
@@ -99,7 +108,14 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml datastore attach-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
 
-    
++ Upload files to a Datastore.
+
+    ```azurecli-interactive
+    az ml datastore upload  -n datastorename -p sourcepath
+    ```
+
+    For more information, see [az ml datastore upload](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload).
+
 + Attach an AKS cluster as a Compute Target.
 
     ```azurecli-interactive
@@ -141,6 +157,42 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
+## Environment management
+
+The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:
+
++ Create scaffolding files for an environment:
+
+    ```azurecli-interactive
+    az ml environment scaffold -n myenv -d myenvdirectory
+    ```
+
+    For more information, see [az ml environment scaffold](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold).
+
++ Register an environment:
+
+    ```azurecli-interactive
+    az ml environment register -d myenvdirectory
+    ```
+
+    For more information, see [az ml environment register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register).
+
++ List registered environments:
+
+    ```azurecli-interactive
+    az ml environment list
+    ```
+
+    For more information, see [az ml environment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list).
+
++ Download a registered environment:
+
+    ```azurecli-interactive
+    az ml environment download -n myenv -d downloaddirectory
+    ```
+
+    For more information, see [az ml environment download](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
+
 ## Model registration, profiling, deployment
 
 The following commands demonstrate how to register a trained model, and then deploy it as a production service:
@@ -165,29 +217,33 @@ The following commands demonstrate how to register a trained model, and then dep
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
     
-    The following is an example `inferenceconfig.json` document:
-    ```json
-    {
-    "entryScript": "score.py",
-    "runtime": "python",
-    "condaFile": "myenv.yml",
-    "extraDockerfileSteps": null,
-    "sourceDirectory": null,
-    "enableGpu": false,
-    "baseImage": null,
-    "baseImageRegistry": null
-    }
-    ```
-    The following is an example of 'deploymentconfig.json' document:
-    ```json
-    {
-    "computeType": "aks",
-    "ComputeTarget": "akscomputetarget"
-    }
-    ```
+    For more information on the inference configuration file schema, see [Inference configuration schema](#inferenceconfig).
+    
+    For more information on the deployment configuration file schema, see [Deployment configuration schema](#deploymentconfig).
 
     For more information, see [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
+<a id="inferenceconfig"></a>
+
+## Inference configuration schema
+
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+
+<a id="deploymentconfig"></a>
+
+## Deployment configuration schema
+
+### Local deployment configuration schema
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+
+### Azure Container Instance deployment configuration schema 
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+
+### Azure Kubernetes Service deployment configuration schema
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 ## Next steps
 

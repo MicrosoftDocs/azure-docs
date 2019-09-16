@@ -1,6 +1,6 @@
 ---
 title: What is Azure Custom Vision?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use the Custom Vision service to build custom image classifiers in the Azure cloud.
 services: cognitive-services
 author: PatrickFarley
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a data scientist/developer, I want to understand what the Custom Vision service does so that I can determine if it's suitable for my project.
 ---
 
 # What is Azure Custom Vision?
 
-Azure Custom Vision is a cognitive service that lets you build, deploy and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent _classes_) to images, according to their visual characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to determine the labels to apply.
+Azure Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent _classes_) to images, according to their visual characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to determine the labels to apply.
 
 ## What it does
 
@@ -28,9 +28,9 @@ Custom Vision functionality can be divided into two features. **Image classifica
 
 ### Optimization
 
-The Custom Vision service is optimized to quickly recognize major differences between images. This allows you to start prototyping your model with a small amount of data. 50 images per label are generally a good start. This means, however, that the service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
+The Custom Vision service is optimized to quickly recognize major differences between images, so you can start prototyping your model with a small amount of data. 50 images per label are generally a good start. However, the service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
 
-Additionally, you can choose from several varieties of the Custom Vision algorithm that are optimized for images with certain subject material&mdash;for example, landmarks or retail items. See the [Build a classifier](getting-started-build-a-classifier.md) guide for more information on these.
+Additionally, you can choose from several varieties of the Custom Vision algorithm that are optimized for images with certain subject material&mdash;for example, landmarks or retail items. For more information, see the [Build a classifier](getting-started-build-a-classifier.md) guide.
 
 ## What it includes
 

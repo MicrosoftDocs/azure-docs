@@ -11,6 +11,7 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 # Quickstart: URL Preview with Python
 
@@ -18,7 +19,7 @@ The following Python example creates a Url Preview for the SwiftKey Web site: ht
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 This example uses Python 3.6.
 

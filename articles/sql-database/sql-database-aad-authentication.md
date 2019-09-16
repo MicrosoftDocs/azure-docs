@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/20/2019
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
@@ -94,7 +93,7 @@ To create a contained database user in Azure SQL Database, Managed Instance, or 
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### Manage Instances
+### Managed Instances
 
 - Azure AD server principals (logins) and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md).
 - Setting Azure AD server principals (logins) mapped to an Azure AD group as database owner is not supported in [Managed Instances](sql-database-managed-instance.md).
@@ -112,8 +111,9 @@ To create a contained database user in Azure SQL Database, Managed Instance, or 
 
 Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
 
-- Using integrated Windows authentication
-- Using an Azure AD principal name and a password
+- Azure Active Directory Password
+- Azure Active Directory Integrated
+- Azure Active Directory Universal with MFA
 - Using Application token authentication
 
 The following authentication methods are supported for Azure AD server principals (logins) (**public preview**):
@@ -121,7 +121,6 @@ The following authentication methods are supported for Azure AD server principal
 - Azure Active Directory Password
 - Azure Active Directory Integrated
 - Azure Active Directory Universal with MFA
-- Azure Active Directory Interactive
 
 
 ### Additional considerations

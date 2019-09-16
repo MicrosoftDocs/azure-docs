@@ -62,7 +62,7 @@
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
-        href: howto-version-devicetemplate.md
+        href: howto-version-device-template.md
   - name: Monitoring and analytics
     items:
       - name: Create telemetry rule
@@ -91,6 +91,8 @@
           href: howto-export-data-blob-storage.md
       - name: Create custom rules
         href: howto-create-custom-rules.md
+      - name: Create custom analytics
+        href: howto-create-custom-analytics.md
       - name: Visualize your data in Power BI
         href: howto-connect-powerbi.md
       - name: Connect other IoT clouds
@@ -98,14 +100,20 @@
 
   - name : Administration
     items:
-      - name: Administer your application
-        href: howto-administer.md  
+      - name: Manage your application
+        href: howto-administer.md 
+      - name: Manage users and roles
+        href: howto-manage-users-roles.md 
+      - name: View your bill
+        href: howto-view-bill.md
+      - name: Customize application UI
+        href: howto-customize-ui.md  
       - name: Prepare and upload image
         href: howto-prepare-images.md
       - name: Configure application dashboard
         href: howto-configure-homepage.md
-      - name: Customize application UI
-        href: howto-customize-ui.md
+      - name: Use dashboard tiles
+        href: howto-use-tiles.md
       - name: Use application templates
         href: howto-use-app-templates.md
       - name: Manage from the Azure portal
@@ -128,20 +136,22 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-suite
     - name: IoT Central
-      href: /microsoft-iot-central
-  - name: Platform services
+      href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+  - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
-    - name: Location Based Services
-      href: /azure/location-based-services
-    - name: Service SDKs
+    - name: IoT Service SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Maps
+      href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
   - name: IoT Edge
@@ -149,7 +159,7 @@
     - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
   - name: Customer data requests

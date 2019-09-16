@@ -24,7 +24,7 @@ The data that Azure Monitor collects from agents is defined by the data sources 
 The following table lists the agent data sources that are currently available in Azure Monitor.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of collection. 
 
 
-| Data source | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
+| Data source | Platform | Log analytics agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Custom logs](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | on arrival |
 | [Custom logs](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | on arrival |

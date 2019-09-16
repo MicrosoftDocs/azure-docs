@@ -74,6 +74,16 @@ All existing sessions in a queue or subscription can be enumerated with the **Se
 
 The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it is therefore recommended for the application to clean up its retained state to avoid external management cost.
 
+## Impact of delivery count
+
+The definition of delivery count per message in the context of sessions varies slightly from the definition in the absense of sessions. Here is a table summarizing when the delivery count is incremented.
+
+| Scenario | Is the message's delivery count incremented |
+|----------|---------------------------------------------|
+| Session is accepted, but the session lock expires (due to timeout) | Yes |
+| Session is accepted, the messages within the session are not completed (even if they are locked), and the session is closed | No |
+| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (this is the standard flow. Here messages are removed from the session) |
+
 ## Next steps
 
 - See either the [Microsoft.Azure.ServiceBus samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) or [Microsoft.ServiceBus.Messaging samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) for an example that uses the .NET Framework client to handle session-aware messages. 

@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -60,13 +60,14 @@ The following core requirements must be met in order to configure and implement 
 
 *  **Azure onboarding**: Before deploying application proxy, user identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
-* **Conditional access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and conditional access policies for remote access from the internet.  An  approach to provide conditional access for intranet use is to modernize applications so they can diretly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
+* **Conditional Access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and Conditional Access policies for remote access from the internet.  An  approach to provide Conditional Access for intranet use is to modernize applications so they can diretly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
 
 * **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and tenant. To see these limits refer to [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for a majority of deployments.
 
 * **Public certificate**: If you are using custom domain names, you must procure a public certificate issued by a non-Microsoft trusted certificate authority. Depending on your organizational requirements, getting a certificate can take some time and we recommend beginning the process as early as possible. Azure Application Proxy supports standard, [wildcard](application-proxy-wildcard.md), or SAN-based certificates.
 
-* **Domain requirements**: Single sign-on to your published applications using Kerberos Constrained Delegation (KCD) requires that a connector host is domain-joined to the same AD domain as the applications being publishing. For detailed information on the topic, see [KCD for single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) with Application Proxy. The connector service runs in the context of the local system and should not be configured to use a custom identity.
+* **Domain requirements**: Single sign-on to your published applications using Kerberos Constrained Delegation (KCD) requires that the server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains.
+For detailed information on the topic, see [KCD for single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) with Application Proxy. The connector service runs in the context of the local system and should not be configured to use a custom identity.
 
 * **DNS records for URLs**
 
@@ -78,9 +79,9 @@ The following core requirements must be met in order to configure and implement 
 
    * **Connector installation** requires local admin rights to the Windows server that it's being installed on. It also requires a minimum of an *Application Administrator* role to authenticate and register the connector instance to your Azure AD tenant. 
 
-   * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage conditional access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
+   * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage Conditional Access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
-* **Licensing**: Application Proxy is available through the Azure AD Basic subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.  
+* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.  
 
 ### Application Discovery
 
@@ -260,13 +261,13 @@ Application security requires an advanced set of security capabilities that can 
 
 The following capabilities can be used to support Azure AD Application Proxy:
 
-* User and location-based conditional access: Keep sensitive data protected by limiting user access based on geo-location or an IP address with [location-based conditional access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+* User and location-based Conditional Access: Keep sensitive data protected by limiting user access based on geo-location or an IP address with [location-based Conditional Access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
-* Device-based conditional access: Ensure only enrolled, approved, and compliant devices can access corporate data with [device-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
+* Device-based Conditional Access: Ensure only enrolled, approved, and compliant devices can access corporate data with [device-based Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Application-based conditional access: Work doesn't have to stop when a user isn't on the corporate network. [Secure access to corporate cloud and on-premises apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) and maintain control with conditional access.
+* Application-based Conditional Access: Work doesn't have to stop when a user isn't on the corporate network. [Secure access to corporate cloud and on-premises apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) and maintain control with Conditional Access.
 
-* Risk-based conditional access: Protect your data from malicious hackers with a [risk-based conditional access policy](https://www.microsoft.com/cloud-platform/conditional-access) that can be applied to all apps and all users, whether on-premises or in the cloud.
+* Risk-based Conditional Access: Protect your data from malicious hackers with a [risk-based Conditional Access policy](https://www.microsoft.com/cloud-platform/conditional-access) that can be applied to all apps and all users, whether on-premises or in the cloud.
 
 * Azure AD Access Panel: With your Application Proxy service deployed, and applications securely published, offer your users a simple hub to discover and access all their applications. Increase productivity with self-service capabilities, such as the ability to request access to new apps and groups or manage access to these resources on behalf of others, through the [Access Panel](https://aka.ms/AccessPanelDPDownload).
 
@@ -289,15 +290,21 @@ However, users still need to carry out day to day privileged operations, so enfo
 
 ### Reporting and monitoring
 
-Azure AD can provide additional insights into your organization’s user provisioning usage and operational health through audit logs and reports. 
+Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Application Proxy also makes it very easy to monitor connectors from the Azure AD portal and Windows Event Logs.
 
 #### Application audit logs
 
-These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. Audit logs are located in the Azure portal and in Audit API for export.
+These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) are located in the Azure portal and in [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) for export. Additionally, [usage and insights reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) are also available for your application.
+
+#### Application Proxy Connector monitoring
+
+The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure AD Portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+
+![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### Windows event logs and performance counters
 
-Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs, and follow this [tutorial to configure event log data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### Troubleshooting guide and steps
 

@@ -11,7 +11,7 @@ ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
@@ -77,7 +77,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 
 **Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems. By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](../active-directory-view-access-usage-reports.md).
 
-**Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application. Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access. Learn more about [Azure Active Directory conditional access](../active-directory-conditional-access-azure-portal.md).
+**Conditional Access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application. Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access. Learn more about [Azure Active Directory Conditional Access](../active-directory-conditional-access-azure-portal.md).
 
 ### Easy development
 

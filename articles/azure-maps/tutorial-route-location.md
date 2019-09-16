@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the Route Service SDK
 
 ## Prerequisites
 
-Before you proceed, follow the steps in the previous tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey).
+Before you proceed, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 <a id="getcoordinates"></a>
 
@@ -46,7 +46,7 @@ The following steps show you how to create a static HTML page embedded with the 
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;

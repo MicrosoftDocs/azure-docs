@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Cosmos DB document database with Java'
+title: Use Java to create a document database - Azure Cosmos DB
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,20 +8,19 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-
+ms.custom: seo-java-august2019, seo-java-september2019
 ---
-# Quickstart: Build a Java application using Azure Cosmos DB SQL API account
+# Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data
 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-This quickstart shows how to create and manage resources of an Azure Cosmos DB [SQL API](sql-api-introduction.md) account by using a Java application. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the [SQL Java SDK](sql-api-sdk-async-java.md), add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos DB databases, collections in either the UI or programmatically, whichever is your preference.
+This quickstart shows you how to use a Java application to create and manage a document database from your Azure Cosmos DB SQL API account. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the SQL Java SDK, and then add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos DB databases, containers in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -43,7 +42,7 @@ Before you can create a document database, you need to create a SQL API account 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Add a collection
+## Add a container
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -71,7 +70,7 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
 ](#run-the-app). 
 
-* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
+* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute requests against the service.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -200,7 +199,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, document database, and collection using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB collection. 
+In this quickstart, you've learned how to create an Azure Cosmos account, document database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos container. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)

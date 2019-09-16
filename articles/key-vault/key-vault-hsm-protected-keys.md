@@ -2,14 +2,14 @@
 title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault
@@ -23,7 +23,7 @@ Use the information in this topic to help you plan for, generate, and then trans
 This functionality is not available for Azure China.
 
 > [!NOTE]
-> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
+> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  
 > For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
 
 More information about generating and transferring an HSM-protected key over the Internet:
@@ -94,119 +94,134 @@ Do not close the Azure PowerShell window.
 
 Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
 
-- - -
+---
 **United States:**
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
-- - -
+---
 **Europe:**
 
 KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
-- - -
+---
 **Asia:**
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
 4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
-- - -
+---
 **Latin America:**
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 
 E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
-- - -
+---
 **Japan:**
 
 KeyVault-BYOK-Tools-Japan.zip
 
 3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
-- - -
+---
 **Korea:**
 
 KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
-- - -
+---
 **South Africa:**
 
 KeyVault-BYOK-Tools-SouthAfrica.zip
 
 C41060C5C0170AAAAD896DA732E31433D14CB9FC83AC3C67766F46D98620784A
 
-- - -
+---
 **UAE:**
 
 KeyVault-BYOK-Tools-UAE.zip
 
 FADE80210B06962AA0913EA411DAB977929248C65F365FD953BB9F241D5FC0D3
 
-- - -
+---
 **Australia:**
 
 KeyVault-BYOK-Tools-Australia.zip
 
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
-- - -
+---
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
-- - -
+---
 **US Government DOD:**
 
 KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
-- - -
+---
 **Canada:**
 
 KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
-- - -
+---
 **Germany:**
 
 KeyVault-BYOK-Tools-Germany.zip
 
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
-- - -
+---
+**Germany Public:**
+
+KeyVault-BYOK-Tools-Germany-Public.zip
+
+54534936D0A0C99C8117DB724C34A5E50FD204CFCBD75C78972B785865364A29
+
+---
 **India:**
 
 KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
-- - -
+---
 **France:**
 
 KeyVault-BYOK-Tools-France.zip
 
 5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
 
-- - -
+---
 **United Kingdom:**
 
 KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
-- - -
+---
+**Switzerland:**
+
+KeyVault-BYOK-Tools-Switzerland.zip
+
+88CF8D39899E26D456D4E0BC57E5C94913ABF1D73A89013FCE3BBD9599AD2FE9
+
+---
+
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
@@ -331,6 +346,9 @@ To validate the downloaded package:
    * For Germany:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
+   * For Germany Public:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
    * For India:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
@@ -340,6 +358,9 @@ To validate the downloaded package:
    * For United Kingdom:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+   * For Switzerland:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SUI-1 -w BYOK-SecurityWorld-pkg-SUI-1
 
      > [!TIP]
      > The nCipher nShield software includes python at %NFAST_HOME%\python\bin
@@ -424,6 +445,9 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For Germany:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
+* For Germany Public:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
 * For India:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
@@ -433,6 +457,9 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For United Kingdom:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
+* For Switzerland:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
 
 When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
@@ -493,6 +520,9 @@ Run one of the following commands, depending on your geographic region or instan
 * For Germany:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For Germany Public:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * For India:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
@@ -502,6 +532,10 @@ Run one of the following commands, depending on your geographic region or instan
 * For United Kingdom:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For Switzerland:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+
 
 When you run this command, use these instructions:
 

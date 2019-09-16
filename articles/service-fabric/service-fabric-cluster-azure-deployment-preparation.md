@@ -3,9 +3,9 @@ title: Plan an Azure Service Fabric cluster deployment | Microsoft Docs
 description: Learn about planning and preparing for a production Service Fabric cluster deployment to Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
+
 
 ms.assetid: 
 ms.service: service-fabric
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Plan and prepare for a cluster deployment

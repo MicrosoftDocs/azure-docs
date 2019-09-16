@@ -30,7 +30,7 @@ Jump ahead to the [live store locator example](https://azuremapscodesamples.azur
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you first need to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and [get the subscription key for your account](./tutorial-search-location.md#getkey).
+To complete the steps in this tutorial, you first need to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 ## Design
 
@@ -134,7 +134,7 @@ To create the user interface, add code to *index.html*:
 1. Add a reference to the Azure Maps Services module. The module is a JavaScript library that wraps the Azure Maps REST services and makes them easy to use in JavaScript. The module is useful for powering search functionality.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. Add references to *index.js* and *index.css*:
@@ -412,7 +412,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -427,7 +427,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
         //Use subscriptionKeyCredential to create a pipeline
         const pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
-            retryOptions: { maxTries: 4 }, // Retry options
+            retryOptions: { maxTries: 4 } // Retry options
         });
 
         //Create an instance of the SearchURL client.
@@ -702,21 +702,6 @@ At this point, everything is set up in the user interface. Now, we need to add t
         var camera = map.getCamera();
         var listPanel = document.getElementById('listPanel');
 
-        //Get all the shapes that have been rendered in the bubble layer.
-        var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
-
-        data.forEach(function(shape) {
-            if (shape instanceof atlas.Shape) {
-                //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
-                shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles');
-            }
-        });
-
-        //Sort the data by distance.
-        data.sort(function(x, y) {
-            return x.distance - y.distance;
-        });
-
         //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button.
         if (camera.zoom < maxClusterZoomLevel) {
             //Close the pop-up window; clusters might be displayed on the map.  
@@ -742,6 +727,25 @@ At this point, everything is set up in the user interface. Now, we need to add t
             </div>
             */
 
+			//Get all the shapes that have been rendered in the bubble layer. 
+			var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
+
+			//Create an index of the distances of each shape.
+			var distances = {};
+
+			data.forEach(function (shape) {
+				if (shape instanceof atlas.Shape) {
+
+					//Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
+					distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
+				}
+			});
+
+			//Sort the data by distance.
+			data.sort(function (x, y) {
+				return distances[x.getId()] - distances[y.getId()];
+			});
+
             data.forEach(function(shape) {
                 properties = shape.getProperties();
                 html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">',
@@ -755,8 +759,8 @@ At this point, everything is set up in the user interface. Now, we need to add t
                 getOpenTillTime(properties),
                 '<br />',
 
-                //Route the distance to two decimal places.  
-                (Math.round(shape.distance * 100) / 100),
+                //Get the distance of the shape.
+                distances[shape.getId()],
                 ' miles away</div>');
             });
 
@@ -867,6 +871,9 @@ At this point, everything is set up in the user interface. Now, we need to add t
             </div>
         */
 
+		 //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
+	    var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
+
         var html = ['<div class="storePopup">'];
         html.push('<div class="popupTitle">',
             properties['AddressLine'],
@@ -877,8 +884,8 @@ At this point, everything is set up in the user interface. Now, we need to add t
             //Convert the closing time to a format that's easier to read.
             getOpenTillTime(properties),
 
-            //Route the distance to two decimal places.  
-            '<br/>', (Math.round(shape.distance * 100) / 100),
+            //Add the distance information.  
+            '<br/>', distance,
             ' miles away',
             '<br /><img src="images/PhoneIcon.png" title="Phone Icon"/><a href="tel:',
             properties['Phone'],
@@ -891,11 +898,11 @@ At this point, everything is set up in the user interface. Now, we need to add t
             html.push('<br/>Amenities: ');
 
             if (properties['IsWiFiHotSpot']) {
-                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>')
+                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>');
             }
 
             if (properties['IsWheelchairAccessible']) {
-                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>')
+                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>');
             }
         }
 

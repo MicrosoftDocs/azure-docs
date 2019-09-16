@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
@@ -25,7 +25,14 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
-For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages.
+For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. Support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) is currently limited to the following languages: 
+* English
+* Chinese-Simplified
+* French
+* German
+* Spanish
+
+Only the `Person`, `Location` and `Organization` named entities are returned for the other languages.
 
 ## Language list and status
 
@@ -35,30 +42,32 @@ Language support is initially rolled out in preview, graduating to generally ava
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabic      | `ar`          |           |             | ✔ \*                     | |
 | Czech       | `cs`          |           |             | ✔ \*                     | |
-| Chinese-Simplified | `zh-CN`|           |             | ✔ \*        |    |
+| Chinese-Simplified | `zh-CN`| ✔ \***     |             | ✔         |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | English     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| French      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| German      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
+| French      | `fr`          | ✔        | ✔           |  ✔            |     |
+| German      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
 | Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
 | Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Japanese    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Japanese    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norwegian  (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polish      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` also accepted|
 | Portuguese (Brazil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russian     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spanish     | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| Spanish     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
 | Swedish     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turkish     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
 \* Language support is in preview
 
-\*\* Named Entity Recognition and [Entity linking](how-tos/text-analytics-how-to-entity-linking.md) are both available for this language.    
+\*\* [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) and [Entity linking](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) are both available for this language.  
+
+\*** Available in [Sentiment Analysis V3 Public Preview](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
 ## See also
 

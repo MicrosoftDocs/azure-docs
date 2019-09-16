@@ -7,4 +7,4 @@ ms.author: kromerm
 ---
 
 > [!NOTE] 
-> Azure Data Factory Mapping Data Flow is currently a public preview feature and is not subject to Azure customer SLA provisions.
+> Azure Data Factory Mapping Data Flow is currently a public preview feature and is not subject to Azure customer SLA provisions. Currently, Mapping Data Flows are not available in these Azure regions: West Central US, Brazil South, France Central, Korea Central.

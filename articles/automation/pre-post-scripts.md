@@ -4,11 +4,11 @@ description: This article describes how to configure and manage pre and post scr
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm 
+manager: carmonm
 ---
 # Manage pre and post scripts
 
@@ -58,24 +58,8 @@ When you configure pre and post scripts, you can pass in parameters just like sc
 
 If you need another object type, you can cast it to another type with your own logic in the runbook.
 
-In addition to your standard runbook parameters, an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
+In addition to your standard runbook parameters, an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it's automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
 
-## Stopping a deployment
-
-If you want to stop a deployment based on a Pre script you must [throw](automation-runbook-execution.md#throw) an exception. If you do not throw an exception, the deployment and Post script will still run. The [example runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in the gallery shows how you can do this. The following is a snippet from that runbook.
-
-```powershell
-#In this case, we want to terminate the patch job if any run fails.
-#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
-foreach($summary in $finalStatus)
-{
-    if ($summary.Type -eq "Error")
-    {
-        #We must throw in order to fail the patch deployment.  
-        throw $summary.Summary
-    }
-}
-```
 
 ### SoftwareUpdateConfigurationRunContext properties
 
@@ -127,6 +111,25 @@ A full example with all properties can be found at: [Software Update Configurati
 
 > [!NOTE]
 > The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause Pre and Post scripts to run multiple times on the same machine. To workaround this behavior, use `Sort-Object -Unique` to select only unique VM names in your script.
+
+
+## Stopping a deployment
+
+If you want to stop a deployment based on a Pre script, you must [throw](automation-runbook-execution.md#throw) an exception. If you don't throw an exception, the deployment and Post script will still run. The [example runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in the gallery shows how you can do this. The following is a snippet from that runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
+
 
 ## Samples
 
@@ -200,11 +203,11 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Interacting with machines
 
-Pre and post tasks run as a runbook in your Automation Account and not directly on the machines in your deployment. Pre and post tasks also run in the Azure context and don't have access to Non-Azure machines. The following sections show how you can interact with the machines directly whether they are an Azure VM or a Non-Azure machine:
+Pre and post tasks run as a runbook in your Automation Account and not directly on the machines in your deployment. Pre and post tasks also run in the Azure context and don't have access to Non-Azure machines. The following sections show how you can interact with the machines directly whether they're an Azure VM or a Non-Azure machine:
 
 ### Interacting with Azure machines
 
-Pre and post tasks are ran as runbooks and do not natively run on your Azure VMs in your deployment. To interact with your Azure VMs, you must have the following items:
+Pre and post tasks are run as runbooks and don't natively run on your Azure VMs in your deployment. To interact with your Azure VMs, you must have the following items:
 
 * A Run As account
 * A runbook you want to run
@@ -233,9 +236,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## Known issues
 
-* You can't pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
+* You can't pass a boolean, objects, or arrays to parameters when using pre and post scripts. The runbook will fail. For a complete list of supported types, see [parameters](#passing-parameters).
 
 ## Next steps
 

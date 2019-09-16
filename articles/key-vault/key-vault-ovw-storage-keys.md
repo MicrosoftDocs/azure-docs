@@ -6,7 +6,7 @@ services: key-vault
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
 # Customer intent: As a developer, I want to use Azure Key Vault for secure management of my storage credentials and shared access signature tokens.
 ---
@@ -27,7 +27,7 @@ When you use the managed storage account key feature, consider the following poi
 
 > [!NOTE]
 > Azure Storage integration with Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service.
-> Azure AD integration is available for [Azure blobs and queues](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> Azure AD integration is available for [Azure blobs and queues](../storage/common/storage-auth-aad.md).
 > Use Azure AD for authentication and authorization.
 > Azure AD provides OAuth2 token-based access to Azure Storage just like Azure Key Vault.
 >
@@ -54,7 +54,7 @@ Key Vault is a Microsoft application that's pre-registered in all Azure AD tenan
 Before you use Key Vault to manage your storage account key, review the prerequisites:
 
 - Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-- Create an [Azure storage account](https://azure.microsoft.com/services/storage/). Follow [these steps](https://docs.microsoft.com/azure/storage/).
+- Create an [Azure storage account](https://azure.microsoft.com/services/storage/). Follow [these steps](../storage/index.yml).
 - The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.        
       
 ## Manage storage account keys
@@ -63,7 +63,7 @@ There are four basic steps to use Key Vault to manage storage account keys:
 
 1. Get an existing storage account.
 1. Fetch an existing key vault.
-1. Add a Key Vault managed storage account to the vault. Set `key1` as the active key with a regeneration period of 180 days.
+1. Add a Key Vault managed storage account to the vault. Set `key1` as the active key with a regeneration period of 90 days.
 1. Use `key1` to set a storage context for the specified storage account.
 
 > [!NOTE]
@@ -90,7 +90,7 @@ There are four basic steps to use Key Vault to manage storage account keys:
 1. Assign the "Storage Account Key Operator Service Role" RBAC role to Key Vault. This role limits the access scope to your storage account. For a classic storage account, use the "Classic Storage Account Key Operator Service Role" role.
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` is the Object ID for Key Vault in the Azure public cloud. To get the Object ID for Key Vault in the Azure Government cloud, see [Service principal application ID](#service-principal-application-id).
@@ -146,7 +146,7 @@ After you complete the steps in the previous section, run the following commands
 
 ## Fetch tokens in code
 
-Execute operations on your storage account by fetching [shared access signature tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) from Key Vault.
+Execute operations on your storage account by fetching [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) from Key Vault.
 
 There are three ways to authenticate to Key Vault:
 
@@ -154,7 +154,7 @@ There are three ways to authenticate to Key Vault:
 - Use a service principal and certificate. 
 - Use a service principal and password. This approach isn't recommended.
 
-For more information, see [Azure Key Vault: Basic concepts](key-vault-whatis.md#basic-concepts).
+For more information, see [Azure Key Vault: Basic concepts](basic-concepts.md).
 
 The following example demonstrates how to fetch shared access signature tokens. You fetch the tokens after you create a shared access signature definition. 
 

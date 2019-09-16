@@ -307,7 +307,7 @@ namespace CopyExistingBlobsIntoAsset
             // set the .ism file to be the primary file. 
             // If we, for example, copied an .mp4, then the mp4 would be the primary file. 
             var ismAssetFile = asset.AssetFiles.ToList().
-                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray().FirstOrDefault();
+                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             // The following code assigns the first .ism file as the primary file in the asset.
             // An asset should have one .ism file.  

@@ -9,20 +9,24 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 07/12/2019
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template
 
-This quickstart shows how to create an Azure Databricks workspace using Azure Resource Manager template. You use the workspace to create an Apache Spark cluster and run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
+In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace with an Apache Spark cluster. You run a job on the cluster and use custom charts to produce real-time reports from free/paid usage based on demographics.
 
-In this quickstart, as part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
+## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+
+## Sign in to the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.com). 
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
 
 ## Create an Azure Databricks workspace
 

@@ -2,19 +2,12 @@
 title: Support for Azure Marketplace and AppSource | Azure
 description: Support information and links for Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
-author: yijenj
-manager: nunoc
-
-
-
+author: qianw211
+manager: evansma
 ms.service: marketplace
-
-
-
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: yijenj
+ms.date: 7/25/2019
+ms.author: v-qiwe
 
 ---
 
@@ -27,11 +20,11 @@ Additionally, you can get many of your questions answered in the [Marketplace ch
 
 Open a ticket with Microsoft [marketplace publisher support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for issues with onboarding and getting started, or with Microsoft [partner support](https://partner.microsoft.com/support) if you have questions on Microsoft Partner Network.
 
-## Cloud Partner Portal  
+## Partner Center or Cloud Partner Portal  
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Partner Center or Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
 
 ## Technical  
 
@@ -39,7 +32,6 @@ Open a ticket with Microsoft [marketplace publisher support](https://support.mic
 |:--- |:--- |  
 | MSDN forums: Marketplace located at [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network forum. |  
 | Stack Overflow: Azure located at [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow environment to get solutions and ask questions about everything related to Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace located at [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager located at [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines on Azure located at [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers on Azure located at [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| Support for AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Support publishing for Dynamics Apps |
 
 ## Marketing resources  
 

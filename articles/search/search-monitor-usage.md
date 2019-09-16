@@ -2,15 +2,13 @@
 title: Monitor resource usage and query metrics for an search service - Azure Search
 description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Search service.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Monitor resource consumption and query activity in Azure Search
 
@@ -169,7 +167,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 * [Count Documents](/rest/api/searchservice/count-documents)
 * [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## Next steps
 

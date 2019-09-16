@@ -1,7 +1,7 @@
 ---
 title: Search explorer tool for querying data in Azure portal - Azure Search
 description: Use Azure portal tools like Search explorer to query indexes in Azure Search. Enter search terms or fully-qualified search strings with advanced syntax.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -79,7 +79,7 @@ Add **$select** to limit results to the explicitly named fields for more readabl
 Azure Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append **$top=100,&$skip=50** to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Results**
@@ -88,13 +88,25 @@ Azure Search returns the top 50 matches based on the search rank. To get the nex
 
 ## Filter expressions (greater than, less than, equal to)
 
-Use the **$filter** parameter when you want to specify precise criteria rather than free text search. This example searches for bedrooms greater than 3: `search=seattle condo&$filter=beds gt 3&$count=true`
+Use the **$filter** parameter when you want to specify precise criteria rather than free text search. This example searches for bedrooms greater than 3:
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Results**
 
    ![Filter expression](./media/search-explorer/search-explorer-example-filter.png "Filter by criteria")
 
 ## Order-by expressions
 
-Add **$orderby** to sort results by another field besides search score. An example expression you can use to test this out is `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Add **$orderby** to sort results by another field besides search score. An example expression you can use to test this out is:
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Results**
 
    ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
 

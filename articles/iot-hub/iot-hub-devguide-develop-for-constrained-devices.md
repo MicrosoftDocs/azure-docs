@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub Develop for Constrained Devices using IoT Hub C SDK | Microsoft Docs
 description: Developer guide - guidance on how to develop using Azure IoT SDKs for constrained devices. 
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
+ms.author: robinsh
 ---
 
 # Develop for constrained devices using Azure IoT C SDK

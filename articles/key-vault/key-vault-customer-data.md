@@ -2,14 +2,14 @@
 title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data in Key Vault
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 # Azure Key Vault customer data features​

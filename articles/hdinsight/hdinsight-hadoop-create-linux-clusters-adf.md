@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Create on-demand Apache Hadoop clusters in Azure HDInsight using Data Factory '
-description: Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
+title: 'Tutorial: On-demand Apache Hadoop clusters in Azure HDInsight - Data Factory'
+description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/18/2019
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
@@ -13,7 +13,7 @@ ms.date: 04/18/2019
 # Tutorial: Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this article, you learn how to create a [Apache Hadoop](https://hadoop.apache.org/) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to operationalize a big data job run where cluster creation, job run, and cluster deletion are performed on a schedule.
+In this tutorial, you learn how to create a [Apache Hadoop](https://hadoop.apache.org/) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to operationalize a big data job run where cluster creation, job run, and cluster deletion are performed on a schedule.
 
 This tutorial covers the following tasks: 
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create preliminary Azure objects
 
-In this section, you create various objects that will be used for the HDInsight cluster you create on-demand. The created storage account will contain the sample [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`hivescript.hql`) that you use to simulate a sample [Apache Hive](https://hive.apache.org/) job that runs on the cluster.
+In this section, you create various objects that will be used for the HDInsight cluster you create on-demand. The created storage account will contain the sample [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`partitionweblogs.hql`) that you use to simulate a sample [Apache Hive](https://hive.apache.org/) job that runs on the cluster.
 
 This section uses an Azure PowerShell script to create the storage account and copy over the required files within the storage account. The Azure PowerShell sample script in this section performs the following tasks:
 
@@ -45,7 +45,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 2. Creates an Azure resource group.
 3. Creates an Azure Storage account.
 4. Creates a Blob container in the storage account
-5. Copies the sample HiveQL script (**hivescript.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
+5. Copies the sample HiveQL script (**partitionweblogs.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
 
 > [!WARNING]  
 > Storage account kind `BlobStorage` cannot be used for HDInsight clusters.
@@ -151,7 +151,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 4. On the **Resources** tile, you see one resource listed unless you share the resource group with other projects. That resource is the storage account with the name you specified earlier. Select the storage account name.
 5. Select the **Blobs** tiles.
 6. Select the **adfgetstarted** container. You see a folder called **hivescripts**.
-7. Open the folder and make sure it contains the sample script file, **hivescript.hql**.
+7. Open the folder and make sure it contains the sample script file, **partitionweblogs.hql**.
 
 ## Understand the Azure Data Factory activity
 
@@ -248,7 +248,7 @@ In this section, you author two linked services within your data factory.
 
     | Property | Value |
     | --- | --- |
-    | Name | Enter `HDinisghtLinkedService`.|
+    | Name | Enter `HDInsightLinkedService`.|
     | Type | Select **On-demand HDInsight**. |
     | Azure Storage Linked Service | Select `HDIStorageLinkedService`. |
     | Cluster type | Select **hadoop** |
@@ -286,11 +286,11 @@ In this section, you author two linked services within your data factory.
 
     1. For **Script Linked Service**, select **HDIStorageLinkedService** from the drop-down list. This value is the storage linked service you created earlier.
 
-    1. For **File Path**, select **Browse Storage** and navigate to the location where the sample Hive script is available. If you ran the PowerShell script earlier, this location should be `adfgetstarted/hivescripts/hivescript.hql`.
+    1. For **File Path**, select **Browse Storage** and navigate to the location where the sample Hive script is available. If you ran the PowerShell script earlier, this location should be `adfgetstarted/hivescripts/partitionweblogs.hql`.
 
         ![Provide Hive script details for the pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Provide Hive script details for the pipeline")
 
-    1. Under **Advanced** > **Parameters**, select **Auto-fill from script**. This option looks for any parameters in the Hive script that require values at runtime. The script you use (**hivescript.hql**) has an **Output** parameter. Provide the **value** in the format `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` to point to an existing folder on your Azure Storage. The path is case-sensitive. This is the path where the output of the script will be stored.
+    1. Under **Advanced** > **Parameters**, select **Auto-fill from script**. This option looks for any parameters in the Hive script that require values at runtime. The script you use (**partitionweblogs.hql**) has an **Output** parameter. Provide the **value** in the format `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` to point to an existing folder on your Azure Storage. The path is case-sensitive. This is the path where the output of the script will be stored. The `wasbs` schema is necessary because storage accounts now have secure transfer required enabled by default.
     
         ![Provide parameters for the Hive script](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Provide parameters for the Hive script")
 
@@ -334,7 +334,7 @@ In this section, you author two linked services within your data factory.
 
         ![Verify the Azure Data Factory pipeline output](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Verify the Azure Data Factory pipeline output")
 
-## Clean up the tutorial
+## Clean up resources
 
 With the on-demand HDInsight cluster creation, you do not need to explicitly delete the HDInsight cluster. The cluster is deleted based on the configuration you provided while creating the pipeline. However, even after the cluster is deleted, the storage accounts associated with the cluster continue to exist. This behavior is by design so that you can keep your data intact. However, if you do not want to persist the data, you may delete the storage account you created.
 
@@ -352,11 +352,8 @@ Alternatively, you can delete the entire resource group that you created for thi
 
 1. Enter the resource group name to confirm deletion, and then select **Delete**.
 
-
 ## Next steps
 In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run [Apache Hive](https://hive.apache.org/) jobs. Advance to the next article to learn how to create HDInsight clusters with custom configuration.
 
 > [!div class="nextstepaction"]
 >[Create Azure HDInsight clusters with custom configuration](hdinsight-hadoop-provision-linux-clusters.md)
-
-

@@ -5,8 +5,8 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 03/21/2019
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Automatically scale session hosts
@@ -21,7 +21,7 @@ The environment where you run the script must have the following things:
 
 - A Windows Virtual Desktop tenant and account or a service principal with permissions to query that tenant (such as RDS Contributor).
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service.
-- An additional virtual machine that runs the scheduled task via Task Scheduler and has network access to session hosts. This will be reffered to later in the document as scaler VM.
+- An additional virtual machine that runs the scheduled task via Task Scheduler and has network access to session hosts. This will be referred to later in the document as scaler VM.
 - The [Microsoft Azure Resource Manager PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installed on the VM running the scheduled task.
 - The [Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installed on the VM running the scheduled task.
 
@@ -60,7 +60,7 @@ Next, you'll need to create the securely stored credentials:
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file.
+3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file, then run the whole script (F5)
 4. Run the following cmdlet:
     
     ```powershell
@@ -70,7 +70,7 @@ Next, you'll need to create the securely stored credentials:
     For example, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
 5. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
     - If you use different service principals or standard account, run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet once for each account to create local stored credentials.
-6. Run **Get-StoredCredentials -List** to confirm the credentials were created successfully.
+6. Run **Get-StoredCredential -List** to confirm the credentials were created successfully.
 
 ### Configure the config.xml file
 
@@ -106,7 +106,7 @@ After configuring the configuration .xml file, you'll need to configure the Task
 4. Go to the **Triggers** tab, then select **New…**
 5. In the **New Trigger** dialog, under **Advanced settings**, check **Repeat task every** and select the appropriate period and duration (for example, **15 minutes** or **Indefinitely**).
 6. Select the **Actions** tab and **New…**
-7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\RDSScaler.ps1** into the **Add arguments (optional)** field.
+7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\basicScale.ps1** into the **Add arguments (optional)** field.
 8. Go to the **Conditions** and **Settings** tabs and select **OK** to accept the default settings for each.
 9. Enter the password for the administrative account where you plan to run the scaling script.
 

@@ -1,13 +1,13 @@
 ---
 title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microsoft Docs
 description: Configure, optimize, and troubleshoot AzCopy.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
+ms.reviewer: dineshm
 ---
 
 # Configure, optimize, and troubleshoot AzCopy
@@ -23,11 +23,11 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Configure proxy settings
 
-To configure the proxy settings for AzCopy, set the `https_proxy` environment variable.
+To configure the proxy settings for AzCopy, set the `https_proxy` environment variable. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection.
 
 | Operating system | Command  |
 |--------|-----------|
-| **Windows** | `set https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | In a command prompt use: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -35,7 +35,13 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 
 ## Optimize throughput
 
-Set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
+You can use the `cap-mbps` flag to place a ceiling on the throughput data rate. For example, the following command caps throughput to `10` megabits (MB) per second.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -47,7 +53,7 @@ Use the `azcopy env` to check the current value of this variable.  If the value 
 
 ## Change the location of the log files
 
-By default, log files are located in the `%USERPROFILE\\.azcopy` folder on Windows, or in the `$HOME\\.azcopy` folder on Mac and Linux. You can change this location if you need to by using these commands.
+By default, log files are located in the `%USERPROFILE\\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location if you need to by using these commands.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -69,7 +75,7 @@ AzCopy creates log and plan files for every job. You can use the logs to investi
 
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` folder on Windows or `$HOME\\.azcopy` folder on Mac and Linux.
+By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` directory on Windows or `$HOME\\.azcopy` directory on Mac and Linux.
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
@@ -78,7 +84,7 @@ By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` fo
 
 The following command will get all errors with `UPLOADFAILED` status from the `04dc9ca9-158f-7945-5933-564021086c79` log:
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log

@@ -6,14 +6,14 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: anshan
+ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 04/26/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights Preview
+# What is Azure Time Series Insights Preview?
 
 Azure Time Series Insights Preview is an end-to-end platform-as-a-service (PaaS) offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
 
@@ -91,5 +91,5 @@ Learn about use cases:
 > [Azure Time Series Insights Preview use cases](./time-series-insights-update-use-cases.md)
 
 <!-- Images -->
-[1]: media/v2-update-overview/overview_one.png
-[2]: media/v2-update-overview/overview_two.png
+[1]: media/v2-update-overview/overview-one.png
+[2]: media/v2-update-overview/overview-two.png

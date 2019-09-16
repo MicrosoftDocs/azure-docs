@@ -45,14 +45,14 @@ If you navigate to this link, you can create bootstrap the creation of your web 
 1. If your account gives you access to more than one tenant, select your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
-   - choose the supported account types for your application (See [Supported Account types](./v2-supported-account-types.md))
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-WebApp`.
-   - In **Reply URL**, add the reply URL for your app, for instance `https://localhost:44321/`, and select **Register**.
+   1. choose the supported account types for your application (See [Supported Account types](./v2-supported-account-types.md))
+   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-WebApp`.
+   1. In **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successfully authenticating. For example, `https://localhost:44321/`.  Select **Register**.
 1. Select the **Authentication** menu, and then add the following information:
-- In **Reply URL**, add `https://localhost:44321/signin-oidc`,  and select **Register**.
-- In the **Advanced settings** section, set **sign out URL** to `https://localhost:44321/signout-oidc`.
-- Under **Implicit grant**, check **ID tokens**.
-- Select **Save**.
+   1. In **Reply URL**, add `https://localhost:44321/signin-oidc`.
+   1. In the **Advanced settings** section, set **Logout URL** to `https://localhost:44321/signout-oidc`.
+   1. Under **Implicit grant**, check **ID tokens**.
+   1. Select **Save**.
 
 ### Register an app using PowerShell
 

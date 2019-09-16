@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
-ms.date: 05/29/2019
+ms.date: 09/04/2019
 ms.author: dalek
 
 ---
@@ -22,7 +22,7 @@ ms.author: dalek
 > This article describes how to analyze data usage Application Insights.  Refer to the following articles for related information.
 > - [Monitoring usage and estimated costs](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
+If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
 
 ## Pricing model
 
@@ -34,11 +34,12 @@ Pricing for [Azure Application Insights][start] is based on data volume ingested
 * Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **Log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes.
 
-For current prices in your currency and region, see [Application Insights pricing][pricing].
+> [!NOTE]
+> All prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].
 
 ### Multi-step web tests
 
-[Multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
+[Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
 
 There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
@@ -49,7 +50,7 @@ Application Insights makes it easy to understand what your costs are likely to b
 ![Choose pricing](./media/pricing/pricing-001.png)
 
 A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](../../azure-monitor/app/sampling.md)) from your server and client apps, and from availability tests.  
-B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
+B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/availability-multistep.md). (This doesn't include simple availability tests, which are included in the data volume charge.)  
 C. View data volume trends for the past month.  
 D. Enable data ingestion [sampling](../../azure-monitor/app/sampling.md).   
 E. Set the daily data volume cap.  
@@ -60,34 +61,47 @@ Application Insights charges are added to your Azure bill. You can see details o
 
 ![In the left menu, select Billing](./media/pricing/02-billing.png)
 
-## Data rate
-The volume of data you send is limited in three ways:
+## Managing your data volume 
 
-* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](../../azure-monitor/app/sampling.md). 
-* **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
-
-    The maximum cap is 1,000 GB/day unless you request a higher maximum for a high-traffic application. 
-
-    Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
-    We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
-* **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key.
-
-*What happens if my app exceeds the throttling rate?*
-
-* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might simply drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
-
-*How do I know how much data my app is sending?*
-
-You can use one of the following options to see how much data your app is sending:
+To understand how much data your app is sending, you can:
 
 * Go to the **Usage and estimated cost** pane to see the daily data volume chart. 
 * In Metrics Explorer, add a new chart. For the chart metric, select **Data point volume**. Turn on **Grouping**, and then group by **Data type**.
+* Use the `systemEvents` data type. For instance, to see the data volume ingested in the last day, the query would be:
 
-## Reduce your data rate
+```kusto
+systemEvents 
+| where timestamp >= ago(1d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes)
+```
+
+This query can be used in an [Azure Log Alert](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) to set up alerting on data volumes. 
+
+The volume of data you send can be managed in three ways:
+
+* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](../../azure-monitor/app/sampling.md).
+ 
+* **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
+
+    The maximum cap is 1,000 GB/day unless you request a higher maximum for a high-traffic application. 
+	
+	Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
+
+    Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
+	
+    We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
+	
+* **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might simply drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
+
+## Reduce your data volume
+
 Here are some things you can do to reduce your data volume:
 
 * Use [Sampling](../../azure-monitor/app/sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
-* [Limit the number of Ajax calls that can be reported](../../azure-monitor/app/javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
+* [Limit the number of Ajax calls that can be reported](../../azure-monitor/app/javascript.md#configuration) in every page view, or switch off Ajax reporting.
 * [Edit ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry among separate instrumentation keys. 
 * Pre-aggregate metrics. If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
@@ -98,9 +112,11 @@ You can use the daily volume cap to limit the data collected. However, if the ca
 
 Instead of using the daily volume cap, use [sampling](../../azure-monitor/app/sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
-To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**.
+To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** page, select  **Daily Cap**.
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
+
+To [change the daily cap via Azure Resource Manager](../../azure-monitor/app/powershell.md), the property to change is the `dailyQuota`.  Via Azure Resource Manager you can also set the `dailyQuotaResetTime` and the daily cap's `warningThreshold`. 
 
 ## Sampling
 [Sampling](../../azure-monitor/app/sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
@@ -127,6 +143,20 @@ To discover the actual sampling rate, no matter where it's been applied, use an 
     | render areachart
 
 In each retained record, `itemCount` indicates the number of original records that it represents. It's equal to 1 + the number of previous discarded records. 
+
+## Change the data retention period
+
+> [!NOTE]
+> We've temporarily removed this feature while we address a possible issue.  We'll have it back by mid-September 2019.
+
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
+
+To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
+
+![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
+
+When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. 
+Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/). Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## Limits summary
 

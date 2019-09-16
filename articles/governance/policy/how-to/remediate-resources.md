@@ -7,7 +7,6 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Remediate non-compliant resources with Azure Policy
 
@@ -15,8 +14,6 @@ Resources that are non-compliant to a **deployIfNotExists** policy can be put in
 through **Remediation**. Remediation is accomplished by instructing Azure Policy to run the
 **deployIfNotExists** effect of the assigned policy on your existing resources. This article shows
 the steps needed to understand and accomplish remediation with Azure Policy.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## How remediation security works
 
@@ -58,10 +55,6 @@ the role. To get the ID for the 'Contributor' role in your environment, use the 
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
-```
-
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## Manually configure the managed identity

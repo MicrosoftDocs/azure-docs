@@ -19,39 +19,40 @@
     - name: With Node.js
       href: stream-files-nodejs-quickstart.md
   - name: Encode uploaded file and stream video   
-    items:
-    - name: With .NET
-      displayName: encode, encoding, job, transform
-      href: stream-files-tutorial-with-api.md
+    displayName: encode, encoding, job, transform
+    href: stream-files-tutorial-with-api.md
   - name: Stream live 
-    items:
-    - name: With .NET
-      href: stream-live-tutorial-with-api.md
+    href: stream-live-tutorial-with-api.md
+    displayName: Live Events, Live Outputs, ingest 
   - name: Analyze your video 
-    items:
-    - name: With .NET
-      displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
-      href: analyze-videos-tutorial-with-api.md
+    displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
+    href: analyze-videos-tutorial-with-api.md
   - name: Encrypt dynamically with AES-128 
-    items:
-    - name: With .NET
-      href: protect-with-aes128.md       
+    href: protect-with-aes128.md       
   - name: Encrypt dynamically with DRM 
-    items:
-    - name: With .NET
-      displayName: PlayReady, Widevine, FairPlay
-      href: protect-with-drm.md    
+    displayName: PlayReady, Widevine, FairPlay
+    href: protect-with-drm.md   
+- name: Samples
+  items:    
+  - name: Media Services samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
 - name: Concepts
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Cloud upload and storage
+  - name: Accounts
     items:    
-    - name: Storage
+    - name: Media Services account
+      displayName: subscription
+      href: media-services-account-concept.md
+    - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
+  - name: Uploading 
+    items:
     - name: Assets
       href: assets-concept.md    
+      displayName: name, naming, file name
   - name: Encoding
     items:
     - name: Overview
@@ -97,12 +98,13 @@
       href: streaming-policy-concept.md  
     - name: Streaming Endpoint error codes  
       href: streaming-endpoint-error-codes.md    
-  - name: Dynamic encryption and key delivery
+  - name: Content protection
     items:
-    - name: Streaming protocols and encryption types
-      displayName: dynamic, encryption, content protection, PlayReady, Widevine, FairPlay     
+    - name: Dynamic encryption and key delivery
+      displayName: content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay     
       href: content-protection-overview.md  
-    - name: Multi-DRM system with access control
+    - name: Design of multi-DRM system 
+      displayName: drm, access control
       href: design-multi-drm-system-with-access-control.md  
     - name: DRM licenses
       items:
@@ -122,6 +124,7 @@
       href: live-streaming-overview.md
     - name: Live Events and Live Outputs 
       href: live-events-outputs-concept.md    
+      displayName: vanity, ingest 
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
@@ -151,7 +154,7 @@
     items:
     - name: Overview
       href: media-services-apis-overview.md
-      displayName: accessing, naming, long-running
+      displayName: accessing, long-running, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC
@@ -163,7 +166,8 @@
       - name: Job error codes
         href: job-error-codes.md
   - name: Migration guidance from v2 to v3
-    href: migrate-from-v2-to-v3.md      
+    href: migrate-from-v2-to-v3.md 
+    displayName: naming
 - name: How-to guides
   items:
   - name: Get started
@@ -178,7 +182,9 @@
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset - CLI
-      href: cli-create-asset.md      
+      href: cli-create-asset.md 
+  - name: Developer guides
+    items:
     - name: Develop with REST
       items:
       - name: Connect with Postman
@@ -230,13 +236,27 @@
         href: custom-preset-cli-howto.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md      
+        href: custom-preset-rest-howto.md    
+    - name: Subclip a video
+      items:
+      - name: With .NET
+        href: subclip-video-dotnet-howto.md
+        displayName: subclipping, clip, edit, trim, clipping
+      - name: With REST
+        href: subclip-video-rest-howto.md
+        displayName: subclipping, clip, edit, trim, clipping        
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
       href: monitor-events-portal-how-to.md
     - name: Monitor events - CLI
       href: job-state-events-cli-how-to.md 
+  - name: Use Azure Monitor
+    items:
+    - name: Monitor metrics
+      href: media-services-metrics-howto.md
+    - name: Monitor diagnostic logs
+      href: media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy - .NET

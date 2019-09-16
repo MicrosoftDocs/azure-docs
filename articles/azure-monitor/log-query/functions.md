@@ -18,12 +18,6 @@ ms.author: bwren
 
 # Using functions in Azure Monitor log queries
 
-> [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
-
 To use a log query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
 
 ## Create a function

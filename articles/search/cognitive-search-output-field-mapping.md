@@ -1,15 +1,14 @@
 ---
 title: Map cognitive search enriched input fields to output fields - Azure Search
 description: Extract and enrich source data fields, and map to output fields in an Azure Search index.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 
 # How to map enriched fields to a searchable index

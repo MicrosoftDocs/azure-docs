@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na

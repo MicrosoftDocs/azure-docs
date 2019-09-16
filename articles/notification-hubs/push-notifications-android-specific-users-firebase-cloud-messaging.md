@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 09/11/2019
 ms.author: jowargo
 ---
 
@@ -272,7 +272,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         super.onCreate(savedInstanceState);
 
         mainActivity = this;
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         fcm = FirebaseInstanceId.getInstance();
         registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
         setContentView(R.layout.activity_main);
@@ -466,7 +466,14 @@ The next step is to update the Android application created in the [Tutorial: Pus
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. Build the project.
+13. If your app is targeting API level 28 (Android 9.0) or above, include the following declaration within the `<application>` element of `AndroidManifest.xml`.
+
+    ```xml
+    <uses-library
+        android:name="org.apache.http.legacy"
+        android:required="false" />
+    ```
+14. Build the project.
 
 ## Test the app
 

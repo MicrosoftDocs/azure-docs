@@ -396,7 +396,7 @@ public Startup()
 {
     ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
     var builder = new ConfigurationBuilder()        
-        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = false); // set flag to decrypt the value
     Configuration = builder.Build();
 }
 ```

@@ -35,7 +35,7 @@ The Azure Marketplace has over 3000 applications with pre-integrated SSO connect
 ## Plan your SSO team
 
 - **Engage the right stakeholders** - When technology projects fail, it's typically due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholders understand their roles.
-- **Plan communications** - Communication is critical to the success of any new service. Proactively communicate to your users abut how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](end-user-experiences.md), and craft your communications to match your selection. 
+- **Plan communications** - Communication is critical to the success of any new service. Proactively communicate to your users about how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](end-user-experiences.md), and craft your communications to match your selection. 
 
 ## Plan your SSO protocol
 
@@ -50,16 +50,16 @@ There are two primary ways in which you can enable your users to single sign-on 
 ### Considerations for federation-based SSO
 
 - **Using OpenID Connect and OAuth** - If the application you're connecting to supports it, use the OIDC/OAuth 2.0 method to enable your SSO to that application. This method requires less configuration and enables a richer user experience. For more information, see [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md), and [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Endpoint Configurations for SAML-based SSO** - If you use SAML, your developers will need specific information prior to configuring the application. For more info, see [Configure basic SAML Options](configure-single-sign-on-portal.md).
+- **Endpoint Configurations for SAML-based SSO** - If you use SAML, your developers will need specific information prior to configuring the application. For more info, see [Edit the Basic SAML Configuration](configure-single-sign-on-non-gallery-applications.md).
 - **Certificate management for SAML-based SSO** - When you enable Federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. To learn more, see [Azure AD Managing Certificates](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### Considerations for password-based SSO
 
 Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
-- [Group Policy for Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) for Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [System Center Configuration Manager (SCCM) for Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 To learn more, see [How to configure password single sign on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
@@ -91,7 +91,7 @@ From the sign-in perspective, applications with shared accounts aren't different
 
 Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud.
 
-To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. You should choose the one that most closely matches your specific scenario. For more information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. You should choose the one that most closely matches your specific scenario. For more information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## Plan your security and governance 
 
@@ -140,9 +140,9 @@ For information about MCAS, see the [Microsoft Cloud App Security overview](http
 
 ### Use Conditional Access
 
-With conditional access, you can automate criteria-based access control decisions for your cloud apps.
+With Conditional Access, you can automate criteria-based access control decisions for your cloud apps.
 
-Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access. For example the sign-in risk level, location of the request, and so on can be used. For more information about Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access. For example the sign-in risk level, location of the request, and so on can be used. For more information about Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## Azure SSO technical requirements
 

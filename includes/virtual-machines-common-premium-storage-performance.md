@@ -1,36 +1,14 @@
-﻿---
+---
  title: include file
  description: include file
  services: virtual-machines
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/24/2018
+ ms.date: 07/08/2019
  ms.author: rogarana
  ms.custom: include file
 ---
-
-# Azure premium storage: design for high performance
-
-This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
-
-While we address performance scenarios for the Storage layer in this article, you will need to optimize the application layer. For example, if you are hosting a SharePoint Farm on Azure Premium Storage, you can use the SQL Server examples from this article to optimize the database server. Additionally, optimize the SharePoint Farm's Web server and Application server to get the most performance.
-
-This article will help answer following common questions about optimizing application performance on Azure Premium Storage,
-
-* How to measure your application performance?  
-* Why are you not seeing expected high performance?  
-* Which factors influence your application performance on Premium Storage?  
-* How do these factors influence performance of your application on Premium Storage?  
-* How can you optimize for IOPS, Bandwidth and Latency?  
-
-We have provided these guidelines specifically for Premium Storage because workloads running on Premium Storage are highly performance sensitive. We have provided examples where appropriate. You can also apply some of these guidelines to applications running on IaaS VMs with Standard Storage disks.
-
-> [!NOTE]
-> Sometimes, what appears to be a disk performance issue is actually a network bottleneck. In these situations, you should optimize your [network performance](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](../articles/virtual-machines/windows/disks-types.md) and [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) articles.
 
 ## Application performance indicators
 
@@ -128,7 +106,7 @@ Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](http
 
 The main factors that influence performance of an application running on Premium Storage are Nature of IO requests, VM size, Disk size, Number of disks, disk caching, multithreading, and queue depth. You can control some of these factors with knobs provided by the system. Most applications may not give you an option to alter the IO size and Queue Depth directly. For example, if you are using SQL Server, you cannot choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It is important to understand the effects of both types of factors on your application performance, so that you can provision appropriate resources to meet performance needs.
 
-Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the Benchmarking section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
+Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the Benchmarking article, linked at the end, for steps to run common benchmarking tools on Windows and Linux VMs.
 
 ### Optimize IOPS, throughput, and latency at a glance
 
@@ -183,7 +161,7 @@ To get IOPS and Bandwidth higher than the maximum value of a single premium stor
 > [!NOTE]
 > As you increase either IOPS or Throughput the other also increases, make sure you do not hit throughput or IOPS limits of the disk or VM when increasing either one.
 
-To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the Benchmarking section at the end of this article for more details.
+To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the Benchmarking article, linked at the end, for more details.
 
 ## High scale VM sizes
 
@@ -256,7 +234,7 @@ Remember, the Premium Storage disks have higher performance capabilities compare
 High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
 > [!WARNING]
-> Disk Caching is not supported for disks larger than 4 TiB. If multiple disks are attached to your VM, each disk that is 4 TiB or smaller will support caching.
+> Disk Caching is not supported for disks 4 TiB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TiB will support caching.
 >
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
@@ -285,6 +263,9 @@ By configuring ReadOnly caching on Premium Storage data disks, you can achieve l
 
 *ReadWrite*  
 By default, the OS disks have ReadWrite caching enabled. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
+
+*None*  
+Currently, **None** is only supported on data disks. It is not supported on OS disks. If you set **None** on an OS disk it will override this internally and set it to **ReadOnly**.
 
 As an example, you can apply these guidelines to SQL Server running on Premium Storage by doing the following,
 
@@ -401,11 +382,3 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 ## Next steps
 
-Learn more about the available disk types:
-
-* [Select a disk type](../articles/virtual-machines/windows/disks-types.md)  
-
-For SQL Server users, read articles on Performance Best Practices for SQL Server:
-
-* [Performance Best Practices for SQL Server in Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

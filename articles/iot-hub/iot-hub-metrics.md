@@ -15,6 +15,9 @@ IoT Hub metrics give you better data about the state of the Azure IoT resources 
 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
 
+> [!NOTE]
+> You can use IoT Hub metrics to view information about IoT Plug and Play devices connected to your IoT Hub. IoT Plug and Play devices are part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md).
+
 ## How to view IoT Hub metrics
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-dotnet.md) guide.
@@ -55,14 +58,14 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|Routing: message latency for Service Bus Queue|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus queue endpoint.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|Routing: messages delivered to Service Bus Topic|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|No Dimensions|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|Routing: message latency for Service Bus Topic|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus topic endpoint.|No Dimensions|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events).|No Dimensions|
-|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events).|No Dimensions|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
+|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.storage|Routing: messages delivered to storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|No Dimensions|
 |d2c<br>.endpoints<br>.latency<br>.storage|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routing: data delivered to storage|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|No Dimensions|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routing: blobs delivered to storage|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|No Dimensions|
-|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of requests for IoT Hub to emit events to Event Grid. This number includes successful and failed requests. Use the Result dimension for the number of different type of response. To see the where the requests come from, use the EventType dimension.|Result, EventType|
-|EventGridLatency|Event Grid latency (preview)|Milliseconds|Average|The average latency (milliseconds) between event ingress to IoT Hub and event ingress into Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType|
+|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid). To see the where the requests come from, use the EventType dimension.|Result, EventType|
+|EventGridLatency|Event Grid latency (preview)|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|No Dimensions|
 |d2c<br>.twin<br>.read<br>.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|No Dimensions|
 |d2c<br>.twin<br>.read<br>.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|No Dimensions|

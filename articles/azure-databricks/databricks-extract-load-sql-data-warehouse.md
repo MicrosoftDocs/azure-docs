@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/17/2019
+ms.date: 06/20/2019
 ---
 # Tutorial: Extract, transform, and load data by using Azure Databricks
 
@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
      
 ## Prerequisites
 
@@ -117,8 +117,6 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     * Enter a name for the cluster.
 
-    * For this article, create a cluster with the **5.1** runtime.
-
     * Make sure you select the **Terminate after \_\_ minutes of inactivity** check box. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
 
     * Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
@@ -144,6 +142,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    **Session configuration**
 
    ```scala
+   val appID = "<appID>"
+   val password = "<password>"
+   val fileSystemName = "<file-system-name>"
+   val tenantID = "<tenant-id>"
+
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
@@ -157,23 +160,29 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    **Account configuration**
 
    ```scala
-   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
-   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
-   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   val storageAccountName = "<storage-account-name>"
+   val appID = "<app-id>"
+   val password = "<password>"
+   val fileSystemName = "<file-system-name>"
+   val tenantID = "<tenant-id>"
+
+   spark.conf.set("fs.azure.account.auth.type." + storageAccountName + ".dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type." + storageAccountName + ".dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id." + storageAccountName + ".dfs.core.windows.net", "" + appID + "")
+   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + password + "")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint." + storageAccountName + ".dfs.core.windows.net", "https://login.microsoftonline.com/" + tenantID + "/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://" + fileSystemName  + "@" + storageAccountName + ".dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. In this code block, replace the `appID`, `password`, `tenant-id`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with whatever name you want to give the file system.
+6. In this code block, replace the `<app-id>`, `<password>`, `<tenant-id>`, and `<storage-account-name>` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `<file-system-name>` placeholder value with whatever name you want to give the file system.
 
-   * The `appID`, and `password` are from the app that you registered with active directory as part of creating a service principal.
+   * The `<app-id>`, and `<password>` are from the app that you registered with active directory as part of creating a service principal.
 
-   * The `tenant-id` is from your subscription.
+   * The `<tenant-id>` is from your subscription.
 
-   * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
+   * The `<storage-account-name>` is the name of your Azure Data Lake Storage Gen2 storage account.
 
 7. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -189,7 +198,7 @@ In the cell, press **SHIFT + ENTER** to run the code.
 
 Now in a new cell below this one, enter the following code, and replace the values that appear in brackets with the same values you used earlier:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://" + fileSystemName + "@" + storageAccountName + ".dfs.core.windows.net/")
 
 In the cell, press **SHIFT + ENTER** to run the code.
 
@@ -200,11 +209,6 @@ In the cell, press **SHIFT + ENTER** to run the code.
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
    ```
-
-   * Replace the  `file-system-name` placeholder value with the name that you gave your file system in Storage Explorer.
-
-   * Replace the `storage-account-name` placeholder with the name of your storage account.
-
 2. Press the **SHIFT + ENTER** keys to run the code in this block.
 
 3. Run the following code to see the contents of the data frame:
@@ -351,14 +355,7 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
        "spark.sql.parquet.writeLegacyFormat",
        "true")
 
-   renamedColumnsDF.write
-       .format("com.databricks.spark.sqldw")
-       .option("url", sqlDwUrlSmall) 
-       .option("dbtable", "SampleTable")
-       .option( "forward_spark_azure_storage_credentials","True")
-       .option("tempdir", tempDir)
-       .mode("overwrite")
-       .save()
+   renamedColumnsDF.write.format("com.databricks.spark.sqldw").option("url", sqlDwUrlSmall).option("dbtable", "SampleTable")       .option( "forward_spark_azure_storage_credentials","True").option("tempdir", tempDir).mode("overwrite").save()
    ```
 
    > [!NOTE]

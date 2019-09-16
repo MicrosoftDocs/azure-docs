@@ -1,29 +1,32 @@
 ---
-title: Use Interactive Query with Azure HDInsight 
-description: Learn how to use Interactive Query (Hive LLAP) with HDInsight.
+title: What is Interactive Query in Azure HDInsight?
+description: An introduction to Interactive Query, also called Apache Hive LLAP, In Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/07/2019
+ms.topic: overview
+ms.date: 06/14/2019
+#Customer intent: As a developer new to Interactive Query in Azure HDInsight, I want to have a basic understanding of Interactive Query so I can decide if I want to use it rather than build my own cluster.
 ---
 
-# Use Interactive Query with HDInsight
-Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Query supports in-memory caching, which makes Apache Hive queries faster and much more interactive.
+# What is Interactive Query In Azure HDInsight
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
+Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Query supports in-memory caching, which makes Apache Hive queries faster and much more interactive. Customers use Interactive Query to query data stored in Azure storage & Azure Data Lake Storage in super-fast manner. Interactive query makes it easy for developers and data scientist to work with the big data using BI tools they love the most. HDInsight Interactive Query supports several tools to access big data in easy fashion.
 
-An Interactive Query cluster is different from an Apache Hadoop cluster. It contains only the Hive service. 
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-> [!NOTE]  
-> You can access the Hive service in the Interactive Query cluster only via Apache Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure Classic CLI, or Azure PowerShell. 
+An Interactive Query cluster is different from an Apache Hadoop cluster. It contains only the Hive service.
+
+You can access the Hive service in the Interactive Query cluster only via Apache Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure Classic CLI, or Azure PowerShell.
 
 ## Create an Interactive Query cluster
+
 For information about creating a HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Choose the Interactive Query cluster type.
 
 ## Execute Apache Hive queries from Interactive Query
+
 To execute Hive queries, you have the following options:
 
 * Use Microsoft Power BI
@@ -56,7 +59,7 @@ To find the Java Database Connectivity (JDBC) connection string:
 1. Sign in to Apache Ambari by using the following URL: `https://<cluster name>.AzureHDInsight.net`.
 2. In the left menu, select **Hive**.
 3. To copy the URL, select the clipboard icon:
-   
+
    ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
 ## Next steps
@@ -64,9 +67,3 @@ To find the Java Database Connectivity (JDBC) connection string:
 * Learn how to [create Interactive Query clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Learn how to [visualize big data with Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
 * Learn how to [use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
-* Learn how to [run Apache Hive queries using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
-* Learn how to [use HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md).
-* Learn how to [use Apache Hive View with Apache Hadoop in HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)
-* Learn how to [use Beeline to submit Apache Hive queries in HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md).
-* Learn how to [connect Excel to Apache Hadoop with the Microsoft Hive ODBC driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-

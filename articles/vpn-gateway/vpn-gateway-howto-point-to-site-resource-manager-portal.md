@@ -1,22 +1,20 @@
 ---
-title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: Azure Portal| Microsoft Docs'
+title: 'Connect to an Azure virtual network from a computer using Point-to-Site VPN and native Azure certificate authentication: Azure Portal| Microsoft Docs'
 description: Connect Windows, Mac OS X, and Linux clients securely to an Azure virtual network using P2S and self-signed or CA issued certificates. This article uses the Azure portal.
 services: vpn-gateway
 author: cherylmc
-tags: azure-resource-manager
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet using native Azure certificate authentication: Azure portal
+# Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal
 
 This article helps you securely connect individual clients running Windows, Linux, or Mac OS X to an Azure VNet. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about Point-to-Site VPN, see [About Point-to-Site VPN](point-to-site-about.md).
 
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## Architecture
 
@@ -69,7 +67,7 @@ After you create your virtual network, you can add the IP address of a DNS serve
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
+>The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your virtual network, do not use the Basic SKU.
 >
 
 ## <a name="generatecert"></a>5. Generate certificates
@@ -94,7 +92,7 @@ The client address pool is a range of private IP addresses that you specify. The
 2. Click **Configure now** to open the configuration page.
 
    ![Configure now](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
+3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration. Click **Save** to validate and save the setting.
 
    ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

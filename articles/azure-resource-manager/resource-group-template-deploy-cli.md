@@ -1,17 +1,10 @@
 ---
 title: Deploy resources with Azure CLI and template | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
 
 ---
@@ -135,7 +128,7 @@ The specified deployment must have succeeded.
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameter file. The preceding examples in this article show inline parameters.
+To pass parameter values, you can use either inline parameters or a parameter file.
 
 ### Inline parameters
 
@@ -147,6 +140,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the array in the format: `exampleArray="['value1','value2']"`.
 
 You can also get the contents of file and provide that content as an inline parameter.
 
@@ -172,23 +167,7 @@ The arrayContent.json format is:
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI.
 
-The parameter file must be in the following format:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Notice that the parameters section includes a parameter name that matches the parameter defined in your template (storageAccountType). The parameter file contains a value for the parameter. This value is automatically passed to the template during deployment. You can create more than one parameter file, and then pass in the appropriate parameter file for the scenario. 
-
-Copy the preceding example and save it as a file named `storage.parameters.json`.
+For more information about the parameter file, see [Create Resource Manager parameter file](resource-manager-parameter-files.md).
 
 To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
 
@@ -198,18 +177,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### Parameter precedence
-
-You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## Test a template deployment

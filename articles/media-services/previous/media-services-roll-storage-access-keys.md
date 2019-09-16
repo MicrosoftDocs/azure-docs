@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
 ---
 # Update Media Services after rolling storage access keys 
 

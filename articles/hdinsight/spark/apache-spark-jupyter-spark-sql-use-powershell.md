@@ -6,14 +6,15 @@ ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/03/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
 
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
-# Quickstart: Create an Apache Spark cluster in HDInsight using PowerShell
+# Quickstart: Create Apache Spark cluster in Azure HDInsight using PowerShell
+
 Learn how to create [Apache Spark](https://spark.apache.org/) cluster in Azure HDInsight, and how to run Spark SQL queries against [Apache Hive](https://hive.apache.org/) tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
 In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -21,11 +22,11 @@ In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluste
 > [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+## Prerequisite
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
 ## Create an HDInsight Spark cluster
 
@@ -153,7 +154,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 1. Verify the kernel is ready. The kernel is ready when you see a hollow circle next to the kernel name in the notebook. Solid circle denotes that the kernel is busy.
 
-    ![Hive query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive query in HDInsight Spark")
+    ![kernel status](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "kernel status")
 
     When you start the notebook for the first time, the kernel performs some tasks in the background. Wait for the kernel to be ready. 
 2. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The command lists the Hive tables on the cluster:

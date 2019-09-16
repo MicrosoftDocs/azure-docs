@@ -1,15 +1,14 @@
 ---
 title: Working with projections in a knowledge store (preview) - Azure Search
 description: Save and shape your enriched data from the AI indexing pipeline for use in scenarios other than search
-manager: eladz
+manager: nitinme
 author: vkurpad
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
-ms.custom: seomay2019
+ms.subservice: cognitive-search
 ---
 # Working with projections in a knowledge store in Azure Search
 
@@ -29,7 +28,7 @@ The knowledge store supports two types of projections:
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
-To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md)
+To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
 ## Projection groups
 
@@ -62,6 +61,9 @@ You can project a single document in your index into multiple tables, preserving
 ### Defining a table projection
 
 When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project. 
+
+#### Projection Slicing
+When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all of your table projections.
 
 Each table requires three properties:
 

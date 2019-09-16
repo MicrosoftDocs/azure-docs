@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 04/24/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -94,9 +94,7 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 
 Launch a script action against your cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Data Analytics Studio can be launched with URL : https://<clustername>.azurehdinsight.net/das/
-
-
+Wait 5 to 10 minutes, then launch Data Analytics Studio by using this URL: https://\<clustername>.azurehdinsight.net/das/
 
 Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
 

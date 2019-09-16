@@ -4,14 +4,14 @@ description: Learn how to deploy SAP software on Linux virtual machines in Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -530,7 +530,7 @@ After you deploy your VM in Azure, follow the same guidelines and tools to insta
 Because different versions of an operating system or DBMS have different patch requirements, the images you find in the Azure Marketplace might not meet your needs. You might instead want to create a VM by using your own OS/DBMS VM image, which you can deploy again later.
 You use different steps to create a private image for Linux than to create one for Windows.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) to do this.
@@ -541,7 +541,7 @@ You use different steps to create a private image for Linux than to create one f
 >
 >
 
-- - -
+---
 You can prepare and create a custom image, and then use it to create multiple new VMs. This is described in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]. Set up your database content either by using SAP Software Provisioning Manager to install a new SAP system (restores a database backup from a disk that's attached to the virtual machine) or by directly restoring a database backup from Azure storage, if your DBMS supports it. For more information, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]. If you have already installed an SAP system on your on-premises VM (especially for two-tier systems), you can adapt the SAP system settings after the deployment of the Azure VM by using the System Rename procedure supported by SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise, you can install the SAP software after you deploy the Azure VM.
 
 The following flowchart shows the SAP-specific sequence of steps for deploying a VM from a custom image:
@@ -671,7 +671,7 @@ In this scenario, the VM Agent is **not** automatically installed during deploym
 
 For more information about the Azure VM Agent, see the following resources.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Azure Virtual Machine Agent overview][virtual-machines-windows-agent-user-guide]
@@ -682,7 +682,7 @@ For more information about the Azure VM Agent, see the following resources.
 >
 >
 
-- - -
+---
 
 The following flowchart shows the sequence of steps for moving an on-premises VM by using a non-generalized Azure VHD:
 

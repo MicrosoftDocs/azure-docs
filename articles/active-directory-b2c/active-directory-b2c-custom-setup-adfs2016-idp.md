@@ -23,6 +23,7 @@ This article shows you how to enable sign-in for an ADFS user account by using [
 
 - Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Make sure that you have access to a certificate .pfx file with a private key. You can generate your own signed certificate and upload it to Azure AD B2C. Azure AD B2C uses this certificate to sign the SAML request sent to your SAML identity provider.
+- In order for Azure to accept the .pfx file password, the password must be encrypted with the TripleDES-SHA1 option in Windows Certificate Store Export utility as opposed to AES256-SHA256.
 
 ## Create a policy key
 
@@ -98,6 +99,10 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
 3. Click **Upload**.
 
+> [!NOTE]
+> The Visual Studio code B2C extension uses "socialIdpUserId." A social policy is also required for ADFS.
+>
+
 ## Register the claims provider
 
 At this point, the identity provider has been set up, but it’s not available in any of the sign-up or sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the ADFS identity provider.
@@ -170,6 +175,8 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
     | Given-Name | given_name |
     | E-Mail-Address | email |
     | Display-Name | name |
+    
+    Note that these names will not display in the outgoing claim type dropdown. You need to manually type them in. (The dropdown is actually editable). 
     
 12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-256`, and click **Ok**.  
 13. In Server Manager, select **Tools**, and then select **ADFS Management**.

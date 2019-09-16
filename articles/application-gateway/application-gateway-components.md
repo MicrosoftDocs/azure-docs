@@ -21,7 +21,9 @@ A frontend IP address is the IP address associated with an application gateway. 
 
 ### Static versus dynamic public IP address
 
-The Azure Application Gateway v2 SKU supports both static internal and static public IP addresses, although the v1 SKU supports only static internal IP addresses. The virtual IP (VIP) address can change if an application gateway is stopped and started.
+The Azure Application Gateway V2 SKU can be configured to support either both static internal IP address and static public IP address, or only static public IP address. It cannot be configured to support only static internal IP address.
+
+The V1 SKU can be configured to support static internal IP address and dynamic public IP address, only static internal IP address, or only dynamic public IP address or only dynamic private IP address or dynamic Public IP and dynamic private IP address. The dynamic IP address of Application Gateway does not change on a running gateway. It can change only when you stop or start the Gateway. It does not change on system failures, updates, Azure host updates etc. 
 
 The DNS name associated with an application gateway doesn't change over the lifecycle of the gateway. As a result, you should use a CNAME alias and point it to the DNS address of the application gateway.
 

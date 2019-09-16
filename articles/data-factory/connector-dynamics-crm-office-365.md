@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
 
 ---
@@ -22,9 +22,20 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
+This connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Dynamics 365 (Common Data Service) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Common Data Service) or Dynamics CRM. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-This Dynamics connector supports the following Dynamics versions and authentication types. (IFD is short for internet-facing deployment.)
+This Dynamics connector supports Dynamics version 7.x to 9.x for both online or on-premises. More specifically,
+
+- Version 7.x maps to Dynamics CRM 2015
+- Version 8.x maps to Dynamics CRM 2016 and the early version of Dynamics 365
+- Version 9.x maps to the later version of Dynamics 365
+
+Refer to the following table on the supported authentication types and configurations for respective Dynamics versions/products. (IFD is short for internet-facing deployment.)
 
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
@@ -40,6 +51,8 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Marketing
 
 Other application types e.g. Finance and Operations, Talent, etc. are not supported by this connector.
+
+This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >To copy data from **Dynamics 365 Finance and Operations**, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
@@ -153,7 +166,7 @@ To copy data from and to Dynamics, set the type property of the dataset to **Dyn
 > [!IMPORTANT]
 >- When you copy data from Dynamics, the "structure" section is optional but highly recommanded in the Dynamics dataset to ensure a deterministic copy result. It defines the column name and data type for Dynamics data that you want to copy over. To learn more, see [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) and [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
 >- When importing schema in authoring UI, ADF infer the schema by sampling the top rows from the Dynamics query result to initialize the structure construction, in which case columns with no values will be omitted. The same behavior applies to copy executions if there is no explicit structure definition. You can review and add more columns into the Dynamics dataset schema/structure as needed, which will be honored during copy runtime.
->- When you copy data to Dynamics, the "structure" section is optional in the Dynamics dataset. Which columns to copy into is determined by the source data schema. If your source is a CSV file without a header, in the input dataset, specify the "structure" with the column name and data type. They map to fields in the CSV file one by one in order.
+>- When you copy data to Dynamics, the "structure" section is optional in the Dynamics dataset. Which columns to copy into are determined by the source data schema. If your source is a CSV file without a header, in the input dataset, specify the "structure" with the column name and data type. They map to fields in the CSV file one by one in order.
 
 **Example:**
 
@@ -338,9 +351,12 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> The Dynamics data types AttributeType.CalendarRules and AttributeType.PartyList aren't supported.
+> The Dynamics data types AttributeType.CalendarRules, AttributeType.MultiSelectPicklist and AttributeType.PartyList aren't supported.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

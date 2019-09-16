@@ -4,13 +4,8 @@ description: Use Resource Manager templates with Azure Deployment Manager to dep
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -19,7 +14,9 @@ ms.author: jgao
 
 # Tutorial: Use Azure Deployment Manager with Resource Manager templates (Public preview)
 
-Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
+Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. If you prefer a faster approach, [Azure Deployment Manager quickstart](https://github.com/Azure-Samples/adm-quickstart) creates the required configurations in your subscription and customizes the artifacts to deploy an application across multiple regions. The quickstart performs the same tasks as it does in this tutorial.
+
+To use Deployment Manager, you need to create two templates:
 
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
 * **A rollout template**: describes the steps to take when deploying your applications.
@@ -41,7 +38,10 @@ This tutorial covers the following tasks:
 > * Deploy the newer version
 > * Clean up resources
 
-The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Additional resources:
+
+* The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

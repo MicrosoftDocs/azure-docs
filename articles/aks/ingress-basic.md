@@ -2,12 +2,12 @@
 title: Create a basic ingress controller in Azure Kubernetes Service (AKS)
 description: Learn how to install and configure a basic NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Create an ingress controller in Azure Kubernetes Service (AKS)

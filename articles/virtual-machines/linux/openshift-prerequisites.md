@@ -10,11 +10,11 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 06/14/2019
 ms.author: haroldw
 ---
 
@@ -65,7 +65,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## Create a key vault
-Create a key vault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault) command. The key vault name must be globally unique.
+Create a key vault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault) command. The key vault name must be globally unique and must be enabled for template deployment or the deployment will fail with "KeyVaultParameterReferenceSecretRetrieveFailed" error.
 
 The following example creates a key vault named *keyvault* in the *keyvaultrg* resource group:
 

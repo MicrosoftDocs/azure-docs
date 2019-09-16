@@ -34,9 +34,12 @@ ms.author: cynthn
 | West India          | 2                       |
 | Korea Central       | 2                       |
 | Korea South         | 2                       |
+| UAE North           | 2                       |
 |                     |                         |
 | Australia East      | 2                       |
 | Australia Southeast | 2                       |
+| Australia Central   | 2                       |
+| Australia Central 2 | 2                       |
 |                     |                         |
 | Brazil South        | 2                       |
 |                     |                         |

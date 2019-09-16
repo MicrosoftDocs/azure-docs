@@ -1,5 +1,5 @@
 ---
-title: REST API claims exchanges - Azure Active Directory B2C | Microsoft Docs
+title: REST API claims exchanges - Azure Active Directory B2C
 description: Add REST API claims exchanges to custom policies in Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ The interaction includes a claims exchange of information between the REST API c
 - Can be designed as an orchestration step.
 - Can trigger an external action. For instance, it can log an event in an external database.
 - Can be used to fetch a value and then store it in the user database.
-- Can change the flow of execution. 
+- Can change the flow of execution.
 
 The scenario that is represented in this article includes the following actions:
 
@@ -41,9 +41,16 @@ The scenario that is represented in this article includes the following actions:
 
 In this section, you prepare the Azure function to receive a value for `email`, and then return the value for `city` that can be used by Azure AD B2C as a claim.
 
-Change the run.csx file for the Azure function that you created to use the following code: 
+Change the run.csx file for the Azure function that you created to use the following code:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -73,9 +80,9 @@ public class ResponseContent
 
 ## Configure the claims exchange
 
-A technical profile provides the configuration for the claim exchange. 
+A technical profile provides the configuration for the claim exchange.
 
-Open the *TrustFrameworkExtensions.xml* file and add the following XML elements inside the **ClaimsProvider** element.
+Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvider** XML element inside the **ClaimsProviders** element.
 
 ```XML
 <ClaimsProvider>
@@ -86,8 +93,10 @@ Open the *TrustFrameworkExtensions.xml* file and add the following XML elements 
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -103,6 +112,8 @@ Open the *TrustFrameworkExtensions.xml* file and add the following XML elements 
 ```
 
 The **InputClaims** element defines the claims that are sent to the REST service. In this example, the value of the claim `givenName` is sent to the REST service as the claim `email`. The **OutputClaims** element defines the claims that are expected from the REST service.
+
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) and [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
 ## Add the claim definition
 
@@ -130,7 +141,7 @@ Add a step to the profile edit user journey. After the user is authenticated (or
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -184,7 +195,7 @@ The final XML for the user journey should look like this example:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -200,13 +211,15 @@ Edit the *ProfileEdit.xml* file and add `<OutputClaim ClaimTypeReferenceId="city
 After you add the new claim, the technical profile looks like this example:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 
@@ -238,5 +251,13 @@ If everything is set up correctly, the token includes the new claim `city`, with
 
 ## Next steps
 
-- You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
-- [Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
+
+[Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Reference: RESTful technical profile](restful-technical-profile.md)
+
+To learn out how to secure your APIs, see the following articles:
+
+* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

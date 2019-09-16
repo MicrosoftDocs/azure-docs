@@ -19,8 +19,6 @@ manager: craigg
 
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
-> [!IMPORTANT]
-> Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
 
 ## Spark activity properties
 Here is the sample JSON definition of a Spark Activity:    
@@ -39,7 +37,7 @@ Here is the sample JSON definition of a Spark Activity:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"

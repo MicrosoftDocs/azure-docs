@@ -5,10 +5,8 @@ services: managed-applications
 author: tfitzmac
 
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 09/13/2019
 ms.author: tomfitz
 ---
 # Publish an Azure managed application definition
@@ -36,7 +34,7 @@ When defining the managed application, you select a user, group, or application 
 To get the object ID of your identity, provide your user principal name in the following command:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user. The following command shows how to get the role definition ID for the Owner role:
@@ -56,7 +54,7 @@ az managedapp definition create \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
   --authorizations "$userid:$roleid" \
-  --package-file-uri "https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-storage-account/managedstorage.zip"
+  --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
 ```
 
 When the command completes, you have a managed application definition in your resource group. 

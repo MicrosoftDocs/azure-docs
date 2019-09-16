@@ -27,7 +27,7 @@ This article provides you details to improve your application further and move i
 
 ## Handling errors in desktop applications
 
-In the different flows, you've learned how to handle the errors for the silent flows (as shown in code snippets). You've also seen that there are cases where interaction is needed (incremental consent and conditional access).
+In the different flows, you've learned how to handle the errors for the silent flows (as shown in code snippets). You've also seen that there are cases where interaction is needed (incremental consent and Conditional Access).
 
 ## How to have  the user consent upfront for several resources
 

@@ -1,12 +1,12 @@
 ---
-title: Tools for working with Azure Storage | Microsoft Docs
-description: A list of tools that allow you to view/interact with your Azure Storage data.
+title: Tools for working with Azure Storage
+description: A list of tools that allow you to view and interact with your Azure Storage data.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 08/26/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -118,30 +118,16 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Azure Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
     <td>X</td>
+    <td>Y</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -174,7 +160,7 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

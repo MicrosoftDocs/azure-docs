@@ -9,7 +9,7 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 description: "Team Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-manager: jeconnoc
+manager: gwallace
 ---
 # Quickstart: Team development on Kubernetes using Azure Dev Spaces
 
@@ -33,7 +33,7 @@ You must create an AKS cluster in a [supported region][supported-regions]. The b
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 The *MyAKS* cluster is also created with one node, using the *Standard_DS2_v2* size, and with RBAC disabled.
@@ -84,7 +84,7 @@ Use the `helm init` and `helm install` commands to set up and install the sample
 ```cmd
 cd charts/
 helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+helm install -n bikesharing . --dep-up --namespace dev --atomic 
 ```
 > [!Note]
 > **If you are using an RBAC-enabled cluster**, be sure to configure [a service account for Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Otherwise, `helm` commands will fail.
@@ -97,7 +97,7 @@ $ helm init --wait
 ...
 Happy Helming!
 
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+$ helm install -n bikesharing . --dep-up --namespace dev --atomic
 
 Hang tight while we grab the latest from your chart repositories...
 ...
@@ -140,12 +140,12 @@ Use the `azds space list` command to list all the dev spaces and confirm *dev/az
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 Use the `azds list-uris` to display the URLs for the sample application in the currently selected space that is *dev/azureuser2*.
@@ -195,6 +195,9 @@ This command builds and runs the *bikesharingweb* service in the *dev/azureuser2
 Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by opening the public URL displayed in the output of the `azds up` command. Select *Aurelia Briggs (customer)* as the user. Verify you see the updated text in the upper right corner. You may need to refresh the page or clear your browser's cache if you do not immediately see this change.
 
 ![Azure Dev Spaces Bike Sharing sample application updated](media/quickstart-team-development/bikeshare-update.png)
+
+> [!NOTE]
+> When you navigate to your service while running `azds up`, the HTTP request traces are also displayed in the output of the `azds up` command. These traces can help you troubleshoot and debug your service. You can disable these traces using `--disable-http-traces` when running `azds up`.
 
 ## Verify other Dev Spaces are unchanged
 

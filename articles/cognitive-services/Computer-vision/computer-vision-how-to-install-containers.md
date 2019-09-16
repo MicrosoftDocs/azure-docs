@@ -1,21 +1,22 @@
 ---
 title: How to install and run containers - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
 ---
 
 # Install and run Recognize Text containers
 
-The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.  
+The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.
+
 > [!IMPORTANT]
 > The Recognize Text container currently works only with English.
 
@@ -29,30 +30,19 @@ You must meet the following prerequisites before using Recognize Text containers
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Azure `Cognitive Services` resource |In order to use the container, you must have:<br><br>A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example. <br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
+|Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 ## Request access to the private container registry
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
-
-| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|0.5, 1|
-
-* Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
-
-Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## Get the container image with `docker pull`
 
@@ -86,8 +76,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure `Cognitive Services` Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value. Example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{API_KEY} | This key is used to start the container, and is available on the Azure `Cognitive Services` Keys page.  |
+|{ENDPOINT_URI} | The billing endpoint URI value. Example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example.
 
@@ -97,8 +87,8 @@ Replace these parameters with your own values in the following example `docker r
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 This command:
@@ -120,7 +110,7 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `https://localhost:5000`, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs.
 
 ### Asynchronous text recognition
 
@@ -128,7 +118,7 @@ You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOper
 
 ### Synchronous text recognition
 
-You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as that for the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
+You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
 <!--  ## Validate container is running -->
 
@@ -152,7 +142,7 @@ The Recognize Text containers send billing information to Azure, using a _Recogn
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 

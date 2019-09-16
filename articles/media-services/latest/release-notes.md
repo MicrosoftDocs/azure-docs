@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 09/06/2019
 ms.author: juliako
 ---
 
@@ -31,6 +31,39 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## September 2019
+
+Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear encoding of live events.
+ 
+## August 2019
+
+### South Africa regional pair is open for Media Services 
+
+Media Services is now available in South Africa North and South Africa West regions.
+
+For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
+
+## July 2019
+
+### Content protection
+
+When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+
+This feature is currently available in US Central and US West Central.
+
+## June 2019
+
+### Video subclipping
+
+You can now trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). 
+
+This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
+
+See examples:
+
+* [Subclip a video with .NET](subclip-video-dotnet-howto.md)
+* [Subclip a video with REST](subclip-video-rest-howto.md)
+
 ## May 2019
 
 ### Azure Monitor support for Media Services diagnostic logs and metrics
@@ -42,11 +75,9 @@ You can now use Azure Monitor to view telemetry data emmited by Media Services.
 
 For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-### HLS v4 and above support in Dynamic packaging 
+### Multi audio tracks support in Dynamic Packaging 
 
-Added HLS (version 4 or above) support in Dynamic Packaging for Assets that have multiple audio tracks with multiple codecs and languages.
-
-For more information, see [Dynamic Packaging](dynamic-packaging-overview.md).
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](dynamic-packaging-overview.md) now supports multi audio tracks for the HLS output (version 4 or above).
 
 ### Korea regional pair is open for Media Services 
 
@@ -70,7 +101,7 @@ Added updates that include Media Services performance improvements.
 
 ## March 2019
 
-Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs).
 
 You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator).
 

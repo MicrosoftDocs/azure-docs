@@ -3,19 +3,16 @@ title: Expression and functions in Azure Data Factory | Microsoft Docs
 description: This article provides information  about expressions and functions that you can use in creating data factory entities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
 ---
+
 # Expressions and functions in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-functions-variables.md)
@@ -136,6 +133,9 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
+#### Tutorial
+This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
+
   
 ## Functions  
  You can call functions within expressions. The following sections provide information about the functions that can be used in an expression.  
@@ -146,13 +146,13 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |Function name|Description|  
 |-------------------|-----------------|  
 |concat|Combines any number of strings together. For example, if parameter1 is `foo,` the following expression would return `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: String *n*<br /><br /> **Description**: Required. The strings to combine into a single string.|  
-|substring|Returns a subset of characters from a string. For example, the following expression:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> returns:<br /><br /> `foo`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string from which the substring is taken.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Start index<br /><br /> **Description**: Required. The index of where the substring begins in parameter 1.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Length<br /><br /> **Description**: Required. The length of the substring.|  
+|substring|Returns a subset of characters from a string. For example, the following expression:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> returns:<br /><br /> `foo`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string from which the substring is taken.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Start index<br /><br /> **Description**: Required. The index of where the substring begins in parameter 1. Start index is zero-based. <br /><br /> **Parameter number**: 3<br /><br /> **Name**: Length<br /><br /> **Description**: Required. The length of the substring.|  
 |replace|Replaces a string with a given string. For example, the  expression:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> returns:<br /><br /> `the new string`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: string<br /><br /> **Description**: Required.  If parameter 2 is found in parameter 1, the string that is searched for parameter 2 and updated with parameter 3.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Old string<br /><br /> **Description**: Required. The string to replace with parameter 3 when a match is found in parameter 1<br /><br /> **Parameter number**: 3<br /><br /> **Name**: New string<br /><br /> **Description**: Required. The string that is used to replace the string in parameter 2 when a match is found in parameter 1.|  
 |guid| Generates a globally unique string (aka. guid). For example, the following output could be generated `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. A single format specifier that indicates [how to format the value of this Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). The format parameter can be "N", "D", "B", "P", or "X". If format is not provided, "D" is used.|  
 |toLower|Converts a string to lowercase. For example, the following returns `two by two is four`:  `toLower('Two by Two is Four')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string to convert to lower casing. If a character in the string does not have a lowercase equivalent, it is included unchanged in the returned string.|  
 |toUpper|Converts a string to uppercase. For example, the following expression returns `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string to convert to upper casing. If a character in the string does not have an uppercase equivalent, it is included unchanged in the returned string.|  
-|indexof|Find the index of a value within a string case insensitively. For example, the following expression returns `7`: `indexof('hello, world.', 'world')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value to search the index of.|  
-|lastindexof|Find the last index of a value within a string case insensitively. For example, the following expression returns `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value to search the index of.|  
+|indexof|Find the index of a value within a string case insensitively. Index is zero-based. For example, the following expression returns `7`: `indexof('hello, world.', 'world')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value to search the index of.|  
+|lastindexof|Find the last index of a value within a string case insensitively. Index is zero-based. For example, the following expression returns `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value to search the index of.|  
 |startswith|Checks if the string starts with a value case insensitively. For example, the following expression returns `true`: `startswith('hello, world', 'hello')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value the string may start with.|  
 |endswith|Checks if the string ends with a value case insensitively. For example, the following expression returns `true`: `endswith('hello, world', 'world')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that may contain the value.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The value the string may end with.|  
 |split|Splits the string using a separator. For example, the following expression returns `["a", "b", "c"]`: `split('a;b;c',';')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that is split.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: String<br /><br /> **Description**: Required. The separator.|  

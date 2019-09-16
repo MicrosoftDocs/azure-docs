@@ -1,18 +1,19 @@
 ---
 title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for HDInsight clusters with ESP enabled.'
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
-ms.author: maxluk
+ms.author: hrasheed
 ---
+
 # Authorize users for Apache Ambari Views
 
-[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
+[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
 
 Active Directory users can sign in to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
 
@@ -25,7 +26,7 @@ If you have not already done so, follow [these instructions](./domain-joined/apa
 
 To get to the **Ambari management page** on the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
 
-![Manage Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+![Manage Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
 ## Grant permissions to Apache Hive views
 
@@ -33,38 +34,38 @@ Ambari comes with view instances for [Apache Hive](https://hive.apache.org/) and
 
 1. From the management page, select the **Views** link under the **Views** menu heading on the left.
 
-    ![Views link](./media/hdinsight-authorize-users-to-ambari/views-link.png)
+    ![Views link](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
 2. On the Views page, expand the **HIVE** row. There is one default Hive view that is created when the Hive service is added to the cluster. You can also create more Hive view instances as needed. Select a Hive view:
 
-    ![Views - Hive view](./media/hdinsight-authorize-users-to-ambari/views-hive-view.png)
+    ![Views - Hive view](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
 3. Scroll toward the bottom of the View page. Under the *Permissions* section, you have two options for granting domain users their permissions to the view:
 
 **Grant permission to these users**
-    ![Grant permission to these users](./media/hdinsight-authorize-users-to-ambari/add-user-to-view.png)
+    ![Grant permission to these users](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
 **Grant permission to these groups**
-    ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
+    ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. To add a user, select the **Add User** button.
 
    * Start typing the user name and you will see a dropdown list of previously defined names.
 
-     ![User autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![User autocompletes](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
    * Select, or finish typing, the user name. To add this user name as a new user, select the **New** button.
 
    * To save your changes, select the **blue checkbox**.
 
-     ![User entered](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![User entered](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. To add a group, select the **Add Group** button.
 
    * Start typing the group name. The process of selecting an existing group name, or adding a new group, is the same as for adding users.
    * To save your changes, select the **blue checkbox**.
 
-     ![Group entered](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Group entered](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
 Adding users directly to a view is useful when you want to assign permissions to a user to use that view, but do not want them to be a member of a group that has additional permissions. To reduce the amount of administrative overhead, it may be simpler to assign permissions to groups.
 
@@ -74,7 +75,7 @@ The [Apache TEZ](https://tez.apache.org/) view instances allow the users to moni
 
 To assign users and groups to a Tez view instance, expand the **TEZ** row on the Views page, as described previously.
 
-![Views - Tez view](./media/hdinsight-authorize-users-to-ambari/views-tez-view.png)
+![Views - Tez view](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
 To add users or groups, repeat steps 3 - 5 in the previous section.
 
@@ -90,11 +91,11 @@ There are five security roles for users and groups, listed in order of decreasin
 
 To manage roles, go to the **Ambari management page**, then select the **Roles** link within the *Clusters* menu group on the left.
 
-![Roles menu link](./media/hdinsight-authorize-users-to-ambari/roles-link.png)
+![Roles menu link](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
 To see the list of permissions given to each role, click on the blue question mark next to the **Roles** table header on the Roles page.
 
-![Roles menu link](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![Roles menu link permissions](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Roles menu link permissions")
 
 On this page, there are two different views you can use to manage roles for users and groups: Block and List.
 
@@ -102,7 +103,7 @@ On this page, there are two different views you can use to manage roles for user
 
 The Block view displays each role in its own row, and provides the **Assign roles to these users** and **Assign roles to these groups** options as described previously.
 
-![Roles block view](./media/hdinsight-authorize-users-to-ambari/roles-block-view.png)
+![Roles block view](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
 ### List view
 
@@ -122,7 +123,7 @@ The List view provides quick editing capabilities in two categories: Users and G
 
 We have assigned our Azure AD domain user "hiveuser1" permissions to Hive and Tez views. When we launch the Ambari Web UI and enter this user's domain credentials (Azure AD user name in e-mail format, and password), the user is redirected to the Ambari Views page. From here, the user can select any accessible view. The user cannot visit any other part of the site, including the dashboard, services, hosts, alerts, or admin pages.
 
-![User with views only](./media/hdinsight-authorize-users-to-ambari/user-views-only.png)
+![User with views only](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
 
 ## Log in to Ambari as a cluster user
 

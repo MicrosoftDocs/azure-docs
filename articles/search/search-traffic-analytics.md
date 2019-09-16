@@ -2,7 +2,7 @@
 title: implement search traffic analytics - Azure Search
 description: Enable search traffic analytics for Azure Search to add telemetry and user-initiated events to log files.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -76,7 +76,7 @@ To correlate search requests with clicks, it's necessary to have a correlation i
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -95,7 +95,7 @@ To correlate search requests with clicks, it's necessary to have a correlation i
 
 Every time that a search request is issued by a user, you should log that as a search event with the following schema on an Application Insights custom event:
 
-**ServiceName**: (string) search service name
+**SearchServiceName**: (string) search service name
 **SearchId**: (guid) unique identifier of the search query (comes in the search response)
 **IndexName**: (string) search service index to be queried
 **QueryTerms**: (string) search terms entered by the user

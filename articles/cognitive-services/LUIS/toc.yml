@@ -1,3 +1,4 @@
+
 - name: LUIS Documentation
   href: index.yml
 - name: Overview
@@ -6,7 +7,7 @@
   - name: What is Language Understanding?
     href: what-is-luis.md
   - name: What's new
-    href: whats-new.md    
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -21,8 +22,14 @@
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use .NET SDK
     items: 
+    - name: Create and manage app
+      href: sdk-csharp-quickstart-authoring-app.md
     - name: Query prediction endpoint
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
+  - name: Use Python SDK
+    items: 
+    - name: Create and manage app
+      href: sdk-python-quickstart-authoring-app.md 
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -85,12 +92,24 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use V4 bot framework
+  - name: Use with bot
     items:
     - name: With C# 
-      href: luis-csharp-tutorial-bf-v4.md
+      items:
+      - name: 1. Create basic bot
+        href: luis-csharp-tutorial-bf-v4.md 
+        displayName: bot framework, framework, sdk, abs
+      - name: 2. Add telemetry to Application Insights
+        href: luis-tutorial-bot-csharp-appinsights.md
+        displayName: Application insight, kusto
     - name: With Node.js
-      href: luis-nodejs-tutorial-bf-v4.md
+      items: 
+      - name: 1. Create basic bot
+        displayName: bot framework, framework, sdk, abs
+        href: luis-nodejs-tutorial-bf-v4.md
+      - name: 2. Add telemetry to Application Insights
+        displayName: Application insight, kusto
+        href: luis-tutorial-bot-nodejs-appinsights.md      
 - name: Samples
   items:
   - name: Code samples
@@ -100,16 +119,19 @@
   - name: Best practices
     href: luis-concept-best-practices.md
     displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
+  - name: Using LUIS and QnA Maker
+    href: choose-natural-language-processing-service.md
+    displayName: nlp, qna maker
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
-  - name: Author App
+  - name: Authoring and runtime keys
+    displayName: shared, transfer, ownership, author, access, import
+    href: luis-concept-keys.md    
+  - name: Author app's model
     items:
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
-    - name: Collaboration
-      displayName: shared, transfer, ownership, author, access, import
-      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
       displayName: import
@@ -120,10 +142,10 @@
     - name: Entities
       displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
+    - name: Entity roles
+      href: luis-concept-roles.md
     - name: Utterances
       href: luis-concept-utterance.md
-    - name: Roles
-      href: luis-concept-roles.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
   - name: Improve app performance
@@ -159,13 +181,6 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
-  - name: Security
-    items:
-    - name: App access
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
-      href: luis-concept-security.md
-    - name: Authoring and endpoint keys
-      href: luis-concept-keys.md
 - name: How-to guides
   items:
   - name: Start a new app
@@ -200,24 +215,6 @@
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-    - name: With a bot
-      items:
-        - name: Web app bot
-          items:
-          - name: Node.js
-            displayName: ABS, azure bot, service
-            href: luis-nodejs-tutorial-build-bot-framework-sample.md
-          - name: C#
-            displayName: ABS, azure bot, service
-            href: luis-csharp-tutorial-build-bot-framework-sample.md
-        - name: Application Insights
-          items:
-          - name: Node.js
-            displayName: Application insight, kusto
-            href: luis-tutorial-function-appinsights.md
-          - name: C#
-            displayName: Application insight, kusto
-            href: luis-tutorial-bot-csharp-appinsights.md
   - name: Improve prediction accuracy
     items:
     - name: Using the dashboard
@@ -244,19 +241,23 @@
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
-    items:
-    - name: Using subscription keys with your LUIS app
-      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
+    items:    
+    - name: Authoring and runtime keys
+      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Manage versions
-      href: luis-how-to-manage-versions.md
-      diplayName: import, export, container
-    - name: Manage authors and collaborators
+    - name: Migrate to authoring key
+      items: 
+        - name: Overview   
+          href: luis-migration-authoring.md
+        - name: How to Migrate
+          href: luis-migration-authoring-steps.md
+    - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
-    - name: Manage authoring key
-      href: luis-how-to-account-settings.md
-    - name: Spread endpoint quota across keys with Traffic Manager
+    - name: With versions
+      href: luis-how-to-manage-versions.md
+      diplayName: import, export, container
+    - name: With Traffic Manager
       href: luis-traffic-manager.md
   - name: Migrate API
     items: 
@@ -264,7 +265,7 @@
       href: luis-migration-api-v1-to-v2.md
     - name: Migrate to V3 REST API
       href: luis-migration-api-v3.md 
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
   - name: Use containers
     items:
     - name: Install and run containers
@@ -272,6 +273,8 @@
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
+    - name: Use container instances
+      href: deploy-luis-on-container-instances.md
 - name: Reference
   items:
   - name: User privacy
@@ -308,6 +311,8 @@
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
+    - name: Ordinal V2 entity
+      href: luis-reference-prebuilt-ordinal-v2.md      
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
     - name: PersonName entity
@@ -321,6 +326,18 @@
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
+  - name: Custom entity reference
+    items: 
+    - name: Composite entity
+      href: reference-entity-composite.md
+    - name: List entity
+      href: reference-entity-list.md
+    - name: Pattern.any entity
+      href: reference-entity-pattern-any.md
+    - name: Regular expression entity
+      href: reference-entity-regular-expression.md      
+    - name: Simple entity
+      href: reference-entity-simple.md
   - name: Azure CLI
     href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell

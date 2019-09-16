@@ -4,18 +4,18 @@ description: Learn about SAP solutions that run on virtual machines (VMs) in Mic
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -32,16 +32,8 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart. To enabl
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "AAD SAP identity integration and single sign-on."
 
-## Latest changes
-
-- Introduction of ExpressRoute Fast Path and Global Reach for HANA Large Instances in [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) and related documents
-- Release of [Azure HANA Large Instances control through the Azure portal](hana-li-portal.md)
-- Release of [high availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP Applications](high-availability-guide-suse-netapp-files.md)
-- Clarification on **Linux OS parameter net.ipv4.tcp_timestamps** settings in conjunction with an Azure load balancer
-
-
-
-
+## Changes to the SAP workload section
+Changes to documents in the SAP on Azure workload section are listed at the end of this article.
 
 
 ## SAP HANA on Azure (Large Instances)
@@ -126,5 +118,15 @@ For information on integration of Azure services into SAP components, see:
 - [Azure Data Factory offers SAP HANA and Business Warehouse data integration](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
+## Change Log
+- 08/22/2019: Changes in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to update the URLs for custom role creation  
+- 08/16/2019: Changes in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) to remind customers to update the actions in the custom role, if updating to the new version of the Azure fence agent  
+- 08/15/2019: Changes in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to reflect General Availability of Ultra disk (formerly Ultra SSD)
+- 08/01/2019: Changes to [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to integrate changes specifically for SLES 15 
+- 07/23/2019: Changes in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](sap-high-availability-guide-wsfc-file-share.md) to reflect support of Storage Space Direct by Azure Site Recovery Services
+- 07/14/2019: Release of [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md)
+- 07/11/2019: Changes in various documents covering HANA Large Instances to cover Revision 4 of HANA Large Instances
+- 07/09/2019: Release of new guide for [IBM Db2 HADR in Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
+- 06/13/2019: Release of [High availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](high-availability-guide-rhel-netapp-files.md)
 
 

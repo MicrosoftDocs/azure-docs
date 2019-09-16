@@ -6,11 +6,11 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
@@ -31,7 +31,7 @@ Complete the following steps before you compile and run the sample code:
 1. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code.
 
 > [!NOTE]
-> View the GA sample code at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> View the GA sample code at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## Project Dependencies
 
@@ -242,4 +242,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 
-- Read the [reference data API](/rest/api/time-series-insights/ga-reference-data-api).
+- Read the [reference data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

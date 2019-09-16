@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (Windows) - Speech Services'
+title: 'Quickstart: Recognize speech, C++ (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 08/19/2019
 ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in C++ on Windows by using the Speech SDK
 
-Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-cpp-windows.md) and [speech-translation](quickstart-translate-speech-cpp-windows.md).
+Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-cpp-windows.md) and [speech translation](quickstart-translate-speech-cpp-windows.md).
 
-If desired, choose a different programming language and/or environment:<br/>
+If you want, choose a different programming language and environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 ## Prerequisites
 
@@ -31,7 +31,9 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 ## Add sample code
 
-1. Open the source file *helloworld.cpp*. Replace all the code below the initial include statement (`#include "stdafx.h"` or `#include "pch.h"`) with the following:
+1. Open the source file **helloworld.cpp**.
+
+1. Replace all the code with the following snippet:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -39,21 +41,17 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-1. Save changes to the project.
+1. From the menu bar, choose **File** > **Save All**.
 
-## Build and run the app
+## Build and run the application
 
-1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors.
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-   ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-cpp-windows-06-build.png)
+1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Start the application. From the menu bar, choose **Debug** > **Start Debugging**, or press **F5**.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which transcribes to text and sends it back to the application for display.
 
-   ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. A console window appears, prompting you to say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
-
-   ![Screenshot of console output after successful recognition](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Console output after successful recognition](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## Next steps
 
@@ -64,5 +62,4 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Train a model for Custom Speech](how-to-custom-speech-train-model.md)

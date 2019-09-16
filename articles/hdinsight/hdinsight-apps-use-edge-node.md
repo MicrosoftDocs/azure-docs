@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 06/13/2019
 ms.author: hrasheed
 
 ---
@@ -70,7 +70,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
 
 1. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 3. Configure the following properties:
    
    * **Subscription**: Select an Azure subscription used for creating the cluster.
@@ -93,7 +93,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 1. Create an HDInsight cluster if you don't have one yet.  See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 3. Configure the following properties:
    
    * **Subscription**: Select an Azure subscription used for creating the cluster.
@@ -104,7 +104,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
    * **Cluster Login Password**: Enter the Hadoop HTTP user password.
    * **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
    * **Ssh Password**: Enter the SSH user password.
-   * **Install Script Action**: Keep the default value for going through this tutorial.
+   * **Install Script Action**: Keep the default value for going through this article.
      
      Some properties have been hardcoded in the template: Cluster type, Cluster worker node count, Edge node size, and Edge node name.
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.

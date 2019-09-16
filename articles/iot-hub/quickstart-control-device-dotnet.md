@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
+ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -79,7 +79,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
       --hub-name YourIoTHubName \
-      --device-id MyDotnetDevice 
+      --device-id MyDotnetDevice \
       --output table
     ```
 
@@ -94,12 +94,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
 You also need your IoT hub _service connection string_ to enable the back-end application to connect to the hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 Make a note of the service connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 You use this value later in the quickstart. The service connection string is different from the device connection string.  
 

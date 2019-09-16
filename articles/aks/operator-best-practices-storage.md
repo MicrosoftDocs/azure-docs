@@ -2,12 +2,12 @@
 title: Operator best practices - Storage in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Best practices for storage and backups in Azure Kubernetes Service (AKS)
@@ -34,7 +34,6 @@ The following table outlines the available storage types and their capabilities:
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Shared configuration       | Azure Files   | Yes | Yes | Yes | Yes |
 | Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
-| App data, read-only shares | [Dysk (preview)][dysk] | Yes | Yes | No  | No |
 | Unstructured data, file system operations | [BlobFuse (preview)][blobfuse] | Yes | Yes | Yes | No |
 
 The two primary types of storage provided for volumes in AKS are backed by Azure Disks or Azure Files. To improve security, both types of storage use Azure Storage Service Encryption (SSE) by default that encrypts data at rest. Disks cannot currently be encrypted using Azure Disk Encryption at the AKS node level.
@@ -99,7 +98,6 @@ This article focused on storage best practices in AKS. For more information abou
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

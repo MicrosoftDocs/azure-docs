@@ -11,7 +11,7 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
 ---

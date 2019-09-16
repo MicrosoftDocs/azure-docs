@@ -1,15 +1,15 @@
 ---
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
 ---
-# What is Azure Backup?
+# What is the Azure Backup service?
 
 The Azure Backup service backs up data to the Microsoft Azure cloud. You can back up on-premises machines and workloads, and Azure virtual machines (VMs).
 
@@ -26,7 +26,7 @@ Azure Backup delivers these key benefits:
     - If you perform an offline initial backup using the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data.  [Learn more](backup-azure-backup-import-export.md).
 - **Keep data secure**: Azure Backup provides solutions for securing data in transit and at rest.
 - **Get app-consistent backups**: An application-consistent backup means a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensure additional fixes are not required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
-- **Retain short and long-term data**: You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep it for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. [Learn more](backup-introduction-to-azure-backup.md#backup-and-retention)about how this limit impacts your backup needs.
+- **Retain short and long-term data**: You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep it for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. 
 - **Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. With Azure Backup, there is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model, so that you only pay for the storage you consume. [Learn more](https://azure.microsoft.com/pricing/details/backup) about pricing.
 - **Multiple storage options** - Azure Backup offers two types of replication to keep your storage/data highly available.
     - [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
@@ -49,7 +49,7 @@ Use the table points to help figure out your BCDR needs.
 
 **Objective** | **Details** | **Comparison**
 --- | --- | ---
-**Data backup/retention** | Backup data can be retained and stored for days, months, or even years if required from a compliance perspective. | Backup solutions like Azure Backup allow you to finely pick data you want to back up, and finely tune backup and retention policies.<br/><br/> Site Recovery doesn't allow the same fine-tuning.
+**Data backup/retention** | Backup data can be retained and stored for days, months, or even years if necessary from a compliance perspective. | Backup solutions like Azure Backup allow you to finely pick data you want to back up, and finely tune backup and retention policies.<br/><br/> Site Recovery doesn't allow the same fine-tuning.
 **Recovery point objective (RPO)** | The amount of acceptable data loss if a recovery needs to be done. | Backups have more variable RPO.<br/><br/> VM backups usually have an RPO of a day, while database backups have RPOs as low as 15 minutes.<br/><br/> Site Recovery provides a low RPO since replication is continuous or frequent, so that the delta between the source and replica copy is small.
 **Recovery time objective (RTO)** |The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location.
 
@@ -60,7 +60,7 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 **Machine** | **Back up scenario**
 --- | ---
 **On-premises backup** |  1) Run the Azure Backup Microsoft Azure Recovery Services (MARS) agent on on-premises Windows machines to back up individual files and system state. <br/><br/>2) Back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then configure the backup server to back up to an Azure Backup Recovery Services vault in Azure.
-**Azure VMs** | 1) Enable backup for individual Azure VMs. When you enable backup, Azure Backup installs an extension to the Azure VM agent that's running on the VM. The agent backs up the entire VM.<br/><br/> 2) Run the MARS agent on an Azure VM. This is useful if you want to back up individual files and folders on the VM.<br/><br/> 3) Back up an Azure VM to a DPM server or MABS running in Azure. Then back up the DPM server/MABS to a vault using Azure Backup.
+**Azure VMs** | 1) Enable backup for individual Azure VMs. When you enable backup, Azure Backup installs an extension to the Azure VM agent that's running on the VM. The agent backs up the entire VM.<br/><br/> 2) Run the MARS agent on an Azure VM. This is useful if you want to back up individual files and folders on the VM.<br/><br/> 
 
 
 ## Why use a backup server?
@@ -103,6 +103,25 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **I want to back up apps running on on-premises** | For app-aware backups machines must be protected by DPM or MABS.
 **I want granular and flexible backup and recovery settings for Azure VMs** | Protect Azure VMs with MABS/DPM running in Azure for additional flexibility in backup scheduling, and full flexibility for protecting and restoring files, folder, volumes, apps, and system state.
 
+## Backup and retention
+
+Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per *protected instance*.
+
+- A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. An instance is protected once a backup copy of data has been saved.
+- The backup copy of data is the protection. If the source data was lost or became corrupt, the backup copy could restore the source data.
+
+The following table shows the maximum backup frequency for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
+
+|  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
+| --- | --- | --- | --- | --- |
+| Backup frequency<br/> (to Recovery Services vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
+| Backup frequency<br/> (to disk) |Not applicable |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Not applicable |
+| Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
+| Maximum recovery points per protected instance |9999|9999|9999|9999|
+| Maximum retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |
+| Recovery points on local disk |Not applicable | 64 for File Servers<br/><br/> 448 for Application Servers | 64 for File Servers<br/><br/> 448 for Application Servers |Not applicable |
+| Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |
+
 ## How does Azure Backup work with encryption?
 
 **Encryption** | **Back up on-premises** | **Back up Azure VMs** | **Back up SQL on Azure VMs**
@@ -113,7 +132,7 @@ Encryption in transit<br/> (Encryption of data moving from one location to anoth
 ## Next steps
 
 - [Review](backup-architecture.md) the architecture and components for different backup scenarios.
-- [Verify](backup-support-matrix.md) supported features and settings for backup.
+- [Verify](backup-support-matrix.md) support requirements and limitations for backup, and for [Azure VM backup](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

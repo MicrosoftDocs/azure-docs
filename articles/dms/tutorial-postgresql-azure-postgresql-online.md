@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 09/06/2019
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -19,6 +19,7 @@ You can use Azure Database Migration Service to migrate the databases from an on
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
+>
 > * Migrate the sample schema using pg_dump utility.
 > * Create an instance of the Azure Database Migration Service.
 > * Create a migration project by using the Azure Database Migration Service.
@@ -39,9 +40,6 @@ To complete this tutorial, you need to:
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
-    > [!NOTE]
-    > For PostgreSQL version 10, currently DMS only supports migration of version 10.3 to Azure Database for PostgreSQL.
-
 * [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
 * Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
@@ -53,18 +51,18 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
-* Ensure that your VNet Network Security Group (NSG) rules do not block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Ensure that your VNet Network Security Group (NSG) rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow Azure Database Migration Service to access the source PostgreSQL Server, which by default is TCP port 5432.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
 * Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure Database for PostgreSQL to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the VNet used for Azure Database Migration Service.
 * There are two methods for invoking the CLI:
 
-    * In the upper-right corner of the Azure postal, select the Cloud Shell button:
+  * In the upper-right corner of the Azure postal, select the Cloud Shell button:
 
        ![Cloud Shell button in the Azure portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
+  * Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
 
        To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). The article also lists the platforms that support CLI 2.0.
 
@@ -72,9 +70,9 @@ To complete this tutorial, you need to:
 
 * Enable logical replication in the postgresql.config file, and set the following parameters:
 
-    * wal_level = **logical**
-    * max_replication_slots = [number of slots], recommend setting to **5 slots**
-    * max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend setting to **10 tasks**
+  * wal_level = **logical**
+  * max_replication_slots = [number of slots], recommend setting to **five slots**
+  * max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend setting to **10 tasks**
 
 ## Migrate the sample schema
 
@@ -110,8 +108,7 @@ To complete all the database objects like table schemas, indexes and stored proc
     ```
 
 4. If you have foreign keys in your schema, the initial load and continuous sync of the migration will fail. Execute the following script in PgAdmin or in psql to extract the drop foreign key script and add foreign key script at the destination (Azure Database for PostgreSQL).
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -136,7 +133,7 @@ To complete all the database objects like table schemas, indexes and stored proc
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     Run the drop foreign key (which is the second column) in the query result.
 
@@ -263,7 +260,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    * Target platform: AzureDbForPostgreSql
 
      ```
-     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
 6. Create a PostgreSQL migration task using the following steps.

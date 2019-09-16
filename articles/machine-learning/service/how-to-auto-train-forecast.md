@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/20/2019
 ---
 
 # Auto-train a time-series forecast model
@@ -22,9 +22,17 @@ In this article, you learn how to train a time-series forecasting regression mod
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
+You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors.
+
+This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
+
+You can [configure](#config) how far into the future the forecast should extend (the forecast horizon), as well as lags and more. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
+
+Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy.
+
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
+* An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 * This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
 ## Preparing data
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > not be able to accurately predict future stock values corresponding to future time-series
 > points, and model accuracy could suffer.
 
+<a name="config"></a>
 ## Configure and run experiment
 
 For forecasting tasks, automated machine learning uses pre-processing and estimation steps that are specific to time-series data. The following pre-processing steps will be executed:
@@ -85,7 +94,7 @@ The `AutoMLConfig` object defines the settings and data necessary for an automat
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
-|`max_horizon`|Maximum desired forecast horizon in units of time-series frequency.|✓|
+|`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g. monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|*n* periods to forward-lag target values prior to model training.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size.||
 
@@ -97,9 +106,16 @@ time_series_settings = {
     "grain_column_names": ["store"],
     "max_horizon": 50,
     "target_lags": 2,
-    "target_rolling_window_size": 10
+    "target_rolling_window_size": 10,
+    "preprocess": True,
 }
 ```
+
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
 
 Now create a standard `AutoMLConfig` object, specifying the `forecasting` task type, and submit the experiment. After the model finishes, retrieve the best run iteration.
 
@@ -125,10 +141,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> For the cross-validation (CV) procedure, time-series data can violate the basic statistical assumptions of the canonical K-Fold cross-validation strategy, so
-> automated machine learning implements a rolling origin validation procedure to create cross-validation folds for time-series data. To use this procedure, specify the
-> `n_cross_validations` parameter in the `AutoMLConfig` object. You can bypass validation and use your own validation sets with the `X_valid` and `y_valid` parameters.
+See the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ### View feature engineering summary
 
@@ -160,7 +178,8 @@ You can also use the `forecast_destination` parameter in the `forecast()` functi
 ```python
 y_query = y_test.copy().astype(np.float)
 y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+y_fcst, X_trans = fitted_pipeline.forecast(
+    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calculate RMSE (root mean squared error) between the `y_test` actual values, and the forecasted values in `y_pred`.
@@ -188,4 +207,4 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 ## Next steps
 
 * Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
-* View the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) reference documentation.
+* View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.

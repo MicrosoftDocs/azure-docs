@@ -10,7 +10,6 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
@@ -53,24 +52,32 @@ When you scale up or down, new roles of the appropriate size are added and then 
 
 ### ASE inbound dependencies ###
 
-The ASE inbound access dependencies are:
+Just for the ASE to operate, the ASE requires the following ports to be open:
 
 | Use | From | To |
 |-----|------|----|
 | Management | App Service management addresses | ASE subnet: 454, 455 |
 |  ASE internal communication | ASE subnet: All ports | ASE subnet: All ports
-|  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: All ports
-|  App assigned IP addresses | App assigned addresses | ASE subnet: All ports
+|  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: 16001
 
-The inbound management traffic provides command and control of the ASE in addition to system monitoring. The source addresses for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455. If you block access from those addresses, your ASE will become unhealthy and then become suspended.
+There are 2 other ports that can show as open on a port scan, 7654 and 1221. They reply with an IP address and nothing more. They can be blocked if desired. 
+
+The inbound management traffic provides command and control of the ASE in addition to system monitoring. The source addresses for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from the ASE management addresses on ports 454 and 455. If you block access from those addresses, your ASE will become unhealthy and then become suspended. The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP or you will have an asymmetric routing problem. 
 
 Within the ASE subnet, there are many ports used for internal component communication and they can change. This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
 
-For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE, then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE, then you need to take into account the normal app access ports.  If you are using app assigned addresses, you need to open it to all ports.  When an address is assigned to a specific app, then the load balancer will use ports that are not known of in advance to send HTTP and HTTPS traffic to the ASE.
+For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE, then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE, then you need to take into account the normal app access ports.  
 
-If you are using app assigned IP addresses, you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
+The other ports you need to concern yourself with are the application ports:
 
-The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP or you will have an asymmetric routing problem. 
+| Use | Ports |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio remote debugging  |  4020, 4022, 4024 |
+|  Web Deploy service | 8172 |
+
+If you block the application ports, your ASE can still function but your app might not.  If you are using app assigned IP addresses with an External ASE, you will need to allow traffic from the IPs assigned to your apps to the ASE subnet on the ports shown in the ASE portal > IP Addresses page.
 
 ### ASE outbound dependencies ###
 
@@ -78,15 +85,15 @@ For outbound access, an ASE depends on multiple external systems. Many of those 
 
 The ASE communicates out to internet accessible addresses on the following ports:
 
-| Port | Uses |
+| Uses | Ports |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | CRL, Windows updates, Linux dependencies, Azure services |
-| 1433 | Azure SQL | 
-| 12000 | Monitoring |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, Windows updates, Linux dependencies, Azure services | 80/443 |
+| Azure SQL | 1433 | 
+| Monitoring | 12000 |
 
-The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
+The outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
 
 ### Customer DNS ###
 
@@ -112,7 +119,7 @@ In addition to the ASE functional dependencies, there are a few extra items rela
 
 When you use an ILB ASE, the SCM site isn't accessible from outside the VNet. Some capabilities will not work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly instead of using the portal. 
 
-If your ILB ASE is the domain name *contoso.appserviceenvironnment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
+If your ILB ASE is the domain name *contoso.appserviceenvironment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
 
 ## ASE IP addresses ##
 
@@ -160,12 +167,12 @@ The required entries in an NSG, for an ASE to function, are to allow traffic:
 
 The DNS port does not need to be added as traffic to DNS is not affected by NSG rules. These ports do not include the ports that your apps require for successful use. The normal app access ports are:
 
-| Use | From | To |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | User configurable |  80, 443 |
-|  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
-|  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
-|  Web Deploy service | User configurable | 8172 |
+| Use | Ports |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio remote debugging  |  4020, 4022, 4024 |
+|  Web Deploy service | 8172 |
 
 When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. 
 

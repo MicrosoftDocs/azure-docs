@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sumeet.mittal
+ms.author: sumi
 ---
 
 # Virtual network service endpoint policies (Preview)

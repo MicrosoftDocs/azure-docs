@@ -1,21 +1,21 @@
 ---
-title: Back up SQL Server databases to Azure | Microsoft Docs
+title: Tutorial - Back up SQL Server databases to Azure 
 description: This tutorial explains how to back up SQL Server to Azure.
-services: backup
+
 author: dcurwin
-manager: 
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
 
 
 ---
-# Back up SQL Server databases in Azure VMs
+# Back up a SQL Server database in an Azure VM
 
 
 
-This article shows you how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault. In this article, you learn how to:
+This tutorial shows you how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault. In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create and configure a vault.
@@ -29,7 +29,7 @@ This article shows you how to back up a SQL Server database running on an Azure 
 Before you back up your SQL Server database, check the following conditions:
 
 1. Identify or [create](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.
-2. [Check the VM permissions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) needed to back up the SQL databases.
+2. [Check the VM permissions](backup-azure-sql-database.md#set-vm-permissions) needed to back up the SQL databases.
 3. Verify that the  VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Check that the SQL Server databases are named in accordance with [naming guidelines](#verify-database-naming-guidelines-for-azure-backup) for Azure Backup.
 5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
@@ -57,7 +57,7 @@ Azure Backup does a number of things when you configure backup for a SQL Server 
 - To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore, and requires SQL sysadmin permissions.
 - Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry, so this account need to be a public login on SQL.
 
-If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#set-vm-permissions).
 
 ### Verify database naming guidelines for Azure Backup
 
@@ -110,7 +110,7 @@ Discover databases running on the VM.
     - Azure Backup creates the service account **NT Service\AzureWLBackupPluginSvc** on the VM.
       - All backup and restore operations use the service account.
       - **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
-    - If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) to fix this issue.
+    - If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the [instructions](backup-azure-sql-database.md#set-vm-permissions) to fix this issue.
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -139,19 +139,19 @@ Configure backup as follows:
 
     ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **Choose backup policy**, select a policy, then click **OK**.
+5. In **Choose backup policy**, select a policy, then click **OK**.
 
-   - Select the default policy: HourlyLogBackup.
+   - Select the default policy: HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
    - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. On **Backup** menu, select **Enable backup**.
+6. On **Backup** menu, select **Enable backup**.
 
     ![Enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Track the configuration progress in the **Notifications** area of the portal.
+7. Track the configuration progress in the **Notifications** area of the portal.
 
     ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -241,5 +241,5 @@ Continue to the next tutorial to restore an Azure virtual machine from disk.
 
 > [!div class="nextstepaction"]
 > [Restore SQL Server databases on Azure VMs](./restore-sql-database-azure-vm.md)
- 
+ 
 

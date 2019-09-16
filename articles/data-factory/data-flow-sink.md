@@ -30,8 +30,7 @@ You can set the partitioning scheme from the **Optimize** tab. If you want Data 
 ![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 
 ## Field mapping
-
-On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you can generate a new table that uses this schema by setting  **Save Policy** to **Overwrite**. Or insert new rows in an existing table and then map the fields to the existing schema. 
+On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you will choose database table operation options to insert, update, upsert, or delete.
 
 ![The Mapping tab](media/data-flow/sink2.png "Sinks")
 
@@ -48,6 +47,15 @@ To reset your column mappings, select **Re-map**.
 Select **Validate schema** to fail the sink if the schema changes.
 
 Select **Clear the folder** to truncate the contents of the sink folder before writing the destination files in that target folder.
+
+## Rule-based mapping
+When turn-off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching. 
+
+![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
+
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
+
+Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
 ## File name options
 
@@ -66,13 +74,16 @@ Set up file naming:
 
 Choose database settings:
 
+![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
+
 * **Update method**: The default is to allow inserts. Clear **Allow insert** if you want to stop inserting new rows from your source. To update, upsert, or delete rows, first add an alter-row transformation to tag rows for those actions. 
 * **Recreate table**: Drop or create your target table before the data flow finishes.
 * **Truncate table**: Remove all rows from your target table before the data flow finishes.
 * **Batch size**: Enter a number to bucket writes into chunks. Use this option for large data loads. 
 * **Enable staging**: Use PolyBase when you load Azure Data Warehouse as your sink dataset.
+* **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
+![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
 > [!NOTE]
 > In Data Flow, you can direct Data Factory to create a new table definition in your target database. To create the table definition, set a dataset in the sink transformation that has a new table name. In the SQL dataset, below the table name, select **Edit** and enter a new table name. Then, in the sink transformation, turn on **Allow schema drift**. Set **Import schema** to **None**.
@@ -83,5 +94,4 @@ Choose database settings:
 > When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
 
 ## Next steps
-
 Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

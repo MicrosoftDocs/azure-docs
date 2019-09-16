@@ -27,15 +27,15 @@ Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILog
 Install your chosen logging framework in your project, which should result in an entry in app.config or web.config.
 
 ```XML
-    <configuration>
-      <system.diagnostics>
-    <trace autoflush="true" indentsize="0">
+ <configuration>
+  <system.diagnostics>
+    <trace>
       <listeners>
         <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
     </trace>
   </system.diagnostics>
-   </configuration>
+</configuration>
 ```
 
 ## Configure Application Insights to collect logs

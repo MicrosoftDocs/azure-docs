@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgan
+ms.author: asgang
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
@@ -36,7 +36,15 @@ The Site Recovery team works with the Azure capacity management team to plan suf
 ## Replication
 
 ### Can I replicate VMs enabled through Azure disk encryption?
-Yes, you can replicate them. See the article [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md). Currently, Azure Site Recovery supports only Azure VMs that are running a Windows OS and enabled for encryption with Azure Active Directory (Azure AD) apps.
+
+Yes, Site Recovery supports disaster recovery of VMs with Azure disk encryption (ADE) enabled. When you enable replication, all the required disk encryption keys and secrets are copied from the source region to the target region in the user context. If you don't have appropriate permission, a ready-to-use script can be handed to the security administrator, to copy the keys and secrets.
+
+- Site Recovery supports ADE for Azure VMs running Windows.
+- Site recovery supports ADE version 0.1, with a schema using Azure Active Directory (AAD), and version 1.1, without AAD. [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- ADE version 1.1, the Windows VMs must be used managed disks.
+- [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
+
+
 
 ### Can I replicate VMs to another subscription?
 Yes, you can replicate Azure VMs to a different subscription within the same Azure AD tenant.
@@ -138,7 +146,7 @@ Yes. If you increase the retention period from 24 hours to 72 hours, Site Recove
 It means making sure that the recovery point is consistent across all the replicated virtual machines.
 Site Recovery provides an option of "Multi-VM consistency," which, when you select it, creates a replication group to replicate all the machines together that are part of the group.
 All the virtual machines will have shared crash-consistent and app-consistent recovery points when they're failed over.
-Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### Can I failover single virtual machine within a Multi-VM consistency replication group?
 By selecting the "Multi-VM consistency" option, you are stating that the application has a dependency on all the virtual machines within a group. Hence, single virtual machine failover is not allowed.

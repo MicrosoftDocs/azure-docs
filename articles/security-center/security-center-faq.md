@@ -21,7 +21,7 @@ ms.author: v-mohabe
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
 
 > [!NOTE]
-> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+> Security Center uses the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
 >
 >
 
@@ -41,7 +41,7 @@ The **Free tier** provides visibility into the security state of your Azure reso
 The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### How can I track who in my organization performed pricing tier changes in Azure Security Center
-As an Azure Subscription may have multiple administrators with permissions to change the pricing tier, a user may wish to know who performed the pricing tier change. To use that, one can use Azure Activity Log. Please see further instructions [here](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
+As an Azure Subscription may have multiple administrators with permissions to change the pricing tier, a user may wish to know who performed the pricing tier change. To use that, one can use Azure Activity Log. See further instructions [here](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -59,7 +59,7 @@ No. Workspaces created by Security Center, while configured for Azure Monitor lo
 - **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You are not billed for the Free tier.
 - **Standard tier** – Security Center enables the 'Security' solution on the default workspace.
 
-For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/). The pricing page addresses changes to security data storage and prorated billing starting in June 2017.
+For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
@@ -122,15 +122,17 @@ For more information, see [Automatic provisioning in cases of a preexisting agen
 
 ### What if I had a Microsoft Monitoring Agent is directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
-The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported).
+The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
 IF the configured workspace is a user workspace (not Security Center's default workspace), you will need to install the "Security/"SecurityCenterFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
+
+For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 
 For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
 
  For more information, see the next section [What happens if a SCOM or OMS direct agent is already installed on my VM?](#scomomsinstalled)
 
 ### What happens if a System Center Operations Manager (SCOM) agent is already installed on my VM?<a name="scomomsinstalled"></a>
-Security center will install the Microsoft Monitoring Agent extension side-by-side to the existing System Center Operations Manager agent. The existing SCOM agent will continue to report to the System Center Operations Manager server normally. Please note that the System Center Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the lastest version during this proccess. Note - If System Center Operations Manager agent version 2012 is installed, do not turn automatic provisioning On (manageability capabilities can be lost when the System Center Operations Manager server is also version 2012).
+Security center will install the Microsoft Monitoring Agent extension side-by-side to the existing System Center Operations Manager agent. The existing SCOM agent will continue to report to the System Center Operations Manager server normally. Please note that the System Center Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the latest version during this process. Note - If System Center Operations Manager agent version 2012 is installed, do not turn automatic provisioning On (manageability capabilities can be lost when the System Center Operations Manager server is also version 2012).
 
 ### What is the impact of removing these extensions?
 If you remove the Microsoft Monitoring Extension, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Security Center determines that the VM is missing the extension and reinstalls the extension.
@@ -155,7 +157,7 @@ You can turn off automatic provisioning for your subscriptions in the security p
 You may want to opt out of automatic provisioning if the following applies to you:
 
 - Automatic agent installation by Security Center applies to the entire subscription.  You cannot apply automatic installation to a subset of VMs. If there are critical VMs that cannot be installed with the Microsoft Monitoring Agent, then you should opt out of automatic provisioning.
-- Installation of the Microsoft Monitoring Agent (MMA) extension updates the agent’s version. This applies to a direct agent and a SCOM agent (in the latter, the SCOM and MMA share common runtime libraries - which will be updated in the process). If the installed SCOM agent is version 2012 and is upgraded, manageability capabilities can be lost when the SCOM server is also version 2012. You should consider opting out of automatic provisioning if the installed SCOM agent is version 2012.
+- Installation of the Microsoft Monitoring Agent (MMA) extension updates the agent’s version. This applies to a direct agent and a SCOM agent (in the latter, the SCOM and MMA share common runtime libraries - which will be updated in the process). If the installed SCOM agent is version 2012 and is upgraded, manageability capabilities can be lost when the SCOM server is also version 2012. Consider opting out of automatic provisioning if the installed SCOM agent is version 2012.
 - If you have a custom workspace external to the subscription (a centralized workspace) then you should opt out of automatic provisioning. You can manually install the Microsoft Monitoring Agent extension and connect it your workspace without Security Center overriding the connection.
 - If you want to avoid creation of multiple workspaces per subscription and you have your own custom workspace within the subscription, then you have two options:
 
@@ -212,7 +214,9 @@ The agent also enables data collection for [Adaptive Application Controls](secur
 
 When Security Center detects suspicious activity on the VM, the customer is notified by email if [security contact information](security-center-provide-security-contact-details.md) has been provided. An alert is also visible in Security Center’s security alerts dashboard.
 
-
+### Will Security Center work using an OMS gateway?
+Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Microsoft Monitoring Agent.
+To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/platform/gateway.md).
 
 ### Does the Monitoring Agent impact the performance of my servers?
 The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -321,7 +325,7 @@ The latency in Security Center scans for vulnerabilities, updates, and issues is
 Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
 
 > [!NOTE]
-> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+> Security Center uses the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
 >
 >
 

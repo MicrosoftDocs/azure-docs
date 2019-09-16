@@ -4,7 +4,7 @@ description: With TTL, Microsoft Azure Cosmos DB provides the ability to have do
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
 
@@ -12,6 +12,8 @@ ms.reviewer: sngun
 # Time to Live (TTL) in Azure Cosmos DB 
 
 With **Time to Live** or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, without needing a delete operation that is explicitly issued by the client application.
+
+Deletion of expired items is a background task that consumes left-over [Request Units](request-units.md), that is Request Units that haven't been consumed by user requests. Expirations may be delayed if the container is under heavy load and no Request Unit is left for maintenance tasks.
 
 ## Time to live for containers and items
 
@@ -40,6 +42,42 @@ The time to live value is set in seconds, and it is interpreted as a delta from 
 * If TTL on a container is set to -1, an item in this container that has the time to live set to n, will expire after n seconds, and remaining items will not expire. 
 
 Deleting items based on TTL is free. There is no additional cost (that is, no additional RUs are consumed) when item is deleted as a result of TTL expiration.
+
+## Examples
+
+This section shows some examples with different time to live values assigned to container and items:
+
+### Example 1
+
+TTL on container is set to null (DefaultTimeToLive = null)
+
+|TTL on item| Result|
+|---|---|
+|ttl = null|	TTL is disabled. The item will never expire (default).|
+|ttl = -1	|TTL is disabled. The item will never expire.|
+|ttl = 2000	|TTL is disabled. The item will never expire.|
+
+
+### Example 2
+
+TTL on container is set to -1 (DefaultTimeToLive = -1)
+
+|TTL on item| Result|
+|---|---|
+|ttl = null	|TTL is enabled. The item will never expire (default).|
+|ttl = -1	|TTL is enabled. The item will never expire.|
+|ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
+
+
+### Example 3
+
+TTL on container is set to 1000 (DefaultTimeToLive = 1000)
+
+|TTL on item| Result|
+|---|---|
+|ttl = null|	TTL is enabled. The item will expire after 1000 seconds (default).|
+|ttl = -1	|TTL is enabled. The item will never expire.|
+|ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
 
 ## Next steps
 

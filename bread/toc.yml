@@ -8,7 +8,7 @@
     items:
       - name: Hybrid identity
         tocHref: /azure/active-directory/hybrid/
-        topicHref: /azure/active-directory/hybrid/    
+        topicHref: /azure/active-directory/hybrid/
       - name: Fundamentals
         tocHref: /azure/active-directory/fundamentals/
         topicHref: /azure/active-directory/fundamentals/
@@ -35,7 +35,7 @@
         topicHref: /azure/active-directory/managed-identities-azure-resources/
       - name: User help
         tocHref: /azure/active-directory/user-help/
-        topicHref: /azure/active-directory/user-help/         
+        topicHref: /azure/active-directory/user-help/
       - name: B2B
         tocHref: /azure/active-directory/b2b/
         topicHref: /azure/active-directory/b2b/
@@ -74,6 +74,9 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Avere vFXT for Azure
+    tocHref: /azure/avere-vfxt/
+    topicHref: /azure/avere-vfxt/
   - name: Azure App Configuration
     tocHref: /azure/azure-app-configuration/
     topicHref: /azure/azure-app-configuration/
@@ -117,6 +120,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure Lighthouse
+    tocHref: /azure/lighthouse/
+    topicHref: /azure/lighthouse/
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
@@ -136,6 +142,9 @@
     - name: Durable Functions
       tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/durable-functions-overview
+  - name: Azure Australia
+    tocHref: /azure/azure-australia/
+    topicHref: /azure/azure-australia/
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -164,6 +173,9 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
+      - name: IoT Plug and Play
+        tocHref: /azure/iot-pnp/
+        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
@@ -214,7 +226,7 @@
     topicHref: /azure/blockchain-workbench/
   - name: Bot Service
     tocHref: /azure/bot-service/
-    topicHref: /azure/bot-service/    
+    topicHref: /azure/bot-service/
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -329,13 +341,25 @@
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: /azure/cognitive-services/web-language-model/home    
+      topicHref: /azure/cognitive-services/web-language-model/home
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
-      topicHref: /azure/cognitive-services/project-personality-chat/overview    
+      topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
+    - name: Ink Recognizer
+      tocHref: /azure/cognitive-services/Ink-Recognizer/
+      topicHref: /azure/cognitive-services/Ink-Recognizer/
+    - name: Personalizer
+      tocHref: /azure/cognitive-services/personalizer/
+      topicHref: /azure/cognitive-services/personalizer/
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -358,6 +382,9 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: Bastion
+    tocHref: /azure/bastion/
+    topicHref: /azure/bastion/
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
@@ -407,9 +434,12 @@
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: FXT Edge Filer
+    tocHref: /azure/fxt-edge-filer/
+    topicHref: /azure/fxt-edge-filer/
   - name: Genomics
     tocHref: /azure/genomics/
-    topicHref: /azure/genomics/    
+    topicHref: /azure/genomics/
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -481,22 +511,25 @@
 #      topicHref: /azure/iot-accelerators/
 #    - name: IoT Central
 #      tocHref: /azure/iot-central/
-#      topicHref: /azure/iot-central/         
+#      topicHref: /azure/iot-central/
 #    - name: Maps
 #      tocHref: /azure/azure-maps/
 #      topicHref: /azure/azure-maps/
 #    - name: Time Series Insights
 #      tocHref: /azure/time-series-insights/
-#      topicHref: /azure/time-series-insights/                     
+#      topicHref: /azure/time-series-insights/
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Azure Kinect DK
+    tocHref: /azure/kinect-dk/
+    topicHref: /azure/kinect-dk/
   - name: Lab Services
     tocHref: /azure/lab-services/
-    topicHref: /azure/lab-services/    
+    topicHref: /azure/lab-services/
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -541,7 +574,10 @@
         topicHref: /azure/media-services/previous/
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
-        topicHref: /azure/media-services/video-indexer/        
+        topicHref: /azure/media-services/video-indexer/
+  - name: Migrate
+    tocHref: /azure/migrate/
+    topicHref: /azure/migrate/
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
@@ -609,6 +645,13 @@
   - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
+    items:
+      - name: Fundamentals
+        tocHref: /azure/security/fundamentals/
+        topicHref: /azure/security/fundamentals/
+      - name: Develop
+        tocHref: /azure/security/develop/
+        topicHref: /azure/security/develop/
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
@@ -681,6 +724,9 @@
         tocHref: /azure/virtual-machines/workloads/
         topicHref: /azure/virtual-machines/workloads/workloads
         items:
+          - name: High Performance Computing
+            tocHref: /azure/virtual-machines/workloads/hpc/
+            topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started

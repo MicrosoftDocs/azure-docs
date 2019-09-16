@@ -110,6 +110,19 @@
       href: tutorial-deploy-ssis-packages-azure.md
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure-powershell.md
+  - name: Load Data Lake Storage Gen2
+    href: load-azure-data-lake-storage-gen2.md
+    items:
+    - name: Copy from Data Lake Storage Gen1
+      href: load-azure-data-lake-storage-gen2-from-gen1.md
+  - name: Load SQL Data Warehouse
+    href: load-azure-sql-data-warehouse.md
+  - name: Load Data Lake Storage Gen1
+    href: load-azure-data-lake-store.md
+  - name: Load SAP BW data
+    href: load-sap-bw-data.md
+  - name: Load Office 365 data
+    href: load-office-365-data.md
 - name: Samples
   items:
   - name: Code samples
@@ -134,6 +147,8 @@
       href: concepts-data-flow-overview.md
     - name: Debug mode
       href: concepts-data-flow-debug-mode.md
+    - name: JSON handling
+      href: concepts-data-flow-json.md
     - name: Schema drift
       href: concepts-data-flow-schema-drift.md
     - name: Inspect pane
@@ -166,18 +181,24 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Source control
+      href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
     - name: Iterative development and debugging
       href: iterative-development-debugging.md
   - name: Connectors
     items:
+    - name: Connector overview
+      href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
+    - name: Avro format
+      href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB SQL API
@@ -203,11 +224,13 @@
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-insance.md
+      href: connector-azure-sql-database-managed-instance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
+    - name: Binary format
+      href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
     - name: Common Data Service for Apps
@@ -253,9 +276,11 @@
     - name: Impala
       href: connector-impala.md
     - name: Informix
-      href: connector-odbc.md#ibm-informix-source
+      href: connector-informix.md
     - name: Jira
       href: connector-jira.md
+    - name: JSON format
+      href: format-json.md
     - name: Magento
       href: connector-magento.md
     - name: MariaDB
@@ -263,7 +288,7 @@
     - name: Marketo
       href: connector-marketo.md
     - name: Microsoft Access
-      href: connector-odbc.md#microsoft-access-source
+      href: connector-microsoft-access.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -289,7 +314,7 @@
       href: connector-oracle-service-cloud.md
     - name: Parquet format
       href: format-parquet.md
-    - name: Paypal
+    - name: PayPal
       href: connector-paypal.md
     - name: Phoenix
       href: connector-phoenix.md
@@ -304,7 +329,7 @@
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce Service Cloud
-      href: connector-salesforce.md
+      href: connector-salesforce-service-cloud.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
@@ -354,66 +379,51 @@
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
-    - name: Load Data Lake Storage Gen2
-      href: load-azure-data-lake-storage-gen2.md
-      items:
-      - name: Copy from Data Lake Storage Gen1
-        href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: Load SQL Data Warehouse
-      href: load-azure-sql-data-warehouse.md
-    - name: Load Data Lake Storage Gen1
-      href: load-azure-data-lake-store.md
-    - name: Load SAP BW data
-      href: load-sap-bw-data.md
-    - name: Load Office 365 data
-      href: load-office-365-data.md
-    - name: Read or write partitioned data
-      href: how-to-read-write-partitioned-data.md
+    - name: Performance and tuning
+      href: copy-activity-performance.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
     - name: Schema and type mapping
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
   - name: Transform data
     href: transform-data.md
     items:
+    - name: Azure Function Activity
+      href: control-flow-azure-function-activity.md
+    - name: Custom Activity
+      href: transform-data-using-dotnet-custom-activity.md
+    - name: Databricks Jar Activity
+      href: transform-data-databricks-jar.md
+    - name: Databricks Notebook Activity
+      href: transform-data-databricks-notebook.md
+    - name: Databricks Python Activity
+      href: transform-data-databricks-python.md
+    - name: Data Lake U-SQL Activity
+      href: transform-data-using-data-lake-analytics.md
     - name: HDInsight Hive Activity
       href: transform-data-using-hadoop-hive.md
-    - name: HDInsight Pig Activity
-      href: transform-data-using-hadoop-pig.md
     - name: HDInsight MapReduce Activity
       href: transform-data-using-hadoop-map-reduce.md
-    - name: HDInsight Streaming Activity
-      href: transform-data-using-hadoop-streaming.md
+    - name: HDInsight Pig Activity
+      href: transform-data-using-hadoop-pig.md
     - name: HDInsight Spark Activity
       href: transform-data-using-spark.md
+    - name: HDInsight Streaming Activity
+      href: transform-data-using-hadoop-streaming.md
     - name: ML Batch Execution Activity
       href: transform-data-using-machine-learning.md
     - name: ML Update Resource Activity
       href: update-machine-learning-models.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
-    - name: Data Lake U-SQL Activity
-      href: transform-data-using-data-lake-analytics.md
-    - name: Databricks Notebook Activity
-      href: transform-data-databricks-notebook.md
-    - name: Databricks Jar Activity
-      href: transform-data-databricks-jar.md
-    - name: Databricks Python Activity
-      href: transform-data-databricks-python.md
-    - name: Custom activity
-      href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
       href: compute-linked-services.md
   - name: Control flow
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
-    - name: Azure Function Activity
-      href: control-flow-azure-function-activity.md
     - name: Execute Data Flow Activity
       href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
@@ -486,6 +496,8 @@
       href: control-flow-expression-language-functions.md
     - name: System variables
       href: control-flow-system-variables.md
+    - name: Data flow parameters
+      href: parameters-data-flow.md
   - name: Security
     items:
     - name: Data movement security considerations
@@ -516,7 +528,7 @@
     items:
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md
-    - name: Self hosted integration runtime
+    - name: Self-hosted integration runtime
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
@@ -524,6 +536,8 @@
       href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Run SSIS packages in Azure from SSDT
+      href: how-to-invoke-ssis-package-ssdt.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity
@@ -532,6 +546,8 @@
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
       href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
+      href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
@@ -554,6 +570,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -562,12 +580,46 @@
       href: solution-template-copy-files-multiple-containers.md
     - name: Copy new files by LastModifiedDate
       href: solution-template-copy-new-files-lastmodifieddate.md
-    - name: Bulk copy with control table
+    - name: Bulk copy from database
       href: solution-template-bulk-copy-with-control-table.md
-    - name: Delta copy with control table
+    - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Move files
+      href: solution-template-move-files.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
+  - name: Troubleshooting guide
+    items:
+    - name: Activity troubleshooting
+      href: data-factory-troubleshoot-guide.md
+    - name: Connector troubleshooting
+      href: connector-troubleshoot-guide.md
+    - name: Troubleshooting Azure-SSIS IR Management
+      href: ssis-integration-runtime-management-troubleshoot.md
+    - name: Troubleshooting Package Execution in Azure-SSIS IR
+      href: ssis-integration-runtime-ssis-activity-faq.md
+- name: Scenarios
+  items:
+  - name: Data migration for data lake & EDW
+    items:
+    - name: Why Azure Data Factory
+      href: data-migration-guidance-overview.md
+    - name: Migrate data from AWS S3 to Azure
+      href: data-migration-guidance-s3-azure-storage.md
+    - name: Migrate data from on-premises Hadoop cluster to Azure
+      href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premises Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
+  - name: Transformation using Mapping Data Flow
+    items:
+    - name: Process fixed-width text files
+      href: how-to-fixed-width.md
+  - name: SSIS migration from on-premises
+    items:
+    - name: SSIS migration overview
+      href: scenario-ssis-migration-overview.md
+    - name: SSISDB migration to Azure SQL Database managed instance
+      href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
   - name: .NET

@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 04/23/2019
+ms.date: 05/18/2019
 ---
 # Store Azure SQL Database backups for up to 10 years
 
@@ -53,8 +52,8 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
 
 If you modify the above policy and set W=0 (no weekly backups), the cadence of backup copies will change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
 
-> [!NOTE]
-> The timing of the individual LTR backups is controlled by Azure SQL Database. You cannot manually create a LTR backup or control the timing of the backup creation.
+> [!IMPORTANT]
+> The timing of the individual LTR backups is controlled by Azure SQL Database. You cannot manually create a LTR backup or control the timing of the backup creation. After configuring an LTR policy, it  may take up to 7 days before the first LTR backup will show up on the list of available backups.  
 > 
 
 ## Geo-replication and long-term backup retention

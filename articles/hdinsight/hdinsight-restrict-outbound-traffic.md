@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
 ---
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall (Preview)
@@ -17,7 +17,7 @@ This article provides the steps for you to secure outbound traffic from your HDI
 
 Azure HDInsight clusters are normally deployed in your own virtual network. The cluster has dependencies on services outside of that virtual network that require network access to function properly.
 
-There are several dependencies that require inbound traffic. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
+There are several dependencies that require inbound traffic. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-management-ip-addresses.md). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
 
 The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current name resolution and use that to set up NSG rules.
 
@@ -46,20 +46,22 @@ Select the new firewall **Test-FW01** from the Azure portal. Click **Rules** und
 
 On the **Add application rule collection** screen, complete the following steps:
 
-1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
-1. Add the following rules:
-    1. A rule to allow HDInsight and Windows Update traffic:
-        1. In the **FQDN tags** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Select **HDInsight** and the **WindowsUpdate** from the **FQDN Tags** dropdown menu.
-    1. A rule to allow Windows login activity:
-        1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
-    1. If your cluster is backed by WASB, then add a rule for WASB:
-        1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
-        1. Enter `http:80,https:443` under **Protocol:Port** and the storage account url under **Target FQDNS**. The format will be similar to <storage_account_name.blob.core.windows.net>.
+1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu, and enter the following rules in the **FQDN Tags Section** :
+
+   | **Name** | **Source Address** | **FQDN Tag** | **Notes** |
+   | --- | --- | --- | --- |
+   | Rule_1 | * | HDInsight and WindowsUpdate | Required for HDI services |
+
+1. Add the following rules to the **Target FQDNs Section** :
+
+   | **Name** | **Source Address** | **Protocol:Port** | **Target FQDNS** | **Notes** |
+   | --- | --- | --- | --- | --- |
+   | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
+
 1. Click **Add**.
 
-![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### Configure the firewall with network rules
 
@@ -68,43 +70,30 @@ Create the network rules to correctly configure your HDInsight cluster.
 1. Select the new firewall **Test-FW01** from the Azure portal.
 1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
 1. On the **Add network rule collection** screen, enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
-1. Create the following rules:
-    1. A network rule in the IP Addresses section that allows the cluster to perform clock sync using NTP.
-        1. In the **Rules** section, provide a **Name** and select **UDP** from the **Protocol** dropdown.
-        1. Set **Source Addresses** and **Destination addresses** to `*`.
-        1. Set **Destination Ports** to 123.
-    1. If you are using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters.
-        1. Determine the two IP addresses for your domain controllers.
-        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
-        1. Set **Source Addresses** `*`.
-        1. Enter all of the IP addresses for your domain controllers in **Destination addresses** separated by commas.
-        1. Set **Destination Ports** to `*`.
-    1. If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
-        1. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.
-        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
-        1. Set **Source Addresses** `*`.
-        1. Enter the IP address for your storage account in **Destination addresses**.
-        1. Set **Destination Ports** to `*`.
-    1. (Optional) If you are using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace.
-        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
-        1. Set **Source Addresses** `*`.
-        1. Set **Destination addresses** to `*`.
-        1. Set **Destination Ports** to `12000`.
-    1. Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet.
-        1. In the next row in the **Rules** section, provide a **Name** and select **TCP** from the **Protocol** dropdown.
-        1. Set **Source Addresses** `*`.
-        1. Set **Destination addresses** to `*`.
-        1. Select **Sql** from the **Service Tags** dropdown.
-        1. Set **Destination Ports** to `1433,11000-11999,14000-14999`.
+1. Create the following rules in the **IP Addresses** section:
+
+   | **Name** | **Protocol** | **Source Address** | **Destination Address** | **Destination Port** | **Notes** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_1 | UDP | * | * | `123` | Time service |
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | If you are using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters. You can find the IP addresses of the domain controllers on the AAD-DS section in the portal | 
+   | Rule_3 | TCP | * | IP Address of your Data Lake Storage account | `*` | If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable in firewall logs. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.|
+   | Rule_4 | TCP | * | * | `12000` | (Optional) If you are using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace. |
+
+1. Create the following rules in the **Service Tags** section:
+
+   | **Name** | **Protocol** | **Source Address** | **Service Tags** | **Destination Port** | **Notes** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_7 | TCP | * | SQL | `1433` | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet which will bypass the firewall. |
+
 1. Click **Add** to complete creation of your network rule collection.
 
-![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create and configure a route table
 
 Create a route table with the following entries:
 
-1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
+1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-management-ip-addresses.md) with a next hop of **Internet**:
     1. Four IP addresses for all clusters in all regions
     1. Two IP addresses that are specific for the region where the cluster is created
 1. One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
@@ -133,7 +122,7 @@ Complete the route table configuration:
 1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **HDInsight Subnet** you used for your HDInsight cluster.
 1. Click **OK**.
 
-## Edge-node application traffic
+## Edge-node or custom application traffic
 
 The above steps will allow the cluster to operate without issues. You still need to configure dependencies to accommodate your custom applications running on the edge-nodes, if applicable.
 
@@ -154,6 +143,9 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+
+## Access to the cluster
+After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from within the VNET. To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules setup to avoid the assymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## Configure another network virtual appliance
 
@@ -181,7 +173,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 | **Endpoint** | **Details** |
 |---|---|
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | These are HDInsight service |
+| IPs published [here](hdinsight-management-ip-addresses.md) | These are HDInsight service |
 | AAD-DS private IPs for ESP clusters |
 | \*:16800 for KMS Windows Activation |
 | \*12000 for Log Analytics |

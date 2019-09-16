@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 09/06/2019
 ms.author: pafarley
 #Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
@@ -40,7 +40,7 @@ Alternately, you can run this quickstart from the command line with the followin
 1. Copy the following code into a text editor.
 1. Make the following changes in code where needed:
     1. Replace the value of `subscription_key` with your subscription key.
-    1. Replace the value of `face_api_url` with the endpoint URL for the Face API resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Edit the value of `face_api_url` to include the endpoint URL for your Face API resource.
     1. Optionally, replace the value of `image_url` with the URL of a different image that you want to analyze.
 1. Save the code as a file with an `.py` extension. For example, `detect-face.py`.
 1. Open a command prompt window.
@@ -50,22 +50,25 @@ Alternately, you can run this quickstart from the command line with the followin
 import requests
 import json
 
+# set to your own subscription key value
 subscription_key = None
 assert subscription_key
 
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+# replace <My Endpoint String> with the string from your endpoint URL
+face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
-    
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+response = requests.post(face_api_url, params=params,
+                         headers=headers, json={"url": image_url})
 print(json.dumps(response.json()))
 ```
 

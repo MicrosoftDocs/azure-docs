@@ -106,7 +106,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ### Updating the project's AndroidManifest.xml
 
-1. To support GCM, implement an Instance ID listener service in the code that is used to [obtain registration tokens](https://developers.google.com/cloud-messaging/android/client#sample-register) using [Google's Instance ID API](https://developers.google.com/instance-id/). In this tutorial, the name of the class is `MyInstanceIDService`.
+1. To support GCM, implement an Instance ID listener service in the code that is used to [obtain registration tokens](https://developers.google.com/cloud-messaging/) using [Google's Instance ID API](https://developers.google.com/instance-id/). In this tutorial, the name of the class is `MyInstanceIDService`.
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag. Replace the `<your package>` placeholder with your actual package name shown at the top of the `AndroidManifest.xml` file.
   
@@ -140,7 +140,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     ```
 4. Add the following necessary GCM permissions below the  `</application>` tag. Replace `<your package>` with the package name shown at the top of the `AndroidManifest.xml` file.
 
-    For more information on these permissions, see [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest).
+    For more information on these permissions, see [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

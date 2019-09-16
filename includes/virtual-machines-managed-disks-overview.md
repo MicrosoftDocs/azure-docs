@@ -32,7 +32,7 @@ Managed disks supports [Availability Zones](../articles/availability-zones/az-ov
 
 ### Azure Backup support
 
-To protect against regional disasters, [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Currently Azure Backup supports disk sizes up to four tebibyte (TiB) disks. For more information, see [Using Azure Backup for VMs with managed disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Currently Azure Backup supports disk sizes up to four tebibyte (TiB) disks.  Azure Backup supports backup and restore of managed disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
 
 ### Granular access control
 
@@ -68,11 +68,13 @@ This disk has a maximum capacity of 2,048 GiB.
 
 ### Temporary disk
 
-Every VM contains a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) event or when you [redeploy a VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). On Azure Linux VMs, the temporary disk is /dev/sdb by default and on Windows VMs the temporary disk is E: by default. During a successful standard reboot of the VM, the data on the temporary disk will persist.
+Every VM contains a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) event or when you [redeploy a VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). On Azure Linux VMs, the temporary disk is /dev/sdb by default and on Windows VMs the temporary disk is D: by default. During a successful standard reboot of the VM, the data on the temporary disk will persist.
 
 ## Managed disk snapshots
 
-A managed disk snapshot is a read-only full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB.  
+A managed disk snapshot is a read-only crash-consistent full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. 
+
+Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). For example, if the used data size of a snapshot is 10 GiB, the usage report will show 10 GiB/(31 days x 24 hours) = 0.013441 GiB as the consumed quantity.
 
 To learn more about how to create snapshots with managed disks, see the following resources:
 

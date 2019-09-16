@@ -1,6 +1,6 @@
 ---
-title: Publish knowledge base, REST, Python
-titleSuffix: QnA Maker - Azure Cognitive Services 
+title: "Quickstart: Publish knowledge base, REST, Python - QnA Maker"
+titleSuffix: Azure Cognitive Services
 description: This Python REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 

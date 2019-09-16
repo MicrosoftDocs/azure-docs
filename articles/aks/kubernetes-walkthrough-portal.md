@@ -2,12 +2,12 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster in the portal
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
-ms.author: iainfou
+ms.date: 5/31/2019
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -29,27 +29,30 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an AKS cluster
 
-In the top left-hand corner of the Azure portal, select **+ Create a resource** > **Kubernetes Service**.
+In the top left-hand corner of the Azure portal, select **+ Create a resource** > **Containers** >  **Kubernetes Service**.
 
 To create an AKS cluster, complete the following steps:
 
-1. **Basics** - Configure the following options:
+1. On the **Basics** page, configure the following options:
    - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
    - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
-   - *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
+   - **PRIMARY NODE POOL**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. 
        - Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
     
      ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Select **Next: Authentication** when complete.
+     Select **Next: Scale** when complete.
 
-1. **Authentication**: Configure the following options:
-   - Create a new service principal or *Configure* to use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
-   - Enable the option for Kubernetes role-based access controls (RBAC). These controls provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
+2. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next:Authentication**.
+> [!CAUTION]
+> Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) for mitigations.
+3. On the **Authentication** page, configure the following options:
+   - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
+   - Enable the option for Kubernetes role-based access controls (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
-     By default, *Basic* networking is used, and Azure Monitor for containers is enabled. Select **Review + create** and then **Create** when ready.
+By default, *Basic* networking is used, and Azure Monitor for containers is enabled. Click **Review + create** and then **Create** when validation completes.
 
-It takes a few minutes to create the AKS cluster and to be ready for use. When finished, browse to the AKS cluster resource group, such as *myResourceGroup*, and select the AKS resource, such as *myAKSCluster*. The AKS cluster dashboard is shown, as in the following example screenshot:
+It takes a few minutes to create the AKS cluster. When your deployment is complete, click **Go to resource**, or  browse to the AKS cluster resource group, such as *myResourceGroup*, and select the AKS resource, such as *myAKSCluster*. The AKS cluster dashboard is shown, as in this example:
 
 ![Example AKS dashboard in the Azure portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -57,7 +60,7 @@ It takes a few minutes to create the AKS cluster and to be ready for use. When f
 
 To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. The `kubectl` client is pre-installed in the Azure Cloud Shell.
 
-Open Cloud Shell using the button on the top right-hand corner of the Azure portal.
+Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
 ![Open the Azure Cloud Shell in the portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
@@ -87,7 +90,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 > [!TIP]
 > In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
 
-Create a file named `azure-vote.yaml` and copy in the following YAML definition. In Azure Cloud Shell, create the file using `vi` or `Nano`, as if working on a virtual or physical system:
+In the cloud shell, use `nano` or `vi` to create a file named `azure-vote.yaml` and copy in the following YAML definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -231,7 +234,7 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-front` pod, select the **View container logs** from the drop down of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

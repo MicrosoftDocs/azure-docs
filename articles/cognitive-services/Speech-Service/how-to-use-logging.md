@@ -1,5 +1,5 @@
 ---
-title: Speech SDK logging - Speech Services
+title: Speech SDK logging - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Enable logging in the Speech SDK.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: amishu
 ---
 
@@ -18,7 +18,7 @@ ms.author: amishu
 Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
 
 > [!NOTE]
-> Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript.
+> Logging is available since Speech SDK version 1.4.0 in all supported Speech SDK programming languages, with the exception of JavaScript.
 
 ## Sample
 
@@ -115,4 +115,3 @@ More about iOS File System is available [here](https://developer.apple.com/libra
 
 > [!div class="nextstepaction"]
 > [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
-

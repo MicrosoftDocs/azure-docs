@@ -3,8 +3,8 @@ title: Common scenarios in Azure AD entitlement management (Preview) - Azure Act
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/23/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -122,4 +122,4 @@ There are several ways that you can configure entitlement management for your or
 ## Next steps
 
 - [Tutorial: Create your first access package](entitlement-management-access-package-first.md)
-- [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
+- [Delegate tasks](entitlement-management-delegate.md)

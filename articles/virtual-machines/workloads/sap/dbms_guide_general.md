@@ -10,7 +10,7 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -147,7 +147,7 @@ The placement of the database files and the log and redo files and the type of A
 As already stated, if your IOPS requirement exceeds what a single VHD can provide, balance the number of IOPS that are needed for the database files across a number of VHDs. The easiest way to distribute the IOPS load across disks is to build a software stripe over the different disks. Then place a number of data files of the SAP DBMS on the LUNs carved out of the software stripe. The number of disks in the stripe is driven by IOPs demands, disk throughput demands, and volume demands.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > We recommend that you use Windows Storage Spaces to create stripe sets across multiple Azure VHDs. Use at least Windows Server 2012 R2 or Windows Server 2016.
@@ -161,7 +161,7 @@ As already stated, if your IOPS requirement exceeds what a single VHD can provid
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Because Azure Storage keeps three images of the VHDs, it doesn't make sense to configure a redundancy when you stripe. You only need to configure striping so that the I/Os are distributed over the different VHDs.
@@ -227,7 +227,7 @@ Azure VMs offer nonpersistent disks after a VM is deployed. In the case of a VM 
 
 For more information, see [Understand the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Drive D in an Azure VM is a nonpersisted drive, which is backed by some local disks on the Azure compute node. Because it's nonpersisted, any changes made to the content on drive D are lost when the VM is rebooted. Changes include files that were stored, directories that were created, and applications that were installed.
@@ -238,7 +238,7 @@ For more information, see [Understand the temporary drive on Windows VMs in Azur
 >
 >
 
-- - -
+---
 
 
 
@@ -336,7 +336,7 @@ To further reduce network latency between Azure VMs, we recommend that you choos
 > Not all VM types support Accelerated Networking. The previous article lists the VM types that support Accelerated Networking.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > To learn how to deploy VMs with Accelerated Networking for Windows, see [Create a Windows virtual machine with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -347,7 +347,7 @@ To further reduce network latency between Azure VMs, we recommend that you choos
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > In the case of SUSE, Red Hat, and Oracle Linux, Accelerated Networking is supported with recent releases. Older releases like SLES 12 SP2 or RHEL 7.2 don't support Azure Accelerated Networking.

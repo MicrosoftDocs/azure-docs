@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
-ms.author: malop;kumud
+ms.author: malop
+ms.reviewer: kumud
 ---
 
 # Security groups
@@ -30,7 +31,7 @@ A network security group contains zero, or as many rules as desired, within Azur
 |Name|A unique name within the network security group.|
 |Priority | A number between 100 and 4096. Rules are processed in priority order, with lower numbers processed before higher numbers, because lower numbers have higher priority. Once traffic matches a rule, processing stops. As a result, any rules that exist with lower priorities (higher numbers) that have the same attributes as rules with higher priorities are not processed.|
 |Source or destination| Any, or an individual IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), [service tag](#service-tags), or [application security group](#application-security-groups). If you specify an address for an Azure resource, specify the private IP address assigned to the resource. Network security groups are processed after Azure translates a public IP address to a private IP address for inbound traffic, and before Azure translates a private IP address to a public IP address for outbound traffic. Learn more about Azure [IP addresses](virtual-network-ip-addresses-overview-arm.md). Specifying a range, a service tag, or application security group, enables you to create fewer security rules. The ability to specify multiple individual IP addresses and ranges (you cannot specify multiple service tags or application groups) in a rule is referred to as [augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple IP addresses and IP address ranges in network security groups created through the classic deployment model. Learn more about [Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocol     | TCP, UDP, or Any, which includes (but not limited to) TCP, UDP, and ICMP. You cannot specify ICMP alone, so if you require ICMP, use Any. |
+|Protocol     | TCP, UDP, ICMP or Any.|
 |Direction| Whether the rule applies to inbound, or outbound traffic.|
 |Port range     |You can specify an individual or range of ports. For example, you could specify 80 or 10000-10005. Specifying ranges enables you to create fewer security rules. Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple ports or port ranges in the same security rule in network security groups created through the classic deployment model.   |
 |Action     | Allow or deny        |
@@ -46,42 +47,56 @@ Augmented security rules simplify security definition for virtual networks, allo
 
 ## Service tags
 
- A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change. You can use service tags in place of specific IP addresses when creating security rules. 
- 
- You can download and integrate with an on premises firewall the list of service tags with prefix details on the following weekly publications for Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change. You can use service tags in place of specific IP addresses when creating security rules. 
 
- The following service tags are available for use in security rule definition. Their names vary slightly between [Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The following service tags are available for use in [network security groups rules](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules). Service tags with asterisk at the end (i.e. AzureCloud*) can also be used in [Azure Firewall network rules](https://docs.microsoft.com/azure/firewall/service-tags). 
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (all CIDR ranges defined for the virtual network), all connected on-premises address spaces, and [peered](virtual-network-peering-overview.md) virtual networks or virtual network connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and address prefixes used on [user defined routes](virtual-networks-udr-overview.md).
+* **ApiManagement*** (Resource Manager only): This tag denotes the address prefixes of the management traffic for APIM dedicated deployments. If you specify *ApiManagement* for the value, traffic is allowed or denied to ApiManagement. This tag is recommended for inbound/outbound security rule. 
+* **AppService*** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService service. If you specify *AppService* for the value, traffic is allowed or denied to AppService. If you only want to allow access to AppService in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AppService.[region name]. This tag is recommended for outbound security rule to WebApps frontends.  
+* **AppServiceManagement*** (Resource Manager only): This tag denotes the address prefixes of the management traffic for App Service Environment dedicated deployments. If you specify *AppServiceManagement* for the value, traffic is allowed or denied to AppServiceManagement. This tag is recommended for inbound/outbound security rule. 
+* **AzureActiveDirectory*** (Resource Manager only): This tag denotes the address prefixes of the AzureActiveDirectory service. If you specify *AzureActiveDirectory* for the value, traffic is allowed or denied to AzureActiveDirectory. This tag is recommended for outbound security rule.
+* **AzureActiveDirectoryDomainServices*** (Resource Manager only): This tag denotes the address prefixes of  the management traffic for Azure Active Directory Domain Services dedicated deployments. If you specify *AzureActiveDirectoryDomainServices* for the value, traffic is allowed or denied to AzureActiveDirectoryDomainServices. This tag is recommended for inbound/outbound security rule.  
+* **AzureBackup*** (Resource Manager only): This tag denotes the address prefixes of the AzureBackup service. If you specify *AzureBackup* for the value, traffic is allowed or denied to AzureBackup. This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. This tag is recommended for outbound security rule. 
+* **AzureCloud*** (Resource Manager only): This tag denotes the IP address space for Azure including all [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). If you specify *AzureCloud* for the value, traffic is allowed or denied to Azure public IP addresses. If you only want to allow access to AzureCloud in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureCloud.[region name]. This tag is recommended for outbound security rule. 
+* **AzureConnectors*** (Resource Manager only): This tag denotes the address prefixes of the Logic Apps connectors for probe/backend connections. If you specify *AzureConnectors* for the value, traffic is allowed or denied to AzureConnectors. If you only want to allow access to AzureConnectors in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureConnectors.[region name]. This tag is recommended for inbound security rule. 
+* **AzureContainerRegistry*** (Resource Manager only): This tag denotes the address prefixes of the Azure Container Registry service. If you specify *AzureContainerRegistry* for the value, traffic is allowed or denied to AzureContainerRegistry. If you only want to allow access to AzureContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureContainerRegistry.[region name]. This tag is recommended for outbound security rule. 
+* **AzureCosmosDB*** (Resource Manager only): This tag denotes the address prefixes of the Azure Cosmos Database service. If you specify *AzureCosmosDB* for the value, traffic is allowed or denied to AzureCosmosDB. If you only want to allow access to AzureCosmosDB in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureCosmosDB.[region name]. This tag is recommended for outbound security rule. 
+* **AzureDataLake*** (Resource Manager only): This tag denotes the address prefixes of the Azure Data Lake service. If you specify *AzureDataLake* for the value, traffic is allowed or denied to AzureDataLake. This tag is recommended for outbound security rule. 
+* **AzureKeyVault*** (Resource Manager only): This tag denotes the address prefixes of the Azure KeyVault service. If you specify *AzureKeyVault* for the value, traffic is allowed or denied to AzureKeyVault. If you only want to allow access to AzureKeyVault in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureKeyVault.[region name]. This tag has dependency on the **AzureActiveDirectory** tag. This tag is recommended for outbound security rule.  
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule.
+* **AzureMachineLearning*** (Resource Manager only): This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. This tag is recommended for outbound security rule. 
+* **AzureMonitor*** (Resource Manager only): This tag denotes the address prefixes of the Log Analytics, App Insights, AzMon, and custom metrics (GiG endpoints). If you specify *AzureMonitor* for the value, traffic is allowed or denied to AzureMonitor. For Log Analytics, this tag has dependency on the **Storage** tag. This tag is recommended for outbound security rule.
+* **AzurePlatformDNS** (Resource Manager only): This tag denotes DNS which is a basic infrastructure service. If you specify *AzurePlatformDNS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for DNS. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzurePlatformIMDS** (Resource Manager only): This tag denotes IMDS which is a basic infrastructure service. If you specify *AzurePlatformIMDS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for IMDS. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzurePlatformLKM** (Resource Manager only): This tag denotes Windows licensing or key management service. If you specify *AzurePlatformLKM* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for licensing. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzureTrafficManager*** (Resource Manager only): This tag denotes the IP address space for the Azure Traffic Manager probe IP addresses. More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). This tag is recommended for inbound security rule.  
+* **BatchNodeManagement*** (Resource Manager only): This tag denotes the address prefixes of the management traffic for Azure Batch dedicated deployments. If you specify *BatchNodeManagement* for the value, traffic is allowed or denied from the Batch service to compute nodes. This tag is recommended for inbound/outbound security rule. 
+* **CognitiveServicesManagement** (Resource Manager only): This tag denotes the address prefixes of traffic for Cognitive Services. If you specify *CognitiveServicesManagement* for the value, traffic is allowed or denied to CognitiveServicesManagement. This tag is recommended for outbound security rule.  
+* **Dynamics365ForMarketingEmail** (Resource Manager only): This tag denotes the address prefixes of the marketing email service of Dynamics 365. If you specify *Dynamics365ForMarketingEmail* for the value, traffic is allowed or denied to Dynamics365ForMarketingEmail. If you only want to allow access to Dynamics365ForMarketingEmail in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format Dynamics365ForMarketingEmail.[region name].
+* **EventHub*** (Resource Manager only): This tag denotes the address prefixes of the Azure EventHub service. If you specify *EventHub* for the value, traffic is allowed or denied to EventHub. If you only want to allow access to EventHub in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format EventHub.[region name]. This tag is recommended for outbound security rule. 
+* **GatewayManager** (Resource Manager only): This tag denotes the address prefixes of the management traffic for VPN/App Gateways dedicated deployments. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager. This tag is recommended for inbound security rule. 
 * **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by the public Internet. The address range includes the [Azure owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (Resource Manager only): This tag denotes the IP address space for Azure including all [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). If you specify *AzureCloud* for the value, traffic is allowed or denied to Azure public IP addresses. If you only want to allow access to AzureCloud in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify *AzureCloud.EastUS* as a service tag. 
-* **AzureTrafficManager** (Resource Manager only): This tag denotes the IP address space for the Azure Traffic Manager probe IP addresses. More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
-* **Storage** (Resource Manager only): This tag denotes the IP address space for the Azure Storage service. If you specify *Storage* for the value, traffic is allowed or denied to storage. If you only want to allow access to storage in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure Storage in the East US region, you could specify *Storage.EastUS* as a service tag. The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. 
-* **Sql** (Resource Manager only): This tag denotes the address prefixes of the Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse services. If you specify *Sql* for the value, traffic is allowed or denied to Sql. If you only want to allow access to Sql in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure SQL Database in the East US region, you could specify *Sql.EastUS* as a service tag. The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. 
-* **AzureCosmosDB** (Resource Manager only): This tag denotes the address prefixes of the Azure Cosmos Database service. If you specify *AzureCosmosDB* for the value, traffic is allowed or denied to AzureCosmosDB. If you only want to allow access to AzureCosmosDB in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureCosmosDB.[region name]. 
-* **AzureKeyVault** (Resource Manager only): This tag denotes the address prefixes of the Azure KeyVault service. If you specify *AzureKeyVault* for the value, traffic is allowed or denied to AzureKeyVault. If you only want to allow access to AzureKeyVault in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureKeyVault.[region name]. 
-* **EventHub** (Resource Manager only): This tag denotes the address prefixes of the Azure EventHub service. If you specify *EventHub* for the value, traffic is allowed or denied to EventHub. If you only want to allow access to EventHub in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format EventHub.[region name]. 
-* **ServiceBus** (Resource Manager only): This tag denotes the address prefixes of the Azure ServiceBus service using the Premium service tier. If you specify *ServiceBus* for the value, traffic is allowed or denied to ServiceBus. If you only want to allow access to ServiceBus in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format ServiceBus.[region name]. 
-* **MicrosoftContainerRegistry** (Resource Manager only): This tag denotes the address prefixes of the Microsoft Container Registry service. If you specify *MicrosoftContainerRegistry* for the value, traffic is allowed or denied to MicrosoftContainerRegistry. If you only want to allow access to MicrosoftContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format MicrosoftContainerRegistry.[region name]. 
-* **AzureContainerRegistry** (Resource Manager only): This tag denotes the address prefixes of the Azure Container Registry service. If you specify *AzureContainerRegistry* for the value, traffic is allowed or denied to AzureContainerRegistry. If you only want to allow access to AzureContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureContainerRegistry.[region name]. 
-* **AppService** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService service. If you specify *AppService* for the value, traffic is allowed or denied to AppService. If you only want to allow access to AppService in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AppService.[region name]. 
-* **AppServiceManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService Management service. If you specify *AppServiceManagement* for the value, traffic is allowed or denied to AppServiceManagement. 
-* **ApiManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure Api Management service. If you specify *ApiManagement* for the value, traffic is allowed or denied from the management interface of ApiManagement.  
-* **AzureConnectors** (Resource Manager only): This tag denotes the address prefixes of the Azure Connectors service. If you specify *AzureConnectors* for the value, traffic is allowed or denied to AzureConnectors. If you only want to allow access to AzureConnectors in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureConnectors.[region name]. 
-* **GatewayManager** (Resource Manager only): This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager.  
-* **AzureDataLake** (Resource Manager only): This tag denotes the address prefixes of the Azure Data Lake service. If you specify *AzureDataLake* for the value, traffic is allowed or denied to AzureDataLake. 
-* **AzureActiveDirectory** (Resource Manager only): This tag denotes the address prefixes of the AzureActiveDirectory service. If you specify *AzureActiveDirectory* for the value, traffic is allowed or denied to AzureActiveDirectory.  
-* **AzureMonitor** (Resource Manager only): This tag denotes the address prefixes of the AzureMonitor service. If you specify *AzureMonitor* for the value, traffic is allowed or denied to AzureMonitor. 
-* **ServiceFabric** (Resource Manager only): This tag denotes the address prefixes of the ServiceFabric service. If you specify *ServiceFabric* for the value, traffic is allowed or denied to ServiceFabric. 
-* **AzureMachineLearning** (Resource Manager only): This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. 
-* **BatchNodeManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure BatchNodeManagement service. If you specify *BatchNodeManagement* for the value, traffic is allowed or denied from the Batch service to compute nodes.
+* **MicrosoftContainerRegistry*** (Resource Manager only): This tag denotes the address prefixes of the Microsoft Container Registry service. If you specify *MicrosoftContainerRegistry* for the value, traffic is allowed or denied to MicrosoftContainerRegistry. If you only want to allow access to MicrosoftContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format MicrosoftContainerRegistry.[region name]. This tag is recommended for outbound security rule. 
+* **ServiceBus*** (Resource Manager only): This tag denotes the address prefixes of the Azure ServiceBus service using the Premium service tier. If you specify *ServiceBus* for the value, traffic is allowed or denied to ServiceBus. If you only want to allow access to ServiceBus in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format ServiceBus.[region name]. This tag is recommended for outbound security rule. 
+* **ServiceFabric*** (Resource Manager only): This tag denotes the address prefixes of the ServiceFabric service. If you specify *ServiceFabric* for the value, traffic is allowed or denied to ServiceFabric. This tag is recommended for outbound security rule. 
+* **Sql*** (Resource Manager only): This tag denotes the address prefixes of the Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse services. If you specify *Sql* for the value, traffic is allowed or denied to Sql. If you only want to allow access to Sql in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format Sql.[region name]. The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag is recommended for outbound security rule. 
+* **SqlManagement*** (Resource Manager only): This tag denotes the address prefixes of the management traffic for SQL dedicated deployments. If you specify *SqlManagement* for the value, traffic is allowed or denied to SqlManagement. This tag is recommended for inbound/outbound security rule. 
+* **Storage*** (Resource Manager only): This tag denotes the IP address space for the Azure Storage service. If you specify *Storage* for the value, traffic is allowed or denied to storage. If you only want to allow access to storage in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format Storage.[region name]. The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. This tag is recommended for outbound security rule. 
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (all CIDR ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks or virtual network connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](security-overview.md#azure-platform-considerations) and address prefixes used on [user defined routes](virtual-networks-udr-overview.md). Be aware that this tag may contain default route. 
 
 > [!NOTE]
 > Service tags of Azure services denotes the address prefixes from the specific cloud being used. 
 
 > [!NOTE]
 > If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
+
+### Service tags in on-premises  
+You can download and integrate with an on-premises firewall the list of service tags with prefix details on the following weekly publications for Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+
+You can also programmatically retrieve this information using the **Service Tag Discovery API** (Public Preview) - [REST](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell), and [Azure CLI](https://aka.ms/discoveryapi_cli). 
+
+> [!NOTE]
+> Following weekly publications (old version) for Azure [Public](https://www.microsoft.com/en-us/download/details.aspx?id=41653), [China](https://www.microsoft.com/en-us/download/details.aspx?id=42064), and [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) clouds will be deprecated by June 30, 2020. Please start using the updated publications as described above. 
 
 ## Default security rules
 
@@ -93,19 +108,19 @@ Azure creates the following default rules in each network security group that yo
 
 |Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|All|Allow|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Any|Allow|
 
 #### AllowAzureLoadBalancerInBound
 
 |Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|All|Allow|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Any|Allow|
 
 #### DenyAllInbound
 
 |Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|All|Deny|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Any|Deny|
 
 ### Outbound
 
@@ -113,21 +128,21 @@ Azure creates the following default rules in each network security group that yo
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | All | Allow |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
 
 #### AllowInternetOutBound
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | All | Allow |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Allow |
 
 #### DenyAllOutBound
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | All | Deny |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Deny |
 
-In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, and *Internet* are [service tags](#service-tags), rather than IP addresses. In the protocol column, **All** encompasses TCP, UDP, and ICMP. When creating a rule, you can specify TCP, UDP, or All, but you cannot specify ICMP alone. Therefore, if your rule requires ICMP, select *All* for protocol. *0.0.0.0/0* in the **Source** and **Destination** columns represents all addresses. Clients like Azure portal, Azure CLI, or Powershell can use * or any for this expression.
+In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, and *Internet* are [service tags](#service-tags), rather than IP addresses. In the protocol column, **Any** encompasses TCP, UDP, and ICMP. When creating a rule, you can specify TCP, UDP, ICMP or Any. *0.0.0.0/0* in the **Source** and **Destination** columns represents all addresses. Clients like Azure portal, Azure CLI, or Powershell can use * or any for this expression.
  
 You cannot remove the default rules, but you can override them by creating rules with higher priorities.
 
@@ -154,7 +169,7 @@ Because the [AllowVNetInBound](#allowvnetinbound) default security rule allows a
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | All | Deny |
+| 120 | * | * | AsgDb | 1433 | Any | Deny |
 
 ### Allow-Database-BusinessLogic
 

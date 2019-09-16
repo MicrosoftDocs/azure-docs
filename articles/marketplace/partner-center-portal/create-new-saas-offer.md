@@ -1,12 +1,12 @@
 ---
 title: Create a new SaaS offer in the Commercial Marketplace 
 description: How to create a new Software as a Service (SaaS) offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: mattwojo 
+author: qianw211 
 manager: evansma
-ms.author: mattwoj 
+ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/14/2019
 ---
 
 # Create a new SaaS offer
@@ -15,9 +15,9 @@ To begin creating Software as a Service (SaaS) offers, ensure that you first [Cr
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
-Select the + **Create a new…** button, then select the **Software as a Service** menu item. 
+Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
-If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
+If you select another offer type, you may be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/). Only SaaS and Dynamics 365 offers are available in the Commercial Marketplace portal on Partner Center at this time.
 
 ![Create offer window on Partner Center](./media/new-offer-click.png)
 
@@ -26,18 +26,21 @@ The **New offer** dialog box is displayed.
 ![New offer dialog box](./media/new-offer-popup.png)
 
 
-## Offer ID and name
+## Offer ID and alias
 
-- **Offer ID**: Create a unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be updated after you select create.  
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be changed after you select *Create*.  
 Example: test-offer-1 
 <br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Offer name**: The official name of your SaaS application offer, consistent across publications, advertisements, and web sites.  This name may be trademarked.  Offer name must not contain whitespace, emojis (unless they are the trademark or copyright symbol) and must be limited to 50 characters.
+- **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
+
 <br>Example: Test Offer 1&#8482;
 
 Select **Create**.  An **Offer overview** page is created for this offer.  
 
+<!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## Offer overview
 
@@ -67,29 +70,33 @@ Selling through Microsoft provides better customer discovery and acquisition, al
 
 In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
-- Your offer must be compatible with Azure clients. (Often SaaS apps are also hosted on Azure for best performance and compatibility, but this is not a requirement.) 
 - Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
-- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### Billing infrastructure costs
-For SaaS offers, you, as the publisher, must account for Azure infrastructure usage fees, and software licensing fees as a single cost item. This cost is represented as a flat monthly fee to the customer. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. 
+#### SaaS pricing and billing options
+With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers should bundle Azure infrastructure usage fees into their software license pricing. 
 
-Software licensing fees are presented as a monthly, recurring site-based subscription flat-rate fee and are not metered or consumption based.
+SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
+
+The following table shows an example break down of costs and payouts to demonstrate the agency model.
 
 |**Your license cost**|**$100 per month**|
 |:---|:---|
 |Azure usage cost (D1/1-Core)|Billed directly to the publisher, not the customer|
 |Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
 
-- In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
+|**Microsoft bills**|**$100 per month**|
+|:---|:---|
+|Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
+
+- In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
 - Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
 > **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
 
-|**Microsoft bills**|**$100 per month**|
-|:---|:---|
-|Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
+
 
 
 #### CSP Program Opt-in
@@ -105,11 +112,14 @@ Promote your business with Microsoft by creating a marketplace listing. Selectin
 
 - **How do you want potential customers to interact with this listing offer?**
 
-##### Get it now (Free)
-List your offer to customers for free by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/saas-app`
+##### Get it now (free)
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example: `https://contoso.com/saas-app`
 
-##### Free trial
-List your offer to customers on a free trial basis by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`
+##### Free trial (listing)
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+> [!NOTE]
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
@@ -198,6 +208,9 @@ Remember to **Save** before moving on to the next section!
 
 The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
+> [!NOTE]
+> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language].” It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+
 ### Offer listings
 
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
@@ -208,6 +221,87 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
+
+#### **Description**
+
+This is a required field. Items to include in the description: 
+
+* Clearly describe your offer's value proposition in the first few sentences of your description.  
+* Keep in mind that the first few sentences might be displayed in search engine results.  
+* Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
+* Use industry-specific vocabulary or benefit-based wording as much as possible. 
+
+Core components of your value proposition should include the following information: 
+
+* Description of the product. 
+* Type of user that benefits from the product. 
+* Customer needs or pain that the product addresses. 
+
+To make your offer description more engaging you can use HTML tags to format the description. 
+
+1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
+
+    **Example**: 
+
+    `<p>` This is my first paragraph. `</p>` <br>
+    `<p>` This is my second paragraph. `</p>` <br>
+
+    The above would look like this:
+
+    <p> This is my first paragraph. </p>
+    <p> This is my second paragraph. </p>
+
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
+
+    **Example**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    The above would look like this:
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
+
+    **Example**: `<b>` FREE TRIAL `</b>`
+    
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
+
+    **FREE TRIAL**
+
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
+
+    **Example**:
+
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
+
+    The above would look like this:
+
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
+
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
+
+    **Example**:
+
+    `<h1>`This is heading 1`</h1>` <br>
+    `<h2>`This is heading 2`</h2>` <br>
+    `<h3>`This is heading 3`</h3>` <br>
+    `<h4>`This is heading 4`</h4>` <br>
+    `<h5>`This is heading 5`</h5>` <br>
+    `<h6>`This is heading 6`</h6>` 
+
+    The above would look like this:
+
+    ![Sample headings](./media/heading.png)
 
 #### Links
 
@@ -248,22 +342,22 @@ The **Preview** tab enables you to define a limited **Preview Audience** for rel
 
 - **Define a Preview Audience: Add a single AAD/MSA account email per line, along with an optional description.**
 
-Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory (AAD) accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
+Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
 
 > [!NOTE]
 > The preview audience differs from a private audience. A preview audience is allowed access to your offer _prior_ to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience. In the **plan listing** tab, you can define a private audience with the **This is a private plan** checkbox. You can then define a private audience of up to 20,000 customers using Azure Tenant IDs.
 
 ## Technical configuration
 
-The **Technical configuration** tab defines the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. This connection enables us to provision your offer as a resource in the customer's Azure subscription if they choose to acquire it.
+The **Technical configuration** tab defines the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it. Diagrams describing the usage of the collected fields are available in documentation for [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **Landing page URL** (required): Define the site URL that customers will be directed to land on after acquiring your offer from the marketplace. This URL will also be the endpoint that will be receiving the connection APIs to facilitate commerce with Microsoft.
+- **Landing page URL** (required): Define the site URL that customers will land on after acquiring your offer from the marketplace. This URL will be the endpoint that receives a token when a customer is routed to the page. That token can be exchanged for provisioning details using resolve in the fulfillment APIs. Those details and any others you collect can be used as part of a customer-interactive web page built in your experience to complete registration and activate their purchase.
 
-- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: Azure Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
  Note that the Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
 
@@ -300,6 +394,22 @@ Select **Save** after completing these fields.
 
 The **Pricing and availability** tab enables you to configure the markets that this plan will be available in, the desired monetization model, price, and billing term. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (a private audience).
 
+##### Enabling Free Trials
+
+SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
+
+>[!Note]
+>If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately.  Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
+
+The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
+
+![One month free trial checkbox](./media/free-trial-enable.png)
+
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
+
+>[!Note]
+>Free trials are not supported for plans that leverage the marketplace metering service.
+
 #### Markets
 
 - **Edit markets** (optional)
@@ -313,9 +423,9 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 - **Pricing model**: Flat rate or Seat based
 
-**Flat rate:** Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing.
+**Flat rate:** Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers according to non-standard units.  For more information on metered billing, see [metered billing using the marketplace metering service](./saas-metered-billing.md).
 
-**Seat based:** Enable access to your offer with the price based on the number of users accessing the offer or occupying *seats*. This seat-based model enables you to set the minimum and maximum number of seats allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  These fields are optional. If left empty, the number of seats will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
+**Per user:** Enable access to your offer with the price based on the number of users accessing the offer or occupying seats. This user-based model enables you to set the minimum and maximum number of users allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
 
 Once published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
@@ -361,98 +471,7 @@ While SaaS offers use tenant IDs to define a private audience, other offer types
 
 ## Test drive
 
-The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
-
-### Technical configuration
-The following types of test drives are available, each with their own technical configuration requirements.
-
-- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
-- [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
-- [Logic app](#technical-configuration-for-logic-app-test-drive)
-- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (Technical configuration not required)
-
-#### Technical configuration for Azure Resource Manager test drive
-
-A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
-
-- **Regions** (required): Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
-
-- **Instances**: Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
-
-**Hot**: This type of instance is deployed and awaiting access per selected region. Customers can instantly access *Hot* instances of a test drive, rather than having to wait for a deployment. The tradeoff is that these instances are always running on your Azure subscription, so they will incur a larger uptime cost. It is highly recommended to have at least one *Hot* instance, as most customers don't want to wait for full deployments, resulting in a drop-off in customer usage if no *Hot* instance is available.
-
-**Cold**: This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
-
-- **Test drive Azure Resource Manager template**: Upload the .zip containing your Azure Resource Manager template.  Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).
-
-#### Technical configuration for Dynamics 365 test drive
-
-Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deployment using this type of test drive. The configuration for this type of hosted test drive is the same regardless of whether the test drive is targeting a Business Central, Customer Engagement, or Operations audience.
-
-- **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so you will need to ensure that you have enough licenses available to support the maximum limit set. Recommended value of 3-5.
-
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
-
-- **Instance URL** (required): The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (e.g. https://testdrive.crm.dynamics.com).
-
-- **Instance Web API URL** (required): Retrieve the Web API URL for your Dynamics 365 instance by logging into your Microsoft 365 account and navigating to **Settings** \&gt; **Customization** \&gt; **Developer Resources** \&gt; **Instance Web API (Service Root URL)**, copy the URL found here (e.g. https://testdrive.crm.dynamics.com/api/data/v9.0).
-
-- **Role name** (required): Provide the security role name you have defined in your custom Dynamics 365 test drive. This will be assigned to the user during their test drive (e.g. test-drive-role).
-
-#### Technical configuration for Logic app test drive
-
-Any custom products should use this type of test drive deployment template which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
-
-- **Region** (required, single-selection dropdown list): Currently there are 26 Azure-supported regions where your test drive can be made available. The resources for your Logic app will be deployed in the region you select. If your Logic App has any custom resources stored in a specific region, make sure that region is selected here. The best way to do this is to fully deploy your Logic App locally on your Azure subscription in the portal and verify that it functions correctly before making this selection.
-
-- **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. These test drives are already deployed, enabling customers to instantly access them without waiting for a deployment.
-
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The test drive terminates automatically after this time period ends.
-
-- **Azure resource group name** (required): Enter the [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) name where your Logic App test drive is saved.
-
-- **Azure logic app name** (required): Enter the name of the Logic app that assigns the test drive to the user. This Logic app must be saved in the Azure resources group above.
-
-- **Deprovision logic app name** (required): Enter the name of the Logic app that deprovisions the test drive once the customer is finished. This Logic app must be saved in the Azure resources group above.
-
-#### Technical configuration not required for Power BI test drives
-
-Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. Learn more about setting up[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) template apps.
-
-### Deployment subscription details
-
-In order to deploy the Test Drive on your behalf, please create and provide a separate, unique Azure Subscription. (Not required for Power BI test drives).
-
-- **Azure subscription ID** (required for Azure Resource Manager and Logic apps): Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](https://docs.microsoft.com/azure/billing/billing-create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (e.g. "a83645ac-1234-5ab6-6789-1h234g764ghty").
-
-- **Azure AD tenant ID** (required): Enter your Azure Active Directory (AD) [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties** , then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
-
-- **Azure AD tenant name** (required for Dynamic 365): Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
-
-- **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
-
-- **Azure AD app key** (required): Enter your Azure Active Directory (AD) [application key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations** , then select **Settings** > **Keys**.
-
-Remember to **Save** before moving on to the next section!
-
-### Test drive listings (optional)
-
-The **Test Drive listings** option found under the **Test drive** tab displays the languages (and markets) where your test drive is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the test drive details (description, user manual, videos, etc.) for each language/market.
-
-- **Description** (required): Describe your test drive, what will be demonstrated, objectives for the user to experiment with, features to explore, and any relevant information to help the user determine whether to acquire your offer. Up to 3,000 characters of text can be entered in this field. 
-
-- **Access information** (required for Azure Resource Manager and Logic test drives): Explain what a customer needs to know in order to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access features throughout the test drive. Up to 10,000 characters of text can be entered in this field.
-
-- **User Manual** (required): An in-depth walkthrough of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
-
-- **Videos: Add videos** (optional): Videos can be uploaded to YouTube or Vimeo and referenced here with a link and thumbnail image (533 x 324 pixels) so that a customer can view a walk through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
-  - **Name** (required)
-  - **URL (YouTube or Vimeo only)** (required)
-  - **Thumbnail (533 x 324px)**: Image file must be in PNG format.
-
-Select **Save** after completing these fields.
+[!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
 ## Publish
 

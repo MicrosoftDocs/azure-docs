@@ -31,7 +31,7 @@ Now that you have a token, you can call a protected web API.
 More includes will come later for Python and Java
 -->
 
-## Calling several APIs - Incremental consent and conditional access
+## Calling several APIs - Incremental consent and Conditional Access
 
 If you need to call several APIs for the same user, once you got a token for the first API, you can just call `AcquireTokenSilent`, and you'll get a token for the other APIs silently most of the time.
 

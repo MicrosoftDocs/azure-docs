@@ -4,12 +4,12 @@ description: Bi-Directional Serial Console for Azure Virtual Machines and Virtua
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: borisb
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -19,7 +19,7 @@ ms.author: alsin
 
 # Azure Serial Console for Linux
 
-The Serial Console in the Azure portal provides access to a text-based console for Linux virtual machines (VMs) and virtual machine scale set instances. This serial connection connects to the COM1 serial port of the VM or virtual machine scale set instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or virtual machine scale set.
+The Serial Console in the Azure portal provides access to a text-based console for Linux virtual machines (VMs) and virtual machine scale set instances. This serial connection connects to the ttys0 serial port of the VM or virtual machine scale set instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or virtual machine scale set.
 
 Serial Console works in the same manner for VMs and virtual machine scale set instances. In this doc, all mentions to VMs will implicitly include virtual machine scale set instances unless otherwise stated.
 
@@ -46,34 +46,6 @@ For Serial Console documentation for Windows, see [Serial Console for Windows](.
 - Your VM or virtual machine scale set instance must be configured for serial output on `ttys0`. This is the default for Azure images, but you will want to double check this on custom images. Details [below](#custom-linux-images).
 
 
-## Get started with the Serial Console
-The Serial Console for VMs and virtual machine scale set is accessible only through the Azure portal:
-
-### Serial Console for Virtual Machines
-Serial Console for VMs is as straightforward as clicking on **Serial console** within the **Support + troubleshooting** section in the Azure portal.
-  1. Open the [Azure portal](https://portal.azure.com).
-
-  1. Navigate to **All resources** and select a Virtual Machine. The overview page for the VM opens.
-
-  1. Scroll down to the **Support + troubleshooting** section and select **Serial console**. A new pane with the serial console opens and starts the connection.
-
-     ![Linux Serial Console window](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
-### Serial Console for Virtual Machine Scale Sets
-Serial Console is available on a per-instance basis for virtual machine scale sets. You will have to navigate to the individual instance of a virtual machine scale set before seeing the **Serial console** button. If your virtual machine scale set does not have boot diagnostics enabled, ensure you update your virtual machine scale set model to enable boot diagnostics, and then upgrade all instances to the new model in order to access serial console.
-  1. Open the [Azure portal](https://portal.azure.com).
-
-  1. Navigate to **All resources** and select a Virtual Machine Scale Set. The overview page for the virtual machine scale set opens.
-
-  1. Navigate to **Instances**
-
-  1. Select a virtual machine scale set instance
-
-  1. From the **Support + troubleshooting** section, select **Serial console**. A new pane with the serial console opens and starts the connection.
-
-     ![Linux virtual machine scale set Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-
 > [!NOTE]
 > The serial console requires a local user with a configured password. VMs or virtual machine scale sets configured only with an SSH public key won't be able to sign in to the serial console. To create a local user with a password, use the [VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), which is available in the portal by selecting **Reset password** in the Azure portal, and create a local user with a password.
 > You can also reset the administrator password in your account by [using GRUB to boot into single user mode](./serial-console-grub-single-user-mode.md).
@@ -94,11 +66,11 @@ SUSE        | Newer SLES images available on Azure have serial console access en
 Oracle Linux        | Serial console access enabled by default.
 
 ### Custom Linux images
-To enable the serial console for your custom Linux VM image, enable console access in the file */etc/inittab* to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+To enable the serial console for your custom Linux VM image, enable console access in the file */etc/inittab* to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. You may also need to spawn a getty on ttyS0. This can be done with `systemctl start serial-getty@ttyS0.service`.
 
 You will also want to add ttys0 as the destination for serial output. For more information on configuring a custom image to work with the serial console, see the general system requirements at [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path. |
+If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path.
 
 ## Common scenarios for accessing the Serial Console
 
@@ -111,47 +83,8 @@ SSH configuration issues | Access the serial console and change the settings. Se
 Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more details and distro-specific information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 
 ## Disable the Serial Console
-By default, all subscriptions have serial console access enabled. You can disable the serial console at either the subscription level or VM/virtual machine scale set level. Note that boot diagnostics must be enabled on a VM in order for serial console to work.
 
-### VM/virtual machine scale set-level disable
-The serial console can be disabled for a specific VM or virtual machine scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the virtual machine scale set. If you are using serial console on a virtual machine scale set, ensure you upgrade your virtual machine scale set instances to the latest model.
-
-> [!NOTE]
-> To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include administrator or owner roles. Custom roles can also have write permissions.
-
-### Subscription-level disable
-The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). This action requires contributor level access or above to the subscription. You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
-
-To reenable serial console for a subscription, use the [Enable Console REST API call](/rest/api/serialconsole/console/enableconsole).
-
-![REST API Try It](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-Alternatively, you can use the following set of bash commands in Cloud Shell to disable, enable, and view the disabled status of the serial console for a subscription:
-
-* To get the disabled status of the serial console for a subscription:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* To disable the serial console for a subscription:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* To enable the serial console for a subscription:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
+By default, all subscriptions have serial console access enabled. You can disable the serial console at either the subscription level or VM/virtual machine scale set level. For detailed instructions, visit [Enable and disable the Azure Serial Console](./serial-console-enable-disable.md).
 
 ## Serial console security
 
@@ -182,18 +115,6 @@ Use the **Tab** key on your keyboard to navigate in the serial console interface
 ### Use Serial Console with a screen reader
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
-## Errors
-Because most errors are transient, retrying your connection can often fix them. The following table shows a list of errors and mitigations. These errors and mitigations apply for both VMs and virtual machine scale set instances.
-
-Error                            |   Mitigation
-:---------------------------------|:--------------------------------------------|
-Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled.
-The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | The VM must be in a started state to access the serial console.
-You do not have the required permissions to use this VM with the serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console access requires certain permissions. For more information, see [Prerequisites](#prerequisites).
-Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | The serial console access requires certain permissions. For more information, see [Prerequisites](#prerequisites).
-Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which change fairly regularly.
-A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics doesn't have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
-
 ## Known issues
 We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation. These issues and mitigations apply for both VMs and virtual machine scale set instances.
 
@@ -204,6 +125,7 @@ Serial console text only takes up a portion of the screen size (often after usin
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 Serial console does not work with a storage account firewall. | Serial console by design cannot work with storage account firewalls enabled on the boot diagnostics storage account.
 Serial console does not work with a storage account using Azure Data Lake Storage Gen2 with hierarchical namespaces. | This is a known issue with hierarchical namespaces. To mitigate, ensure that your VM's boot diagnostics storage account is not created using Azure Data Lake Storage Gen2. This option can only be set upon storage account creation. You may have to create a separate boot diagnostics storage account without Azure Data Lake Storage Gen2 enabled to mitigate this issue.
+Erratic keyboard input in SLES BYOS images. Keyboard input is only sporadically recognized. | This is an issue with the Plymouth package. Plymouth should not be run in Azure as you don't need a splash screen and Plymouth interferes with the platform ability to use Serial Console. Remove Plymouth with `sudo zypper remove plymouth` and then reboot. Alternatively, modify the kernel line of your GRUB config by appending `plymouth.enable=0` to the end of the line. You can do this by [editing the boot entry at boot time](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), or by editing the GRUB_CMDLINE_LINUX line in `/etc/default/grub`, rebuilding GRUB with `grub2-mkconfig -o /boot/grub2/grub.cfg`,  and then rebooting.
 
 
 ## Frequently asked questions
@@ -237,7 +159,7 @@ A. Your image is likely misconfigured for serial console access. For information
 
 **Q. Is the serial console available for virtual machine scale sets?**
 
-A. Yes, it is! See [Serial Console for Virtual Machine Scale Sets](#serial-console-for-virtual-machine-scale-sets)
+A. Yes, it is! See [Serial Console for Virtual Machine Scale Sets](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 **Q. If I set up my VM or virtual machine scale set by using only SSH key authentication, can I still use the serial console to connect to my VM/virtual machine scale set instance?**
 

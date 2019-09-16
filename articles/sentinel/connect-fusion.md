@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: 82becf50-6628-47e4-b3d7-18d7d72d505f
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -26,7 +27,7 @@ ms.author: rkarlin
 
 Machine Learning in Azure Sentinel is built-in right from the beginning. We have thoughtfully designed the system with ML innovations aimed to make security analysts, security data scientists and engineers productive. One such innovation is Azure Sentinel Fusion built especially to reduce alert fatigue.
 
-Fusion uses graph powered machine learning algorithms to correlate between millions of lower fidelity anomalous activities from different products such as Azure AD Identity Protection, and Microsoft Cloud App Security, to combine them into a manageable number of interesting security cases.
+Fusion uses graph powered machine learning algorithms to correlate between millions of lower fidelity anomalous activities from different products such as Azure AD Identity Protection, and Microsoft Cloud App Security, to combine them into a manageable number of interesting security incidents.
 
 ## Enable fusion
 

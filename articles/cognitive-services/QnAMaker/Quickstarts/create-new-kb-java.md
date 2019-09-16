@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Java - QnA Maker"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: This Java REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 
@@ -96,7 +96,7 @@ Repeat the call until success or failure:
 ```
 
 ## Add a main method
-The main method creates the KB, then polls for the status. The_create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. **The `while` loop retries the status if it is not completed.
+The main method creates the KB, then polls for the status. The operation ID is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `while` loop retries the status if it is not completed.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 
@@ -110,7 +110,7 @@ The main method creates the KB, then polls for the status. The_create_ **Operati
 
 2. Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
-    ```base
+    ```bash
     java -cp ",;libs/*" CreateKB
     ```
 

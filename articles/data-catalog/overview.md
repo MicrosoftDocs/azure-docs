@@ -5,7 +5,7 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 ---
 
 # What is Azure Data Catalog?

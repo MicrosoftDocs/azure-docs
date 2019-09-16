@@ -19,6 +19,8 @@
   - name: Develop applications
     expanded: true
     items:
+    - name: Use Draft
+      href: kubernetes-draft.md
     - name: Use Java (VS Code & CLI)
       href: ../dev-spaces/quickstart-java.md
       maintainContext: true
@@ -114,6 +116,8 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
+    - name: Create an ACR with an AKS cluster (preview)
+      href: cluster-container-registry-integration.md
     - name: Create virtual nodes
       items:
       - name: Use the Azure CLI
@@ -124,6 +128,8 @@
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler (preview)
       href: cluster-autoscaler.md
+    - name: Use Availability Zones (preview)
+      href: availability-zones.md
     - name: Use multiple node pools (preview)
       href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
@@ -153,6 +159,8 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
+    - name: Use a Standard Load Balancer
+      href: load-balancer-standard.md
     - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
@@ -187,6 +195,8 @@
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges (preview)
       href: api-server-authorized-ip-ranges.md
+    - name: Control deployments with Azure Policy (preview)
+      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
     - name: Update cluster service principal credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic (preview)
@@ -280,8 +290,6 @@
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md
-    - name: Develop applications with Draft
-      href: kubernetes-draft.md
     - name: Use Open Service Broker for Azure
       href: integrate-azure.md
     - name: Use Cosmos DB API for MongoDB with OSBA
@@ -298,6 +306,10 @@
         href: istio-install.md
       - name: Intelligent routing and canary releases
         href: istio-scenario-routing.md
+    - name: Use Hashicorp Consul Connect
+      items:
+      - name: Install and configure
+        href: consul-install.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true
@@ -311,6 +323,8 @@
     - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
+    - name: Deployment Center Launcher
+      href: deployment-center-launcher.md 
   - name: Troubleshoot
     items:
     - name: Common issues

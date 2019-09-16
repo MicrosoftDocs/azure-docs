@@ -13,6 +13,8 @@
     href: create-member-cli.md
   - name: Connect to transaction node
     items:
+    - name: Using VS Code
+      href: connect-vscode.md
     - name: Using MetaMask
       href: connect-metamask.md
     - name: Using Geth
@@ -21,7 +23,7 @@
       href: connect-truffle.md
 - name: Tutorials
   items:
-  - name: Send transactions
+  - name: Use smart contracts
     href: send-transaction.md
 - name: Concepts
   items:

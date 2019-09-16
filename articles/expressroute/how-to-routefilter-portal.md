@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
 
@@ -32,7 +32,7 @@ If you require connectivity to all services, a large number of prefixes are adve
 
 When Microsoft peering is configured on your ExpressRoute circuit, the Microsoft edge routers establish a pair of BGP sessions with the edge routers (yours or your connectivity provider's). No routes are advertised to your network. To enable route advertisements to your network, you must associate a route filter.
 
-A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially a white list of all the BGP community values. Once a route filter resource is defined and attached to an ExpressRoute circuit, all prefixes that map to the BGP community values are advertised to your network.
+A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially a list of all the BGP community values you want to allow. Once a route filter resource is defined and attached to an ExpressRoute circuit, all prefixes that map to the BGP community values are advertised to your network.
 
 To be able to attach route filters with Office 365 services on them, you must have authorization to consume Office 365 services through ExpressRoute. If you are not authorized to consume Office 365 services through ExpressRoute, the operation to attach route filters fails. For more information about the authorization process, see [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). Connectivity to Dynamics 365 services does NOT require any prior authorization.
 
@@ -75,7 +75,7 @@ BGP community values associated with services accessible through Microsoft peeri
 
 ### 2. Make a list of the values that you want to use
 
-Make a list of BGP community values you want to use in the route filter. As an example, the BGP community value for Dynamics 365 services is 12076:5040.
+Make a list of [BGP community values](expressroute-routing.md#bgp) you want to use in the route filter. 
 
 ## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
@@ -97,14 +97,14 @@ You can add and update rules by selecting the manage rule tab for your route fil
 ![Create a route filter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
-You can select the services you want to connect to from the drop down list and save the rule when done.
+You can select the services you want to connect to from the drop-down list and save the rule when done.
 
 ![Create a route filter](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>Step 3: Attach the route filter to an ExpressRoute circuit
 
-You can attach the route filter to a circuit by selecting the "add Circuit" button and selecting the ExpressRoute circuit from the drop down list.
+You can attach the route filter to a circuit by selecting the "add Circuit" button and selecting the ExpressRoute circuit from the drop-down list.
 
 ![Create a route filter](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
@@ -133,7 +133,7 @@ You can update the list of BGP community values attached to a circuit by selecti
 
 ### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
-To detach a circuit from the route filter, right click on the circuit and click on "disassociate".
+To detach a circuit from the route filter, right-click on the circuit and click on "disassociate".
 
 ![Create a route filter](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
@@ -146,4 +146,6 @@ You can delete a route filter by selecting the delete button.
 
 ## Next Steps
 
-For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+* For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+
+* For information about router configuration samples, see [Router configuration samples to set up and manage routing](expressroute-config-samples-routing.md). 

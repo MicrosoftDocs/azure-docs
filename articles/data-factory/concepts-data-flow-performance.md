@@ -36,7 +36,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
 
-![Source Part](media/data-flow/sourcepart2.png "Source Part")
+![Source Part](media/data-flow/sourcepart3.png "Source Part")
 
 ### Partition your source data
 
@@ -54,6 +54,12 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Setting batch size will instruct ADF to store data in sets in memory instead of row-by-row. It is an optional setting and you may run out of resources on the compute nodes if they are not sized properly.
 * Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
 * If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
+
+### Set isolation level on Source transformation settings for SQL datasets
+
+* Read uncommitted will provide faster query results on Source transformation
+
+![Isolation level](media/data-flow/isolationlevel.png "Isolation Level")
 
 ### Set sink batch size
 
@@ -106,6 +112,10 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * You can control how many partitions that ADF will use. On each Source & Sink transformation, as well as each individual transformation, you can set a partitioning scheme. For smaller files, you may find selecting "Single Partition" can sometimes work better and faster than asking Spark to partition your small files.
 * If you do not have enough information about your source data, you can choose "Round Robin" partitioning and set the number of partitions.
 * If you explore your data and find that you have columns that can be good hash keys, use the Hash partitioning option.
+* When debugging in data preview and pipeline debug, note that the limit and sampling sizes for file-based source datasets only apply to the number of rows returned, not the number of rows read. This is important to note because it can effect the performance of your debug executions and possibly cause the flow to fail.
+* Remember that debug clusters are small single-node clusters by default, so use temporary small files for debugging. Go to Debug Settings and point to a small subset of your data using a temporary file.
+
+![Debug Settings](media/data-flow/debugsettings3.png "Debug Settings")
 
 ### File naming options
 
@@ -116,9 +126,20 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Keep this in mind when choosing this popular option. You can run out of cluster node resources if you are combining many large source files into a single output file partition.
 * To avoid exhausting compute node resources, you can keep the default or explicit partitioning scheme in ADF, which optimizes for performance, and then add a subsequent Copy Activity in the pipeline that merges all of the PART files from the output folder to a new single file. Essentially, this technique separates the action of transformation from file merging and achieves the same result as setting "output to single file".
 
-## Next steps
-See the other Data Flow articles:
+### Looping through file lists
 
-- [Data Flow overview](concepts-data-flow-overview.md)
+In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow than to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
+
+For example, if I have a list of data files from July 2019 that I wish to process in a folder in Blob Storage, it would be more performant to call an Execute Data Flow activity one time from your pipeline and use a wildcard in your Source like this:
+
+```DateFiles/*_201907*.txt```
+
+This will perform better than a Lookup against the Blob Store in a pipeline that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
+## Next steps
+
+See the other Data Flow articles related to performance:
+
+- [Data Flow Optimize Tab](concepts-data-flow-optimize-tab.md)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)

@@ -1,12 +1,13 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and Java"
+titleSuffix: Azure Cognitive Services
 description: Use the Ink Recognizer API to start recognizing digital ink strokes.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
 ---

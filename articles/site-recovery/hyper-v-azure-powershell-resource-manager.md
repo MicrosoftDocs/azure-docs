@@ -5,7 +5,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
 
 ---
@@ -108,6 +108,17 @@ Set the vault context as follows:
 5. Verify that the Hyper-V host is registered to the site as follows:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+If you're running a Hyper-V core server, download the setup file and follow these steps:
+1. Extract the files from AzureSiteRecoveryProvider.exe to a local directory by running this command:
+```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Run ```.\setupdr.exe /i```
+Results are logged to %Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Register the server by running this command:
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## Step 6: Create a replication policy
 

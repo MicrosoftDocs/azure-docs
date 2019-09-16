@@ -59,7 +59,7 @@
     href: virtual-network-ip-addresses-overview-arm.md
   - name: Public IP prefix
     href: public-ip-address-prefix.md
-  - name: IPv6 for Azure VNET
+  - name: IPv6 for Azure VNet
     href: ipv6-overview.md
   - name: DDoS protection
     href: ddos-protection-overview.md
@@ -91,7 +91,7 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
-    - name: IPv6 for Azure VNET
+    - name: IPv6 for VNet - Basic Load Balancer
       items: 
       - name: Azure PowerShell
         href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
@@ -99,6 +99,14 @@
         href: virtual-network-ipv4-ipv6-dual-stack-cli.md
       - name: Resource Manager template
         href: ipv6-configure-template-json.md
+    - name: IPv6 for VNet - Standard Load Balancer
+      items: 
+      - name: Azure PowerShell
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      - name: Azure CLI
+        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      - name: Resource Manager template
+        href: ipv6-configure-standard-load-balancer-template-json.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
@@ -245,8 +253,16 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
+  - name: Move across regions
+    items:
+    - name: Virtual networks - Portal
+      href: virtual-network-azure-to-azure-migrate-vnet-portal.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot virtual network peering issues
+      href: virtual-network-troubleshoot-peering-issues.md
+    - name: Configure and validate VNet or VPN connections
+      href: virtual-network-configure-vnet-connections.md
     - name: Network security groups
       href: diagnose-network-traffic-filter-problem.md
     - name: Routes
@@ -265,6 +281,8 @@
       href: troubleshoot-outbound-smtp-connectivity.md
     - name: About IP address 168.63.129.16
       href: what-is-ip-address-168-63-129-16.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
   - name: Classic
     items:
     - name: Create and manage a virtual network
@@ -363,6 +381,8 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Networking feedback
+    href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-network
   - name: Pricing calculator

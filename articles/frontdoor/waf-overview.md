@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao 
+ms.author: kumud
+ms.reviewer: tyao 
 ---
 
 # What is Azure web application firewall for Azure Front Door?
@@ -24,7 +25,7 @@ Preventing such attacks in application code can be challenging and may require r
 
 WAF for Front Door is a global and centralized solution. It is deployed on Azure network edge locations around the globe and every incoming request for a WAF enabled web application delivered by Front Door is inspected at the network edge. This allows WAF to prevent malicious attacks close to the attack sources, before they enter your virtual network and offers global protection at scale without sacrificing performance. A WAF policy can be easily linked to any Front Door profile in your subscription and new rules can be deployed within minutes, allowing you to respond quickly to changing threat patterns.
 
-![Azure web application firewall](./media/waf-overview/web-application-firewall-overview2.png)
+![Azure web application firewall](./media/waf-overview/web-application-firewall-overview.png)
 
 Azure WAF can also be enabled with Application Gateway. For more information, see [Web application firewall](../application-gateway/waf-overview.md).
 
@@ -77,7 +78,7 @@ You can configure custom rules WAF as follows:
 
 - **Size constraint:** You can configure custom rules based on the lengths of specific parts of a request such as query string, Uri, or request body.
 
-- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching for granular rate control.
+- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. Note that additional requests above the threshold may be able to get through while requests count are being updated. Rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching for granular rate control.
 
 ### Azure-managed rule sets
 

@@ -16,9 +16,6 @@ ms.author: hrasheed
 
 Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.
 
-> [!IMPORTANT]  
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## What is Hue?
 Hue is a set of Web applications used to interact with an Apache Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, and so on. The following components are available with Hue installations on an HDInsight Hadoop cluster.
 
@@ -55,7 +52,7 @@ This section provides instructions about how to use the script when provisioning
    >
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information as shown below:
 
-    ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Provide script action parameters for Hue")
+    ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hdi-hue-script-action.png "Provide script action parameters for Hue")
 
    * **NAME**: Enter a friendly name for the script action.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh

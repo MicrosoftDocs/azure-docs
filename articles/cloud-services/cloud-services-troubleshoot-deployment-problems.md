@@ -7,16 +7,13 @@ author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
-
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-
 ---
 # Troubleshoot cloud service deployment problems
 When you deploy a cloud service application package to Azure, you can obtain information about the deployment from the **Properties** pane in the Azure portal. You can use the details in this pane to help you troubleshoot problems with the cloud service, and you can provide this information to Azure Support when opening a new support request.

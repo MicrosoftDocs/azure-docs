@@ -52,7 +52,7 @@ During damage control and risk reduction-phase, it is important to quickly reduc
 
 * Does your company have policies in place to block users from access the network if necessary?
   * If yes, does the current solution integrate with the hybrid identity management system that you are going to adopt?
-* Does your company need to enforce conditional access for users that are in quarantine? 
+* Does your company need to enforce Conditional Access for users that are in quarantine? 
 
 > [!NOTE]
 > Make sure to take notes of each answer and understand the rationale behind the answer. [Define data protection strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.

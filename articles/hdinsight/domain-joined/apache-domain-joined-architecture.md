@@ -1,14 +1,15 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
-description: Learn how to plan HDInsight security with Enterprise Security Package.
+description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/24/2019
 ---
+
 # Use Enterprise Security Package in HDInsight
 
 The standard Azure HDInsight cluster is a single-user cluster. It's suitable for most companies that have smaller application teams building large data workloads. Each user can create a dedicated cluster on demand and destroy it when it's not needed anymore. 
@@ -31,7 +32,7 @@ The following things are created automatically:
 
 To summarize, you need to set up an environment with:
 
-- An Active Directory domain (managed by Azure AD DS).
+- An Active Directory domain (managed by Azure AD DS). **The domain name must be 39 characters or less to work with Azure HDInsight.**
 - Secure LDAP (LDAPS) enabled in Azure AD DS.
 - Proper networking connectivity from the HDInsight virtual network to the Azure AD DS virtual network, if you choose separate virtual networks for them. A VM inside the HDInsight virtual network should have a line of sight to Azure AD DS through virtual network peering. If HDInsight and Azure AD DS are deployed in the same virtual network, the connectivity is automatically provided, and no further action is needed.
 
@@ -57,32 +58,50 @@ Using on-premises Active Directory or Active Directory on IaaS VMs alone, withou
 
 If federation is being used and password hashes are synced correctly, but you are getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Azure AD tenant. To check and set the HRD policy:
 
-1. Install the Azure AD PowerShell module.
+1. Install the preview [Azure AD PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
-   ```
-   Install-Module AzureADPreview
+   ```powershell
+   Install-Module AzureAD
    ```
 
-2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
+2. Connect using global administrator (tenant administrator) credentials.
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
-   ```
-   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```powershell
+   Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. If it doesn't exist (that is, if `($powershellSPN -eq $null)`), then create the service principal.
+4. If it doesn't exist, then create the service principal.
 
-   ```
+   ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
    ```
 
 5. Create and attach the policy to this service principal.
 
-   ```
-   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```powershell
+    # Determine whether policy exists
+    Get-AzureADPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
 
-   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+    # Create if not exists
+    $policy = New-AzureADPolicy `
+        -Definition @('{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}') `
+        -DisplayName "EnableDirectAuth" `
+        -Type "HomeRealmDiscoveryPolicy"
+
+    # Determine whether a policy for the service principal exist
+    Get-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId
+    
+    # Add a service principal policy if not exist
+    Add-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId `
+        -refObjectID $policy.ID
    ```
 
 ## Next steps

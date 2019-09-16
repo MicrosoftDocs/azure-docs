@@ -3,7 +3,7 @@ title: Supported cluster versions in Azure Service Fabric | Microsoft Docs
 description: Learn about cluster versions in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: 
 
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
-ms.author: aljo
+ms.date: 08/21/2019
+ms.author: atsenthi
 
 ---
 # Supported Service Fabric versions
 
-Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://azure.microsoft.com/updates/?product=service-fabric).
 
 Refer to the following documents for details on how to keep your cluster running a supported Service Fabric version:
 
@@ -42,7 +42,8 @@ The following table lists the versions of Service Fabric and their support end d
 | 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |July 15, 2018      |
 | 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |October 26, 2018   |
 | 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |March 31, 2019  |
-| 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |Current version, so no end date |
+| 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |September 15, 2019 |
+| 6.5.* | 6.4.617.* |Less than or equal to version  3.4 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -99,3 +100,8 @@ The following table lists the version names of Service Fabric and their correspo
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | NA |
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.4 CU8 | 6.4.670.9590 | NA |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
+| 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
+| 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
+| 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |

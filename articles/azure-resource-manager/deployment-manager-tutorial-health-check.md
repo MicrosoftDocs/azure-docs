@@ -4,13 +4,8 @@ description: Use Resource Manager templates with Azure Deployment Manager to dep
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -38,7 +33,10 @@ This tutorial covers the following tasks:
 > * Verify the rollout deployment
 > * Clean up resources
 
-The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Additional resources:
+
+- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -56,7 +54,7 @@ In production, you typically use one or more monitoring providers. In order to m
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
 * A Resource Manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
-* A zip file of the Azure Function source code, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
+* A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
 
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window and then select **Paste**.
 
@@ -234,8 +232,8 @@ The purpose of this section is to show you how to include a health check step in
 
 To simplify the tutorial, the topology template and artifacts are shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-* Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topology template: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* Artifacts store: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
@@ -264,8 +262,8 @@ Verify the service topology and the underlined resources have been created succe
 
 To simplify the tutorial, the revised rollout template is shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-* Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topology template: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* Artifacts store: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). For **managedIdentityID**, see [Create the user-assigned managed identity](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 

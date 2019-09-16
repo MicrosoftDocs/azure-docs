@@ -61,6 +61,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
     href: load-balancer-standard-diagnostics.md
+  - name: Built-in security controls
+    href: load-balancer-security-controls.md
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer
@@ -188,6 +190,8 @@
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Azure Load Balancer feedback
+    href: https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator

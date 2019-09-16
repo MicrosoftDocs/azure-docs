@@ -1,6 +1,6 @@
 ---
 title: "Sending queries to the Bing News Search API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about sending search requests to the Bing News Search API.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 06/27/2019
 ms.author: aahi
 ---
 
@@ -60,12 +60,12 @@ Host: api.cognitive.microsoft.com
 
 The following shows the response to the previous request. The example also shows the response headers.
 
-```
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
+```json
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
-BingAPIs-SessionId: 92C9798D29C846ABBDAE4AB6C47CC888
 X-MSEdge-ClientID: 3358F499A06F6A562B88F8F4A1236BC0
 BingAPIs-Market: en-US
-X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 2018-09-17T16:55:22Z
 
 {
    "_type": "News",

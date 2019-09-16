@@ -10,8 +10,7 @@ ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
+ms.date: 06/25/2019
 ---
 # Use CLI to monitor and scale a single SQL database
 
@@ -35,7 +34,7 @@ If you choose to install and use the CLI locally, this article requires that you
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Script explanation

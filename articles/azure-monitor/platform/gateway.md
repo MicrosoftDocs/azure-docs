@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 08/12/2019
 ms.author: magoedte
 ---
 
@@ -23,7 +23,7 @@ ms.author: magoedte
 
 This article describes how to configure communication with Azure Automation and Azure Monitor by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
 
-The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway can collect data and send it to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that are not connected to the internet.  
+The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. It does not cache data from the agents, the agent handles caching data in this situation until communication is restored.
 
 The Log Analytics gateway supports:
 
@@ -38,7 +38,7 @@ The Log Analytics gateway transfers data from the agents to the service directly
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data, depending on the solution you have enabled.  Operations Manager agents send some data to the management server. For example, agents might send Operations Manager alerts, configuration assessment data, instance space data, and capacity data. Other high-volume data, such as Internet Information Services (IIS) logs, performance data, and security events, is sent directly to the Log Analytics gateway. 
 
-If one or more Operations Manager Gateway servers are deployed to monitor untrusted systems in a perimeter network or an isolated network, those servers can't communicate with a Log Analytics gateway.  Operations Manager Gateway servers can report only to a management server.  When an Operations Manager management group is configured to communicate with the Log Analytics gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect log data for Azure Monitor, even if the setting is empty.    
+If one or more Operations Manager Gateway servers are deployed to monitor untrusted systems in a perimeter network or an isolated network, those servers can't communicate with a Log Analytics gateway.  Operations Manager Gateway servers can report only to a management server.  When an Operations Manager management group is configured to communicate with the Log Analytics gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect log data for Azure Monitor, even if the setting is empty.
 
 To provide high availability for directly connected or Operations Management groups that communicate with a Log Analytics workspace through the gateway, use network load balancing (NLB) to redirect and distribute traffic across multiple gateway servers. That way, if one gateway server goes down, the traffic is redirected to another available node.  
 
@@ -88,11 +88,13 @@ The Log Analytics gateway is available in these languages:
 - Spanish (International)
 
 ### Supported encryption protocols
+
 The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2.  It doesn't support Secure Sockets Layer (SSL).  To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.2. Older versions of TLS or SSL are vulnerable. Although they currently allow backward compatibility, avoid using them.  
 
 For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### Supported number of agent connections
+
 The following table shows approximately how many agents can communicate with a gateway server. Support is based on agents that upload about 200 KB of data every 6 seconds. For each agent tested, data volume is about 2.7 GB per day.
 
 |Gateway |Agents supported (approximate)|  
@@ -148,8 +150,8 @@ To install a gateway using the setup wizard, follow these steps.
    ![Screenshot of local services, showing that OMS Gateway is running](./media/gateway/gateway-service.png)
 
 ## Install the Log Analytics gateway using the command line
-The downloaded file for the gateway is a Windows Installer package that supports silent installation from the command line or other automated method. If you are not familiar with the standard command-line options for Windows Installer, see [Command-line options](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
-
+The downloaded file for the gateway is a Windows Installer package that supports silent installation from the command line or other automated method. If you are not familiar with the standard command-line options for Windows Installer, see [Command-line options](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+ 
 The following table highlights the parameters supported by setup.
 
 |Parameters| Notes|
@@ -228,6 +230,7 @@ After you complete configuration, restart the OMS Gateway service to apply the c
 For information related to the Automation Hybrid Runbook Worker, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
 ### Configure Operations Manager, where all agents use the same proxy server
+
 The Operations Manager proxy configuration is automatically applied to all agents that report to Operations Manager, even if the setting is empty.  
 
 To use OMS Gateway to support Operations Manager, you must have:
@@ -266,6 +269,7 @@ After completing the integration with Log Analytics, remove the change by runnin
 1. Select **Finish**. Your Operations Manager management group is now configured to communicate through the gateway server to the Log Analytics service.
 
 ### Configure Operations Manager, where specific agents use a proxy server
+
 For large or complex environments, you might want only specific servers (or groups) to use the Log Analytics gateway server.  For these servers, you can't update the Operations Manager agent directly because this value is overwritten by the global value for the management group.  Instead, override the rule used to push these values.  
 
 > [!NOTE] 
@@ -290,6 +294,7 @@ To configure specific servers or groups to use the Log Analytics gateway server:
 1. When you finish, select **OK**. 
 
 ### Configure for Automation Hybrid Runbook Workers
+
 If you have Automation Hybrid Runbook Workers in your environment, follow these steps for manual, temporary workarounds to configure OMS Gateway to support the workers.
 
 To follow the steps in this section, you need to know the Azure region where the Automation account resides. To find that location:
@@ -350,6 +355,7 @@ If your computer is joined to Azure Automation by using the Hybrid Runbook Worke
     `Restart-Service OMSGatewayService`
 
 ## Useful PowerShell cmdlets
+
 You can use cmdlets to complete the tasks to update the Log Analytics gateway's configuration settings. Before you use cmdlets, be sure to:
 
 1. Install the Log Analytics gateway (Microsoft Windows Installer).
@@ -374,6 +380,7 @@ An error in step 3 means that the module wasn't imported. The error might occur 
 | `Get-OMSGatewayAllowedClientCertificate` | |Gets the currently allowed client certificate subjects (only the locally configured allowed subjects, not automatically downloaded allowed subjects) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## Troubleshooting
+
 To collect events logged by the gateway, you should have the Log Analytics agent installed.
 
 ![Screenshot of the Event Viewer list in the Log Analytics gateway log](./media/gateway/event-viewer.png)
@@ -412,10 +419,12 @@ The following table shows the performance counters available for the Log Analyti
 ![Screenshot of Log Analytics gateway interface, showing performance counters](./media/gateway/counters.png)
 
 ## Assistance
+
 When you're signed in to the Azure portal, you can get help with the Log Analytics gateway or any other Azure service or feature.
 To get help, select the question mark icon in the upper-right corner of the portal and select **New support request**. Then complete the new support request form.
 
 ![Screenshot of a new support request](./media/gateway/support.png)
 
 ## Next steps
+
 [Add data sources](../../azure-monitor/platform/agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.

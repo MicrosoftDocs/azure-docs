@@ -6,7 +6,7 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
-ms.author: yijenj
+ms.author: pabutler
 ---
 
 # Azure partner customer usage attribution
@@ -118,7 +118,7 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-For more information, see [Azure SDK for Go](https://docs.microsoft.com/go/azure/).
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go/).
 
 ## Use Terraform
 
@@ -242,7 +242,7 @@ foreach ($deployment in $deployments){
 
 ## Report
 
-You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
+You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
 
 Choose Tracked Template in the dropdown list of Partner Association Type to see the report.
 
@@ -262,11 +262,13 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
-If you encounter any issues with report or sign in to Partner Center, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+There are two support channels depending on the issues you are facing.
+
+If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-If you need assistance for Marketplace Onboarding and/or customer usage attribution, follow these steps.
+If you need assistance for Marketplace Onboarding and/or customer usage attribution in general, such as how to set up the customer usage attribution, follow the steps below:
 
 1. Go to the [support page](https://go.microsoft.com/fwlink/?linkid=844975).
 

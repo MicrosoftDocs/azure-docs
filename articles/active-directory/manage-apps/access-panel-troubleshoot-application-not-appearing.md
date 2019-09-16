@@ -395,7 +395,7 @@ To add an application from the Azure AD Gallery, follow the steps below:
 
 After a short period, you be able to see the application’s configuration pane.
 
-#### Configure the application for password single sign-on
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> Configure the application for password single sign-on
 
 To configure single sign-on for an application, follow the steps below:
 

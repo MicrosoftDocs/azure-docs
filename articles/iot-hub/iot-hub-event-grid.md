@@ -20,7 +20,7 @@ Azure IoT Hub integrates with Azure Event Grid so that you can send event notifi
 
 ## Regional availability
 
-The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. All device events except device telemetry events are generally available. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
+The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. All device events except device telemetry events are generally available. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
 ## Event types
 
@@ -67,7 +67,7 @@ The following example shows the schema of a device connected event:
 
 ### Device Telemetry schema
 
-Device telemetry message must be in a valid JSON format with the contentType set to JSON and contentEncoding set to UTF-8 in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). If this is not set, then IoT Hub will write the messages in base 64 encoded format.
+Device telemetry message must be in a valid JSON format with the contentType set to **application/json** and contentEncoding set to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive. If the content encoding is not set, then IoT Hub will write the messages in base 64 encoded format.
 
 You can enrich device telemetry events before they are published to Event Grid by selecting the endpoint as Event Grid. For more information, see [Message Enrichments Overview](iot-hub-message-enrichments-overview.md).
 
@@ -169,9 +169,9 @@ The subject of IoT Events uses the format:
 devices/{deviceId}
 ```
 
-Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to view examples.
+Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to view examples. For filtering on the telemetry message body, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Both of these properties are case insensitive.
 
-For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated and DeviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body through the message routing query. We create a default [route](iot-hub-devguide-messages-d2c.md) in IoT Hub, based on your Event Grid subscription to device telemetry. This single route can handle all of your Event Grid subscriptions. To filter messages before telemetry data is sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON.
+For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated and DeviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body through the message routing query. We create a default [route](iot-hub-devguide-messages-d2c.md) in IoT Hub, based on your Event Grid subscription to device telemetry. This single route can handle all of your Event Grid subscriptions. To filter messages before telemetry data is sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON. You must also set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
 
 ## Limitations for device connected and device disconnected events
 
@@ -198,3 +198,5 @@ Applications that handle IoT Hub events should follow these suggested practices:
 * [Learn more about Event Grid](../event-grid/overview.md)
 
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)
+
+* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps (and IoT Hub message routing)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)

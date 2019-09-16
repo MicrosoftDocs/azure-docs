@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ---
 
@@ -71,7 +71,6 @@ The Azure Firewall service complements network security group functionality. Tog
 
 Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the Azure Firewall subnet, and are disabled to ensure no service interruption.
 
-
 ## How do I set up Azure Firewall with my service endpoints?
 
 For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features-- service endpoint security and central logging for all traffic.
@@ -119,6 +118,10 @@ Yes, you can use Azure Firewall in a hub virtual network to route and filter tra
 
 Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires additional attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don’t require UDRs.
 
+## Does Azure Firewall outbound SNAT between private networks?
+
+Azure Firewall doesn’t SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet.
+
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
 Forced tunneling isn't supported by default, but it can be enabled with help from Support.
@@ -142,3 +145,18 @@ If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not co
 ## What does *Provisioning state: Failed* mean?
 
 Whenever a configuration change is applied, Azure Firewall attempts to update all its underlying backend instances. In rare cases, one of these backend instances may fail to update with the new configuration and the update process  stops with a failed provisioning state. Your Azure Firewall is still operational, but the applied configuration may be in an inconsistent state, where some instances have the previous configuration where others have the updated rule set. If this happens, try updating your configuration one more time until the operation succeeds and your Firewall is in a *Succeeded* provisioning state.
+
+### How does Azure Firewall handle planned maintenance and unplanned failures?
+Azure Firewall consists of several backend nodes in an active-active configuration.  For any planned maintenance, we have connection draining logic to gracefully update nodes.  Updates are planned during non-business hours for each of the Azure regions to further limit risk of disruption.  For unplanned issues, we instantiate a new node to replace the failed node.  Connectivity to the new node is typically reestablished within 10 seconds from the time of the failure.
+
+## Is there a character limit for a firewall name?
+
+Yes. There is a 50 character limit for a firewall name.
+
+## Why does Azure Firewall need a /26 subnet size?
+
+Azure Firewall must provision more virtual machine instances as it scales. A /26 address space ensures that the firewall has enough IP addresses available to accommodate the scaling.
+
+## Does the firewall subnet size need to change as the service scales?
+
+No. Azure Firewall does not need a subnet bigger than /26.

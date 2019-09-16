@@ -1,24 +1,30 @@
 ---
 title: Retirement of Security Center features (July 2019) | Microsoft Docs
-description: This article describes the features in Security Center that will be retired on July 31, 2019.
+description: This article describes the features in Security Center that were retired on July 31, 2019.
 services: security-center
-author: yoavfrancis
+author: memildin
+manager: rkarlin
 
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.date: 4/16/2019
-ms.author: yoafr
+ms.date: 09/10/2019
+ms.author: memildin
 ---
+
+> [!NOTE]
+> This document details the list of features that were retired from Azure Security Center on July 31st, 2019.
+>
+>
+
 
 # Retirement of Security Center features (July 2019)
 
-We've made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the last six months.
-With these improved capabilities, we're removing some redundant features and related APIs from Security Center on July 31, 2019.  
+We made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the six months leading up to July 2019.
+With these improved capabilities, we removed some redundant features and related APIs from Security Center on July 31, 2019.
 
 Most of these retiring features can be replaced with new functionality in Azure Security Center or Azure Log Analytics. Other features can be implemented using [Azure Sentinel (preview)](https://azure.microsoft.com/services/azure-sentinel/).
 
-Security Center features to be retired include:
+Retired Security Center features include:
 
 - [Events dashboard](#menu_events)
 - [Search menu entry](#menu_search)
@@ -34,9 +40,9 @@ This article provides detailed information for each retired feature and the step
 
 ## Events dashboard<a name="menu_events"></a>
 
-Security Center uses Microsoft Monitoring Agent to collect various security-related configurations and events from your machines. It stores these events in your workspaces. The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and  gives you an entry point to Log Analytics.
+Security Center uses Microsoft Monitoring Agent to collect various security-related configurations and events from your machines. It stores these events in your workspaces. The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and gives you an entry point to Log Analytics.
 
-We're retiring the events dashboard that appears when you select a workspace:
+We retired the events dashboard that appeared when you selected a workspace:
 
 ![Events dashboard][2]
 
@@ -50,7 +56,7 @@ If you've created custom notable events in Security Center, they'll be accessibl
 
 ## Search menu entry<a name="menu_search"></a>
 
-Azure Security Center currently uses Azure Monitor logs search to retrieve and analyze your security data. This screen serves as a window to Log Analytics search page, and enables users to run search queries on their selected workspace. For more information, see [Azure Security Center search](https://docs.microsoft.com/azure/security-center/security-center-search). We're retiring this search window:
+Azure Security Center currently uses Azure Monitor logs search to retrieve and analyze your security data. This screen serves as a window to Log Analytics search page, and enables users to run search queries on their selected workspace. For more information, see [Azure Security Center search](https://docs.microsoft.com/azure/security-center/security-center-search). We retired this search window:
 
 ![Search page][4]
 
@@ -76,7 +82,7 @@ The Classic Identity & Access experience in Security Center currently shows a da
 
    ![Identity page - dashboard][8]
 
-We're retiring all three screens shown in the preceding steps. Your data will remain available in the Log Analytics security solution and won't be modified or removed.
+We retired all three screens shown in the preceding steps. Your data remains available in the Log Analytics security solution and wasn't modified or removed.
 
 ### Classic Identity & Access (Preview) - the new experience
 
@@ -90,19 +96,19 @@ All the features of the **Identity & Access** dashboard in Log Analytics can be 
 
 Security Center provides you with a [security alerts map](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) to help identify security threats. The **Go to security events map** button in that map opens a dashboard that allows you to view raw security events on the selected workspace.
 
-We're removing the **Go to security events map** button and the per-workspace dashboard.
+We removed the **Go to security events map** button and the per-workspace dashboard.
 
 ![Security alerts map - button][10]
 
-When you select the **Go to security events map** button, you open the threat intelligence dashboard. We're retiring the threat intelligence dashboard.  
+When you select the **Go to security events map** button, you open the threat intelligence dashboard. We retired the threat intelligence dashboard.
 
 ![Threat intelligence dashboard][11]
 
-When you choose a workspace to view its threat intelligence dashboard, you open the security alerts map (preview) screen in Log Analytics. We're retiring this screen.
+When you choose a workspace to view its threat intelligence dashboard, you open the security alerts map (preview) screen in Log Analytics. We retired this screen.
 
 ![Security alerts map in Log Analytics][12]
 
-Your existing data will remain available in the Log Analytics security solution and won't be modified nor removed.
+Your existing data remains available in the Log Analytics security solution and wasn't modified or removed.
 
 ### Security events map - the new experience
 
@@ -110,45 +116,47 @@ We encourage you to use the alerts map functionality built into Security Center:
 
 ## Custom alert rules (Preview)<a name="menu_customalerts"></a>
 
-We're [retiring the custom alerts experience](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) on June 30, 2019 because its underlying infrastructure is retiring. Until then, you can edit existing custom alert rules, but you aren't able to add new ones. We recommend that you enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) to automatically migrate your existing alerts and create new ones. Alternatively, you can create your alerts with Azure Monitor log alerts.
+We [retired the custom alerts experience](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) on June 30, 2019 because its underlying infrastructure was retired. After the retirement date, custom security alerts are no longer generated.
+We recommend that you enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) and re-create your custom alerts there. Alternatively, you can create your alerts with Azure Monitor log alerts.
 
-To keep your existing alerts and migrate them to Azure Sentinel:
+To create custom alerts with Azure Sentinel:
 
-1. Open Azure Sentinel and select the workspace where your custom alerts are stored.
-1. Select **Analytics** from the menu to automatically migrate your alerts.
+1. [Open Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) and select the workspace where your custom alerts are stored
+1. Select **Analytics** from the menu
+1. Follow instructions in the following [tutorial](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) on how to create custom alerts in Azure Sentinel
+
+If you're not interested in using Azure Sentinel, you can create your alerts with Azure Monitor log alerts. For instructions, see [Create, view, and manage log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) and [Log alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Custom alerts][13]
-
-If you're not interested in transitioning to Azure Sentinel, we encourage you to create your alerts with Azure Monitor log alerts. For instructions, see [Create, view, and manage log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) and [Log alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 For more information on custom alerts retirement, see [Custom Alert Rules in Azure Security Center (Preview)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 
 ## Security alerts investigation<a name="menu_investigate"></a>
 
-[The Investigation feature](https://docs.microsoft.com/azure/security-center/security-center-investigation) in Security Center helps you triage a potential security incident. The feature allows you to understand the scope of an incident and track down its root cause. We're removing this feature from Security Center because it's been replaced with an improved experience in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+[The Investigation feature](https://docs.microsoft.com/azure/security-center/security-center-investigation) in Security Center helps you triage a potential security incident. The feature allows you to understand the scope of an incident and track down its root cause. We removed this feature from Security Center because it's been replaced with an improved experience in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Security incident][14]
 
-When you select the **Investigate** button from a **Security incident** screen, you open the Investigation Dashboard (Preview) in Log Analytics. We're retiring the Investigation Dashboard.  
+When you select the **Investigate** button from a **Security incident** screen, you open the Investigation Dashboard (Preview) in Log Analytics. We retired the Investigation Dashboard.
 
-Your existing data will remain available in the Log Analytics security solution and won't be modified nor removed.
+Your existing data remains available in the Log Analytics security solution and wasn't modified or removed.
 
 ![Investigation dashboard in Log Analytics][15]
 
 ### Investigation - the new experience
 
-We encourage you to transition to [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for a rich investigation experience. Azure Sentinel provides powerful search and query tools to hunt for security threats across your organization’s data sources.  
+We encourage you to transition to [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for a rich investigation experience. Azure Sentinel provides powerful search and query tools to hunt for security threats across your organization’s data sources.
 
 ## Subset of security solutions<a name="menu_solutions"></a>
 
-Security Center can enable [integrated security solutions in Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). We're retiring the following partner solutions from Security Center. These solutions are enabled in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) along with a number of additional data sources.
+Security Center can enable [integrated security solutions in Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). We retired the following partner solutions from Security Center. These solutions are enabled in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) along with a number of additional data sources.
 
 - [Next generation firewall and web application firewall solutions](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Integration of security solutions that support the Common Event Format (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-After retirement, you won't be able to add or modify any of solution types mentioned in the preceding list, either from the UI or the API.
+After retirement, you cannot add or modify any of the solution types mentioned in the preceding list, either from the UI or the API. Azure Security Center will no longer discover any new instances of these partner solutions.
 
 If you have existing connected solutions, we encourage you to move to Azure Sentinel.
 
@@ -156,9 +164,9 @@ If you have existing connected solutions, we encourage you to move to Azure Sent
 
 ## Edit security configurations for security policies<a name="menu_securityconfigurations"></a>
 
-Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). for hardening the OS. These rules pertain to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation. The [Edit security configuration screen](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) allows customers to customize the default OS security configuration in Security Center.
+Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for hardening the OS. These rules pertain to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation. The [Edit security configuration screen](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) allows customers to customize the default OS security configuration in Security Center.
 
-We're retiring this preview feature. If, after the retirement date, you'd like to reset your security configurations back to their default values, you can do so via API or Powershell using the [following instructions](https://aka.ms/ascresetsecurityconfigurations)
+We retired this preview feature. To reset your security configurations back to their default values after the retirement date, do so via the API or Powershell using the [following instructions](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Edit security configurations][17]
 
@@ -168,7 +176,7 @@ We intend to enable Security Center to support the [Guest configuration agent](h
 
 ## Security and audit dashboard for Log Analytics workspaces<a name="menu_securityomsdashboard"></a>
 
-The security and audit dashboard was originally used in the OMS portal. In Log Analytics, the dashboard provides a per-workspace overview of notable security events and threats, a threat intelligence map, and an identity-and-access assessment of security events saved in the workspace. We're removing the dashboard. As we already recommended in the dashboard UI, we advise that you to transition to Azure Security Center.
+The security and audit dashboard was originally used in the OMS portal. In Log Analytics, the dashboard provides a per-workspace overview of notable security events and threats, a threat intelligence map, and an identity-and-access assessment of security events saved in the workspace. We removed the dashboard. As we already recommended in the dashboard UI, we advise you to transition to Azure Security Center.
 
 ![Log Analytics security dashboard][18]
 
