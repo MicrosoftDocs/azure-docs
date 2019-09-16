@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio Code."
@@ -117,6 +117,25 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 > [!Note]
 > When adding inputs and outputs from the command palette, the corresponding paths will be added into **asaproj.json** automatically. If you add or remove inputs or outputs on disk directly, you need to manually add or remove them from **asaproj.json**. You can choose to put the inputs and outputs in one place then reference them in different jobs by specifying the paths in each **asaproj.json**.
 
+## Define the transformation query
+
+1. Open **myASAproj.asaql** from your project folder.
+
+2. Add the following query:
+
+   ```sql
+   SELECT * 
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
+   ```
+## Test with sample data
+before running the query in the cloud, you can test your query with local sample data to verify the query logic.
+
+Follow the instructions in [Test with sample data](vscode-local-run.md) for more details. 
+
+ ![Test with sample data in VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
+
 ## Define an input
 
 1. Select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
@@ -163,18 +182,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    |Container|container1|Select the existing container that you created in your storage account.|
    |Path Pattern|output|Enter the name of a file path to be created within the container.|
 
-## Define the transformation query
 
-1. Open **myASAproj.asaql** from your project folder.
-
-2. Add the following query:
-
-   ```sql
-   SELECT * 
-   INTO Output
-   FROM Input
-   HAVING Temperature > 27
-   ```
 
 ## Compile the script
 
