@@ -1,5 +1,5 @@
 ---
-title: Develop a secure Azure AD Web application | Microsoft Docs
+title: Develop a secure an Azure AD Web application | Microsoft Docs
 description: This simple sample app implements security best practices that improve your application and your organization's security posture when you develop on Azure.
 keywords: na
 services: security
@@ -17,7 +17,7 @@ ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
 ---
-# Develop secure app for a Azure AD app
+# Develop secure app for an Azure AD app
 ## Overview
 
 This sample is a simple Azure Active Directory with web app that links to security resources for developing apps on Azure. The app implements security best practices that can help improve your application and your organization’s security posture when you develop apps on Azure.
@@ -77,7 +77,7 @@ The four phases are
 - Deploy Azure Key Vault.
 - Deploy Azure Web Apps.
 - Deploy Application Gateway with web application firewall.
-- Configure the Azure AD with Deployed App.
+- Configure an Azure AD with Deployed App.
 
 Each phase builds upon the preceding one by using configuration from the previously deployed resources.
 
@@ -95,7 +95,7 @@ To deploy Azure Key Vault by using Powershell
 3. Create the resource group for the instance.
 4. Create the Azure Key Vault instance in the resource group created in step 3.
 
-#### These are the Azure AD users that will have admin permissions to the Key Vault
+#### These are an Azure AD users that will have admin permissions to the Key Vault
     $keyVaultAdminUsers = @($user1,user2)
 
 #### Register the Az Providers
@@ -379,7 +379,7 @@ With Azure Security Center, customers can centrally apply and manage security po
    - Prevention mode with OWASP 3.0 ruleset.
    - Enable diagnostics logging.
    - Custom health probes.
-   - Azure Security Center and Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
+   - Azure Security Center and an Azure Advisor provide additional protection and notifications. Azure Security Center also provides a reputation system.
 ### Logging and auditing
 Azure services extensively log system and user activity, as well as system health:
    - Activity logs: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. Activity logs can help determine an operation's initiator, time of occurrence, and status.
@@ -453,7 +453,7 @@ Publishing the sample
 #### Implement Multi-Factor Authentication for Azure Active Directory
    Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. To protect the subscription, enable Multi-Factor Authentication on the **Azure Active Directory** tab of the subscription.
 
-   Azure AD operates based on policies that are applied to a user or groups of users that fit a certain criteria.
+   An Azure AD operates based on policies that are applied to a user or groups of users that fit a certain criteria.
    Azure creates a default policy specifying that administrators need two-factor authentication to sign in to the portal.
    After enabling this policy, you might be prompted to sign out and sign back in to the Azure portal.
 
@@ -467,9 +467,9 @@ To enable MFA for admin sign-ins
 If you can't create a new policy
 
    1. Go to the **MFA** tab.
-   2. Select the Azure AD Premium **Free trial** link to subscribe to the free trial.
+   2. Select an Azure AD Premium **Free trial** link to subscribe to the free trial.
 
-   ![Azure AD Premium free trial](./media/secure-aad-app/ad-trial-premium.png)
+   ![An Azure AD Premium free trial](./media/secure-aad-app/ad-trial-premium.png)
 
 Return to the conditional access screen.
 
