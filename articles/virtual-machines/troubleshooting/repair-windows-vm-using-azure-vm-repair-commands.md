@@ -44,7 +44,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 > [!NOTE]
 > 1. Outbound connectivity from the VM (port 443) is required for the script to run.
 > 2. Only one script may run at a time
-> 3. A running script cannot be cancelled
+> 3. A running script cannot be canceled
 > 4. The maximum time a script can run is 90 minutes, after which it will time out
 
 1. Launch Azure Cloud Shell
@@ -72,7 +72,7 @@ az extension update -n vm-repair
 3. Run *az vm repair create*. This command will create a copy of the OS disk for the non-functional VM, create a repair VM, and attach the disk.
 
 ```azurepowershell-interactive
-az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose``
+az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
 ```
 
 4. Run *az vm repair run*. This command will run the specified repair script on the attached disk via the repair VM.
