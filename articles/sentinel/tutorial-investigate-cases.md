@@ -1,5 +1,5 @@
 ---
-title: Investigate incidents with Azure Sentinel Preview| Microsoft Docs
+title: Investigate incidents with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to investigate incidents with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
-# Tutorial: Investigate incidents with Azure Sentinel Preview
+# Tutorial: Investigate incidents with Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 This tutorial helps you detect threats with Azure Sentinel.
 
@@ -32,6 +29,7 @@ After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel
 > [!div class="checklist"]
 > * Create incidents
 > * Investigate incidents
+> * Use the investigation graph
 > * Respond to threats
 
 ## Investigate incidents
@@ -53,10 +51,22 @@ After you let Azure Sentinel know what kinds of threats you're looking for and h
 
 4. If you're actively investigating an incident, it's a good idea to set the incident status to **In progress** until you close it. You can also close the incident, where **closed resolved** is the status for incidents that indicate that an incident was handled, while **closed dismissed**  is the status for incidents that don't require handling. Explanations are required explaining your reasoning for closing an incident.
 
-5. Incidents can be assigned to a specific user. For each incident you can assign an owner, by setting the incident **owner** field. All incidents start as unassigned. You can go into the incidents and filter by your name to see all the incidents that you own. 
+5. Incidents can be assigned to a specific user. For each incident you can assign an owner, by setting the incident **owner** field. All incidents start as unassigned. You can go into the incidents and filter by your name to see all the incidents that you own. You can also add comments to that other administrators will be able to understand what you investigated and what your concerns are around the incident.
 
 5. Click **Investigate** to view the investigation map and scope of the breach with remediation steps. 
 
+## Use the investigation graph to deep dive
+
+The investigation graph enables analysts to ask the right questions for each investigation. The investigation graph helps you understand the scope and identify the root cause of a potential security threat by correlating relevant data with any involved entity. Azure Sentinel analyzes your raw data to find additional insights and connections on the entities extracted from your alerts. It will then surface those connections in the live investigation graph. You can dive deeper and investigate any entity presented in the graph by clicking on it and choosing between different expansion options. It provides you with:
+- Visual context from raw data: Visual live graph presents entity relationships extracted automatically from raw data.
+- Discover full investigation scope: Expand your investigation scope using built-in exploration queries to surface the full scope of breach.
+- Automatic investigation insights: Insights based on previously known activities provide additional context.​
+
+To use the investigation graph:
+1. Select an incident, then select **Investigate**. You'll only be able to investigate if you used the entity mapping fields when you set up your analytic rule so that Azure Sentinel can enable you to drill down into the logical entities involved in an incident.
+1. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
+1. Select each entity to open the **Entities** pane so you can review each entity. 
+1. Expand your investigation by hovering over each entity to reveal a list of questions that was designed by our security experts and analysts per entity type to deepen your investigation. For example, on a computer you can request related alerts. The related alerts are added to the graph. For each entity, you can select the option to open the results in Log analytics to see the raw data for the incidents. The graph provides you with a list of connections that you might not have known about, enabling you to reach full scope of the breach. It also gives you a timeline parallel to the graph. You can hover over the timeline to see which things on the graph occurred at what point in time.
 
 
 ## Respond to threats

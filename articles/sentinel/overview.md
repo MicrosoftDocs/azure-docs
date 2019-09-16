@@ -1,5 +1,5 @@
 ---
-title: What is Azure Sentinel Preview?| Microsoft Docs
+title: What is Azure Sentinel?| Microsoft Docs
 description: Learn about Azure Sentinel, its key capabilities, and how it works.
 services: sentinel
 documentationcenter: na
@@ -15,16 +15,13 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
-# What is Azure Sentinel Preview?
+# What is Azure Sentinel?
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Microsoft Azure Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. 
 
@@ -54,21 +51,15 @@ To on-board Azure Sentinel, you first need to [connect to your security sources]
 
 After connecting data sources you can choose from a gallery of [expertly created dashboards](quickstart-get-visibility.md#dashboards) that surface insights from your data sources. Each dashboard is fully customizable - you can add your own logic or modify queries, or you can create a dashboard from scratch.
 
-The dashboards provide interactive visualization using advanced analytics to help your security analysts get a better understanding of what’s going on during an attack. The investigation tools enable you to deep dive on any field, from any data, to rapidly develop threat context. 
+The dashboards are based on Azure Workbooks to provide interactive visualization using advanced analytics to help your security analysts get a better understanding of what’s going on during an attack. They can be easily customized allowing you to create exactly the dashboard you need from the data across Azure Sentinel. The investigation tools enable you to deep dive on any field, from any data, to rapidly develop threat context. For more information on customizing your dashboards with Azure Workbooks see 
 
 ![Dashboards](./media/overview/dashboards.png)
 
 ## Analytics
 
-To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses [analytics to correlate alerts into incidents](tutorial-detect-threats.md). **Incidents** are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Azure Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
+To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses [analytics to correlate alerts into incidents](tutorial-detect-threats-built-in.md). **Incidents** are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Azure Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
 
-![Cases](./media/overview/cases.png)
-
-## User analytics
-
-With native integration of machine learning (ML), and [user analytics](user-analytics.md), Azure Sentinel can help detect threats quickly. Azure Sentinel seamlessly integrates with Azure Advanced Threat Protection to analyze user behavior and prioritize which users you should investigate first, based on their alerts, and suspicious activity patterns across Azure Sentinel and Microsoft 365.
-
-![User analytics](./media/overview/user-analytics.png)
+![Incidents](./media/overview/cases.png)
 
 
 ## Security automation & orchestration
@@ -90,7 +81,7 @@ Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help yo
 
 ## Hunting
 
-Use Azure Sentinel's [powerful hunting search-and-query tools](hunting.md), based on the MITRE framework, which enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. After you discover which hunting query provides high-value insights into possible attacks, you can also create custom detection rules based on your query, and surface those insights as alerts to your security incident responders. While hunting, you can create bookmarks for interesting events, enabling you to return to them later, share them with others, and group them with other correlating events to create a compelling case for investigation.
+Use Azure Sentinel's [powerful hunting search-and-query tools](hunting.md), based on the MITRE framework, which enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. After you discover which hunting query provides high-value insights into possible attacks, you can also create custom detection rules based on your query, and surface those insights as alerts to your security incident responders. While hunting, you can create bookmarks for interesting events, enabling you to return to them later, share them with others, and group them with other correlating events to create a compelling incident for investigation.
 
 ![Hunting](./media/overview/hunting.png)
 
