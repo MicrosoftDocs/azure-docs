@@ -10,12 +10,9 @@ metadata:
   ms.topic: landing-page 
   author: laurenhughes 
   ms.author: lahugh 
-  ms.date: 09/13/2019 
+  ms.date: 09/16/2019 
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card (optional)
   - title: About Azure Batch
     linkLists:
       - linkListType: overview
@@ -42,10 +39,13 @@ landingContent:
       - linkListType: how-to-guide 
         links:
             - text: Manage a Batch account
-              url: batch-account-create-portal.md            
+              url: batch-account-create-portal.md  
+      - linkListType: concept
+        links:
+            - text: Developer features
+              url: batch-api-basics.md
 
-  # Card
-  - title: Batch processing
+  - title: Process files
     linkLists:
       - linkListType: tutorial
         links:
@@ -53,6 +53,12 @@ landingContent:
             url: tutorial-parallel-dotnet.md
           - text: Parallel file processing - Python
             url: tutorial-parallel-python.md
+          - text: OCR with Batch and Functions
+            url: tutorial-batch-functions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Using application packages
+            url: batch-application-packages.md
 
   - title: Set up and manage resources
     linkLists:
