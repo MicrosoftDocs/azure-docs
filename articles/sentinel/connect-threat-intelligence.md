@@ -24,9 +24,9 @@ ms.author: rkarlin
 
 Azure Sentinel lets you import the threat indicators that your organization is using, which can enhance your security analysts' ability to detect and prioritize known threats. Several features from Azure Sentinel then become available or are significantly enhanced:
 
-- **Analytics** includes a set of scheduled rule templates that can be enabled to generate alerts and incidents that are based on matches of log events with threat indicators.
+- **Analytics** includes a set of scheduled rule templates that can be enabled to generate alerts and incidents that are based on matches of log events from your threat indicators.
 
-- **Workbooks** provide summarized information about the threat indicators that are imported into Azure Sentinel and any alerts generated from threat indicator matching analytics rules.
+- **Workbooks** provide summarized information about the threat indicators that are imported into Azure Sentinel and any alerts generated from analytics rules that match your threat indicators.
 
 - **Hunting** queries allow security investigators to use threat indicators within the context of common hunting scenarios.
 
@@ -40,11 +40,11 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 - [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     
-    For guided instructions, see [Sending IOCs to the Microsoft Graph Security API using MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540)
+    For guided instructions, see [Sending IOCs to the Microsoft Graph Security API using MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540).
 
 - [ThreatConnect Platform](https://threatconnect.com/solution/)
     
-     For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)
+     For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
 
 ## Prerequisites  
 
@@ -56,7 +56,7 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 1. [Register an application](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory to get an application ID, application secret, and Azure Active Directory tenant ID. You need these values for when you configure your integrated TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API.
 
-2. [Configure API permissions](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) for the registered application, and add the Microsoft Graph Application permission **ThreatIndicators.ReadWrite.OwnedBy** to your registered application.
+2. [Configure API permissions](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) for the registered application: Add the Microsoft Graph Application permission **ThreatIndicators.ReadWrite.OwnedBy** to your registered application.
 
 3. Ask your Azure Active Directory tenant administrator to grant admin consent to the registered application for your organization. From the Azure portal: **Azure Active Directory** > **App registrations** > \<*app name*\> **View API Permissions** >**Grant admin consent for \<*organization name*\>**.
 
