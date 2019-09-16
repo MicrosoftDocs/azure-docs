@@ -32,6 +32,11 @@ The difference among this HTTP connector, the [REST connector](connector-rest.md
 
 ## Supported capabilities
 
+This HTTP connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from an HTTP source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 You can use this HTTP connector to:
@@ -371,6 +376,10 @@ To copy data from HTTP in **ORC format**, the following properties are supported
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps
