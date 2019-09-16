@@ -34,7 +34,7 @@ To increase the security of your AKS cluster, you may wish to restrict egress tr
 You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and define these required ports and addresses. AKS does not automatically create these rules for you. The following ports and addresses are for reference as you create the appropriate rules in your network firewall.
 
 > [!IMPORTANT]
-> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
+> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
 > You can lock down the traffic for TCP port 9000 and TCP port 22 using a network rule between the egress worker node IP(s) and the IP for the API server.
 
 In AKS, there are two sets of ports and addresses:
@@ -50,7 +50,7 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created. <!--TODO need to wordsmith this-->
+* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created.
 * TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 * UDP port *53* for DNS is also required if you have pods directly accessing the API server.
@@ -91,7 +91,7 @@ The following FQDN / application rules are required for AKS clusters that have G
 | us.download.nvidia.com | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 | apt.dockerproject.org | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 
-## Required addresses and ports for AKS clusters with Azure Monitor for containers enabled
+## Required addresses and ports with Azure Monitor for containers enabled
 
 The following FQDN / application rules are required for AKS clusters that have the Azure Monitor for containers enabled:
 
@@ -103,7 +103,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 |*.microsoftonline.com | HTTPS:443 | This is used for authenticating and sending metrics to Azure Monitor. |
 |*.monitoring.azure.com | HTTPS:443 | This is used to send metrics data to Azure Monitor. |
 
-## Required addresses and ports for AKS clusters with Azure Policy (in private preview) enabled
+## Required addresses and ports for AKS clusters with Azure Policy (in public preview) enabled
 
 > [!CAUTION]
 > Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
