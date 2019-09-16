@@ -53,7 +53,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 **Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMS and NICs.
 **Test failover retains IP address** | You can now retain the IP address of the source VM during a disaster recovery drill, and pick a static IP address for a test failover.
 
-## VMware/physical server disaster recovery
+### VMware/physical server disaster recovery
 
 Features added this month are summarized in the table.
 
@@ -61,7 +61,7 @@ Features added this month are summarized in the table.
 --- | ---
 New process server alerts | We've added new process server alerts. [Learn more](vmware-physical-azure-monitor-process-server.md). 
 
-## Hyper-V disaster recovery
+### Hyper-V disaster recovery
 
 Features added this month are summarized in the table.
 
