@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unreal-Wwise Quickstart
-In this quickstart, you'll experiment with Project Acoustics design controls by using sample content for the Unreal Engine and Wwise.
+In this quickstart, you'll experiment with Project Acoustics design controls by using sample content for the Unreal Engine and Wise.
 
 Software requirements for using the sample content:
 * [Unreal Engine](https://www.unrealengine.com/) 4.22
@@ -79,9 +79,9 @@ If the **Occlusion** multiplier is greater than 1 (the default is 1), occlusion 
 To enable through-wall transmission, move the **Transmission (dB)** slider away from its lowest level.
 
 ### Modify wetness for a source
-To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. Project Acoustics computes wet levels throughout the space from simulation. The levels vary smoothly with distance and provide perceptual distance cues. To exaggerate this affect, increase distance-related wet levels to increase the distance warp. Warping values of less than 1 make the distance-based reverberation change more subtle. You can also make finer adjustments to this effect through the **Wetness (dB)** setting.
+To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. Project Acoustics computes wet levels throughout the space through simulation. The levels vary smoothly with distance and provide perceptual distance cues. To exaggerate this effect, increase distance-related wet levels to increase the distance warp. Warping values of less than 1 make the distance-based reverberation change more subtle. You can also make finer adjustments to this effect through the **Wetness (dB)** setting.
 
-To increase the decay time throughout the space,  adjust **Decay Time Scale**. Consider a case where the simulation result is a decay time of 1.5 seconds. Setting **Decay Time Scale** to 2 results in a decay time of 3 seconds applied to the source.
+To increase the decay time throughout the space,  adjust **Decay Time Scale**. Consider a case where the simulation result is a decay time of 1.5 seconds. Setting **Decay Time Scale** to two results in a decay time of 3 seconds applied to the source.
 
 ### Modify distance-based attenuation
 The Project Acoustics Wwise mixer plug-in respects the per-source distance-based attenuation that's built into Wwise. Changing this curve changes the dry-path level. The Project Acoustics plug-in will adjust the wet level to maintain the wet-dry mix specified by the simulation and design controls.

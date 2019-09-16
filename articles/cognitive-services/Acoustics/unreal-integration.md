@@ -19,33 +19,33 @@ This article describes how to integrate the Project Acoustics plug-in package in
 
 Software requirements:
 * [Unreal Engine](https://www.unrealengine.com/) 4.20+
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
-* [Wwise plugin for Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.
+* [Wwise plug-in for Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   
-  If you're using a direct integration of the Wwise SDK instead of the Wwise Unreal plugins, consult the Project Acoustics Unreal plug-in and adjust Wwise API calls.
+  If you're using a direct integration of the Wwise SDK instead of the Wwise Unreal plug-in, consult the Project Acoustics Unreal plug-in, and adjust Wwise API calls.
 
-To use Project Acoustics with an audio engine other than Wwise, make an enhancement request on the [Project Acoustics discussion forum](https://github.com/microsoft/ProjectAcoustics/issues). You can use the Project Acoustics Unreal plug-in to query acoustics data and then make API calls to your engine.
+To use Project Acoustics with an audio engine other than Wwise, make an enhancement request in the [Project Acoustics discussion forum](https://github.com/microsoft/ProjectAcoustics/issues). You can use the Project Acoustics Unreal plug-in to query acoustics data and make API calls to your engine.
 
 ## Download Project Acoustics
-If you haven't already, download the [Project Acoustics Unreal and Wwise plug-in package](https://www.microsoft.com/download/details.aspx?id=58090)).
+If you haven't already, download the [Project Acoustics Unreal and Wwise plug-in package](https://www.microsoft.com/download/details.aspx?id=58090).
 
-We've included an Unreal Engine plug-in and a Wwise mixer plug-in in the package. The Unreal plug-in provides editor and runtime integration. During gameplay, the Project Acoustics Unreal plug-in computes parameters such as occlusion for each game object each frame. These parameters are translated to Wwise API calls.
+We've included an Unreal Engine plug-in and a Wwise mixer plug-in in the package. The Unreal plug-in provides editor and runtime integration. During gameplay, the Project Acoustics Unreal plug-in computes parameters such as occlusion for each game object for each frame. These parameters are translated to Wwise API calls.
 
-## Review integration steps
+## Integration steps
 
 Follow these steps to install the package and deploy it in your game:
 1. Install the Project Acoustics Wwise mixer plug-in.
 2. Deploy Wwise to your game. This step propagates the mixer plug-in into your game project.
 3. Add the Project Acoustics Unreal plug-in to your game.
-4. Extend Wwise's Unreal plug-in functionality.
-5. Build game, and check that Python is enabled.
+4. Extend the Wwise Unreal plug-in functionality.
+5. Build the game, and check that Python is enabled.
 6. Set up your Wwise project to use Project Acoustics.
 7. Do Audio setup in Unreal.
 
 ### 1. Install the Project Acoustics mixer plug-in
 1. Open Wwise launcher. On the **Plug-ins** tab, under **Install New Plug-ins**, select **Add from Directory**.
 
-    ![Install a plugiiin in Wwise launcher](media/wwise-install-new-plugin.png)
+    ![Install a plugi-in in Wwise launcher](media/wwise-install-new-plugin.png)
 
 1. Select the *AcousticsWwisePlugin\ProjectAcoustics* directory that was included in the package that you downloaded. It contains the Wwise mixer plug-in bundle.
 
@@ -109,7 +109,7 @@ Redeploy Wwise into your game even if you've already integrated Wwise. This step
 
     ![The Python extensions in Unreal editor enabled](media/ensure-python.png)
 
-### 6. Wwise project setup
+### 6. Set up your Wwise project to use Project Acoustics
 
 An example Wwise project is included with the samples download. We recommend that you view it alongside these instructions. The screenshots later in this article are from this example project.
 
