@@ -1,0 +1,70 @@
+---
+title: ARRAY_CONTAINS (Azure Cosmos DB)
+description: Learn about SQL system function ARRAY_CONTAINS in Azure Cosmos DB.
+author: ginamr
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: girobins
+---
+# ARRAY_CONTAINS (Azure Cosmos DB)
+Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
+
+## Syntax
+  
+```  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
+```  
+  
+## Arguments
+  
+*arr_expr*  
+   Is any valid array expression.  
+  
+*expr*  
+   Is any valid expression.  
+
+*bool_expr*  
+   Is any boolean expression. If it's set to 'true'and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it's set to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
+  
+## Return Types
+  
+  Returns a Boolean value.  
+  
+## Examples
+  
+  The following example how to check for membership in an array using ARRAY_CONTAINS.  
+  
+```  
+SELECT   
+           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
+           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"b1": true, "b2": false}]  
+```  
+
+The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
+  
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true) AS b1, 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}) AS b2,
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) AS b3 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{
+  "b1": true,
+  "b2": false,
+  "b3": false
+}] 
+```  
+  
+
+## See Also

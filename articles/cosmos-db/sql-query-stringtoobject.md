@@ -1,0 +1,103 @@
+---
+title: StringToObject (Azure Cosmos DB)
+description: Learn about SQL system function StringToObject in Azure Cosmos DB.
+author: ginamr
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: girobins
+---
+# StringToObject (Azure Cosmos DB)
+ Returns expression translated to an Object. If expression cannot be translated, returns undefined.  
+  
+## Syntax
+  
+```  
+StringToObject(<expr>)  
+```  
+  
+## Arguments
+  
+*expr*  
+   Is any valid scalar expression to be evaluated as a JSON object expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+  
+## Return Types
+  
+  Returns an object expression or undefined.  
+  
+## Examples
+  
+  The following example shows how StringToObject behaves across different types. 
+  
+ The following are examples with valid input.
+
+``` 
+SELECT 
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+Here is the result set.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+
+ The following are examples with invalid input.
+Even though they are valid within a query, they will not parse to valid objects. 
+ Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
+ '{"a": "str"}'.
+
+Single quotes surrounding property names are not valid JSON.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+Here is the result set.
+
+```  
+[{}]
+```  
+
+Property names without surrounding quotes are not valid JSON.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+Here is the result set.
+
+```  
+[{}]
+``` 
+
+The following are examples with invalid input.
+
+ The expression passed will be parsed as a JSON object; these inputs do not evaluate to type object and thus return undefined.
+
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Here is the result set.
+
+```
+[{}]
+```
+
+
+## See Also

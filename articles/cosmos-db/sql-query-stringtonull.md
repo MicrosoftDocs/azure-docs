@@ -1,0 +1,82 @@
+---
+title: StringToNull (Azure Cosmos DB)
+description: Learn about SQL system function StringToNull in Azure Cosmos DB.
+author: ginamr
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: girobins
+---
+# StringToNull (Azure Cosmos DB)
+ Returns expression translated to null. If expression cannot be translated, returns undefined.  
+  
+## Syntax
+  
+```  
+StringToNull(<expr>)  
+```  
+  
+## Arguments
+  
+*expr*  
+   Is any valid scalar expression to be evaluated as a null expression.
+  
+## Return Types
+  
+  Returns a null expression or undefined.  
+  
+## Examples
+  
+  The following example shows how StringToNull behaves across different types. 
+
+The following are examples with valid input.
+
+ Whitespace is allowed only before or after "null".
+
+```  
+SELECT 
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+The following are examples with invalid input.
+
+Null is case sensitive and must be written with all lowercase characters i.e. "null".
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{}]
+```  
+
+The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{}]
+```  
+
+
+## See Also

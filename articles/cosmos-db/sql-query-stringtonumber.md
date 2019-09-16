@@ -1,0 +1,80 @@
+---
+title: StringToNumber (Azure Cosmos DB)
+description: Learn about SQL system function StringToNumber in Azure Cosmos DB.
+author: ginamr
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: girobins
+---
+# StringToNumber (Azure Cosmos DB)
+ Returns expression translated to a Number. If expression cannot be translated, returns undefined.  
+  
+## Syntax
+  
+```  
+StringToNumber(<expr>)  
+```  
+  
+## Arguments
+  
+*expr*  
+   Is any valid scalar expression to be evaluated as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
+  
+## Return Types
+  
+  Returns a Number expression or undefined.  
+  
+## Examples
+  
+  The following example shows how StringToNumber behaves across different types. 
+
+Whitespace is allowed only before or after the Number.
+
+```  
+SELECT 
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
+```  
+  
+ Here is the result set.  
+  
+```  
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+In JSON a valid Number must be either be an integer or a floating point number.
+
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Here is the result set.  
+  
+```  
+{{}}
+```  
+
+The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Here is the result set.  
+  
+```  
+{{}}
+```  
+
+
+## See Also
