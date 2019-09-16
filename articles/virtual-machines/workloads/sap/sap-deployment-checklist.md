@@ -235,51 +235,51 @@ In this phase, collect what you experienced and learned during your non-producti
 6.	Create a playbook for reacting to planned Azure maintenance. Define the order in which systems and VMs should be rebooted in case of planned maintenance.
  	
 
-## Go live phase
-During the go live phase, be sure to follow the playbooks you developed during earlier phases. Execute the steps that you tested and practiced. Don't accept last-minute changes in configurations and processes. Besides that, complete these steps:
+## Go-live phase
+During the go-live phase, be sure to follow the playbooks you developed during earlier phases. Execute the steps that you tested and practiced. Don't accept last-minute changes in configurations and processes. Besides that, complete these steps:
 
 1. Verify that Azure portal monitoring and other monitoring tools are working. We recommend Windows Performance Monitor (perfmon) for Windows and SAR for Linux.
 	1.	CPU counters.
-		1.	Average CPU time – Total (all CPU)
-		2.	Average CPU time – each individual processor (so 128 processors on m128 VM)
-		3.	CPU time kernel – each individual processor
-		4.	CPU time user – each individual processor
-	5.	Memory 
-		1.	Free memory
-		2.	Memory Page in/sec
-		3.	Memory Page out/sec
-	4.	Disk 
-		1.	Disk read kb/sec – per individual disk 
-		2.	Disk reads/sec  – per individual disk
-		3.	Disk read ms/read – per individual disk
-		4.	Disk write kb/sec – per individual disk 
-		5.	Disk write/sec  – per individual disk
-		6.	Disk write ms/read – per individual disk
-	5.	Network 
-		1.	Network packets in/sec
-		2.	Network packets out/sec
-		3.	Network kb in/sec
-		4.	Network kb out/sec 
-2.	After the migration of the data, perform all the validation tests you agreed upon with the business owners. Only accept validation test results where you have results for the original source systems
-3.	Check whether interfaces are functioning and whether other applications can communicate with the newly deployed production systems
-4.	Check the transport and correction system through SAP transaction STMS
-5.	Perform Database backups once the system is released for production
-6.	Perform VM backups for the SAP application layer VMs once the system is released for production
-7.	For SAP systems that were not part of the current go-live phase, but communicate with the SAP systems that you moved into Azure in this go-live phase, you need to reset the host name buffer in SM51. This step will get rid of the old cached IP addresses associated with the names of the application instances you moved into Azure  
+		1.	Average CPU time, total (all CPUs).
+		2.	Average CPU time, each individual processor (128 processors on M128 VMs).
+		3.	CPU kernel time, each individual processor.
+		4.	CPU user time, each individual processor.
+	5.	Memory.
+		1.	Free memory.
+		2.	Memory page in/second.
+		3.	Memory page out/second.
+	4.	Disk.
+		1.	Disk read in KBps, per individual disk.
+		2.	Disk reads/second, per individual disk.
+		3.	Disk read in microseconds/read, per individual disk.
+		4.	Disk write in KBps, per individual disk.
+		5.	Disk write/second, per individual disk.
+		6.	Disk write in microseconds/read, per individual disk.
+	5.	Network.
+		1.	Network packets in/second.
+		2.	Network packets out/second.
+		3.	Network KB in/second.
+		4.	Network KB out/second.
+2.	After data migration, perform all the validation tests you agreed upon with the business owners. Accept validation test results only when you have results for the original source systems.
+3.	Check whether interfaces are functioning and whether other applications can communicate with the newly deployed production systems.
+4.	Check the transport and correction system through SAP transaction STMS.
+5.	Perform database backups after the system is released for production.
+6.	Perform VM backups for the SAP application layer VMs after the system is released for production.
+7.	For SAP systems that weren't part of the current go-live phase but that communicate with the SAP systems that you moved into Azure during this go-live phase, you need to reset the host name buffer in SM51. Doing so will remove the old cached IP addresses associated with the names of the application instances you moved to Azure.  
 
 
 ## Post production
-In this phase, it is all about monitoring, operating, and administrating the system. From an SAP point of view, the usual tasks that you were required to perform with your old hosting location apply. Azure specific tasks you want to do are:
+This phase is about monitoring, operating, and administering the system. From an SAP point of view, the usual tasks that you were required to perform in your old hosting location apply. You should also complete these Azure-specific tasks:
 
-1. Analyze Azure invoices for high charging systems
-2. Optimize price/performance efficiency on VM side and storage side
-3. Optimize time systems can be shut down  
+1. Review Azure invoices for high-charging systems.
+2. Optimize price/performance efficiency on the VM side and the storage side.
+3. Optimize the times when you can shut systems down.  
 
 
-## Next Steps
-Consult the documentation:
+## Next steps
+See these articles:
 
 - [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Azure Virtual Machines deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 
