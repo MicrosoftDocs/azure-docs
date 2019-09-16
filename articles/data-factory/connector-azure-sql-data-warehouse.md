@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -25,7 +25,7 @@ This article outlines how to copy data to and from Azure SQL Data Warehouse. To 
 
 ## Supported capabilities
 
-This Azure Blob connector is supported for the following activities:
+This Azure SQL Data Warehouse connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
 - [Mapping data flow](concepts-data-flow-overview.md)
@@ -231,7 +231,9 @@ To copy data from or to Azure SQL Data Warehouse, the following properties are s
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes                         |
-| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | No for source, Yes for sink |
+| schema | Name of the schema. |No for source, Yes for sink  |
+| table | Name of the table/view. |No for source, Yes for sink  |
+| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -247,7 +249,8 @@ To copy data from or to Azure SQL Data Warehouse, the following properties are s
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -373,9 +376,11 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | rejectType        | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No                                            |
 | rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
 | useTypeDefault    | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default).<br><br> | No                                            |
-| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No                                            |
+| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No                                            |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No                                            |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
+| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| disableMetricsCollection | Data Factory collects metrics such as SQL Data Warehouse DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 #### SQL Data Warehouse sink example
 
@@ -432,7 +437,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    3. `rowDelimiter` is **default**, **\n**, **\r\n**, or **\r**.
    4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
    5. `encodingName` is left as default or set to **utf-8**.
-   6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row, which can be configured as `firstRowAsHeader` in ADF.
    7. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
@@ -533,6 +538,10 @@ When your source data has rows greater than 1 MB, you might want to vertically s
 
 Alternatively, for data with such wide columns, you can use non-PolyBase to load the data using ADF, by turning off "allow PolyBase" setting.
 
+### SQL Data Warehouse resource class
+
+To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
+
 ### PolyBase troubleshooting
 
 **Loading to Decimal column**
@@ -544,15 +553,9 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" is a PolyBase native configuration which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. 
+)" is a PolyBase native configuration, which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. 
 
-**Others**
-
-### SQL Data Warehouse resource class
-
-To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
-
-### **tableName** in Azure SQL Data Warehouse
+**`tableName` in Azure SQL Data Warehouse**
 
 The following table gives examples of how to specify the **tableName** property in the JSON dataset. It shows several combinations of schema and table names.
 
@@ -569,7 +572,7 @@ If you see the following error, the problem might be the value you specified for
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### Columns with default values
+**Columns with default values**
 
 Currently, the PolyBase feature in Data Factory accepts only the same number of columns as in the target table. An example is a table with four columns where one of them is defined with a default value. The input data still needs to have four columns. A three-column input dataset yields an error similar to the following message:
 
@@ -619,6 +622,14 @@ When you copy data from or to Azure SQL Data Warehouse, the following mappings a
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Next steps
 For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -25,7 +25,7 @@ Users should not enable this option on public computers.
 
 ## Prerequisites
 
-An Azure AD B2C tenant that is configured to allow local account sign-in. KMSI is currently unsupported for external identity provider accounts.
+An Azure AD B2C tenant that is configured to allow local account sign-in. KMSI is unsupported for external identity provider accounts.
 
 If you don't have a tenant, you can create one using the steps in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 

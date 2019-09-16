@@ -101,7 +101,7 @@ The following classes and interfaces handle some of the major features of the Co
 |Name|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes.|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| This class comes from the client object and directly handles all of the image operations, such as image analysis, text detection, and thumbnail generation.
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| This class comes from the client object and directly handles all of the image operations, such as image analysis, text detection, and thumbnail generation.|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of VisualFeatureTypes values depending on your needs. |
 
 ## Code examples
@@ -137,6 +137,9 @@ First, create a **resources/** folder in the **src/main/** folder of your projec
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
 
+> [!NOTE]
+> You can also analyze a remote image using its URL. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) for scenarios involving remote images.
+
 ### Specify visual features
 
 Next, specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) enum for a complete list.
@@ -144,17 +147,65 @@ Next, specify which visual features you'd like to extract in your analysis. See 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### Analyze
-This method prints detailed results to the console for each scope of image analysis. We recommend you surround this method call in a Try/Catch block
+This method prints detailed results to the console for each scope of image analysis. We recommend you surround this method call in a Try/Catch block. The **analyzeImageInStream** method returns an **ImageAnalysis** object that contains all of extracted information.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
-### Display results
+The following sections show how to parse this information in detail.
 
-The above method call will return an ImageAnalysis object that contains all of extracted information. You can use a code block like the following to print the details of a given visual feature.
+### Get image description
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_display)]
+The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
 
-See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) for a full set of display options.
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
+
+### Get image category
+
+The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
+
+### Get image tags
+
+The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
+
+### Detect faces
+
+The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### Detect adult or racy content
+
+The following code prints the detected presence of adult or racy content in the image. See [Adult and racy content](../concept-detecting-adult-content.md) for more details.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
+
+### Get image color scheme
+
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
+
+### Get domain-specific content
+
+Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
+
+The following code parses data about detected celebrities in the image.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
+
+The following code parses data about detected landmarks in the image.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+
+### Get the image type
+
+The following code prints information about the type of image&mdash;whether it is clip art or line drawing.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 ## Run the application
 

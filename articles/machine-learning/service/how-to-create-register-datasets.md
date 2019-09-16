@@ -14,7 +14,7 @@ ms.date: 08/22/2019
 
 ---
 
-# Create and access datasets (Preview) in Azure Machine Learning
+# Create and access datasets (preview) in Azure Machine Learning
 
 In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 
@@ -43,7 +43,7 @@ To create and work with datasets, you need:
 
 Datasets are categorized into various types based on how users consume them in training. List of Dataset types:
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
-* FileDataset references single or multiple files in your datastores or public urls. This provides you with the ability to download or mount the files to your compute. The files can be of any format, which enables a wider range of machine learning scenarios including deep learning.
+* [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public urls. This provides you with the ability to download or mount the files to your compute. The files can be of any format, which enables a wider range of machine learning scenarios including deep learning.
 
 To find out more about upcoming API changes, see [here](https://aka.ms/tabular-dataset).
 
@@ -72,7 +72,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### Create TabularDatasets
+
+TabularDatasets can be created via the SDK or by using the workspace landing page (preview).
+
+#### SDK 
 
 Use the `from_delimited_files()` method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -99,7 +104,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
+#### Workspace landing page 
+
+Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
+
+The following animation shows how to create a dataset in the workspace landing page. 
+
+First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation. 
+
+![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### Create FileDatasets
+
 Use the `from_files()` method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
 
 ```Python
@@ -130,6 +146,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> Datasets created via the workspace landing page are automatically registered to the workspace. 
+
 ## Version datasets
 
 You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning: 
@@ -137,7 +156,7 @@ You can register a new dataset under the same name by creating a new version. Da
 * When you are applying different data preparation or feature engineering approaches.
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'

@@ -57,7 +57,8 @@ This article outlines, for Azure IoT Central:
 - Array schema types aren't supported.
 - Application template export and application copy aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
-- It's only available in select regions.
+- It's only available the north Europe and central US regions.
+- Device capability models must have all the interfaces defined inline in the same file.
 
 ## Personas
 

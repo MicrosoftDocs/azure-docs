@@ -62,9 +62,19 @@ Then install packages:
 
 ```fsharp
 Paket.Package
-[ "MathNet.Numerics"
-"MathNet.Numerics.FSharp"
-]
+  [ "MathNet.Numerics"
+    "MathNet.Numerics.FSharp"
+  ]
+```
+
+Then load the paket generator:
+```fsharp
+#load "Paket.Generated.Refs.fsx"
+```
+
+Open the libray:
+```fsharp
+open MathNet.Numerics
 ```
 
 ## Next steps

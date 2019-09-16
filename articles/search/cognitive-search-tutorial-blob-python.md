@@ -62,7 +62,7 @@ All requests require an api-key on every request sent to your service. A valid k
 
 ## Prepare sample data
 
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). Azure Table Storage is not supported for cognitive search. For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
@@ -469,7 +469,7 @@ The results should look similar to the following example. The screenshot only sh
 Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-it 
+
 <a name="reset"></a>
 
 ## Reset and rerun

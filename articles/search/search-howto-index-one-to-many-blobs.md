@@ -4,7 +4,7 @@ description: Crawl Azure blobs for text content using the Azure Search Blob inde
 
 ms.date: 05/02/2019
 author: arv100kri
-manager: briansmi
+manager: nitinme
 ms.author: arjagann
 
 services: search

@@ -31,7 +31,11 @@
     href: protect-with-aes128.md       
   - name: Encrypt dynamically with DRM 
     displayName: PlayReady, Widevine, FairPlay
-    href: protect-with-drm.md    
+    href: protect-with-drm.md   
+- name: Samples
+  items:    
+  - name: Media Services samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
 - name: Concepts
   items:
   - name: Overview
@@ -48,6 +52,7 @@
     items:
     - name: Assets
       href: assets-concept.md    
+      displayName: name, naming, file name
   - name: Encoding
     items:
     - name: Overview
@@ -149,7 +154,7 @@
     items:
     - name: Overview
       href: media-services-apis-overview.md
-      displayName: accessing, naming, long-running, invalid character
+      displayName: accessing, long-running, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC
@@ -161,7 +166,8 @@
       - name: Job error codes
         href: job-error-codes.md
   - name: Migration guidance from v2 to v3
-    href: migrate-from-v2-to-v3.md      
+    href: migrate-from-v2-to-v3.md 
+    displayName: naming
 - name: How-to guides
   items:
   - name: Get started
@@ -176,7 +182,9 @@
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset - CLI
-      href: cli-create-asset.md      
+      href: cli-create-asset.md 
+  - name: Developer guides
+    items:
     - name: Develop with REST
       items:
       - name: Connect with Postman

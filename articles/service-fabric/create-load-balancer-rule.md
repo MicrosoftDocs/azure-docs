@@ -106,4 +106,4 @@ Regarding the `New-AzLoadBalancerRuleConfig` command, the `-FrontendPort` repres
 
 ## Next steps
 
-Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-patterns-networking.md).
+Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).

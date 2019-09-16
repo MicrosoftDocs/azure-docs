@@ -85,7 +85,6 @@ az acr task create \
     --registry $ACR_NAME \
     --name example1 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file taskmulti.yaml \
     --git-access-token $GIT_PAT
 ```
@@ -329,7 +328,6 @@ az acr task create \
     --registry $ACR_NAME \
     --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io

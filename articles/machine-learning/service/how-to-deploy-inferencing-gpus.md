@@ -1,7 +1,7 @@
 ---
 title: Deploy a model for inference with GPU 
-titleSuffix: Azure Machine Learning service
-description: This article teaches you how to use the Azure Machine Learning service to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
+titleSuffix: Azure Machine Learning
+description: This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,12 +14,12 @@ ms.date: 07/24/2019
 
 # Deploy a deep learning model for inference with GPU
 
-This article teaches you how to use the Azure Machine Learning service to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
+This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
 Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
 
 > [!IMPORTANT]
-> GPU inference is only supported on Azure Kubernetes Service.
+> For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Run batch predictions](how-to-run-batch-predictions.md). 
 
 > [!TIP]
 > Although the code snippets in this article usee a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
@@ -29,7 +29,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -46,7 +46,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning service workspaces](how-to-manage-workspace.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -88,7 +88,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning service, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 
