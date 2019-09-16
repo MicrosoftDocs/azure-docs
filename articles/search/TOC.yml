@@ -11,12 +11,16 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Load and query an index
+    - name: Create and use an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with cognitive search (AI)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
+  - name: Java
+    href: search-get-started-java.md
+  - name : Node.js
+    href: search-get-started-nodejs.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
@@ -53,15 +57,23 @@
       href: cognitive-search-tutorial-blob-python.md
 - name: Samples
   items:
-  - name: Azure code samples
-    href: https://azure.microsoft.com/resources/samples/?service=search
+  - name: C# samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp
+  - name: Java samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java
+  - name: JavaScript samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript
+  - name: Python samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python
+  - name: REST samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest
 - name: Training
   items:
-  - name: Knowledge mining bootcamp
-    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
+  - name: Introduction (Microsoft Learn)
+    href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
   - name: Add search to apps (Pluralsight)
     href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Microsoft Azure Developer course (Pluralsight)
+  - name: Developer course (Pluralsight)
     href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
@@ -69,6 +81,8 @@
     href: search-lucene-query-architecture.md
   - name: Cognitive search
     href: cognitive-search-concept-intro.md
+  - name: Skillsets
+    href: cognitive-search-working-with-skillsets.md
   - name: Knowledge store 
     href: knowledge-store-concept-intro.md
   - name: Projections
@@ -107,12 +121,10 @@
       href: search-api-versions.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Develop in Node.js
-      href: search-get-started-nodejs.md
-    - name: Develop in Java
-      href: search-get-started-java.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
         href: search-dotnet-sdk-migration-version-9.md
       - name: .NET SDK 5.0
@@ -131,6 +143,8 @@
       href: search-what-is-an-index.md
     - name: Create an index (portal)
       href: search-create-index-portal.md
+    - name: Create a multi-language index
+      href: search-language-support.md
     - name: Analyzers
       items:
       - name: Adding analyzers
@@ -154,9 +168,7 @@
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
-      href: search-example-adventureworks-modeling.md
-    - name: Model multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+      href: index-sql-relational-data.md
   - name: Load data
     items:
     - name: Data import overview
@@ -193,6 +205,8 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
+    - name: Connect to SQL Managed Instance
+      href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Connect to SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Monitor indexers
@@ -227,8 +241,14 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: How to get started
+    - name: Create a knowledge store in Azure portal
+      href: knowledge-store-create-portal.md
+    - name: Create using REST and Postman
       href: knowledge-store-howto.md
+    - name: View with Storage Explorer
+      href: knowledge-store-view-storage-explorer.md
+    - name: Connect with Power BI
+      href: knowledge-store-connect-power-bi.md
   - name: Query data
     items:
     - name: Create a basic query
@@ -257,6 +277,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
+    - name: Example of multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Handle results
     items:
     - name: Page-related features
@@ -330,8 +352,6 @@
       href: cognitive-search-skill-keyphrases.md
     - name: Language Detection
       href: cognitive-search-skill-language-detection.md
-    - name: Named Entity Recognition
-      href: cognitive-search-skill-named-entity-recognition.md
     - name: Entity Recognition
       href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
@@ -340,6 +360,8 @@
       href: cognitive-search-skill-textsplit.md 
     - name: Sentiment
       href: cognitive-search-skill-sentiment.md
+    - name: Text Translation
+      href: cognitive-search-skill-text-translation.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md
     - name: OCR
@@ -348,18 +370,23 @@
       href: cognitive-search-skill-shaper.md
     - name: Conditional
       href: cognitive-search-skill-conditional.md
-    - name: Deprecated Skills
-      href: cognitive-search-skill-deprecated.md
   - name: Custom skills
     items:
     - name: Custom Web API
       href: cognitive-search-custom-skill-web-api.md
+  - name: Deprecated Skills
+    href: cognitive-search-skill-deprecated.md
+    items:
+    - name: Named Entity Recognition
+      href: cognitive-search-skill-named-entity-recognition.md
 - name: Resources
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
+  - name: Feedback Forum (UserVoice)
+    href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Demo sites
     items:
     - name: Financial files demo

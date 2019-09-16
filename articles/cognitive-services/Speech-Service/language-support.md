@@ -1,14 +1,14 @@
 ---
-title: Language support - Speech Services
+title: Language support - Speech Service
 titleSuffix: Azure Cognitive Services
-description: The Azure Speech Services support numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service.
+description: The Speech Service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -19,40 +19,40 @@ Different languages are supported for different Speech Services functions. The f
 
 ## Speech-to-text
 
-Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). Different levels of customization are available for each language.
+Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for en-US and de-DE. Learn more about customization [here](how-to-custom-speech.md).
 
-  Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabic (Egypt), modern standard | No | Yes | No
- ca-ES | Catalan | No | No | No
- da-DK | Danish (Denmark) | No | No | No
- de-DE | German (Germany) | Yes | Yes | No
- en-AU | English (Australia) | No | Yes | Yes
- en-CA | English (Canada) | No | Yes | Yes
- en-GB | English (United Kingdom) | No | Yes | Yes
- en-IN | English (India) | Yes | Yes | Yes
- en-NZ | English (New Zealand) | No | Yes | Yes  
- en-US | English (United States) | Yes | Yes | Yes
- es-ES | Spanish (Spain) | Yes | Yes | No
- es-MX | Spanish (Mexico) | No | Yes | No
- fi-FI | Finnish (Finland) | No | No | No
- fr-CA | French (Canada) | No | Yes | No
- fr-FR | French (France) | Yes | Yes | No
- hi-IN | Hindi (India) | No | Yes | No
- it-IT | Italian (Italy) | Yes | Yes | No
- ja-JP | Japanese (Japan) | No | Yes | No
- ko-KR | Korean (Korea) | No | Yes | No
- nb-NO | Norwegian (Bokmål) (Norway) | No | No | No
- nl-NL | Dutch (Netherlands) | No | Yes | No
- pl-PL | Polish (Poland) | No | No | No
- pt-BR | Portuguese (Brazil) | Yes | Yes | No
- pt-PT | Portuguese (Portugal) | No | Yes | No
- ru-RU | Russian (Russia) | Yes | Yes | No
- sv-SE | Swedish (Sweden) | No | No | No
- zh-CN | Chinese (Mandarin, simplified) | Yes | Yes | No
- zh-HK | Chinese (Cantonese, Traditional) | No | Yes | No
- zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
- th-TH | Thai (Thailand) | No | No | No
+  Code | Language | Supported | Customizable
+ ------|----------|---------------------|---------------------
+ ar-EG | Arabic (Egypt), modern standard | Yes | Yes
+ ca-ES | Catalan | Yes | No
+ da-DK | Danish (Denmark) | Yes | No
+ de-DE | German (Germany) | Yes | Yes
+ en-AU | English (Australia) | Yes | Yes
+ en-CA | English (Canada) | Yes | Yes
+ en-GB | English (United Kingdom) | Yes | Yes
+ en-IN | English (India) | Yes | Yes
+ en-NZ | English (New Zealand) | Yes | Yes
+ en-US | English (United States) | Yes | Yes
+ es-ES | Spanish (Spain) | Yes | Yes
+ es-MX | Spanish (Mexico) | Yes | Yes
+ fi-FI | Finnish (Finland) | Yes | No
+ fr-CA | French (Canada) | Yes | Yes
+ fr-FR | French (France) | Yes | Yes
+ hi-IN | Hindi (India) | Yes | Yes
+ it-IT | Italian (Italy) | Yes | Yes
+ ja-JP | Japanese (Japan) | Yes | Yes
+ ko-KR | Korean (Korea) | Yes | Yes
+ nb-NO | Norwegian (Bokmål) (Norway) | Yes | No
+ nl-NL | Dutch (Netherlands) | Yes | Yes
+ pl-PL | Polish (Poland) | Yes | No
+ pt-BR | Portuguese (Brazil) | Yes | Yes
+ pt-PT | Portuguese (Portugal) | Yes | Yes
+ ru-RU | Russian (Russia) | Yes | Yes
+ sv-SE | Swedish (Sweden) | Yes | No
+ zh-CN | Chinese (Mandarin, simplified) | Yes | Yes
+ zh-HK | Chinese (Cantonese, Traditional) | Yes | Yes
+ zh-TW | Chinese (Taiwanese Mandarin) | Yes | Yes
+ th-TH | Thai (Thailand) | Yes | No 
 
 
 ## Text-to-speech

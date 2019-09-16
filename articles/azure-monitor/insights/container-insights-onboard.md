@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -40,6 +40,8 @@ Before you start, make sure that you have the following:
 * You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
+* Prometheus metrics are not collected by default. Before [configuring the agent](container-insights-agent-config.md) to collect them, it is important you review the Prometheus [documentation](https://prometheus.io/) to understand what you can define.
 
 ## Components
 

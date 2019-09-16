@@ -4,7 +4,7 @@ description: Troubleshoot RDP issues in Azure for Windows VMs.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

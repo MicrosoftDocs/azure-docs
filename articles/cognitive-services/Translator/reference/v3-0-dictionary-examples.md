@@ -1,6 +1,6 @@
 ---
 title: Translator Text API Dictionary Examples Method
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Dictionary Examples method.
 services: cognitive-services
 author: swmachan
@@ -119,13 +119,9 @@ A successful response is a JSON array with one result for each string in the inp
 
 This example shows how to lookup examples for the pair made up of the English term `fly` and its Spanish translation `volar`.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 The response body (abbreviated for clarity) is:
 

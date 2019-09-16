@@ -3,7 +3,7 @@ title: Initialize client applications (Microsoft Authentication Library for Java
 description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
@@ -120,7 +120,7 @@ Below is the total set of configurable options that are supported currently in t
 
 - **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
 
-- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
+- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal. Defaults to `window.location.href`.
 
 - **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
 

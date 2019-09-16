@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Load Balancer health probes

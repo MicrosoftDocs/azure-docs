@@ -162,7 +162,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
 ```
 
 > [!IMPORTANT]
-> Change the instrumentation key in the `ApplicationInsights-Common` technical profile to the GUID that your Application Insights resource provides.
+> Change the instrumentation key in the `AzureInsights-Common` technical profile to the GUID that your Application Insights resource provides.
 
 ## Add the technical profiles as orchestration steps
 

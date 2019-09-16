@@ -18,6 +18,10 @@ ms.subservice: common
 
 This article shows how to configure a key vault with customer-managed keys using PowerShell.
 
+> [!IMPORTANT]
+> Using customer-managed keys with Azure Storage encryption requires that the key vault have two required properties configured, **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
+> Only RSA keys and key size 2048 are supported.
+
 ## Assign an identity to the storage account
 
 To enable customer-managed keys for your storage account, first assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the key vault.
@@ -89,4 +93,4 @@ When you create a new version of a key, you'll need to update the storage accoun
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) 
-- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

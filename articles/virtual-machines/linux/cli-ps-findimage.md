@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to determine the publisher, offer, S
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

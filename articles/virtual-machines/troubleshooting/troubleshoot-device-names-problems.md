@@ -4,7 +4,7 @@ description: Explains why Linux VM device names change and how to solve the prob
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 

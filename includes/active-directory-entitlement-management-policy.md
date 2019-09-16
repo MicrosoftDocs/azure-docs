@@ -5,16 +5,18 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
 ---
 
 ### Policy: For users in your directory
 
-Follow these steps if you want your policy to be for users and groups in your directory that can request this access package.
+Follow these steps if you want your policy to be for users in your directory that can request this access package.  The **users in your directory** refers to both internal users as well as external users that have been previously invited to the directory, either through them requesting entitlement management with another access package or being invited with Azure AD B2B. When defining the policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
 1. In the **Users who can request access** section, select **For users in your directory**.
+
+    Note that the **For users in your directory** setting includes both member users and guest users that have been added to your directory. If you want to only include member users and not guest users, select **For users in your directory** and then select a group of your member users. If necessary, you can create a dynamic group of your member users (user.userType -eq "Member"). For more information, see [Dynamic membership rules for groups in Azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
 
 1. In the **Select users and groups** section, click **Add users and groups**.
 
@@ -28,16 +30,16 @@ Follow these steps if you want your policy to be for users and groups in your di
 
 ### Policy: For users not in your directory
 
-Follow these steps if you want your policy to be for users not in your directory that can request this access package. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
+Follow these steps if you want your policy to be for users not in your directory that can request this access package. The **users not in your directory** refers to users who are in another Azure AD directory, and may not have yet been invited into your directory. Currently, you can only add users from organizations that have Azure AD. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
+> A guest external user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
 
 1. In the **Users who can request access** section, select **For users not in your directory**.
 
 1. In the **Select external Azure AD directory** section, click **Add directories**.
 
-1. Enter a domain name and search for an external Azure AD directory.
+1. Enter a domain name and search for an Azure AD directory with that domain name.
 
 1. Verify it is the correct directory by the provided directory name and initial domain.
 

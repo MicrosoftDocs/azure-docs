@@ -5,7 +5,7 @@ description: Overview of the vulnerabilities detected by Azure Active Directory 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2019
 
 ms.author: joflore

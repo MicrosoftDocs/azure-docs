@@ -1,5 +1,5 @@
 ---
-title: Gateway migration notice for Azure SQL Database from Gen2 to Gen3 | Microsoft Docs
+title: Gateway traffic migration notice for Azure SQL Database  | Microsoft Docs
 description: Article provides notice to users about the migration of Azure SQL Database Gateways IP addresses
 services: sql-database
 ms.service: sql-database
@@ -9,19 +9,18 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways
 
-As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add Gateways built on newer hardware generations, and decommission Gateways built on older hardware in some regions.  
+As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add Gateways built on newer hardware generations, migrate traffic to them, and eventually decommission Gateways built on older hardware in some regions.  
 
 Customers will be notified via email and in the Azure portal well in advance of any change to Gateways available in each region. The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) table.
 
 ## Impact of this change
 
-The first round of Gateway decommissioning is scheduled for September 1, 2019 in the following regions:
-
+The first round of traffic migration to newer Gateways  is scheduled for **October 14, 2019** in the following regions:
+- Brazil South
 - West US
 - West Europe
 - East US
@@ -35,12 +34,14 @@ The first round of Gateway decommissioning is scheduled for September 1, 2019 in
 - East US 2
 - East Asia
 
-The Decommissioned IP Address will stop accepting traffic and any new connection attempts will be routed to one of the Gateways in the region.
+The traffic migration will change the public IP address that DNS resolves for your SQL Database.
+You will be impacted if you have:
+- Hard coded the IP address for any particular Gateway in your on-premises firewall
+- Any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the Gateway IP addresses
 
-Where you won't see impact of this change:
-
-- Customers using redirection as their connection policy won't see any impact.
-- Connections to SQL Database from inside Azure and using Service Tags won't be impacted.
+You will not be impacted if you have :
+- Redirection as the connection policy
+- Connections to SQL Database from inside Azure and using Service Tags
 - Connections made using supported versions of JDBC Driver for SQL Server will see no impact. For supported JDBC versions, see [Download Microsoft JDBC Driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
 ## What to do you do if you're affected

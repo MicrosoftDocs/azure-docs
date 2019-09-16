@@ -6,7 +6,7 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
 ---
 
@@ -157,7 +157,7 @@ On a timechart, if there is a sudden spike or step in your data, you may see a h
 ![Smart diagnostics](media/get-started-portal/smart-diagnostics.png)
 
 ## Pin to dashboard
-To pin a diagram or table to one of your shared Azure dashboards, click the pin icon.
+To pin a diagram or table to one of your shared Azure dashboards, click the pin icon. Note that this icon has moved to the top of the Log Analytics window, different from the screenshot below.
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 
@@ -173,6 +173,9 @@ Once you've created a useful query, you might want to save it or share with othe
 You can save either the entire query page, or a single query as a function. Functions are queries that can also be referenced by other queries. In order to save a query as a function, you must provide a function alias, which is the name used to call this query when referenced by other queries.
 
 ![Save function](media/get-started-portal/save-function.png)
+
+>[!NOTE]
+>The following characters are supported - `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` in the **Name** field when saving or editing the saved query.
 
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 

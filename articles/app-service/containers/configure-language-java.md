@@ -82,10 +82,16 @@ During the 30 second interval, you can validate the recording is taking place by
 
 #### Continuous Recording
 
-You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of JAVA_OPTS App Setting are passed to the `java` command when your app is started.
+You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of the JAVA_OPTS App Setting are passed to the `java` command when your app is started.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Once the recording has started, you can dump the current recording data at any time using the `JFR.dump` command.
+
+```shell
+jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 ```
 
 For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
@@ -129,7 +135,7 @@ Developers running a single application with one deployment slot in their App Se
 
 When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
 
-If you are deploying a JAR application, it should be named *app.jar* so that the built-in image can correctly identify your app. (The Maven plugin does this renaming automatically.) If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) textbox in the Configuration section of the portal.
+If you are deploying a JAR application, it should be named *app.jar* so that the built-in image can correctly identify your app. (The Maven plugin does this renaming automatically.) If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](app-service-linux-faq.md#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ### Turn on web sockets
 
@@ -167,17 +173,21 @@ Alternatively, you can configure the app setting using the App Service Maven plu
 
 If your Java application is particularly large, you should increase the startup time limit. To do this, create an application setting, `WEBSITES_CONTAINER_START_TIME_LIMIT` and set it to the number of seconds that App Service should wait before timing out. The maximum value is `1800` seconds.
 
+### Pre-Compile JSP files
+
+To improve performance of Tomcat applications, you can compile your JSP files before deploying to App Service. You can use the [Maven plugin](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) provided by Apache Sling, or using this [Ant build file](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
+
 ## Secure applications
 
 Java applications running in App Service for Linux have the same set of [security best practices](/azure/security/security-paas-applications-using-app-services) as other applications.
 
-### Authenticate users
+### Authenticate users (Easy Auth)
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) article.
 
-#### Tomcat
+#### Tomcat and Wildfly
 
-Your Tomcat application can access the user's claims directly from the Tomcat servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
+Your Tomcat or Wildfly application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -197,7 +207,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-To sign users out and perform other actions, please see the documentation on [App Service Authentication and Authorization usage](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). There is also official documentation on the Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) and its methods. The following servlet methods are also hydrated based on your App Service configuration:
+To sign users out, use the `/.auth/ext/logout` path. To perform other actions, please see the documentation on [App Service Authentication and Authorization usage](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). There is also official documentation on the Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) and its methods. The following servlet methods are also hydrated based on your App Service configuration:
 
 ```java
 public boolean isSecure()
@@ -229,9 +239,6 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 This section shows how to connect Java applications deployed on Azure App Service on Linux with the NewRelic and AppDynamics application performance monitoring (APM) platforms.
 
-[Configure New Relic](#configure-new-relic)
-[Configure AppDynamics](#configure-appdynamics)
-
 ### Configure New Relic
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
@@ -244,7 +251,6 @@ This section shows how to connect Java applications deployed on Azure App Servic
     - If your app is using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - If you're using **WildFly**, see the New Relic documentation [here](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) for guidance about installing the Java agent and JBoss configuration.
-    - If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `javaagent` option to the end of the current value.
 
 ### Configure AppDynamics
 
@@ -256,6 +262,8 @@ This section shows how to connect Java applications deployed on Azure App Servic
     - If you're using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
     - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
     - If you're using **WildFly**, see the AppDynamics documentation [here](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) for guidance about installing the Java agent and JBoss configuration.
+
+>  If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
 ## Configure JAR Applications
 
@@ -390,7 +398,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
     Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
+2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
 ### Spring Boot
 
@@ -411,7 +419,7 @@ Please see the [Spring Boot documentation on data access](https://docs.spring.io
 ## Configure Java EE (WildFly)
 
 > [!NOTE]
-> Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work. information on our Java SE and Tomcat stacks.
+> Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work.
 
 Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [WildFly](https://wildfly.org/) application server.
 
@@ -422,13 +430,12 @@ This section contains the following subsections:
 - [Install modules and dependencies](#install-modules-and-dependencies)
 - [Configure data sources](#configure-data-sources)
 - [Enable messaging providers](#enable-messaging-providers)
-- [Configure session management caching](#configure-session-management-caching)
 
 ### Scale with App Service
 
 The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. When you scale out the App Service Plan, each WildFly instance is configured as a standalone server.
 
-Scale your application vertically or horizontally with [scale rules](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) and by [increasing your instance count](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Scale your application vertically or horizontally with [scale rules](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) and by [increasing your instance count](../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### Customize application server configuration
 
@@ -640,14 +647,121 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 
 4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
 
-### Configure session management caching
+## Use Redis as a session cache with Tomcat
 
-By default App Service on Linux will use session affinity cookies to ensure that client requests with existing sessions are routed the same instance of your application. This default behavior requires no configuration but has some limitations:
+You can configure Tomcat to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). This enables you to preserve user session state (such as shopping cart data) when a user is transferred to another instance of your app, for example when autoscaling, restart, or failover occurs.
 
-- If an application instance is restarted or scaled down, the user session state in the application server will be lost.
-- If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
+To use Tomcat with Redis, you must configure your app to use a [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementation. The following steps explain this process using [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) as an example.
 
-You can configure WildFly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured WildFly session store to operate without interference.
+1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
+
+    | Variable                 | Value                                                                      |
+    |--------------------------|----------------------------------------------------------------------------|
+    | RESOURCEGROUP_NAME       | The name of the resource group containing your App Service instance.       |
+    | WEBAPP_NAME              | The name of your App Service instance.                                     |
+    | WEBAPP_PLAN_NAME         | The name of your App Service plan                                          |
+    | REGION                   | The name of the region where your app is hosted.                           |
+    | REDIS_CACHE_NAME         | The name of your Azure Cache for Redis instance.                           |
+    | REDIS_PORT               | The SSL port that your Redis cache listens on.                             |
+    | REDIS_PASSWORD           | The primary access key for your instance.                                  |
+    | REDIS_SESSION_KEY_PREFIX | A value that you specify to identify session keys that come from your app. |
+
+    You can find the name, port, and access key information on the Azure portal by looking in the **Properties** or **Access keys** sections of your service instance.
+
+2. Create or update your app's *src/main/webapp/META-INF/context.xml* file with the following content:
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Context path="">
+        <!-- Specify Redis Store -->
+        <Valve className="com.gopivotal.manager.SessionFlushValve" />
+        <Manager className="org.apache.catalina.session.PersistentManager">
+            <Store className="com.gopivotal.manager.redis.RedisStore"
+                   connectionPoolSize="20"
+                   host="${REDIS_CACHE_NAME}.redis.cache.windows.net"
+                   port="${REDIS_PORT}"
+                   password="${REDIS_PASSWORD}"
+                   sessionKeyPrefix="${REDIS_SESSION_KEY_PREFIX}"
+                   timeout="2000"
+            />
+        </Manager>
+    </Context>
+    ```
+
+    This file specifies and configures the session manager implementation for your app. It uses the environment variables that you set in the previous step to keep your account information out of your source files.
+
+3. Use FTP to upload the session manager's JAR file to your App Service instance, placing it in the */home/tomcat/lib* directory. For more info, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+4. Disable the [session affinity cookie](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) for your App Service instance. You can do this from the Azure portal by navigating to your app and then setting **Configuration > General settings > ARR affinity** to **Off**. Alternately, you can use the following command:
+
+    ```azurecli
+    az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false
+    ```
+
+    By default, App Service will use session affinity cookies to ensure that client requests with existing sessions are routed to the same instance of your application. This default behavior requires no configuration but it can't preserve user session state when your app instance is restarted or when traffic is rerouted to another instance. When you [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing, you allow the configured session store to operate without interference.
+
+5. Navigate to the **Properties** section of your App Service instance and find **Additional Outbound IP Addresses**. These represent all possible outbound IP addresses for your app. Copy these for use in the next step.
+
+6. For each IP address, create a firewall rule in your Azure Cache for Redis instance. You can do this on the Azure portal from the **Firewall** section of your   Redis instance. Provide a unique name for each rule, and set the **Start IP address** and **End IP address** values to the same IP address.
+
+7. Navigate to the **Advanced settings** section of your Redis instance and set **Allow access only via SSL** to **No**. This enables your App Service instance to communicate with your Redis cache via the Azure infrastructure.
+
+8. Update the `azure-webapp-maven-plugin` configuration in your app's *pom.xml* file to refer to your Redis account info. This file uses the environment variables you set previously to keep your account information out of your source files.
+
+    If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+
+    ```xml
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <configuration>
+
+            <!-- Web App information -->
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
+            <appName>${WEBAPP_NAME}-${REGION}</appName>
+            <region>${REGION}</region>
+            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+
+            <appSettings>
+                <property>
+                    <name>REDIS_CACHE_NAME</name>
+                    <value>${REDIS_CACHE_NAME}</value>
+                </property>
+                <property>
+                    <name>REDIS_PORT</name>
+                    <value>${REDIS_PORT}</value>
+                </property>
+                <property>
+                    <name>REDIS_PASSWORD</name>
+                    <value>${REDIS_PASSWORD}</value>
+                </property>
+                <property>
+                    <name>REDIS_SESSION_KEY_PREFIX</name>
+                    <value>${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+                <property>
+                    <name>JAVA_OPTS</name>
+                    <value>-Xms2048m -Xmx2048m -DREDIS_CACHE_NAME=${REDIS_CACHE_NAME} -DREDIS_PORT=${REDIS_PORT} -DREDIS_PASSWORD=${REDIS_PASSWORD} IS_SESSION_KEY_PREFIX=${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+
+            </appSettings>
+
+        </configuration>
+    </plugin>
+    ```
+
+9. Rebuild and redeploy your app.
+
+    ```bash
+    mvn package
+    mvn azure-webapp:deploy
+    ```
+
+Your app will now use your Redis cache for session management.
+
+For a sample that you can use to test these instructions, see the [scaling-stateful-java-web-app-on-azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) repo on GitHub.
 
 ## Docker containers
 

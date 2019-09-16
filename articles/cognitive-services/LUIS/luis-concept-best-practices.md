@@ -1,6 +1,6 @@
 ---
-title: Best practices
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Best practices - LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn the LUIS best practices to get the best results from your LUIS app's model.
 services: cognitive-services
 author: diberry
@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 09/05/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
-Use the app authoring process to build your LUIS app. 
+Use the app authoring process to build your LUIS app: 
 
 * Build language model
 * Add a few training example utterances (10-15 per intent)
@@ -21,7 +21,7 @@ Use the app authoring process to build your LUIS app.
 * Test from endpoint 
 * Add features
 
-Once your app is [published](luis-how-to-publish-app.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
+Once your app is [published](luis-how-to-publish-app.md), use the authoring cycle to add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
 
 In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using [active learning](luis-concept-review-endpoint-utterances.md), [patterns](luis-concept-patterns.md), and [phrase lists](luis-concept-feature.md). 
 
@@ -72,13 +72,13 @@ For more information:
 
 ## Do add phrase lists and patterns in later iterations
 
-A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding phrase lists and patterns because these features are weighted more heavily than example utterances and will skew confidence. 
+A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding [phrase lists](luis-concept-feature.md) and [patterns](luis-concept-patterns.md) because these features are weighted more heavily than example utterances and will skew confidence. 
 
 Once you understand how your app behaves without these, add each of these features as they apply to your app. You do not need to add these features with each [iteration](luis-concept-app-iteration.md) or change the features with each version. 
 
 There is no harm adding them in the beginning of your model design but it is easier to see how each feature changes results after the model is tested with utterances. 
 
-A best practice is to test via the [endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) so that you get the added benefit of [active learning](luis-concept-review-endpoint-utterances.md). The [interactive testing pane](luis-interactive-test.md) is also a valid test methodology. 
+A best practice is to test via the [endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) so that you get the added benefit of [active learning](luis-concept-review-endpoint-utterances.md). The [interactive testing pane](luis-interactive-test.md) is also a valid test methodology. 
  
 
 ### Phrase lists

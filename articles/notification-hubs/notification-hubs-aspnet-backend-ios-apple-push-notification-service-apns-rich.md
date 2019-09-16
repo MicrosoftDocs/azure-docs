@@ -46,12 +46,12 @@ At a high level:
     ![][IOS2]
 5. In `Notifications.cs`, add the following using statement:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Update the whole `Notifications` class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -101,7 +101,7 @@ At a high level:
 
 7. In `NotificationsController.cs`, redefine `NotificationsController with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);

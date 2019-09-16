@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -93,8 +93,10 @@ Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvi
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -110,6 +112,8 @@ Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvi
 ```
 
 The **InputClaims** element defines the claims that are sent to the REST service. In this example, the value of the claim `givenName` is sent to the REST service as the claim `email`. The **OutputClaims** element defines the claims that are expected from the REST service.
+
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) and [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
 ## Add the claim definition
 
@@ -247,5 +251,13 @@ If everything is set up correctly, the token includes the new claim `city`, with
 
 ## Next steps
 
-- You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
-- [Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
+
+[Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Reference: RESTful technical profile](restful-technical-profile.md)
+
+To learn out how to secure your APIs, see the following articles:
+
+* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

@@ -1,14 +1,14 @@
 ---
 title: "Sending search requests to the Bing Video Search API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about sending search queries to the Bing Video Search API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: overview
-ms.date: 06/19/2019
+ms.topic: conceptual
+ms.date: 06/24/2019
 ms.author: aahi
 ---
 
@@ -93,7 +93,7 @@ The response contains a [Videos](https://docs.microsoft.com/rest/api/cognitivese
 
 ## Video thumbnails
 
-You can display all, or a subset of the video thumbnails returned by the Bing Video Search API. If you display a subset, provide the user an option to view the remaining videos. as part of the Bing API [use and display requirements](../UseAndDisplayRequirements.md), You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md). 
+You can display all, or a subset of the video thumbnails returned by the Bing Video Search API. If you display a subset, provide the user an option to view the remaining videos. as part of the Bing API [use and display requirements](../UseAndDisplayRequirements.md), You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
 As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) to play a thumbnail version of the video. Be sure to attribute the motion thumbnail when you display it.
 

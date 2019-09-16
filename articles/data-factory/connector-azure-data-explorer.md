@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/01/2019
 ms.author: orspodek
 ---
 
@@ -20,6 +20,11 @@ ms.author: orspodek
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data to or from [Azure Data Explorer](../data-explorer/data-explorer-overview.md). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This Azure Data Explorer connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
@@ -51,13 +56,13 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Data Explorer. Refer to [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) with detailed information on roles and permissions as well as walkthrough on managing permissions. In general, you need to
+2. Grant the service principal proper permission in Azure Data Explorer. Refer to [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) with detailed information on roles and permissions as well as walk through on managing permissions. In general, you need to
 
     - **As source**, grant at least **Database viewer** role to your database.
     - **As sink**, grant at least **Database ingestor** role to your database.
 
 >[!NOTE]
->When using ADF UI to author, the operations of listing databases on linked service or listing tables on dataset may require higher privileged permission granted for the service principal. Alternatively, you can choose to manually input database name and table name. Copy activity execution works as long as the service principal is granted with proper permission to read/write data.
+>When using ADF UI to author, your login user account is used to list Azure Data Explorer clusters, databases and tables. Manually input the name if you don’t have permission for such operation.
 
 The following properties are supported for Azure Data Explorer linked service:
 
@@ -111,12 +116,13 @@ The following properties are supported:
    "name": "AzureDataExplorerDataset",
     "properties": {
         "type": "AzureDataExplorerTable",
+        "typeProperties": {
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Data Explorer linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "table": "<table name>"
         }
     }
 }
@@ -135,7 +141,7 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | type | The **type** property of the copy activity source must be set to: **AzureDataExplorerSource** | Yes |
 | query | A read-only request given in a [KQL format](/azure/kusto/query/). Use the custom KQL query as a reference. | Yes |
 | queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
-| noTruncation | Indicates whether to truncate the returned result set. By default, result is truncated after 500,000 records or 64MB. Truncation is strongly recommended for a proper behavior of the activity. |No |
+| noTruncation | Indicates whether to truncate the returned result set. By default, result is truncated after 500,000 records or 64 MB. Truncation is strongly recommended for a proper behavior of the activity. |No |
 
 >[!NOTE]
 >Azure Data Explorer source by default has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. Refer to [Query limits](https://docs.microsoft.com/azure/kusto/concepts/querylimits) on more details.
@@ -213,6 +219,10 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 

@@ -87,7 +87,17 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
 - Certificates signed by well known CA authorities whose CN matches the host name in the HTTP backend settings do not require any additional step for end to end SSL to work. 
 
    For example, if the backend certificates are issued by a well known CA and has a CN of contoso.com, and the backend http setting’s host field is also set to contoso.com, then no additional steps are required. You can set the backend http setting protocol to HTTPS and both the health probe and data path would be SSL enabled. If you're using Azure App Service or other Azure web services as your backend, then these are implicitly trusted as well and no further steps are required for end to end SSL.
+   
+> [!NOTE] 
+>
+> In order for an SSL certificate to be trusted, that certificate of the backend server must have been issued by a CA that is included in the trusted store of the Application Gateway.If the certificate was not issued by a trusted CA, the Application Gateway will then check to see if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found (at which point a trusted, secure connection will be established) or no trusted CA can be found (at which point the Application Gateway will mark the backend unhealthy). Therefore, it is recommended the backend server certificate contain both the root and intermidiate CAs.
+
 - If the certificate is self-signed, or signed by unknown intermediaries, then to enable end to end SSL in v2 SKU a trusted root certificate must be defined. Application Gateway will only communicate with backends whose Server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
+
+> [!NOTE] 
+>
+> The self-signed certificate must be a part of a certificate chain. A single self-signed certificate with no chain is not supported in V2 SKU.
+
 - In addition to root certificate match, Application Gateway also validates if the Host setting specified in the backend http setting matches that of the common name (CN) presented by the backend server’s SSL certificate. When trying to establish an SSL connection to the backend, Application Gateway sets the Server Name Indication (SNI) extension to the Host specified in the backend http setting.
 - If **pick hostname from backend address** is chosen instead of the Host field in the backend http setting,  then the SNI header is always set to the backend pool FQDN and the CN on the backend server SSL certificate must match its FQDN. Backend pool members with IPs aren't supported in this scenario.
 - The root certificate is a base64 encoded root certificate from the backend Server certificates.

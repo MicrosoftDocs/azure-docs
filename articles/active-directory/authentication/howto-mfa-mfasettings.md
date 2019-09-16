@@ -32,7 +32,7 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
 | [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
 | [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
-| Notifications | Enable notifications of events from MFA Server. |
+| [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
@@ -97,6 +97,12 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **Sign-ins**. The fraud report is now part of the standard Azure AD Sign-ins report.
 
+## Notifications
+
+Configure email addresses here for users who will receive fraud alert emails.
+
+![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+
 ## Phone call settings
 
 ### Caller ID
@@ -140,6 +146,31 @@ For example, if there is only one custom message, with a language of German:
 1. Choose the language.
 1. Select an .mp3 or .wav sound file to upload.
 1. Select **Add**.
+
+### Custom voice message defaults
+
+Sample scripts for creating custom messages.
+
+| Message name | Script |
+| --- | --- |
+| Authentication successful | Your sign in was successfully verified. Goodbye. |
+| Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
+| Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
+| Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Fraud reported	A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
+| Activation | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Authentication denied retry | Verification denied. |
+| Retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Fraud greeting (PIN) | Thank you for using Microsoft's sign-in verification system.  Please enter your PIN followed by the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Retry(PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt after digits | If already at this extension, press the pound key to continue. |
+| Authentication denied | I'm sorry, we cannot sign you in at this time. Please try again later. |
+| Activation greeting (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Activation retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Activation greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt before digits | Thank you for using Microsoft's sign-in verification system. Please transfer this call to extension … |
 
 ## One-time bypass
 
@@ -240,7 +271,7 @@ Azure AD supports federation, or single sign-on (SSO), with on-premises Windows 
 By default, users can't create app passwords. The app passwords feature must be enabled. To give users the ability to create app passwords, use the following procedure:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
@@ -280,7 +311,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable named locations by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
@@ -290,7 +321,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
@@ -340,7 +371,7 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 ### Enable and disable verification methods
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
@@ -355,8 +386,7 @@ The _remember Multi-Factor Authentication_ feature for devices and browsers that
 >[!IMPORTANT]
 >If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
->
+>The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### How the feature works
 
@@ -375,7 +405,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 ### Enable remember Multi-Factor Authentication
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.

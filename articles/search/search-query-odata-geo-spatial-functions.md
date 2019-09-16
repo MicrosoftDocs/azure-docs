@@ -1,13 +1,13 @@
 ---
 title: OData geo-spatial function reference - Azure Search
 description: OData geo-spatial functions, geo.distance and geo.intersects, in Azure Search queries.
-ms.date: 06/13/2019
+ms.date: 09/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: "brjohnstmsft"
 ms.author: "brjohnst"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -25,6 +25,9 @@ translation.priority.mt:
 Azure Search supports geo-spatial queries in [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `geo.distance` and `geo.intersects` functions. The `geo.distance` function returns the distance in kilometers between two points, one being a field or range variable, and one being a constant passed as part of the filter. The `geo.intersects` function returns `true` if a given point is within a given polygon, where the point is a field or range variable and the polygon is specified as a constant passed as part of the filter.
 
 The `geo.distance` function can also be used in the [**$orderby** parameter](search-query-odata-orderby.md) to sort search results by distance from a given point. The syntax for `geo.distance` in **$orderby** is the same as it is in **$filter**. When using `geo.distance` in **$orderby**, the field to which it applies must be of type `Edm.GeographyPoint` and it must also be **sortable**.
+
+> [!NOTE]
+> When using `geo.distance` in the **$orderby** parameter, the field you pass to the function must contain only a single geo-point. In other words, it must be of type `Edm.GeographyPoint` and not `Collection(Edm.GeographyPoint)`. It is not possible to sort on collection fields in Azure Search.
 
 ## Syntax
 

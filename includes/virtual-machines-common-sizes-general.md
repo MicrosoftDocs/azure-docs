@@ -5,14 +5,14 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/08/2018
+ ms.date: 08/08/2019
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
-General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput for sizes in this grouping. 
+General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput for sizes in this grouping.
 
-- The [DC-series](#dc-series) is a new family of virtual machines in Azure that can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 4.7GHz. DC series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
+- The [DC-series](#dc-series) is a family of virtual machines in Azure that can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 4.7GHz. DC series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
 
 - The Av2-series VMs can be deployed on a variety of hardware types and processors. A-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 
@@ -22,7 +22,9 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 - The Dv3-series features the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Dv3 no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family.
 
-  Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics. 
+  Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
+
+- The Da-series and Dasv3-series are new sizes utilizing AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256 GB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Da-series and Dasv3-series have the same memory and disk configurations as the D & Dsv3-series.
   
 ## B-series
 
@@ -73,6 +75,24 @@ Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) pro
 
 <sup>1</sup> Dsv3-series VM’s feature Intel® Hyper-Threading Technology
 
+## Dasv3-series
+
+Premium Storage: Supported
+
+Premium Storage caching: Supported
+
+Dasv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Dasv3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
+|---|---|---|---|
+| Standard_D2as_v3  | 2  | 8   | 16  |
+| Standard_D4as_v3  | 4  | 16  | 32  |
+| Standard_D8as_v3  | 8  | 32  | 64  |
+| Standard_D16as_v3 | 16 | 64  | 128 |
+| Standard_D32as_v3 | 32 | 128 | 256 |
+| Standard_D48as_v3 | 48 | 192 | 384 |
+| Standard_D64as_v3 | 64 | 256 | 512 |
+
 ## Dv3-series <sup>1</sup>
 
 ACU: 160-190
@@ -97,6 +117,24 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 | Standard_D64_v3 | 64        | 256         | 1600           | 32             | 96000/1000/500                                           | 8 / 30000                   |
 
 <sup>1</sup> Dv3-series VM’s feature Intel® Hyper-Threading Technology
+
+## Dav3-series
+
+Premium Storage: Not Supported
+
+Premium Storage caching: Not Supported
+
+Dav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz. The Dav3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dasv3 sizes. The pricing and billing meters for Dasv3 sizes are the same as the Dav3-series.
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
+|---|---|---|---|
+| Standard_D2a_v3  | 2  | 8   | 50   |
+| Standard_D4a_v3  | 4  | 16  | 100  |
+| Standard_D8a_v3  | 8  | 32  | 200  |
+| Standard_D16a_v3 | 16 | 64  | 400  |
+| Standard_D32a_v3 | 32 | 128 | 800  |
+| Standard_D48a_v3 | 48 | 192 | 1200 |
+| Standard_D64a_v3 | 64 | 256 | 1600 |
 
 ## DSv2-series
 

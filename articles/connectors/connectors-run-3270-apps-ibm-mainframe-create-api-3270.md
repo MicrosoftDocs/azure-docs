@@ -74,7 +74,7 @@ that Azure Logic Apps supports.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -297,7 +297,7 @@ a series of screens common to all your transactions.
 so select and use only one instance of any repeated screens 
 in your plan. Here are some examples of repeated screens:
 
-  * The sign in screen, for example, the **MSG-10** screen
+  * The sign-in screen, for example, the **MSG-10** screen
   * The welcome screen for CICS
   * The "Clear" or **Empty** screen
 
@@ -630,16 +630,9 @@ and choose **Create**.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limit, which are described 
+For technical details about triggers, actions, and limits, which are described 
 by the connector's OpenAPI (formerly Swagger) description, review the 
 [connector's reference page](/connectors/si3270/).
-
-## Get support
-
-* For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

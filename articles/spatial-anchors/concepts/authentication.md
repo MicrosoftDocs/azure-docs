@@ -78,7 +78,7 @@ auto configuration = m_cloudSession.Configuration();
 configuration.AccountKey(LR"(MyAccountKey)");
 ```
 
-***
+---
 
 Once that is done, the SDK will handle the exchange of the account key for an access token, and the necessary caching of tokens for your app. 
 
@@ -146,7 +146,7 @@ auto configuration = m_cloudSession.Configuration();
 configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 ```
 
-***
+---
 
 ## Azure AD service authentication
 
@@ -237,7 +237,7 @@ auto configuration = m_cloudSession.Configuration();
 configuration.AccessToken(LR"(MyAccessToken)");
 ```
 
-***
+---
 
 ## Role-based access control
 

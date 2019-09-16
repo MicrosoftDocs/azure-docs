@@ -1,6 +1,6 @@
 ---
 title: Collect data on your production models 
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to collect Azure Machine Learning input model data in an Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
 
 ---
 # Collect data for models in production
 
-In this article, you can learn how to collect input model data from the Azure Machine Learning services you've deployed into Azure Kubernetes Cluster (AKS) into an Azure Blob storage. 
+In this article, you can learn how to collect input model data from Azure Machine Learning you've deployed into Azure Kubernetes Cluster (AKS) into an Azure Blob storage. 
 
 Once enabled, this data you collect helps you:
 * [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model
@@ -46,9 +46,9 @@ The path to the output data in the blob follows this syntax:
 
 ## Prerequisites
 
-- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-- An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
 - A trained machine learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
@@ -57,7 +57,7 @@ The path to the output data in the blob follows this syntax:
 - [Set up your environment](how-to-configure-environment.md) and install the [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## Enable data collection
-Data collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. 
+Data collection can be enabled regardless of the model being deployed through Azure Machine Learning or other tools. 
 
 To enable it, you need to:
 
@@ -105,7 +105,7 @@ To enable it, you need to:
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-1. Go to  [Azure Portal](https://portal.azure.com).
+1. Go to  [Azure portal](https://portal.azure.com).
 
 1. Open your workspace.
 
@@ -140,6 +140,8 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Select **Update** to apply the change.
 
+  You can also access these settings in your [workspace landing page (preview)](https://ml.azure.com).
+
 + Option 2 - Use Python to disable data collection:
 
   ```python 
@@ -168,7 +170,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data through Power BI
 
-1. Download and Open [PowerBi Desktop](https://www.powerbi.com)
+1. Download and Open [Power BI Desktop](https://www.powerbi.com)
 
 1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 

@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 08/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 Use Visual Studio to develop and deploy code to Windows devices running IoT Edge.
 
-In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
+In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services. 
 
 This tutorial uses the example of deploying a **C# module to a Windows device**. This example was chosen because it's the most common development scenario. If you're interested in developing in a different language, or plan on deploying Azure services as modules, this tutorial will still be helpful to learn about the development tools. Once you understand the development concepts, then you can choose your preferred language or Azure service to dive into the details. 
 
@@ -121,26 +121,25 @@ The Azure IoT Edge Tools extension provides project templates for all supported 
 3. In the configure your new project window, rename the project and solution to something descriptive like **CSharpTutorialApp**. Click **Create** to create the project.
 
    ![Configure a new Azure IoT Edge project](./media/tutorial-develop-for-windows/configure-project.png)
- 
 
-4. In the IoT Edge application and module window, configure your project with the following values: 
+4. In the Add Module window, configure your project with the following values: 
 
    | Field | Value |
    | ----- | ----- |
-   | Select a template | Select **C# Module**. | 
-   | Module project name | Accept the default **IoTEdgeModule1**. | 
-   | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/iotedgemodule1. |
+   | Visual Studio Template | Select **C# Module**. | 
+   | Module Name | Accept the default **IotEdgeModule1**. | 
+   | Repository Url | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/iotedgemodule1. |
 
-   ![Configure your project for target device, module type, and container registry](./media/tutorial-develop-for-windows/add-module-to-solution.png)
+      ![Configure your project for target device, module type, and container registry](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-5. Select **Yes** to apply your changes. 
+5. Select **Add** to create the module. 
 
 Once your new project loads in the Visual Studio window, take a moment to familiarize yourself with the files that it created: 
 
 * An IoT Edge project called **CSharpTutorialApp**.
-    * The **Modules** folder contains pointers to the modules included in the project. In this case, it should be just IoTEdgeModule1. 
+    * The **Modules** folder contains pointers to the modules included in the project. In this case, it should be just IotEdgeModule1. 
     * The **deployment.template.json** file is a template to help you create a deployment manifest. A *deployment manifest* is a file that defines exactly which modules you want deployed on a device, how they should be configured, and how they can communicate with each other and the cloud. 
-* An IoT Edge module project called **IoTEdgeModule1**.
+* An IoT Edge module project called **IotEdgeModule1**.
     * The **program.cs** file contains the default C# module code that comes with the project template. The default module takes input from a source and passes it along to IoT Hub. 
     * The **module.json** file hold details about the module, including the full image repository, image version, and which Dockerfile to use for each supported platform.
 
@@ -190,13 +189,13 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 6. Find the **modules** property of the $edgeAgent desired properties. 
 
-   There should be two modules listed here. The first is **tempSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **IotEdgeModule1** module that you created as part of this project.
+   There should be two modules listed here. The first is **SimulatedTemperatureSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **IotEdgeModule1** module that you created as part of this project.
 
    This modules property declares which modules should be included in the deployment to your device or devices. 
 
 7. Find the **routes** property of the $edgeHub desired properties. 
 
-   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IotEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the SimulatedTemperatureSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
 
    ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -280,14 +279,14 @@ You verified that the built container images are stored in your container regist
 
 4. Expand the details for your IoT Edge device in the Cloud Explorer to see the modules on your device.
 
-5. Use the **Refresh** button to update the device status to see that the tempSensor and IotEdgeModule1 modules are deployed your device. 
+5. Use the **Refresh** button to update the device status to see that the SimulatedTemperatureSensor and IotEdgeModule1 modules are deployed your device. 
 
 
    ![View modules running on your IoT Edge device](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## View messages from device
 
-The IotEdgeModule1 code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages from tempSensor to IotEdgeModule1, and then forwarded messages from IotEdgeModule1 to IoT Hub. The Azure IoT Edge tools for Visual Studio allow you to see messages as they arrive at IoT Hub from your individual devices. 
+The IotEdgeModule1 code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages from SimulatedTemperatureSensor to IotEdgeModule1, and then forwarded messages from IotEdgeModule1 to IoT Hub. The Azure IoT Edge tools for Visual Studio allow you to see messages as they arrive at IoT Hub from your individual devices. 
 
 1. In the Visual Studio cloud explorer, select the name of the IoT Edge device that you deployed to. 
 
@@ -311,7 +310,7 @@ The commands in this section are for your IoT Edge device, not your development 
    iotedge list
    ```
 
-   You should see four modules: the two IoT Edge runtime modules, tempSensor, and IotEdgeModule1. All four should be listed as running.
+   You should see four modules: the two IoT Edge runtime modules, SimulatedTemperatureSensor, and IotEdgeModule1. All four should be listed as running.
 
 * Inspect the logs for a specific module:
 
@@ -321,7 +320,7 @@ The commands in this section are for your IoT Edge device, not your development 
 
    IoT Edge modules are case-sensitive. 
 
-   The tempSensor and IotEdgeModule1 logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
+   The SimulatedTemperatureSensor and IotEdgeModule1 logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
 
 ## Next steps
 

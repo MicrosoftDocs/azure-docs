@@ -76,7 +76,7 @@ A storage container is required in order to export the ASA compiled query and th
 4. Set the storage container information in the **IoT Edge settings** menu.
 
 5. Set optional settings
-    1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
+    1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Locale**. Set the internalization format.
 
 

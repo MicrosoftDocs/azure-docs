@@ -1,5 +1,5 @@
 ---
-title: Deploy models on FPGAs
+title: What are FPGA - how to deploy 
 titleSuffix: Azure Machine Learning service
 description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inference. 
 services: machine-learning
@@ -10,15 +10,46 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: tedway
 author: tedway
-ms.date: 05/02/2019
+ms.date: 07/25/2019
 ms.custom: seodec18
 ---
 
-# Deploy a model as a web service on an FPGA with Azure Machine Learning service
+# What are field-programmable gate arrays (FPGA) and how to deploy
 
-You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning service to an Azure FPGA. 
 
-These models are currently available:
+FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance.
+
+## FPGAs vs. CPU, GPU, and ASIC
+
+The following diagram and table show how FPGAs compare to other processors.
+
+![Diagram of Azure Machine Learning service FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+
+|Processor||Description|
+|---|:-------:|------|
+|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
+|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
+|Graphics processing units|GPUs|A popular choice for AI computations. GPUs offer parallel processing capabilities, making it faster at image rendering than CPUs.|
+|Central processing units|CPUs|General-purpose processors, the performance of which isn't ideal for graphics and video processing.|
+
+FPGAs on Azure are based on Intel's FPGA devices, which data scientists and developers use to accelerate real-time AI calculations. This FPGA-enabled architecture offers performance, flexibility, and scale, and is available on Azure.
+
+FPGAs make it possible to achieve low latency for real-time inference (or model scoring) requests. Asynchronous requests (batching) aren't needed. Batching can cause latency, because more data needs to be processed. Implementations of neural processing units don't require batching; therefore the latency can be many times lower, compared to CPU and GPU processors.
+
+### Reconfigurable power
+You can reconfigure FPGAs for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used. Because FPGAs are reconfigurable, you can stay current with the requirements of rapidly changing AI algorithms.
+
+## What's supported on Azure
+Microsoft Azure is the world's largest cloud investment in FPGAs. Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+
+FPGAs on Azure supports:
+
++ Image classification and recognition scenarios
++ TensorFlow deployment
++ Intel FPGA hardware 
+
+These DNN models are currently available:
   - ResNet 50
   - ResNet 152
   - DenseNet-121
@@ -34,22 +65,50 @@ FPGAs are available in these Azure regions:
 > [!IMPORTANT]
 > To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-## Prerequisites
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
+
+### Scenarios and applications
+
+Azure FPGAs are integrated with Azure Machine Learning. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
+
+The following scenarios use FPGAs:
++ [Automated optical inspection system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
+
++ [Land cover mapping](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
+
+
+
+## Example: Deploy models on FPGAs 
+
+You can deploy a model as a web service on FPGAs with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+
+
+### Prerequisites
 
 - An Azure subscription.  If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-- FPGA quota.  Use the Azure CLI to check whether you have quota.
+- FPGA quota. Use the Azure CLI to check whether you have quota:
+
     ```shell
-    az vm list-usage --location "eastus" -o table
+    az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
-    The other locations are ``southeastasia``, ``westeurope``, and ``westus2``.
+    > [!TIP]
+    > The other possible locations are ``southeastasia``, ``westeurope``, and ``westus2``.
 
-    Under the "Name" column, look for "Standard PBS Family vCPUs" and ensure you have at least 6 vCPUs under "CurrentValue."
+    The command returns text similar to the following:
 
-    If you do not have quota, then submit a request form [here](https://aka.ms/accelerateAI).
+    ```text
+    CurrentValue    Limit    LocalName
+    --------------  -------  -------------------------
+    0               6        Standard PBS Family vCPUs
+    ```
 
-- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+    Make sure you have at least 6 vCPUs under __CurrentValue__.
+
+    If you do not have quota, then submit a request at [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
+
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
  
 - The Python SDK for hardware-accelerated models:
 
@@ -57,11 +116,8 @@ FPGAs are available in these Azure regions:
     pip install --upgrade azureml-accel-models
     ```
 
-## Sample notebooks
 
-For your convenience, [sample notebooks](https://aka.ms/aml-accel-models-notebooks) are available for the example below and other examples.
-
-## Create and containerize your model
+## 1. Create and containerize models
 
 This document will describe how to create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
 
@@ -73,6 +129,8 @@ Follow the instructions to:
 * Consume the deployed model
 * Delete deployed services
 
+Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
+
 ### Load Azure ML workspace
 
 Load your Azure ML workspace.
@@ -80,11 +138,11 @@ Load your Azure ML workspace.
 ```python
 import os
 import tensorflow as tf
- 
+
 from azureml.core import Workspace
 
 ws = Workspace.from_config()
-print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
 ```
 
 ### Preprocess image
@@ -112,7 +170,7 @@ Initialize the model and download a TensorFlow checkpoint of the quantized versi
 ```python
 from azureml.accel.models import QuantizedResnet50
 save_path = os.path.expanduser('~/models')
-model_graph = QuantizedResnet50(save_path, is_frozen = True)
+model_graph = QuantizedResnet50(save_path, is_frozen=True)
 feature_tensor = model_graph.import_graph_def(image_tensors)
 print(model_graph.version)
 print(feature_tensor.name)
@@ -140,8 +198,8 @@ print("Saving model in {}".format(model_save_path))
 with tf.Session() as sess:
     model_graph.restore_weights(sess)
     tf.saved_model.simple_save(sess, model_save_path,
-                                   inputs={'images': in_images},
-                                   outputs={'output_alias': classifier_output})
+                               inputs={'images': in_images},
+                               outputs={'output_alias': classifier_output})
 ```
 
 ### Save input and output tensors
@@ -161,38 +219,39 @@ print(output_tensors)
 The available models and the corresponding default classifier output tensors are below, which is what you would use for inference if you used the default classifier.
 
 + Resnet50, QuantizedResnet50
-  ```
+  ```python
   output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
   ```
 + Resnet152, QuantizedResnet152
-  ```
+  ```python
   output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
   ```
 + Densenet121, QuantizedDensenet121
-  ```
+  ```python
   output_tensors = "classifier/densenet121/predictions/Softmax:0"
   ```
 + Vgg16, QuantizedVgg16
-  ```
+  ```python
   output_tensors = "classifier/vgg_16/fc8/squeezed:0"
   ```
 + SsdVgg, QuantizedSsdVgg
-  ```
+  ```python
   output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
   ```
 
 ### Register model
 
-[Register](./concept-model-management-and-deployment.md) the model that you created.  Adding tags and other metadata about the model helps you keep track of your trained models.
+[Register](./concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
 ```python
 from azureml.core.model import Model
 
-registered_model = Model.register(workspace = ws,
-                                  model_path = model_save_path,
-                                  model_name = model_name)
+registered_model = Model.register(workspace=ws,
+                                  model_path=model_save_path,
+                                  model_name=model_name)
 
-print("Successfully registered: ", registered_model.name, registered_model.description, registered_model.version, sep = '\t')
+print("Successfully registered: ", registered_model.name,
+      registered_model.description, registered_model.version, sep='\t')
 ```
 
 If you've already registered a model and want to load it, you may retrieve it.
@@ -202,7 +261,8 @@ from azureml.core.model import Model
 model_name = "resnet50"
 # By default, the latest version is retrieved. You can specify the version, i.e. version=1
 registered_model = Model(ws, name="resnet50")
-print(registered_model.name, registered_model.description, registered_model.version, sep = '\t')
+print(registered_model.name, registered_model.description,
+      registered_model.version, sep='\t')
 ```
 
 ### Convert model
@@ -212,14 +272,15 @@ Convert the TensorFlow graph to the Open Neural Network Exchange format ([ONNX](
 ```python
 from azureml.accel import AccelOnnxConverter
 
-convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensors, output_tensors)
+convert_request = AccelOnnxConverter.convert_tf_model(
+    ws, registered_model, input_tensors, output_tensors)
 
 # If it fails, you can run wait_for_completion again with show_output=True.
-convert_request.wait_for_completion(show_output = False)
+convert_request.wait_for_completion(show_output=False)
 
 # If the above call succeeded, get the converted model
 converted_model = convert_request.result
-print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version, 
+print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version,
       converted_model.id, converted_model.created_time, '\n')
 ```
 
@@ -235,44 +296,45 @@ image_config = AccelContainerImage.image_configuration()
 # Image name must be lowercase
 image_name = "{}-image".format(model_name)
 
-image = Image.create(name = image_name,
-                     models = [converted_model],
-                     image_config = image_config, 
-                     workspace = ws)
-image.wait_for_creation(show_output = False)
+image = Image.create(name=image_name,
+                     models=[converted_model],
+                     image_config=image_config,
+                     workspace=ws)
+image.wait_for_creation(show_output=False)
 ```
 
 List the images by tag and get the detailed logs for any debugging.
 
 ```python
-for i in Image.list(workspace = ws):
-    print('{}(v.{} [{}]) stored at {} with build log {}'.format(i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
+for i in Image.list(workspace=ws):
+    print('{}(v.{} [{}]) stored at {} with build log {}'.format(
+        i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
-## Model deployment
+## 2. Deploy to cloud or edge
 
 ### Deploy to the cloud
 
-To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
+To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Specify the Standard_PB6s Azure VM
-prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
-                                                    agent_count = 1)
+prov_config = AksCompute.provisioning_configuration(vm_size="Standard_PB6s",
+                                                    agent_count=1)
 
 aks_name = 'my-aks-cluster'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                  name = aks_name, 
-                                  provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name=aks_name,
+                                  provisioning_configuration=prov_config)
 ```
 
 The AKS deployment may take around 15 minutes.  Check to see if the deployment succeeded.
 
 ```python
-aks_target.wait_for_completion(show_output = True)
+aks_target.wait_for_completion(show_output=True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
@@ -284,16 +346,16 @@ from azureml.core.webservice import Webservice, AksWebservice
 # For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                 num_replicas=1,
-                                                auth_enabled = False)
+                                                auth_enabled=False)
 
-aks_service_name ='my-aks-service'
+aks_service_name = 'my-aks-service'
 
-aks_service = Webservice.deploy_from_image(workspace = ws,
-                                           name = aks_service_name,
-                                           image = image,
-                                           deployment_config = aks_config,
-                                           deployment_target = aks_target)
-aks_service.wait_for_deployment(show_output = True)
+aks_service = Webservice.deploy_from_image(workspace=ws,
+                                           name=aks_service_name,
+                                           image=image,
+                                           deployment_config=aks_config,
+                                           deployment_target=aks_target)
+aks_service.wait_for_deployment(show_output=True)
 ```
 
 #### Test the cloud service
@@ -323,12 +385,13 @@ Since this classifier was trained on the [ImageNet](http://www.image-net.org/) d
 
 ```python
 import requests
-classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+classes_entries = requests.get(
+    "https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
 
 # Score image with input and output tensor names
-results = client.score_file(path="./snowleopardgaze.jpg", 
-                             input_name=input_tensors, 
-                             outputs=output_tensors)
+results = client.score_file(path="./snowleopardgaze.jpg",
+                            input_name=input_tensors,
+                            outputs=output_tensors)
 
 # map results [class_id] => [confidence]
 results = enumerate(results)
@@ -350,15 +413,23 @@ registered_model.delete()
 converted_model.delete()
 ```
 
-## Deploy to a local edge server
+### Deploy to a local edge server
 
 All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
 ) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ## Secure FPGA web services
 
-For information on securing FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
+To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
 
-## PBS Family VMs
+## Next steps
 
-The PBS Family of Azure VMs contains Intel Arria 10 FPGAs.  It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation.  The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA.  It is only used with Azure ML, and it cannot run arbitrary bitstreams.  For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc. 
+Check out these notebooks, videos, and blogs:
+
++ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks).
+
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
+
++ [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
+
++ [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/research/project/project-brainwave/)

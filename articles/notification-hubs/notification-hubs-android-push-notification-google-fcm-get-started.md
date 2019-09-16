@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/30/2019
+ms.date: 09/11/2019
 ms.author: jowargo
 ---
 
@@ -84,7 +84,25 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Add Google Play services to the project
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. In Android Studio, select **Tools** on the menu, and then select **SDK Manager**. 
+2. Select the target version of the Android SDK that is used in your project. Then select **Show Package Details**. 
+
+    ![Android SDK Manager - select target version](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Select **Google APIs**, if it's not already installed.
+
+    ![Android SDK Manager - Google APIs selected](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Switch to the **SDK Tools** tab. If you haven't already installed Google Play Services, select **Google Play Services** as shown in the following image. Then select **Apply** to install. Note the SDK path, for use in a later step.
+
+    ![Android SDK Manager - Google Play Services selected](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. If you see the **Confirm Change** dialog box, select **OK**. The Component Installer installs the requested components. Select **Finish** after the components are installed.
+4. Select **OK** to close the **Settings for New Projects** dialog box.  
+1. Open the AndroidManifest.xml file, and then add the following tag to the *application* tag.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### Add Azure Notification Hubs libraries
 
@@ -92,7 +110,6 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
     ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
-    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
 2. Add the following repository after the dependencies section.
@@ -123,7 +140,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Update the AndroidManifest.xml file
 
-1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token.
+1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token. You also create a class named `FirebaseService` as a subclass of `FirebaseMessagingService` and override the `onMessageReceived` method to receive and handle notifications. 
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag.
 
@@ -132,22 +149,14 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
         android:name=".RegistrationIntentService"
         android:exported="false">
     </service>
-    ```
-
-2. You also need to define a receiver to receive notifications. Add the following receiver definition to the AndroidManifest.xml file, inside the `<application>` tag. 
-
-    ```xml
-    <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-        android:permission="com.google.android.c2dm.permission.SEND">
+    <service
+        android:name=".FirebaseService"
+        android:exported="false">
         <intent-filter>
-            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            <category android:name="<your package name>" />
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
         </intent-filter>
-    </receiver>
+    </service>
     ```
-
-    > [!IMPORTANT]
-    > Replace the `<your package NAME>` placeholder with your actual package name, which is shown at the top of the AndroidManifest.xml file.
 3. Add the following necessary FCM-related permissions below the `</application>` tag.
 
     ```xml
@@ -177,7 +186,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
      > [!IMPORTANT]
      > Enter the **name** and the **DefaultListenSharedAccessSignature** of your hub before proceeding further. 
 
-3. Add another new class to your project named `RegistrationIntentService`. This class implements the `IntentService` interface. It also handles [refreshing the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
+2. Add another new class to your project named `RegistrationIntentService`. This class implements the `IntentService` interface. It also handles [refreshing the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
 
     Use the following code for this class.
 
@@ -279,19 +288,18 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     }
     ```
 
-4. In the `MainActivity` class, add the following `import` statements above the class declaration.
+3. In the `MainActivity` class, add the following `import` statements above the class declaration.
 
     ```java
     import com.google.android.gms.common.ConnectionResult;
     import com.google.android.gms.common.GoogleApiAvailability;
-    import com.microsoft.windowsazure.notifications.NotificationsManager;
     import android.content.Intent;
     import android.util.Log;
     import android.widget.TextView;
     import android.widget.Toast;
     ```
 
-5. Add the following members at the top of the class. You use these fields to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+4. Add the following members at the top of the class. You use these fields to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
     ```java
     public static MainActivity mainActivity;
@@ -300,7 +308,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     ```
 
-6. In the `MainActivity` class, add the following method to check the availability of Google Play Services.
+5. In the `MainActivity` class, add the following method to check the availability of Google Play Services.
 
     ```java
     /**
@@ -327,7 +335,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     }
     ```
 
-7. In the `MainActivity` class, add the following code that checks for Google Play Services before calling the `IntentService` to get your FCM registration token and register with your hub:
+6. In the `MainActivity` class, add the following code that checks for Google Play Services before calling the `IntentService` to get your FCM registration token and register with your hub:
 
     ```java
     public void registerWithNotificationHubs()
@@ -340,7 +348,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     }
     ```
 
-8. In the `OnCreate` method of the `MainActivity` class, add the following code to start the registration process when the activity is created:
+7. In the `OnCreate` method of the `MainActivity` class, add the following code to start the registration process when the activity is created:
 
     ```java
     @Override
@@ -350,11 +358,11 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
-9. To verify app state and report status in your app, add these additional methods to `MainActivity`:
+8. To verify app state and report status in your app, add these additional methods to `MainActivity`:
 
     ```java
     @Override
@@ -393,17 +401,22 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     }
     ```
 
-10. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your **res** > **layout** > **activity_main.xml** layout, add the following ID for that control.
+9. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your **res** > **layout** > **activity_main.xml** layout, add the following ID for that control.
 
     ```java
     android:id="@+id/text_hello"
     ```
 
-11. Next you add a subclass for the receiver that you defined in AndroidManifest.xml. Add another new class to your project named `MyHandler`.
+    ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
-12. Add the following import statements at the top of `MyHandler.java`:
+10. Next you add a subclass for the receiver that you defined in AndroidManifest.xml. Add another new class to your project named `FirebaseService`.
+
+11. Add the following import statements at the top of `FirebaseService.java`:
 
     ```java
+    import com.google.firebase.messaging.FirebaseMessagingService;
+    import com.google.firebase.messaging.RemoteMessage;
+    import android.util.Log;
     import android.app.NotificationChannel;
     import android.app.NotificationManager;
     import android.app.PendingIntent;
@@ -413,17 +426,18 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     import android.net.Uri;
     import android.os.Build;
     import android.os.Bundle;
-    import android.support.v4.app.NotificationCompat;
-    import com.microsoft.windowsazure.notifications.NotificationsHandler;    
-    import com.microsoft.windowsazure.notifications.NotificationsManager;
+    import androidx.core.app.NotificationCompat;
     ```
 
-13. Add the following code for the `MyHandler` class, making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
+12. Add the following code for the `FirebaseService` class, making it a subclass of `FirebaseMessagingService`.
 
-    This code overrides the `OnReceive` method, so the handler reports notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method. Call the `sendNotification()` method when the app is not running and a notification is received.
+    This code overrides the `onMessageReceived` method and reports notifications that are received. it also sends the push notification to the Android notification manager by using the `sendNotification()` method. Call the `sendNotification()` method when the app isn't running and a notification is received.
 
     ```java
-    public class MyHandler extends NotificationsHandler {
+    public class FirebaseService extends FirebaseMessagingService
+    {
+        private String TAG = "FirebaseService";
+    
         public static final String NOTIFICATION_CHANNEL_ID = "nh-demo-channel-id";
         public static final String NOTIFICATION_CHANNEL_NAME = "Notification Hubs Demo Channel";
         public static final String NOTIFICATION_CHANNEL_DESCRIPTION = "Notification Hubs Demo Channel";
@@ -431,16 +445,33 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
-        Context ctx;
+        static Context ctx;
     
         @Override
-        public void onReceive(Context context, Bundle bundle) {
-            ctx = context;
-            String nhMessage = bundle.getString("message");
-            sendNotification(nhMessage);
+        public void onMessageReceived(RemoteMessage remoteMessage) {
+            // ...
+    
+            // TODO(developer): Handle FCM messages here.
+            // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+            Log.d(TAG, "From: " + remoteMessage.getFrom());
+    
+            String nhMessage;
+            // Check if message contains a notification payload.
+            if (remoteMessage.getNotification() != null) {
+                Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+    
+                nhMessage = remoteMessage.getNotification().getBody();
+            }
+            else {
+                nhMessage = remoteMessage.getData().values().iterator().next();
+            }
+    
+            // Also if you intend on generating your own notifications as a result of a received FCM
+            // message, here is where that should be initiated. See sendNotification method below.
             if (MainActivity.isVisible) {
                 MainActivity.mainActivity.ToastNotify(nhMessage);
             }
+            sendNotification(nhMessage);
         }
     
         private void sendNotification(String msg) {
@@ -468,6 +499,8 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
         }
     
         public static void createChannelAndHandleNotifications(Context context) {
+            ctx = context;
+    
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationChannel channel = new NotificationChannel(
                         NOTIFICATION_CHANNEL_ID,
@@ -478,18 +511,21 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     
                 NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
                 notificationManager.createNotificationChannel(channel);
-                NotificationsManager.handleNotifications(context, "", MyHandler.class);
-            }
+             }
         }
     }
     ```
 
-14. In Android Studio, on the menu bar, select **Build** > **Rebuild Project** to make sure that there aren't any errors in your code. If you receive an error about the `ic_launcher` icon, remove the following statement from the AndroidManifest.xml file: 
+13. In Android Studio, on the menu bar, select **Build** > **Rebuild Project** to make sure that there aren't any errors in your code. If you receive an error about the `ic_launcher` icon, remove the following statement from the AndroidManifest.xml file: 
 
     ```
         android:icon="@mipmap/ic_launcher"
     ```
-15. Run the app on your device and verify that it registers successfully with the hub.
+14. Ensure you have a virtual device for running the app. If you do not have one, add one as follows:
+    1. ![Open device manager](./media/notification-hubs-android-push-notification-google-fcm-get-started/open-device-manager.png)
+    2. ![Create virtual device](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.PNG)
+
+15. Run the app on your selected device and verify that it registers successfully with the hub.
 
     > [!NOTE]
     > Registration might fail during the initial launch until the `onTokenRefresh()` method of the instance ID service is called. The refresh should initiate a successful registration with the notification hub.
@@ -516,13 +552,13 @@ You can send push notifications from the [Azure portal] by taking the following 
 ### Run the mobile app on emulator
 Before you test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you might get the **SERVICE\_NOT\_AVAILABLE** exception.
 
-In addition, make sure that you've added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM might result in the **AUTHENTICATION\_FAILED** exception.
+Also make sure that you've added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM might result in the **AUTHENTICATION\_FAILED** exception.
 
 ## Next steps
 In this tutorial, you used Firebase Cloud Messaging to broadcast notifications to all Android devices that were registered with the service. To learn how to push notifications to specific devices, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Tutorial: Push notifications to specific Android devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Tutorial: Push notifications to specific Android devices](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

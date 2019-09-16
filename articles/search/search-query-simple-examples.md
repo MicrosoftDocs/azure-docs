@@ -2,7 +2,7 @@
 title: Query examples using the "simple" search syntax - Azure Search
 description: Simple query examples for full text search, filter search, geo search, faceted search, and other query strings used to query an Azure Search index.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -114,7 +114,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## Example 3: Filter queries
 
-[Filter syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is an OData expression that you can use with **search** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
+[Filter syntax](https://docs.microsoft.com/azure/search/search-query-odata-filter) is an OData expression that you can use with **search** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -142,7 +142,7 @@ Another powerful way to combine filter and search is through **`search.ismatch*(
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-For more information about the function, see [search.ismatch in "Filter examples"](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+For more information about the function, see [search.ismatch in "Filter examples"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## Example 4: Range filters
 
@@ -193,7 +193,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## Example 5: Geo-search
 
-The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
+The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
 
 The following example is in POST format for readability:
 

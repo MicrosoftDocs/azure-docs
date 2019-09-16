@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/06/2019
 ms.author: juliako
 ---
 
@@ -30,6 +30,26 @@ To stay up-to-date with the most recent developments, this article provides you 
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+
+## September 2019
+
+Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear encoding of live events.
+ 
+## August 2019
+
+### South Africa regional pair is open for Media Services 
+
+Media Services is now available in South Africa North and South Africa West regions.
+
+For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
+
+## July 2019
+
+### Content protection
+
+When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+
+This feature is currently available in US Central and US West Central.
 
 ## June 2019
 

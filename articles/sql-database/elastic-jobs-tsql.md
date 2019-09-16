@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
@@ -1194,7 +1193,7 @@ The following views are available in the [jobs database](sql-database-job-automa
 
 |View  |Description  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  Shows job execution history.      |
+|[job_executions](#job_executions-view)     |  Shows job execution history.      |
 |[jobs](#jobs-view)     |   Shows all jobs.      |
 |[job_versions](#job_versions-view)     |   Shows all job versions.      |
 |[jobsteps](#jobsteps-view)     |     Shows all steps in the current version of each job.    |
@@ -1203,9 +1202,9 @@ The following views are available in the [jobs database](sql-database-job-automa
 |[target_group_members](#target_groups_members-view)     |   Shows all members of all target groups.      |
 
 
-### <a name="jobs_executions-view"></a>jobs_executions view
+### <a name="job_executions-view"></a>job_executions view
 
-[jobs].[jobs_executions]
+[jobs].[job_executions]
 
 Shows job execution history.
 

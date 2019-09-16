@@ -21,10 +21,14 @@
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md  
+  - name: Language identification model
+    href: language-identification-model.md
   - name: Customizing content models
     items:
     - name: Overview
       href: customize-content-models-overview.md  
+    - name: Animated characters
+      href: animated-characters-recognition.md
     - name: Brands
       href: customize-brands-model-overview.md
     - name: Language
@@ -43,16 +47,22 @@
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
-  - name: Scenes, shots, and keyframes
+  - name: Detect scenes, shots, keyframes
     href: scenes-shots-keyframes.md
+  - name: Identify and transcribe multi-language content
+    href: multi-language-identification-transcription.md
   - name: View and edit Video Indexer insights
     href: video-indexer-view-edit.md
   - name: Use editor to create projects
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
+  - name: Disaster recovery
+    href: video-indexer-disaster-recovery.md        
   - name: Customize content models
     items:
+    - name: Animated characters
+      href: animated-characters-recognition.md
     - name: Person
       items: 
       - name: using Video Indexer website
@@ -70,7 +80,7 @@
       - name: using Video Indexer website
         href: customize-language-model-with-website.md
       - name: using Video Indexer API
-        href: customize-language-model-with-api.md             
+        href: customize-language-model-with-api.md        
 - name: Reference
   items:
   - name: Video Indexer API

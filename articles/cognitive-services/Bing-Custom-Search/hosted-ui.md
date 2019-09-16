@@ -1,6 +1,6 @@
 ---
 title: Configure a hosted UI for Bing Custom Search | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this article to configure and integrate a hosted UI for Bing Custom Search.
 services: cognitive-services
 author: aahill
@@ -161,5 +161,5 @@ The following configurations apply only if you consume the Hosted UI through the
 
 ## Next steps
 
-- [Use decoration markers to highlight text](./hit-highlighting.md)
+- [Use decoration markers to highlight text](../bing-web-search/hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

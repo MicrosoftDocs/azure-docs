@@ -1,11 +1,11 @@
 ---
-title: "Regression: Predict price and compare algorithms"
-titleSuffix: Azure Machine Learning service
+title: "Visual interface example #3: regression to price and compare algorithms"
+titleSuffix: Azure Machine Learning
 description: This article shows you how to build a complex machine learning experiment without writing a single line of code using the visual interface. Learn how to train and compare multiple regression models to predict a car's price based on technical features
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
@@ -91,3 +91,4 @@ Explore the other samples available for the visual interface:
 - [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

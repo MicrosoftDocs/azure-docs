@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ---
 
@@ -241,7 +241,7 @@ The following examples demonstrate how to configure the supported endpoints.
 >[!IMPORTANT]
 > Pay careful attention to the **eventTypes** attribute. It defines which event types are handled by the endpoint and thus determine its routing.
 
-An authenticated HTTP POST request against
+An authenticated HTTP POST request against:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

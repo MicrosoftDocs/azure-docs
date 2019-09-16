@@ -19,6 +19,8 @@ ms.custom: H1Hack27Feb2017
 ---
 # What are StorSimple 8000 series system limits?
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 
 StorSimple provides scalable and flexible storage for your datacenter. However, there are some limits that you should keep in mind as you plan, deploy, and operate your StorSimple solution. The following table describes these limits and provides some recommendations so that you can get the most out of your StorSimple solution.

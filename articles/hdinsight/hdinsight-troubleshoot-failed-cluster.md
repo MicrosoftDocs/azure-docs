@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot a slow or failing job on a HDInsight cluster - Azure HDInsight
-description: Diagnose and troubleshoot a slow or failing HDInsight cluster.
+description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: troubleshooting
+ms.date: 08/15/2019
 ---
 
 # Troubleshoot a slow or failing job on a HDInsight cluster
@@ -49,7 +49,7 @@ Important cluster information includes:
 
 The Azure portal can provide this information:
 
-![HDInsight Azure portal Information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![HDInsight Azure portal Information](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
 You can also use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
@@ -76,7 +76,7 @@ Each HDInsight cluster relies on various Azure services, and on open-source soft
 Apache Ambari provides management and monitoring of a HDInsight cluster with a web UI and a REST API. 
 Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page.  Select the **HDInsight cluster dashboard** pane to open the Ambari UI, and enter the  cluster login credentials.  
 
-![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 To open a list of service views, select **Ambari Views** on the Azure portal page.  This list depends on which libraries are installed. For example, you may see YARN Queue Manager, Hive View, and Tez View.  Select a  service link to see configuration and service information.
 
@@ -92,7 +92,7 @@ You can request that Microsoft increase the number of HDInsight resources availa
 #### Check the release version
 
 Compare the cluster version with the latest HDInsight release. Each   HDInsight release includes improvements such as new applications, features, patches, and bug
-fixes. The issue that is affecting your cluster may have been fixed in the latest release version. If possible, re-run your cluster using the latest version of HDInsight and associated libraries such as Apache HBase, Apache Spark, and others.
+fixes. The issue that is affecting your cluster may have been fixed in the latest release version. If possible, rerun your cluster using the latest version of HDInsight and associated libraries such as Apache HBase, Apache Spark, and others.
 
 #### Restart your cluster services
 
@@ -116,7 +116,7 @@ One common scenario for Apache Hive, Apache Pig, or Apache Sqoop jobs failing is
 
 #### BadGateway (502 status code)
 
-This is a generic message from gateway nodes, and is the most common failure status code. One possible cause for this is  the WebHCat service being down on the active head node. To check for this possibility, use the following CURL command:
+This code is a generic message from gateway nodes, and is the most common failure status codes. One possible cause for this is  the WebHCat service being down on the active head node. To check for this possibility, use the following CURL command:
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -124,7 +124,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari  displays an alert showing the hosts on which the WebHCat service is down. You can try to bring the WebHCat service back up by restarting the service on its host.
 
-![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 If a WebHCat server still does not come up, then check the  operations log  for failure messages. For more detailed information, check the `stderr` and `stdout` files referenced on the node.
 
@@ -173,7 +173,7 @@ At the YARN level, there are two types of timeouts:
 
     The  following  image shows the joblauncher queue at 714.4% overused. This is acceptable so long as there is still free capacity in the default queue to borrow from. However, when the cluster is fully utilized and the YARN memory is at 100% capacity, new jobs must wait, which eventually causes timeouts.
 
-    ![Joblauncher queue](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
+    ![Joblauncher queue](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     There are two ways to resolve this issue: either reduce the speed of new jobs being submitted, or increase the consumption speed of old jobs by scaling up the cluster.
 
@@ -205,7 +205,7 @@ To diagnose these issues:
 
 The Ambari UI **Stack and Version** page provides information about cluster services configuration and service version history.  Incorrect Hadoop service library versions can be a cause of cluster failure.  In the Ambari UI, select the **Admin** menu and then  **Stacks and Versions**.  Select the **Versions** tab on the page to see service version information:
 
-![Stack and Versions](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
+![Stack and Versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
 ## Step 5: Examine the log files
 
@@ -229,7 +229,7 @@ The HDInsight Ambari UI includes a number of **Quick Links** sections.  To acces
 
 For example, for HDFS logs:
 
-![Ambari Quick Links to Log Files](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
+![Ambari Quick Links to Log Files](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png)
 
 ### View Hadoop-generated log files
 
@@ -247,12 +247,12 @@ For detailed instructions on optimizing performance configurations for most scen
 
 ## Step 7: Reproduce the failure on a different cluster
 
-To help diagnose the source of a cluster error, start a new cluster with the same configuration and then resubmit the failed job's steps one by one. Check the results of each step before processing the next one. This method gives you the opportunity to correct and re-run a single failed step. This method also has the advantage of  only loading your input data once.
+To help diagnose the source of a cluster error, start a new cluster with the same configuration and then resubmit the failed job's steps one by one. Check the results of each step before processing the next one. This method gives you the opportunity to correct and rerun a single failed step. This method also has the advantage of  only loading your input data once.
 
 1. Create a new test cluster with the same configuration as the failed cluster.
 2. Submit the first job step to the test cluster.
 3. When the step completes processing, check for errors in the step log files. Connect to the test cluster's master node and view the log files there. The step log files only  appear after the step runs for some time, finishes, or fails.
-4. If the first step succeeded, run the next step. If there were errors, investigate the error in the log files. If it was an error in your code, make the correction and re-run the step.
+4. If the first step succeeded, run the next step. If there were errors, investigate the error in the log files. If it was an error in your code, make the correction and rerun the step.
 5. Continue until all steps run without error.
 6. When you are done debugging the test cluster, delete it.
 

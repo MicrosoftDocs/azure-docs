@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 ---
 # Copy data from a REST endpoint by using Azure Data Factory
@@ -19,7 +19,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 The difference among this REST connector, [HTTP connector](connector-http.md) and the [Web table connector](connector-web-table.md) are:
 
-- **REST connector** specifically support copying data from RESTful APIs; 
+- **REST connector** specifically supports copying data from RESTful APIs; 
 - **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before this REST connector becomes available, you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
@@ -37,6 +37,10 @@ Specifically, this generic REST connector supports:
 > [!TIP]
 > To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -51,9 +55,9 @@ The following properties are supported for the REST linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
-| enableServerCertificateValidation | Whether to validate server side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
+| enableServerCertificateValidation | Whether to validate server-side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal** and **ManagedServiceIdentity**. Refer to corresponding sections below on more properties and examples respectively. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, this property uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
 
@@ -165,50 +169,23 @@ To copy data from REST, the following properties are supported:
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **RestResource**. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. | No |
-| requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| requestBody | The body for the HTTP request. | No |
-| paginationRules | The pagination rules to compose next page requests. Refer to [pagination support](#pagination-support) section on details. | No |
 
-**Example 1: Using the Get method with pagination**
+If you were setting `requestMethod`, `additionalHeaders`, `requestBody` and `paginationRules` in dataset, it is still supported as-is, while you are suggested to use the new model in activity source going forward.
+
+**Example:**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**Example 2: Using the Post method**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -227,10 +204,14 @@ The following properties are supported in the copy activity **source** section:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to **RestSource**. | Yes |
+| requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
+| additionalHeaders | Additional HTTP request headers. | No |
+| requestBody | The body for the HTTP request. | No |
+| paginationRules | The pagination rules to compose next page requests. Refer to [pagination support](#pagination-support) section on details. | No |
 | httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**.  | No |
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
-**Example**
+**Example 1: Using the Get method with pagination**
 
 ```json
 "activities":[
@@ -252,6 +233,46 @@ The following properties are supported in the copy activity **source** section:
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**Example 2: Using the Post method**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -264,7 +285,7 @@ The following properties are supported in the copy activity **source** section:
 
 ## Pagination support
 
-Normally, REST API limit its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
+Normally, REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
 
 This generic REST connector supports the following pagination patterns: 
 
@@ -275,7 +296,7 @@ This generic REST connector supports the following pagination patterns:
 * Next request’s header = property value in current response body
 * Next request’s header = header value in current response headers
 
-**Pagination rules** are defined as a dictionary in dataset which contain one or more case-sensitive key-value pairs. The configuration will be used to generate the request starting from the second page. The connector will stop iterating when it gets HTTP status code 204 (No Content), or any of the JSONPath expression in "paginationRules" returns null.
+**Pagination rules** are defined as a dictionary in dataset which contains one or more case-sensitive key-value pairs. The configuration will be used to generate the request starting from the second page. The connector will stop iterating when it gets HTTP status code 204 (No Content), or any of the JSONPath expressions in "paginationRules" returns null.
 
 **Supported keys** in pagination rules:
 
@@ -326,23 +347,19 @@ Facebook Graph API returns response in the following structure, in which case ne
 }
 ```
 
-The corresponding REST dataset configuration especially the `paginationRules` is as follows:
+The corresponding REST copy activity source configuration especially the `paginationRules` is as follows:
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```

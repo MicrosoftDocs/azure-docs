@@ -1,12 +1,12 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure best practices
+title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonwhowell 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
 ---
 
@@ -155,8 +155,8 @@ Using Azure Virtual Network with HDInsight enables the following scenarios:
 - Connecting HDInsight to data stores in an Azure Virtual network.
 - Directly accessing Hadoop services that aren't available publicly over the internet. For example, Kafka APIs or the HBase Java API.
 
-HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)
-in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports), which are being used by HDInsight services.
+HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-management-ip-addresses.md)
+in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports), which are being used by HDInsight services.
 
 > [!Note]  
 > HDInsight does not currently support forced tunneling. Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. Either remove forced tunneling before installing HDInsight into a subnet or create a new subnet for HDInsight. HDInsight also does not support restricting outbound network connectivity.
@@ -164,7 +164,7 @@ in the Azure data center. Also, make sure not to block traffic to the [ports](..
 For more information, see the following articles:
 
 - [Azure virtual-networks-overview](../../virtual-network/virtual-networks-overview.md)
-- [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
+- [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
 
 ## Securely connect to Azure services with Azure Virtual Network service endpoints
 

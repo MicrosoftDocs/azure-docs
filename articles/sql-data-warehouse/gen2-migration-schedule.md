@@ -3,13 +3,13 @@ title: Migrate your existing Azure SQL Data Warehouse to Gen2 | Microsoft Docs
 description: Instructions for migrating an existing data warehouse to Gen2 and the migration schedule by region.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/22/2019
 ---
 # Upgrade your data warehouse to Gen2
 
@@ -26,38 +26,41 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Australia East |Available |June 1, 2019 |
-| Australia Southeast |Available |May 1, 2019 |
-| Brazil South |Available |June 1, 2019 |
-| Canada Central |Available |June 1, 2019 |
-| Canada East |\* |\* |
-| Central US |Available |June 1, 2019 |
+| Australia East |Available |Complete |
+| Australia Southeast |Available |Complete |
+| Brazil South |Available |Complete |
+| Canada Central |Available |Complete |
+| Canada East |June 1, 2020 |July 1, 2020 |
+| Central US |Available |Complete |
 | China East |\* |\* |
-| China East 2 |\* |Gen2 only |
+| China East 2 |Available |Complete |
 | China North |\* |\* |
-| China North 2 |Available |Gen2 only |
-| East Asia |Available |June 1, 2019 |
-| East US |Available |June 1, 2019 |
-| East US 2 |Available |June 1, 2019 |
-| France Central |\* |June 1, 2019 |
+| China North 2 |Available |Complete |
+| East Asia |Available |Complete |
+| East US |Available |Complete |
+| East US 2 |Available |Complete |
+| France Central |Available |In-progress |
 | Germany Central |\* |\* |
-| Germany West Central |September 1, 2019|January 2, 2020 |
-| India Central |Available |June 1, 2019 |
-| India South |Available |June 1, 2019 |
-| Japan East |Available |June 1, 2019 |
-| Japan West |Available |May 1, 2019 |
-| Korea Central |Available |June 1, 2019 |
-| Korea South |Available |May 1, 2019 |
-| North Central US |Available |May 1, 2019 |
-| North Europe |Available |June 1, 2019 |
-| South Central US |Available |June 1, 2019 |
-| South East Asia |Available |June 1, 2019 |
-| UK South |Available, 2019 |June 1, 2019 |
-| UK West |\*|\* |
-| West Central US |September 2, 2019 |January 2, 2020|
-| West Europe |Available |June 1, 2019 |
-| West US |Available |June 1, 2019 |
-| West US 2 |Available |June 1, 2019 |
+| Germany West Central |September 1, 2019|October 1, 2019 |
+| India Central |Available |Complete |
+| India South |Available |Complete |
+| India West |July 1, 2019 |In-progress |
+| Japan East |Available |Complete |
+| Japan West |Available |Complete |
+| Korea Central |Available |Complete |
+| Korea South |Available |Complete |
+| North Central US |Available |Complete |
+| North Europe |Available |Complete |
+| South Africa North |July 12, 2019 |Complete |
+| South Central US |Available |Complete |
+| South East Asia |Available |Complete |
+| UAE North |July 20, 2019 |Complete |
+| UK South |Available |In-progress |
+| UK West |Available |In-progress |
+| West Central US |November 1, 2019 |December 1, 2019|
+| West Europe |Available |Complete |
+| West US |Available |Complete |
+| West US 2 |Available |Complete |
 
 ## Automatic upgrade process
 
@@ -79,7 +82,7 @@ There are two options when conducting a self-upgrade.  You can either upgrade yo
 - [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
 - [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
-   - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal).
    - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
@@ -146,6 +149,6 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
-- [Create a user-defined restore point](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Learn How to restore to Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Create a user-defined restore point](sql-data-warehouse-restore-points.md)
+- [Learn How to restore to Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)

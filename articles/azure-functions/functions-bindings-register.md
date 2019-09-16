@@ -7,9 +7,8 @@ author: craigshoemaker
 manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
 ---
 
@@ -29,8 +28,8 @@ The following table indicates when and how you register bindings.
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic|
 |Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
-|C# class library using Visual Studio 2019|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|
-|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
+|C# class library using Visual Studio|[Use NuGet tools](#vs)|[Use NuGet tools](#vs)|
+|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles"></a>Extension bundles for local development
 
@@ -65,9 +64,9 @@ The current set of extensions installed by the default bundle are enumerated in 
 
 <a name="local-csharp"></a>
 
-## C\# class library with Visual Studio 2019
+## <a name="vs"></a> C\# class library with Visual Studio
 
-In **Visual Studio 2019**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
+In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -77,24 +76,25 @@ The name of the package used for a given binding is provided in the reference ar
 
 Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
-## C# class library with Visual Studio Code
+If you use `Install-Package` to reference a binding, you do not need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
+
+## <a name="vs-code"></a> C# class library with Visual Studio Code
 
 > [!NOTE]
 > We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages.
 
-In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI, as shown in the following example:
+In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 The .NET Core CLI can only be used for Azure Functions 2.x development.
 
-The name of the package to use for a given binding is provided in the reference article for that binding. For an example, see the [Packages section of the Service Bus binding reference article](functions-bindings-service-bus.md#packages---functions-1x).
+Replace `<BINDING_TYPE_NAME>` with the name of the package provided in the reference article for your desired binding. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
 
 Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 ## Next steps
 > [!div class="nextstepaction"]
 > [Azure Function trigger and binding example](./functions-bindings-example.md)
-

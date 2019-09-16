@@ -116,11 +116,7 @@ Get started with [development here](index.yml).
 
 **Q: Does it work with Unreal?**
 
-**A:** We expect to have support for Unreal soon.
-
-**Q: Does it work with Xamarin?**
-
-**A:** Yes. While we don't provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
+**A:** Support for Unreal will be considered in the future.
 
 **Q: What ports and protocols does Azure Spatial Anchors use?**
 

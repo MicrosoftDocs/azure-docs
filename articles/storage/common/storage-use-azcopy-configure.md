@@ -1,13 +1,13 @@
 ---
 title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microsoft Docs
 description: Configure, optimize, and troubleshoot AzCopy.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
+ms.reviewer: dineshm
 ---
 
 # Configure, optimize, and troubleshoot AzCopy
@@ -23,7 +23,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Configure proxy settings
 
-To configure the proxy settings for AzCopy, set the `https_proxy` environment variable.
+To configure the proxy settings for AzCopy, set the `https_proxy` environment variable. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -35,7 +35,13 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 
 ## Optimize throughput
 
-Set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
+You can use the `cap-mbps` flag to place a ceiling on the throughput data rate. For example, the following command caps throughput to `10` megabits (MB) per second.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -78,7 +84,7 @@ By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` di
 
 The following command will get all errors with `UPLOADFAILED` status from the `04dc9ca9-158f-7945-5933-564021086c79` log:
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log

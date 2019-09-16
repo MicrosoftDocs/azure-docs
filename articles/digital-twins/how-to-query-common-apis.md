@@ -6,7 +6,7 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
 ---
 
@@ -233,4 +233,4 @@ This section shows some sample API queries for managing users in Azure Digital T
 
 To learn how to authenticate with your Management API, read [Authenticating with APIs](./security-authenticating-apis.md).
 
-To see all API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).
+To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).

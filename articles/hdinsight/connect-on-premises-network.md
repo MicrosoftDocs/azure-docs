@@ -63,7 +63,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
   
 2. From the left menu, navigate to **+ Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**.
 
-    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. From the __Basics__ tab, enter the following information:  
   
@@ -80,7 +80,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
     |Public inbound ports|Select **Allow selected ports**. Then select **SSH (22)** from the **Select inbound ports** drop-down list.|
 
-    ![Virtual machine basic configuration](./media/connect-on-premises-network/vm-basics.png)
+    ![Virtual machine basic configuration](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Leave other entries at the default values and then select the **Networking** tab.
 
@@ -105,7 +105,7 @@ Once the virtual machine has been created, you will receive a **Deployment succe
 
 2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
 
-   ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Public and private IP addresses](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### Install and configure Bind (DNS software)
 
@@ -271,14 +271,14 @@ You can use network security groups (NSG) or user-defined routes (UDR) to contro
 > [!WARNING]  
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
 
-1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-management-ip-addresses.md).
 
 2. For the IP addresses identified in step 1, allow inbound traffic from that IP addresses.
 
    * If you are using __NSG__: Allow __inbound__ traffic on port __443__ for the IP addresses.
    * If you are using __UDR__: Set the __Next Hop__ type of the route to __Internet__ for the IP addresses.
 
-For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
+For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](hdinsight-create-virtual-network.md#hdinsight-nsg) document.
 
 ## Create the HDInsight cluster
 
@@ -330,7 +330,7 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 ## Next steps
 
-* For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md).
+* For more information on using HDInsight in a virtual network, see [Plan a virtual network deployment for Azure HDInsight clusters](./hdinsight-plan-virtual-network-deployment.md).
 
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 

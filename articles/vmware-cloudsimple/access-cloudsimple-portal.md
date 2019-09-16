@@ -1,24 +1,24 @@
----
+--- 
 title: Access Azure VMware Solution by CloudSimple - Portal 
 description: Describes how to access VMware Solution by CloudSimple portal from Azure portal
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 06/04/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
 
-# Accessing the VMware Solution by CloudSimple portal from Azure portal
+# Access the VMware Solution by CloudSimple portal from the Azure portal
 
 Single sign-on is supported for access to the CloudSimple portal. After you sign in to the Azure portal, you can access the CloudSimple portal without signing in again. The first time you access the CloudSimple portal you're prompted to authorize the [CloudSimple Service Authorization](#consent-to-cloudsimple-service-authorization-application) application.  Authorization is a one-time action.
 
 ## Before you begin
 
-Users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the resource group where CloudSimple service is deployed.  The roles can also be configured on the CloudSimple service object.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
+Users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the resource group where CloudSimple service is deployed.  The roles can also be configured on the CloudSimple service object.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article. Only users with built-in **Owner** and **Contributor** roles can access the CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
 
-If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal. 
+If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -43,7 +43,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     ![Launch CloudSimple portal](media/launch-cloudsimple-portal.png)
 
-> [!TIP]
+> [!NOTE]
 > If you select a Private Cloud operation (such as creating or expanding a Private Cloud) directly from the Azure portal, the CloudSimple portal opens to the indicated page.
 
 In the CloudSimple portal, select **Home** on the side menu to display summary information about your Private Clouds. The resources and capacity of your Private Clouds are shown, along with alerts and tasks that require attention. For common tasks, click the named icons at the top of the page.
@@ -52,7 +52,7 @@ In the CloudSimple portal, select **Home** on the side menu to display summary i
 
 ## Consent to CloudSimple Service Authorization application
 
-Launching the CloudSimple portal from the Azure portal for the first time requires your consent for the CloudSimple Service Authorization application.  Select **Accept** to grant requested permissions and access the CloudSimple portal. 
+Launching the CloudSimple portal from the Azure portal for the first time requires your consent for the CloudSimple Service Authorization application.  Select **Accept** to grant requested permissions and access the CloudSimple portal.
 
 ![Consent to CloudSimple Service Authorization - administrators](media/cloudsimple-azure-consent.png)
 

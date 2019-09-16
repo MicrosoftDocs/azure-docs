@@ -11,7 +11,6 @@ tags: top-support-issue
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
@@ -187,7 +186,7 @@ If the current certificate that uses the wrong domain is in the “Issued” sta
 The App Service certificate was renewed, but the app that uses the App Service certificate is still using the old certificate. Also, you received a warning that the HTTPS protocol is required.
 
 #### Cause 
-Azure App Service runs a background job every eight hours and syncs the certificate resource if there are any changes. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. 
+App Service automatically syncs your certificate within 48 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. Click Sync. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
  
 #### Solution
 
@@ -321,7 +320,6 @@ You can manage your domain even if you don’t have an App Service Web App. Doma
 
 **Can I move a web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
 
-Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 After moving the web app, the host name bindings of the domains within the custom domains setting should remain the same. No additional steps are required to configure the host name bindings.

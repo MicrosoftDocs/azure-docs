@@ -4,18 +4,18 @@ description: Learn how to use Terraform to create and manage a complete Linux vi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jeconnoc
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
-ms.author: echuvyrov
+ms.author: gwallace
 ---
 
 # Create a complete Linux virtual machine infrastructure in Azure with Terraform

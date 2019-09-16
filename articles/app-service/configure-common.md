@@ -5,16 +5,15 @@ keywords: azure app service, web app, app settings, environment variables
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
 
@@ -25,11 +24,13 @@ This topic explains how to configure common settings for web apps, mobile back e
 
 ## Configure app settings
 
-In App Service, you use app settings like environment variables. In the [Azure portal], navigate to your app's management page. In the app's left menu, click **Configuration** > **Application settings**.
+In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container.
+
+In the [Azure portal], navigate to your app's management page. In the app's left menu, click **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
-For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in *Web.config*, but the values in App Service override the ones in *Web.config*. You can keep development settings (e.g. local MySQL password) in *Web.config*, but production secrets (e.g. Azure MySQL database password) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in *Web.config* or *appsettings.json*, but the values in App Service override the ones in *Web.config* or *appsettings.json*. You can keep development settings (for example, local MySQL password) in *Web.config* or *appsettings.json*, but production secrets (for example, Azure MySQL database password) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 Other language stacks, likewise, get the app settings as environment variables at runtime. For language-stack specific steps, see:
 
@@ -90,7 +91,7 @@ In the [Azure portal], navigate to the app's management page. In the app's left 
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (e.g. a database file) in *Web.config* and production secrets (e.g. SQL Database credentials) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. Here's one exception, however: certain Azure database types are backed up along with the app if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
@@ -161,13 +162,13 @@ In the [Azure portal], navigate to the app's management page. In the app's left 
 
 ![General settings](./media/configure-common/open-general.png)
 
-Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](web-sites-scale.md).
+Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions. For Linux apps and custom container apps, you can also set an optional start-up command or file.
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keep the app loaded even when there's no traffic. You need to enable it for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
+    - **Always On**: Keep the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
@@ -262,4 +263,4 @@ See [Configure a custom Linux container for Azure App Service](containers/config
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Monitoring basics in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Scale an app in Azure App Service]: ./web-sites-scale.md
+[Scale an app in Azure App Service]: ./manage-scale-up.md

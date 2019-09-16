@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
@@ -25,3 +25,10 @@ A security professional uses OPC Vault microservice to easily enable OPC UA serv
 The following diagram illustrates the complete OPC Vault architecture.
 
 ![OPC Vault architecture](media/overview-opc-vault-architecture/opc-vault.png)
+
+## Next steps
+
+Now that you have learned about OPC Vault and its uses, here is the suggested next step:
+
+> [!div class="nextstepaction"]
+> [OPC Vault architecture](overview-opc-vault-architecture.md)

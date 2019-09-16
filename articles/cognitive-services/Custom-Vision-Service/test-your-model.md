@@ -1,6 +1,6 @@
 ---
 title: Test and retrain a model - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to test an image and then use it to retrain the model.
 services: cognitive-services
 author: anrothMSFT

@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2019
+ms.date: 09/03/2019
 ms.author: jgao
 
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -99,7 +99,9 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-* [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
-* [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)
+In this quickstart you created a key vault and a secret using an Azure Resource manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
+
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Get more info on [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

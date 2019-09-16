@@ -3,7 +3,7 @@ title: Azure Container Registry - frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 services: container-registry
 author: sajayantony
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -27,7 +27,7 @@ This article addresses frequently asked questions and known issues about Azure C
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) that you can use to create a registry.
+Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 

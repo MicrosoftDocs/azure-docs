@@ -29,12 +29,13 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |---------------|-------|
 |Http/Https | Local or Remote http/https calls |
 |WCF calls| Only tracked automatically if Http-based bindings are used.|
-|SQL | Calls made with `SqlClient`. See [this](##advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query.  |
+|SQL | Calls made with `SqlClient`. See [this](#advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query.  |
 |[Azure storage (Blob, Table, Queue )](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
 |[EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
+If you're missing a dependency, or using a different SDK make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If the dependency isn't auto-collected, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## Setup automatic dependency tracking in Console Apps
 
@@ -86,7 +87,7 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 ## Tracking AJAX calls from Web Pages
 
-For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies as described [here](javascript.md#ajax-performance). This document focuses on dependencies from server components.
+For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies.
 
 ## Advanced SQL tracking to get full SQL Query
 
@@ -99,7 +100,7 @@ For ASP.NET applications, full SQL query is collected with the help of byte code
 | Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
 | Azure Web App |In your web app control panel, [open the Application Insights blade](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
-| IIS Server (Azure VM, on-prem, and so on.) | [Install Status Monitor on your server where application is running](../../azure-monitor/app/monitor-performance-live-website-now.md) and restart IIS.
+| IIS Server (Azure VM, on-prem, and so on.) | Use the Status Monitor PowerShell Module to [install the Instrumentation Engine](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) and restart IIS. |
 | Azure Cloud Service | Add [startup task to install StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Your app should be onboarded to ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) or [ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Not supported
 
@@ -109,7 +110,7 @@ In the above cases, the correct way of validating that instrumentation engine is
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
 * [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
-* [Browsers tab](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
+* [Browsers tab](javascript.md) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#logs-analytics) can be used to query dependency data.
 
