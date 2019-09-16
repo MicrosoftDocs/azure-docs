@@ -482,7 +482,7 @@ Each Application Insights operation (request or dependency) involves `Activity` 
 ## Next steps
 
 - Learn the basics of [telemetry correlation](correlation.md) in Application Insights.
-- Check out how correlated data powers [Transaction Diagnostics Experience](../../azure-monitor/app/transaction-diagnostics) and [Application Map](../../azure-monitor/app/app-map).
+- Check out how correlated data powers [Transaction Diagnostics Experience](../../azure-monitor/app/transaction-diagnostics.md) and [Application Map](../../azure-monitor/app/app-map.md).
 - See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
 - Report custom [events and metrics](../../azure-monitor/app/api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.
