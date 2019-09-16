@@ -99,7 +99,7 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
 
-![Create a pool with from a Shared image with the portal.](media/batch-custom-images/create-custom-pool.png)
+![Create a pool with from a Shared image with the portal.](media/batch-sig-images/create-custom-pool.png)
 
 ## Considerations for large pools
 
