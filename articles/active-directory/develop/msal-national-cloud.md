@@ -141,7 +141,7 @@ For instance, if you want your application to be a multi-tenant application in a
 
 Objective-C:
 
-```objective-c
+```objc
 MSALAADAuthority *aadAuthority =
                 [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
                                                    audienceType:MSALAzureADMultipleOrgsAudience
