@@ -81,7 +81,7 @@ Storage Explorer provides several ways to connect to Storage accounts. In genera
 
     ![Manage Accounts][1]
 
-2. The left pane now displays all the Azure accounts you've signed in to. To connect to another account, select **Add an account**
+2. The left pane now displays all the Azure accounts you've signed in to. To connect to another account, select **Add an account**.
 
 3. If you want to sign in to a national cloud or an Azure Stack, select the **Azure environment** drop-down list to choose the Azure cloud you want to use. After you've chosen your environment, select the **Sign-in** button. For more information, see [Connect Storage Explorer to an Azure Stack subscription](/azure-stack/user/azure-stack-storage-connect-se).
 
@@ -100,7 +100,7 @@ Storage Explorer provides several ways to connect to Storage accounts. In genera
 There are multiple ways to attach to a resource in Storage Explorer:
 
 * [Add a resource via Azure AD](#add-a-resource-via-azure-ad). If you have permissions only at the data layer, use this option to add a blob container or an Azure Data Lake Storage Gen2 Blob storage container.
-* [Use a connection string](#use-a-connection-string) if you have one to a Storage account. Storage Explorer supports both key and [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) connection strings.
+* [Use a connection string](#use-a-connection-string). Use this option if you have a connection string to a Storage account. Storage Explorer supports both key and [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) connection strings.
 * [Use a SAS URI](#use-a-sas-uri). If you have a [SAS URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) to a blob container, file share, queue, or table, use it to attach to the resource. To get a SAS URI, you can either use [Storage Explorer](#generate-a-sas-in-storage-explorer) or the [Azure portal](https://portal.azure.com).
 * [Use a name and key](#use-a-name-and-key). If you know either of the account keys to your Storage account, you can use this option to quickly connect. The keys for your Storage account are located on the Storage account **Access keys** panel in the [Azure portal](https://portal.azure.com).
 * [Attach to a local emulator](#attach-to-a-local-emulator). If you're using one of the available Azure Storage emulators, use this option to easily connect to your emulator.
