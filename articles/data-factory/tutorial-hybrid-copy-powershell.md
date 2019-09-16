@@ -432,31 +432,24 @@ In this step, you define a dataset that represents data in the SQL Server databa
 1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:  
     ```json
     {  
+        "name":"SqlServerDataset",
         "properties":{  
-            "type":"SqlServerTable",
-            "typeProperties":{  
-                "tableName":"dbo.emp"
-            },
-            "structure":[  
-                {  
-                    "name":"ID",
-                    "type":"String"
-                },
-                {  
-                    "name":"FirstName",
-                    "type":"String"
-                },
-                {  
-                    "name":"LastName",
-                    "type":"String"
-                }
-            ],
             "linkedServiceName":{  
                 "referenceName":"EncryptedSqlServerLinkedService",
                 "type":"LinkedServiceReference"
+            },
+            "annotations":[  
+    
+            ],
+            "type":"SqlServerTable",
+            "schema":[  
+    
+            ],
+            "typeProperties":{  
+                "schema":"dbo",
+                "table":"emp"
             }
-        },
-        "name":"SqlServerDataset"
+        }
     }
     ```
 
