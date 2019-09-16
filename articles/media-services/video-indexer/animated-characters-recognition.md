@@ -87,11 +87,11 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
     1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer.
     1. After you finished editing all names you want, you need to train the model.
 
-            Open the customization page and click on the **Animated characters** tab. If you have a paid account, you can click  the **Manage models in Customer Vision** link (as shown below). You will then be forwarded to the model's page in Custom Vision. Click on the **Train** button to train you model. 
-            
-            ![Content model customization](./media/animated-characters-recognition/content-model-customization-tab.png)
+        Open the customization page and click on the **Animated characters** tab. If you have a paid account, you can click  the **Manage models in Customer Vision** link (as shown below). You will then be forwarded to the model's page in Custom Vision. Click on the **Train** button to train you model. 
+        
+        ![Content model customization](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-            If you have a trial account, the **Manage models in Customer Vision** link will not be present. In this case, you can press **Train** right on the **Content model customization** page.
+        If you have a trial account, the **Manage models in Customer Vision** link will not be present. In this case, you can press **Train** right on the **Content model customization** page.
     1. Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
     Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
