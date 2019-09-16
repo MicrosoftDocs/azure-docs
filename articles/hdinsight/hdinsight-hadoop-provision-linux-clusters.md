@@ -114,7 +114,7 @@ HDInsight clusters can use the following storage options:
 * Azure Data Lake Storage Gen1
 * Azure storage General Purpose v2
 * Azure storage General Purpose v1
-* Azure storage Block blob **Only supported as secondary storage**
+* Azure storage Block blob (**only supported as secondary storage**)
 
 For more information on storage options with HDInsight, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
