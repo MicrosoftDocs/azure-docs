@@ -1,0 +1,61 @@
+---
+title: "Label images faster with suggested tags"
+titleSuffix: Azure Cognitive Services
+description: In this guide, you'll learn how to use suggested tags in order to label a large number of images more quickly when training Custom Vision models.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+
+ms.service: cognitive-services
+ms.subservice: custom-vision
+ms.topic: conceptual
+ms.date: 09/16/2019
+ms.author: pafarley
+---
+
+# Label images faster with suggested tags
+
+In this guide, you'll learn how to use the suggested tags feature to label a large number of images more quickly when training Custom Vision models. 
+
+When you tag images for a Custom Vision model, we use latest trained iteration of the model from the same domain to predict the labels for untagged images. We show these predictions as suggested tags, based on the selected confidence threshold and prediction uncertainty. You can then either confirm or change the suggestions, speeding up the process of manually tagging images for training.
+
+## When to use suggested tags
+
+* You should only request suggested tags for images whose content has already been trained once. Do not get suggestions for a new tag that you are just beginning to train.
+* You can only use suggested tags on images that are untagged; you can't get suggestions for additional tags on an already-tagged image.
+
+> [!IMPORTANT]
+> The suggested tags feature uses the same [pricing model](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) as regular predictions. The first time you trigger suggested tags for a set of images, you will be charged the same price as for prediction calls. After that, we store the results for the selected images in our database for 30 days, and you can access them anytime for free within that period. After 30 days, you'll be charged if you make the call again.
+
+## Suggested tags workflow
+
+The following steps show you how to use the suggested tags feature. 
+
+1. Upload all of your training images to your Custom Vision project.
+1. Label part of your data set, choosing an equal number of images for each tag.
+    > [!TIP]
+    > Make sure you use all of the tags for which you want suggestions.
+1. Initiate the training process.
+1. When training is complete, navigate to the **Untagged** view and select the **Get suggested tags** button on the left pane.
+    <!-- ![The suggested tags button is shown under the untagged images tab.](./media/suggested-tags/suggested-tags-button.png) -->
+1. Select the set of images for which you want suggestions. We suggest that you get initial tag suggestions for only a portion of the untagged images. Tag suggestions will become more accurate as you iterate through this process.
+1. Confirm the suggested tags, fixing any that aren't accurate.
+    > [!TIP]
+    > Images with suggested tags are sorted by their prediction uncertainty (lower values indicate higher confidence). You can change the order of sorting using the **Sort by uncertainty** option. If you set the order to **high to low**, you can correct the high-uncertainty predictions first and then quickly confirm the low-uncertainty ones.
+    * In image classification projects, you have the option to select and confirm tags in batches. Filter by a given suggested tag, deselect images that are tagged incorrectly, and then confirm the rest in a batch.
+            <!-- ![Suggested tags are displayed in batch mode for IC with filters.](./media/suggested-tags/ic-batch-mode.png) -->
+            You can also use suggested tags in individual image mode by selecting an image from the gallery.
+            <!-- ![Suggested tags are displayed in individual image mode for IC.](./media/suggested-tags/ic-individual-image-mode.png) -->
+    * In object detection projects, we do not support batch confirmations, but you can still filter and sort by suggested tags for a more organized labeling experience. Thumbnails of your untagged images will show an overlay of bounding boxes indicating the locations of suggested tags. If you don't select a suggested tag filter, all of your untagged images will appear without overlaying bounding boxes.
+            <!-- ![Suggested tags are displayed in batch mode for OD with filters.](./media/suggested-tags/od-batch-mode.png) -->
+            To confirm object detection tags, you need to apply them on each individual image in the gallery.
+            <!-- ![Suggested tags are displayed in individual image mode for OD.](./media/suggested-tags/od-individual-image-mode.png) -->
+1. Initiate the training process again.
+1. Repeat the preceding steps until you're satisfied with the suggestion quality.
+
+## Next steps
+
+Follow a quickstart to get started creating and training a Custom Vision project.
+
+* [Build a classifier](getting-started-build-a-classifier.md)
+* [Build an object detector](get-started-build-detector.md)

@@ -84,6 +84,8 @@ landingContent:
             url: test-your-model.md
           - text: Improve your model
             url: getting-started-improving-your-classifier.md
+          - text: Use suggested tags
+            url: suggested-tags.md
 
   - title: Export models
     linkLists:
