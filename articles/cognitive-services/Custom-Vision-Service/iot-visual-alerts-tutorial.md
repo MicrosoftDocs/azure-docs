@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: IoT Visual Alert sample"
+title: "Tutorial: IoT Visual Alerts sample"
 titleSuffix: "Azure Cognitive Services"
 description: In this tutorial, ...
 services: cognitive-services
@@ -13,31 +13,31 @@ ms.date: 09/11/2019
 ms.author: pafarley
 ---
 
-# Tutorial: IoT Visual Alert sample
+# Tutorial: IoT Visual Alerts sample
 
 This sample app illustrates how to use Azure Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an ONNX model exported from the Custom Vision service.
 
 A visual state describes the content of an image: an empty room or a room with people, an empty driveway or a driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
 
-![Animation of a UI labeling fruit in front of the camera](./media/iot-visual-alert-tutorial/scoring.gif)
+![Animation of a UI labeling fruit in front of the camera](./media/iot-visual-alerts-tutorial/scoring.gif)
 
 This tutorial will show you how to:
 > [!div class="checklist"]
-> * Configure the sample app to use your Custom Vision and IoT Hub resources.
+> * Configure the sample app to use your own Custom Vision and IoT Hub resources.
 > * Use the app to train your Custom Vision project.
-> * Use the app to score new images in real time and send results to Azure.
+> * Use the app to score new images in real time and send the results to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisites
 
-* [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
 * [!INCLUDE [create-resources](includes/create-resources.md)]
-* You'll also need to create an IoT Hub resource on Azure.
+* You'll also need to [create an IoT Hub resource](https://ms.portal.azure.com/#create/Microsoft.IotHub) on Azure.
+* [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
 * Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can also run the app directly from your PC.
    * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). If you need help setting up a new device, see [Setting up your device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
 
-## About the app
+## About the Visual Alerts app
 
 The IoT Visual Alerts app runs in a continuous loop, switching between four different states as appropriate:
 
@@ -95,7 +95,7 @@ people, an empty desk, a desk with a toy truck, and so on).
 
 Once the app has finished capturing images, it will upload them and then switch to the **Waiting For Trained Model** state. At this point, you need to go to the [Custom Vision portal](https://www.customvision.ai/) and build a model based on the new training images. The following animation shows an example of this process.
 
-![Animation: tagging multiple images of bananas](./media/iot-visual-alert-tutorial/labeling.gif)
+![Animation: tagging multiple images of bananas](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 To repeat this process with your own scenario:
 1. Sign in to the [Custom Vision portal](http://customvision.ai).
