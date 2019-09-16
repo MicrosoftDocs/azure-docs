@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Stream Analytics?
             url: stream-analytics-introduction.md
           - text: Azure Stream Analytics solution patterns
-            url: stream-analytics-solution-patterns
+            url: stream-analytics-solution-patterns.md
       - linkListType: whats-new
         links:
           - text: Stream Analytics compatibility levels
