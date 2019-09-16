@@ -45,6 +45,14 @@ Roles might include the following
 - **I**nformed of project plan and outcome
 
 
+## Best practices for a pilot
+A pilot allows you to test with a small group before turning a capability on for everyone. Ensure that as part of your testing, each use case within your organization is thoroughly tested. It’s best to target a specific group of pilot users before rolling this out to your organization as a whole.
+
+In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. This feedback should be used to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see. 
+
+Widening the rollout to larger groups of users should be carried out by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-dynamic-membership, or by manually adding users to the targeted group(s).
+
+
 ## Deploy authentication
 
 | Capability | Description|
