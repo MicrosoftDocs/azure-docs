@@ -27,7 +27,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 ## <a name="register"> </a>Register your application with Twitter
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use it to configure your Twitter app.
 2. Navigate to the [Twitter Developers] website, sign in with your Twitter account credentials, and click **Create New App**.
-3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, type the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
+3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, type the URL of your App Service app and append the path `/.auth/login/twitter/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
 4. At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. The application details are displayed.
 5. Click the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
 6. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**.
