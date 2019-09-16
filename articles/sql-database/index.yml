@@ -131,6 +131,12 @@ sections:
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+      - title: Create instance pool
+        values:
+          - href:
+          - href:
+          - href: /azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool
+          - href:
 - title: Step-by-Step Tutorials and learning materials
   items:
   - type: paragraph
