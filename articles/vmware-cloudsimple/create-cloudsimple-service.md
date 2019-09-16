@@ -19,7 +19,7 @@ To get started with Azure VMware Solution by CloudSimple, create the Azure VMwar
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the service
 
