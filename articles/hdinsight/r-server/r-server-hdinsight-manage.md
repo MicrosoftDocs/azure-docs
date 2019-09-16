@@ -26,7 +26,7 @@ In this article, you learn how to manage an existing ML Services cluster on Azur
 
 You can enable multiple concurrent users for ML Services cluster on HDInsight by adding more users for the edge node on which the RStudio community version runs. When you create an HDInsight cluster, you must provide two users, an HTTP user and an SSH user:
 
-![Concurrent user 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
+![Concurrent user 1](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Apache Ambari UI, Apache Hadoop YARN UI, as well as other UI components.
 - **Secure Shell (SSH) username**: an SSH user to access the cluster through secure shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use secure shell to access any of the nodes in a remote cluster.
@@ -61,7 +61,7 @@ To add a user to the edge node, execute the commands:
 
 The following screenshot shows the outputs.
 
-![Concurrent user 3](./media/r-server-hdinsight-manage/concurrent-users-2.png)
+![Concurrent user 3](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 When prompted for "Current Kerberos password:", just press **Enter** to ignore it. The `-m` option in `useradd` command indicates that the system will create a home folder for the user, which is required for RStudio Community version.
 
@@ -204,7 +204,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
    >
    >
 
-   ![Adding a script action](./media/r-server-hdinsight-manage/submitscriptaction.png)
+   ![Adding a script action](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Select **Create** to run the script. Once the script completes, the R packages are available on all worker nodes.
 

@@ -1,9 +1,9 @@
-- name: Azure Machine Learning service Documentation
+- name: Azure Machine Learning Documentation
   href: ../index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning service?
+  - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
   - name: Architecture & terms
@@ -32,6 +32,11 @@
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
+    - name: Batch scoring with pipelines (advanced)
+      items:
+      - name: Batch score a classification model
+        displayName: pipelines
+        href: tutorial-pipeline-batch-scoring-classification.md
   - name: Visual interface
     items:
     - name: 1. Train regression model
@@ -123,7 +128,7 @@
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
-  - name: Set up development environment 
+  - name: Set up development environment 
     items:
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
@@ -153,18 +158,20 @@
     - name: Set up training environments
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
-    - name: Create estimators in training
-      href: how-to-train-ml-models.md
-    - name: Use Scikit-learn
-      href: how-to-train-scikit-learn.md
-    - name: Use TensorFlow
-      href: how-to-train-tensorflow.md
-    - name: Use Keras
-      href: how-to-train-keras.md
-    - name: Use PyTorch
-      href: how-to-train-pytorch.md
-    - name: Use Chainer
-      href: how-to-train-chainer.md
+    - name: Use estimators to train
+      items:
+      - name: Create estimators in training
+        href: how-to-train-ml-models.md
+      - name: Use Scikit-learn
+        href: how-to-train-scikit-learn.md
+      - name: Use TensorFlow
+        href: how-to-train-tensorflow.md
+      - name: Use Keras
+        href: how-to-train-keras.md
+      - name: Use PyTorch
+        href: how-to-train-pytorch.md
+      - name: Use Chainer
+        href: how-to-train-chainer.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -190,7 +197,7 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Use automated ML (Azure portal)
+    - name: Use automated ML (workspace landing page)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
@@ -390,3 +397,4 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
+    

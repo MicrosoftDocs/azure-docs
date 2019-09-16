@@ -1,7 +1,7 @@
 ---
 title: Known issues & troubleshooting
-titleSuffix: Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -13,9 +13,9 @@ ms.date: 08/09/2019
 ms.custom: seodec18
 
 ---
-# Known issues and troubleshooting Azure Machine Learning service
+# Known issues and troubleshooting Azure Machine Learning
 
-This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
+This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
 ## Visual interface issues
 
@@ -85,7 +85,7 @@ Databricks and Azure Machine Learning issues.
 
 ### Failure when installing packages
 
-Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning service SDK. You might experience this issue with other libraries, too. Example:
+Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -141,7 +141,7 @@ If you go directly to view your workspace from a share link from the SDK or the 
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  You can also find this information in the **Experiments** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 > [!NOTE]
-> Azure Machine Learning service logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+> Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 ## Activity logs
 
