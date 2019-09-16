@@ -273,7 +273,7 @@ After you set up your logic app with a managed identity and set up that identity
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
-1. Open the **Authentication** list, and select **Managed Identity**. 
+1. Open the **Authentication** list, and select **Managed Identity**.
 
 1. Open the **Add new parameter** list, and select **Audience**.
 
@@ -323,7 +323,7 @@ To stop using a managed identity, disable that identity on [your logic app](#dis
 
 The managed identity is now disabled on your logic app.
 
-<a name="disable-identity-target-resource">
+<a name="disable-identity-target-resource"></a>
 
 #### Disable managed identity on target resource
 
