@@ -60,7 +60,7 @@ By default, an authenticated user in the tenant can sign in the service as a Rea
 
 ### Add user
 
-1. Open the [Azure portal](portal.azure.com).
+1. Open the Azure portal.
 2. Go to **Azure Active Directory** > **Enterprise applications**.
 3. Choose the registration of the OPC Vault microservice (by default, your `resourceGroupName-service`).
 4. Go to **Users and Groups**.
@@ -72,7 +72,7 @@ By default, an authenticated user in the tenant can sign in the service as a Rea
 
 ### Remove user
 
-1. Open the [Azure portal](portal.azure.com).
+1. Open the Azure portal.
 2. Go to **Azure Active Directory** > **Enterprise applications**.
 3. Choose the registration of the OPC Vault microservice (by default, your `resourceGroupName-service`).
 4. Go to **Users and Groups**.
@@ -87,7 +87,7 @@ By default, the service identity has only limited permissions to access Key Vaul
 
 #### For an Approver role, the following permissions must be added to Key Vault
 
-1. Open the [Azure portal](portal.azure.com).
+1. Open the Azure portal.
 2. Go to your OPC Vault `resourceGroupName`, used during deployment.
 3. Go to the Key Vault `resourceGroupName-xxxxx`.
 4. Go to **Access Policies**.
@@ -101,7 +101,7 @@ By default, the service identity has only limited permissions to access Key Vaul
 
 #### For an Administrator role, the following permissions must be added to Key Vault
 
-1. Open the [Azure portal](portal.azure.com).
+1. Open the Azure portal.
 2. Go to your OPC Vault `resourceGroupName`, used during deployment.
 3. Go to the Key Vault `resourceGroupName-xxxxx`.
 4. Go to **Access Policies**.
@@ -115,7 +115,7 @@ By default, the service identity has only limited permissions to access Key Vaul
 
 ### Remove user access policy from Azure Key Vault
 
-1. Open the [Azure portal](portal.azure.com).
+1. Open the Azure portal.
 2. Go to your OPC Vault `resourceGroupName`, used during deployment.
 3. Go to the Key Vault `resourceGroupName-xxxxx`.
 4. Go to **Access Policies**.
