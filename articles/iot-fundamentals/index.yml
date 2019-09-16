@@ -92,7 +92,7 @@ conceptualContent:
           text: Try a connected factory solution
       # footerLink
       footerLink:
-        url: ../iot-accelerators/index.md
+        url: ../iot-accelerators/index.yml
         text: See more
     # Card
     - title: Use Azure IoT Edge to run cloud intelligence on devices
