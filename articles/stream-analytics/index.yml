@@ -144,6 +144,24 @@ landingContent:
             url: stream-analytics-machine-learning-integration-tutorial.md
           - text: Scale jobs with Machine Learning Studio functions
             url: stream-analytics-scale-with-machine-learning-functions.md
+  - title: Developer experience
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Explore jobs with Visual Studio Code
+          url: vscode-local-run.md
+        - text: Test queries with sample data in Visual Studio Code
+          url: vscode-local-run.md
+        - text: Install tools for Visual Studio
+          url: stream-analytics-tools-for-visual-studio-install.md
+        - text: Test queries with sample data in Visual Studio
+          url: stream-analytics-vs-tools-local-run.md
+        - text: Test queries with live data in Visual Studio
+          url: stream-analytics-live-data-local-testing.md
+        - text: View jobs in Visual Studio
+          url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+        - text: Develop an IoT Edge job in Visual Studio
+          url: stream-analytics-tools-for-visual-studio-edge-jobs.md
   - title: Try Stream Analytics tutorials and solutions 
     linkLists:
       - linkListType: tutorial
@@ -168,24 +186,6 @@ landingContent:
             url: stream-analytics-high-frequency-trading.md
           - text: Alert based on adjustable rule thresholds
             url: stream-analytics-threshold-based-rules.md
-  - title: Developer experience
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Explore jobs with Visual Studio Code
-          url: vscode-local-run.md
-        - text: Test queries with sample data in Visual Studio Code
-          url: vscode-local-run.md
-        - text: Install tools for Visual Studio
-          url: stream-analytics-tools-for-visual-studio-install.md
-        - text: Test queries with sample data in Visual Studio
-          url: stream-analytics-vs-tools-local-run.md
-        - text: Test queries with live data in Visual Studio
-          url: stream-analytics-live-data-local-testing.md
-        - text: View jobs in Visual Studio
-          url: stream-analytics-tools-for-visual-studio-edge-jobs.md
-        - text: Develop an IoT Edge job in Visual Studio
-          url: stream-analytics-tools-for-visual-studio-edge-jobs.md
   - title: Deploy Stream Analytics jobs
     linkLists:
       - linkListType: tutorial
