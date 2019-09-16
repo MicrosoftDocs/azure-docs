@@ -8,7 +8,7 @@ ms.date: 09/13/2019
 ms.author: girobins
 ---
 # GetCurrentDateTime (Azure Cosmos DB)
- Returns the current UTC date and time as an ISO 8601 string.
+ Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
   
 ## Syntax
   
@@ -18,9 +18,7 @@ GetCurrentDateTime ()
   
 ## Return Types
   
-  Returns the current UTC date and time ISO 8601 string value. 
-
-  This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
+  Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.sssZ` where:
   
   |||
   |-|-|
@@ -34,13 +32,13 @@ GetCurrentDateTime ()
   |.sss|three digits of decimal fractions of a second|
   |Z|UTC (Coordinated Universal Time) designator||
   
-  For more details on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 ## Remarks
 
   GetCurrentDateTime() is a nondeterministic function. 
   
-  The result returned is UTC (Coordinated Universal Time).
+  The result returned is UTC.
 
 ## Examples
   
