@@ -74,3 +74,5 @@ Upgrade from prior versions of the Dependency agent on Linux is supported and pe
 2. Run the following command as root`sh InstallDependencyAgent-Linux64.bin -s`. 
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
+
+## Next steps
