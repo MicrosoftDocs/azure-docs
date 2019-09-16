@@ -1,6 +1,6 @@
 ---
 title: Create automated ML experiments
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
