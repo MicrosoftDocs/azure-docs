@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/15/2019
 ms.author: iainfou
 
 ---
@@ -51,7 +51,7 @@ Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
 ## Configure the hosts file
 
-To make sure that your VM's host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
+To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
 
 ```console
 sudo vi /etc/hosts
@@ -186,7 +186,7 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 1. Open the *sshd_conf* file with an editor:
 
     ```console
-    vi /etc/ssh/sshd_config
+    sudo vi /etc/ssh/sshd_config
     ```
 
 1. Update the line for *PasswordAuthentication* to *yes*:
