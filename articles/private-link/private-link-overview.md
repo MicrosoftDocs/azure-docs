@@ -49,7 +49,7 @@ For the most up-to-date notifications, check the [Azure Virtual Network updates 
 
 ## Logging and monitoring
 
-Azure Private Link is fully integrated with Azure Monitor. This integration allows you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. You can access the following information on Azure Monitor: 
+Azure Private Link is integrated with Azure Monitor which allows you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. You can access the following information on Azure Monitor: 
 - **Private endpoint**: Data processed by the Private Endpoint  (IN/OUT)
  
 - **Private Link service**:
