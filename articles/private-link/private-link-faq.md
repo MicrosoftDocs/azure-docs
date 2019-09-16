@@ -26,7 +26,6 @@ Yes. One Private Link service can receive connections from multiple Private Endp
 Yes. All data over Azure Private Link stays on the Microsoft backbone. It doesn’t traverse the internet.  
  
 ### What is the difference between a VNet Service Endpoint and a Private Endpoint?
-VNet Service Endpoints and Private Endpoints are independent of each other.
 - VNet Service Endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Service Endpoints allow you to secure your critical Azure service resources to only your virtual networks, while the traffic is route optimized and stays in the Microsoft backbone network it is sdestined to the Public IP address of the service.
 - Private Endpoint is a networking resource that acts as an entry point in your virtual network and uses Private IP address to reach the services powered by Private Link. The traffic is route optimized and stays in the Microsoft backbone network.   
 
