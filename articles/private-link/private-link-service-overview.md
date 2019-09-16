@@ -84,20 +84,7 @@ Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 ## Control service exposure
 
-Private Link service provides you with a rich set of options to control the exposure of your service. These are the "Visibility" settings. You can make the service private for consumption from different VNets you own (RBAC permissions only), restrict the exposure to a limited set of subscriptions that you trust, or make it public so that all Azure subscriptions can request connections on the Private Link service. Only consumers that you expose your service to can request a connection through different Azure clients. Having access to Alias info doesn’t provide the ability to request a connection. Your visibility settings decide whether a consumer can request a connection to your service or not. If the consumer's subscription falls within your visibility scope settings and has the correct alias, the consumer can request a connection. The following options are provided for your visibility settings:
-
-- Visibility: Role Base Access Control Only: 
-    - Intake parameter: {}. 
-    - Your service is not exposed from consumer side. 
-    - Only exposed to customers with RBAC permissions.
-- Visibility: Anyone with Alias: 
-    - Intake parameter: {}. 
-    - Exposed to all Azure customers. All Azure subscriptions can find your service. 
-    - Customers will need your alias for finding your service. You need to share the alias offline.  
-- Visibility: Restricted by subscriptions: 
-    - Intake parameter:  {sub1, sub2, sub3}.  
-    - Exposed to customer with RBAC permissions and to user subscriptions in your selected list. 
-    - Consumers not in the visibility list will not be able to find the service even with alias information.
+Private Link service provides you options to control the exposure of your service through "Visibility" setting. You can make the service private for consumption from different VNets you own (RBAC permissions only), restrict the exposure to a limited set of subscriptions that you trust, or make it public so that all Azure subscriptions can request connections on the Private Link service. Your visibility settings decide whether a consumer can connect to your service or not. 
 
 ## Control service access
 
