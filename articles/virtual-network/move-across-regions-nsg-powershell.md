@@ -105,38 +105,39 @@ The following steps show how to prepare the network security group for the confi
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **\<resource-group-name>.json** file:
 
-            ```json
-            "resources": [
-            {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2019-06-01",
-            "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
-            "location": "TARGET REGION",
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
-                "securityRules": [
+          ```json
+           "resources": [
+                  {
+                  "type": "Microsoft.Network/networkSecurityGroups",
+                  "apiVersion": "2019-06-01",
+                  "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
+                  "location": "TARGET REGION",
+                  "properties": {
+                       "provisioningState": "Succeeded",
+                       "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
+                  "securityRules": [
                     {
                         "name": "RDP",
                         "etag": "W/\"c630c458-6b52-4202-8fd7-172b7ab49cf5\"",
                         "properties": {
-                            "provisioningState": "Succeeded",
-                            "protocol": "TCP",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "3389",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 300,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    },
-    
-            ```
+                             "provisioningState": "Succeeded",
+                             "protocol": "TCP",
+                             "sourcePortRange": "*",
+                             "destinationPortRange": "3389",
+                             "sourceAddressPrefix": "*",
+                             "destinationAddressPrefix": "*",
+                             "access": "Allow",
+                             "priority": 300,
+                             "direction": "Inbound",
+                             "sourcePortRanges": [],
+                             "destinationPortRanges": [],
+                             "sourceAddressPrefixes": [],
+                             "destinationAddressPrefixes": []
+                            }
+                        ]
+            }  
+            
+          ```
 
 To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **\<resource-group-name>.json** file in the format of the example below:
 
