@@ -64,7 +64,7 @@ Certificate errors typically occur in one of the following situations:
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
 
 1. Obtain a Base-64 encoded X.509 (.cer) copy of the certificate.
-2. Go to **Edit** → **SSL Certificates** → **Import Certificates**, and then use the file picker to find, select, and open the .cer file.
+2. Go to **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer file.
 
 This issue may also occur if there are multiple certificates (root and intermediate). To fix this error, both certificates must be added.
 
@@ -189,9 +189,9 @@ If you have networking tools, such as Fiddler for Windows, you can diagnose the 
 * Check the port number used by your networking tool.
 * Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When you do this correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter `https://cawablobgrs.blob.core.windows.net/` for your blob endpoint in a browser, and you'll receive a response that resembles the following:
 
-![Code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
+  ![Code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-This response suggests the resource exists, even though you can't access it.
+  This response suggests the resource exists, even though you can't access it.
 
 ### Contact proxy server admin
 
