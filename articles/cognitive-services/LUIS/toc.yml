@@ -338,6 +338,8 @@
       href: reference-entity-regular-expression.md      
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Developer resources and references
+    href: developer-reference-resources.md
   - name: Azure CLI
     href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell
