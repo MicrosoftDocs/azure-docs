@@ -11,7 +11,7 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/10/2019
+  ms.date: 09/12/2019
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -53,10 +53,10 @@ conceptualContent:
         - url: ./form-recognizer/index.yml
           itemType: overview
           text: Form Recognition (Preview)
-        - url: ./form-recognizer/index.yml
+        - url: ./ink-recognizer/index.yml
           itemType: overview
           text: Ink Recognizer (Preview)
-        - url: ./ink-recognizer/index.yml
+        - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer   
     - title: Language

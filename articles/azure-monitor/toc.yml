@@ -144,8 +144,6 @@
         href: platform/service-providers.md
       - name: Manage access
         href: platform/manage-access.md
-      - name: Integrate with Configuration Manager
-        href: platform/collect-sccm.md
     - name: Usage and cost
       items:
       - name: Usage and estimated costs
@@ -643,8 +641,6 @@
         href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
-      - name: Configuration Manager
-        href: platform/collect-sccm.md
     - name: Azure resources
       items:
       - name: Diagnostic logs
@@ -745,6 +741,8 @@
         href: platform/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
+      - name: Connect Configuration Manager
+        href: platform/collect-sccm.md
     - name: Stream data to Event Hubs
       href: platform/diagnostic-logs-stream-event-hubs.md
   - name: Analyze data
@@ -764,6 +762,8 @@
       - name: Log query overview
         displayname: log query, log queries, query, queries
         href: log-query/log-query-overview.md
+      - name: Simple logs experience
+        href: log-query/simple-logs.md
       - name: Tutorials
         items:
         - name: Log Analytics tutorial
@@ -785,9 +785,9 @@
         - name: Language differences
           href: log-query/data-explorer-difference.md
         - name: Useful operators
-          href: log-query/functions.md
-        - name: Functions
           href: log-query/useful-operators.md
+        - name: Functions
+          href: log-query/functions.md
         - name: Transition from log search
           href: log-query/log-search-transition.md
         - name: Lessons
