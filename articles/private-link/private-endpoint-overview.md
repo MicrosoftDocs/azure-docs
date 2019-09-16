@@ -29,13 +29,13 @@ Azure Private Endpoint is a network interface that connects you privately and se
 |Connection status   |   A read-only property that specifies if the private endpoint is active. Only private endpoints in an approved state can be used to send traffic. Additional states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection was created manually and is pending approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner. The private endpoint becomes informative and should be deleted for cleanup. </br>|
 
 Here are some key details about private endpoints: 
-- An approved private endpoint allows connectivity from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) connections. 
+- Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
  
-- When creating a private endpoint, a network interface is also created for the lifecycle of the resource. Multiple private IP addresses can be allocated to a selected private link resource.  
+- When creating a private endpoint, a network interface is also created for the lifecycle of the resource. The interafce is assigned a private IP address from the subnet that maps to the Private Link Service.
  
 - The private endpoint must be deployed in the same region as the virtual network. 
  
-- The private link resource can be deployed in a different region than the virtual network and private endpoint location. 
+- The private link resource can be deployed in a different region than the virtual network and private endpoint.
  
 - Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource to avoid duplicate entries or conflicts in DNS resolution. 
  
