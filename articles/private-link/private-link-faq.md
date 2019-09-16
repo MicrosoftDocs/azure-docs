@@ -32,13 +32,7 @@ VNet Service Endpoints and Private Endpoints are independent of each other.
 - Private Endpoint is a networking resource that acts as an entry point for service traffic in your network and uses Azure Private Link technology.  
 
 ### What is the relationship between Private Link service and Private Endpoint?
-It is a one-to-many relationship. One Private Link service can connect to multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.  
- 
-### Does the data always stay off the internet?
-All data over Azure Private Link stays on the Microsoft network. It doesn’t traverse the internet.  
- 
-### What is the difference between a VNet service endpoint and a private endpoint?
-VNet service endpoints and private endpoints are independent of each other. VNet service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. On the other hand, a private endpoint is a networking resource that acts as an entry point for service traffic in your network and uses Azure Private Link technology.  
+It is a one-to-many relationship. One Private Link service can receive connections from multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.    
  
 ### Will VNet Service Endpoints be deprecated once Private Endpoints are available? 
 No. VNet Service Endpoints and Private Endpoints are independent technologies/resources. They can complement each other and both will co-exist. Some functionality and use cases may overlap, you can choose the model that fits your needs.  
