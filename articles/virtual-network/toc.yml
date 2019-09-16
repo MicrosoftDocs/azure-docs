@@ -255,8 +255,13 @@
       href: manage-public-ip-address-prefix.md
   - name: Move across regions
     items:
+<<<<<<< HEAD
     - name: Network security groups - Portal
       href: move-across-regions-nsg-portal.md
+=======
+    - name: Network security groups - PowerShell
+      href: move-across-regions-nsg-powershell.md
+>>>>>>> cb082dc7dbe95a280bd8a220a651689b767e6256
     - name: Virtual networks - Portal
       href: virtual-network-azure-to-azure-migrate-vnet-portal.md
     - name: Virtual networks - PowerShell
