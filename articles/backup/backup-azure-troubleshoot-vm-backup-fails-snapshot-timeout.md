@@ -100,12 +100,12 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 4095 GB
+## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup.
 
 **Error code**: UserErrorUnsupportedDiskSize <br>
-**Error message**: Currently Azure Backup does not support disk sizes greater than 4095 GB <br>
+**Error message**: The configured disk size(s) is currently not supported by Azure Backup. <br>
 
-Your backup operation could fail when backing up a VM with a disk size greater than 4095 GB. To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, refer to this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Your backup operation could fail when backing up a VM with a disk size greater than 30 TB. Also, backup of encrypted disks greater than 4TB in size is not supported today. Ensure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
@@ -117,12 +117,10 @@ Your recent backup job failed because there is an existing backup job in progres
 1. Sign in to the Azure portal, click **All services**. Type Recovery Services and click **Recovery Services vaults**. The list of recovery services vaults appears.
 2. From the list of recovery services vaults, select a vault in which the backup is configured.
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
-
-- If a backup job is in progress, wait for it to complete or cancel the backup job.
-  - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-- If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists, then cancel the backup job.
-  - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
-
+   - If a backup job is in progress, wait for it to complete or cancel the backup job.
+     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+   - If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists, then cancel the backup job.
+     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer, conflicting with the next backup configuration, then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance), and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -151,8 +149,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 4. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 5. Verify that the Windows Azure Guest Agent services appear in services.
 6. Run an on-demand backup:
-
-- In the portal, select **Backup Now**.
+   - In the portal, select **Backup Now**.
 
 Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
 

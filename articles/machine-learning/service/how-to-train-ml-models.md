@@ -1,7 +1,7 @@
 ---
 title: Train ML models with estimators
-titleSuffix: Azure Machine Learning service
-description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning services Estimator class
+titleSuffix: Azure Machine Learning
+description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning Estimator class
 ms.author: maxluk
 author: maxluk
 services: machine-learning
