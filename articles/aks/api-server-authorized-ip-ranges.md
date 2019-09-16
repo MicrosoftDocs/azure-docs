@@ -254,6 +254,8 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
