@@ -99,17 +99,17 @@ Storage Explorer provides several ways to connect to Storage accounts. In genera
 
 There are multiple ways to attach to a resource in Storage Explorer:
 
-* [Add a resource via Azure AD](#add-a-resource-via-azure-ad): If you have permissions only at the data layer, use this option to add a blob container or an Azure Data Lake Storage Gen2 Blob storage container.
+* [Add a resource via Azure AD](#add-a-resource-via-azure-ad). If you have permissions only at the data layer, use this option to add a blob container or an Azure Data Lake Storage Gen2 Blob storage container.
 * [Use a connection string](#use-a-connection-string) if you have one to a Storage account. Storage Explorer supports both key and [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) connection strings.
-* [Use a SAS URI](#use-a-sas-uri) if you have a [one](storage/common/storage-dotnet-shared-access-signature-part-1.md) to a blob container, file share, queue, or table. To get a SAS URI, you can either use [Storage Explorer](#generate-a-sas-in-storage-explorer) or the [Azure portal](https://portal.azure.com).
-* [Use a name and key](#use-a-name-and-key): If you know either of the account keys to your Storage account, you can use this option to quickly connect. The keys for your Storage account are located on the Storage account **Access keys** panel in the [Azure portal](https://portal.azure.com).
-* [Attach to a local emulator](#attach-to-a-local-emulator): If you're using one of the available Azure Storage emulators, use this option to easily connect to your emulator.
-* [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Use this option if you have a connection string to a CosmosDB instance.
-* [Connect to Azure Data Lake Store by URI](#connect-to-azure-data-lake-store-by-uri): Use this option if you have a URI to an Azure Data Lake Store.
+* [Use a SAS URI](#use-a-sas-uri). If you have a [SAS URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) to a blob container, file share, queue, or table, use it to attach to the resource. To get a SAS URI, you can either use [Storage Explorer](#generate-a-sas-in-storage-explorer) or the [Azure portal](https://portal.azure.com).
+* [Use a name and key](#use-a-name-and-key). If you know either of the account keys to your Storage account, you can use this option to quickly connect. The keys for your Storage account are located on the Storage account **Access keys** panel in the [Azure portal](https://portal.azure.com).
+* [Attach to a local emulator](#attach-to-a-local-emulator). If you're using one of the available Azure Storage emulators, use this option to easily connect to your emulator.
+* [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Use this option if you have a connection string to a CosmosDB instance.
+* [Connect to Azure Data Lake Store by URI](#connect-to-azure-data-lake-store-by-uri). Use this option if you have a URI to an Azure Data Lake Store.
 
 #### Add a resource via Azure AD
 
-1. Open the **Connect** dialog box by selecting the **Connect** icon on the vertical toolbar on the left:
+1. Open the **Connect** dialog box by selecting the **Connect** button on the vertical toolbar on the left:
 
     ![Connect to Azure storage option][9]
 
@@ -127,7 +127,7 @@ After the connection is successfully added, the resource tree automatically navi
 
 #### Use a connection string
 
-1. Open the **Connect** dialog box by selecting the **Connect** icon on the vertical toolbar on the left:
+1. Open the **Connect** dialog box by selecting the **Connect** button on the vertical toolbar on the left:
 
     ![Connect to Azure storage option][9]
 
@@ -141,7 +141,7 @@ After the connection is successfully added, the resource tree will automatically
 
 #### Use a SAS URI
 
-1. Open the **Connect** dialog box by selecting the **Connect** icon on the vertical toolbar on the left:
+1. Open the **Connect** dialog box by selecting the **Connect** button on the vertical toolbar on the left:
 
     ![Connect to Azure storage option][9]
 
@@ -155,7 +155,7 @@ After the connection is successfully added, the resource tree will automatically
 
 #### Use a name and key
 
-1. Open the **Connect** dialog box by selecting the **Connect** icon on the vertical toolbar on the left:
+1. Open the **Connect** dialog box by selecting the **Connect** button on the vertical toolbar on the left:
 
     ![Connect to Azure storage option][9]
 
@@ -186,7 +186,7 @@ If you want to use a different name for your connection, or if your emulator isn
    > [!IMPORTANT]
    > Storage Explorer doesn't automatically start your emulator. You must start it manually.
 
-2. Open the **Connect** dialog box by selecting the **Connect** icon on the vertical toolbar on the left:
+2. Open the **Connect** dialog box by selecting the **Connect** button on the vertical toolbar on the left:
 
     ![Connect to Azure storage option][9]
 
