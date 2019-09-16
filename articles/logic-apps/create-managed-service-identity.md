@@ -13,7 +13,7 @@ ms.date: 09/17/2019
 
 # Authenticate access to resources with managed identities in Azure Logic Apps
 
-To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Azure Logic Apps currently supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) managed identities. You can have either a system-assigned identity that authenticates a single logic app, or have a user-assigned identity that authenticates more than one logic app, but not both. You can use managed identities with logic apps but only for these built-in triggers and actions:
+To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Azure Logic Apps currently supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) managed identities. You can have either a system-assigned identity that authenticates a single logic app, or have a user-assigned identity that authenticates multiple logic apps plus other resources, but not both identities on a logic app at the same time. You can use managed identities with logic apps but only for these built-in triggers and actions:
 
 * HTTP
 * Azure Functions
@@ -33,15 +33,15 @@ This article shows how to set up and use both kinds of managed identities for au
 
 <a name="enable-identity"></a>
 
-## Enable a managed identity
+## Enable managed identity
 
 Choose the following steps for enabling either the [system-assigned identity](#system-assigned) or [user-assigned identity](#user-assigned).
 
 <a name="system-assigned"></a>
 
-### Enable a system-assigned identity
+### Enable system-assigned identity
 
-You don't have to manually create a system-assigned managed identity. To set up a system-assigned managed identity for your logic app, you have these options:
+You can set up a system-assigned identity directly on your logic app, which means you don't manually create a separate standalone managed identity resource. To set up your system-assigned identity, you have these options:
 
 * [Azure portal](#azure-portal-system)
 * [Azure Resource Manager templates](#template-system)
@@ -114,7 +114,7 @@ When Azure creates your logic app, the `"identity"` object includes these additi
 
 <a name="user-assigned"></a>
 
-### Enable a user-assigned identity
+### Enable user-assigned identity
 
 To set up a user-assigned managed identity for your logic app, you must first create that a separate standalone Azure resource for that user-assigned identity. You have these options:
 
