@@ -33,7 +33,6 @@ A technical profile enables these types of scenarios:
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
-- **WsFed** - Federation with any WsFed protocol identity provider.
 - [Session management](active-directory-b2c-reference-sso-custom.md) - Handle different types of sessions.
 - **Application insights**
 
