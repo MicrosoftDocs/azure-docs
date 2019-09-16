@@ -88,12 +88,13 @@ To allow script- or application-based access to the Azure AD reporting API, you 
 * Microsoft Graph
   * Application: Read all audit log data
 
-You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
+You can enable these permissions on an existing Azure Active Directory application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
 To create a new application, assign the required API permissions, and create a client secret, perform the following steps:
 
-1. Register application
-    1. Sign in to the [Azure portal](https://portal.azure.com), switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
+1. Register application in Azure Active Directory
+    1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
+    1. Select **Azure Active Directory** (*not* Azure AD B2C) from the left menu. Or, select **All services**, then search for and select **Azure Active Directory**.
     1. Under **Manage** in the left menu, select **App registrations (Legacy)**.
     1. Select **New application registration**
     1. Enter a name for the application. For example, *Audit Log App*.
