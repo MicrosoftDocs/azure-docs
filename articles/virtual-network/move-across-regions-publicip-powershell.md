@@ -60,6 +60,7 @@ The following steps show how to prepare the public IP for the configuration move
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
+   ```
 
 8. To edit the parameter of the public IP name, change the property **defaultValue** of the source public IP name to the name of your target public IP, ensure the name is in quotes:
     
@@ -114,8 +115,8 @@ The following steps show how to prepare the public IP for the configuration move
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
 
            ```json
-                "resources": [
-                {
+            "resources": [
+                   {
                     "type": "Microsoft.Network/publicIPAddresses",
                     "apiVersion": "2019-06-01",
                     "name": "[parameters('publicIPAddresses_myPubIP_name')]",
