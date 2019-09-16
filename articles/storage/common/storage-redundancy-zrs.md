@@ -18,7 +18,7 @@ ms.subservice: common
 
 ## Support coverage and regional availability
 
-ZRS currently supports standard general-purpose v2 account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2 and FileStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
 
@@ -60,6 +60,9 @@ There are two primary options for migration to ZRS:
 
 - Manually copy or move data to a new ZRS account from an existing account.
 - Request a live migration.
+
+> [!IMPORTANT]
+> Live migration is not currently supported for premium file shares. Only Manually copying or moving data is currently supported.
 
 If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
