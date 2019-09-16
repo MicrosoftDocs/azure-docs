@@ -97,12 +97,13 @@ We recommend that you set up and validate a full HADR solution and security desi
    3.  Validate and optimize timing.
 1. Technical validation.
    1.  VM types.
+
             1. Review the resources in SAP support notes, in the SAP HANA hardware directory, and in the SAP PAM again. Make sure there are no changes to supported VMs for Azure, supported OS releases for those VM types, and supported SAP and DBMS releases.
             1. Validate again the sizing of your application and the infrastructure you deploy on Azure. If you're moving existing applications, you can often derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article on SAPS ratings](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind.
             1. Evaluate and test the sizing of your Azure VMs with regard to maximum storage throughput and network throughput of the VM types you chose during the planning phase. You can find the data here:
                     1.  [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
                     1.  [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It's important to consider the *max uncached disk throughput* for sizing.
-   2. Storage.
+   1. Storage.
             1. At a minimum, use [Azure Standard SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) for VMs that represent SAP application layers and for DBMS deployment that isn't performance sensitive.
             1. In general, we don't recommend the use of [Azure Standard HDD disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
             1. Use [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
@@ -111,7 +112,7 @@ We recommend that you set up and validate a full HADR solution and security desi
             1. For the different DBMS types, check the [generic SAP-related DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the DBMS-specific documentation that the generic document points to.
             1. For more information about SAP HANA, see [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
             1. Never mount Azure data disks to an Azure Linux VM by using the device ID. Instead, use the universally unique identifier (UUID). Be careful when you use graphical tools to mount Azure data disks, for example. Double-check the entries in /etc/fstab to make sure the UUID is used to mount the disks. You can find [more details here](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
-   3. Networking.
+   1. Networking.
             1. Test and evaluate your virtual network infrastructure and the distribution of your SAP applications across or within the different Azure virtual networks.
                     1.  Evaluate the hub-and-spoke virtual network architecture approach or the microsegmentation approach within a single Azure virtual network. Base this evaluation on:
                         1.  Costs of data exchange between [peered Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). For information about costs, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -130,13 +131,13 @@ We recommend that you set up and validate a full HADR solution and security desi
              5. Make sure ILB deployments are set up to use Direct Server Return. This setting will reduce latency when Azure ILBs are used for high availability configurations on the DBMS layer.
              6. If you're using Azure Load Balancer together with Linux guest operating systems, check that the Linux network parameter **net.ipv4.tcp_timestamps** is set to **0**. This recommendation conflicts with recommendations in older versions of [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note is now updated to state that this parameter needs to be set to **0** to work with Azure load balancers.
              7. Consider using [Azure proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) to get optimal network latency. For more information, see [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
-   4. High availability and disaster recovery deployments.
+   1. High availability and disaster recovery deployments.
            1. If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
               1.   If you don't need high availability for SAP Central Services and the DBMS, you can deploy these VMs into the same availability set as the SAP application layer.
            2. If you protect SAP Central Services and the DBMS layer for high availability by using passive replication, place the two nodes for SAP Central Services in one separate availability set and the two DBMS nodes in another availability set.
            3. If you deploy into Azure Availability Zones, you can't use availability sets. But you do need to make sure you deploy the active and passive Central Services nodes into two different Availability Zones. Use Availability Zones that have the lowest latency between them.
               1.   Keep in mind that you need to use [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) for the use case of establishing Windows or Pacemaker failover clusters for the DBMS and SAP Central Services layer across Availability Zones. You can't use [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) for zonal deployments.
-   5. Timeout settings.
+   1. Timeout settings.
            1. Check the SAP NetWeaver developer traces of the SAP instances to make sure there are no connection breaks between enqueue server and the SAP work processes. You can avoid these connection breaks by setting these two registry parameters:
               1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. For more information, see [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).
               2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000. For more information, see [KeepAliveInterval](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)).
