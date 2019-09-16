@@ -20,9 +20,9 @@ ms.date: 09/16/2019
 
 In this article, you learn how to train with Azure Machine Learning datasets in remote experiments by
 
-- Passing them directly in your training script.
+- Option 1: Passing them directly in your training script.
 
-- Using them to mount or download files to a remote compute for training.
+- Option 2: Using them to mount or download files to a remote compute for training.
 
 ## Prerequisites
 
@@ -30,16 +30,16 @@ To create and train with datasets, you need:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An [Azure Machine Learning service workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
 > [!Note]
 > Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Pass datasets as inputs to training runs
+## Option 1: Pass datasets as inputs to training runs
 
-[TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with libraries you are already familiar with for data preparation and training. To leverage this capability, pass a TabularDataset as the input in training configuration and retrieve the TabularDataset object in your script.
+[TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with libraries you are already familiar with for data preparation and training. To leverage this capability, pass a TabularDataset as the input in your training configuration and retrieve the TabularDataset object in your script.
 
 ### Create a TabularDataset
 
@@ -60,7 +60,7 @@ This code creates a generic estimator object, `est`, that specifies
 
 * A script directory for your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The training script, train_titanic.py
-* The input Dataset for training
+* The input dataset for training
 * The compute target for the experiment.
 * The environment definition for the experiment
 
@@ -89,7 +89,7 @@ dataset = run.input_datasets['titanic']
 df = dataset.to_pandas_dataframe()
 ```
 
-## Mount files to a compute target
+## Option 2:  Mount files to a compute target
 
 If you want to make your data files available on the compute target for training,  use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) to mount or download files referred by it.
 
@@ -141,7 +141,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 ### Retrieve the data in your training script
-After you submit the run, data files referred by the mnist dataset will be mounted to the compute target. Here is how to retrieve the data in your script.
+After you submit the run, data files referred by the mnist dataset will be mounted to the compute target. The following code shows how to retrieve the data in your script.
 
 ```Python
 %%writefile $script_folder/train_mnist.py
@@ -177,9 +177,10 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## Notebook examples
 
-The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as, using datasets in ScriptRun and Hyperdrive. 
+The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as using datasets with ScriptRun and [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb). 
 
 ## Next steps
 
 * [Auto train machine learning models](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-remote?view=azure-ml-py) with TabularDatasets.
+
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
