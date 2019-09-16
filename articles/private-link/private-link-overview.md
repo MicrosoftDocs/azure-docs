@@ -24,9 +24,9 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
-- **Privately access services on the Azure platform**: With Azure Private Link, you can connect privately from your virtual networks to services delivered on the Azure platform in a secure and scalable manner. 
+- **Privately access services on the Azure platform**: Connect your virtual network to services running in Azure privately without needing a public IP address at the source or destination. Service providers can render their services privately in their own virtual network and consumers can access those services privately in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
  
-- **Works with on-premises and peered networks**: With Azure Private Link, customers can access private endpoints over private peering/VPN tunnels (from on-premises) and peered virtual networks. Traffic from the private endpoint to the service are route-optimized and are carried over the Microsoft backbone. There is no need to set up public peering or traverse the internet to reach the service. This ability provides flexibility for customers to migrate their workloads to the cloud.  
+- **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering/VPN tunnels (from on-premises) and peered virtual networks using private endpoints. There is no need to set up public peering or traverse the internet to reach the service. This ability provides a secure way to migrate workloads to Azure.
  
 - **Data Exfiltration protection**: With Azure Private Link, you get implicit Data Exfiltration protection when connecting to Azure PaaS. A Private Endpoint mappes to an individual Azure PaaS resource without any shared access. Providing granular controls to prevenet a malicious insider from accessing other accounts thus eliminating the data exfiltration threat. 
  
