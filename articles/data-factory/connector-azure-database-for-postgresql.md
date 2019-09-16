@@ -1,6 +1,6 @@
 ---
-title: Copy data from Azure Database for PostgreSQL using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from Azure Database for PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data to and from Azure Database for PostgreSQL using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data to and from Azure Database for PostgreSQL by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,17 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/16/2019
 ms.author: jingwang
 
 ---
-# Copy data from Azure Database for PostgreSQL using Azure Data Factory
+# Copy data to and from Azure Database for PostgreSQL using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for PostgreSQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+This connector is specialized for [Azure Database for PostgreSQL service](../postgresql/overview.md). To copy data from generic PostgreSQL database located on-premises or in the cloud, use [PostgreSQL connector](connector-postgresql.md).
+
 ## Supported capabilities
 
-You can copy data from Azure Database for PostgreSQL to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This Azure Database for PostgreSQL connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
+You can copy data from Azure Database for PostgreSQL to any supported sink data store. Or, you can copy data from any supported source data store to Azure Database for PostgreSQL. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
@@ -46,8 +53,8 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g. `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
-| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g. `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
+| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g.,  `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g.,  `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
 
 **Example:**
 
@@ -162,6 +169,54 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
     }
 ]
 ```
+
+### Azure Database for PostgreSQL as sink
+
+To copy data to Azure Database for PostgreSQL, the following properties are supported in the copy activity **sink** section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity sink must be set to: **AzurePostgreSQLSink** | Yes |
+| preCopyScript | Specify a SQL query for the copy activity to execute before writing data into Azure Database for PostgreSQL in each run. You can use this property to clean up the preloaded data. | No |
+| writeBatchSize | Inserts data into the Azure Database for PostgreSQL table when the buffer size reaches writeBatchSize.<br>Allowed value is integer representing number of rows. | No (default is 10,000) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureDatabaseForPostgreSQL",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure PostgreSQL output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "AzurePostgreSQLSink",
+                "preCopyScript": "<custom SQL script>",
+                "writeBatchSize": 100000
+            }
+        }
+    }
+]
+```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

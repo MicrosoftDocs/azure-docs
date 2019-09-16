@@ -1,9 +1,9 @@
-- name: Azure Machine Learning service Documentation
+- name: Azure Machine Learning Documentation
   href: ../index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning service?
+  - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
   - name: Architecture & terms
