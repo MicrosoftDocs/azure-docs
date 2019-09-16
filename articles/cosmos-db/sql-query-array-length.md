@@ -41,3 +41,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len
   
 
 ## See Also
+
+- [Array functions Azure Cosmos DB](sql-query-array-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

@@ -41,3 +41,7 @@ SELECT ATAN(-45.01) AS atan
   
 
 ## See Also
+
+- [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

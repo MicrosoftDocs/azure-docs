@@ -41,3 +41,7 @@ SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3
   
 
 ## See Also
+
+- [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

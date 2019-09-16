@@ -81,3 +81,7 @@ Here is the result set.
 
 
 ## See Also
+
+- [String functions Azure Cosmos DB](sql-query-string-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

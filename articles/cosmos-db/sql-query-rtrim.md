@@ -41,3 +41,7 @@ SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3
   
 
 ## See Also
+
+- [String functions Azure Cosmos DB](sql-query-string-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

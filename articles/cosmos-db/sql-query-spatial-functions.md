@@ -21,3 +21,5 @@ Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in funct
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)
+- [UDFs](sql-query-udfs.md)
+- [Aggregates](sql-query-aggregates.md)

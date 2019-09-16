@@ -20,3 +20,5 @@ The following scalar functions allow you to get the current UTC date and time in
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)
+- [UDFs](sql-query-udfs.md)
+- [Aggregates](sql-query-aggregates.md)

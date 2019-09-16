@@ -41,3 +41,7 @@ SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3
   
 
 ## See Also
+
+- [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

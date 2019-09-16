@@ -48,3 +48,7 @@ SELECT
   
 
 ## See Also
+
+- [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

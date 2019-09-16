@@ -41,3 +41,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
   
 
 ## See Also
+
+- [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

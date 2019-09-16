@@ -44,3 +44,7 @@ SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 
 
 ## See Also
+
+- [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

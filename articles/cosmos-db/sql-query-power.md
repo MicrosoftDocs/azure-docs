@@ -44,3 +44,7 @@ SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2
   
 
 ## See Also
+
+- [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)

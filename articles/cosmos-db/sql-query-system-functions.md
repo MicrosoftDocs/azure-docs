@@ -38,7 +38,9 @@ The main difference between Cosmos DB functions and ANSI SQL functions is that C
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](introduction.md)
+- [Array functions](sql-query-array-functions.md)
+- [Date and time functions](sql-query-date-time-functions.md)
+- [Mathematical functions](sql-query-mathematical-functions.md)
+- [Spatial functions](sql-query-spatial-functions.md)
 - [UDFs](sql-query-udfs.md)
 - [Aggregates](sql-query-aggregates.md)
-- [Array Functions](sql-query-array-functions.md)
-- []()

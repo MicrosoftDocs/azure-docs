@@ -61,3 +61,7 @@ SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2
   
 
 ## See Also
+
+- [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [System functions Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduction to Azure Cosmos DB](introduction.md)
