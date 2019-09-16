@@ -305,7 +305,7 @@ To turn off a managed identity for your logic app, you can follow the steps simi
 
 To stop using a managed identity, disable that identity on [your logic app](#disable-identity-logic-app) and on [your target resource](#disable-identity-target-resource).
 
-<a name="disable-identity-logic-app">
+<a name="disable-identity-logic-app"></a>
 
 #### Disable managed identity for logic app
 
