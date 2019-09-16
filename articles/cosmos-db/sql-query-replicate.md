@@ -8,41 +8,41 @@ ms.date: 09/13/2019
 ms.author: girobins
 ---
 # REPLICATE (Azure Cosmos DB)
- Repeats a string value a specified number of times.  
+ Repeats a string value a specified number of times.
   
 ## Syntax
   
 ```  
-REPLICATE(<str_expr>, <num_expr>)  
+REPLICATE(<str_expr>, <num_expr>)
 ```  
   
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is any valid string expression.
   
 *num_expr*  
    Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
-
-  > [!NOTE]
-  > The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
   
 ## Return Types
   
-  Returns a string expression.  
+  Returns a string expression.
   
+## Remarks
+  The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
+
 ## Examples
   
-  The following example shows how to use REPLICATE in a query.  
+  The following example shows how to use REPLICATE in a query.
   
 ```  
-SELECT REPLICATE("a", 3) AS replicate  
+SELECT REPLICATE("a", 3) AS replicate
 ```  
   
- Here is the result set.  
+ Here is the result set.
   
 ```  
-[{"replicate": "aaa"}]  
+[{"replicate": "aaa"}]
 ```  
   
 
