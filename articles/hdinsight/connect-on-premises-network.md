@@ -35,7 +35,7 @@ This configuration enables the following behavior:
 
 In the following diagram, green lines are requests for resources that end in the DNS suffix of the virtual network. Blue lines are requests for resources in the on-premises network or on the public internet.
 
-![Diagram of how DNS requests are resolved in the configuration used in this document](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![Diagram of how DNS requests are resolved in the configuration](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Subnet | Select the default subnet for the virtual network that you created earlier. Do __not__ select the subnet used by the VPN gateway.|
     |Public IP | Use the autopopulated value.  |
 
-    ![Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![HDInsight Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
 
     Leave other entries at the default values and then select the **Review + create**.
 

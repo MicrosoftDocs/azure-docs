@@ -1,7 +1,7 @@
 ---
 title: Train a deep learning neural network with TensorFlow
-titleSuffix: Azure Machine Learning service
-description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -62,7 +62,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning service workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -198,9 +198,9 @@ for f in run.get_file_names():
 
 ## Distributed training
 
-The [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator also supports distributed training across CPU and GPU clusters. You can easily run distributed TensorFlow jobs and Azure Machine Learning service will manage the orchestration for you.
+The [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator also supports distributed training across CPU and GPU clusters. You can easily run distributed TensorFlow jobs and Azure Machine Learning will manage the orchestration for you.
 
-Azure Machine Learning service supports two methods of distributed training in TensorFlow:
+Azure Machine Learning supports two methods of distributed training in TensorFlow:
 
 - [MPI-based](https://www.open-mpi.org/) distributed training using the [Horovod](https://github.com/uber/horovod) framework
 - Native [distributed TensorFlow](https://www.tensorflow.org/deploy/distributed) using the parameter server method
