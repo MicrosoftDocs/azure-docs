@@ -15,18 +15,14 @@ If you have an existing CPP account, your account settings need to be migrated t
 
 ## Account migration process
 
-If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You are asked to move your account settings over to Partner Center.  You may belong to one of the following two cases:
+If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You may belong to one of the following two cases:
 
-1. Your account has already been migrated behind scenes.
-1. You need to migrate your account to Partner Center.
+1. Your account has already been migrated, and you are ready to manage your Account Settings in Partner Center.
+1. You need to take some further actions to complete your account migration to Partner Center.
 
 ### Your account has been migrated to Partner Center
 
-For all accounts that are migrated and activated from CPP to Partner Center, account management will happen in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
-
-If you're already migrated, user management updates will not be saved from CPP to PC. For all accounts already migrated over to Partner Center, user addition and deletion in CPP will be blocked. 
-
-You will not be able to add or delete the account in CPP.
+For all accounts that have completed migration from the CPP to Partner Center, account management will happen in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
 
 ### You have not yet migrated your account to Partner Center
 
@@ -41,14 +37,6 @@ Click on the banner to initiate your account migration process. You are expected
 2. Sign up for Microsoft Partner Network program
 
     In the event that your CPP account does not have a Microsoft Partner Network ID, or has one that is invalid, you will have to sign up for the Microsoft Partner Network program as part of the activation process.
-
-## After account migration is complete
-
-Migration needs to happen only once for a given account. Once a given partner has completed the migration for the account, all Owners will see this behavior on their Publisher Profile page:
-
-1. You will see the Partner Settings page in Microsoft Partner Network, where you can now manage account settings. 
-2. A yellow banner on your Publisher Profile page in CPP will be shown to users who have the Owner role, asking them to manage their account settings in Partner Center.
-3. The account settings page in CPP is converted to read-only mode. If you try to add users in CPP, the yellow banner will appear.  The **Delete** button will also be disabled.
 
 ## Next steps
 
