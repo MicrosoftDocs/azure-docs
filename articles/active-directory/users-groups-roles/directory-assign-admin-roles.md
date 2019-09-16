@@ -212,6 +212,13 @@ Users with this role have access to all administrative features in Azure Active 
 
 Users with this role can read everything that a Global Administrator can, but not edit anything. Think of this role as a read-only counterpart of Global Administrator. These users have read-only access to all features in Azure Active Directory, as well as Microsoft 365 services like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online.
 
+> [!NOTE]
+> Global Reader role has following limitations - 
+* SharePoint Admin Center does not support Global Reader role.
+* Global Reader cannot read provisioning mode of an enterprise app, cusomter lockbox requests, Privileged Access Management (PAM) and sensitivity labels.
+>
+>
+
 ### [Guest Inviter](#guest-inviter-permissions)
 
 Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
