@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/06/2019
+ ms.date: 09/16/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -239,23 +239,31 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 ##  Frequently asked questions
 
 **Q:** Once created, is a low-priority VM the same as regular on-demand VM?
+
 **A:** Yes.
 
+
 **Q:** What to do when you get evicted, but still need capacity?
+
 **A:** We recommend you use on-demand VMs instead of low-priority VMs if you need capacity right away.
 
+
 **Q:** How is quota managed for low-priority VMs?
-**A:** Low-priority VMs and regular VMs share the same quota pool. 
+
+**A:** Low-priority VMs and regular VMs have separate quota pools. 
+
 
 **Q:** Can I request for additional quota for low-priority?
+
 **A:** Yes, you will be able to submit the request to increase your quota for low priority VMs through the automation tool.
 
-**Q:** Can I use low-priority VMs with Batch?
-**A:** Yes, you will be able to use low-priority as part of Batch. Learn more about our low-priority offering on Batch.
 
 **Q:** Can I use low-priority VMs with AKS?
+
 **A:** Not yet. We are working with AKS team to introduce low-priority VM option in AKS.
 
+
 **Q:** Where can I post questions?
+
 **A:** You can post and tag your question with `azurelowpri` at http://aka.ms/stackoverflow. 
 

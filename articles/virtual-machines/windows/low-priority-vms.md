@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cynthn
 ---
 
