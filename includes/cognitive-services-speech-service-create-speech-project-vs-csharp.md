@@ -18,7 +18,7 @@ To start, create the project in Visual Studio, and make sure that Visual Studio 
 
 1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In the **Configure your new project** window, enter `helloworld` in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
+1. In the **Configure your new project** window, enter *helloworld* in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features**, which opens Visual Studio Installer and displays the **Modifying** dialog box.
 
@@ -42,7 +42,7 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 
 1. In the upper-left corner, select **Browse**.
 
-1. In the search box, type `Microsoft.CognitiveServices.Speech` and select **Enter**.
+1. In the search box, type *Microsoft.CognitiveServices.Speech* and select **Enter**.
 
 1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 
