@@ -1,5 +1,5 @@
 ---
-title: Connect Check Point data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Check Point data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Check Point data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,23 +7,19 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
 # Connect your Check Point appliance
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 You can connect Azure Sentinel to any Check Point appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Check Point. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
 
@@ -140,5 +136,5 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 ## Next steps
 In this document, you learned how to connect Check Point appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 
