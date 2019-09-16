@@ -53,19 +53,19 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 2. If this is the first time you have used the *az vm repair* commands, add the vm-repair CLI extension.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az extension add -n vm-repair
 ```
 
 If you have previously used the *az vm repair* commands, apply any updates to the vm-repair extension.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az extension update -n vm-repair
 ```
 
 3. Run *az vm repair create*. This command will create a copy of the OS disk for the non-functional VM, create a repair VM, and attach the disk.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
 ```
 
@@ -73,7 +73,7 @@ az vm repair create -g MyResourceGroup -n myVM --repair-username username --repa
 
 5. Run *az vm repair restore*. This command will swap the repaired OS disk with the original OS disk of the VM.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm repair restore -g MyResourceGroup -n MyVM --verbose
 ```
 
@@ -83,12 +83,12 @@ The following example enables the diagnostic extension on the VM named ``myVMDep
 
 Azure CLI
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 
 ## Next steps
 
 * If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
-* For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
+* For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
 * For more information about using Resource Manager, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
