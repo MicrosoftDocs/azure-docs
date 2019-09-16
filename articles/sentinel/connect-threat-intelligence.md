@@ -44,11 +44,11 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 - [ThreatConnect Platform](https://threatconnect.com/solution/)
     
-     For a script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)
+     For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)
 
 ## Prerequisites  
 
-- Azure AD role of either **Global Administrator** or **Security Administrator** to grant permissions to your TIP product or custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
+- Azure AD role of either Global administrator or Security administrator to grant permissions to your TIP product or custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
 
 - Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
 
