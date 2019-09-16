@@ -63,7 +63,7 @@ To complete the procedure in this article, you need a Facebook account that has 
    ![Screenshot of Mobile App Facebook Settings][0]
 
     By default, App Service provides authentication, but it doesn't restrict authorized access to your site content and APIs. You need to authorize users in your app code.
-1. (Optional) To restrict app access to only users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to Facebook for authentication.
+1. (Optional) To restrict app access only to users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to Facebook for authentication.
 
    > [!CAUTION]
    > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred so that the app manually starts authentication itself. For more information, see [authentication flow](overview-authentication-authorization.md#authentication-flow).

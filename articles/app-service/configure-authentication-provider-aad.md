@@ -23,25 +23,37 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-> [!NOTE]
-> At this time, AAD V2 (including MSAL) is not supported for Azure App Service and Azure Functions.
-
 This article shows you how to configure Azure App Service to use Azure Active Directory as an authentication provider.
 
-Each App Service app should have its own permissions and consent. Thus, recommend practice is to configure each App Service app with its own registration. In addition, you can best avoid permission sharing between environments by using separate app registrations for separate deployment slots. This helps any issues in new code that you're testing from affecting the production app.
+> [!NOTE]
+> At this time, Azure App Service and Azure Functions are only supported by Azure Active Directory (Azure AD) v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
+
+Follow these best practices when setting up your app and authentication:
+- Give each App Service app its own permissions and consent.
+- Configure each each App Service app with its own registration.
+- Avoid permission sharing between environments by using separate app registrations for separate deployment slots.
+
+  When testing new code, this practice can help prevent issues from affecting the production app.
 
 ## <a name="express"> </a>Configure with express settings
 
 1. In the [Azure portal], navigate to your App Service app. In the left navigation, select **Authentication / Authorization**.
-2. If **Authentication / Authorization** is not enabled, select **On**.
-3. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
-4. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration. If you want to choose an existing app registration instead, click **Select an existing app** and then search for the name of a previously created app registration within your tenant. Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
-By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
-5. (Optional) To restrict access to your app to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
+1. If **Authentication / Authorization** is not enabled, select **On**.
+1. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
+1. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration.
 
-    > [!NOTE]
+   If you want to choose an existing app registration instead:
+
+   1. Choose **Select an existing app** and then search for the name of a previously created app registration within your tenant.
+   1. Select the app registration and then select **OK**.
+   1. Then click **OK** on the Azure Active Directory settings page.
+
+   By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+1. (Optional) To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
+
+    > [!CAUTION]
     > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
-6. Click **Save**.
+1. Select **Save**.
 
 ## <a name="advanced"> </a>Configure with advanced settings
 
