@@ -51,7 +51,7 @@ Mobile applications on iOS need to instantiate the `MSALPublicClientApplication`
 
 Objective-C:
 
-```objective-c
+```objc
 NSError *msalError = nil;
      
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
@@ -281,7 +281,7 @@ When MSAL for iOS and macOS calls the broker, the broker will, in turn, call bac
 
 Objective-C:
 
-```obj-c
+```objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
