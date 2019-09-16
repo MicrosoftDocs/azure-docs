@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 09/16/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40 
@@ -36,7 +36,6 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 > * XCode 10+
 > * iOS 10+ 
 > * macOS 10.12+
-
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
