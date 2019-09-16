@@ -154,7 +154,7 @@ The following steps show how to prepare the public IP for the configuration move
                 }            
          ```
 
-         For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
 9. Save the **\<resource-group-name>.json** file.
