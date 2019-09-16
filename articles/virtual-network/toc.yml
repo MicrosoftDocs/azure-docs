@@ -255,6 +255,8 @@
       href: manage-public-ip-address-prefix.md
   - name: Move across regions
     items:
+    - name: Network security groups - Portal
+      href: move-across-regions-nsg-portal.md
     - name: Network security groups - PowerShell
       href: move-across-regions-nsg-powershell.md
     - name: Virtual networks - Portal
