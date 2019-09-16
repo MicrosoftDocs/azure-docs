@@ -35,8 +35,7 @@ Azure Private Link provides the following benefits:
 - **Extend to your own services**: Leverage the same experience and functionality to render your own service privately to your consumers in Azure. By placing your service behind a Standard Load Balancer you can enable it for Private Link. The consumer can then connect directly to your service using a Private Endpoint in their own VNet. You can manage these connection requests using a simple approval call flow. Azure Private Link works for consumers and services belonging to different Active Directory tenants as well. 
 
 ## Availability 
- The following table lists the Private Link services and the regions where they are available. Note that the Private Link Service and the VNet hosting the private endpoint must be in the same region.
-
+ The following table lists the Private Link services and the regions where they are available. 
 
 |Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
@@ -45,7 +44,6 @@ Azure Private Link provides the following benefits:
 |  | Azure Data Lake Storage Gen2        |  East US, West US, West Central US       | Preview         |
 |  |  Azure SQL Database         | West Central US; WestUS; South Central US; East US; North US       |   Preview      |
 ||Azure SQL Data Warehouse| West Central US; WestUS; South Central US; East US; North US |Preview|
-
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network). 
 
