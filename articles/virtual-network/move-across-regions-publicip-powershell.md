@@ -112,9 +112,9 @@ The following steps show how to prepare the public IP for the configuration move
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
-
+    
             ```json
-                "resources": [
+                   "resources": [
                 {
                     "type": "Microsoft.Network/publicIPAddresses",
                     "apiVersion": "2019-06-01",
@@ -124,14 +124,18 @@ The following steps show how to prepare the public IP for the configuration move
                         "name": "Basic",
                         "tier": "Regional"
                     },
+
+
             ```
+
+       
 
     For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**.:
+    * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
             ```json
-                "resources": [
+                    "resources": [
                 {
                     "type": "Microsoft.Network/publicIPAddresses",
                     "apiVersion": "2019-06-01",
@@ -149,7 +153,7 @@ The following steps show how to prepare the public IP for the configuration move
                         "publicIPAllocationMethod": "Dynamic",
                         "idleTimeoutInMinutes": 4,
                         "ipTags": []
-                
+            
             ```
 
     For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
@@ -162,7 +166,7 @@ The following steps show how to prepare the public IP for the configuration move
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-12. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+15. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -170,7 +174,7 @@ The following steps show how to prepare the public IP for the configuration move
     
     ```
 
-13. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+16. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
