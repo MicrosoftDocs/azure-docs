@@ -53,7 +53,6 @@ The following steps show how to prepare the network security group for the confi
                 }
                }
             }
-
     ```
 
 7. Change the source NSG value in the editor to a name of your choice for the target NSG. Ensure you enclose the name in quotes.
