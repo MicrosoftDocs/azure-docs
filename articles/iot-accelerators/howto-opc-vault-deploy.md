@@ -75,11 +75,11 @@ A PowerShell script provides an easy way to deploy the OPC Vault microservice an
 11. To take a look at the Swagger API, open: `https://myResourceGroup-service.azurewebsites.net`
 13. To start a local GDS server with dotnet, start `.\myResourceGroup-gds.cmd`. With Docker, start `.\myResourceGroup-dockergds.cmd`.
 
-It's possible to redeploy a build with exactly the same settings. Be aware that such an operation renews all application secrets, and may reset some settings in the Azure Active Directory (Azure AD) application registrations.
+It's possible to redeploy a build with exactly the same settings. Be aware that such an operation renews all application secrets, and might reset some settings in the Azure Active Directory (Azure AD) application registrations.
 
 It's also possible to redeploy just the web app binaries. With the parameter `-onlyBuild 1`, new zip packages of the service and the app are deployed to the web applications.
 
-After successful deployment, you can start using the services. See [How to manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md).
+After successful deployment, you can start using the services. See [Manage the OPC Vault certificate management service](howto-opc-vault-manage.md).
 
 ## Delete the services from the subscription
 

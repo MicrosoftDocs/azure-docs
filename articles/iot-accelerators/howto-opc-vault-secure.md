@@ -59,13 +59,13 @@ Request (CSR). Alternatively, you can request a new key pair, which includes a n
 
    ![Screenshot of View Certificate Request Details](media/howto-opc-vault-secure/approve-reject.png "Approve Certificate")
 
-5. Approval requires a user with the Approver role, and with signing permissions in Azure Key Vault. In the typical workflow, the Approver and Requester roles should be assigned to different users. Select **Approve** or **Reject** to start or cancel the actual creation of the key pair and the signing operation. The new key pair is created and stored securely in Azure Key Vault, until downloaded by the certificate requester. The resulting certificate with public key is signed by the CA. These operations may take a few seconds to finish.
+5. Approval requires a user with the Approver role, and with signing permissions in Azure Key Vault. In the typical workflow, the Approver and Requester roles should be assigned to different users. Select **Approve** or **Reject** to start or cancel the actual creation of the key pair and the signing operation. The new key pair is created and stored securely in Azure Key Vault, until downloaded by the certificate requester. The resulting certificate with public key is signed by the CA. These operations can take a few seconds to finish.
 
    ![Screenshot of View Certificate Request Details, with approval message at bottom](media/howto-opc-vault-secure/view-key-pair.png "View Key Pair")
 
 7. The resulting private key (PFX or PEM) and certificate (DER) can be downloaded from here in the format selected as binary file download. A base64 encoded version is also available, for example, to copy and paste the certificate to a command line or text entry. 
 8. After the private key is downloaded and stored securely, you can select **Delete Private Key**. The certificate with the public key remains available for future use.
-9. Due to the use of a CA signed certificate, the CA cert and CRL should be downloaded here as well.
+9. Due to the use of a CA signed certificate, the CA cert and Certificate Revocation List (CRL) should be downloaded here as well.
 
 Now it depends on the OPC UA device how to apply the new key pair. Typically, the CA cert and CRL are copied to a `trusted` folder, while the public and private keys of the application certificate are applied to an `own` folder in the certificate store. Some devices might already support server push for certificate updates. Refer to the documentation of your OPC UA device.
 
@@ -84,7 +84,7 @@ Now it depends on the OPC UA device how to apply the new key pair. Typically, th
 
    ![Screenshot of View Certificate Request Details](media/howto-opc-vault-secure/approve-reject-csr.png "Approve CSR")
 
-5. Approval requires a user with the Approver role, and with signing permissions in Azure Key Vault. Select **Approve** or **Reject** to start or cancel the actual signing operation. The resulting certificate with public key is signed by the CA. This operation may take a few seconds to finish.
+5. Approval requires a user with the Approver role, and with signing permissions in Azure Key Vault. Select **Approve** or **Reject** to start or cancel the actual signing operation. The resulting certificate with public key is signed by the CA. This operation can take a few seconds to finish.
 
    ![Screenshot of View Certificate Request Details, with approval message at bottom](media/howto-opc-vault-secure/view-cert-csr.png "View Certificate")
 
@@ -92,7 +92,7 @@ Now it depends on the OPC UA device how to apply the new key pair. Typically, th
 10. After the certificate is downloaded and stored securely, you can select **Delete Certificate**.
 11. Due to the use of a CA signed certificate, the CA cert and CRL should be downloaded here as well.
 
-Now it depends on the OPC UA device how to apply the new certificate. Typically, the CA cert and CRL are copied to a `trusted` folder, while the application certificate is applied to an `own` folder in the certificate store. Some devices may already support server push for certificate updates. Refer to the documentation of your OPC UA device.
+Now it depends on the OPC UA device how to apply the new certificate. Typically, the CA cert and CRL are copied to a `trusted` folder, while the application certificate is applied to an `own` folder in the certificate store. Some devices might already support server push for certificate updates. Refer to the documentation of your OPC UA device.
 
 ### Step 4: Device secured
 
@@ -103,4 +103,4 @@ The OPC UA device is now ready to communicate with other OPC UA devices secured 
 Now that you have learned how to secure OPC UA devices, you can:
 
 > [!div class="nextstepaction"]
-> [Run a secure Certificate Management service](howto-opc-vault-secure-ca.md)
+> [Run a secure certificate management service](howto-opc-vault-secure-ca.md)

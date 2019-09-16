@@ -33,11 +33,11 @@ After deploying OPC Vault, you must create the root CA certificate. Without a va
 9. Select **Renew CA Certificate** to issue the first Issuer CA certificate, or to renew the Issuer certificate. Then select **OK**.
 10. After a few seconds, you'll see **Certificate Details**. To download the latest CA certificate and CRL for distribution to your OPC UA applications, select **Issuer** or **Crl**.
 
-Now the OPC UA Certificate Management Service is ready to issue certificates for OPC UA applications.
+Now the OPC UA certificate management service is ready to issue certificates for OPC UA applications.
 
 ## Renew the CRL
 
-Renewal of the Certificate Revocation List (CRL) is an update, which should be distributed to the applications at regular intervals. OPC UA devices, which support the CRL Distribution Point X509 extension, can directly update the CRL from the microservice endpoint. Other OPC UA devices might require manual updates, or can be updated by using GDS server push extensions (*) to update the trust lists with the certificates and CRLs.
+Renewal of the CRL is an update, which should be distributed to the applications at regular intervals. OPC UA devices, which support the CRL Distribution Point X509 extension, can directly update the CRL from the microservice endpoint. Other OPC UA devices might require manual updates, or can be updated by using GDS server push extensions (*) to update the trust lists with the certificates and CRLs.
 
 In the following workflow, all certificate requests in the deleted states are revoked in the CRLs, which correspond to the Issuer CA certificate for which they were issued. The version number of the CRL is incremented by 1. <br>
 > [!NOTE]
