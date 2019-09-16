@@ -86,12 +86,6 @@ conceptualContent:
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
-        - url: ./speech/home.md          
-          itemType: overview
-          text: Bing Speech (Retiring)   
-        - url: ./translator-speech/overview.md
-          itemType: overview
-          text: Translator Speech (Retiring)           
     - title: Decision 
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
@@ -109,34 +103,34 @@ conceptualContent:
       links: 
         - url: ./Bing-Autosuggest/index.yml
           itemType: overview
-          text: Autosuggest Search
+          text: Bing Autosuggest Search
         - url: ./bing-custom-search/index.yml
           itemType: overview
-          text: Custom Search
+          text: Bing Custom Search
         - url: ./bing-entities-search/index.yml
           itemType: overview
-          text: Entity Search
+          text: Bing Entity Search
         - url: ./bing-image-search/index.yml
           itemType: overview
-          text: Image Search     
+          text: Bing Image Search     
         - url: ./bing-local-business-search/index.yml
           itemType: overview
-          text: Local Business Search (Preview)
+          text: Bing Local Business Search (Preview)
         - url: ./bing-news-search/index.yml
           itemType: overview
-          text: News Search     
+          text: Bing News Search     
         - url: ./bing-spell-check/index.yml
           itemType: overview
-          text: Spell Check    
+          text: Bing Spell Check    
         - url: ./Bing-Video-Search/index.yml
           itemType: overview
-          text: Video Search    
+          text: Bing Video Search    
         - url: ./bing-visual-search/index.yml
           itemType: overview
-          text: Visual Search  
+          text: Bing Visual Search  
         - url: ./bing-web-search/index.yml
           itemType: overview
-          text: Web Search   
+          text: Bing Web Search   
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers..
       links: 
