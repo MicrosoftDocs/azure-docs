@@ -37,6 +37,3 @@ These tutorials help you detect threats with Azure Sentinel.
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel. 
 
 To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
-> [!div class="nextstepaction"]
-> [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
-
