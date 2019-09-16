@@ -221,7 +221,7 @@ In this example, use the UUID value for the */dev/sdc1* device that was created 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-When done, save the */etc/fstab* file with Ctrl+O and reboot the system.
+When done, save the */etc/fstab* file and reboot the system.
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 > 
