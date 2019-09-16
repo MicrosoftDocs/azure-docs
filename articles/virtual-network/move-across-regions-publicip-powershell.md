@@ -127,7 +127,7 @@ The following steps show how to prepare the public IP for the configuration move
                     },
          ```
            
-           For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
     * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
