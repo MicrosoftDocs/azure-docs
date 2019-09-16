@@ -259,6 +259,10 @@
       href: virtual-network-azure-to-azure-migrate-nsg-portal.md
     - name: Virtual networks - Portal
       href: virtual-network-azure-to-azure-migrate-vnet-portal.md
+    - name: Virtual networks - PowerShell
+      href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
+    - name: Public IPs - PowerShell
+      href: move-across-regions-publicip-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
