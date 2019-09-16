@@ -9,13 +9,13 @@ manager: beatrizd
 
 ms.assetid: 178ca5b3-4155-43ab-84f5-650d25c5a74a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: zchia
+ms.author: Zhchia
 ---
 
 # Tutorial: Configure Robin for automatic user provisioning
@@ -52,11 +52,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 1. Sign in to your [Robin Admin Console](https://dashboard.robinpowered.com/login). Navigate to **Manage > Integrations > SCIM > Manage**.
 
-	![robin powered Admin Console](media\robin-provisioning-tutorial\robin-admin.png)
+	![robin powered Admin Console](media/robin-provisioning-tutorial/robin-admin.png)
 
 2.	Generate a new organization token. If you lose this token, you can always make a new one without affecting existing users.
 
-	![robin powered Add SCIM](media\robin-provisioning-tutorial\robin-token.png)
+	![robin powered Add SCIM](media/robin-provisioning-tutorial/robin-token.png)
 
 3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Robin application in the Azure portal.
 
@@ -121,19 +121,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Robin**.
 
-	![robin powered User Mappings](media\robin-provisioning-tutorial\robin-user-mapping.png)
+	![robin powered User Mappings](media/robin-provisioning-tutorial/robin-user-mapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Robin in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Robin for update operations. Select the **Save** button to commit any changes.
 
-	![robin powered User Attributes](media\robin-provisioning-tutorial\robin-user-attribute-mapping.png)
+	![robin powered User Attributes](media/robin-provisioning-tutorial/robin-user-attribute-mapping.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Robin**.
 
-	![robin powered Group Mappings](media\robin-provisioning-tutorial\robin-group-mapping.png)
+	![robin powered Group Mappings](media/robin-provisioning-tutorial/robin-group-mapping.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Robin in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Robin for update operations. Select the **Save** button to commit any changes.
 
-	![robin powered Group Attributes](media\robin-provisioning-tutorial\robin-group-attribute-mapping.png)
+	![robin powered Group Attributes](media/robin-provisioning-tutorial/robin-group-attribute-mapping.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
