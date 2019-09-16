@@ -293,7 +293,7 @@
               href: sql-query-st-intersects.md
             - name: ST_ISVALID
               displayName: ST_ISVALID, st isvalid, is valid, built-in functions
-              href: sql-query-st-valid.md
+              href: sql-query-st-isvalid.md
             - name: ST_ISVALIDDETAILED
               displayName: ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions
               href: sql-query-st-isvaliddetailed.md
