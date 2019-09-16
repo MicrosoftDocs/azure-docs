@@ -39,19 +39,22 @@ The following steps show you how to use the suggested tags feature:
     > Make sure you use all of the tags for which you want suggestions later on.
 1. Start the training process.
 1. When training is complete, navigate to the **Untagged** view and select the **Get suggested tags** button on the left pane.
-    <!-- ![The suggested tags button is shown under the untagged images tab.](./media/suggested-tags/suggested-tags-button.png) -->
+    > [!div class="mx-imgBorder"]
+    > ![The suggested tags button is shown under the untagged images tab.](./media/suggested-tags/suggested-tags-button.png)
 1. Select the set of images for which you want suggestions. We suggest that you get initial tag suggestions for only a portion of the untagged images. You'll get better tag suggestions as you iterate through this process.
 1. Confirm the suggested tags, fixing any that aren't correct.
     > [!TIP]
     > Images with suggested tags are sorted by their prediction uncertainty (lower values indicate higher confidence). You can change the sorting order with the **Sort by uncertainty** option. If you set the order to **high to low**, you can correct the high-uncertainty predictions first and then quickly confirm the low-uncertainty ones.
     * In image classification projects, you can select and confirm tags in batches. Filter the view by a given suggested tag, deselect images that are tagged incorrectly, and then confirm the rest in a batch.
-            <!-- ![Suggested tags are displayed in batch mode for IC with filters.](./media/suggested-tags/ic-batch-mode.png) -->
+            > [!div class="mx-imgBorder"]
+            > ![Suggested tags are displayed in batch mode for IC with filters.](./media/suggested-tags/ic-batch-mode.png)
             You can also use suggested tags in individual image mode by selecting an image from the gallery.
-            <!-- ![Suggested tags are displayed in individual image mode for IC.](./media/suggested-tags/ic-individual-image-mode.png) -->
+            ![Suggested tags are displayed in individual image mode for IC.](./media/suggested-tags/ic-individual-image-mode.png)
     * In object detection projects, we don't support batch confirmations, but you can still filter and sort by suggested tags for a more organized labeling experience. Thumbnails of your untagged images will show an overlay of bounding boxes indicating the locations of suggested tags. If you don't select a suggested tag filter, all of your untagged images will appear without overlaying bounding boxes.
-            <!-- ![Suggested tags are displayed in batch mode for OD with filters.](./media/suggested-tags/od-batch-mode.png) -->
+            > [!div class="mx-imgBorder"]
+            > ![Suggested tags are displayed in batch mode for OD with filters.](./media/suggested-tags/od-batch-mode.png)
             To confirm object detection tags, you need to apply them to each individual image in the gallery.
-            <!-- ![Suggested tags are displayed in individual image mode for OD.](./media/suggested-tags/od-individual-image-mode.png) -->
+            ![Suggested tags are displayed in individual image mode for OD.](./media/suggested-tags/od-individual-image-mode.png)
 1. Start the training process again.
 1. Repeat the preceding steps until you're satisfied with the suggestion quality.
 
