@@ -100,7 +100,7 @@ input_data = DataReference(
 output_data = PipelineData(
     "output_data",
     datastore=blob_store,
-    output_name="output_data1)
+    output_name="output_data1")
 
 steps = [ PythonScriptStep(
     script_name="train.py",
