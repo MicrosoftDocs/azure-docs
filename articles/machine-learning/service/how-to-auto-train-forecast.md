@@ -1,7 +1,7 @@
 ---
 title: Auto-train a time-series forecast model
-titleSuffix: Azure Machine Learning service
-description: Learn how to use Azure Machine Learning service to train a time-series forecasting regression model using automated machine learning.
+titleSuffix: Azure Machine Learning
+description: Learn how to use Azure Machine Learning to train a time-series forecasting regression model using automated machine learning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -14,7 +14,7 @@ ms.date: 06/20/2019
 
 # Auto-train a time-series forecast model
 
-In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning service. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
+In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
 
 * Prepare data for time series modeling
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
@@ -32,7 +32,7 @@ Features extracted from the training data play a critical role. And, automated M
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 * This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
 ## Preparing data

@@ -83,7 +83,8 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![HDInsight Hadoop HBase shell](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![HDInsight Hadoop HBase shell output](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## Create Ranger policies
 
@@ -91,7 +92,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
 1. Open the **Ranger Admin UI**. Click **\<ClusterName>_hbase** under **HBase**.
 
-   ![Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. The **List of Policies** screen will display all Ranger policies created for this cluster. One pre-configured policy may be listed. Click **Add New Policy**.
 
@@ -197,14 +198,14 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit marketing_user1
    ```
 
-2. Open the HBase shell and scan the table `Customers`:
+1. Open the HBase shell and scan the table `Customers`:
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Notice that the marketing user can only view the five columns of the `Contact` column-family.
+1. Notice that the marketing user can only view the five columns of the `Contact` column-family.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -221,9 +222,9 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
     2 row(s) in 0.0730 seconds
     ```
 
-9. View the audit access events from the Ranger UI.
+1. View the audit access events from the Ranger UI.
 
-   ![Ranger UI Policy Audit](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![HDInsight Ranger UI Policy Audit](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## Clean up resources
 
