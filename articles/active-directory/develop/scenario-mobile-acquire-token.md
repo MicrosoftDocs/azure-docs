@@ -87,7 +87,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 Objective-C:
 
-```objective-c
+```objc
 
 NSArray *scopes = @[@"https://graph.microsoft.com/.default"];
 NSString *accountIdentifier = @"my.account.id";
@@ -153,7 +153,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
 Objective-C:
 
-```objective-c
+```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
 MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithParentViewController:viewController];
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
