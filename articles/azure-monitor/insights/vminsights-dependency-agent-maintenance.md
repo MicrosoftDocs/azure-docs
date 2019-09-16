@@ -35,7 +35,7 @@ To update the agent on a Windows VM to the latest version not installed using th
 
 You can download the latest version of the Windows agent from [here](https://aka.ms/dependencyagentwindows).
 
-#### Using the Setup Wizard
+### Using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -51,7 +51,7 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 8. In the **Dependency Agent 9.9.1 Setup** dialog box, the install progress is shown. When the **Completing Dependency Agent Uninstall** page appears, click **Finish**. 
 
-#### From the command line
+### From the command line
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -64,42 +64,6 @@ You can download the latest version of the Windows agent from [here](https://aka
     The `/RebootMode=manual` parameter prevents the upgrade from automatically rebooting the machine if some processes are using files from the previous version and have a lock on them. 
 
 3. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
-
-#### Using Desired State Configuration
-
-To upgrade the Dependency agent using Desired State Configuration (DSC), you can use the xPSDesiredStateConfiguration module with the following example code:
-
-```powershell
-configuration ServiceMap {
-
-    Import-DscResource -ModuleName xPSDesiredStateConfiguration
-
-    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
-
-    Node localhost
-    {
-        # Download and install the Dependency agent
-        xRemoteFile DAPackage 
-        {
-            Uri = "https://aka.ms/dependencyagentwindows"
-            DestinationPath = $DAPackageLocalPath
-        }
-
-        xPackage DA
-        {
-            Ensure="Present"
-            Name = "Dependency Agent"
-            Path = $DAPackageLocalPath
-            Arguments = '/S'
-            ProductId = ""
-            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-            InstalledCheckRegValueName = "DisplayName"
-            InstalledCheckRegValueData = "Dependency Agent"
-            DependsOn = "[xRemoteFile]DAPackage"
-        }
-    }
-}
-```
 
 ## Upgrade Linux agent 
 
