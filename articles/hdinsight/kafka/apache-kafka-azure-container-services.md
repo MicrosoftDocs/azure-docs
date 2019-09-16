@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ---
+
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight
 
 Learn how to use Azure Kubernetes Service (AKS) with [Apache Kafka](https://kafka.apache.org/) on HDInsight cluster. The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
@@ -107,7 +108,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
+    ![Configs links for Kafka](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
@@ -129,7 +130,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-azure-container-services/save-button.png)
+    ![Save configuration button](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
@@ -137,7 +138,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-azure-container-services/restart-button.png)
+    ![Restart button with restart all affected highlighted](./media/apache-kafka-azure-container-services/restart-required-button.png)
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -206,7 +207,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 11. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following image:
 
-    ![Image of the web page](./media/apache-kafka-azure-container-services/test-web-page.png)
+    ![Image of the web page](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. Enter text into the field and then select the __Send__ button. The data is sent to Kafka. Then the Kafka consumer in the application reads the message and adds it to the __Messages from Kafka__ section.
 

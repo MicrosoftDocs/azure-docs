@@ -81,7 +81,7 @@ This enables you to display additional fields or remove fields that are already 
 
 Select an item in the list view to get more detailed information.
 
-![Detailed information](./media/concept-provisioning-logs/detailed-information.png "Detailed information")
+![Detailed information](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## Filter provisioning activities
