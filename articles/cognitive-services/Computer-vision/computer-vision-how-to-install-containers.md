@@ -146,6 +146,10 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
@@ -156,9 +160,9 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 ### Asynchronous read
 
-You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to GET request.
+You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
-From the swagger UI, find the `asyncBatchAnalyze` method and click to expand it in the browser. Then click "Try it out", and "Choose file" - we''ll use the image below:
+From the swagger UI, find the `asyncBatchAnalyze` method and click to expand it in the browser. Then click "Try it out", and "Choose file" - we'll use the image below:
 
 ![tabs vs spaces](media/tabs-vs-spaces.png)
 
@@ -262,7 +266,15 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 ### Synchronous read
 
-You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
+You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+
+```json
+{
+    status: "Failed"
+}
+```
+
+The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
 
 ```typescript
 export interface AnalyzeResult {
@@ -304,7 +316,7 @@ export interface Word {
 }
 ```
 
-For an example of this, visit the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and click "Run" to see this in action.
+For an example use-case, see the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and click "Run" to visualize its ease-of-use.
 
 # [Recognize Text](#tab/recognize-text)
 
@@ -317,10 +329,6 @@ You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOper
 You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
 ***
-
-<!--  ## Validate container is running -->
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
