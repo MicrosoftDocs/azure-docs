@@ -50,7 +50,7 @@ You must meet the following prerequisites before using the containers:
 
 ## Get the container image with `docker pull`
 
-#### [Read](#tab/read)
+# [Read](#tab/read)
 
 Container images for Read are available.
 
@@ -58,7 +58,7 @@ Container images for Read are available.
 |-----------|------------|
 | Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-#### [Recognize Text](#tab/recognize-text)
+# [Recognize Text](#tab/recognize-text)
 
 Container images for Recognize Text are available.
 
@@ -70,7 +70,7 @@ Container images for Recognize Text are available.
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
-#### [Read](#tab/read)
+# [Read](#tab/read)
 
 ### Docker pull for the Read container
 
@@ -78,7 +78,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 ```
 
-#### [Recognize Text](#tab/recognize-text)
+# [Recognize Text](#tab/recognize-text)
 
 ### Docker pull for the Recognize Text container
 
@@ -103,7 +103,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-#### [Read](#tab/read)
+# [Read](#tab/read)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -120,7 +120,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-#### [Recognize Text](#tab/recognize-text)
+# [Recognize Text](#tab/recognize-text)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -152,15 +152,26 @@ The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `http://localhost:5000`, for container APIs.
 
-#### [Read](#tab/read)
+# [Read](#tab/read)
 
 ### Asynchronous read
 
 You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to GET request.
 
-#### Synchronous read
+From the swagger UI, find the `asyncBatchAnalyze` method and click to expand it in the browser. Then click "Try it out", and "Choose file" - we''ll use the image below:
 
-You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API returns a JSON response. A successful response will look similar to the following:
+![tabs vs spaces](media/tabs-vs-spaces.png)
+
+When the asynchronous POST successfully executes, it returns an **HTTP 202** status code. As part of the response there is an `operation-location` header that holds the result endpoint for the request.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the given image above:
 
 ```json
 {
@@ -168,17 +179,134 @@ You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously
   "recognitionResults": [
     {
       "page": 1,
-      "clockwiseOrientation": 0,
-      "width": 1024,
-      "height": 768,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
       "unit": "pixel",
-      "lines": [ /* omitted for brevity, but contains objects with boundingBox and text */ ]
+      "lines": [
+        {
+          "boundingBox": [
+            56,
+            39,
+            317,
+            50,
+            313,
+            134,
+            53,
+            123
+          ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [
+                90,
+                43,
+                243,
+                53,
+                243,
+                123,
+                94,
+                125
+              ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [
+                259,
+                55,
+                313,
+                62,
+                313,
+                122,
+                259,
+                123
+              ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [
+            221,
+            148,
+            417,
+            146,
+            417,
+            206,
+            227,
+            218
+          ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [
+                230,
+                148,
+                416,
+                141,
+                419,
+                211,
+                232,
+                218
+              ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
 ```
 
-#### [Recognize Text](#tab/recognize-text)
+### Synchronous read
+
+You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
+
+```typescript
+export interface AnalyzeResult {
+    status: Status;
+    recognitionResults?: RecognitionResult[] | null;
+}
+
+export enum Status {
+    NotStarted = 0,
+    Running = 1,
+    Failed = 2,
+    Succeeded = 3
+}
+
+export enum Unit {
+    Pixel = 0,
+    Inch = 1
+}
+
+export interface RecognitionResult {
+    page?: number | null;
+    clockwiseOrientation?: number | null;
+    width?: number | null;
+    height?: number | null;
+    unit?: Unit | null;
+    lines?: Line[] | null;
+}
+
+export interface Line {
+    boundingBox?: number[] | null;
+    text: string;
+    words?: Word[] | null;
+}
+
+export interface Word {
+  boundingBox?: number[] | null;
+  text: string;
+  confidence?: string | null;
+}
+```
+
+For an example of this, visit the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and click "Run" to see this in action.
+
+# [Recognize Text](#tab/recognize-text)
 
 ### Asynchronous text recognition
 

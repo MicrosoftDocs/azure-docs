@@ -85,7 +85,7 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## Configure Helm chart values for deployment
 
-#### [Read](#tab/read)
+# [Read](#tab/read)
 
 Start by creating a folder named *read*, copy, and paste the following YAML content into a new file named `Chart.yml`.
 
@@ -163,7 +163,7 @@ spec:
 
 The template specifies a load balancer service and the deployment of your container/image for Read.
 
-#### [Recognize Text](#tab/recognize-text)
+# [Recognize Text](#tab/recognize-text)
 
 Start by creating a folder named *text-recognizer*, copy, and paste the following YAML content into a new file named `Chart.yml`.
 
@@ -254,7 +254,7 @@ registry.
 
 ## Install the Helm chart on the Kubernetes cluster
 
-#### [Read](#tab/read)
+# [Read](#tab/read)
 
 To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `read` folder.
 
@@ -308,7 +308,7 @@ NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
 
-#### [Recognize Text](#tab/recognize-text)
+# [Recognize Text](#tab/recognize-text)
 
 To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `text-recognizer` folder.
 
