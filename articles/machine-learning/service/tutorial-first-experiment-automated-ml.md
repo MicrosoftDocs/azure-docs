@@ -1,6 +1,6 @@
 ---
 title: Create your first automated machine learning experiment
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning's workspace landing page (preview).
 services: machine-learning
 ms.service: machine-learning
@@ -23,7 +23,7 @@ With automated machine learning, you can automate away time intensive tasks. Aut
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Create an Azure Machine Learning service workspace.
+> * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
 > * View experiment details.
 > * Deploy the model.

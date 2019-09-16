@@ -164,7 +164,7 @@
       href: sql-database-reserved-capacity.md
     - name: Migrate from Premium RS service tier
       href: sql-database-service-tiers-prs.md
-  - name: Compute & storage
+  - name: Service tiers
     items:
     - name: Overview
       href: sql-database-service-tiers-general-purpose-business-critical.md
