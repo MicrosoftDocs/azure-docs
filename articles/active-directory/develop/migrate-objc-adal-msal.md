@@ -284,7 +284,37 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 }
 ```
 
+**If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate` file instead.
+If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback would need to be placed into both files.
 
+Objective-C:
+
+```objc
+ - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+ {
+     UIOpenURLContext *context = URLContexts.anyObject;
+     NSURL *url = context.URL;
+     NSString *sourceApplication = context.options.sourceApplication;
+     
+     [MSALPublicClientApplication handleMSALResponse:url sourceApplication:sourceApplication];
+ }
+```
+
+Swift:
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        guard let urlContext = URLContexts.first else {
+            return
+        }
+        
+        let url = urlContext.url
+        let sourceApp = urlContext.options.sourceApplication
+        
+        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
+    }
+```
 
 This allows MSAL to handle responses from the broker and web component.
 This wasn't necessary in ADAL since it "swizzled" app delegate methods automatically. Adding it manually is less error prone and gives the application more control.
