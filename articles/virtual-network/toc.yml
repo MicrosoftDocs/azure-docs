@@ -259,10 +259,10 @@
       href: move-across-regions-nsg-powershell.md
     - name: Virtual networks - Portal
       href: virtual-network-azure-to-azure-migrate-vnet-portal.md
-    - name: Public IPs - Portal
-      href: virtual-network-azure-to-azure-migrate-publicip-portal.md
     - name: Virtual networks - PowerShell
       href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
+    - name: Public IPs - Portal
+      href: move-across-regions-publicip-powershell.md
     - name: Public IPs - PowerShell
       href: move-across-regions-publicip-powershell.md
   - name: Troubleshoot
