@@ -28,11 +28,9 @@ Azure Private Link provides the following benefits:
  
 - **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering/VPN tunnels (from on-premises) and peered virtual networks using private endpoints. There is no need to set up public peering or traverse the internet to reach the service. This ability provides a secure way to migrate workloads to Azure.
  
-- **Data Exfiltration protection**: With Azure Private Link, you get implicit Data Exfiltration protection when connecting to Azure PaaS. A Private Endpoint mappes to an individual Azure PaaS resource without any shared access. Providing granular controls to prevenet a malicious insider from accessing other accounts thus eliminating the data exfiltration threat. 
+- **Protection against data exfilteration**:  With Azure Private Link, the private endpoint in the VNet is mapped to a specific instance of the customer's PaaS resource as opposed to the entire service. Using the private endpoint consumers can only connect to the specific resource and not to any other resource in the service. This in built mechanism provides protection against data exfilteration risks. 
  
-- **Meet compliance needs**: With Azure Private Link, customer information is shared with services on the Azure platform over a secured Microsoft backbone and doesn’t traverse the internet. This helps to prevent information from being compromised and maintains compliance with regulation authorities such as HIPAA or PCI.
- 
-- **Global reach**: With Azure Private Link, you can connect privately to services running in other regions. This means that the consumers virtual network and services can be in different regions. Azure Private Link is global in nature and there are no regional restrictions.   
+- **Global reach**: Connect privately to services running in other regions. This means that the consumer's virtual network could be in region A and it can connect to services behind Private Link in region B.  
  
 - **Extend to your own services**: With Azure Private Link, you can leverage the same experience and functionality to render your own service privately in your customer virtual networks or your own virtual networks on the Azure platform. Azure Private Link works across Active Directory tenants and work on the provider's consumer model with an approval call flow. Moreover, there is no requirement of non-overlapping address spaces as in virtual network peering.
 
