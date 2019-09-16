@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ASIN(<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ ASIN(<numeric_expression>)
   
   The following example returns the ASIN of -1.  
   
-```  
+```sql
 SELECT ASIN(-1) AS asin  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"asin": -1.5707963267948966}]  
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ Returns a Boolean indicating whether the array contains the specified value. You
 
 ## Syntax
   
-```  
+```sql
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
   
@@ -35,7 +35,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
   The following example how to check for membership in an array using ARRAY_CONTAINS.  
   
-```  
+```sql
 SELECT   
            ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
            ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
@@ -43,13 +43,13 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"b1": true, "b2": false}]  
 ```  
 
 The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
   
-```  
+```sql
 SELECT  
     ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true) AS b1, 
     ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}) AS b2,
@@ -58,7 +58,7 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{
   "b1": true,
   "b2": false,

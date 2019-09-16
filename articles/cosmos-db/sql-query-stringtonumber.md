@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 StringToNumber(<expr>)  
 ```  
   
@@ -31,7 +31,7 @@ StringToNumber(<expr>)
 
 Whitespace is allowed only before or after the Number.
 
-```  
+```sql
 SELECT 
     StringToNumber("1.000000") AS num1, 
     StringToNumber("3.14") AS num2,
@@ -41,26 +41,26 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
 In JSON a valid Number must be either be an integer or a floating point number.
 
-```  
+```sql
 SELECT   
     StringToNumber("0xF")
 ```  
   
  Here is the result set.  
   
-```  
+```json
 {{}}
 ```  
 
 The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
 
-```  
+```sql
 SELECT 
     StringToNumber("99     54"),   
     StringToNumber(undefined),
@@ -72,10 +72,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 {{}}
 ```  
-
 
 ## See Also
 

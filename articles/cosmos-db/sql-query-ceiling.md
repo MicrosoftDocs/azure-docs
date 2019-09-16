@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 CEILING (<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ CEILING (<numeric_expression>)
   
   The following example shows positive numeric, negative, and zero values with the CEILING function.  
   
-```  
+```sql
 SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{c1: 124, c2: -123, c3: 0}]  
 ```  
-  
 
 ## See Also
 

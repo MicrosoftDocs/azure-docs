@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ST_ISVALIDDETAILED(<spatial_expr>)  
 ```  
   
@@ -29,7 +29,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
   The following example how to check validity (with details) using ST_ISVALIDDETAILED.  
   
-```  
+```sql
 SELECT ST_ISVALIDDETAILED({   
   "type": "Polygon",   
   "coordinates": [[ [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] ]]  
@@ -38,7 +38,7 @@ SELECT ST_ISVALIDDETAILED({
   
  Here is the result set.  
   
-```  
+```json
 [{  
   "b": {
     "valid": false,
@@ -46,6 +46,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
+
 ## See Also
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)

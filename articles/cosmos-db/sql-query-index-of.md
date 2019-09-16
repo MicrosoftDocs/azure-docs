@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 INDEX_OF(<str_expr>, <str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ INDEX_OF(<str_expr>, <str_expr>)
   
   The following example returns the index of various substrings inside "abc".  
   
-```  
+```sql
 SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"i1": 0, "i2": 1, "i3": -1}]  
 ```  
-  
 
 ## See Also
 

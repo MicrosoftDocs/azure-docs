@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 TRIM(<str_expr>)  
 ```  
   
@@ -29,13 +29,13 @@ TRIM(<str_expr>)
   
   The following example shows how to use TRIM inside a query.  
   
-```  
+```sql
 SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  
 ``` 
 

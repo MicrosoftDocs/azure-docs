@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 CONTAINS(<str_expr>, <str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ CONTAINS(<str_expr>, <str_expr>)
   
   The following example checks if "abc" contains "ab" and contains "d".  
   
-```  
+```sql
 SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"c1": true, "c2": false}]  
 ```  
-  
 
 ## See Also
 

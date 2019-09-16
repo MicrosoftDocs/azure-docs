@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 FLOOR (<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ FLOOR (<numeric_expression>)
   
   The following example shows positive numeric, negative, and zero values with the FLOOR function.  
   
-```  
+```sql
 SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{fl1: 123, fl2: -124, fl3: 0}]  
 ```  
-  
 
 ## See Also
 

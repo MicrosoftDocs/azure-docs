@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ATN2(<numeric_expression>, <numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
   The following example calculates the ATN2 for the specified x and y components.  
   
-```  
+```sql
 SELECT ATN2(35.175643, 129.44) AS atn2  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"atn2": 1.3054517947300646}]  
 ```  
-  
 
 ## See Also
 

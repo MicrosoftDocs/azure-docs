@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 LOWER(<str_expr>)  
 ```  
   
@@ -29,17 +29,16 @@ LOWER(<str_expr>)
   
   The following example shows how to use LOWER in a query.  
   
-```  
+```sql
 SELECT LOWER("Abc") AS lower
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"lower": "abc"}]  
   
 ```  
-  
 
 ## See Also
 

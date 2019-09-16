@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 LTRIM(<str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ LTRIM(<str_expr>)
   
   The following example shows how to use LTRIM inside a query.  
   
-```  
+```sql
 SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
-  
 
 ## See Also
 

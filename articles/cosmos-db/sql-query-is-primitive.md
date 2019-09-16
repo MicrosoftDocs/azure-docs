@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_PRIMITIVE(<expression>)  
 ```  
   
@@ -29,7 +29,7 @@ IS_PRIMITIVE(<expression>)
   
   The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_PRIMITIVE function.  
   
-```  
+```sql
 SELECT   
            IS_PRIMITIVE(true) AS isPrim1,   
            IS_PRIMITIVE(1) AS isPrim2,  
@@ -42,10 +42,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"isPrim1": true, "isPrim2": true, "isPrim3": true, "isPrim4": true, "isPrim5": false, "isPrim6": false, "isPrim7": false}]  
 ```  
-  
 
 ## See Also
 

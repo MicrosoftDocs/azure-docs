@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ST_ISVALID(<spatial_expr>)  
 ```  
   
@@ -33,16 +33,15 @@ ST_ISVALID(<spatial_expr>)
   
   For polygons, the GeoJSON specification requires that the last coordinate pair provided should be the same as the first, to create a closed shape. Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.  
   
-```  
+```sql
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{ "b": false }]  
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ROUND(<numeric_expression>)  
 ```  
   
@@ -40,16 +40,15 @@ ROUND(<numeric_expression>)
   
   The following example rounds the following positive and negative numbers to the nearest integer.  
   
-```  
+```sql
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
   Here is the result set.  
   
-```  
+```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
-
 
 ## See Also
 

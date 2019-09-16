@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 REPLACE(<str_expr>, <str_expr>, <str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
   The following example shows how to use REPLACE in a query.  
   
-```  
+```sql
 SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"replace": "This is a desk"}]  
 ```  
-  
 
 ## See Also
 

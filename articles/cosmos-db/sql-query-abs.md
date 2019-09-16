@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ABS (<numeric_expression>)  
 ```  
   
@@ -29,13 +29,13 @@ ABS (<numeric_expression>)
   
   The following example shows the results of using the ABS function on three different numbers.  
   
-```  
+```sql
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{abs1: 1, abs2: 0, abs3: 1}]  
 ```  
   

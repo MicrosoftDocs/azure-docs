@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 SIGN(<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ SIGN(<numeric_expression>)
   
   The following example returns the SIGN values of numbers from -2 to 2.  
   
-```  
+```sql
 SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{s1: -1, s2: -1, s3: 0, s4: 1, s5: 1}]  
 ```  
-  
 
 ## See Also
 

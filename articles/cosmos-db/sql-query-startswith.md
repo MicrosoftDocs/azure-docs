@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 STARTSWITH(<str_expr>, <str_expr>)  
 ```  
   
@@ -29,13 +29,13 @@ STARTSWITH(<str_expr>, <str_expr>)
   
   The following example checks if the string "abc" begins with "b" and "a".  
   
-```  
+```sql
 SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"s1": false, "s2": true}]  
 ```  
 

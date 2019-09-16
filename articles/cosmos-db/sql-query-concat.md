@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 CONCAT(<str_expr>, <str_expr> [, <str_expr>])  
 ```  
   
@@ -29,13 +29,13 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
   The following example returns the concatenated string of the specified values.  
   
-```  
+```sql
 SELECT CONCAT("abc", "def") AS concat  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"concat": "abcdef"}  
 ```  
   

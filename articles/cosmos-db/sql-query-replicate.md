@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 REPLICATE(<str_expr>, <num_expr>)
 ```  
   
@@ -35,16 +35,15 @@ REPLICATE(<str_expr>, <num_expr>)
   
   The following example shows how to use REPLICATE in a query.
   
-```  
+```sql
 SELECT REPLICATE("a", 3) AS replicate
 ```  
   
  Here is the result set.
   
-```  
+```json
 [{"replicate": "aaa"}]
 ```  
-  
 
 ## See Also
 

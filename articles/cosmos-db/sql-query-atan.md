@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ATAN(<numeric_expression>)  
 ```  
   
@@ -29,13 +29,13 @@ ATAN(<numeric_expression>)
   
   The following example returns the ATAN of the specified value.  
   
-```  
+```sql
 SELECT ATAN(-45.01) AS atan  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"atan": -1.5485826962062663}]  
 ```  
   

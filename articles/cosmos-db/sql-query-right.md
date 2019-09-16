@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 RIGHT(<str_expr>, <num_expr>)  
 ```  
   
@@ -32,16 +32,15 @@ RIGHT(<str_expr>, <num_expr>)
   
   The following example returns the right part of "abc" for various length values.  
   
-```  
+```sql
 SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"r1": "c", "r2": "bc"}]  
 ```  
-  
 
 ## See Also
 

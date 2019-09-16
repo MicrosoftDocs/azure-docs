@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
@@ -32,13 +32,13 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
   The following example returns the substring of "abc" starting at 1 and for a length of 1 character.  
   
-```  
+```sql
 SELECT SUBSTRING("abc", 1, 1) AS substring  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"substring": "b"}]  
 ```  
 

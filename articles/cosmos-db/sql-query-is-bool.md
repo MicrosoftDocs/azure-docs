@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_BOOL(<expression>)  
 ```  
   
@@ -29,7 +29,7 @@ IS_BOOL(<expression>)
   
   The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_BOOL function.  
   
-```  
+```sql
 SELECT   
     IS_BOOL(true) AS isBool1,   
     IS_BOOL(1) AS isBool2,  
@@ -42,10 +42,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"isBool1":true,"isBool2":false,"isBool3":false,"isBool4":false,"isBool5":false,"isBool6":false,"isBool7":false}]
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 StringToNull(<expr>)  
 ```  
   
@@ -33,7 +33,7 @@ The following are examples with valid input.
 
  Whitespace is allowed only before or after "null".
 
-```  
+```sql
 SELECT 
     StringToNull("null") AS n1, 
     StringToNull("  null ") AS n2,
@@ -42,7 +42,7 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
@@ -50,7 +50,7 @@ The following are examples with invalid input.
 
 Null is case sensitive and must be written with all lowercase characters i.e. "null".
 
-```  
+```sql
 SELECT    
     StringToNull("NULL"),
     StringToNull("Null")
@@ -58,13 +58,13 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{}]
 ```  
 
 The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
 
-```  
+```sql
 SELECT    
     StringToNull("true"), 
     StringToNull(false), 
@@ -74,10 +74,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{}]
 ```  
-
 
 ## See Also
 

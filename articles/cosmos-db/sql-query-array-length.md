@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ARRAY_LENGTH(<arr_expr>)  
 ```  
   
@@ -29,13 +29,13 @@ ARRAY_LENGTH(<arr_expr>)
   
   The following example how to get the length of an array using ARRAY_LENGTH.  
   
-```  
+```sql
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"len": 3}]  
 ```  
   

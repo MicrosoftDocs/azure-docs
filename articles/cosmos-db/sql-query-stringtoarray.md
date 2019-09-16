@@ -31,7 +31,7 @@ StringToArray(<expr>)
   
  The following are examples with valid input.
 
-```
+```sql
 SELECT 
     StringToArray('[]') AS a1, 
     StringToArray("[1,2,3]") AS a2,
@@ -42,7 +42,7 @@ SELECT
 
 Here is the result set.
 
-```
+```json
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
@@ -52,14 +52,14 @@ The following is an example of invalid input.
 Even though they are valid within a query, they will not parse to valid arrays. 
  Strings within the array string must either be escaped "[\\"\\"]" or the surrounding quote must be single '[""]'.
 
-```
+```sql
 SELECT
     StringToArray("['5','6','7']")
 ```
 
 Here is the result set.
 
-```
+```json
 [{}]
 ```
 
@@ -67,7 +67,7 @@ The following are examples of invalid input.
    
  The expression passed will be parsed as a JSON array; the following do not evaluate to type array and thus return undefined.
    
-```
+```sql
 SELECT
     StringToArray("["),
     StringToArray("1"),
@@ -78,10 +78,9 @@ SELECT
 
 Here is the result set.
 
-```
+```json
 [{}]
 ```
-
 
 ## See Also
 

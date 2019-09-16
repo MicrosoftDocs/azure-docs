@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 SIN(<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ SIN(<numeric_expression>)
   
   The following example calculates the SIN of the specified angle.  
   
-```  
+```sql
 SELECT SIN(45.175643) AS sin  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"sin": 0.929607286611012}]  
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 LOG (<numeric_expression> [, <base>])  
 ```  
   
@@ -40,28 +40,27 @@ LOG (<numeric_expression> [, <base>])
   
   The following example declares a variable and returns the logarithm value of the specified variable (10).  
   
-```  
+```sql
 SELECT LOG(10) AS log  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{log: 2.3025850929940459}]  
 ```  
   
  The following example calculates the LOG for the exponent of a number.  
   
-```  
+```sql
 SELECT EXP(LOG(10)) AS expLog  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{expLog: 10.000000000000002}]  
 ```  
-  
 
 ## See Also
 

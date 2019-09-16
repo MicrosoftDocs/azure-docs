@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 TAN (<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ TAN (<numeric_expression>)
   
   The following example calculates the tangent of PI()/2.  
   
-```  
+```sql
 SELECT TAN(PI()/2) AS tan 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"tan": 16331239353195370 }]  
 ```  
-  
 
 ## See Also
 

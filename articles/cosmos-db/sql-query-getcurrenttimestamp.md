@@ -1,19 +1,19 @@
 ---
-title: GETCURRENTTIMESTAMP (Azure Cosmos DB)
-description: Learn about SQL system function GETCURRENTTIMESTAMP in Azure Cosmos DB.
+title: GetCurrentTimestamp (Azure Cosmos DB)
+description: Learn about SQL system function GetCurrentTimestamp in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ---
-# GETCURRENTTIMESTAMP (Azure Cosmos DB)
+# GetCurrentTimestamp (Azure Cosmos DB)
  Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
   
 ## Syntax
   
-```  
-GETCURRENTTIMESTAMP ()  
+```sql
+GetCurrentTimestamp ()  
 ```  
   
 ## Return Types
@@ -22,26 +22,25 @@ GETCURRENTTIMESTAMP ()
 
 ## Remarks
 
-  GETCURRENTTIMESTAMP is a nondeterministic function.
+  GetCurrentTimestamp() is a nondeterministic function.
   
   The result returned is UTC (Coordinated Universal Time).
 
 ## Examples
   
-  The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
+  The following example shows how to get the current timestamp using the GetCurrentTimestamp() built-in function.
   
-```  
-SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
+```sql
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 ```  
   
  Here is an example result set.
   
-```  
+```json
 [{
   "currentUtcTimestamp": 1556916469065
 }]  
 ```
-
 
 ## See Also
 

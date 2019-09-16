@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 DEGREES (<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ DEGREES (<numeric_expression>)
   
   The following example returns the number of degrees in an angle of PI/2 radians.  
   
-```  
+```sql
 SELECT DEGREES(PI()/2) AS degrees  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"degrees": 90}]  
 ```  
-  
 
 ## See Also
 

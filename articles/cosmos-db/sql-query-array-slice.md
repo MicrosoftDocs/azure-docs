@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])  
 ```  
   
@@ -35,7 +35,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
   The following example shows how to get different slices of an array using ARRAY_SLICE.  
   
-```  
+```sql
 SELECT
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1) AS s1,  
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1) AS s2,
@@ -49,7 +49,7 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{  
            "s1": ["strawberries", "bananas"],   
            "s2": ["strawberries"],

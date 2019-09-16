@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_ARRAY(<expression>)  
 ```  
   
@@ -29,7 +29,7 @@ IS_ARRAY(<expression>)
   
   The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_ARRAY function.  
   
-```  
+```sql
 SELECT   
  IS_ARRAY(true) AS isArray1,   
  IS_ARRAY(1) AS isArray2,  
@@ -42,10 +42,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
 ```  
-  
 
 ## See Also
 

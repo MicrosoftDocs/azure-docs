@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 LOG10 (<numeric_expression>)  
 ```  
   
@@ -33,16 +33,15 @@ LOG10 (<numeric_expression>)
   
   The following example declares a variable and returns the LOG10 value of the specified variable (100).  
   
-```  
+```sql
 SELECT LOG10(100) AS log10 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{log10: 2}]  
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 REVERSE(<str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ REVERSE(<str_expr>)
   
   The following example shows how to use REVERSE in a query.  
   
-```  
+```sql
 SELECT REVERSE("Abc") AS reverse  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"reverse": "cbA"}]  
 ```  
-  
 
 ## See Also
 

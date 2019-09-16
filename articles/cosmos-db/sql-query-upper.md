@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 UPPER(<str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ UPPER(<str_expr>)
   
   The following example shows how to use UPPER in a query  
   
-```  
+```sql
 SELECT UPPER("Abc") AS upper  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"upper": "ABC"}]  
 ```
-
 
 ## See Also
 

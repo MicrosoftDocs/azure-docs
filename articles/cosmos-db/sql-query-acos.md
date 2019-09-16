@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ACOS(<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ ACOS(<numeric_expression>)
   
   The following example returns the ACOS of -1.  
   
-```  
+```sql
 SELECT ACOS(-1) AS acos 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"acos": 3.1415926535897931}]  
 ```  
-  
 
 ## See Also
 

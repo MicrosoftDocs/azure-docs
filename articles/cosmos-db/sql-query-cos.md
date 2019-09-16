@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 COS(<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ COS(<numeric_expression>)
   
   The following example calculates the COS of the specified angle.  
   
-```  
+```sql
 SELECT COS(14.78) AS cos  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"cos": -0.59946542619465426}]  
 ```  
-  
 
 ## See Also
 

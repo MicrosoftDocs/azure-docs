@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 StringToBoolean(<expr>)  
 ```  
   
@@ -33,7 +33,7 @@ StringToBoolean(<expr>)
 
 Whitespace is allowed only before or after "true"/"false".
 
-```  
+```sql
 SELECT 
     StringToBoolean("true") AS b1, 
     StringToBoolean("    false") AS b2,
@@ -42,7 +42,7 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
@@ -50,7 +50,7 @@ The following are examples with invalid input.
 
  Booleans are case sensitive and must be written with all lowercase characters i.e. "true" and "false".
 
-```  
+```sql
 SELECT 
     StringToBoolean("TRUE"),
     StringToBoolean("False")
@@ -58,13 +58,13 @@ SELECT
 
 Here is the result set.  
   
-```  
+```json
 [{}]
 ``` 
 
 The expression passed will be parsed as a Boolean expression; these inputs do not evaluate to type Boolean and thus return undefined.
 
-```  
+```sql
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -75,10 +75,9 @@ SELECT
 
 Here is the result set.  
   
-```  
+```json
 [{}]
 ```  
-
 
 ## See Also
 

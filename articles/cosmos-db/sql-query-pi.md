@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 PI ()  
 ```  
    
@@ -24,16 +24,15 @@ PI ()
   
   The following example returns the value of PI.  
   
-```  
+```sql
 SELECT PI() AS pi 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"pi": 3.1415926535897931}]  
 ```  
-  
 
 ## See Also
 

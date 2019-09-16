@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_DEFINED(<expression>)  
 ```  
   
@@ -29,16 +29,15 @@ IS_DEFINED(<expression>)
   
   The following example checks for the presence of a property within the specified JSON document. The first returns true since "a" is present, but the second returns false since "b" is absent.  
   
-```  
+```sql
 SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isDefined2 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
-  
 
 ## See Also
 

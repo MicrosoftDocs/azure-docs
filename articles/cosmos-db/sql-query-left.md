@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 LEFT(<str_expr>, <num_expr>)  
 ```  
   
@@ -32,16 +32,15 @@ LEFT(<str_expr>, <num_expr>)
   
   The following example returns the left part of "abc" for various length values.  
   
-```  
+```sql
 SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"l1": "a", "l2": "ab"}]  
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_NULL(<expression>)  
 ```  
   
@@ -29,7 +29,7 @@ IS_NULL(<expression>)
   
   The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
   
-```  
+```sql
 SELECT   
     IS_NULL(true) AS isNull1,   
     IS_NULL(1) AS isNull2,  
@@ -42,10 +42,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
 ```  
-  
 
 ## See Also
 

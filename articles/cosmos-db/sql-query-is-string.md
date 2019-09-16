@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_STRING(<expression>)  
 ```  
   
@@ -29,7 +29,7 @@ IS_STRING(<expression>)
   
   The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_STRING function.  
   
-```  
+```sql
 SELECT   
        IS_STRING(true) AS isStr1,   
        IS_STRING(1) AS isStr2,  
@@ -42,10 +42,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
-
 
 ## See Also
 

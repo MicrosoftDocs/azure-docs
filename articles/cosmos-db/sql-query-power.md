@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 POWER (<numeric_expression>, <y>)  
 ```  
   
@@ -32,16 +32,15 @@ POWER (<numeric_expression>, <y>)
   
   The following example demonstrates raising a number to the power of 3 (the cube of the number).  
   
-```  
+```sql
 SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{pow1: 8, pow2: 15.625}]  
 ```  
-  
 
 ## See Also
 

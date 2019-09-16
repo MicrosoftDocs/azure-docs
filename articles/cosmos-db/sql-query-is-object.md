@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 IS_OBJECT(<expression>)  
 ```  
   
@@ -29,7 +29,7 @@ IS_OBJECT(<expression>)
   
   The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_OBJECT function.  
   
-```  
+```sql
 SELECT   
     IS_OBJECT(true) AS isObj1,   
     IS_OBJECT(1) AS isObj2,  
@@ -42,10 +42,9 @@ SELECT
   
  Here is the result set.  
   
-```  
+```json
 [{"isObj1":false,"isObj2":false,"isObj3":false,"isObj4":false,"isObj5":true,"isObj6":false,"isObj7":false}]
 ```  
-  
 
 ## See Also
 

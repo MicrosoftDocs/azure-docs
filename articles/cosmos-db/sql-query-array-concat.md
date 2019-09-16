@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
 ```  
   
@@ -29,13 +29,13 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
   The following example how to concatenate two arrays.  
   
-```  
+```sql
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
 ```  
   

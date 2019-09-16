@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 SQUARE(<numeric_expression>)  
 ```  
   
@@ -29,16 +29,15 @@ SQUARE(<numeric_expression>)
   
   The following example returns the squares of numbers 1-3.  
   
-```  
+```sql
 SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{s1: 1, s2: 4, s3: 9}]  
 ```  
-  
 
 ## See Also
 

@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ST_INTERSECTS (<spatial_expr>, <spatial_expr>)  
 ```  
   
@@ -32,7 +32,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
   The following example shows how to find all areas that intersect with the given polygon.  
   
-```  
+```sql
 SELECT a.id
 FROM Areas a
 WHERE ST_INTERSECTS(a.location, {  
@@ -43,10 +43,9 @@ WHERE ST_INTERSECTS(a.location, {
   
  Here is the result set.  
   
-```  
+```json
 [{ "id": "IntersectingPolygon" }]  
 ```  
-  
 
 ## See Also
 

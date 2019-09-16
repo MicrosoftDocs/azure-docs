@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 EXP (<numeric_expression>)  
 ```  
   
@@ -37,28 +37,27 @@ EXP (<numeric_expression>)
   
   The following example declares a variable and returns the exponential value of the specified variable (10).  
   
-```  
+```sql
 SELECT EXP(10) AS exp  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{exp: 22026.465794806718}]  
 ```  
   
  The following example returns the exponential value of the natural logarithm of 20 and the natural logarithm of the exponential of 20. Because these functions are inverse functions of one another, the return value with rounding for floating point math in both cases is 20.  
   
-```  
+```sql
 SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{exp1: 19.999999999999996, exp2: 20}]  
 ```  
-  
 
 ## See Also
 

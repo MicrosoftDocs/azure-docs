@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 RTRIM(<str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ RTRIM(<str_expr>)
   
   The following example shows how to use RTRIM inside a query.  
   
-```  
+```sql
 SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
 ```  
-  
 
 ## See Also
 

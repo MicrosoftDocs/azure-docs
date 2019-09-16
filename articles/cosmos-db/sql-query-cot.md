@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 COT(<numeric_expression>)  
 ```  
   
@@ -29,13 +29,13 @@ COT(<numeric_expression>)
   
   The following example calculates the COT of the specified angle.  
   
-```  
+```sql
 SELECT COT(124.1332) AS cot  
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"cot": -0.040311998371148884}]  
 ```  
   

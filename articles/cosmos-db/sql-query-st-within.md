@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ST_WITHIN (<spatial_expr>, <spatial_expr>)  
 ```  
   
@@ -32,7 +32,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   The following example shows how to find all family documents within a polygon using ST_WITHIN.  
   
-```  
+```sql
 SELECT f.id   
 FROM Families f   
 WHERE ST_WITHIN(f.location, {  
@@ -43,10 +43,9 @@ WHERE ST_WITHIN(f.location, {
   
  Here is the result set.  
   
-```  
+```json
 [{ "id": "WakefieldFamily" }]  
 ```  
-
 
 ## See Also
 

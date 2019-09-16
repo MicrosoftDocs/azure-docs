@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
 ```  
   
@@ -29,7 +29,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
   The following example shows how to return all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. .  
   
-```  
+```sql
 SELECT f.id   
 FROM Families f   
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
@@ -37,12 +37,11 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
   
  Here is the result set.  
   
-```  
+```json
 [{  
   "id": "WakefieldFamily"  
 }]  
 ```  
-  
 
 ## See Also
 

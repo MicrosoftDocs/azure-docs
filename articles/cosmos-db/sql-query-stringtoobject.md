@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 StringToObject(<expr>)  
 ```  
   
@@ -31,7 +31,7 @@ StringToObject(<expr>)
   
  The following are examples with valid input.
 
-``` 
+```sql
 SELECT 
     StringToObject("{}") AS obj1, 
     StringToObject('{"A":[1,2,3]}') AS obj2,
@@ -41,7 +41,7 @@ SELECT
 
 Here is the result set.
 
-```
+```json
 [{"obj1": {}, 
   "obj2": {"A": [1,2,3]}, 
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
@@ -55,27 +55,27 @@ Even though they are valid within a query, they will not parse to valid objects.
 
 Single quotes surrounding property names are not valid JSON.
 
-``` 
+```sql
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
 Here is the result set.
 
-```  
+```json
 [{}]
 ```  
 
 Property names without surrounding quotes are not valid JSON.
 
-``` 
+```sql
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
 Here is the result set.
 
-```  
+```json
 [{}]
 ``` 
 
@@ -83,7 +83,7 @@ The following are examples with invalid input.
 
  The expression passed will be parsed as a JSON object; these inputs do not evaluate to type object and thus return undefined.
 
-``` 
+```sql
 SELECT 
     StringToObject("}"),
     StringToObject("{"),
@@ -95,10 +95,9 @@ SELECT
  
  Here is the result set.
 
-```
+```json
 [{}]
 ```
-
 
 ## See Also
 

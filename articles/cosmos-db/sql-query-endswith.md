@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 ENDSWITH(<str_expr>, <str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ ENDSWITH(<str_expr>, <str_expr>)
   
   The following example returns the "abc" ends with "b" and "bc".  
   
-```  
+```sql
 SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"e1": false, "e2": true}]  
 ```  
-  
 
 ## See Also
 

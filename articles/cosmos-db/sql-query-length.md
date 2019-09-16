@@ -12,7 +12,7 @@ ms.author: girobins
   
 ## Syntax
   
-```  
+```sql
 LENGTH(<str_expr>)  
 ```  
   
@@ -29,16 +29,15 @@ LENGTH(<str_expr>)
   
   The following example returns the length of a string.  
   
-```  
+```sql
 SELECT LENGTH("abc") AS len 
 ```  
   
  Here is the result set.  
   
-```  
+```json
 [{"len": 3}]  
 ```  
-  
 
 ## See Also
 
