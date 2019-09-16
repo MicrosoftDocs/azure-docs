@@ -22,7 +22,7 @@ ZRS currently supports standard general-purpose v2 and FileStorage storage accou
 
 ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
 
-ZRS is generally available in the following regions:
+For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
 - Europe West
@@ -34,6 +34,10 @@ ZRS is generally available in the following regions:
 - US East
 - US East 2
 - US West 2
+
+For FileStorage accounts, ZRS is generally available in the following regions:
+
+- West Europe
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
