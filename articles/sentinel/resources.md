@@ -1,5 +1,5 @@
 ---
-title: Useful resources when working with Azure Sentinel Preview| Microsoft Docs
+title: Useful resources when working with Azure Sentinel| Microsoft Docs
 description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,23 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/14/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
-# Useful resources for working with Azure Sentinel Preview
+# Useful resources for working with Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
 Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 ## Vendor documentation
-
 
 | **Vendor**  | **Use incident in Azure Sentinel** | **Link**|
 |----|----|----|

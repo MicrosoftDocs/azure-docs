@@ -1,13 +1,12 @@
 ---
-title: Connect data sources to Azure Sentinel Preview?| Microsoft Docs
+title: Connect data sources to Azure Sentinel?| Microsoft Docs
 description: Learn how to connect data sources to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: rkarlin
+manager: angrobe
 editor: ''
 
-ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,16 +14,13 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
 # Connect data sources
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 
@@ -62,7 +58,7 @@ The following data connection methods are supported by Azure Sentinel:
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the Microsoft Monitoring Agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+- **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the Log Analytics agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
     - Firewalls, proxies, and endpoints:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
@@ -87,6 +83,42 @@ To connect your external appliance to Azure Sentinel, the agent must be deployed
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
 ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
+
+## Map data types with Azure Sentinel connection options
+
+
+| **Data type** | **How to connect** | **Data connector?** | **Comments** |
+|------|---------|-------------|------|
+| AWSCloudTrail | [Connect AWS](connect-aws.md) | V | |
+| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
+| SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
+| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
+| InformationProtectionLogs_CL  | [Azure Information Protection reports](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
+| CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | V | |
+| OfficeActivity | [Connect Office 365](connect-office-365.md) | V | |
+| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols dashboard, see [Insecure protocols dashboard setup](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| Syslog | [Connect Syslog](connect-syslog.md) | V | |
+| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](connect-microsoft-waf.md) | V | |
+| SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | V | |
+| ThreatIntelligenceIndicator  | [Connect threat intelligence](connect-threat-intelligence.md)  | V | |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Using On-boarding Via Policy](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | VM insights dashboard  |
+| DnsEvents | [Connect DNS](connect-dns.md) | V | |
+| W3CIISLog | [Connect IIS logs](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
+| WireData | [Connect Wire Data](../azure-monitor/insights/wire-data.md) | X | |
+| WindowsFirewall | [Connect Windows Firewall](connect-windows-firewall.md) | V | |
+| AADIP SecurityAlert  | [Connect Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
+| AATP SecurityAlert  | [Connect Azure ATP](connect-azure-atp.md) | V | |
+| ASC SecurityAlert  | [Connect Azure Security Center](connect-azure-security-center.md)  | V | |
+| MCAS SecurityAlert  | [Connect Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
+| SecurityAlert | | | |
+| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/SysmonParser.txt)| X | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| ConfigurationData  | [Automate VM inventory](../automation/automation-vm-inventory.md)| X | |
+| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking.md) | X | |
+| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
+| McasShadowItReporting  |  | X | |
+| Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | V | |
 
 
 ## Next steps

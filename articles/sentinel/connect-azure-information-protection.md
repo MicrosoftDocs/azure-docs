@@ -1,5 +1,5 @@
 ---
-title: Connecting Azure Information Protection data to Azure Sentinel Preview| Microsoft Docs
+title: Connecting Azure Information Protection data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Azure Information Protection data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
-# Connect data from Azure Information Protection
+# Connect data from Azure Information Protection - Preview
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 You can stream logs from [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) into Azure Sentinel with a single click. Azure Information Protection helps protect your data whether it’s stored in the cloud or in on-premises infrastructures and control and help secure email, documents, and sensitive data that you share outside your company. From easy classification to embedded labels and permissions, enhance data protection at all times with Azure Information Protection. When you connect Azure Information Protection to Azure Sentinel, you stream all the alerts from Azure Information Protection into Azure Sentinel.
 
@@ -57,4 +54,4 @@ If Azure Information Protection is deployed and getting data, the alert data can
 ## Next steps
 In this document, you learned how to connect Azure Information Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).

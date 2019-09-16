@@ -1,5 +1,5 @@
 ---
-title: Connect Syslog data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Syslog data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Syslog data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,23 +7,19 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
 # Connect your external solution using Syslog
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 You can connect any on-premises appliance that supports Syslog to Azure Sentinel. This is done by using an agent based on a Linux machine between the appliance and Azure Sentinel. If your Linux machine is in Azure, you can stream the logs from your appliance or application to a dedicated workspace you create in Azure and connect it. If your Linux machine is not in Azure, you can stream the logs from your appliance to a dedicated on premises VM or machine onto which you install the Agent for Linux. 
 
@@ -67,4 +63,4 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
