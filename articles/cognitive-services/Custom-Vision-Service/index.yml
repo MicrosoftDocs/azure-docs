@@ -98,7 +98,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: IoT Visual Alert app
-            url: iot-visual-alert-tutorial.md
+            url: iot-visual-alerts-tutorial.md
           - text: Logo detector for mobile
             url: logo-detector-mobile.md
   

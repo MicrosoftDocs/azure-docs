@@ -47,7 +47,7 @@
   - name: Logo detector for mobile
     href: logo-detector-mobile.md
   - name: IoT Visual Alert app
-    href: iot-visual-alert-tutorial.md
+    href: iot-visual-alerts-tutorial.md
 - name: How-to guides
   items:
   - name: Test your model
