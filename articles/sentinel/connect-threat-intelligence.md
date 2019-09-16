@@ -36,11 +36,15 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 ## Integrated threat intelligence platform products
 
-- [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld) ([*guided instructions*](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540))
+- [MISP Open Source Threat Intelligence Platform](https://www.misp-project.org/)
 
--[ThreatConnect Platform](https://threatconnect.com/solution/)
+- [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
+    
+    For guided instructions, see [Sending IOCs to the Microsoft Graph Security API using MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540)
 
-- [MISP Open Source Threat Intelligence Platform](https://www.misp-project.org/) ([*integration script*](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP))
+- [ThreatConnect Platform](https://threatconnect.com/solution/)
+    
+     For a script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)
 
 ## Prerequisites  
 
