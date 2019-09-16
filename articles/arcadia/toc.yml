@@ -6,8 +6,8 @@
     href: overview-what-is.md
   - name: Who can benefit from Arcadia
     href: overview-who-can-benefit-from-arcadia.md
-#- name: Release notes
-#  items:
+- name: Release notes
+  items:
 - name: Quick starts
   items:
   - name: Getting started
