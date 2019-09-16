@@ -25,6 +25,12 @@ This article outlines how to use the copy activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
+This SQL Server connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
+
 You can copy data from a SQL Server database to any supported sink data store. Or, you can copy data from any supported source data store to a SQL Server database. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this SQL Server connector supports:
@@ -523,6 +529,14 @@ When you copy data from and to SQL Server, the following mappings are used from 
 
 >[!NOTE]
 > For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Troubleshoot connection issues
 

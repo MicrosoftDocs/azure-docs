@@ -86,7 +86,7 @@ _403_ (Forbidden) response.
 
 #### Cause
 
-If the customer doesn’t have read permission to all the provided subscriptions, the request is
+If the customer doesn't have read permission to all the provided subscriptions, the request is
 denied due to lack of appropriate security rights.
 
 #### Resolution
