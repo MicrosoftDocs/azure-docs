@@ -53,7 +53,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         b. Set **Options** to **Generate** and give the key a name.
 
-        ![Generate key name](./media/apache-kafka-byok/kafka-create-a-key.png "Generate key name")
+        ![Generate key name](./media/apache-kafka-byok/apache-kafka-create-key.png "Generate key name")
 
         c. Select the key you created from the list of keys.
 
@@ -98,7 +98,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
    To rotate the key, you must have the full url of the new key (See Step 3 of [Setup the Key Vault and Keys](#setup-the-key-vault-and-keys)). Once you have that, go to the Kafka cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
 
-   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## FAQ for BYOK to Apache Kafka
 
@@ -141,5 +141,5 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
 ## Next steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
+* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-overview.md)?
 * To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).

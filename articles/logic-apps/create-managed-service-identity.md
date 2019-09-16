@@ -19,7 +19,7 @@ To access resources in other Azure Active Directory (Azure AD) tenants and authe
 > Your logic app can use managed identities only with connectors that support managed identities. Currently, 
 > only the HTTP connector supports managed identities.
 >
-> You can currently have up to 10 logic app workflows with system-assigned managed identities in each Azure subscription.
+> You can currently have up to 100 logic app workflows with system-assigned managed identities in each Azure subscription.
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ appears with the default resource ID value:
    > what Azure AD expects, including any required trailing slashes. 
    > You can find these resource ID values in this 
    > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > For example, if you're using the Azure Resoruce Manager resource ID, 
+   > For example, if you're using the Azure Resource Manager resource ID, 
    > make sure the URI has a trailing slash.
 
 1. Continue building the logic app the way you want.
