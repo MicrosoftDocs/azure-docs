@@ -114,7 +114,7 @@ The following steps show how to prepare the public IP for the configuration move
 
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
 
-           ```json
+         ```json
             "resources": [
                    {
                     "type": "Microsoft.Network/publicIPAddresses",
@@ -125,7 +125,7 @@ The following steps show how to prepare the public IP for the configuration move
                         "name": "Basic",
                         "tier": "Regional"
                     },
-           ```
+         ```
            
            For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
