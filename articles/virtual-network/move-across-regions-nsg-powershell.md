@@ -105,9 +105,9 @@ The following steps show how to prepare the network security group for the confi
 
     * **Security rules** - You can edit which rules are deployed into the target NSG by adding or removing rules to the **securityRules** section in the **\<resource-group-name>.json** file:
 
-          ```json
-           "resources": [
-           {
+            ```json
+            "resources": [
+            {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-06-01",
             "name": "[parameters('networkSecurityGroups_myVM1_nsg_name')]",
@@ -136,7 +136,7 @@ The following steps show how to prepare the network security group for the confi
                         }
                     },
     
-          ```
+            ```
 
 To complete the addition or the removal of the rules in the target NSG, you must also edit the custom rule types at the end of the **\<resource-group-name>.json** file in the format of the example below:
 
