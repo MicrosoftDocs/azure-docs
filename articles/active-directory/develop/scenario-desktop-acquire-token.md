@@ -53,7 +53,7 @@ catch(MsalUiRequiredException ex)
 
 Objective-C:
 
-```objective-c
+```objc
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
     
 MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
@@ -117,7 +117,7 @@ catch(MsalUiRequiredException)
 
 Objective-C:
 
-```objective-c
+```objc
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
 	if (!error)	
