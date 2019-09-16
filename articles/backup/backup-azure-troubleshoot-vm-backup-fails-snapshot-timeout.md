@@ -105,7 +105,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: The configured disk size(s) is currently not supported by Azure Backup. <br>
 
-Your backup operation could fail when backing up a VM with a disk size greater than 30 TB. Also, backup of encrypted disks greater than 4TB in size is not supported today. Please make sure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s).
+Your backup operation could fail when backing up a VM with a disk size greater than 30 TB. Also, backup of encrypted disks greater than 4TB in size is not supported today. Ensure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
