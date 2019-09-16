@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
+ms.date: 09/16/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
 
-This article provides an overview of the resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to these limits.
+This article provides an overview of the technical characteristics and resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
+> For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md). For general differencess between service tiers in single database and managed instance see [Service tier comparison](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## Instance-level resource limits
 
@@ -37,11 +37,11 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 
 > [!IMPORTANT]
 > - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
-> - Gen4 hardware at this time is available in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
+> - Gen4 hardware at this time is still available only in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
 
 ### Service tier characteristics
 
-Managed instance has two service tiers: General Purpose and Business Critical. These tiers provide different capabilities, as described in the table below:
+Managed instance has two service tiers: [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md). These tiers provide [different capabilities](sql-database-service-tiers-general-purpose-business-critical.md), as described in the table below:
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
@@ -67,6 +67,9 @@ Managed instance has two service tiers: General Purpose and Business Critical. T
 > - Throughput and IOPS also depend on the page size that is not explicitly limited by managed instance.
 > You can create another readable replica in different Azure region using Auto-failover groups.
 
+> [!NOTE]
+> Find more information about the [resource limits in managed instance pools in this article](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
 ## Supported regions
 
 Managed instances can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a managed instance in a region that is currently not supported, you can [send a support request via the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
@@ -87,7 +90,7 @@ Managed instance currently supports deployment only on the following types of su
 Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region depending on a type of subscription type:
 
 - **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
-- **vCore limit**: The maximum number of vCores that can be deployed across all instances in a single region.
+- **vCore limit**: The maximum number of vCores that can be deployed across all instances in a single region. The total number of instances is not limited as long as it is within the vCore limit.
 
 > [!Note]
 > These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more managed instances in the current region. As an alternative, you can create new managed instances in another Azure region without sending support requests.
