@@ -76,12 +76,16 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
 
-#### Step 2: Download your web server or project
+#### Step 2: Download the sample project
 
 - [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 - [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
-#### Step 3: Configure your project
+#### Step 3: Install dependencies
+
+In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library
+
+#### Step 4: Configure your project
 
 > [!div renderon="docs"]
 > If you selected Option 1 above, you can skip these steps. 
@@ -204,7 +208,7 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
 
  ```
 
-[!NOTE] On iOS 13+, if you adopt `UISceneDelegate` instead of `UIApplicationDelegate`, place this code into the `scene:openURLContexts:` callback instead (See [Apple's documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback needs to be placed into both places.
+> [!NOTE] On iOS 13+, if you adopt `UISceneDelegate` instead of `UIApplicationDelegate`, place this code into the `scene:openURLContexts:` callback instead (See [Apple's documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback needs to be placed into both places.
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
