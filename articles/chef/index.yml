@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Chef Software on Azure documentation
-summary: Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
+summary: Learn how to use Chef Software products to deploy and manage Azure resources.
 
 metadata:
   title: Chef Software on Azure documentation
-  description: Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
+  description: Learn how to use Chef Software products to deploy and manage Azure resources.
   services: azure
   ms.service: chef
   ms.topic: landing-page
@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Chef on Azure
+  - title: About Chef Software on Azure
     linkLists:
       - linkListType: overview
         links:
@@ -27,7 +27,7 @@ landingContent:
             url: chef-inspec-overview.md
 
   # Card
-  - title: Install and Configure Chef Software products
+  - title: Install and Configure Chef Software
     linkLists:
       - linkListType: quickstart
         links:
