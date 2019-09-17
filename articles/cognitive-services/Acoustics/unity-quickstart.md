@@ -41,7 +41,7 @@ Import the sample package to a new Unity project.
 To import the package into an existing project, see [Unity integration](unity-integration.md) for additional steps and notes.
 
 >[!NOTE]
->Several errors will be displayed in the console log after the import is complete. Continue to the next step and restart Unity.
+>Several error messages will be displayed in the console log after the import is complete. Continue to the next step and restart Unity.
 
 ## Restart Unity
 The bake portion of the acoustics toolkit requires the .NET 4.*x* scripting runtime version. Package import updates your Unity player settings. Restart Unity for this setting to take effect.
@@ -62,23 +62,23 @@ Select **Window > Acoustics** from the Unity menu:
 
 A floating **Acoustics** window will open. This window is where you set the properties of the acoustic simulation.
 
-![The Unity editor with Acoustics window open](media/unity-editor-plugin-window.png)  
+![The Unity editor with the Acoustics window open](media/unity-editor-plugin-window.png)  
 
 ## Experiment with design controls
-Open the sample scene in the *ProjectAcousticsSample* folder, and select the play button in the Unity editor. Use W, A, S, D, and the mouse to move around. To compare how the scene sounds with and without acoustics, press the key until the overlay text turns red and shows "Acoustics: Disabled." To see keyboard shortcuts for more controls, press F1. You can also right-click to select an action and then left-click to do it.
+Open the sample scene in the *ProjectAcousticsSample* folder, and select the play button in the Unity editor. Use the W, A, S, and D keys and the mouse to move around. To compare how the scene sounds with and without acoustics, press the R key until the overlay text turns red and shows "Acoustics: Disabled." To see keyboard shortcuts for more controls, press F1. You can also right-click to select an action and then left-click to do that action.
 
-The script *AcousticsAdjust* is attached to the sound sources in the sample scene, which enables the per-source design parameters.
+The script *AcousticsAdjust* is attached to the sound sources in the sample scene. It which enables the per-source design parameters.
 
 ![The Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
-The following sections explore some of the effects that can be produced by using the available controls. For detailed information about each control, see the [Project Acoustics Unity Design Tutorial](unity-workflow.md).
+The following sections explore some of the effects that you can create by using the available controls. For detailed information about each control, see the [Project Acoustics Unity Design Tutorial](unity-workflow.md).
 
 ### Modify distance-based attenuation
 The audio DSP in the **Project Acoustics** Unity spatializer plug-in respects the per-source distance-based attenuation that's built into the Unity Editor. Controls for distance-based attenuation are in the **Audio Source** component, which is in the **Inspector** panel of sound sources, under **3D Sound Settings**:
 
 ![Unity distance attenuation options panel](media/distance-attenuation.png)
 
-Project Acoustics computes in a "simulation region" box that's centered around the player location. The acoustics assets in the sample package were baked at a simulation region size of 45 meters surrounding the player. So, the sound attenuation should be designed to fall to 0 at about 45 m.
+Project Acoustics computes in a "simulation region" box that's centered around the player location. The acoustics assets in the sample package were baked at a simulation region size of 45 meters around the player. So, the sound attenuation should be designed to fall to 0 at about 45 m.
 
 ### Modify occlusion and transmission
 * If the **Occlusion** multiplier is greater than 1 (the default is 1), occlusion will be exaggerated. To make the occlusion effect more subtle, set it to less than 1.
