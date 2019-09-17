@@ -4,7 +4,7 @@ title: Azure Search documentation # < 60 chars
 summary: Enterprise cloud search over private heterogenous content, applying AI enrichment if your content is unstructured or unsearchable in its raw form. Learn how to build a single fast index, searchable using simple-to-advanced query syntax for a broad range of scenarios. 
 
 metadata:
-  title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Search documentation
   description: Enterprise cloud search over private heterogenous content, applying AI enrichment if your content is unstructured or unsearchable in its raw form. Learn how to build a single fast index, searchable using simple-to-advanced query syntax for a broad range of scenarios. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -134,6 +134,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Search Documents (REST)
+            url: query-odata-filter-orderby-syntax.md
+          - text: Search Documents (REST)
             url: https://docs.microsoft.com/rest/api/searchservice/search-documents
 
   # Card
@@ -143,9 +145,7 @@ landingContent:
         links: 
           - text: FAQ
             url: search-faq-frequently-asked-questions.md
-          - text: Troubleshooting
-            url: cognitive-search-concept-troubleshooting.md
           - text: Ask questions on Stack Overflow
             url: https://stackoverflow.com/questions/tagged/azure-search
-          - text: Influence service with UserVoice
+          - text: Request a feature
             url: https://feedback.azure.com/forums/263029-azure-search
