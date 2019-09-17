@@ -1,6 +1,6 @@
 ---
-title: Setup Azure Functions for Azure Custom Providers
-description: This tutorial will go over how to create an Azure Function and set it up to work with Azure Custom Providers
+title: Set up Azure Functions for Azure Custom Providers
+description: This tutorial will go over how to create an Azure function app and set it up to work with Azure Custom Providers
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
@@ -8,56 +8,56 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ---
 
-# Setup Azure Functions for Azure Custom Providers
+# Set up Azure Functions for Azure Custom Providers
 
-Custom providers allow you to customize workflows on Azure. A custom provider is a contract between Azure and an `endpoint`. This tutorial will go through the process of setting up an Azure Function to work as a custom provider `endpoint`.
+A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial  shows how to set up an Azure function app to work as a custom-provider endpoint.
 
-This tutorial is broken into the following steps:
+This tutorial contains the following steps:
 
-- Creating the Azure Function
-- Install Azure Table bindings
-- Update RESTful HTTP methods
-- Add Azure Resource Manager NuGet packages
+1. Create the Azure function app
+1. Install Azure Table bindings
+1. Update RESTful HTTP methods
+1. Modify the .csproj file
 
-This tutorial will build on the following tutorials:
+This tutorial builds on the tutorial [Creating your first Azure function app through the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
-- [Creating your first Azure Function through the Azure portal](../azure-functions/functions-create-first-azure-function.md)
-
-## Creating the Azure Function
+## Create the Azure function app
 
 > [!NOTE]
-> In this tutorial, we will be creating a simple service endpoint using an Azure Function, but a custom provider can use any public accessible `endpoint`. Azure Logic Apps, Azure API Management, and Azure Web Apps are some great alternatives.
+> In this tutorial, you create a simple service endpoint that uses Azure Functions. However, a custom provider can use any publicly accessible endpoint. Azure Logic Apps, Azure API Management, and Web Apps feature of Azure App Service are some great alternatives.
 
-To start this tutorial, you should follow the tutorial, [creating your first Azure Function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). The tutorial will create a .NET core webhook function that can be modified in the Azure portal.
+To start this tutorial, you should first follow the tutorial [creating your first Azure Function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+
+This tutorial creates a .NET core webhook function that can be modified in the Azure portal.
 
 ## Install Azure Table bindings
 
-This section will go through quick steps for installing the Azure Table storage bindings.
+To install the Azure Table storage bindings:
 
-1. Navigate to the `Integrate` tab for the HttpTrigger.
-2. Click on the `+ New Input`.
-3. Select `Azure Table Storage`.
-4. Install the `Microsoft.Azure.WebJobs.Extensions.Storage` if it is not already installed.
-5. Update the `Table parameter name` to "tableStorage" and the `Table name` to "myCustomResources".
-6. Save the updated input parameter.
+1. Go to the **Integrate** tab for the HttpTrigger.
+1. Select **+ New Input**.
+1. Select **Azure Table Storage**.
+1. Install Microsoft.Azure.WebJobs.Extensions.Storage if it is not already installed.
+1. Change **Table parameter name** to "tableStorage" and **Table name** to "myCustomResources".
+1. Save the updated input parameter.
 
-![Custom provider overview](./media/create-custom-providers/azure-functions-table-bindings.png)
+![Custom provider overview showing table bindings](./media/create-custom-providers/azure-functions-table-bindings.png)
 
 ## Update RESTful HTTP methods
 
-This section will go through quick steps for setting up the Azure Function to include the custom provider RESTful request methods.
+To set up the Azure Function to include the custom provider RESTful request methods:
 
 1. Navigate to the `Integrate` tab for the HttpTrigger.
-2. Update the `Selected HTTP methods` to: GET, POST, DELETE, and PUT.
+1. In **Selected HTTP methods**, select **GET**, **POST**, **DELETE**, and **PUT**.
 
-![Custom provider overview](./media/create-custom-providers/azure-functions-http-methods.png)
+![Custom provider overview showing HTTP methods](./media/create-custom-providers/azure-functions-http-methods.png)
 
-## Modifying the csproj
+##  Modify the .csproj file
 
 > [!NOTE]
-> If the csproj is missing from the directory, it can be added manually or it will appear once the `Microsoft.Azure.WebJobs.Extensions.Storage` extension is installed on the function.
+> If the .csproj file is missing from the directory, you can add it manually. Or it will appear once the `Microsoft.Azure.WebJobs.Extensions.Storage` extension is installed on the function app.
 
-Next, we will update the csproj file to include helpful NuGet libraries that will make it easier to parse incoming requests from custom providers. Follow the steps at [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the csproj to include the following package references:
+Next, update the .csproj file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the .csproj file to include the following package references:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -65,7 +65,7 @@ Next, we will update the csproj file to include helpful NuGet libraries that wil
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-Sample csproj file:
+The following XML file is an example .csproj file:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -83,6 +83,6 @@ Sample csproj file:
 
 ## Next steps
 
-In this article, we setup an Azure Function to work as a Azure Custom Provider `endpoint`. Go to the next article to learn how to author a RESTful custom provider `endpoint`.
+In this tutorial, you set up an Azure function app to work as an Azure Custom Provider endpoint.
 
-- [Tutorial: Authoring a RESTful custom provider endpoint](./tutorial-custom-providers-function-authoring.md)
+To learn how to author a RESTful custom provider endpoint, see [Tutorial: Authoring a RESTful custom provider endpoint](./tutorial-custom-providers-function-authoring.md).
