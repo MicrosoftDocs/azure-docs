@@ -27,7 +27,7 @@ This article outlines how to copy data from HDFS server. To learn about Azure Da
 
 This HDFS connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 Specifically, this HDFS connector supports:
@@ -478,6 +478,10 @@ There are two options to set up the on-premises environment so as to use Kerbero
 **In Azure Data Factory:**
 
 * Configure the HDFS connector using **Windows authentication** together with either your Domain Account or Kerberos Principal to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps

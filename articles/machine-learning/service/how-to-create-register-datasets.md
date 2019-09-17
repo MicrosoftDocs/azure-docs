@@ -1,6 +1,6 @@
 ---
 title: Create datasets to access data with azureml-datasets
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to create Datasets from various sources and register Datasets with your workspace
 services: machine-learning
 ms.service: machine-learning
@@ -30,9 +30,9 @@ With Azure Machine Learning datasets, you can:
 
 To create and work with datasets, you need:
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An [Azure Machine Learning service workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
@@ -51,7 +51,7 @@ To find out more about upcoming API changes, see [here](https://aka.ms/tabular-d
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
 
-For the data to be accessible by Azure Machine Learning service, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web urls.
+For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web urls.
 
 To create Datasets from an [Azure datastore](how-to-access-data.md):
 
