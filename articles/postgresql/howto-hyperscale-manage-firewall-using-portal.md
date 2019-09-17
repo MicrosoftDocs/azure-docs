@@ -15,6 +15,11 @@ To step through this how-to guide, you need:
 - A server [Create an Azure Database for PostgreSQL](quickstart-create-hyperscale-portal.md)
 
 ## Create a server-level firewall rule in the Azure portal
+
+> [!NOTE]
+> These settings are also accessible during the creation of a Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, click **Public endpoint**.
+> ![Azure portal - networking tab](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+
 1. On the PostgreSQL server page, under Security heading, click **Networking** to open the Firewall rules page for the Azure Database for PostgreSQL.
 
    ![Azure portal - click Networking](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
