@@ -101,7 +101,7 @@ The following docker examples are for the Translator Text container.
 ### Basic example
 
 ```
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:80 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-translator-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -111,7 +111,7 @@ ApiKey={API_KEY}
 ### Logging example
 
 ```
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:80 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-translator-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
