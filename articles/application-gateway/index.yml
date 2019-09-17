@@ -44,7 +44,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: SSL termination and end to end SSL with Application Gateway
-            url: ssl-overview
+            url: ssl-overview.md
           - text: SSL policy overview
             url: application-gateway-ssl-policy-overview.md
       - linkListType: tutorial
