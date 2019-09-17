@@ -24,12 +24,12 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
 
 When you create a storage account, you can select one of the following redundancy options:
 
-* [Locally redundant storage (LRS)](storage-redundancy-lrs.md)
-* [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md)
-* [Geo-redundant storage (GRS)](storage-redundancy-grs.md)
-* [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-* [Geo-zone-redundant storage (GZRS)](storage-redundancy-gzrs.md)
-* [Read-access geo-zone-redundant storage (RA-GZRS)](storage-redundancy-gzrs.md)
+- [Locally redundant storage (LRS)](storage-redundancy-lrs.md)
+- [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md)
+- [Geo-redundant storage (GRS)](storage-redundancy-grs.md)
+- [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Geo-zone-redundant storage (GZRS)](storage-redundancy-gzrs.md)
+- [Read-access geo-zone-redundant storage (RA-GZRS)](storage-redundancy-gzrs.md)
 
 The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
 
@@ -41,7 +41,7 @@ The following table provides a quick overview of the scope of durability and ava
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | Yes (with RA-GRS)                                   | Yes (with RA-GZRS)                                 |
 | Designed to provide \_\_ durability of objects over a given year                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Supported storage account types                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| Availability SLA for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS, at least 99.99% (99.9% for Cool Access Tier) for RA-GRS | At least 99.99% (99.9% for Cool Access Tier) |
+| Availability SLA for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GZRS |
 | Availability SLA for write requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 
 All data in your storage account is replicated, including block blobs and append blobs, page blobs, queues, tables, and files. All types of storage accounts are replicated, although ZRS requires a general-purpose v2 storage account.
@@ -57,9 +57,9 @@ For information about Azure Storage guarantees for durability and availability, 
 
 You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure Storage client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
-   > [!NOTE]
-   > Currently, you cannot use the Azure portal or the Azure Storage client libraries to convert your account to ZRS, GZRS, or RA-GZRS. To migrate your account to ZRS, see [Zone-redundant storage (ZRS) for building highly available Azure Storage applications](storage-redundancy-zrs.md) for details. To migrate GZRS or RA-GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](storage-redundancy-zrs.md) for details.
-    
+> [!NOTE]
+> Currently, you cannot use the Azure portal or the Azure Storage client libraries to convert your account to ZRS, GZRS, or RA-GZRS. To migrate your account to ZRS, see [Zone-redundant storage (ZRS) for building highly available Azure Storage applications](storage-redundancy-zrs.md) for details. To migrate GZRS or RA-GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](storage-redundancy-zrs.md) for details.
+
 ### Are there any costs to changing my account's replication strategy?
 
 It depends on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. You are only charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
