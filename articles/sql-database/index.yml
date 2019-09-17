@@ -95,7 +95,7 @@ sections:
       - href: /azure/sql-database/sql-database-instance-pools
         html: <p>Use managed instance pools as a simple and cost-effective solution for deploying multiple managed instances that share resources and quickly scale.</p>
         image:
-          src: media/index/i_instance_pools.svg
+          src: media/index/i_intelligence.svg
         title: Instance pool
 
 - title: 5-Minute Quickstarts
