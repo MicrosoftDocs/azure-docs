@@ -37,6 +37,8 @@
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
       - name: Java
         href: quickstart-v2-java-webapp.md
+      - name: Python
+        href: quickstart-v2-python-webapp.md
     - name: Web APIs
       items:
       - name: ASP .NET

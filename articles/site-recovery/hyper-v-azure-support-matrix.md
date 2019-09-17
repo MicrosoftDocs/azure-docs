@@ -128,8 +128,8 @@ Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
-Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
-Modifying storage account | No. The target Azure storage account can't be modified after enabling replication. To modify, disable and then reenabled disaster recovery. | No
+Azure storage accounts with firewall enabled | No  | Yes. For target storage and cache.
+Modify storage account | No. The target Azure storage account can't be modified after enabling replication. To modify, disable and then reenable disaster recovery. | No
 
 
 ## Azure compute features

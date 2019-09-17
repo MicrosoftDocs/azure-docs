@@ -1,7 +1,7 @@
 ---
 title: Secure web services by using SSL
-titleSuffix: Azure Machine Learning service
-description: Learn how to secure a web service that's deployed through the Azure Machine Learning service by enabling HTTPS. HTTPS secures data from by clients by using transport layer security (TLS), a replacement for secure socket layers (SSL). Clients also use HTTPS to verify the identity of the web service.
+titleSuffix: Azure Machine Learning
+description: Learn how to secure a web service that's deployed through Azure Machine Learning by enabling HTTPS. HTTPS secures data from by clients by using transport layer security (TLS), a replacement for secure socket layers (SSL). Clients also use HTTPS to verify the identity of the web service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Use SSL to secure a web service through Azure Machine Learning
 
-This article shows you how to secure a web service that's deployed through the Azure Machine Learning service.
+This article shows you how to secure a web service that's deployed through Azure Machine Learning.
 
 You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
 
@@ -147,7 +147,7 @@ Next, you must update your DNS to point to the web service.
 
   Update the DNS of the Public IP Address of the AKS cluster on the **Configuration** tab under **Settings** in the left pane. (See the following image.) The Public IP Address is a resource type that's created under the resource group that contains the AKS agent nodes and other networking resources.
 
-  [![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## Update the SSL certificate
 

@@ -4,7 +4,7 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
 ---
 
@@ -14,13 +14,13 @@ After the cache is created, NFS clients can access it with a simple mount comman
 
 Use the mount addresses listed on the cache overview page and the virtual namespace path that you set when you created the storage target. 
 
-![screenshot of Azure HPC Cache instance's Overview page, with a highlight box around the mount addresses list on the lower right](media/mount-addresses.png)
+![screenshot of Azure HPC Cache instance's Overview page, with a highlight box around the mount addresses list on the lower right](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > The cache mount addresses correspond to network interfaces inside the cache's subnet. These NICs appear in the resource group with names ending in `-cluster-nic-` and a number. Do not alter or delete these interfaces, or the cache will become unavailable.
 
-The virtual namespace paths are shown in the **Storage targets** page. 
-![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/storage-target-path.png)
+The virtual namespace paths are shown in the **Storage targets** page. Click the target name to see details, including the aggregated namespace path (or paths) associated with it. 
+![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/hpc-cache-view-namespace-paths.png)
 
 ## Mount command syntax
 
