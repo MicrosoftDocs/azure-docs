@@ -1,6 +1,6 @@
 ---
-title: Receive and respond to HTTP requests - Azure Logic Apps
-description: React to events in real time by using Azure Logic Apps
+title: Receive and respond to HTTP calls - Azure Logic Apps
+description: Handle HTTP requests and events in real time by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -14,7 +14,7 @@ ms.date: 09/06/2019
 tags: connectors
 ---
 
-# Receive and respond to incoming HTTP requests by using Azure Logic Apps
+# Receive and respond to incoming HTTP calls by using Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond to incoming HTTP requests. For example, you can have your logic app:
 
@@ -22,7 +22,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 * Trigger a workflow when an external webhook event happens.
 * Receive and respond to an HTTP call from another logic app.
 
-To make outgoing HTTP or HTTPS calls, use the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) instead.
+To make outgoing HTTP or HTTPS calls instead, use the built-in [HTTP trigger or action](../connectors/connectors-native-http.md).
 
 ## Prerequisites
 
