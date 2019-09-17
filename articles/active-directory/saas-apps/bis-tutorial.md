@@ -45,6 +45,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * BIS supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding BIS from the gallery
 
 To configure the integration of BIS into Azure AD, you need to add BIS from the gallery to your list of managed SaaS apps.
