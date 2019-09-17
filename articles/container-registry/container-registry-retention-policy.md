@@ -29,7 +29,7 @@ If you want to delete single image tags or manifests using Azure CLI commands, s
 * Only a **Premium** container registry can be configured with a retention policy. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
 * Currently, you can only set a retention policy for image manifests that don't have any associated tags (*untagged manifests*). For background on container images and manifests, see [About registries, repositories, and images](container-registry-concepts.md).
 
-## Set a retention policy for untagged manifests - CLI
+## Set a retention policy - CLI
 
 The following example shows you how to use the Azure CLI to set a retention policy for untagged manifests in a registry.
 
@@ -59,13 +59,13 @@ To see the retention policy set in a registry, run the [az acr config retention 
 az acr config retention show --name myregistry
 ```
 
-To disable a retention policy in a registry, run the [az acr config retention update][az-acr-config-retention-update] command and set `--Status disabled`:
+To disable a retention policy in a registry, run the [az acr config retention update][az-acr-config-retention-update] command and set `--status disabled`:
 
 ```azurecli
 az acr config retention update --name myregistry --status disabled
 ```
 
-## Set a retention policy for untagged manifests - portal
+## Set a retention policy - portal
 
 You can also set a registry's retention policy in the [Azure portal](https://portal.azure.com). The following example shows you how to use the portal to set a retention policy for untagged manifests in a registry.
 
