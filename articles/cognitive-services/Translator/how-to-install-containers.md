@@ -57,7 +57,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |-----------|---------|---------------|
 | Translator Text | 4 core, 4 GB memory | 4 |
 
-For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 4 language pairs. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 3 of 4 language pairs depending on the `<image-tag>` you're running. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
