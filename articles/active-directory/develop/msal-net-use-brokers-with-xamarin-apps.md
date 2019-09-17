@@ -125,7 +125,7 @@ The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by yo
     </array>
 ```
 
-### Step 5: LSApplicationQueriesSchemes
+### Step 5: Add the broker identifier to the LSApplicationQueriesSchemes section
 MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In iOS 9, Apple locked down what schemes an application can query for. 
 
 Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file.
@@ -155,18 +155,23 @@ This redirect URI needs to be registered on the app registration portal (https:/
 The portal has a new experience app registration portal to help you compute the brokered reply URI from the bundle ID.
 
 1. In the app registration, choose **Authentication** and select **Try out the new experience**.
+
    ![Try out the new app registration experience](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Select **Add a platform**.
+1. Select **Add a platform**.
+
    ![Add a platform](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. When the list of platforms is supported, select **iOS**.
+1. When the list of platforms is supported, select **iOS**.
+
    ![Configure iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Enter your bundle ID as requested, and then select **Register**.
+1. Enter your bundle ID as requested, and then select **Configure**.
+
    ![Enter Bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-5. The redirect URI is computed for you.
+1. The redirect URI is computed for you.
+
    ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 ## Brokered authentication for Android

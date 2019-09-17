@@ -188,7 +188,7 @@ For example:
 
 </table>
 
-### Step 5: LSApplicationQueriesSchemes
+### Step 5: Add the broker identifier to the LSApplicationQueriesSchemes section
 
 ADAL.NET and MSAL.NET both use `-canOpenURL:` to check if the broker is installed on the device. Add the correct identifier for the iOS broker to the LSApplicationQueriesSchemes section of the info.plist file as follows: 
 <table>
