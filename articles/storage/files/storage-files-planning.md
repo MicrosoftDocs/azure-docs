@@ -90,7 +90,7 @@ If you'd like to learn how to create a premium file share, see our article on th
 Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as Robocopy or AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are only available with LRS and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
+> Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Support coverage and regional availability](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
 
 #### Provisioned shares
 
@@ -109,7 +109,7 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 >
 > ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
-Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+Provisioned share size is specified by share quota. Share quota can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
 
 It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
 
@@ -150,9 +150,9 @@ New file shares start with the full number of credits in its burst bucket. Burst
 
 ## File share redundancy
 
-Azure Files standard shares supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
+Azure Files standard shares supports four data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
 
-Azure Files premium shares only support locally redundant storage (LRS).
+Azure Files premium shares support both LRS and ZRS, ZRS is currently available in a smaller subset of regions.
 
 The following sections describe the differences between the different redundancy options:
 
@@ -201,14 +201,22 @@ This section only applies to the standard file shares. All premium file shares a
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region |Supported redundancy |Supports existing storage accounts |Portal support*   |
+|Region |Supported redundancy |Supports existing storage accounts |Portal support* |
 |-------|---------|---------|---------|
-|Australia East  |LRS     |No    |Yes|
-|France Central  |LRS     |No    |Not yet|
-|France South    |LRS     |No    |Not yet|
-|SouthEast Asia  |LRS, ZRS|No    |Yes|
-|West Europe     |LRS, ZRS|No    |Yes|
-|West US 2       |LRS, ZRS|No    |Yes|
+|Australia East |LRS     |No    |Yes|
+|Australia Southeast|LRS     |No    |Not yet|
+|Central India  |LRS     |No    |Not yet|
+|East Asia      |LRS     |No    |Not yet|
+|East US        |LRS     |No    |Not yet|
+|France Central |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
+|France South   |LRS     |No    |Yes|
+|South India    |LRS     |No    |Not yet|
+|Southeast Asia |LRS, ZRS|No    |Yes|
+|West Central US|LRS     |No    |Not yet|
+|West Europe    |LRS, ZRS|No    |Yes|
+|West US        |LRS     |No    |Not yet|
+|West US 2      |LRS, ZRS|No    |Yes|
+
 
 *For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Alternatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
 

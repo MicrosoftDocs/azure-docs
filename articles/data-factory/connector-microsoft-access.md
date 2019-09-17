@@ -18,9 +18,14 @@ ms.author: jingwang
 ---
 # Copy data from and to Microsoft Access data stores using Azure Data Factory
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an Microsoft Access data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Microsoft Access data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This Microsoft Access connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Microsoft Access source to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -83,7 +88,7 @@ The following properties are supported for Microsoft Access linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Microsoft Access dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Microsoft Access dataset.
 
 To copy data from Microsoft Access, the following properties are supported:
 
@@ -154,6 +159,10 @@ To copy data from Microsoft Access-compatible data store, the following properti
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

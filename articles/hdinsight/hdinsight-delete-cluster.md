@@ -1,6 +1,6 @@
 ---
 title: How to delete an HDInsight cluster - Azure 
-description: Information on the various ways that you can delete an HDInsight cluster.
+description: Information on the various ways that you can delete an Azure HDInsight cluster
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -27,7 +27,7 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
 
 3. From the default view, select the **Delete** icon. Follow the prompt to delete your cluster.
    
-    ![delete icon](./media/hdinsight-delete-cluster/deletecluster.png)
+    ![delete icon](./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png)
 
 ## Azure PowerShell Az module
 

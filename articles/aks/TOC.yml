@@ -159,7 +159,7 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
-    - name: Use a Standard Load Balancer (preview)
+    - name: Use a Standard Load Balancer
       href: load-balancer-standard.md
     - name: Use a static IP address
       href: static-ip.md
@@ -199,7 +199,7 @@
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
     - name: Update cluster service principal credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic (preview)
+    - name: Restrict and control cluster egress traffic
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
@@ -306,6 +306,10 @@
         href: istio-install.md
       - name: Intelligent routing and canary releases
         href: istio-scenario-routing.md
+    - name: Use Hashicorp Consul Connect
+      items:
+      - name: Install and configure
+        href: consul-install.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true

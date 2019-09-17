@@ -97,8 +97,9 @@
 - name: Restarting or resizing a VM
   href: restart-resize-error-troubleshooting.md
 - name: Serial Console
-  href: serial-console-overview.md
   items:
+  - name: Serial Console overview
+    href: serial-console-overview.md
   - name: Serial Console for Linux
     href: serial-console-linux.md
     items:

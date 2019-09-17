@@ -1,6 +1,6 @@
 ---
 title: Configure Microsoft Account authentication - Azure App Service
-description: Learn how to configure Microsoft Account authentication for your App Services application.
+description: Learn how to configure Microsoft Account authentication for your App Service app.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -57,7 +57,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
 4. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
 
-> [!CAUTION]
+> [!NOTE]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
 
 5. Click **Save**.

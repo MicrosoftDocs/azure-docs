@@ -4,6 +4,8 @@
   items:
   - name: What is Resource Manager?
     href: resource-group-overview.md
+  - name: Template overview
+    href: template-deployment-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -58,11 +60,6 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Template deployments
-    href: template-deployment-overview.md
-  - name: Template file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency
@@ -79,30 +76,44 @@
       href: deployment-manager-health-check.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
-  - name: Azure common security attributes
-    href: azure-resource-manager-security-attributes.md
+  - name: Built-in security controls
+    href: azure-resource-manager-security-controls.md
 - name: How to
   items:
   - name: Create templates
     items:
-    - name: Create template
-      href: how-to-create-template.md
-    - name: Child resource name and type
-      href: child-resource-name-type.md
-    - name: Create resource groups and resources at subscription
-      displayName: subscription level deployment
-      href: deploy-to-subscription.md
-    - name: Define resource dependencies
-      href: resource-group-define-dependencies.md
+    - name: Use VS Code
+      href: resource-manager-tools-vs-code.md
+    - name: Write template expressions
+      href: template-expressions.md
+    - name: Parameters
+      href: template-parameters.md
+    - name: Variables
+      href: template-variables.md
+    - name: User-defined functions
+      href: template-user-defined-functions.md
+    - name: Resources
+      items:
+      - name: Child resource name and type
+        href: child-resource-name-type.md
+      - name: Conditional deployment
+        href: conditional-resource-deployment.md
+      - name: Set resource dependencies
+        href: resource-group-define-dependencies.md
+      - name: Set resource location
+        href: resource-location.md
+      - name: Use template extensions
+        href: resource-manager-use-extensions.md
+    - name: Outputs
+      href: template-outputs.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Use template extensions
-      href: resource-manager-use-extensions.md
-    - name: Update resources
-      href: /azure/architecture/building-blocks/extending-templates/update-resource
+    - name: Create resource groups and resources at subscription
+      displayName: subscription level deployment
+      href: deploy-to-subscription.md
   - name: Deploy templates
     items:
     - name: Deploy - portal
@@ -242,6 +253,9 @@
     href: resource-manager-async-operations.md
 - name: Reference
   items:
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs,condition
+    href: resource-group-authoring-templates.md
   - name: Template reference
     href: /azure/templates/
   - name: Template functions
@@ -265,7 +279,7 @@
   - name: Complete mode deletion
     href: complete-mode-deletion.md
   - name: Resource instance limit
-    href: resources-without-rg-limit.md  
+    href: resources-without-rg-limit.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager

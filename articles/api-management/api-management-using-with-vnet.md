@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 09/09/2019
 ms.author: apimpm
 
 ---
@@ -21,7 +21,7 @@ Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in
 Azure API Management can be deployed inside the virtual network (VNET), so it can access backend services within the network. The developer portal and API gateway, can be configured to be accessible either from the Internet or only within the virtual network.
 
 > [!NOTE]
-> Azure API Management supports both classic and Azure Resource Manager VNets.
+> The API import document URL must be hosted on a publicly accessible internet address.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -75,7 +75,7 @@ To perform the steps described in this article, you must have:
 >
 
 > [!IMPORTANT]
-> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to two hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to six hours. During this period it will not be possible to delete the VNET or deploy a new resource to it. This behavior is true for clients using api-version 2018-01-01 and earlier. Clients using api-version 2019-01-01 and later, the VNET is freed up as soon as the associated API Management service is deleted.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets

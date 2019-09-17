@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
 ---
 
@@ -712,6 +712,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
     ```
 
 7. Push ADE extension.
+   If the ADE extensions are not pushed, then the data disks will be marked as unencrypted, so it is mandatory for the steps below to be executed:
 
    * **For VM with Azure AD** - Use the following command to manually enable encryption for the data disks  
 
@@ -742,6 +743,8 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> Ensure to manually delete the JASON files created as part of encrypted VM restore disk process.
 
 
 ## Restore files from an Azure VM backup

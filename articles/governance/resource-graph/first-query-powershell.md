@@ -7,7 +7,6 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -20,8 +19,6 @@ choice and run your first Resource Graph query.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Add the Resource Graph module
 

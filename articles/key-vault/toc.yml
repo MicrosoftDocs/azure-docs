@@ -58,18 +58,18 @@
     href: https://azure.microsoft.com/resources/samples/?service=key-vault
 - name: Concepts
   items:
+  - name: Basic concepts
+    href: basic-concepts.md
   - name: Security
     items: 
       - name: Security overview
         href: overview-security.md
-      - name: Common security attributes
-        href: key-vault-security-attributes.md
+      - name: Built-in security controls
+        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
         href: key-vault-secure-your-key-vault.md
-  - name: What is Key Vault?
-    href: key-vault-whatis.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
   - name: Throttling
@@ -90,10 +90,10 @@
       href: create-certificate.md
     - name: Monitor and manage certificate creation
       href: create-certificate-scenarios.md
-  - name: Azure Common Security Attributes
-    href: key-vault-security-attributes.md  
 - name: How-to guides
   items:
+  - name: Use an App Service managed identity
+    href: managed-identity.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls

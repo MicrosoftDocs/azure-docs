@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Secure an Azure API Management API with Azure AD B2C
 
-Learn how to restrict access your Azure API Management (APIM) API to clients that have authenticated with Azure Active Directory B2C (Azure AD B2C). Follow the steps in this article to create and test an inbound policy in APIM that restricts access to only those requests that include a valid Azure AD B2C-issued access token.
+Learn how to restrict access to your Azure API Management (APIM) API to clients that have authenticated with Azure Active Directory B2C (Azure AD B2C). Follow the steps in this article to create and test an inbound policy in APIM that restricts access to only those requests that include a valid Azure AD B2C-issued access token.
 
 ## Prerequisites
 

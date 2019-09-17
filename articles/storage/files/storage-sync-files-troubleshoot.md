@@ -392,6 +392,18 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
 3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occured while accessing the storage account.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT (decimal)** | -2134364022 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Remediation required** | Yes |
+
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
 | | |

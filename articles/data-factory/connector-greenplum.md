@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
@@ -21,6 +21,11 @@ ms.author: jingwang
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Greenplum. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This Greenplum connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Greenplum to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -105,7 +110,9 @@ To copy data from Greenplum, set the type property of the dataset to **Greenplum
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **GreenplumTable** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
+| schema | Name of the schema. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -114,11 +121,12 @@ To copy data from Greenplum, set the type property of the dataset to **Greenplum
     "name": "GreenplumDataset",
     "properties": {
         "type": "GreenplumTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Greenplum linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -167,6 +175,10 @@ To copy data from Greenplum, set the source type in the copy activity to **Green
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -40,7 +40,7 @@ Private Clouds are managed through the CloudSimple portal. They have their own v
 9. Click **Next: Advanced options**.
 10. Enter the CIDR range for vSphere/vSAN subnets. Make sure that the CIDR range doesn't overlap with any of your on-premises or other Azure subnets (virtual networks) or with the gateway subnet.
 
-    **CIDR range options:** /24, /23, /22, or /21. A /24 CIDR range supports up to nine nodes, a /23 CIDR range supports up to 41 nodes, and a /22 and /21 CIDR range supports up to 64 nodes (the maximum number of nodes in a Private Cloud).
+    **CIDR range options:** /24, /23, /22, or /21. A /24 CIDR range supports up to 26 nodes, a /23 CIDR range supports up to 58 nodes, and a /22 and /21 CIDR range supports 64 nodes (the maximum number of nodes in a Private Cloud).  To learn more and VLANs and subnets, see [VLANs and subnets overview](cloudsimple-vlans-subnets.md).
 
       > [!IMPORTANT]
       > IP addresses in the vSphere/vSAN CIDR range are reserved for use by the Private Cloud infrastructure.  Don't use the IP address in this range on any virtual machine.

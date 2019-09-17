@@ -34,8 +34,8 @@ These system variables can be referenced anywhere in the trigger JSON if the tri
 
 | Variable Name | Description |
 | --- | --- |
-| @trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable would return `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectively.|
-| @trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable might return something like this `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectively. (Note: The timestamp is by default in ISO 8601 format)|
+| @trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable would return `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:30:00Z` respectively.|
+| @trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable might return something like this `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:30:00.9935483Z` respectively. (Note: The timestamp is by default in ISO 8601 format)|
 
 ## Tumbling Window Trigger scope
 These system variables can be referenced anywhere in the trigger JSON if the trigger is of type: "TumblingWindowTrigger."
