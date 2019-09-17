@@ -18,32 +18,46 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+  # Card 
   - title: About Azure Monitor
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Monitor?
             url: overview.md
-          - text: What is Azure Monitor?
+          - text: What is Azure Monitor logs?
             url: overview.md
+          - text: Azure Monitor logs / Log Analytics Hub
+            url: azure-monitor-log-hub.md
+          - text: What is Application Insights?
+            url: app-insights-overview.md
+        
       - linkListType: concept
         links:
-          - text: Data Sources 
+          - text: Data sources 
             url: platform/data-sources.md
-          - text: Data Sources 
+          - text: Data platform 
             url: platform/data-sources.md
 
-
-  # Card (optional)
+  # Card 
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Monitor metrics
+            url: monitor-quick-resource-metric-alert-portal.md
+          - text: Analyze logs
+            url: get-started-analytics-portal.md
+
+  
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Monitor metrics
+            url: monitor-quick-resource-metric-alert-portal.md
+          - text: Analyze logs
+            url: get-started-analytics-portal.md
       - linkListType: video
         links:
           - text: linktext1
@@ -51,4 +65,78 @@ landingContent:
           - text: linktext2
             url: file2.md
 
-  
+  - title: Monitor Applications
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Application Insights Hub
+            url: azure-monitor-app-hub.md
+          - text: Analyze logs
+            url: get-started-analytics-portal.md
+
+
+   # Card (optional)
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Free Pluralsite Training - Azure Administrator
+            url: https://go.microsoft.com/fwlink/?linkid=2012827
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  # every possible list type
+ - title: All link types
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: deploy
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: download
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: get-started
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: learn
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: overview
+        links:
+          - text: title1
+            url: overview.md
+       - linkListType: quickstart
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: reference
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: tutorial
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: video
+        links:
+          - text: title1
+            url: overview.md
+      - linkListType: what-new
+        links:
+          - text: title1
+            url: overview.md
