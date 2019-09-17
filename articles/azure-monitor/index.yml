@@ -148,7 +148,7 @@ landingContent:
           - text: title1
             url: overview.md
 
-      - linkListType: what-new
+      - linkListType: whats-new
         links:
           - text: title1
             url: overview.md
