@@ -3,7 +3,7 @@ title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
 description: Learn how to troubleshoot issues of outbound SMTP connectivity in Azure.
 services: virtual-network
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-network
@@ -35,7 +35,7 @@ If you signed up before November 15, 2017 for the Pay-As-You-Go or Microsoft Par
 
 For Pay-As-You-Go or Microsoft Partner Network subscriptions that were created after November 15, 2017, there will be technical restrictions that block email that’s sent directly from VMs within these subscriptions. If you want the ability to send email from Azure VMs directly to external email providers (not using an authenticated SMTP relay), you can make a request to remove the restriction. Requests will be reviewed and approved at Microsoft’s discretion, and they'll be granted only after additional anti-fraud checks are made. To make a request, open a support case by using the following issue type: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)**. Make sure that you add details about why your deployment has to send mail directly to mail providers instead of using an authenticated relay.
 
-After a Pay-As-You-Go or Microsoft Partner Network subscription is exempted and the VMs have been 'Stopped' & 'Started' from the Azure portal, all VMs within that subscription will be exempted going forward. The exemption is only applicable to the subscription requested.
+After a Pay-As-You-Go or Microsoft Partner Network subscription is exempted and the VMs have been 'Stopped' & 'Started' from the Azure portal, all VMs within that subscription will be exempted going forward. The exemption is only applicable to the subscription requested and only applies to Virtual Machine traffic routed directly to the internet. Routing port 25 traffic via Azure PaaS services such as [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) is unsupported.
 
 > [!NOTE]
 > Microsoft reserves the right to revoke this exemption if it's determined that a violation of terms of service has occurred.

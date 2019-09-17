@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: rimman
+ms.author: sngun
 ms.reviewer: sngun
 ---
 
@@ -19,7 +19,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 * If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* An Oracle database running on-premise with some data in it.
+* An Oracle database running on-premises with some data in it.
 
 ## Deploy the Striim marketplace solution
 
@@ -150,7 +150,17 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    ![Connect to target](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Enter in the configuration properties of your target Azure Cosmos DB instance and select **Save** to continue.
+1. Before configuring the target, make sure you have added a [Baltimore root certificate to Striim's Java environment](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+
+1. Enter the configuration properties of your target Azure Cosmos DB instance and select **Save** to continue. Here are the key parameters to note:
+
+   * **Adapter** - Use **DatabaseWriter**. When writing to Azure Cosmos DB Cassandra API, DatabaseWriter is required. The Cassandra driver 3.6.0 is bundled with Striim. If the DatabaseWriter exceeds the number of RUs provisioned on your Azure Cosmos container, the application will crash.
+
+   * **Username** - Specify your Azure Cosmos account name.
+   
+   * **Password** - Specify the primary key of your Azure Cosmos account.
+
+   * **Tables** - Target tables must have primary keys and primary keys can not be updated.
 
    ![Configure target properties](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png)
 
@@ -173,8 +183,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
 1. Finally, let’s sign into Azure and navigate to your Azure Cosmos account. Refresh the Data Explorer, and you can see that data has arrived. 
 
-By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB from various sources such as Oracle, Cassandra, MongoDB, and various others to Azure Cosmos DB. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
-
+By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB from various sources such as Oracle, Cassandra, MongoDB, and various others to Azure Cosmos DB. To learn more please visit the [Striim website](https://www.striim.com/), [download a free 30-day trial of Striim](https://go2.striim.com/download-free-trial), and for any issues when setting up the migration path with Striim, file a [support request.](https://go2.striim.com/request-support-striim)
 
 ## Next steps
 

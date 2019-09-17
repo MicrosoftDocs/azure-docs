@@ -1,13 +1,12 @@
 ---
 title: Advanced query samples
-description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
+description: Use Azure Resource Graph to run some advanced queries, including virtual machine scale set capacity, listing all tags used, and matching virtual machines with regular expressions.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Advanced Resource Graph queries
 
@@ -22,10 +21,10 @@ We'll walk through the following advanced queries:
 > - [Get virtual machine scale set capacity and size](#vmss-capacity)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
+> - [Include the tenant and subscription names with DisplayNames](#displaynames)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+before you begin.
 
 ## Language support
 
@@ -39,8 +38,8 @@ validate your shell environment of choice.
 
 This query looks for virtual machine scale set resources and gets various details including the
 virtual machine size and the capacity of the scale set. The query uses the `toint()` function to
-cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into
-custom named properties.
+cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into custom
+named properties.
 
 ```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -77,8 +76,9 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Virtual machines matched by regex
 
-This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference) (known as _regex_).
-The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`. That regex definition is explained as:
+This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference)
+(known as _regex_). The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`.
+That regex definition is explained as:
 
 - `^` - Match must start at the beginning of the string.
 - `Contoso` - The case-sensitive string.
@@ -104,6 +104,27 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
+
+This query uses the new **Include** parameter with option _DisplayNames_ to add
+**subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
+available for Azure CLI and Azure PowerShell.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> If the query doesn't use **project** to specify the returned properties,
+> **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
+> If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
+> the **project** or they won't be returned in the results, even when the **Include** parameter is
+> used.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2019
+ms.date: 09/11/2019
 ms.author: magoedte
 ---
 
@@ -28,7 +28,10 @@ To set up Azure Monitor for VMs:
 
 ## Prerequisites
 
-Before you start, make sure that you understand the information in the following sections.
+Before you start, make sure that you understand the information in the following sections. 
+
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
 ### Log Analytics
 
@@ -41,8 +44,8 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - UK South
 - West Europe
 - Southeast Asia
-- Australia East
-- Australia Southeast
+- Australia East<sup>1</sup>
+- Australia Southeast<sup>1</sup>
 
 <sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.
 
@@ -85,10 +88,10 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 14.04, 16.04, 18.04 | X | X | X |
-|CentOS Linux 6, 7 | X | X | X |
+|Ubuntu 18.04, 16.04 | X | X | X |
+|CentOS Linux 7, 6 | X | X | X |
 |SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 8, 9.4 | X<sup>1</sup> | | X |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
 
@@ -102,51 +105,60 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 > - Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
 > - Custom kernels, including recompilations of standard kernels, aren't supported.
 > - CentOSPlus kernel is supported.
+> - The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
 
 #### Red Hat Linux 7
 
 | OS version | Kernel version |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
+| 7.5 | 3.10.0-862 |
+| 7.4 | 3.10.0-693 |
 
 #### Red Hat Linux 6
 
 | OS version | Kernel version |
 |:--|:--|
-| 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+| 6.9 | 2.6.32-696 |
 
 #### CentOSPlus
+
 | OS version | Kernel version |
 |:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### Ubuntu Server
 
 | OS version | Kernel version |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
-| Ubuntu 16.04.3 | kernel 4.15.* |
-| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
-| 14.04 | 3.13.\*<br>4.4.\* |
+| 18.04 | 5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
+| 16.04.3 | 4.15.* |
+| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### SUSE Linux 12 Enterprise Server
 
-| OS version | Kernel version
+| OS version | Kernel version |
 |:--|:--|
-|12 SP2 | 4.4.* |
+|12 SP4 | 4.12.* (includes Azure-tuned kernel) |
 |12 SP3 | 4.4.* |
-|12 SP4 | 4.4.* |
-|12 SP4 | Azure-Tuned Kernel |
+|12 SP2 | 4.4.* |
+
+#### Debian 
+
+| OS version | Kernel version |
+|:--|:--|
+| 9 | 4.9 | 
 
 ### The Microsoft Dependency agent
 
 The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with the Dependency agent.
 
 Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension to install the agent as part of the experience.
+
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
 In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
 
@@ -162,8 +174,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## Role-based access control
 
@@ -227,7 +239,7 @@ Azure Monitor for VMs configures a Log Analytics workspace to collect the perfor
 
 When Azure Monitor for VMs is enabled and configured with a Log Analytics workspace, a management pack is forwarded to all the Windows computers reporting to that workspace. If you have [integrated your System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md) with the Log Analytics workspace, the Service Map management pack is deployed from the management group to the Windows computers reporting to the management group.  
 
-The management pack is named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. It's written to %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\ folder. The data source that the management pack uses is %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+The management pack is named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. Its written to `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` folder. The data source that the management pack uses is `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
 
 ## Diagnostic and usage data
 

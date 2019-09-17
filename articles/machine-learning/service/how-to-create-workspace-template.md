@@ -1,7 +1,7 @@
 ---
 title: Use an Azure Resource Manager template to create a workspace
-titleSuffix: Azure Machine Learning service
-description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning service workspace.
+titleSuffix: Azure Machine Learning
+description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,24 +13,24 @@ ms.date: 07/16/2019
 
 ms.custom: seoapril2019
 
-# Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning service by using templates.
+# Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
-# Use an Azure Resource Manager template to create a workspace for Azure Machine Learning service
+# Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
 
-In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
+In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 * To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Resource Manager template
 
-The following Resource Manager template can be used to create an Azure Machine Learning service workspace and associated Azure resources:
+The following Resource Manager template can be used to create an Azure Machine Learning workspace and associated Azure resources:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -54,6 +54,11 @@ The example template has two parameters:
 * The **workspace name**, which is the friendly name of the Azure Machine Learning workspace.
 
     The names of the other services are generated randomly.
+
+> [!TIP]
+> While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. If on container registry is present in the workspace, one will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
+>
+> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one.
 
 For more information on templates, see the following articles:
 

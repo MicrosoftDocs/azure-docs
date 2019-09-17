@@ -17,7 +17,7 @@ ms.author: amverma
 
 # Enable InfiniBand with SR-IOV
 
-The simplest and recommended way to configure your custom VM image with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
+The simplest and recommended way to get started with IaaS VMs for HPC is to use the CentOS-HPC 7.6 VM OS image. If using your custom VM image, the easiest way to configure it with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
 Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
 To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. These steps are for RHEL/CentOS only. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work well.

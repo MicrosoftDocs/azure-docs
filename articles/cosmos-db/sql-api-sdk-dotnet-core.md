@@ -41,6 +41,11 @@ ms.author: sngun
 > [!NOTE]
 > If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
+### <a name="2.6.0"/>2.6.0
+
+* Added PortReusePolicy to ConnectionPolicy
+* Fixed ntdll!RtlGetVersion TypeLoadException issue when SDK is used in a UWP app
+
 ### <a name="2.5.1"/>2.5.1
 
 * SDK’s System.Net.Http version now matches what is defined in the NuGet package.
@@ -247,10 +252,23 @@ The Azure Cosmos DB .NET Core Preview SDK has feature parity with the latest ver
 
 If you have questions related to this SDK, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [GitHub repository](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
-## Release & Retirement Dates
+## Release & Retirement dates
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+
+New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
+
+Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
+
+> [!WARNING]
+> All versions **1.x** of the .NET Core SDK for SQL API will be retired on **August 30, 2020**.
+> 
+>
+<br/>
+
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.6.0](#2.6.0) |August  30, 2019 |--- |
 | [2.5.1](#2.5.1) |July  02, 2019 |--- |
 | [2.4.1](#2.4.1) |June  20, 2019 |--- |
 | [2.4.0](#2.4.0) |May  05, 2019 |--- |
@@ -264,26 +282,26 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 | [2.1.1](#2.1.1) |September 27, 2018 |--- |
 | [2.1.0](#2.1.0) |September 21, 2018 |--- |
 | [2.0.0](#2.0.0) |September 07, 2018 |--- |
-| [1.9.1](#1.9.1) |March 09, 2018 |--- |
-| [1.8.2](#1.8.2) |February 21, 2018 |--- |
-| [1.8.1](#1.8.1) |February 05, 2018 |--- |
-| [1.7.1](#1.7.1) |November 16, 2017 |--- |
-| [1.7.0](#1.7.0) |November 10, 2017 |--- |
-| [1.6.0](#1.6.0) |October 17, 2017 |--- |
-| [1.5.1](#1.5.1) |October 02, 2017 |--- |
-| [1.5.0](#1.5.0) |August 10, 2017 |--- | 
-| [1.4.1](#1.4.1) |August 07, 2017 |--- |
-| [1.4.0](#1.4.0) |August 02, 2017 |--- |
-| [1.3.2](#1.3.2) |June 12, 2017 |--- |
-| [1.3.1](#1.3.1) |May 23, 2017 |--- |
-| [1.3.0](#1.3.0) |May 10, 2017 |--- |
-| [1.2.2](#1.2.2) |April 19, 2017 |--- |
-| [1.2.1](#1.2.1) |March 29, 2017 |--- |
-| [1.2.0](#1.2.0) |March 25, 2017 |--- |
-| [1.1.2](#1.1.2) |March 20, 2017 |--- |
-| [1.1.1](#1.1.1) |March 14, 2017 |--- |
-| [1.1.0](#1.1.0) |February 16, 2017 |--- |
-| [1.0.0](#1.0.0) |December 21, 2016 |--- |
+| [1.9.1](#1.9.1) |March 09, 2018 |August 30, 2020 |
+| [1.8.2](#1.8.2) |February 21, 2018 |August 30, 2020 |
+| [1.8.1](#1.8.1) |February 05, 2018 |August 30, 2020 |
+| [1.7.1](#1.7.1) |November 16, 2017 |August 30, 2020 |
+| [1.7.0](#1.7.0) |November 10, 2017 |August 30, 2020 |
+| [1.6.0](#1.6.0) |October 17, 2017 |August 30, 2020 |
+| [1.5.1](#1.5.1) |October 02, 2017 |August 30, 2020 |
+| [1.5.0](#1.5.0) |August 10, 2017 |August 30, 2020 | 
+| [1.4.1](#1.4.1) |August 07, 2017 |August 30, 2020 |
+| [1.4.0](#1.4.0) |August 02, 2017 |August 30, 2020 |
+| [1.3.2](#1.3.2) |June 12, 2017 |August 30, 2020 |
+| [1.3.1](#1.3.1) |May 23, 2017 |August 30, 2020 |
+| [1.3.0](#1.3.0) |May 10, 2017 |August 30, 2020 |
+| [1.2.2](#1.2.2) |April 19, 2017 |August 30, 2020 |
+| [1.2.1](#1.2.1) |March 29, 2017 |August 30, 2020 |
+| [1.2.0](#1.2.0) |March 25, 2017 |August 30, 2020 |
+| [1.1.2](#1.1.2) |March 20, 2017 |August 30, 2020 |
+| [1.1.1](#1.1.1) |March 14, 2017 |August 30, 2020 |
+| [1.1.0](#1.1.0) |February 16, 2017 |August 30, 2020 |
+| [1.0.0](#1.0.0) |December 21, 2016 |August 30, 2020 |
 | [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |December 31, 2016 |
 
 ## See Also

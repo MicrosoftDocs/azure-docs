@@ -1,7 +1,7 @@
 ---
 title: Auto-train a time-series forecast model
-titleSuffix: Azure Machine Learning service
-description: Learn how to use Azure Machine Learning service to train a time-series forecasting regression model using automated machine learning.
+titleSuffix: Azure Machine Learning
+description: Learn how to use Azure Machine Learning to train a time-series forecasting regression model using automated machine learning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -14,7 +14,7 @@ ms.date: 06/20/2019
 
 # Auto-train a time-series forecast model
 
-In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning service. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
+In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
 
 * Prepare data for time series modeling
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
@@ -32,7 +32,7 @@ Features extracted from the training data play a critical role. And, automated M
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 * This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
 ## Preparing data
@@ -141,10 +141,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> For the cross-validation (CV) procedure, time-series data can violate the basic statistical assumptions of the canonical K-Fold cross-validation strategy, so
-> automated machine learning implements a rolling origin validation procedure to create cross-validation folds for time-series data. To use this procedure, specify the
-> `n_cross_validations` parameter in the `AutoMLConfig` object. You can bypass validation and use your own validation sets with the `X_valid` and `y_valid` parameters.
+See the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ### View feature engineering summary
 
@@ -205,4 +207,4 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 ## Next steps
 
 * Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
-* View the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) reference documentation.
+* View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.

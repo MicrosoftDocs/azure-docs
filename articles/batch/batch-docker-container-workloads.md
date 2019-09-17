@@ -6,7 +6,6 @@ author: laurenhughes
 manager: gwallace
 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019

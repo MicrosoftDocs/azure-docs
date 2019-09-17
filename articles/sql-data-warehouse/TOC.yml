@@ -57,19 +57,19 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-manage-security.md
-    - name: Advanced Data Security
+    - name: Advanced data security
       items:
       - name: Overview
         href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
-      - name: Data Discovery & Classification
+      - name: Data discovery & classification
         href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
-      - name: Vulnerability Assessment
+      - name: Vulnerability assessment
         href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
       - name: Advanced Threat Protection
         href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
       href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Network Security
+    - name: Network security
       items:
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
@@ -93,7 +93,7 @@
         href: column-level-security.md
       - name: Row-level security
         href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
-    - name: Data Protection
+    - name: Data protection
       items:
       - name: Transparent Data Encryption (TDE) overview
         href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
@@ -129,10 +129,16 @@
         href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
     - name: Materialized view
       items:
+      - name: Performance tuning guidance  
+        href: performance-tuning-materialized-views.md
       - name: Create
         href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
       - name: Alter
         href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+    - name: Ordered clustered columnstore index
+      items:
+      - name: Performance tuning guidance  
+        href: performance-tuning-ordered-CCI.md
     - name: Result set caching
       href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
@@ -165,7 +171,7 @@
         href: sql-data-warehouse-develop-stored-procedures.md
       - name: Transactions
         href: sql-data-warehouse-develop-transactions.md
-      - name: Transactions Best Practices
+      - name: Transactions best practices
         href: sql-data-warehouse-develop-best-practices-transactions.md
       - name: User-defined schemas
         href: sql-data-warehouse-develop-user-defined-schemas.md
@@ -253,14 +259,22 @@
       href: sql-data-warehouse-connect-overview.md
     - name: Connection strings
       href: sql-data-warehouse-connection-strings.md
-    - name: Install Visual Studio SSDT
-      href: sql-data-warehouse-install-visual-studio.md
-    - name: Query with Visual Studio SSDT
-      href: sql-data-warehouse-query-visual-studio.md
-    - name: Query with SSMS
-      href: sql-data-warehouse-query-ssms.md
-    - name: Connect and query with sqlcmd
-      href: sql-data-warehouse-get-started-connect-sqlcmd.md
+    - name: Change management and deployment
+      items:
+      - name: Install Visual Studio SSDT
+        href: sql-data-warehouse-install-visual-studio.md
+      - name: Source control integration
+        href: sql-data-warehouse-source-control-integration.md
+      - name: Continuous integration and deployment
+        href: sql-data-warehouse-continuous-integration-and-deployment.md
+    - name: Connect and query
+      items:
+      - name: Visual Studio SSDT
+        href: sql-data-warehouse-query-visual-studio.md
+      - name: SSMS
+        href: sql-data-warehouse-query-ssms.md
+      - name: sqlcmd
+        href: sql-data-warehouse-get-started-connect-sqlcmd.md
   - name: Workload management
     items:
     - name: Analyze your workload

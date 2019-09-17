@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: Configure secure LDAP
       href: tutorial-configure-ldaps.md
+    - name: Configure password hash sync
+      href: tutorial-configure-password-hash-sync.md
 - name: Samples
   items:
-    - name: Create an Azure AD DS instance using Azure PowerShell
+    - name: Create a managed domain using Azure PowerShell
       href: powershell-create-instance.md
 - name: Concepts
   items:
+    - name: Common deployment scenarios
+      href: scenarios.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
@@ -37,8 +41,6 @@
   items:
     - name: Configure common settings
       items:
-        - name: Enable password hash synchronization
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Configure scoped synchronization from Azure AD
           href: scoped-synchronization.md
         - name: Create an organizational unit (OU)
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Plan for Azure AD DS
       items: 
-        - name: Common scenarios
-          href: scenarios.md
         - name: Virtual network considerations
           href: network-considerations.md
     - name: Manage Azure AD DS
@@ -89,7 +89,7 @@
       items:
         - name: Deploy Azure AD Application Proxy
           href: deploy-azure-app-proxy.md
-        - name: Configure support for profile synchronization for SharePoint Server
+        - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Troubleshoot
       items:

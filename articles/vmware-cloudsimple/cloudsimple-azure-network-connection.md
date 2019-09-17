@@ -39,7 +39,6 @@ You can connect your existing Azure ExpressRoute circuit to your CloudSimple reg
 
 ![On-premises ExpressRoute Connection - Global Reach](media/cloudsimple-global-reach-connection.png)
 
-
 ## Connection to on-premises network and Azure virtual network
 
 Connections to on-premises network and Azure virtual network can coexist from your CloudSimple network.  The connection uses BGP to exchange routes between on-premises network, Azure virtual network, and CloudSimple network.  When you connect your CloudSimple network to your Azure virtual network in presence of Global Reach connection, Azure virtual network routes will be visible on your on-premises network.  Route exchange happens in Azure between the edge routers.

@@ -72,4 +72,4 @@ k4a_capture_release(input_capture);
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Azure Kinect Body Tracking SDK](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+>[Azure Kinect Body Tracking SDK](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)

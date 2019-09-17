@@ -253,8 +253,26 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
+  - name: Move across regions
+    items:
+    - name: Network security groups - Portal
+      href: move-across-regions-nsg-portal.md
+    - name: Network security groups - PowerShell
+      href: move-across-regions-nsg-powershell.md
+    - name: Virtual networks - Portal
+      href: virtual-network-azure-to-azure-migrate-vnet-portal.md
+    - name: Virtual networks - PowerShell
+      href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
+    - name: Public IPs - Portal
+      href: move-across-regions-publicip-portal.md
+    - name: Public IPs - PowerShell
+      href: move-across-regions-publicip-powershell.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot virtual network peering issues
+      href: virtual-network-troubleshoot-peering-issues.md
+    - name: Configure and validate VNet or VPN connections
+      href: virtual-network-configure-vnet-connections.md
     - name: Network security groups
       href: diagnose-network-traffic-filter-problem.md
     - name: Routes
@@ -273,6 +291,8 @@
       href: troubleshoot-outbound-smtp-connectivity.md
     - name: About IP address 168.63.129.16
       href: what-is-ip-address-168-63-129-16.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
   - name: Classic
     items:
     - name: Create and manage a virtual network

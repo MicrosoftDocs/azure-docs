@@ -1,5 +1,5 @@
 --- 
-title: Azure VMware Solution by CloudSimple - Set Private Cloud as disaster recovery site using VMware Site Recovery Manager
+title: Azure VMware Solution by CloudSimple - Set up Private Cloud as a disaster recovery site by using VMware Site Recovery Manager
 description: Describes how to set up your CloudSimple Private Cloud as a disaster recovery site for on-premises VMware workloads
 author: sharaths-cs
 ms.author: b-shsury 
@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Configure CloudSimple Private Cloud as a disaster recovery target using VMware Site Recovery Manager
+# Set up Private Cloud as a disaster recovery target with VMware Site Recovery Manager
 
 You can use your CloudSimple Private Cloud as a disaster recovery (DR) site for on-premises VMware workloads.
 
@@ -28,6 +28,8 @@ The CloudSimple solution requires you to do the following:
 * Provide your own licenses for SRM when the Private Cloud is the protected site. You do not need any additional SRM licenses for the CloudSimple site when it is used as the recovery site.
 
 With this solution, you have full control over vSphere replication and SRM. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
+
+![Site Recovery Manager deployment](media/srm-deployment.png)
 
 You can use any versions of vRA and SRM that are compatible with your Private Cloud and on-premises environments. The examples in this guide use vRA 6.5 and SRM 6.5. These versions are compatible with vSphere 6.5, which is supported by CloudSimple.
 
@@ -104,9 +106,7 @@ Install vSphere  Replication Appliance (vRA) in your on-premises environment by 
 
 2. Deploy vRA in your on-premises environment using the OVF in the VR ISO from vmware.com. For vRA 6.5, [this VMware blog](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) has the relevant information.
 
-3. Register your on-premises vRA with vCenter Single Sign-On at the on-premises site.
-   
-For detailed instructions for vSphere Replication 6.5, see the VMware document [VMware vSphere Replication 6.5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
+3. Register your on-premises vRA with vCenter Single Sign-On at the on-premises site. For detailed instructions for vSphere Replication 6.5, see the VMware document [VMware vSphere Replication 6.5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
 
 ## Install vSphere Replication appliance in your Private Cloud environment
 
@@ -144,7 +144,7 @@ Sign in to vCenter using cloudowner user credentials after escalating privileges
 Create a new user, `srm-soln-admin`, in vCenter and add it to the administrators group in vCenter.
 Sign out of vCenter as the cloudowner user and sign in as the *srm-soln-admin* user.
 
-#### CloudSimple portal: Configure Firewall Rules for vRA
+#### CloudSimple portal: Configure firewall rules for vRA
 
 Configure firewall rules as described in [Set up firewall tables and rules](firewall.md) to open ports to enable communication between:
 
@@ -203,14 +203,14 @@ After SRM is installed in the private cloud, perform the following tasks as desc
 
 To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
-## Ongoing Management of your SRM solution
+## Ongoing management of your SRM solution
 
 You have full control over vSphere Replication and SRM software in your Private Cloud environment and are expected to perform the necessary software lifecycle management. Ensure that any new version of software is compatible with the Private Cloud vCenter and PSC before updating or upgrading vSphere Replication or SRM.
 
 > [!NOTE]
 > CloudSimple is currently exploring options for offering a managed DR service. 
 
-## Multiple Replication Configuration
+## Multiple replication configuration
 
  [Both array-based replication and vSphere replication technologies can be used together with SRM](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication) at the same time. However, they must be applied to separate set of VMs (a given VM can be protected either by array-based replication or vSphere replication, but not both). Furthermore, the CloudSimple site can be configured as a recovery site for multiple protected sites. See [SRM Multi-Site Options](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite/) for information on multi-site configurations.
 

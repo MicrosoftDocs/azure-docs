@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 09/17/2019
 ms.author: victorh
 ---
 
@@ -124,11 +124,9 @@ Azure Firewall doesn’t SNAT when the destination IP address is a private IP ra
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling isn't supported by default, but it can be enabled with help from Support.
+Forced tunneling isn't currently supported. Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 
-Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
-
-However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll allow your subscription and ensure the required firewall Internet connectivity is maintained.
+If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
 ## Are there any firewall resource group restrictions?
 
@@ -145,3 +143,18 @@ If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not co
 ## What does *Provisioning state: Failed* mean?
 
 Whenever a configuration change is applied, Azure Firewall attempts to update all its underlying backend instances. In rare cases, one of these backend instances may fail to update with the new configuration and the update process  stops with a failed provisioning state. Your Azure Firewall is still operational, but the applied configuration may be in an inconsistent state, where some instances have the previous configuration where others have the updated rule set. If this happens, try updating your configuration one more time until the operation succeeds and your Firewall is in a *Succeeded* provisioning state.
+
+### How does Azure Firewall handle planned maintenance and unplanned failures?
+Azure Firewall consists of several backend nodes in an active-active configuration.  For any planned maintenance, we have connection draining logic to gracefully update nodes.  Updates are planned during non-business hours for each of the Azure regions to further limit risk of disruption.  For unplanned issues, we instantiate a new node to replace the failed node.  Connectivity to the new node is typically reestablished within 10 seconds from the time of the failure.
+
+## Is there a character limit for a firewall name?
+
+Yes. There is a 50 character limit for a firewall name.
+
+## Why does Azure Firewall need a /26 subnet size?
+
+Azure Firewall must provision more virtual machine instances as it scales. A /26 address space ensures that the firewall has enough IP addresses available to accommodate the scaling.
+
+## Does the firewall subnet size need to change as the service scales?
+
+No. Azure Firewall does not need a subnet bigger than /26.
