@@ -7,9 +7,9 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: genemi, ayolubek, jrasnick
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database

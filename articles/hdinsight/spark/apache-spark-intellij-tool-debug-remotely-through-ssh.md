@@ -10,6 +10,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
 ---
+
 # Debug Apache Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
 
 This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to debug applications remotely on an HDInsight cluster. To debug your project, you can also view the [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
@@ -71,7 +72,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 1. Open the **SparkCore_wasbloTest** script, right-click the script editor, and then select the option **Run '[Spark Job]XXX'** to perform local run.
 1. Once local run completed, you can see the output file save to your current project explorer **data** > **__default__**.
 
-    ![Local run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+    ![Local run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 1. Our tools have set the default local run configuration automatically when you perform the local run and local debug. Open the configuration **[Spark on HDInsight] XXX** on the upper right corner, you can see the **[Spark on HDInsight]XXX** already created under **Apache Spark on HDInsight**. Switch to **Locally Run** tab.
 
     ![Local run configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
@@ -108,13 +109,11 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
 1. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
    
-   ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
 
 1. Click the **Disconnect** button that the submission logs not appear in the left panel. However, it is still running on the backend.
 
-   ![Remote run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
-
-
+   ![Remote run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
 
 ### Scenario 2: Perform remote debugging
 1. Set up breaking points, and then Click the **Remote debug** icon. The difference with remote submission is that SSH username/password need to be configured.
@@ -142,7 +141,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
 1. Right-click the target on the **Debug** tab, and then select **Set Value**. Next, enter a new value for the variable. Then select **Enter** to save the value. 
 
-   ![Set value](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Set value](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 
 1. Select the **Resume Program** icon to continue to run the program. This time, no exception is caught. You can see that the project runs successfully without any exceptions.
 

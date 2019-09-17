@@ -13,13 +13,13 @@ ms.date: 08/12/2019
 ms.custom: seoapril2019
 ---
 
-# Managed instance T-SQL differences, limitations and known issues
+# Managed instance T-SQL differences, limitations, and known issues
 
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server Database Engine. The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
 
 ![Migration](./media/sql-database-managed-instance/migration.png)
 
-There are some PaaS limitations that are introduced in Managed Instance and some behaviour changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
+There are some PaaS limitations that are introduced in Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
 - [Availability](#availability) includes the differences in [Always-On](#always-on-availability) and [backups](#backup).
 - [Security](#security) includes the differences in [auditing](#auditing), [certificates](#certificates), [credentials](#credential), [cryptographic providers](#cryptographic-providers), [logins and users](#logins-and-users), and the [service key and service master key](#service-key-and-service-master-key).
@@ -334,14 +334,14 @@ A managed instance can't access file shares and Windows folders, so the followin
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### Database Mail (db_mail)
- - `sp_send_dbmail` cannot send attachments using @file_attachments parameter. Local file system and extental shares or Azure blob Storage are not accessible form this procedure.
+ - `sp_send_dbmail` cannot send attachments using @file_attachments parameter. Local file system and external shares or Azure Blob Storage are not accessible from this procedure.
  - See the known issues related to `@query` parameter and authentication.
  
 ### DBCC
 
 Undocumented DBCC statements that are enabled in SQL Server aren't supported in managed instances.
 
-- Only a limited number of Global `Trace flags` is supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Only a limited number of Global Trace flags are supported. Session-level `Trace flags` aren't supported. See [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) and [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) work with the limited number of global trace-flags.
 - [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruptions are handled by Azure support team. Contact Azure support if you are noticing database corruption that should be fixed.
 
@@ -410,7 +410,7 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 For information about configuring replication, see the [replication tutorial](replication-with-sql-database-managed-instance.md).
 
 
-If replication is enabled on a database in a [failover group](sql-database-auto-failover-group.md), the managed instance administrator must cleanup all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
+If replication is enabled on a database in a [failover group](sql-database-auto-failover-group.md), the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
 
 1. Stop all replication jobs running on the database, if there are any.
 2. Drop subscription metadata from publisher by running the following script on publisher database:
@@ -474,8 +474,8 @@ Limitations:
 - Restore of `.BAK` file of a database that contains any limitation described in this document (for example, `FILESTREAM` or `FILETABLE` objects) cannot be restored on Managed Instance.
 - `.BAK` files that contain multiple backup sets can't be restored. 
 - `.BAK` files that contain multiple log files can't be restored.
-- Backups that contain databases bigger than 8TB, active in-memory OLTP objects, or number of files that would exceed 280 files per instance can't be restored on a General Purpose instance. 
-- Backups that contain databases bigger than 4TB or in-memory OLTP objects with the total size larger than the size described in [resource limits](sql-database-managed-instance-resource-limits.md) cannot be restored on Business Critical instance.
+- Backups that contain databases bigger than 8 TB, active in-memory OLTP objects, or number of files that would exceed 280 files per instance can't be restored on a General Purpose instance. 
+- Backups that contain databases bigger than 4 TB or in-memory OLTP objects with the total size larger than the size described in [resource limits](sql-database-managed-instance-resource-limits.md) cannot be restored on Business Critical instance.
 For information about restore statements, see [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
  > [!IMPORTANT]
@@ -535,9 +535,19 @@ The maximum file size of `tempdb` can't be greater than 24 GB per core on a Gene
 
 ### Error logs
 
-A managed instance places verbose information in error logs. There are many internal system event that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Known issues
+
+### Missing validations in restore process
+
+**Date:** Sep 2019
+
+`RESTORE` statement and built-in point-in time restore do not perform some nessecary checks on restored database:
+- **DBCC CHECKDB** - `RESTORE` statement don't perform `DBCC CHECKDB` on the restored database. If an original database is corrupted, or backup file is corrupted while it is copied to Azure blob Storage, automatic backups will not be taken and Azure support will contact the customer. 
+- Built-in Point-in-time restore process doesn't check does the automated backup from Business Critical instance contain the [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp). 
+
+**Workaround**: Make sure that you are executing `DBCC CHECKDB` on the source database before taking a backup, and using `WITH CHECKSUM` option in backup to avoid potential corruptions that could be restored on Managed instance. Make sure that your source database doesn't contain [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp) if you are restoring it on General Purpose tier.
 
 ### Resource Governor on Business Critical service tier might need to be reconfigured after failover
 
@@ -548,19 +558,19 @@ A managed instance places verbose information in error logs. There are many inte
 **Workaround**: Run `ALTER RESOURCE GOVERNOR RECONFIGURE` periodically or as part of SQL Agent Job that executes the SQL task when the instance starts if you are using 
 [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
-### Cannot authenicate to external mail servers using secure connection (SSL)
+### Cannot authenticate to external mail servers using secure connection (SSL)
 
 **Date:** Aug 2019
 
 Database mail that is [configured using secure connection (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) cannot authenticate on some email servers outside the Azure. This is security configuration issue that will be resolved soon.
 
-**Workaround:** Temporary remove secure connection (SSL) form the database mail configuration until the issue gets resolved. 
+**Workaround:** Temporary remove secure connection (SSL) from the database mail configuration until the issue gets resolved. 
 
 ### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 
 **Date:** Aug 2019
 
-Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages messages to the target service.
+Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages to the target service.
 
 **Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
 
@@ -582,13 +592,13 @@ The `@query` parameter in the [sp_send_db_mail](https://docs.microsoft.com/sql/r
 
 **Date:** Mar 2019
 
-If Transactional Replication is enabled on a database in a auto-failover group, the managed instance administrator must cleanup all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#replication) for more details.
+If Transactional Replication is enabled on a database in an auto-failover group, the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#replication) for more details.
 
 ### AAD logins and users are not supported in tools
 
 **Date:** Jan 2019
 
-SQL Server Management Studio and SQL Server Data Tools don't fuly support Azure Acctive directory logins and users.
+SQL Server Management Studio and SQL Server Data Tools don't fully support Azure Active directory logins and users.
 - Using Azure AD server principals (logins) and users (public preview) with SQL Server Data Tools currently isn't supported.
 - Scripting for Azure AD server principals (logins) and users (public preview) isn't supported in SQL Server Management Studio.
 
@@ -608,7 +618,7 @@ The `tempdb` database is always split into 12 data files and the file structure 
 
 Each General Purpose managed instance has up to 35 TB of storage reserved for Azure Premium Disk space. Each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on the disk isn't charged, but the total sum of Azure Premium Disk sizes can't exceed 35 TB. In some cases, a managed instance that doesn't need 8 TB in total might exceed the 35 TB Azure limit on storage size due to internal fragmentation.
 
-For example, a General Purpose managed instance might have one big file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files 1GB files that are each placed on separate 128-GB disks. In this example:
+For example, a General Purpose managed instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1 GB size each that are placed on separate 128-GB disks. In this example:
 
 - The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
@@ -625,7 +635,7 @@ Several system views, performance counters, error messages, XEvents, and error l
 
 ### Error logs aren't persisted
 
-Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because Managed Instance was moved several time on several virtual machines.
+Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because Managed Instance was moved several times on several virtual machines.
 
 ### Transaction scope on two databases within the same instance isn't supported
 
