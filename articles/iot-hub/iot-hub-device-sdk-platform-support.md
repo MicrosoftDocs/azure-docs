@@ -23,9 +23,9 @@ In addition to the device SDKs, Microsoft provides several other avenues to empo
 
 This topic provides information about the Microsoft SDKs and the platforms they are tested against, as well as each of the other options listed above.
 
-## Microsoft supported platforms
+## Microsoft SDKs and device platform support
 
-Microsoft publishes open source SDKs on GitHub for the following languages: C, .NET (C#), Node.js, Java, and Python. The SDKs and their dependencies are listed in this section.
+Microsoft publishes open source SDKs on GitHub for the following languages: C, .NET (C#), Node.js, Java, and Python. The SDKs and their dependencies are listed in this section. The SDKs are supported on any device platform that satisfies these dependencies.
 
 For each of the listed SDKs, Microsoft:
 
@@ -34,8 +34,6 @@ For each of the listed SDKs, Microsoft:
 * Provides installation guidance or installation packages if applicable.
 
 * Fully supports the SDKs on GitHub with open source code, a path for customer contributions, and product team engagement with GitHub issues.
-
-The following sections list the requirements necessary for device platforms to be able to run the SDKs.
 
 ### C SDK
 
@@ -48,6 +46,7 @@ The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) has t
 | Windows 10 family   | SChannel                                         |                         |
 
 **Note** To be removed:
+
 | OS                  | Arch | Compiler             | TLS library       |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl - 1.0.2g |
@@ -69,6 +68,7 @@ The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-pyt
 | Windows 10 family   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
 
 **Note** To be removed:
+
 | OS                  | Arch | Compiler   | TLS library |
 |---------------------|------|------------|-------------|
 | Windows Server 2016 | x86  | Python 2.7 | openssl     |
@@ -94,6 +94,7 @@ The IoT Hub .NET (C#) device SDK is supported on runtimes compliant with .NET St
 > Due to the high number of supported platforms, Microsoft limits is testing to the following DevOps Hosted agents: "Windows Server 2016 with Visual Studio 2017" and "Ubuntu 16.04". For details, see [Use a Microsoft-hosted agent](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#use-a-microsoft-hosted-agent).
 
 **NOTE** To be removed:
+
 | OS                  | Arch | Framework            | Standard          |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET standard 2.0 |
@@ -111,6 +112,7 @@ The [Azure IoT Hub Node.js device SDK](https://github.com/Azure/azure-iot-sdk-no
 | Windows 10 family   | LTS and Current |
 
 **NOTE** To be removed:
+
 | OS                                           | Arch | Node version    |
 |----------------------------------------------|------|-----------------|
 | Ubuntu 16.04 LTS (using node 6 docker image) | X64  | LTS and Current |
@@ -128,6 +130,7 @@ The [Azure IoT Hub Java device SDK](https://github.com/Azure/azure-iot-sdk-java)
 | Windows 10 family   | Java 8       |
 
 **NOTE** To be removed:
+
 | OS                  | Arch | Java version |
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
