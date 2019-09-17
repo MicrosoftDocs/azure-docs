@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
@@ -26,11 +26,42 @@ A daemon app can call a web API from a .NET daemon application or call several p
 
 ## Calling a web API from a .NET daemon application
 
+Here is how to use the token to call an API
+
+# [.NET](#tab/dotnet)
+
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-<!--
-More includes will come later for Python and Java
--->
+# [Python](#tab/python)
+
+```Python
+endpoint = "url to the API" 
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
+# [Java](#tab/java)
+
+```Java
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+// Set the appropriate header fields in the request header.
+conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Accept", "application/json");
+
+String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+int responseCode = conn.getResponseCode();
+if(responseCode != HttpURLConnection.HTTP_OK) {
+    throw new IOException(response);
+}
+
+JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+```
+
+---
 
 ## Calling several APIs
 

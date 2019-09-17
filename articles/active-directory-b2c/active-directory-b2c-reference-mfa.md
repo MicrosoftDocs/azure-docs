@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Enable multi-factor authentication in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multi-factor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multi-factor authentication.
+Azure Active Directory B2C (Azure AD B2C) integrates directly with [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multi-factor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multi-factor authentication.
 
 This feature helps applications handle scenarios such as the following:
 
@@ -36,11 +36,11 @@ A customer account is created in your tenant before the multi-factor authenticat
 
 ## Add multi-factor authentication
 
-It's possible to enable multi-factor authentication on a user flow that you previously created. 
+It's possible to enable multi-factor authentication on a user flow that you previously created.
 
 To enable multi-factor authentication:
 
-1. Open the user flow and then select **Properties**. 
+1. Open the user flow and then select **Properties**.
 2. Next to **Multifactor authentication**, select **Enabled**.
 3. Click **Save** at the top of the page.
 
