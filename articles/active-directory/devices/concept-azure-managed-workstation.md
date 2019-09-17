@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,6 +52,7 @@ This document describes a solution that can help protect your computing devices 
 * Windows 10 (current version) for device health attestation and user experience
 * Defender ATP for cloud-managed endpoint protection, detection, and response
 * Azure AD PIM for managing authorization and just-in-time (JIT) privileged access to resources
+* Log Analytics, and Sentinel for monitoring and alerting
 
 ## Who benefits from a secure workstation?
 
@@ -78,16 +79,30 @@ Containment strategies tighten security by increasing the number and type of con
 
 ## Supply chain management
 
-Essential to a secured workstation is a supply chain solution where you use a trusted workstation called the 'root of trust'. For this solution, the root of trust uses [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) technology. To secure a workstation, Autopilot lets you leverage Microsoft OEM-optimized Windows 10 devices. These devices come in a known good state from the manufacturer. Instead of reimaging a potentially insecure device, Autopilot can transform a Windows device into a “business-ready” state. It applies settings and policies, installs apps, and even changes the edition of Windows 10. For example, Autopilot might change a device's Windows installation from Windows 10 Pro to Windows 10 Enterprise so that it can use advanced features.
+Essential to a secured workstation is a supply chain solution where you use a trusted workstation called the 'root of trust'. Technology that must be considered in the selection of the root of trust hardware should include the following technologies included in modern laptops: 
+
+* [Trusted Platform Module (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
+* [Bitlocker Drive Encryption](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
+* [UEFI Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Drivers and Firmware Distributed through Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualization and HVCI Enabled](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
+* [Drivers and Apps HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [DMA I/O Protection](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Modern Standby](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+
+
+For this solution, root of trust will be deployed using [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) technology with hardware that meet the modern technical requirements. To secure a workstation, Autopilot lets you leverage Microsoft OEM-optimized Windows 10 devices. These devices come in a known good state from the manufacturer. Instead of reimaging a potentially insecure device, Autopilot can transform a Windows device into a “business-ready” state. It applies settings and policies, installs apps, and even changes the edition of Windows 10. For example, Autopilot might change a device's Windows installation from Windows 10 Pro to Windows 10 Enterprise so that it can use advanced features.
 
 ![Secure workstation Levels](./media/concept-azure-managed-workstation/supplychain.png)
 
 ## Device roles and profiles
 
-This guidance references several security profiles and roles that can help you create more secure solutions for users, developers, and IT personnel. These profiles balance usability and risks for common users that can benefit from an enhanced or secure workstation. The settings configurations provided here are based on industry accepted standards. This guidance shows how to harden Windows 10 and reduce the risks associated with device or user compromise. It does so by using policy and technology to help manage security features and risks.
+This guidance references several security profiles and roles that can help you create more secure solutions for users, developers, and IT personnel. These profiles balance usability and risks for common users that can benefit from an enhanced or secure workstation. The settings configurations provided here are based on industry accepted standards. This guidance shows how to harden Windows 10 and reduce the risks associated with device or user compromise. To take advantage of the modern hardware technology and root of trust device, we will use [Device Health Attestation](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643) which is enabled starting at the  **High Security** profile. This capability is present in the to ensure the attackers cannot be persistent during the early boot of a device. It does so by using policy and technology to help manage security features and risks.
 ![Secure workstation Levels](./media/concept-azure-managed-workstation/seccon-levels.png)
 
-* **Low Security** – A managed, standard workstation provides a good starting point for most home and small business use. These devices are registered in  Azure AD and managed with Intune. This profile permits users to run any applications and browse any website. An anti-malware solution like [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) should be enabled.
+* **Basic Security** – A managed, standard workstation provides a good starting point for most home and small business use. These devices are registered in  Azure AD and managed with Intune. This profile permits users to run any applications and browse any website. An anti-malware solution like [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) should be enabled.
 
 * **Enhanced Security** – This entry-level, protected solution is good for home users, small business users, and general developers.
 

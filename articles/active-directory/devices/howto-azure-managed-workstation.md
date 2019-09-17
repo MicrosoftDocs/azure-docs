@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,6 +43,8 @@ You must select a profile before you can deploy the solution. You can use multip
 | URLs restricted to approved list |   |   |   | Yes | Yes |Yes |
 | Internet blocked (inbound/outbound) |   |   |   |  |  |Yes |
 
+> [!NOTE]
+> In the secureworkstation guidance **devices** will be assigned with profiles and policies. Users will not have the policies applied to them directly, allowing device sharing (shared devices) to be in effect. If a secure workstation is not shared in your deployment, or individual user policies are needed, assignment of the user policy profiles can be assigned to the user and device. 
 ## License requirements
 
 The concepts covered in this guide assume you have Microsoft 365 Enterprise E5 or an equivalent SKU. Some of the recommendations in this guide can be implemented with lower SKUs. For more information, see [Microsoft 365 Enterprise licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
@@ -124,24 +126,7 @@ These steps allow you to manage any device with Intune. For more information, se
 
 Azure AD Conditional Access can help restrict privileged administrative tasks to compliant devices. Predefined members of the **Secure Workstation Users** group are required to perform multi-factor authentication when signing in to cloud applications. A best practice is to exclude emergency access accounts from the policy. For more  information, see [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
 
-To configure Conditional Access from the Azure portal:
 
-1. Go to **Azure Active Directory** > **Conditional Access** > **New policy**.
-1. Enter:
-   * **Name** - Secure device required policy
-   * Assignments
-     * **Users and groups**
-       * Include - **Users and groups** - Select the **Secure Workstation Users** group created earlier.
-       * Exclude - **Users and groups** - Select your organization's emergency access accounts.
-     * **Cloud apps** - Include **All cloud apps**.
-    * Access controls
-      * **Grant** - Select **Grant access** radio button.
-        * **Require multi-factor authentication**.
-        * **Require device to be marked as compliant**.
-        * For multiple controls - **Require all the selected controls**.
-    * Enable policy - **On**.
-
-You have the option to create policies that block countries where users would not access company resources. For more information about IP location-based Conditional Access policies, see [the location condition in Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition).
 
 ## Intune configuration
 
@@ -174,7 +159,7 @@ In Intune in the Azure portal:
 1. Select **Next**.
    * Select a scope tag if you have preconfigured one.
 1. Select **Next**.
-1. Choose **Assignments** > **Assign to** > **Selected Groups**. In **Select groups to include**, choose **Secure Workstation Users**.
+1. Choose **Assignments** > **Assign to** > **Selected Groups**. In **Select groups to include**, choose **Secure Workstations**.
 1. Select **Next**.
 1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
 
@@ -240,7 +225,7 @@ To successfully complete the hardening of the solution, download and execute the
 
 \* Specialized Compliance is a script that enforces the Specialized configuration provided in the NCSC Windows10 SecurityBaseline.
 
-After the script successfully executes, you can make updates to profiles and policies in Intune. The scripts for Enhanced and Secure profiles create policies and profiles for you, but you must assign the policy to your **Secure Workstations** group.
+After the script successfully executes, you can make updates to profiles and policies in Intune. The scripts for Enhanced and Secure profiles create policies and profiles for you, but you must assign the policy to your **Secure Workstations** device group.
 
 * Here's where you can find the Intune device configuration profiles created by the scripts: **Azure portal** > **Microsoft Intune** > **Device configuration** > **Profiles**.
 * Here's where you can find the Intune device compliance policies created by the scripts: **Azure portal** > **Microsoft Intune** > **Device Compliance** > **Policies**.
@@ -262,12 +247,20 @@ By following the guidance here, you've deployed a secure workstation. However, y
 
 You can make additional changes to the management of both inbound and outbound rules as needed for your permitted and blocked endpoints. As you continue to harden the secure workstation, you can loosen the restriction that denies all inbound and outbound traffic. You might add permitted outbound sites to include common and trusted websites. For more information, see [Firewall configuration service](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
 
-Default restricted recommendations are:
+Restrictive URL traffic management include:
 
-* Deny All inbound
-* Deny All outbound
+* Deny All inbound traffic - Set in the Securedworkstation profile script.
+* Deny All outbound except selected Azure and Microsoft services including Azure Cloud Shell and the ability to  allows Azure Password Reset.
 
-The Spamhaus Project maintains [the Domain Block List (DBL)](https://www.spamhaus.org/dbl/): a good resource to use as a starting point for blocking sites.
+Windows Registry Editor Version 5.00
+```
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"ProxyEnable"=dword:00000001
+"ProxyServer"="127.0.0.1:80"
+"ProxyOverride"="*.azure.com;*.azure.net;*.microsoft.com;*.windowsupdate.com;*.microsoftonline.com;*.microsoftonline.cn;*.windows.net;*.windowsazure.com;*.windowsazure.cn;*.azure.cn;*.loganalytics.io;*.applicationinsights.io;*.vsassets.io;*.azure-automation.net;*.visualstudio.com,portal.office.com;*.aspnetcdn.com;*.sharepointonline.com;*.msecnd.net;*.msocdn.com;*.webtrends.com"
+"AutoDetect"=dword:00000000
+```
+If you are looking to provide more finess to your blocking rules, you can refer to the Spamhaus Project who maintains [the Domain Block List (DBL)](https://www.spamhaus.org/dbl/): a good resource to use as a advanced set of rules to implement for blocking sites.
 
 ### Manage local applications
 
@@ -297,6 +290,24 @@ In a secured mode, application installation is restricted to the Intune company 
 An Intune-managed copy of the [Company Portal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) gives you on-demand access to additional tools that you can push down to users of the secured workstations.
 
 You might need to install Windows 32-bit apps or other apps whose deployment require special preparations. In such cases, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) can provide a ready-to-use `.intunewin` format file for installation.
+
+### Conditional Access only allowing securedworkstation ability to access portal.com
+Azure Active directory offers the ability to manage, and restrict who and what can access your Azure cloud management portal. Enabling (conditional access)[https://docs.microsoft.com/azure/active-directory/conditional-access/overview] will assure that only your secureworkstation can manage or change resources. It's essential that while deploying this feature you consider how, in case of an (emergency access)[https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access] functionality should be used only for extreme cases and the account managed through policy.
+> [!NOTE]
+>You will need to create a user group, and include your emergency user that can bypass the conditional access restrictions. For our example we have a security group called **Emergency BreakGlass**
+1. Browse to the **Azure portal** > **Microsoft Intune** > **Conditional Access - Policies**  > **New Policy**.
+1. Provide a **Name** for the policy.
+1. Select **User and Groups** > **Select users and groups** 
+1. Select **Include** > **Directory roles** > Choose the roles > Global Administrator, Privileged Role Administrator, Privileged Authentication Administrator, Security Administrator, Compliance Administrator, Conditional Access Administrator, Application Administrator, Cloud Application Administrator, Intune Service Administrator
+1. Select **Exclude** > Choose **Users and groups** > Select **Select excluded users** > Select your **Emergency BreakGlass** group.
+1. Select **Cloud apps or actions** > Select **All cloud apps**
+1. Select **Conditions** > Select **Device Platforms** > Choose configure **Yes** > Select **Select Device platforms** Choose **Windows**
+1. Select **Access controls** > Select **Grant Access** **Yes** > Choose  **Require device to be marked as compliant**. 
+1. Select **Enable Policy** > **On**
+ 
+
+This policy set will ensure that your Administrators must use a compliant Windows devices, which is set by Intune, and WDATP. 
+
 
 ### Use PowerShell to create custom settings
 
@@ -340,13 +351,94 @@ The [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcente
 
 After you have configured the device, complete a review and check the configuration. Confirm that the first device is configured correctly before continuing your deployment.
 
-## Assign and monitor
+## Assign devices
 
 To assign devices and users, you need to map the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group. All new users who require permissions to the service must be added to the security group as well.
 
-You can monitor profiles with [Intune profile monitoring](https://docs.microsoft.com/intune/device-profile-monitor).
+
+## Using Sentinel and Windows Defender ATP to monitor and respond to security incidents
+
+Monitoring the secure workstation deployment can be accomplished by enabling [Sentinel] and utilizing [Threat and Vulnerability Management](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt)
+The guidance will not provide exhaustive threat hunting, but provide good common sense efforts to monitor and responds to potential security incidents.
+
+We will use **Azure Sentinel** for: 
+* Collect data from Intune, Azure portal, and Azure Active Director for user and device monitoring
+* Help Investigate user and device configuration suspicious activity
+* And drive the ability to explore security investigations using WDATP
+
+Sentinel monitoring requires that connectors to your data sources such as AAD be setup.
+1. In the **Azure portal**, go to **Azure Sentinel (Preview)** > Select **Add**
+1. In the **Choose a workspace to add to Azure Sentinel** Select **Create a new workspace**
+1. Enter:
+   * **Log Analytics Workspace** - 'Secure Workstation Monitoring'
+   * **Subscription** - Select your active subscription
+   * **Resource Group** - select the ** Create New** > Secure Workstation RG > **Ok**
+   * **Location** - Select the location that is geographically best suited for your deployment
+   * **Price Tier** - Select **Per GB (2018)**
+1. Select **Ok**.
+
+Next we will connect available secureworkstation data sources to the monitoring.
+1. In the **Azure portal**, go to **Azure Sentinel workspace** > Select **Secure Workstation Monitoring** workspace
+1. Select **Data Connectors**
+1. Choose **Azure Active Directory** > Open Connector Page > After reviewing the Prerequisite. Proceed to Configuration and select **Connect** for both Azure Active Directory Sign-in Logs, as well as Azure Active Directory Audit Logs.
+1. Choose **Azure Activity** > Open Connector Page > After reviewing the Prerequisite. Proceed to Configure Azure Activity Logs > Select your subscription > Select **Connect**
+
+As data is collected by Sentinel you will be able to observe activity by selecting **Azure portal**, go to **Azure Sentinel Overview** 
+
+We will use **Windows Defender ATP (WDATP)** to:
+* Continuously observe and monitor vulnerabilities and misconfigurations
+* Utilize WDATP to prioritize dynamic threats in the wild
+* Drive correlation of vulnerabilities with endpoint detection and response (EDR) alerts
+* Use the dashboard to identify machine-level vulnerability during investigations
+* Push out remediations to Intune
+
+Configure your [Defender ATP dashboard](https://securitycenter.windows.com/machines). Using guidance at [Threat & Vulnerability Management dashboard overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
+
+## Monitoring Application activity using Microsoft Monitoring Agent (MMA)
+Starting at the Specialized workstation, applocker is enabled for monitoring of application activity on a workstation. For the monitoring to be integrated in your Log Analytics workspace an MMA agent and configuration must be followed. 
+> [!NOTE]
+>The Specialized workstation profile contains the AppLocker monitoring policies. Deployment of the policies is required for monitoring of application activity on a client
+Deploy the MMA agent with Intune PowerShell script
+1. Download the setup [script to a local device](https://aka.ms/securedworkstationgit).
+1. Update the parameters, **$WorkSpaceID** and **$WorkSpaceKey**
+1. Browse to the **Azure portal** > **Microsoft Intune** > **Device configuration** > **PowerShell scripts** > **Add**.
+1. Provide a **Name** for the script and specify the **Script location**.
+1. Select **Configure**.
+   1. Set **Run this script using the logged on credentials** to **Yes**.
+   1. Select **OK**.
+1. Select **Create**.
+1. Select **Assignments** > **Select groups**.
+   1. Add the security group **Secure Workstations**.
+   1. Select **Save**.
+
+Next you must set up Log Analytics to receive the new logs
+1. In the **Azure portal**, go to **Log Analytics Workspace**  > Select - 'Secure Workstation Monitoring'
+1. Select **Advanced settings** > **Data** > **Windows Event Logs**
+1. In **Collect events from the following event logs** 
+1. Enter:
+   * 'Microsoft-Windows-AppLocker/EXE and DLL' > Unselect **Informational**
+   * 'Microsoft-Windows-AppLocker/MSI and Script' > Unselect **Informational**
+   * 'Microsoft-Windows-AppLocker/Packaged app-Deployment' > Unselect **Informational**
+   * 'Microsoft-Windows-AppLocker/Packaged app-Execution' > Unselect **Informational**
+1. Select **Save**
+
+Application logging will be available in your selected Log Analytics workspace.
+
+
+## Monitoring Next step
+* Learn how to [Detect threats with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)
+* [Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
+* [Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
+
+* Understand how to review your [Exposure Score](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
+* Review [Security recommendation](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
+* Manage security [Remediations](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
+* Manage [endpoint detection and response](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
+* Monitor profiles with [Intune profile monitoring](https://docs.microsoft.com/intune/device-profile-monitor).
 
 ## Next steps
 
 * Learn more about [Microsoft Intune](https://docs.microsoft.com/intune/index).
 * Understand [Azure AD](https://docs.microsoft.com/azure/active-directory/index).
+* Work with [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+* Discover [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
