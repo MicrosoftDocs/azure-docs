@@ -20,7 +20,7 @@ ms.author: cithomas
 
 Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsights.WorkerService`, which is best suited for non-HTTP workloads like the ones mentioned above.
 
-The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
+The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
 > [!NOTE]
 > This article is about a new package from Application Insights for Worker Services. This package is available as a beta package today. This document will be updated when a stable package is available.
@@ -145,19 +145,20 @@ It might take a few minutes before telemetry starts appearing in the portal and 
 
 Following dependencies are automatically collected by Application Insights.
 
-|---------------|-------|
-|HTTP or HTTPS | Calls made with `HttpClient`. |
-|SQL | Calls made with `System.Data.SqlClient` or `Microsoft.Data.SqlClient`. |
-|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with the Azure Storage client. |
-|[EventHubs client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and later. |
+|Dependency | Description|
+|----------------------------------------------------------------------------------|-------|
+|HTTP or HTTPS                                                                     | Calls made with `HttpClient`. |
+|SQL                                                                               | Calls made with `System.Data.SqlClient` or `Microsoft.Data.SqlClient`. |
+|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)             | Calls made with the Azure Storage client. |
+|[EventHubs client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs)  | Version 1.1.0 and later. |
 |[ServiceBus client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and later. |
-|Azure Cosmos DB | Tracked automatically only if HTTP/HTTPS is used. Application Insights doesn't automatically capture TCP mode. |
+|Azure Cosmos DB                                                                   | Tracked automatically only if HTTP/HTTPS is used. Application Insights doesn't automatically capture TCP mode. |
 
 ### EventCounter
 
 [EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, CPU etc.
 
-By default, the SDK collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
+By default, the SDK collects the following counters (available only in .NET Core 3.0 or above), and these counters can be queried either in Metrics Explorer or using Analytics query under the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
 
 |Category | Counter|
 |---------------|-------|
@@ -183,7 +184,7 @@ By default, the SDK collects the following counters, and these counters can be q
 
 ### Manually tracking additional telemetry
 
-While the SDK automatically collects telemetry as explained above, in most cases user will need to send additional telemetry to Application Insights service. The recommended way to track additional telemetry is to obtain an instance of `TelemetryClient` from Dependency Injection, and then call one of the supported `TrackXXX()` methods on it. Another typical use case is [custom tracking of operations](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking). This approach is demonstrated in the Worker example above. This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with application insights data model - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same operation_id. As sampling is based on operation_id, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
+While the SDK automatically collects telemetry as explained above, in most cases user will need to send additional telemetry to Application Insights service. The recommended way to track additional telemetry is by obtaining an instance of `TelemetryClient` from Dependency Injection, and then calling one of the supported `TrackXXX()` methods on it. Another typical use case is [custom tracking of operations](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking). This approach is demonstrated in the Worker example above. This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with application insights data model - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same operation_id. As sampling is based on operation_id, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
 ## Configure the Application Insights SDK
 
