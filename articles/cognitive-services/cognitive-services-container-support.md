@@ -112,6 +112,7 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 * [Language Understanding (LUIS) containers][lu-containers]
 * [Speech Service API containers][sp-containers]
 * [Text Analytics containers][ta-containers]
+* [Translator Text containers][tt-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -123,3 +124,4 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
+[tt-containers]: translator/how-to-install-containers.md
