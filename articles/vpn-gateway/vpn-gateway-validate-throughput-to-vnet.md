@@ -226,7 +226,7 @@ Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/et
    ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
    > [!Note]
-   > Not all application work same, and not all application/process utilizes all the threads. If you run the test, you could see some threads being empty and won��t provide accurate throughput results.
+   > Not all application work same, and not all application/process utilizes all the threads. If you run the test, you could see some threads being empty and won't provide accurate throughput results.
    > To check your application file transfer performance, use multi-thread by increasing the # of thread in succession or decrease in order to find the optimal throughput of the application or file transfer.
 
 * Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
@@ -255,7 +255,7 @@ You can check latency by using the following tools:
 
 If you notice a high latency spike at any of the hops before entering MS Network backbone, you may want to proceed with further investigations with your Internet Service Provider.
 
-If a large, unusual latency spike is noticed from hops within ��msn.net��, please contact MS support for further investigations.
+If a large, unusual latency spike is noticed from hops within "msn.net", please contact MS support for further investigations.
 
 ## Next steps
 
