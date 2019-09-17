@@ -3,17 +3,18 @@ title: Azure Service Fabric CLI- sfctl rpm| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl rpm commands.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: Jeffrey-Jarry
 manager: chackdan
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
+ms.date: 9/17/2019
+ms.author: jejarry
 
 ---
 
@@ -82,7 +83,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 |Argument|Description|
 | --- | --- |
 | --executor-filter | The name of the repair executor whose claimed tasks should be included in the list. |
-| --state-filter | A bitwise-OR of the following values, specifying which task states should be included in the result list. <br> 1 - Created <br>2   - Claimed  <br>4   - Preparing  <br>8  - Approved  <br>16   - Executing  <br>32   - Restoring  <br>64 - Completed |
+| --state-filter | A bitwise-OR of the following values, specifying which task states should be included in the result list. - 1  <br> - Created - 2  <br> - Claimed - 4  <br> - Preparing - 8  <br> - Approved - 16  <br> - Executing - 32  <br> - Restoring - 64 - Completed. |
 | --task-id-filter | The repair task ID prefix to be matched. |
 
 ### Global Arguments
@@ -97,5 +98,5 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 
 
 ## Next steps
-- [Set up](service-fabric-cli.md) the Service Fabric CLI.
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

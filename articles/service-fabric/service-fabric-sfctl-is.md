@@ -3,17 +3,18 @@ title: Azure Service Fabric CLI- sfctl is | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl is commands.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: Jeffrey-Jarry
 manager: chackdan
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
+ms.date: 9/17/2019
+ms.author: jejarry
 
 ---
 
@@ -38,7 +39,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
 | --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -61,7 +62,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
 | --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 

@@ -3,17 +3,18 @@ title: Azure Service Fabric CLI- sfctl store | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl store commands.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: Jeffrey-Jarry
 manager: chackdan
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
+ms.date: 9/17/2019
+ms.author: jejarry
 
 ---
 
@@ -38,7 +39,7 @@ Deletes existing image store content being found within the given image store re
 |Argument|Description|
 | --- | --- |
 | --content-path [Required] | Relative path to file or folder in the image store from its root. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -59,7 +60,7 @@ Returns the information about the image store content at the root of the image s
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -81,7 +82,7 @@ Returns the information about the image store content at the specified contentPa
 |Argument|Description|
 | --- | --- |
 | --content-path [Required] | Relative path to file or folder in the image store from its root. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 

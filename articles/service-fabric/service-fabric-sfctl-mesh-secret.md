@@ -3,17 +3,18 @@ title: Azure Service Fabric CLI- sfctl mesh secret | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl mesh secret commands.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: Jeffrey-Jarry
 manager: chackdan
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
+ms.date: 9/17/2019
+ms.author: jejarry
 
 ---
 
@@ -37,7 +38,7 @@ Deletes the specified Secret resource and all of its named values.
 
 |Argument|Description|
 | --- | --- |
-| --name -n [Required] | The name of the secret. |
+| --name -n [Required] | The name of the secret resource. |
 
 ### Global Arguments
 
@@ -73,7 +74,7 @@ Gets the information about the Secret resource with the given name. The informat
 
 |Argument|Description|
 | --- | --- |
-| --name -n [Required] | The name of the secret. |
+| --name -n [Required] | The name of the secret resource. |
 
 ### Global Arguments
 

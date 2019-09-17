@@ -3,17 +3,18 @@ title: Azure Service Fabric CLI- sfctl container | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl container commands.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: Jeffrey-Jarry
 manager: chackdan
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
+ms.date: 9/17/2019
+ms.author: jejarry
 
 ---
 
@@ -25,7 +26,7 @@ Run container related commands on a cluster node.
 |Command|Description|
 | --- | --- |
 | invoke-api | Invoke container API on a container deployed on a Service Fabric node for the given code package. |
-| logs | Gets the container logs for container deployed on a Service Fabric node for the given code package. |
+| logs | Gets the container logs for container deployed on a Service Fabric node. |
 
 ## sfctl container invoke-api
 Invoke container API on a container deployed on a Service Fabric node for the given code package.
@@ -43,7 +44,7 @@ Invoke container API on a container deployed on a Service Fabric node for the gi
 | --container-api-body | HTTP request body for container REST API. |
 | --container-api-content-type | Content type for container REST API, defaults to 'application/json'. |
 | --container-api-http-verb | HTTP verb for container REST API, defaults to GET. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
@@ -56,7 +57,7 @@ Invoke container API on a container deployed on a Service Fabric node for the gi
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl container logs
-Gets the container logs for container deployed on a Service Fabric node for the given code package.
+Gets the container logs for container deployed on a Service Fabric node.
 
 ### Arguments
 
@@ -68,7 +69,7 @@ Gets the container logs for container deployed on a Service Fabric node for the 
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
 | --tail | Number of lines to show from the end of the logs. Default is 100. 'all' to show the complete logs. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 
 ### Global Arguments
 
