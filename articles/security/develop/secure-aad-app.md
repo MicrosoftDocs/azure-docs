@@ -4,7 +4,7 @@ description: This simple sample app implements security best practices that impr
 keywords: na
 services: security
 documentationcenter: na
-author: v-fehase
+author: fehase
 manager: alclabo
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
+ms.author: fehase
 ---
 # Develop secure app for an Azure AD app
 ## Overview
@@ -35,7 +35,7 @@ In developing and deploying this app, you'll learn how to
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
-## Architecture diagram and components
+## architecture
 The app is a typical n-tier application with three tiers. The front end, back end, and database layer with monitoring and secret-management components integrated are shown here:
 
 ![App architecture](./media/secure-aad-app/architecture.png)
@@ -67,7 +67,17 @@ Some sample threats and potential vulnerabilities that the threat modeling tool 
 
 ![Threat model output](./media/secure-aad-app/threat-model-output.png)
 
-You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/free/) to test the sample app.
+### Prerequisites
+To get the application up and running, you need to install these tools:
+
+- A code editor to modify and view the application code.[Visual Studio Code](https://code.visualstudio.com/) is an open source option.
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) on your development computer.
+- [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
+- [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
+
+You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/) to test the sample app.
+
+After installing these tools, you’re ready to deploy the app on Azure.
 
 ### Implementation guidance
 The deployment script is one script that can be broken down into four phases. Each phase deploys and configures an Azure resource that's in the [architecture diagram](#architecture).
@@ -333,8 +343,7 @@ Now that you've enabled the virtual network integration, you can add network sec
     *Add rules for Azure Service Health probes (App Service Environment only)*
 
 To limit the attack surface, modify the App Service network settings to allow only the application gateway to access the application.
-To apply the settings go to App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service.
-
+To apply the settings, go to App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service
 You can retrieve the IP address of the gateway from its overview page. On the **IP Address CIDR** tab, enter the IP address in this format: `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Allow only the gateway](./media/secure-web-app/app-allow-gw-only.png)
