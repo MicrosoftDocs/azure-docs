@@ -242,9 +242,9 @@ In order to present the fewest number of prompts to the user, you will typically
 Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
 
 * The first time users sign in to the application
-* If a user resets their password, they will need to enter their credentials 
-* If consent is revoked 
-* If your app explicitly requires consent 
+* If a user resets their password, they will need to enter their credentials
+* If consent is revoked
+* If your app explicitly requires consent
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
@@ -486,7 +486,7 @@ This is the configuration file for a MSAL app that uses multiple accounts.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
-Note that unlike the [auth_config_single_account.json](#auth-config-single-account.json) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
+Note that unlike the [auth_config_single_account.json](#auth_config_single_accountjson) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 
 ```json
 {

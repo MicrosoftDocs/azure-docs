@@ -26,7 +26,7 @@ This article highlights changes you need to make to migrate an app that uses the
 
 ## Difference highlights
 
-ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform which was formerly known as the Azure Active Directory v2.0 endpoint.
+ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform, which was formerly known as the Azure Active Directory v2.0 endpoint.
 
 The Microsoft identity platform differs from Azure Active Directory v1.0 in that it:
 
@@ -42,7 +42,7 @@ The Microsoft identity platform differs from Azure Active Directory v1.0 in that
 The MSAL public API reflects introduces important usability changes, including:
 
 - New model for accessing tokens:
-  - ADAL provides access to tokens via the `AuthenticationContext`, which represents the server. MSAL provides access to tokens via the `PublicClientApplication`, which represents the client. Client developers don't need to create a new `PublicClientApplication` instance for every Authority they need to interact with. Only one `PublicClientApplication` configuration should ever be required.
+  - ADAL provides access to tokens via the `AuthenticationContext`, which represents the server. MSAL provides access to tokens via the `PublicClientApplication`, which represents the client. Client developers don't need to create a new `PublicClientApplication` instance for every Authority they need to interact with. Only one `PublicClientApplication` configuration is required.
   - Support for requesting access tokens using scopes in addition to resource identifiers.
   - Support for incremental consent. Developers can request scopes, including those not included during app registration.
   - Authority Validation -> Known Authorities
@@ -85,7 +85,7 @@ Organization administrators can consent to permissions your application requires
 
 ### Authenticate and request authorization for all permissions on first use
 
-If you are currently using ADAL and don't need to use incremental consent, the simplest way to start using MSAL is to make an `acquireToken` request using the new `AcquireTokenParameter` object and setting the resource id value.
+If you are currently using ADAL and don't need to use incremental consent, the simplest way to start using MSAL is to make an `acquireToken` request using the new `AcquireTokenParameter` object and setting the resource ID value.
 
 > [!CAUTION]
 > It's not possible to set both scopes and a resource id. Attempting to set both will result in an `IllegalArgumentException`.
@@ -96,7 +96,7 @@ If you are currently using ADAL and don't need to use incremental consent, the s
 
 To take advantage of incremental consent, you'll need to make a list of permissions (scopes) that your app uses from your app registration, and then organize them into two lists based on:
 
-- Which scopes you want to request during the user's first interaction with your app during sign in.
+- Which scopes you want to request during the user's first interaction with your app during sign-in.
 - The permissions that are associated with an important feature of your app that you will also need to explain to the user.
 
 Once you've organized the scopes, you'll need to organize each list by which resource (API) you want to request a token for. As well as any other scopes that you wish the user to authorize at the same time.
@@ -104,7 +104,7 @@ Once you've organized the scopes, you'll need to organize each list by which res
 The parameters object used to make your request to MSAL supports:
 
 - `Scope`: The list of scopes that you want to request authorization for and receive an access token.
-- `ExtraScopesToConsent`: An additional list of scopes that you want to request authorization for while you're requesting an access token for another resource. This list of scopes allows you to minimize the number of times that you need to request user authorization which means fewer user authorization or consent prompts.
+- `ExtraScopesToConsent`: An additional list of scopes that you want to request authorization for while you're requesting an access token for another resource. This list of scopes allows you to minimize the number of times that you need to request user authorization. Which means fewer user authorization or consent prompts.
 
 ## Migrate from AuthenticationContext to PublicClientApplications
 
@@ -112,13 +112,13 @@ The parameters object used to make your request to MSAL supports:
 
 When you use MSAL, you instantiate a `PublicClientApplication`. This object models your app identity and is used to make requests to one or more authorities. With this object you will configure your client identity, redirect URI, default authority, whether to use the device browser vs. embedded web view, the log level, and more.
 
-You can declaratively configure this object with JSON which you either provide as a file or store as a resource within your APK.
+You can declaratively configure this object with JSON, which you either provide as a file or store as a resource within your APK.
 
 Although this object is not a singleton, internally it uses shared `Executors` for both interactive and silent requests.
 
 ### Business to Business
 
-In ADAL, every organization that you request access tokens from requires a separate instance of the `AuthenticationContext`. In MSAL, this is no longer a requirement. You can simply specify the authority from which you want to request a token as part of your silent or interactive request.
+In ADAL, every organization that you request access tokens from requires a separate instance of the `AuthenticationContext`. In MSAL, this is no longer a requirement. You can specify the authority from which you want to request a token as part of your silent or interactive request.
 
 ### Migrate from authority validation to known authorities
 
@@ -135,23 +135,23 @@ If you attempt to use an authority that isn't known to Microsoft, and isn't incl
 
 ## Migrate from UserInfo to Account
 
-In ADAL the `AuthenticationResult` provides a `UserInfo` object used to retrieve information about the authenticated account. The term "user", which meant a human or software agent, was applied in a way that made it difficult to communicate that some apps support a single user (whether a human or software agent) that has  multiple accounts.
+In ADAL, the `AuthenticationResult` provides a `UserInfo` object used to retrieve information about the authenticated account. The term "user", which meant a human or software agent, was applied in a way that made it difficult to communicate that some apps support a single user (whether a human or software agent) that has  multiple accounts.
 
-Consider a bank account. You may have more than one account at perhaps more than one financial institutions. When you open an account, you (the user) are issued credentials, such as an ATM Card & PIN, that are used to access your balance, bill payments, and so on for each account. Those credentials can only be used at the financial institution that issued them.
+Consider a bank account. You may have more than one account at more than one financial institution. When you open an account, you (the user) are issued credentials, such as an ATM Card & PIN, that are used to access your balance, bill payments, and so on, for each account. Those credentials can only be used at the financial institution that issued them.
 
 By analogy, like accounts at a financial institution, accounts in the Microsoft identity platform are accessed using credentials. Those credentials are either registered with, or issued by, Microsoft. Or by Microsoft on behalf of an organization.
 
-Where the Microsoft identity platform differs from a financial institution, in this analogy, is that the Microsoft identity platform provides a framework that allows a user to use one account, and its associated credentials, to access resources that belong to multiple individuals and organizations. This is like being able to use a card issued by one bank, at yet another financial institution. This works because all of the organizations in question are using the Microsoft identity platform which allows one account to be used across multiple organizations. Here's an example:
+Where the Microsoft identity platform differs from a financial institution, in this analogy, is that the Microsoft identity platform provides a framework that allows a user to use one account, and its associated credentials, to access resources that belong to multiple individuals and organizations. This is like being able to use a card issued by one bank, at yet another financial institution. This works because all of the organizations in question are using the Microsoft identity platform, which allows one account to be used across multiple organizations. Here's an example:
 
-Sam works for Contoso.com but manages Azure virtual machines that belong to Fabrikam.com. For Sam to manage Fabrikam's virtual machines, he needs to be authorized to access them. This access can be granted by adding Sam's account to Fabrikam.com, and granting his account a role that allows him to work with the virtual machines. This would be done with the Azure Portal.
+Sam works for Contoso.com but manages Azure virtual machines that belong to Fabrikam.com. For Sam to manage Fabrikam's virtual machines, he needs to be authorized to access them. This access can be granted by adding Sam's account to Fabrikam.com, and granting his account a role that allows him to work with the virtual machines. This would be done with the Azure portal.
 
-Adding Sam's Contoso.com account as a member of Fabrikam.com would result in the creation of a new record in Fabrikam.com's Azure Active Directory for Sam. Sam's record in Azure Active Directory is known as a user object. In this case, that user object would point back to Sam's user object in Contoso.com. Sam's Fabrikam user object is the local representation of Sam, and would be used to store information about the account associated with Sam in the context of Fabrikam.com. In Contoso.com, Sam's title is Senior DevOps Consultant. In Fabrikam, Sam's title is Contractor-Virtual Machines. In Contoso.com, Sam is not responsible, nor authorized, to manage virtual machines. In Fabrikam.com, that's his only job function. Yet Sam still only has one set of credentials to keep track off, which are the credentials issued by Contoso.com.
+Adding Sam's Contoso.com account as a member of Fabrikam.com would result in the creation of a new record in Fabrikam.com's Azure Active Directory for Sam. Sam's record in Azure Active Directory is known as a user object. In this case, that user object would point back to Sam's user object in Contoso.com. Sam's Fabrikam user object is the local representation of Sam, and would be used to store information about the account associated with Sam in the context of Fabrikam.com. In Contoso.com, Sam's title is Senior DevOps Consultant. In Fabrikam, Sam's title is Contractor-Virtual Machines. In Contoso.com, Sam is not responsible, nor authorized, to manage virtual machines. In Fabrikam.com, that's his only job function. Yet Sam still only has one set of credentials to keep track of, which are the credentials issued by Contoso.com.
 
-Once a successful `acquireToken` call is made, you will see a reference to an `IAccount` object that can be used in subsequent `acquireTokenSilent` requests.
+Once a successful `acquireToken` call is made, you will see a reference to an `IAccount` object that can be used in later `acquireTokenSilent` requests.
 
 ### IMultiTenantAccount
 
-If you have an app that accesses claims regarding an account from each of the tenants in which the account is represented, you can cast `IAccount` objects to `IMultiTenantAccount`. This interface provides a map of `ITenantProfiles`, keyed by tenant ID, that allow you to access the claims that belong to the account in each of the tenants you have requested a token from, relative to the current account.
+If you have an app that accesses claims about an account from each of the tenants in which the account is represented, you can cast `IAccount` objects to `IMultiTenantAccount`. This interface provides a map of `ITenantProfiles`, keyed by tenant ID, that allows you to access the claims that belong to the account in each of the tenants you've requested a token from, relative to the current account.
 
 > NOTE: The claims at the root of the `IAccount` and `IMultiTenantAccount` always contains the claims from the home tenant. If you have not yet made a request for a token within the home tenant, this collection will be empty.
 
@@ -209,8 +209,8 @@ public interface AuthenticationCallback {
 
 ## Migrate to the new exceptions
 
-In ADAL there is one type of exception, `AuthenticationException`, which includes a method for retrieving the `ADALError` enum value.
-In MSAL, there is a hierarchy of exceptions, and each has its own set of associated specific error codes.
+In ADAL, there's one type of exception, `AuthenticationException`, which includes a method for retrieving the `ADALError` enum value.
+In MSAL, there's a hierarchy of exceptions, and each has its own set of associated specific error codes.
 
 TODO: Insert hierarchy of Exceptions
 
