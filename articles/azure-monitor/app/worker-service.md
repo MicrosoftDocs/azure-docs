@@ -27,7 +27,7 @@ The new SDK does not do any telemetry collection by itself. Instead, it brings i
 
 ## Supported scenarios
 
-The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced .NET Core 3.0 Worker Service, [background tasks in Asp.Net Core 2.1/2.2](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), Console apps (.NET Core/ .NET Framework) etc.
+The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced (.NET Core 3.0 Worker Service)[https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances/], [background tasks in Asp.Net Core 2.1/2.2](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), Console apps (.NET Core/ .NET Framework) etc.
 
 ## Prerequisites
 

@@ -217,7 +217,7 @@ You can still use the old provider. (It will be removed only in a major version 
 ## Console application
 
 > [!NOTE]
-> There is a new beta Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from (here)[../../azure-monitor/app/dotnet-core-worker-service.md]. 
+> There is a new beta Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from (here)[../../azure-monitor/app/worker-service.md]. 
 The following example will be deprecated once stable version of this new package is released.
 
 The following code shows a sample console application that's configured to send ILogger traces to Application Insights.
