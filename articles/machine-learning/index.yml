@@ -56,7 +56,9 @@ landingContent:
           - text: Classify images 
             url: service/tutorial-train-models-with-aml.md                     
           - text: Predict taxi fares with automated ML
-            url: service/tutorial-auto-train-models.md   
+            url: service/tutorial-auto-train-models.md 
+          - text: Use pipelines for batch scoring
+            url: service/tutorial-pipeline-batch-scoring-classification.md   
       - linkListType: how-to-guide
         links:
           - text: Train with Scikit-learn

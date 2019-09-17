@@ -141,5 +141,5 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
 ## Next steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
+* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-overview.md)?
 * To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).

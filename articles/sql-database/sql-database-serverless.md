@@ -126,7 +126,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
 |Data masking|Adding, modifying, deleting, or viewing data masking rules|
 |Transparent data encryption|View state or status of transparent data encryption|
-|Query (performance) data store|Modifying or viewing query store settings; automatic tuning|
+|Query (performance) data store|Modifying or viewing query store settings|
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|

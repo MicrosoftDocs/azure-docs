@@ -75,7 +75,7 @@ sections:
   - type: list
     style: cards
     className: cardsM
-    columns: 3
+    columns: 2
     items:
       - href: /azure/sql-database/sql-database-single-index
         html: <p>Use a single database managed by a SQL Database server for your SaaS applications and microservices that need a single database with predictable performances.</p>
@@ -92,6 +92,11 @@ sections:
         image:
           src: media/index/i_mi.svg
         title: Managed instance
+      - href: /azure/sql-database/sql-database-instance-pools
+        html: <p>Use managed instance pools as a simple and cost-effective solution for deploying multiple managed instances that share resources and quickly scale.</p>
+        image:
+          src: media/index/i_instancepool.png
+        title: Instance pool
 
 - title: 5-Minute Quickstarts
   items:
@@ -131,6 +136,12 @@ sections:
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+      - title: Create instance pool
+        values:
+          - href:
+          - href:
+          - href: /azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool
+          - href:
 - title: Step-by-Step Tutorials and learning materials
   items:
   - type: paragraph
