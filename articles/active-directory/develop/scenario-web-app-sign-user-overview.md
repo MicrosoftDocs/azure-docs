@@ -52,7 +52,7 @@ As a second phase you can also enable your application to call Web APIs on behal
 
 ## Specifics
 
-- During the application registration, you'll need to provide one, or several (if you deploy your app to several locations) Reply URIs. In some cases (ASP.NET/ASP.NET Core), you'll need to enable the IDToken. Finally you'll want to set up a sign-out URI so that your application reacts to users signing-out.
+- During the application registration, you'll need to provide one, or several (if you deploy your app to several locations) Reply URIs. In some cases (ASP.NET/ASP.NET Core), you'll need to enable the ID token. Finally you'll want to set up a sign-out URI so that your application reacts to users signing-out.
 - In the code for your application, you'll need to provide the authority to which you web app delegates sign-in. You might want to customize token validation (in particular in ISV scenarios).
 - Web applications support any account types. For more info, see [Supported account types](v2-supported-account-types.md).
 
