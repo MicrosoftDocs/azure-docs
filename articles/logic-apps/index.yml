@@ -41,8 +41,8 @@ landingContent:
         links:
           - text: Introducing Azure Logic Apps
             url: https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps
-          - text: Integration with Logic Apps
-            url: https://channel9.msdn.com/Events/Build/2017/C9R17
+          - text: Azure Logic Apps - Code & API free integration
+            url: https://www.youtube.com/watch?v=Z3qaBQS0w20
 
   # Card (optional)
   - title: Get started
