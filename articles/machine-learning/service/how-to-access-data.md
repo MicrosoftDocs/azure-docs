@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. Using datastores allows you to access your storage without having to hard code connection information in your scripts.
 
-This how-to shows example of the following tasks:
+This how-to shows examples of the following tasks:
 * [Register datastores](#access)
 * [Get datastores from workspace](#get)
 * [Upload and download data using datastores](#up-and-down)
