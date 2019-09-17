@@ -179,17 +179,17 @@ Any backend endpoint which has achieved a healthy state is eligible for receivin
 
 New TCP connections will succeed to remaining healthy backend endpoint.
 
-If a backend instance's health probe fails, established TCP connections to this backend instance continue.
+If a backend endpoint's health probe fails, established TCP connections to this backend endpoint continue.
 
 If all probes for all instances in a backend pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue.  Basic Load Balancer will terminate all existing TCP flows to the backend pool.
  
-Load Balancer is a pass through service (does not terminate TCP connections) and the flow is always between the client and the VM's guest OS and application. A pool with all probes down will cause a frontend to not respond to TCP connection open attempts (SYN) as there is no healthy backend instance to receive the flow and respond with an SYN-ACK.
+Load Balancer is a pass through service (does not terminate TCP connections) and the flow is always between the client and the VM's guest OS and application. A pool with all probes down will cause a frontend to not respond to TCP connection open attempts (SYN) as there is no healthy backend endpoint to receive the flow and respond with an SYN-ACK.
 
 ### UDP datagrams
 
-UDP datagrams will be delivered to healthy backend instances.
+UDP datagrams will be delivered to healthy backend endpoints.
 
-UDP is connectionless and there is no flow state tracked for UDP. If any backend instance's health probe fails, existing UDP flows may move to another healthy instance in the backend pool.
+UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows may move to another healthy instance in the backend pool.
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
@@ -210,15 +210,15 @@ In addition to Load Balancer health probes, the [following operations use this I
 
 Health probes are used to make your service resilient and allow it to scale. A misconfiguration or bad design pattern can impact the availability and scalability of your service. Review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
 
-When you design the health model for your application, you should probe a port on a backend instance that reflects the health of that instance __and__ the application service you are providing.  The application port and the probe port are not required to be the same.  In some scenarios, it may be desirable for the probe port to be different than the port your application provides service on.  
+When you design the health model for your application, you should probe a port on a backend endpoint that reflects the health of that instance __and__ the application service you are providing.  The application port and the probe port are not required to be the same.  In some scenarios, it may be desirable for the probe port to be different than the port your application provides service on.  
 
 Sometimes it can be useful for your application to generate a health probe response to not only detect your application health, but also signal directly to Load Balancer whether your instance should receive or not receive new flows.  You can manipulate the probe response to allow your application to create backpressure and throttle delivery of new flows to an instance by failing the health probe or prepare for maintenance of your application and initiate draining your scenario.  When using Standard Load Balancer, a [probe down](#probedown) signal will always allow TCP flows to continue until idle timeout or connection closure. 
 
-For UDP load balancing, you should generate a custom health probe signal from the backend instance and use either a TCP, HTTP, or HTTPS health probe targeting the corresponding listener to reflect the health of your UDP application.
+For UDP load balancing, you should generate a custom health probe signal from the backend endpoint and use either a TCP, HTTP, or HTTPS health probe targeting the corresponding listener to reflect the health of your UDP application.
 
 When using [HA Ports load-balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.
 
-Do not translate or proxy a health probe through the instance that receives the health probe to another instance in your VNet as this  configuration can lead to cascading failures in your scenario.  Consider the following scenario: a set of third-party appliances is deployed in the backend pool of a Load Balancer resource to provide scale and redundancy for the appliances and the health probe is configured to probe a port that the third-party appliance proxies or translates to other virtual machines behind the appliance.  If you probe the same port you are using to translate or proxy requests to the other virtual machines behind the appliance, any probe response from a single virtual machine behind the appliance will mark the appliance itself dead. This configuration can lead to a cascading failure of the entire application scenario as a result of a single backend instance behind the appliance.  The trigger can be an intermittent probe failure that will cause Load Balancer to mark down the original destination (the appliance instance) and in turn can disable your entire application scenario. Probe the health of the appliance itself instead. The selection of the probe to determine the health signal is an important consideration for network virtual appliances (NVA) scenarios and you must consult your application vendor for what the appropriate health signal is for such scenarios.
+Do not translate or proxy a health probe through the instance that receives the health probe to another instance in your VNet as this  configuration can lead to cascading failures in your scenario.  Consider the following scenario: a set of third-party appliances is deployed in the backend pool of a Load Balancer resource to provide scale and redundancy for the appliances and the health probe is configured to probe a port that the third-party appliance proxies or translates to other virtual machines behind the appliance.  If you probe the same port you are using to translate or proxy requests to the other virtual machines behind the appliance, any probe response from a single virtual machine behind the appliance will mark the appliance itself dead. This configuration can lead to a cascading failure of the entire application scenario as a result of a single backend endpoint behind the appliance.  The trigger can be an intermittent probe failure that will cause Load Balancer to mark down the original destination (the appliance instance) and in turn can disable your entire application scenario. Probe the health of the appliance itself instead. The selection of the probe to determine the health signal is an important consideration for network virtual appliances (NVA) scenarios and you must consult your application vendor for what the appropriate health signal is for such scenarios.
 
 If you don't allow the [source IP](#probesource) of the probe in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This misconfiguration can cause your load balanced application scenario to fail.
 
@@ -234,7 +234,7 @@ Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling T
 
 ## Monitoring
 
-Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend instance health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
+Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
 
 Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  Azure Monitor logs are not available for internal Basic Load Balancers.  You can use [Azure Monitor logs](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
 
