@@ -6,14 +6,38 @@
     href: overview-what-is.md
   - name: Who can benefit from Arcadia
     href: overview-who-can-benefit-from-arcadia.md
+#  - name: Cheat sheet 
+#    href: article-template.md
+#  - name: FAQ
+#    href: article-template.md
 - name: Release notes
   items:
-- name: Quick starts
+  - name: Recent release
+    href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/arcadia/toc.json
+- name: Quickstarts
   items:
-  - name: Getting started
+  - name: Create a workspace
+    href: quickstart-create-a-workspace.md
+  - name: Create pools
     items:
-    - name: Create a workspace
-      href: quickstart-create-a-workspace.md
+#    - name: Create SQL Analytics pool
+#    href: article-template.md
+#    - name: Create Spark pool template
+#    href: article-template.md
+  - name: Ingest data into Data Lake
+#    href: article-template.md
+  - name: Ingest data into SQL Analytics pool
+#    href: article-template.md
+  - name: Browse data using workspace
+#    href: article-template.md
+  - name: Analyse and Visualize data
+    items:
+    - name: With Spark
+#    href: article-template.md
+    - name: With SQL Analytics pool
+#    href: article-template.md
+    - name: With SQL on-demand
+#    href: article-template.md
 - name: Tutorials
   items:
 #  - name: BI Professional
@@ -22,14 +46,22 @@
     items:
     - name: Predict food inspection results
       href: tutorial-predict-food-inspection-results.md 
-#- name: Concepts
-#  items:
-#- name: How to
-#  items:
-#- name: Reference
-#  items:
-#- name: Resources
-#  items:
+    - name: Analyze website logs
+      href: article-template.md
+    - name: use Tensorflow for deep learning
+      href: article-template.md
+    - name: Use Torch for deep learning
+      href: article-template.md
+  - name: Data Engineer
+    items:
+    - name: Data Preparation
+      href: article-template.md
+  - name: Data Analyst
+    href: article-template.md
+  - name: IT Administrator
+    href: article-template.md0.
+     
+
 
 
 
