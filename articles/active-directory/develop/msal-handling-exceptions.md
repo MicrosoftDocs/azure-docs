@@ -52,6 +52,7 @@ For example, `MSALInternalErrorBrokerResponseNotReceived` means that user didn't
 
 The following Objective-C sample code demonstrates best practices for handling some common error conditions:
 
+Objective-C
 ```ObjC
     MSALInteractiveTokenParameters *interactiveParameters = ...;
     MSALSilentTokenParameters *silentParameters = ...;
@@ -65,7 +66,6 @@ The following Objective-C sample code demonstrates best practices for handling s
         {
             // Use result.accessToken
             NSString *accessToken = result.accessToken;
-            NSLog(@"accessToken: %@", accessToken);
             return;
         }
         
@@ -94,15 +94,6 @@ The following Objective-C sample code demonstrates best practices for handling s
                                                   completionBlock:weakCompletionBlock];
                     
                     // Otherwise, instead, handle error fittingly to the application context
-                    break;
-                }
-                    
-                case MSALErrorWorkplaceJoinRequired:
-                {
-                    // You may want to ask the user to work place join the device
-                    // (open Authenticator app -> Settings -> Device Registration).
-                    // Handling of this error is optional.
-                    
                     break;
                 }
                     
@@ -157,6 +148,93 @@ The following Objective-C sample code demonstrates best practices for handling s
         // or reporting authentication problems to the user.
         NSLog(@"Failed with error %@", error);
     };
+    
+    // Acquire token silently
+    [application acquireTokenSilentWithParameters:silentParameters
+                                  completionBlock:completionBlock];
+
+     // or acquire it interactively.
+     [application acquireTokenWithParameters:interactiveParameters
+                             completionBlock:completionBlock];
+```
+
+Swift
+```swift
+    let interactiveParameters: MSALInteractiveTokenParameters = ...
+    let silentParameters: MSALSilentTokenParameters = ...
+            
+    var completionBlock: MSALCompletionBlock!
+    completionBlock = { (result: MSALResult?, error: Error?) in
+                
+        if let result = result
+        {
+            // Use result.accessToken
+            let accessToken = result.accessToken
+            return
+        }
+
+        guard let error = error as NSError? else { return }
+
+        if error.domain == MSALErrorDomain, let errorCode = MSALError(rawValue: error.code)
+        {
+            switch errorCode
+            {
+                case .interactionRequired:
+                    // Interactive auth will be required
+                    application.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
+
+                case .serverDeclinedScopes:
+                    let grantedScopes = error.userInfo[MSALGrantedScopesKey]
+                    let declinedScopes = error.userInfo[MSALDeclinedScopesKey]
+
+                    if let scopes = grantedScopes as? [String] {
+                        silentParameters.scopes = scopes
+                        application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
+                    }
+                        
+                    case .serverProtectionPoliciesRequired:
+                        // Integrate the Intune SDK and call the
+                        // remediateComplianceForIdentity:silent: API.
+                        // Handle this error only if you integrated Intune SDK.
+                        // See more info here: https://aka.ms/intuneMAMSDK
+                        break
+                        
+                    case .userCanceled:
+                       // The user cancelled the web auth session.
+                       // You may want to ask the user to try again.
+                       // Handling of this error is optional.
+                       break
+                        
+                    case .internal:
+                        // Log the error, then inspect the MSALInternalErrorCodeKey
+                        // in the userInfo dictionary.
+                        // Display generic error message to the end user
+                        // More detailed information about the specific error
+                        // under MSALInternalErrorCodeKey can be found in MSALInternalError enum.
+                        print("Failed with error \(error)");
+                        
+                    default:
+                        print("Failed with unknown MSAL error \(error)")
+            }
+        }
+                
+        // Handle no internet connection.
+        if error.domain == NSURLErrorDomain && error.code == NSURLErrorNotConnectedToInternet
+        {
+            print("No internet connection.")
+            return
+        }
+                
+        // Other errors may require trying again later,
+        // or reporting authentication problems to the user.
+        print("Failed with error \(error)");    
+    }
+   
+    // Acquire token silently
+    application.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
+ 
+    // or acquire it interactively.
+    application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
 ## .NET exceptions
@@ -299,11 +377,7 @@ The following error types are available:
 
 - `InteractionRequiredAuthError`: Error class, extends `ServerError` to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include `"interaction_required"`, `"login_required"`, and `"consent_required"`.
 
-<<<<<<< HEAD
-For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method, as follows:
-=======
 For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
->>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 ```javascript
 function authCallback(error, response) {
@@ -330,7 +404,6 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### Interaction required, errors
 
-<<<<<<< HEAD
 An error is returned when you attempt to use a non-interactive method of acquiring a token such as `acquireTokenSilent`, but MSAL couldn't do it silently.
 
 Possible reasons are:
@@ -338,15 +411,6 @@ Possible reasons are:
 - you need to sign in
 - you need to consent
 - you need to go through a multi-factor authentication experience.
-=======
-An error is returned, when you attempt to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`) and MSAL couldn't do it silently.
-
-Possible reasons are:
-
-* the user needs to sign in
-* the user needs to consent
-* the user needs to go through a multi-factor authentication experience.
->>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 The remediation is to call an interactive method such as `acquireTokenPopup` or `acquireTokenRedirect`:
 
@@ -371,10 +435,8 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## Conditional Access and claims challenges
-<<<<<<< HEAD
-=======
+
 When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
->>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
@@ -389,12 +451,8 @@ When calling an API requiring Conditional Access from MSAL.NET, your application
 To handle the claim challenge, you'll need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
 
 ### JavaScript
-<<<<<<< HEAD
 
-When using `acquireTokenSilent` to get tokens silently with MSAL.js, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
-=======
 When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
->>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 
@@ -438,21 +496,12 @@ You're expected to implement you own retry policies when calling MSAL. MSAL make
 MSAL.NET implements a simple retry-once mechanism for errors with HTTP error codes 500-600.
 
 ### HTTP 429
-<<<<<<< HEAD
 
 When the Service Token Server (STS) is overloaded with too many requests, it returns HTTP error 429 with a hint about how long until you can try again in the `Retry-After` response field.
 
 ### .NET
 
 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can use additional information from the error code to improve the reliability of your applications. In the case described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.
-=======
-
-When the Service Token Server (STS) is overloaded with too many requests, it returns an HTTP error 429 with a hint about when you can try again in terms of time. The error can be read from `Retry-After` response field.
-
-#### .NET
-
-The [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) exception surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can therefore leverage additional information from the error code to improve the reliability of your applications. In the case we just described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.
->>>>>>> 5a2b90ae915084746ccf69741ed8b60cdecd14c1
 
 Here is an example for a daemon application using the client credentials flow. You can adapt this to any of the methods for acquiring a token.
 

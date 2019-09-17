@@ -72,7 +72,7 @@ App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
 App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
-> The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris.md#msal-redirect-uri-format-requirements).
+> The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
 ### Setup keychain sharing between applications
 
@@ -96,6 +96,8 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 
 Once you have the keychain entitlement enabled in each of your applications, and you're ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
 
+Objective-C:
+
 ```objc
 NSError *error = nil;
 MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<my-client-id>"];
@@ -103,6 +105,22 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
     
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
+
+Swift:
+
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
+config.cacheConfig.keychainSharingGroup = "my.keychain.group"
+        
+do {
+	let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
+```
+
+
 
 > [!WARNING]
 > When you share a keychain across your applications, any application can delete users or even all of the tokens across your application.
@@ -138,13 +156,55 @@ The following steps are how you enable SSO using an authentication broker for yo
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
+    Objective-C:
+    
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
     {
         return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     }
     ```
+    
+    Swift:
+    
+    ```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+    }
+    ```
+    
+**If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate` file instead.
+If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback would need to be placed into both files.
 
+Objective-C:
+
+```objc
+ - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+ {
+     UIOpenURLContext *context = URLContexts.anyObject;
+     NSURL *url = context.URL;
+     NSString *sourceApplication = context.options.sourceApplication;
+     
+     [MSALPublicClientApplication handleMSALResponse:url sourceApplication:sourceApplication];
+ }
+```
+
+Swift:
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        guard let urlContext = URLContexts.first else {
+            return
+        }
+        
+        let url = urlContext.url
+        let sourceApp = urlContext.options.sourceApplication
+        
+        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
+    }
+```
+    
 ## Next steps
 
 Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

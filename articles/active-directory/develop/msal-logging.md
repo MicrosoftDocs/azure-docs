@@ -133,7 +133,8 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
 
 For example:
 
-```objective-c
+Objective-C
+```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
     {
         if (!containsPII)
@@ -146,18 +147,43 @@ For example:
     }];
 ```
 
-### Personal Identifiable Information (PII) & Organizational Identifiable Information (OII)
+Swift
+```swift
+MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
+    if let message = message, !containsPII
+    {
+#if DEBUG
+    // IMPORTANT: MSAL logs may contain sensitive information. Never output MSAL logs with NSLog, or print, directly unless you're running your application in debug mode. If you're writing MSAL logs to file, you must store the file securely.
+    print("MSAL log: \(message)")
+#endif
+    }
+}
+```
 
-By default, MSAL doesn't capture or log any PII or OII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII or OII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+### Personal Identifiable Information (PII)
 
-```Objective-C
-// By default, the `MSALLogger` doesn't capture any PII or OII
+By default, MSAL doesn't capture or log any PII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
 
-// PII or OII will be logged
+Objective-C
+```objc
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
 MSALGlobalConfig.loggerConfig.piiEnabled = YES;
 
-// PII or OII will NOT be logged
+// PII will NOT be logged
 MSALGlobalConfig.loggerConfig.piiEnabled = NO;
+```
+
+Swift
+```swift
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = true
+
+// PII will NOT be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = false
 ```
 
 ### Logging levels
@@ -174,8 +200,14 @@ To set the logging level when you log using MSAL for iOS and macOS, use one of t
 
 For example:
 
+Objective-C
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
+ ```
+ 
+ Swift
+```swift
+MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
 
 ### Log message format

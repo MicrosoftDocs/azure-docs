@@ -223,7 +223,7 @@
       items:
         - name: Overview
           href: msal-overview.md
-        - name: Migration
+        - name: Migration from ADAL
           items:
           - name: Migrate to MSAL.NET
             href: msal-net-migration.md
@@ -241,8 +241,6 @@
             href: msal-acquire-cache-tokens.md
           - name: Scopes for v1.0 apps
             href: msal-v1-app-scopes.md
-          - name: Token cache serialization (.NET)
-            href: msal-net-token-cache-serialization.md
         - name: Client applications
           items:
           - name: Client applications
@@ -259,12 +257,20 @@
           href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
-        - name: Single sign-on (JS)
-          href: msal-js-sso.md
-        - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md 
-        - name: ADFS support (.NET)
-          href: msal-net-adfs-support.md
+        - name: Single sign-on
+          items:
+          - name: Single sign-on with MSAL.js
+            href: msal-js-sso.md
+          - name: Single sign-on with MSAL for iOS and macOS
+            items:
+            - name: SSO between MSAL apps
+              href: single-sign-on-macos-ios.md
+            - name: SSO between ADAL and MSAL apps
+              href: sso-between-adal-msal-apps-macos-ios.md
+        - name: Integrate with ADFS
+          items:
+          - name: ADFS support in MSAL.NET
+            href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
           - name: JavaScript
@@ -272,7 +278,7 @@
           - name: .NET
             href: msal-net-aad-b2c-considerations.md
           - name: iOS and macOS
-            href: config-authority.md
+            href: config-authority.md#b2c
         - name: Considerations and known issues
           items:
             - name: MSAL.NET
@@ -287,6 +293,10 @@
                 href: msal-js-known-issues-ie-edge-browsers.md
               - name: Known issues- Safari 
                 href: msal-js-known-issues-safari-browser.md
+            - name: MSAL for iOS and macOS
+              items:
+              - name: SSL issues
+                href: ssl-issues.md
     - name: Authentication protocol
       items:
       - name: Application types and OAuth2.0
@@ -325,8 +335,6 @@
         href: active-directory-how-applications-are-added.md
       - name: Redirect URI/reply URL restrictions and limitations
         href: reply-url.md
-      - name: Redirect URI scenarios
-        href: redirect-uris.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
@@ -348,13 +356,6 @@
     items:
     - name: Authentication
       items:
-      - name: Configure single sign-on
-        displayName: SSO
-        items:
-        - name: Enable SSO on iOS and macOS 
-          href: single-sign-on-macos-ios.md
-        - name: SSO between ADAL and MSAL apps on iOS and macOS
-          href: sso-between-adal-msal-apps-macos-ios.md
       - name: Configure role claims
         href: active-directory-enterprise-app-role-management.md
       - name: Customize claims - Portal
@@ -391,6 +392,8 @@
           items:
             - name: Acquire a token from the cache
               href: msal-net-acquire-token-silently.md
+            - name: Token cache serialization
+              href: msal-net-token-cache-serialization.md
             - name: Clear the token cache
               href: msal-net-clear-token-cache.md
             - name: Instantiate a public client with options
@@ -406,7 +409,9 @@
             - name: Avoid page reloads
               href: msal-js-avoid-page-reloads.md
             - name: Pass custom state in authentication requests
-              href:  msal-js-pass-custom-state-authentication-request.md
+              href: msal-js-pass-custom-state-authentication-request.md
+            - name: Prompt behavior
+              href: msal-js-prompt-behavior.md 
         - name: MSAL for iOS and macOS
           items:
             - name: Microsoft Authentication Library for iOS and macOS differences
@@ -417,8 +422,8 @@
               href: customize-webviews.md
             - name: Request custom claims
               href: request-custom-claims.md
-            - name: Troubleshoot issues using MSAL for Objective-C
-              href: ssl-issues.md
+            - name: Redirect URI configuration
+              href: redirect-uris-ios.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
