@@ -79,7 +79,7 @@ To deploy your code to a function app, you will need to use the `Azure/functions
 |app-name | mandatory: that's the name of the azure function app |
 |slot-name | optional: that's the name of the slot you want to deploy to, it should already be created under `app-name` |
 
-There are a number of samples available under the [Azure Functions Action repo]{https://github.com/Azure/functions-action/tree/master/templates}, you can use these samples a starting point for your workflow.
+There are a number of samples available under the [Azure GitHub Actions workflow samples repo]{https://github.com/Azure/actions-workflow-samples}, you can use these samples a starting point for your workflow.
 
 ## Next steps
 
