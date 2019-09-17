@@ -1,5 +1,5 @@
 ---
-title: Bulk import to add users (preview) in the Azure Active Directory portal | Microsoft Docs
+title: Bulk create users (preview) in the Azure Active Directory portal | Microsoft Docs
 description: Add users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 author: curtand
@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk import users (preview) in Azure Active Directory
+# Bulk create users (preview) in Azure Active Directory
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
