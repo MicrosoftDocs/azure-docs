@@ -338,15 +338,19 @@ In the Azure portal, remove the identity from [your logic app](#disable-identity
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
 
-1. On the logic app menu, under **Settings**, select **Identity**.
+1. On the logic app menu, under **Settings**, select **Identity**, and follow the steps for your identity:
 
-   * System-assigned: Select **System assigned** > **Status** > **Off** > **Save** > **Yes**.
+   **System-assigned**
 
-     ![Stop using system-assigned identity](./media/create-managed-service-identity/turn-off-system-assigned-identity.png)
+   Select **System assigned** > **Status** > **Off** > **Save** > **Yes**.
 
-   * User-assigned: Select **User assigned** and the managed identity that you want to remove. Select **Remove**.
+   ![Stop using system-assigned identity](./media/create-managed-service-identity/turn-off-system-assigned-identity.png)
 
-     ![Stop using user-assigned identity](./media/create-managed-service-identity/turn-off-user-assigned-identity.png)
+   **User-assigned**
+
+   Select **User assigned** and the managed identity that you want to remove. Select **Remove**.
+
+   ![Stop using user-assigned identity](./media/create-managed-service-identity/turn-off-user-assigned-identity.png)
 
 The managed identity is now removed from your logic app.
 
