@@ -27,7 +27,7 @@ landingContent:
             url: https://aka.ms/terraform
 
   # Card
-  - title: Install and Configure Terraform
+  - title: Install and configure Terraform
     linkLists:
       - linkListType: tutorial
         links:
@@ -35,7 +35,7 @@ landingContent:
             url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
 
     # Card
-  - title: Use Terraform Tools
+  - title: Use Terraform tools
     linkLists:
       - linkListType: tutorial
         links:
@@ -47,7 +47,7 @@ landingContent:
             url: terratest-in-terraform-modules.md
             
   # Card
-  - title: Manage Infrastructure
+  - title: Manage infrastructure
     linkLists:
       - linkListType: tutorial
         links:
@@ -73,7 +73,7 @@ landingContent:
             url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
   # Card
-  - title: Manage Networks
+  - title: Manage networks
     linkLists:
       - linkListType: tutorial
         links:
