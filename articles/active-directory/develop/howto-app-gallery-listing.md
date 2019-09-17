@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2019
+ms.date: 09/16/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
@@ -45,12 +45,7 @@ This article shows how to list an application in the Azure AD application galler
 
 - For password SSO, please ensure that your application supports form authentication so that password vaulting can be done to get single sign-on work as expected.
 
-- For automatic user-provisioning requests, application should be listed in the gallery with single sign-on feature enabled using SAML 2.0/WS-Fed. You can request for SSO and User provisioning together on the portal, if it's not already listed.
-
 - Need a permanent account for testing with atleast 2 users registered.
-
-> [!NOTE]
-> We are running with high number of SCIM connector requests, so we have stopped taking new requests on our portal. Please hold on your requests until further notice. We apologize for this delay and any inconvenience this may have caused.
 
 ## Submit the request in the portal
 

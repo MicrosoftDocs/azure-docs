@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 02/05/2019
+ ms.date: 09/11/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -28,10 +28,11 @@
         ```
         classpath 'com.google.gms:google-services:4.0.1'
         ```
-    2. In your app-level build.gradle file (&lt;project&gt;/&lt;app-module&gt;/build.gradle), add the following statement to the **dependencies** section. 
+    2. In your app-level build.gradle file (&lt;project&gt;/&lt;app-module&gt;/build.gradle), add the following statements to the **dependencies** section. 
 
         ```
-        implementation 'com.google.firebase:firebase-core:16.0.1'
+        implementation 'com.google.firebase:firebase-core:16.0.8'
+        implementation 'com.google.firebase:firebase-messaging:17.3.4'
         ```
 
     3. Add the following line to the end of the app-level build.gradle file after the dependencies section. 

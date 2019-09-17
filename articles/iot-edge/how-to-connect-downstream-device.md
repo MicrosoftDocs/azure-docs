@@ -165,10 +165,9 @@ This section introduces a sample application to connect an Azure IoT Java device
 
 This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway. 
 
-1. Get the sample for **edge_downstream_client** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). 
-2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. 
-3. In the edge_downstream_client.py file, update the **CONNECTION_STRING** and **TRUSTED_ROOT_CA_CERTIFICATE_PATH** variables. 
-4. Refer to the SDK documentation for instructions on how to run the sample on your device. 
+1. Get the sample for **send_message** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Ensure that you are either running in an Edge container, or in a debug scenario, have the `EdgeHubConnectionString` and `EdgeModuleCACertificateFile` environment variables set.
+3. Refer to the SDK documentation for instructions on how to run the sample on your device. 
 
 
 ## Test the gateway connection

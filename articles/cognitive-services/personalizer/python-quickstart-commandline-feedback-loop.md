@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: diberry
 #Customer intent: 
 
@@ -34,7 +34,7 @@ Get started with the Personalizer client library for Python. Follow these steps 
 
 ### Create a Personalizer Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://portal.azure.com/) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. Please refer to [How to create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for more details. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/).

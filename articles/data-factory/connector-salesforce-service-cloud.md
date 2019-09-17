@@ -22,6 +22,11 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
+This Salesforce Service Cloud connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Salesforce Service Cloud to any supported sink data store. You also can copy data from any supported source data store to Salesforce Service Cloud. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Salesforce Service Cloud connector supports:
@@ -323,6 +328,11 @@ When you copy data from Salesforce Service Cloud, the following mappings are use
 | Text Area (Rich) |String |
 | Text (Encrypted) |String |
 | URL |String |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
