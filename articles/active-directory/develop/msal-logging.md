@@ -1,5 +1,5 @@
 ---
-title: Logging in MSAL applications | Azure
+title: Logging in Microsoft Authentication Library (MSAL) applications | Azure
 description: Learn about logging in Microsoft Authentication Library (MSAL) applications.
 services: active-directory
 documentationcenter: dev-center-name
@@ -107,7 +107,7 @@ To enable the logging of personal identifiable information or organizational ide
 Logger.getInstance().setEnablePII(true);
 ```
 
-To disable PII & OII:
+To disable personally identifiable information and organizationalyl identifiable information:
 
 ```java
 Logger.getInstance().setEnablePII(false);
