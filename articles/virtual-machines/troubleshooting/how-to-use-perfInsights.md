@@ -4,7 +4,7 @@ description: Learns how to use PerfInsights to troubleshoot Windows VM performan
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 

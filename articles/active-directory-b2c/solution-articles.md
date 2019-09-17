@@ -14,7 +14,7 @@ ms.subservice: B2C
 
 # Solutions and Training for Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C enables organizations to implement business solutions that help them connect with their customers. The following solution guides and training are downloadable documents that will walk you through these solutions.
+Azure Active Directory B2C (Azure AD B2C) enables organizations to implement business solutions that help them connect with their customers. The following solution guides and training are downloadable documents that will walk you through these solutions.
 
 | Title | Description |
 | ----- | ----------- |

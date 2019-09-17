@@ -43,7 +43,7 @@ When connecting to the Ambari Web UI, you are prompted to authenticate to the pa
 
 When the page opens, note the bar at the top. This bar contains the following information and controls:
 
-![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
 |Item |Description |
 |---|---|
@@ -76,7 +76,7 @@ Alerts are organized into several default groups, which can be viewed from the *
 
 You can manage the groups by using the **Actions** menu and selecting **Manage Alert Groups**.
 
-![manage alert groups dialog](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
+![manage alert groups dialog](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
 You can also manage alerting methods, and create alert notifications from the **Actions** menu by selecting __Manage Alert Notifications__. Any current notifications are displayed. You can also create notifications from here. Notifications can be sent via **EMAIL** or **SNMP** when specific alert/severity combinations occur. For example, you can send an email message when any of the alerts in the **YARN Default** group is set to **Critical**.
 
@@ -96,20 +96,20 @@ The **Heatmaps** tab displays metrics as colored heatmaps, going from green to r
 
 For more information on the nodes within the cluster, select **Hosts**. Then select the specific node you are interested in.
 
-![host details](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![host details](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
 ### Services
 
 The **Services** sidebar on the dashboard provides quick insight into the status of the services running on the cluster. Various icons are used to indicate status or actions that should be taken. For example, a yellow recycle symbol is displayed if a service needs to be recycled.
 
-![services side-bar](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
+![services side-bar](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
 > [!NOTE]  
 > The services displayed differ between HDInsight cluster types and versions. The services displayed here may be different than the services displayed for your cluster.
 
 Selecting a service displays more detailed information on the service.
 
-![service summary information](./media/hdinsight-hadoop-manage-ambari/service-details.png)
+![service summary information](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
 
 #### Quick links
 
@@ -164,7 +164,7 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 From the **Dashboard** or **Services** page, use the **Actions** button at the bottom of the list of services to stop and start all services.
 
-![service actions](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
+![service actions](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
 
 > [!WARNING]  
 > While **Add Service** is listed in this menu, it should not be used to add services to the HDInsight cluster. New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
@@ -191,7 +191,7 @@ To configure a service, use the following steps:
 
 2. Select the **Configs** tab. The current configuration is displayed. A list of previous configurations is also displayed.
 
-    ![configurations](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+    ![configurations](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
 3. Use the fields displayed to modify the configuration, and then select **Save**. Or select a previous configuration and then select **Make current** to roll back to the previous settings.
 

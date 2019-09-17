@@ -77,7 +77,7 @@ Supported customizations include:
 
 You can start and stop the Azure AD provisioning service for the selected application in the **Settings** area of the **Provisioning** screen. You can also choose to clear the provisioning cache and restart the service.
 
-If provisioning is being enabled for the first time for an application, turn on the service by changing the **Provisioning Status** to **On**. This change causes the Azure AD provisioning service to run an initial sync. It reads the users assigned in the **Users and groups** section, queries the target application for them, and then runs the provisioning actions defined in the Azure AD **Mappings** section. During this process, the provisioning service stores cached data about what user accounts it's managing, so non-managed accounts inside the target applications that were never in scope for assignment aren't affected by de-provisioning operations. After the initial sync, the provisioning service automatically synchronizes user and group objects on a ten-minute interval.
+If provisioning is being enabled for the first time for an application, turn on the service by changing the **Provisioning Status** to **On**. This change causes the Azure AD provisioning service to run an initial cycle. It reads the users assigned in the **Users and groups** section, queries the target application for them, and then runs the provisioning actions defined in the Azure AD **Mappings** section. During this process, the provisioning service stores cached data about what user accounts it's managing, so non-managed accounts inside the target applications that were never in scope for assignment aren't affected by de-provisioning operations. After the initial cycle, the provisioning service automatically synchronizes user and group objects on a ten-minute interval.
 
 Change the **Provisioning Status** to **Off**  to pause the provisioning service. In this state, Azure doesn't create, update, or remove any user or group objects in the app. Change the state back to **On** and the service picks up where it left off.
 
@@ -85,6 +85,6 @@ Select the **Clear current state and restart synchronization** checkbox and sele
 
 * Stop the provisioning service
 * Dump the cached data about what accounts Azure AD is managing
-* Restart the services and run the initial synchronization again
+* Restart the services and run the initial cycle again
 
 This option lets admins start the provisioning deployment process over again.
