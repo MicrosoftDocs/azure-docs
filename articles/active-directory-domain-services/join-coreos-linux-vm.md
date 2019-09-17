@@ -114,7 +114,7 @@ krb5_server = contoso.com
 krb5_realm = CONTOSO.COM
 ```
 
-## Join the Linux virtual machine to the managed domain
+## Join the VM to the managed domain
 
 With the SSSD configuration file updated, now join the virtual machine to the managed domain.
 
