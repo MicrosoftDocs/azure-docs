@@ -75,7 +75,7 @@ In the diagram, bob@contoso.com and tom@live.com have access to resources in dif
 The MSAL token cache stores a single refresh token per account. That refresh token can be used to silently request access tokens from multiple Microsoft identity platform tenants. When a broker is installed on a device, the account is managed by the broker, and device-wide single sign-on becomes possible.
 
 > [!IMPORTANT]
-> Business to Consumer (B2C) account and refresh token behavior differs from the rest of the Microsoft identity platform. For more details, see [B2C Policies & Accounts](#b2c-policies--accounts).
+> Business to Consumer (B2C) account and refresh token behavior differs from the rest of the Microsoft identity platform. For more information, see [B2C Policies & Accounts](#b2c-policies--accounts).
 
 ## Account identifiers
 
@@ -138,7 +138,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 Refresh tokens for an account aren't shared across B2C policies. As a result, single sign-on using tokens isn't possible. This doesn't mean that single sign-on isn't possible. It means single sign-on has to use an interactive experience in which a cookie is available to enable single sign-on.
 
-This also means that in the case of MSAL, if you acquire tokens using different B2C policies, then these are treated as separate accounts--each with their own identifier. If you want to use an account to request a token using `acquireTokenSilent`, then you'll need to select the account from the list of accounts that matches the policy that you are using with the token request. For example:
+This also means that in the case of MSAL, if you acquire tokens using different B2C policies, then these are treated as separate accounts--each with their own identifier. If you want to use an account to request a token using `acquireTokenSilent`, then you'll need to select the account from the list of accounts that matches the policy that you're using with the token request. For example:
 
 ```java
 // Get Account For Policy

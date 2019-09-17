@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform Android quickstart | Azure
-description: Learn how Android applications can call an API that require access tokens by Microsoft identity platform endpoint.
+description: Learn how Android applications can call an API that requires access tokens by Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -44,19 +44,19 @@ To register an application object, and add that application object's registratio
 1. Enter a **Name** for your app registration and then, without setting a Redirect URI, click **Register**.
 1. In the **Manage** section, select **Authentication** > **+ Add a platform** > **Android**. (You may have to select **Try out the new experience** near the top of the blade to see this screen)
 1. Enter your project's **Package Name**, which is `com.azuresamples.msalandroidapp`.
-1. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash** and copy the KeyTool command to use for the platform you are using to develop your Android app.
+1. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash**, and copy the KeyTool command to use for the platform you're using to develop your Android app.
 
    > [!Note]
    > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command.  You'll need keytool, and the OpenSSL\bin directory, in your path.
 
 1. Run the keytool command you copied from the portal in a terminal window.
 1. Enter the generated signature hash into the Portal under **Signature hash**.
-1. Click `Configure` and make a copy of the **MSAL Configuration**. You will copy and paste this into a config file in the next step. Click **Done**.
+1. Click `Configure` and make a copy of the **MSAL Configuration**. You'll copy and paste this into a config file in the next step. Click **Done**.
 
 ## Step 3: Add your app registration
 
 1. Open the sample project in Android Studio.
-1. Inside **app** > **res** > **raw**, open **auth_config_multiple_account.json**.  Paste the contents of the MSAL Configuration. This adds the client id, tenant id, and redirect_uri from the portal. It will look something like this, but with the values filled in for the client id, tenant id, and redirect_uri:
+1. Inside **app** > **res** > **raw**, open **auth_config_multiple_account.json**.  Paste the contents of the MSAL Configuration. This adds the client ID, tenant ID, and redirect_uri from the portal. It will look something like this, but with the values filled in for the client ID, tenant ID, and redirect_uri:
 
 ```json
 {
@@ -118,22 +118,22 @@ To register an application object, and add that application object's registratio
 
 1. Select your emulator or device from Android Studio's **available devices** dropdown and run the app.
 
-The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
+The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 
 ![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
 
-Use the app menu to change between single and multiple account mode.
+Use the app menu to change between single and multiple account modes.
 
 In single account mode, sign in using a work or home account:
 
 1. Select **Get graph data interactively** to prompt the user for their credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
-2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without re-prompting the user for credentials. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
+2. Once signed in, select **Get graph data silently** to make a call to the Microsoft Graph API without prompting the user for credentials again. You'll see the output from the call to the Microsoft Graph API in the bottom of the screen.
 
 In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
 ## How the sample works
 
-The code is organized into fragments that show how to write a single and multiple account MSAL app. The code files are organized as follows:
+The code is organized into fragments that show how to write a single and multiple accounts MSAL app. The code files are organized as follows:
 
 | File  | Demonstrates  |
 |---------|---------|
@@ -145,7 +145,7 @@ The code is organized into fragments that show how to write a single and multipl
 | res/auth_config_single_account.json  | The single account configuration file |
 | Gradle Scripts/build.grade (Module:app) | The MSAL library dependencies are added here |
 
-We will now look at these files in more detail and call out the MSAL specific code in each.
+We'll now look at these files in more detail and call out the MSAL-specific code in each.
 
 ### Add MSAL to the app
 
@@ -169,7 +169,7 @@ This instructs Gradle to download and build MSAL from maven central.
 
 ### MSAL Imports
 
-The imports that are relevant to the MSAL library are `com.microsoft.identity.client.*`.  For example, you'll see `import com.microsoft.identity.client.PublicClientApplication;` which is the namespace for the PublicClientApplication class which represents your public client application.
+The imports that are relevant to the MSAL library are `com.microsoft.identity.client.*`.  For example, you'll see `import com.microsoft.identity.client.PublicClientApplication;` which is the namespace for the `PublicClientApplication` class, which represents your public client application.
 
 ### SingleAccountModeFragment.java
 
@@ -237,12 +237,12 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### Get a token interactively or silently
 
-In order to present the fewest number of prompts to the user, you will typically get a token silently. Then, if there is an error, attempt to get to token interactively. Note that the first time the app calls `signIn()`, it effectively acts as a call to `acquireToken()`, which will prompt the user for credentials.
+To present the fewest number of prompts to the user, you'll typically get a token silently. Then, if there's an error, attempt to get to token interactively. The first time the app calls `signIn()`, it effectively acts as a call to `acquireToken()`, which will prompt the user for credentials.
 
 Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
 
-* The first time users sign in to the application
-* If a user resets their password, they will need to enter their credentials
+* The first time the user signs in to the application
+* If a user resets their password, they'll need to enter their credentials
 * If consent is revoked
 * If your app explicitly requires consent
 * When your application is requesting access to a resource for the first time
@@ -275,7 +275,7 @@ If the user has already signed in, `acquireTokenSilentAsync()` allows apps to re
 
 #### Load an account
 
-The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account is loaded, changes, or an error occurs is passed to MSAL.  The following code also handles `onAccountChanged()`, which occurs when an account is removed, the user changes to another account, and so on.
+The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so callbacks to handle when the account loads, changes, or an error occurs is passed to MSAL.  The following code also handles `onAccountChanged()`, which occurs when an account is removed, the user changes to another account, and so on.
 
 ```java
 private void loadAccount() {
@@ -335,7 +335,7 @@ This is the configuration file for a MSAL app that uses a single account.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
-Note the presence of `"account_mode" : "SINGLE"` which configures this app to use a single account.
+Note the presence of `"account_mode" : "SINGLE"`, which configures this app to use a single account.
 
 ```json
 {
@@ -384,11 +384,11 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(
         });
 ```
 
-Note that the created `MultipleAccountPublicClientApplication` object is stored in a class member variable so that it can be used to interact with the MSAL library to acquire tokens and load and remove the user account.
+The created `MultipleAccountPublicClientApplication` object is stored in a class member variable so that it can be used to interact with the MSAL library to acquire tokens and load and remove the user account.
 
 #### Load an account
 
-Multiple account apps usually call `GetAccounts()` to select the account to use for MSAL operations. The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation, so a callback to handle when the account is loaded, changes, or an error occurs is passed to MSAL to handle those situations:
+Multiple account apps usually call `GetAccounts()` to select the account to use for MSAL operations. The code to load an account is in `loadAccount()`.  Loading the user's account is an asynchronous operation. So a callback handles the situations when the account is loaded, changes, or an error occurs.
 
 ```java
 /**
@@ -418,7 +418,7 @@ private void loadAccount() {
 Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
 
 * The first time users sign in to the application
-* If a user resets their password, they will need to enter their credentials 
+* If a user resets their password, they'll need to enter their credentials 
 * If consent is revoked 
 * If your app explicitly requires consent 
 * When your application is requesting access to a resource for the first time
@@ -458,7 +458,7 @@ getAuthSilentCallback());
 
 #### Remove an account
 
-The code to remove an account, and any cached tokens for the account, is in `initializeUI()` in the handler for the remove account button. Before you can remove an account, you need an account object which you obtain from MSAL functions like `getAccounts()` and `acquireToken()`. Because removing an account is an asynchronous operation, the `onRemoved` callback is supplied to update the UI.
+The code to remove an account, and any cached tokens for the account, is in `initializeUI()` in the handler for the remove account button. Before you can remove an account, you need an account object, which you obtain from MSAL functions like `getAccounts()` and `acquireToken()`. Because removing an account is an asynchronous operation, the `onRemoved` callback is supplied to update the UI.
 
 ```java
 /**
@@ -486,7 +486,7 @@ This is the configuration file for a MSAL app that uses multiple accounts.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
-Note that unlike the [auth_config_single_account.json](#auth_config_single_accountjson) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
+Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 
 ```json
 {
