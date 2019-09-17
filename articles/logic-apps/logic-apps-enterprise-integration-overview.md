@@ -19,7 +19,7 @@ For business-to-business (B2B) solutions and seamless communication between orga
 * Electronic Data Interchange (EDI)
 * Enterprise Application Integration (EAI)
 
-If you're familiar with Microsoft BizTalk Server or Azure BizTalk Services, the EIP follows similar concepts, making the features easty to use. However, one major difference is that the EIP is architecturally based on "integration accounts" to simplify the storage and management of artifacts used in B2B communications. These accounts are cloud-based containers that store all your artifacts, such as partners, agreements, schemas, maps, and certificates. 
+If you're familiar with Microsoft BizTalk Server or Azure BizTalk Services, the EIP follows similar concepts, making the features easy to use. However, one major difference is that the EIP is architecturally based on "integration accounts" to simplify the storage and management of artifacts used in B2B communications. These accounts are cloud-based containers that store all your artifacts, such as partners, agreements, schemas, maps, and certificates. 
 
 ## Why use the Enterprise Integration Pack?
 
@@ -40,7 +40,7 @@ Before you can start building B2B logic app workflows with the EIP, you need the
 
 * To create maps and schemas, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) and Visual Studio 2015.
 
-After you create an integration account and add your artifacts, you can get started with building B2B logic app workflows that interact with these artifacts by creating a logic app in the Azure portal. To use these artifacts, make sure that you first link your integration account to your logic app. After that, your logic app can access your integration account's artifacts. You can also create, manage, and deploy logic apps by using Visual Studio or [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
+After you create an integration account and add your artifacts, you can start building B2B workflows that use these artifacts by creating a logic app in the Azure portal. To work with these artifacts, make sure that you first link your integration account to your logic app. After that, your logic app can access your integration account. You can also create, manage, and deploy logic apps by using Visual Studio or [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
 
 Here are the high-level steps that you must complete before you can create logic apps:
 
@@ -48,7 +48,7 @@ Here are the high-level steps that you must complete before you can create logic
 
 ## Try now
 
-[Deploy a fully operational sample AS2 send & receive logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) that uses the B2B features for Azure Logic Apps.
+[Deploy a fully operational sample logic app that sends and receives AS2 messages](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) that shows the B2B features for Azure Logic Apps.
 
 ## Next steps
 
