@@ -18,34 +18,39 @@ For more information on using the tools, see [Quickstart: Create an Azure Stream
 
 ## Install
 
+Visual Studio Enterprise (Ultimate/Premium), Professional, and Community editions support the tools. Express edition and Visual Studio 2017 for Mac don't support them.
+
 We recommend Visual Studio 2019 or Visual Studio 2017.
 
 ### Install for Visual Studio 2019 and 2017<a name="recommended-visual-studio-2019-and-2017"></a>
 
-* Download [Visual Studio 2019 (Preview 2 or above) or Visual Studio 2017 (15.3 or above)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported. Visual Studio 2017 on Mac isn't supported.
-* Azure Data Lake and Stream Analytics Tools are part of the **Azure development** and **Data storage and processing** workloads. Enable either one of these two workloads.
+Azure Data Lake and Stream Analytics Tools are part of the **Azure development** and **Data storage and processing** workloads. Enable either one of these two workloads during installation. If Visual Studio is already installed, select **Tools** > **Get Tools and Features** to add workloads.
 
-You can enable workloads during Visual Studio installation. If Visual Studio is already installed, select Tools > Get Tools and Features to select workloads.
+Download [Visual Studio 2019 (Preview 2 or above) or Visual Studio 2017 (15.3 or above)](https://www.visualstudio.com/) and follow instructions to install.
 
-Enable the **Data storage and processing** workload as shown:
+Select the **Data storage and processing** workload as shown:
 
 ![Data storage and processing workload is selected](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2019-install-01.png)
 
-Enable the **Azure development** workload as shown:
+Select the **Azure development** workload as shown:
 
 ![Azure development workload is selected](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2019-install-02.png)
 
-After you add the workload, update the tools:
+After you add the workload, update the tools. This procedure refers to Visual Studio 2019:
 
 1. Select **Extensions** > **Manage Extensions**.
 
-1. In **Manage Extensions**, select **Updates** and choose **Azure Data Lake and Stream Analytics Tools**. Select **Update** to install the latest extension.
+1. In **Manage Extensions**, select **Updates** and choose **Azure Data Lake and Stream Analytics Tools**.
+
+1. Select **Update** to install the latest extension.
 
 ![Visual Studio extensions and updates](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-vs2019-extensions-updates.png)
 
 ### Install for Visual Studio 2015 and 2013<a name="visual-studio-2015-2013"></a>
 
-* Install Visual Studio 2015 or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported.
+Visual Studio Enterprise (Ultimate/Premium), Professional, and Community editions support the tools. Express edition doesn't support them.
+
+* Install Visual Studio 2015 or Visual Studio 2013 Update 4.
 * Install the Microsoft Azure SDK for .NET version 2.7.1 or above by using the [Web platform installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * Install [Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio](https://www.microsoft.com/en-us/download/details.aspx?id=49504).
 
@@ -59,4 +64,4 @@ For Visual Studio 2015 and Visual Studio 2013, the tools check for new versions 
 
 You can uninstall Azure Data Lake and Stream Analytics Tools. For Visual Studio 2019 or Visual Studio 2017, select **Tools** > **Get Tools and Features**. In **Modifying**, unselect **Azure Data Lake and Stream Analytics Tools**. It appears under either the **Data storage and processing** workload or the **Azure development** workload.
 
-To uninstall from Visual Studio 2015 or and Visual Studio 2013, go to **Control Panel**. Uninstall **Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio**.
+To uninstall from Visual Studio 2015 or Visual Studio 2013, go to **Control Panel** > **Programs and Features**. Uninstall **Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio**.
