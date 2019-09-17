@@ -45,7 +45,7 @@ landingContent:
             url: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks
 
   # Card
-  - title: Virtual Machines
+  - title: Manage Virtual Machines
     linkLists:
       - linkListType: tutorial
         links:
