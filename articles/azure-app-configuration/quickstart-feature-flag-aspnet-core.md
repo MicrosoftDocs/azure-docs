@@ -34,7 +34,7 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Create** to add the following feature flags:
+6. Select **Feature Manager** > **+Add** to add the following feature flags:
 
     | Key | State |
     |---|---|
@@ -79,10 +79,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 ## Connect to an App Configuration store
 
-1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
+1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` and the `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Run the following command to restore packages for your project:
@@ -264,6 +265,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     |---|---|
     | Beta | On |
 
+1. Restart your application by switching back to your command prompt and pressing `Ctrl-C` to cancel the running `dotnet` process, then re-running `dotnet run`.
+
 1. Refresh the browser page to see the new configuration settings.
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
@@ -279,3 +282,4 @@ In this quickstart, you created a new App Configuration store and used it to man
 - Learn more about [feature management](./concept-feature-management.md).
 - [Manage feature flags](./manage-feature-flags.md).
 - [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md).
+- [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
