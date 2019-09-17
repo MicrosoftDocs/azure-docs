@@ -4,7 +4,7 @@ title: Azure Container Instances documentation # < 60 chars
 summary: Run a containerized app on-demand in a managed, serverless Azure environment.   # < 160 chars
 
 metadata:
-  title: Azure Container Instances documentation - serverless containers # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Container Instances documentation - serverless containers, on demand # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Run a Docker container in a managed, serverless Azure environment.  # Required; article description that is displayed in search results. < 160 chars.
   services: 
   ms.service: container-instances 
@@ -22,48 +22,45 @@ landingContent:
         links:
           - text: What is Azure Container Instances?
             url: container-instances-overview.md
-      - linkListType: concept
-        links:
           - text: Container groups
             url: container-instances-container-groups.md
           - text: FAQ
-            url: container-instances-faq.md
-
+            url: container-instances-faq.md  
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy a container instance - CLI 
+          - text: Deploy container instance - CLI 
             url: container-instances-quickstart.md
-          - text: Deploy a container instance - Portal
+          - text: Deploy container instance - Portal
             url: container-instances-quickstart-portal.md
       - linkListType: tutorial
         links:
-          - text: Deploy a container group - YAML 
+          - text: Deploy container group - YAML 
             url : container-instances-multi-container-yaml.md
-          - text: Deploy a container group - Resource Manager
+          - text: Deploy container group - template
             url: container-instances-multi-container-group.md
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
             url: /learn/modules/run-docker-with-azure-container-instances/
-  - title: Run container applications
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy image from Azure Container Registry
-            url: container-instances-using-azure-container-registry.md
-          - text: Mount an Azure file share
-            url: container-instances-volume-azure-files.md
-          - text: Set environment variables
-            url: container-instances-environment-variables.md
-          - text: Set a container entry point
-            url: container-instances-start-command.md
   - title: Integrate with Azure
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy in a virtual network
+          - text: Mount an Azure file share
+            url: container-instances-volume-azure-files.md 
+          - text: Deploy image from Azure Container Registry
+            url: container-instances-using-azure-container-registry.md
+          - text: Deploy in virtual network
             url: container-instances-vnet.md
-          - text: Use a managed identity
+          - text: Use managed identity
             url: container-instances-managed-identity.md
+  - title: Manage container apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set environment variables
+            url: container-instances-environment-variables.md
+          - text: Set a container entry point
+            url: container-instances-start-command.md          
