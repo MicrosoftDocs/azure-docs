@@ -31,7 +31,7 @@ landingContent:
             url: https://docs.chef.io/azure_portal.html#azure-chef-extension
 
   # Card
-  - title: Install and configure Chef Software
+  - title: Install and configure Chef Software products 
     linkLists:
       - linkListType: quickstart
         links:
