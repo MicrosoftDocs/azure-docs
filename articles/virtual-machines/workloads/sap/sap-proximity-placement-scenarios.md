@@ -1,6 +1,6 @@
 ---
-title: Azure Proximity Placement Groups for optimal network latency with SAP applications | Microsoft Docs
-description: Describes SAP deployment scenarios with Azure Proximity Placement Groups
+title: Azure proximity placement groups for optimal network latency with SAP applications | Microsoft Docs
+description: Describes SAP deployment scenarios with Azure proximity placement groups
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -20,18 +20,20 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Proximity Placement Groups for optimal network latency with SAP applications
-SAP applications based on the SAP NetWeaver or SAP S/4HANA architecture are sensitive to network latency between the SAP application tier and the SAP database tier. The reason for this sensitivity of these architectures is rooted in the fact that most of the business logic is executed in the application layer. As a result of executing the business logic the SAP application layer issues queries to the database tier in high frequency of thousands and tens of thousands per second. In most cases, the nature of those queries is simple. And often can be executed on the database tier in less than 500 microseconds or even less. The time spent on the network to send such a query from the application tier to the database tier and receive the result set back from the database tier has major impact on the time it takes to execute business processes. This sensitivity to network latency is the reason time needs to be spent in SAP deployment projects to achieve optimal network latency. In [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E), SAP published some guidelines in how to classify the network latency.
+# Azure proximity placement groups for optimal network latency with SAP applications
+SAP applications based on the SAP NetWeaver or SAP S/4HANA architecture are sensitive to network latency between the SAP application tier and the SAP database tier. This sensitivity is the result of most of the business logic running in the application layer. Because the SAP application layer executes the business logic, it issues queries to the database tier at a high frequency, at a rate of thousands or tens of thousands per second. In most cases, the nature of these queries is simple. They can often be run on the database tier in 500 microseconds or less.
 
-On the one side, in many Azure regions the number of datacenters grew, also triggered by the introduction of Availability Zones. On the other side, customers, especially for high-end SAP systems used more special VM SKus out of the M-Series family or HANA Large Instances. Azure Virtual machine types that are not present in all the datacenters in a specific Azure region. As a result of these two tendencies, customers experienced cases, where the network latency was not in the optimal range and in some cases resulted in suboptimal performance of their SAP systems.
+The time spent on the network to send such a query from the application tier to the database tier and receive the result set back from the database tier has a major impact on the time it takes to run business processes. This sensitivity to network latency is why you need to achieve optimal network latency in SAP deployment projects. See [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E) for guidelines on how to classify the network latency.
 
-In order to prevent such a problem, Azure offers a construct that is called [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). This new functionality has been used to deploy various different SAP systems already. Check the article referenced for restrictions of proximity placement groups. This article will cover the different SAP scenarios where Azure Proximity Placement Groups can be used or should be used.
+In many Azure regions, the number of datacenters has grown. This growth has also been triggered by the introduction of Availability Zones. At the same time, customers, especially for high-end SAP systems, are using more special VM SKUs in the M-Series family, or HANA Large Instances. These Azure virtual machine types aren't available in all the datacenters in a specific Azure region. Because of these two tendencies, customers have experienced situations in which network latency wasn't in the optimal range. In some cases, this latency resulted in suboptimal performance of their SAP systems.
 
-## What are Proximity Placement Groups 
-An Azure proximity placement group is a logical construct, that at definition phase is bound to an Azure region and an Azure resource group. During deployment of VMs, a proximity placement group is referenced by:
+To prevent these problems, Azure offers [proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). This new functionality has already been used to deploy various SAP systems. For restrictions on proximity placement groups, see the article referred to at the start of this paragraph. This article will cover the SAP scenarios in which Azure proximity placement groups can or should be used.
 
-- The first deployed Azure VM to settle on the datacenter. The first virtual machine can be seen as an anchor VM that gets deployed in a datacenter based on Azure allocation algorithms eventually combined with user definitions for a specific Azure Availability Zone.
-- By all subsequent VMs deployed referencing the proximity placement group to place all subsequent deployed Azure VMs in the same datacenter as the first virtual machine was placed in.
+## What are proximity placement groups? 
+An Azure proximity placement group is a logical construct. When one is defined, it's bound to an Azure region and an Azure resource group. When VMs are deployed, a proximity placement group is referenced by:
+
+- The first Azure VM deployed in the datacenter. The first virtual machine can be seen as an anchor VM that's deployed in a datacenter based on Azure allocation algorithms that are eventually combined with user definitions for a specific Availability Zone.
+- All subsequent VMs deployed that reference the proximity placement group, to place all subsequently deployed Azure VMs in the same datacenter as the first virtual machine.
 
 > [!NOTE]
 > If there is no host hardware deployed that could run a specific VM type in the same datacenter as the first VM was placed in, the deployment of the demanded VM type will not succeed and will end with a failure message. These can be cases where more non-mainstream VMs, like virtual machines with GPUs or HPC VM types should centered around e.g. an M-Series VM that has been deployed as first VM type
