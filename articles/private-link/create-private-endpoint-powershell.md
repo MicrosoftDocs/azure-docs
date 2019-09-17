@@ -183,6 +183,7 @@ mstsc /v:<publicIpAddress>
 2. Enter the user name and password you specified when creating the VM.
   > [!NOTE]
   > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
+  
 3. Select **OK**. 
 4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
