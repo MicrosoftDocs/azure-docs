@@ -109,6 +109,8 @@
         href: apptio-tutorial.md
       - name: Aravo
         href: aravo-tutorial.md
+      - name: ARC Facilities
+        href: arc-facilities-tutorial.md
       - name: Arc Publishing - SSO
         href: arc-tutorial.md
       - name: ArcGIS Enterprise
@@ -305,6 +307,8 @@
         href: complianceelf-tutorial.md
       - name: Concur
         href: concur-tutorial.md
+      - name: Concur Travel and Expense
+        href: concur-travel-and-expense-tutorial.md
       - name: Condeco
         href: condeco-tutorial.md
       - name: Confirmit Horizons
@@ -1377,6 +1381,8 @@
         href: work-com-tutorial.md
       - name: Workable
         href: workable-tutorial.md
+      - name: WorkBoard
+        href: workboard-tutorial.md
       - name: Workday
         href: workday-tutorial.md
       - name: Workfront
@@ -1572,6 +1578,8 @@
         href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
+      - name: Signagelive
+        href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
@@ -1592,6 +1600,8 @@
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
+      - name: Wrike
+        href: wrike-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler

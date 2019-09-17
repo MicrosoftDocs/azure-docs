@@ -20,6 +20,7 @@ This article provides information and sample code to help you get started using 
 ## Prerequisites
 
 - [Go 1.8+](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Install the Custom Vision SDK
 

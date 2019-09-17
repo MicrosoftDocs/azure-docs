@@ -52,7 +52,7 @@ This section provides instructions about how to use the script when provisioning
    >
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information as shown below:
 
-    ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Provide script action parameters for Hue")
+    ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hdi-hue-script-action.png "Provide script action parameters for Hue")
 
    * **NAME**: Enter a friendly name for the script action.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh

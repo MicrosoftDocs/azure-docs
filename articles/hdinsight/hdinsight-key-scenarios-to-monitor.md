@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ---
+
 # Monitor cluster performance in Azure HDInsight
 
 Monitoring the health and performance of an HDInsight cluster is essential for maintaining optimal performance and resource utilization. Monitoring can also help you detect and address cluster configuration errors and user code issues.
@@ -30,11 +31,11 @@ To get a high-level look at the nodes of your cluster and their loading, sign in
 
 You'll also see columns showing the number of cores and amount of RAM for each host, and the disk usage and load average.
 
-![Hosts tab](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Hosts tab](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Select any of the host names for a detailed look at components running on that host and their metrics. The metrics are shown as a selectable timeline of CPU usage, load, disk usage, memory usage, network usage, and numbers of processes.
 
-![Host details](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![Host details](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 See [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) for details on setting alerts and viewing metrics.
 
@@ -50,7 +51,7 @@ When multiple tenants share a large cluster, there is competition for the cluste
 
 YARN allows us to allocate resources to these queues, and shows you whether all of your available resources are assigned. To view information about your queues, sign in to the Ambari Web UI, then select **YARN Queue Manager** from the top menu.
 
-![YARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![YARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 The YARN Queue Manager page shows a list of your queues on the left, along with the percentage of capacity assigned to each.
 
@@ -58,11 +59,11 @@ The YARN Queue Manager page shows a list of your queues on the left, along with 
 
 For a more detailed look at your queues, from the Ambari dashboard, select the **YARN** service from the list on the left. Then under the **Quick Links** dropdown menu, select **Resource Manager UI** underneath your active node.
 
-![Resource Manager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Resource Manager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 In the Resource Manager UI, select **Scheduler** from the left-hand menu. You see a list of your queues underneath *Application Queues*. Here you can see the capacity used for each of your queues, how well the jobs are distributed between them, and whether any jobs are resource-constrained.
 
-![Resource Manager UI menu link](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI menu](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## Storage throttling
 

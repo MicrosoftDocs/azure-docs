@@ -1,6 +1,6 @@
 ---
 title: 'Deep learning vs. machine learning'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn about deep learning vs. machine learning and how both concepts relate to artificial intelligence. Deep learning can be applied in scenarios such as fraud detection, voice and facial recognition, sentiment analytics, and time series forecasting.
 services: machine-learning
 ms.service: machine-learning
@@ -101,9 +101,9 @@ Convolutional neural networks have been used in areas such as image recognition 
 
 ## Next steps
 
-The following articles show you how to use deep learning technology in the [Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
+The following articles show you how to use deep learning technology in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
 
 - [Classify handwritten digits by using a TensorFlow model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 - [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)

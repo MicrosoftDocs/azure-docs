@@ -1,6 +1,6 @@
 ---
-title: Copy data from Teradata by using Azure Data Factory | Microsoft Docs
-description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata database to data stores supported by Data Factory as sinks. 
+title: Copy data from Teradata Vantage by using Azure Data Factory | Microsoft Docs
+description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata Vantage to data stores supported by Data Factory as sinks. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,21 +12,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/13/2019
 ms.author: jingwang
 
 ---
-# Copy data from Teradata by using Azure Data Factory
+# Copy data from Teradata Vantage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Current version](connector-teradata.md)
 
-This article outlines how to use the copy activity in Azure Data Factory to copy data from a Teradata database. It builds on the [copy activity overview](copy-activity-overview.md).
+This article outlines how to use the copy activity in Azure Data Factory to copy data from Teradata Vantage. It builds on the [copy activity overview](copy-activity-overview.md).
 
 ## Supported capabilities
 
-You can copy data from a Teradata database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This Teradata connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
+You can copy data from Teradata Vantage to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Teradata connector supports:
 
@@ -59,8 +64,8 @@ The Teradata linked service supports the following properties:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **Teradata**. | Yes |
-| connectionString | Specifies the information needed to connect to the Teradata Database instance. Refer to the following samples.<br/>You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. | Yes |
-| username | Specify a user name to connect to the Teradata database. Applies when you are using Windows authentication. | No |
+| connectionString | Specifies the information needed to connect to the Teradata instance. Refer to the following samples.<br/>You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. | Yes |
+| username | Specify a user name to connect to Teradata. Applies when you are using Windows authentication. | No |
 | password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when you are using Windows authentication, or referencing a password in Key Vault for basic authentication. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |Yes |
 
@@ -139,8 +144,8 @@ To copy data from Teradata, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to `TeradataTable`. | Yes |
-| database | The name of the Teradata database. | No (if "query" in activity source is specified) |
-| table | The name of the table in the Teradata database. | No (if "query" in activity source is specified) |
+| database | The name of the Teradata instance. | No (if "query" in activity source is specified) |
+| table | The name of the table in the Teradata instance. | No (if "query" in activity source is specified) |
 
 **Example:**
 
@@ -194,7 +199,7 @@ To copy data from Teradata, the following properties are supported in the copy a
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `TeradataSource`. | Yes |
 | query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No (if table in dataset is specified) |
-| partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from a Teradata database is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from Teradata is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option isn't `None`. | No |
 | partitionColumnName | Specify the name of the source column that will be used by range partition or Hash partition for parallel copy. If not specified, the primary index of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `Hash` or `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
@@ -242,9 +247,9 @@ The Data Factory Teradata connector provides built-in data partitioning to copy 
 
 ![Screenshot of partition options](./media/connector-teradata/connector-teradata-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Teradata database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Teradata.
 
-You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Teradata database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Teradata. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -325,6 +330,11 @@ When you copy data from Teradata, the following mappings apply. To learn about h
 | VarChar |String |
 | VarGraphic |Not supported. Apply explicit cast in source query. |
 | Xml |Not supported. Apply explicit cast in source query. |
+
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps

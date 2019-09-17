@@ -28,7 +28,7 @@ This article requires that you are running the Azure CLI version 2.0.65 or later
 
 ### Install aks-preview CLI extension
 
-To use the cluster autoscaler, you need the *aks-preview* CLI extension version 0.4.4 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
+To use the cluster autoscaler, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -86,7 +86,7 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --enable-vmss \
+  --vm-set-type VirtualMachineScaleSets \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
@@ -100,7 +100,7 @@ It takes a few minutes to create the cluster and configure the cluster autoscale
 ## Change the cluster autoscaler settings
 
 > [!IMPORTANT]
-> If you have the *multiple agent pools* feature enabled on your subscription, skip to the [autoscale with multiple agent pools section](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters with multiple agent pools enabled require use of the `az aks nodepool` command set to change node pool specific properties instead of `az aks`. The below instructions assume you have not enabled multiple node pools. To check if you have it enabled, run `az feature  list -o table` and look for `Microsoft.ContainerService/multiagentpoolpreview`.
+> If you have the *multiple agent pools* feature enabled on your subscription, skip to the [autoscale with multiple agent pools section](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters with multiple agent pools enabled require use of the `az aks nodepool` command set to change node pool specific properties instead of `az aks`. The below instructions assume you have not enabled multiple node pools. To check if you have it enabled, run `az feature  list -o table` and look for `Microsoft.ContainerService/multiagentpoolpreview`.
 
 In the previous step to create an AKS cluster or update an existing node pool, the cluster autoscaler minimum node count was set to *1*, and the maximum node count was set to *3*. As your application demands change, you may need to adjust the cluster autoscaler node count.
 

@@ -3,11 +3,13 @@ title: Streaming at scale in Azure HDInsight
 description: How to use data streaming with scalable Apache clusters in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ---
+
 # Streaming at scale in HDInsight
 
 Real-time big data solutions  act on data that is in motion. Typically, this data is most valuable at its time of arrival. If the incoming data stream becomes greater than can be handled at that moment, you may need to throttle down resources. Alternatively, an HDInsight cluster can   scale up to meet your streaming solution by adding nodes on demand.

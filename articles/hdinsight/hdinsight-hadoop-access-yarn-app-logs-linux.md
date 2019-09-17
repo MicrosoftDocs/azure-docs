@@ -58,10 +58,11 @@ The YARN ResourceManager UI runs on the cluster headnode. It is accessed through
 1. In your web browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
 2. From the list of services on the left, select **YARN**.
 
-    ![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
+    ![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+
 3. From the **Quick Links** dropdown, select one of the cluster head nodes and then select **ResourceManager Log**.
 
-    ![Yarn quick links](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
+    ![Yarn quick links](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     You are presented with a list of links to YARN logs.
 

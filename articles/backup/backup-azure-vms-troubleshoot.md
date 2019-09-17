@@ -20,7 +20,7 @@ This section covers backup operation failure of Azure Virtual machine.
 
 ### Basic troubleshooting
 
-* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verify that another backup service is not running.
    * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
