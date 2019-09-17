@@ -47,7 +47,7 @@ Follow these steps if you want your policy to be for users not in your directory
 
     ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-select-directories.png)
 
-1. Enter a domain name and search for an Azure AD directory with that domain name. If you frequently work with an organization the uses Azure AD, you can add it as a [connected directory + domain](#policy-add-connected-directory-domain).
+1. Enter a domain name and search for an Azure AD directory with that domain name. If you frequently work with an organization the uses Azure AD, you can add it as a [connected directory + domain](#policy-add-connected-directory--domain).
 
 1. Click **Add** to add the directory.
 
