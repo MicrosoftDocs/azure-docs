@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 09/16/2019
 ms.author: jingwang
 
 ---
@@ -441,6 +441,9 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    7. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
+
+>[!NOTE]
+>If your source is a folder, note PolyBase retrieves files from the folder and all of its subfolders, and it doesn't retrieve data from files for which the file name begins with an underline (_) or a period (.), as documented [here - LOCATION argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
 
 ```json
 "activities":[
