@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-In Azure Active Directory (Azure AD) B2C, the resource owner password credentials (ROPC) flow is an OAuth standard authentication flow. In this flow, an application, also known as the relying party, exchanges valid credentials for tokens. The credentials include a user ID and password. The tokens returned are an ID token, access token, and a refresh token.
+In Azure Active Directory B2C (Azure AD B2C), the resource owner password credentials (ROPC) flow is an OAuth standard authentication flow. In this flow, an application, also known as the relying party, exchanges valid credentials for tokens. The credentials include a user ID and password. The tokens returned are an ID token, access token, and a refresh token.
 
 The following options are supported in the ROPC flow:
 
@@ -38,7 +38,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 ## Register an application
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application, such as *ROPC_Auth_app*.
@@ -84,7 +84,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -136,7 +136,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
     </TechnicalProfile>
     ```
 
-    Replace the **DefaultValue** of **client_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial. Then replace **DefaultValue** of **resource_id** with the Application ID  of the IdentityExperienceFramework application that you also created in the prerequisite tutorial.  
+    Replace the **DefaultValue** of **client_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial. Then replace **DefaultValue** of **resource_id** with the Application ID  of the IdentityExperienceFramework application that you also created in the prerequisite tutorial.
 
 5. Add following **ClaimsProvider** elements with their technical profiles to the **ClaimsProviders** element:
 
@@ -241,7 +241,7 @@ Next, update the relying party file that initiates the user journey that you cre
 2. Open the new file and change the value of the **PolicyId** attribute for **TrustFrameworkPolicy** to a unique value. The policy ID is the name of your policy. For example, **B2C_1A_ROPC_Auth**.
 3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to `ResourceOwnerPasswordCredentials`.
 4. Change the **OutputClaims** element to only contain the following claims:
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />

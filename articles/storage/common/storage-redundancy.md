@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/10/2019
+ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -33,7 +33,7 @@ When you create a storage account, you can select one of the following redundanc
 
 The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
 
-| Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                               |
+| Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (preview)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Node unavailability within a data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
 | An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes                                  | Yes                                  |
@@ -41,7 +41,7 @@ The following table provides a quick overview of the scope of durability and ava
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | Yes (with RA-GRS)                                   | Yes (with RA-GZRS)                                 |
 | Designed to provide \_\_ durability of objects over a given year                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Supported storage account types                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| Availability SLA for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.99% (99.9% for Cool Access Tier) |
+| Availability SLA for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS, at least 99.99% (99.9% for Cool Access Tier) for RA-GRS | At least 99.99% (99.9% for Cool Access Tier) |
 | Availability SLA for write requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 
 All data in your storage account is replicated, including block blobs and append blobs, page blobs, queues, tables, and files. All types of storage accounts are replicated, although ZRS requires a general-purpose v2 storage account.
