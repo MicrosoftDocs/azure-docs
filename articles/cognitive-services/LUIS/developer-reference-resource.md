@@ -18,7 +18,9 @@ Developers can use both REST APIs and SDKs for Language Understanding.
 
 ## Azure resource management
 
-Use the Azure Cognitive Services Management layer to create, edit, list, and delete the Language Understanding or Cognitive Service resource:
+Use the Azure Cognitive Services Management layer to create, edit, list, and delete the Language Understanding or Cognitive Service resource.
+
+Find reference documentation based on the tool:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list)
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
@@ -27,16 +29,27 @@ Use the Azure Cognitive Services Management layer to create, edit, list, and del
 
 The Language Understanding service is accessed from an Azure resource you need to create. There are two resources: authoring and prediction endpoint resources. Both of these resources allow you to control your LUIS resources. 
 
-|Language |Reference documentation| Package|Samples|Quickstarts|
+|Language |Reference documentation|Package|Samples|Quickstarts|
 |--|--|--|--|--|
-|C#|[Authoring](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Prediction](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet authoring](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Create and manage app](sdk-csharp-quickstart-authoring-app.md)<br>[Query prediction endpoint](sdk-csharp-quickstart-query-prediction-endpoint.md)|
-|Go||||
-|Java||||
-|Node.js||||
-|Powershell||||
-|Python||||
-|REST||||
+|C#|[Authoring](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Prediction](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet authoring](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Create and manage app](sdk-csharp-quickstart-authoring-app.md)<br>[Query prediction endpoint](sdk-csharp-quickstart-query-prediction-endpoint.md)|
+|Go|[Authoring and prediction](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Authoring](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Prediction](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Authoring using REST](luis-get-started-go-add-utterance.md)<br>[Prediction using REST](luis-get-started-go-get-intent.md)|
+|Java|[Authoring and prediction](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven authoring](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven prediction](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[Authoring](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[Prediction](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[Authoring](luis-get-started-java-add-utterance.md)<br>[Prediction](luis-get-started-java-get-intent.md)
+|Node.js|[Authoring](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Prediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM authoring](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring)<br>[NPM prediction](https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime)|[Authoring](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-add-utterance)<br>[Prediction](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[Authoring using REST](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[Prediction using REST](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|
+|Python|[Authoring and prediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/?view=azure-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Authoring](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Authoring](sdk-python-quickstart-authoring-app)<br>[Prediction using REST](luis-get-started-python-get-intent.md)
 
-## Bot framework integration with Language Understanding
+## Other tools and SDKs
 
-Working 
+The bot framework is available as [an SDK](https://github.com/Microsoft/botframework) in a variety of languages and as a service using [Azure Bot Service](https://dev.botframework.com/). 
+
+Bot framework provides [several tools](https://github.com/microsoft/botbuilder-tools) to help with Language Understanding, including:
+
+* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
+* [LUIS Cli](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS)
+* [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch) to manage parent and child apps
+* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
+* [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)
+
+
+## Next steps
+
+Learn about the common [HTTP error codes](luis-reference-response-codes.md)
