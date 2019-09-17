@@ -7,14 +7,13 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
 
 ---
@@ -98,4 +97,4 @@ This detection requires a specific configuration of the Syslog data connector:
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
