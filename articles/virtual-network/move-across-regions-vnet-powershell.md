@@ -44,32 +44,25 @@ The following steps show you how to prepare the virtual network for the move usi
     Connect-AzAccount
     ```
 
-2. Obtain the subscription ID where you wish to deploy the target virtual network and place in a variable using [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
-   
-    ```azurepowershell-interactive
-    Get-AzSubscription | format-table
-
-    $Subscription = "MySubscriptionID"
-    ```
-3. Obtain the resource ID of the virtual network you want to move to the target region and place it in a variable using [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+2. Obtain the resource ID of the virtual network you want to move to the target region and place it in a variable using [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-4. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-5. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
+4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
    ```
 
-6. To edit the parameter of the virtual network name, change the property **defaultValue** of the source virtual network name to the name of your target virtual network, ensure the name is in quotes:
+5. To edit the parameter of the virtual network name, change the property **defaultValue** of the source virtual network name to the name of your target virtual network, ensure the name is in quotes:
     
     ```json
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentmyResourceGroupVNET.json#",
@@ -81,7 +74,7 @@ The following steps show you how to prepare the virtual network for the move usi
         }
     ```
 
-7.  To edit the target region where the VNET will be moved, change the **location** property under resources:
+6.  To edit the target region where the VNET will be moved, change the **location** property under resources:
 
     ```json
     "resources": [
@@ -101,110 +94,81 @@ The following steps show you how to prepare the virtual network for the move usi
 
     ```
   
-8. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+7. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-9.  You can also change other parameters in the **\<resource-group-name>.json** file if you choose, and are optional depending on your requirements:
+8.  You can also change other parameters in the **\<resource-group-name>.json** file if you choose, and are optional depending on your requirements:
 
-    * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **\<resource-group-name>.json** file:
+    * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** 
+    property in the **\<resource-group-name>.json** file:
 
-        ```json
-            "resources": [
-              {
-               "type": "Microsoft.Network/virtualNetworks",
-               "apiVersion": "2019-06-01",
-               "name": "[parameters('virtualNetworks_myVNET1_name')]",
-               "location": "<target-region",
-                  "properties": {
-                     "provisioningState": "Succeeded",
-                     "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
-                     "addressSpace": {
-                        "addressPrefixes": [
-                           "10.0.0.0/16"
-                          ]
+            ```json
+            
+             "resources": [
+             {
+              "type": "Microsoft.Network/virtualNetworks",
+              "apiVersion": "2019-06-01",
+              "name": "[parameters('virtualNetworks_myVNET1_name')]",
+              "location": "<target-region",
+                 "properties": {
+                    "provisioningState": "Succeeded",
+                    "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
+                    "addressSpace": {
+                       "addressPrefixes": [
+                          "10.0.0.0/16"
+                         ]
               },
 
-        ```
-* **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
+            ```
+
+
+    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
     
-        ```json
-        "subnets": [
-            {
-             "name": "subnet-1",
-             "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
-             "properties": {
-                "provisioningState": "Succeeded",
-                "addressPrefix": "10.0.0.0/24",
-                "delegations": [],
-                "privateEndpointNetworkPolicies": "Enabled",
-                "privateLinkServiceNetworkPolicies": "Enabled"
-                 }
-                  },
-                    {
-                     "name": "GatewaySubnet",
-                     "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
-                     "properties": {
+            ```json
+             "subnets": [
+                       {
+                        "name": "subnet-1",
+                        "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
+                        "properties": {
                         "provisioningState": "Succeeded",
-                        "addressPrefix": "10.0.1.0/29",
-                         "serviceEndpoints": [],
-                         "delegations": [],
-                         "privateEndpointNetworkPolicies": "Enabled",
-                         "privateLinkServiceNetworkPolicies": "Enabled"
-                          }
-                    }
-            ]
+                        "addressPrefix": "10.0.0.0/24",
+                        "delegations": [],
+                        "privateEndpointNetworkPolicies": "Enabled",
+                        "privateLinkServiceNetworkPolicies": "Enabled"
+                         }
+                        },
+                        {
+                             "name": "GatewaySubnet",
+                             "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
+                             "properties": {
+                             "provisioningState": "Succeeded",
+                             "addressPrefix": "10.0.1.0/29",
+                             "serviceEndpoints": [],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                             }
+                        }
+                        ]
 
-        ```
-
+            ```
+    
+    
     In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
 
-        ```json
-                 "type": "Microsoft.Network/virtualNetworks/subnets",
-                                "apiVersion": "2019-06-01",
-                                "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
-                                "dependsOn": [
-                                    "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
-                                ],
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "addressPrefix": "10.0.1.0/29",
-                                    "serviceEndpoints": [],
-                                    "delegations": [],
-                                    "privateEndpointNetworkPolicies": "Enabled",
-                                    "privateLinkServiceNetworkPolicies": "Enabled"
-                                }
-                            },
-                            {
-                                "type": "Microsoft.Network/virtualNetworks/subnets",
-                                "apiVersion": "2019-06-01",
-                                "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/subnet-1')]",
-                                "dependsOn": [
-                                    "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
-                                ],
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "addressPrefix": "10.0.0.0/24",
-                                    "delegations": [],
-                                    "privateEndpointNetworkPolicies": "Enabled",
-                                    "privateLinkServiceNetworkPolicies": "Enabled"
-                                }
-                            }
-                        ]
-        ```
+9.  Save the **\<resource-group-name>.json** file.
 
-10. Save the **\<resource-group-name>.json** file.
-
-11. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+10. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-12. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -212,7 +176,7 @@ The following steps show you how to prepare the virtual network for the move usi
     
     ```
 
-13. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+12. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
