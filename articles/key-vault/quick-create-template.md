@@ -17,7 +17,9 @@ ms.author: jgao
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Resource Manager template
 
-[Azure Key Vault](./key-vault-overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret.  Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
+[Azure Key Vault](./key-vault-overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret.
+
+[Resource Manager template](../azure-resource-manager/template-deployment-overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. If you want to learn more about developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -50,7 +52,11 @@ To complete this article, you need:
 
 ## Create a vault and a secret
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/). More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
+
+[!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
+
+More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
@@ -65,7 +71,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
     * **Location**: select a location.  For example, **Central US**.
-    * **Key Vault Name**: enter a name for the key vault which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validation the dpeloyment.
+    * **Key Vault Name**: enter a name for the key vault which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validation the deployment.
     * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value.
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
     * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**.
@@ -135,7 +141,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart you created a key vault and a secret using an Azure Resource manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
+In this quickstart you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
