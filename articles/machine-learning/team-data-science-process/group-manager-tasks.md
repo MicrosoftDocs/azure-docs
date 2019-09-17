@@ -21,12 +21,12 @@ The following diagram shows the six main group manager setup tasks. Group manage
 
 ![Group manager tasks](./media/group-manager-tasks/tdsp-group-manager.png)
 
-1. Set up an **Azure DevOps organization** for the group
-2. Create a default **group project** in the Azure DevOps organization
-3. Create the **GroupProjectTemplate** repository in Azure Repos
-4. Create the **GroupUtilities** repository in Azure Repos
-5. Import the contents of the Microsoft TDSP team's **ProjectTemplate** and **Utilities** repositories into your group common repositories
-6. Set up **membership** and **permissions** for team members to access the group
+1. Set up an **Azure DevOps organization** for the group.
+2. Create the default **GroupCommon project** in the Azure DevOps organization.
+3. Create the **GroupProjectTemplate** repository in Azure Repos.
+4. Create the **GroupUtilities** repository in Azure Repos.
+5. Import the contents of the Microsoft TDSP team's **ProjectTemplate** and **Utilities** repositories into the group common repositories.
+6. Set up **membership** and **permissions** for team members to access the group.
 
 The following tutorial walks through the steps in detail. 
 
@@ -73,15 +73,15 @@ To set up the group common repositories in your project, you:
 
 To rename the default **GroupCommon** project repository to **GroupProjectTemplate**:
 
-1. On the **GroupCommon** project **Summary** page, select **Repos**. This takes you to the default **GroupCommon** repository of the GroupCommon project. This repository is currently empty.
+1. On the **GroupCommon** project **Summary** page, select **Repos**. This action takes you to the default **GroupCommon** repository of the GroupCommon project, which is currently empty.
    
 1. At the top of the page, drop down the arrow next to **GroupCommon** and select **Manage repositories**.
    
-  ![Manage repositories](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
+   ![Manage repositories](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
    
 1. On the **Project Settings** page, select the **...** next to **GroupCommon**, and then select **Rename repository**. 
    
-  ![Select ... and then select Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
+   ![Select ... and then select Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
    
 1. In the **Rename the GroupCommon repository** popup, enter *GroupProjectTemplate*, and then select **Rename**. 
    
@@ -95,17 +95,17 @@ To create the **GroupUtilities** repository:
    
 1. At the top of the page, drop down the arrow next to **GroupProjectTemplate** and select **New repository**.
    
-  ![Select New repository](./media/group-manager-tasks/create-grouputilities-repo-1.png)
+   ![Select New repository](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
 1. In the **Create a new repository** dialog, select **Git** as the **Type**, enter *GroupUtilities* as the **Repository name**, and then select **Create**.
    
-  ![Create GroupUtilities repository](./media/group-manager-tasks/create-grouputilities-repo-2.png)
+   ![Create GroupUtilities repository](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
 1. On the **Project Settings** page, select **Repositories** under **Repos** in the left navigation to see the two group repositories: **GroupProjectTemplate** and **GroupUtilities**.
    
    ![Two group repositories](./media/group-manager-tasks/two-repositories.png)
 
-## Import the contents of the Microsoft TDSP team repositories
+## Import the Microsoft TDSP team repositories
 
 In this part of the tutorial, you import the contents of the **ProjectTemplate** and **Utilities** repositories managed by the Microsoft TDSP team into your **GroupProjectTemplate** and **GroupUtilities** repositories. 
 
@@ -115,11 +115,11 @@ To import the TDSP team repositories:
    
 1. On the **GroupProjectTemplate is empty. Add some code!** page, select **Import**. 
    
-  ![Select Import](./media/group-manager-tasks/import-repo.png)
+   ![Select Import](./media/group-manager-tasks/import-repo.png)
    
 1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* for the **Clone URL**. Then select **Import**. The contents of the Microsoft TDSP team ProjectTemplate repository are imported into your GroupProjectTemplate repository. 
    
-  ![Import Microsoft TDSP team repository](./media/group-manager-tasks/import-repo-2.png)
+   ![Import Microsoft TDSP team repository](./media/group-manager-tasks/import-repo-2.png)
    
 1. At the top of the **Repos** page, drop down and select the **GroupUtilities** repository.
    
@@ -145,7 +145,7 @@ To customize repository contents:
      
    - To upload files, select **Upload file(s)**. 
      
-     ![Upload files](./media/group-manager-tasks/new-file.png)
+     ![Upload files](./media/group-manager-tasks/upload-files.png)
      
    - To edit existing files, navigate to the file and then select **Edit**. 
      
@@ -153,7 +153,7 @@ To customize repository contents:
      
 1. After adding or editing files, select **Commit**.
    
-   ![Commit changes](./media/group-manager-tasks/new-file.png)
+   ![Commit changes](./media/group-manager-tasks/commit.png)
 
 ## Add group members and configure permissions
 
