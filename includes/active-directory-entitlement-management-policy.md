@@ -92,6 +92,8 @@ If you frequently work with an organization the uses Azure AD, you add them as a
 
 1. On the **Review + create** tab, review your directory settings and click **Create**.
 
+    ![Access package - Policy - Add connected directory - Review + create tab](./media/active-directory-entitlement-management-policy/add-directory-review-create.png)
+
 ### Policy: None (administrator direct assignments only)
 
 Follow these steps if you want your policy to bypass access requests and allow administrators to directly assign specific users to the access package. Users won't have to request the access package. You can still set expiration settings, but there are no request settings.
