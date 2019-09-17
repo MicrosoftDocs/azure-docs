@@ -96,7 +96,7 @@ Users do not have the option to register their mobile app when registering for s
 
 > [!IMPORTANT]
 > The authenticator app cannot be selected as the only authentication method when configuring a 1-gate policy. Similarly, the authenticator app and only one additional method cannot be selected when configuring a 2-gates policy.
-> Then, when configuring SSPR policies that include the authenticator app as a method, an additional method should be selected when configuring a 1-gate policy, and two additional methods should be selected when configuring a 2-gates policy.
+> Then, when configuring SSPR policies that include the authenticator app as a method, at least an additional method should be selected when configuring a 1-gate policy, and at least two additional methods should be selected when configuring a 2-gates policy.
 > The reason for this requirement is because the current SSPR registration experience does not include the option to register the authenticator app. The option to register the authenticator app is included with the new [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md).
 > Allowing policies that only use the authenticator app (for 1-gate policies), or the authenticator app and only one additional method (for 2-gates policies), could lead to users being blocked from doing SSPR until they have been configured to use the new registration experience.
 
