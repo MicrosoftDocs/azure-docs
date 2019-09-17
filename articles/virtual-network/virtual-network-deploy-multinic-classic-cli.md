@@ -4,7 +4,7 @@ description: Learn how to create a VM (Classic) with multiple NICs using the Azu
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

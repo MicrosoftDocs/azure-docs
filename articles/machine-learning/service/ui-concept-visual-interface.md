@@ -1,7 +1,7 @@
 ---
 title: Visual interface
-titleSuffix: Azure Machine Learning service
-description: Learn about the terms, concepts, and workflow that make up the visual interface (preview) for Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn about the terms, concepts, and workflow that make up the visual interface (preview) for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-# As a data scientist, I want to understand the big picture about how the visual interface for Azure Machine Learning service works.
+# As a data scientist, I want to understand the big picture about how the visual interface for Azure Machine Learning works.
 ---
 
-# What is the visual interface for Azure Machine Learning service? 
+# What is the visual interface for Azure Machine Learning? 
 
-The visual interface (preview) for Azure Machine Learning service enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
+The visual interface (preview) for Azure Machine Learning enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 
 There is no programming required, you visually connect [datasets](#dataset) and [modules](#module) to construct your model.
 
-The visual interface uses your Azure Machine Learning service [workspace](concept-workspace.md) to:
+The visual interface uses your Azure Machine Learning [workspace](concept-workspace.md) to:
 
 + Write artifacts of [experiment](#experiment) runs into the workspace.
 + Access [datasets](#dataset).
