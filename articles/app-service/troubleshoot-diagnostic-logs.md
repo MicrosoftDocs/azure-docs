@@ -128,7 +128,7 @@ To stream logs in the [Azure portal](https://portal.azure.com), navigate to your
 
 ### In Cloud Shell
 
-To stream logs live in Cloud Shell, use the following command:
+To stream logs live in [Cloud Shell](../cloud-shell/overview.md), use the following command:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
