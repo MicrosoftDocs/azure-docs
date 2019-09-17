@@ -19,6 +19,9 @@ AKS clusters are deployed on host virtual machines, which run a security optimiz
 
 The goal of the security hardened host OS is to reduce the surface area of attack and allow the deployment of containers in a secure fashion. 
 
+> [!Important]
+> The security hardened OS is NOT CIS benchmarked. While there are overlaps with CIS benchmarks, the goal is not to be CIS-compliant. The goal for host OS hardening is to converge on a level of security consistent with Microsoft’s own internal host security standards. 
+
 # Security hardening features 
 
 * AKS provides a security optimized host OS by default. There is no current option to select an alternate operating system. 
@@ -74,8 +77,6 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 
 # Additional notes
  
-* The security hardened OS is NOT CIS benchmarked. While there are overlaps with CIS benchmarks, the goal is not to be CIS-compliant. The goal for host OS hardening is to converge on a level of security consistent with Microsoft’s own internal host security standards. 
-
 * To further reduce the attack surface area, some unnecessary kernel module drivers have been disabled in the OS. 
 
 * The security hardened OS is NOT supported outside of the AKS platform. 
