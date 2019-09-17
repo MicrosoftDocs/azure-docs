@@ -36,10 +36,10 @@ landingContent:
             url: tutorial-register-applications.md
           - text: Set up user flows
             url: tutorial-create-user-flows.md
-      - linkListType: learn
+      - linkListType: video
         links:
-          - text: "Video: Customer identity management with Azure AD B2C"
-            url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
+          - text: What is Azure AD B2C?
+            url: https://www.youtube.com/watch?v=GmBKlXED9Ug
 
   # Card
   - title: Add identity to ASP.NET apps
@@ -116,6 +116,10 @@ landingContent:
             url: customize-ui-overview.md
           - text: Enable sign-in with Facebook
             url: active-directory-b2c-setup-fb-app.md
+      - linkListType: video
+        links:
+          - text: How to configure basic policies in Azure AD B2C
+            url: https://www.youtube.com/watch?v=nWJ3m82536A
 
   # Card
   - title: Build advanced identity scenarios
@@ -134,6 +138,10 @@ landingContent:
             url: active-directory-b2c-setup-commonaad-custom.md
           - text: Add your own business logic with REST APIs
             url: active-directory-b2c-rest-api-validation-custom.md
+      - linkListType: video
+        links:
+          - text: Advanced use cases with Azure AD B2C
+            url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
 
 #  # Card
 #  - title: cardtitle2
