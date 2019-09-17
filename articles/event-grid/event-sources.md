@@ -79,6 +79,16 @@ Subscribe to IoT Hub events to respond to device created, deleted, connected, di
 | [Event schema](event-schema-iot-hub.md) | Shows fields in IoT Hub events. |
 | [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
 
+## Key Vault
+
+Subscribe to Key Vault events to be notified when a secret is about to expire, a secret expires, or a secret has a new version available. 
+
+|Title  |Description  |
+|---------|---------|
+| [Monitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Learn how to set up Event Grid notifications for Key Vault. |
+| [Event schema](event-schema-key-vault.md) | Shows fields in Key Vault events. |
+
 ## Media Services
 
 Subscribe to Media Services events to respond to job state events.

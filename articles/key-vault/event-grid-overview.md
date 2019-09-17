@@ -14,7 +14,7 @@ ms.date: 09/18/2019
 ms.author: mbaldwin
 ---
  
-# Handling Event Grid events
+# Monitoring Key Vault events with Azure Event Grid (preview)
 
 Key Vault Notifications is a new feature that is in preview. It is designed to allow users to be notified when the status of a secret stored in key vault has changed. A status change is defined as a secret that is about to expire (within 30 days of expiration), a secret that has expired, or a secret that has a new version available. Notifications for all 3 secret types (key, certificate, and secret) are supported.
 
@@ -22,7 +22,7 @@ Key Vault Services events allow applications to react to these events using mode
 
 ## Key Vault events and schemas
 
-Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Key Vault events contain all the information you need to respond to changes in your data. You can identify a Key Vault event because the eventType property starts with "Microsoft.KeyVault".
+Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Key Vault events contain all the information you need to respond to changes in your data. You can identify a Key Vault event because the eventType property starts with "Microsoft.KeyVault".
 
 For more information, see [Media Services event schemas](../event-grid/event-schema-key-vault.md).
 

@@ -53,7 +53,7 @@
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
   - name: Monitor Key Vault events with Event Grid
-    href: event-grid-monitoring.md
+    href: event-grid-overview.md
 - name: Samples
   items:
   - name: Code samples
