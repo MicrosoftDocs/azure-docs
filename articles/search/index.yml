@@ -55,16 +55,6 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
 
   # Card
-  - title: Service configuration
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Choose a tier
-            url: search-sku-tier.md
-          - text: Service limits
-            url: search-limits-quotas-capacity.md
-
-  # Card
   - title: Index your data
     linkLists:
       - linkListType: concept
