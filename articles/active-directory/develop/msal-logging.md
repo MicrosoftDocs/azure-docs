@@ -84,7 +84,7 @@ Turn logging on at app creation by creating a logging callback. The callback tak
 - `tag` enables you to associate log entries with a string. This can help you sort logging messages by types (strings) that you define.
 - `logLevel` enables you to decide which level of logging you want. Setting it to `Errors` means only errors will be logged, for example.
 - `message` is the content of the log entry.
-- `containsPII` specifies whether personal identifiable information (PII) or organizational identifiable information (OII) messages are logged. By default, this is set to false, so that your application doesn't log personal data. If `containsPII` is `true`, this method will receive the messages twice: once with the `containsPII` parameter set to `false` and the `message` without personal data, and a second time with the `containsPii` parameter set to `true` and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
+- `containsPII` specifies whether messages containing personal data (PII), or organizational data are logged. By default, this is set to false, so that your application doesn't log personal data. If `containsPII` is `true`, this method will receive the messages twice: once with the `containsPII` parameter set to `false` and the `message` without personal data, and a second time with the `containsPii` parameter set to `true` and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
 
 ```java
 private StringBuilder mLogs;
@@ -100,14 +100,14 @@ Logger.getInstance().setExternalLogger(new ILoggerCallback()
 });
 ```
 
-By default, the MSAL logger will not capture any personal identifiable information (PII) or organizational identifiable information (OII).
+By default, the MSAL logger will not capture any personal identifiable information or organizational identifiable information.
 To enable the logging of personal identifiable information or organizational identifiable information:
 
 ```java
 Logger.getInstance().setEnablePII(true);
 ```
 
-To disable personally identifiable information and organizationalyl identifiable information:
+To disable personally identifiable information and organizationally identifiable information:
 
 ```java
 Logger.getInstance().setEnablePII(false);
