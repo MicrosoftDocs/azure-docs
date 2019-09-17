@@ -31,6 +31,8 @@ landingContent:
             url: /azure/connectors/apis-list.md
           - text: Schedule recurring workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
+          - text: B2B enterprise integration
+            url: logic-apps-enterprise-integration-overview.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
@@ -85,10 +87,6 @@ landingContent:
   # Card (optional)
   - title: Build B2B enterprise integrations
     linkLists:
-      - linkListType: concept
-        links:
-          - text: B2B enterprise integration
-            url: logic-apps-enterprise-integration-overview.md
       - linkListType: how-to-guide
         links:
           - text: Create and manage integration accounts
