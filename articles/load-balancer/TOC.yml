@@ -127,6 +127,8 @@
     items:
     - name: External load balancer - Portal
       href: move-across-regions-external-load-balancer-portal.md
+    - name: External Load Balancer - PowerShell
+      href: move-across-regions-external-load-balancer-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
