@@ -134,7 +134,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you switch off the domain specific issuer, the Identifier value will be google.com. If you turn this switch on, it will be google.com/a/<yourdomainname.com>.  Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you switch off the domain specific issuer, the Identifier value will be `google.com`. If you turn this switch on, it will be `google.com/a/<yourdomainname.com>`. For more information contact [G Suite Client support team](https://www.google.com/contact/).
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
@@ -150,7 +150,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com/a/<yourdomain.com>` |
     
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you switch off the domain specific issuer, the Identifier value will be `google.com`. If you turn on the domain specific issuer, it will be `google.com/a/<yourdomainname.com>`. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you switch off the domain specific issuer, the Identifier value will be `google.com`. If you turn on the domain specific issuer, it will be `google.com/a/<yourdomainname.com>`. For more information contact [G Suite Client support team](https://www.google.com/contact/).
 
 1. Your G Suite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but G Suite expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
