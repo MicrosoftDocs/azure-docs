@@ -25,6 +25,10 @@ landingContent:
             url: chef-habitat-overview.md
           - text: About InSpec on Azure
             url: chef-inspec-overview.md
+      - linkListType: architecture
+        links:
+          - text: Azure Chef Extension
+            url: https://docs.chef.io/azure_portal.html#azure-chef-extension
 
   # Card
   - title: Install and Configure Chef Software
