@@ -4,7 +4,7 @@ description: Learn how to create a virtual network (classic) using the Azure por
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 
