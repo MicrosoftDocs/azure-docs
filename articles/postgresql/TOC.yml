@@ -150,6 +150,8 @@
       items:
       - name: Firewall rules
         href: concepts-hyperscale-firewall-rules.md
+      - name: Configure SSL
+        href: concepts-hyperscale-ssl-connection-security.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
     - name: Resources
