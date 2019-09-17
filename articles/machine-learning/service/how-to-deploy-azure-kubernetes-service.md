@@ -1,7 +1,7 @@
 ---
 title: How to deploy models to Azure Kubernetes Service
-titleSuffix: Azure Machine Learning service
-description: 'Learn how to deploy your Azure Machine Learning service models as a web service using Azure Kubernetes Service.'
+titleSuffix: Azure Machine Learning
+description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 07/08/2019
 
 # Deploy a model to an Azure Kubernetes Service cluster
 
-Learn how to use the Azure Machine Learning service to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
+Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
 - __Fast response time__.
 - __Autoscaling__ of the deployed service.
@@ -25,15 +25,15 @@ Learn how to use the Azure Machine Learning service to deploy a model as a web s
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
-* Create the AKS cluster using the Azure Machine Learning service SDK, the Machine Learning CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com). This process automatically connects the cluster to the workspace.
-* Attach an existing AKS cluster to your Azure Machine Learning service workspace. A cluster can be attached using the Azure Machine Learning service SDK, Machine Learning CLI, or the Azure portal.
+* Create the AKS cluster using the Azure Machine Learning SDK, the Machine Learning CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com). This process automatically connects the cluster to the workspace.
+* Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or the Azure portal.
 
 > [!IMPORTANT]
 > The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detatched or deleted, you will no longer be able to deploy to the cluster.
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
@@ -112,7 +112,7 @@ For more information, see the [az ml computetarget create ask](https://docs.micr
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
 
 > [!TIP]
-> The existing AKS cluster can be in a Azure region than your Azure Machine Learning service workspace.
+> The existing AKS cluster can be in a Azure region than your Azure Machine Learning workspace.
 >
 > If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
