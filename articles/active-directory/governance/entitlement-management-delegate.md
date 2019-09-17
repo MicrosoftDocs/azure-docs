@@ -68,7 +68,7 @@ Entitlement management has the following roles that are specific to entitlement 
 
 | Role | Description |
 | --- | --- |
-| Catalog creator | Create and manage catalogs. Typically an IT administrator who is not a Global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add additional catalog owners. |
+| Catalog creator | Create and manage catalogs. Typically an IT administrator who is not a Global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add additional catalog owners. A catalog creator can’t manage or see catalogs that they don’t own and can’t add resources they don’t own to a catalog. If the catalog creator needs to manage another catalog or add resources they don’t own, they can request to be a co-owner of that catalog or resource. |
 | Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owners, or a user who the catalog owner has designated. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 
@@ -140,7 +140,15 @@ If you want to delegate catalog creation, you add users to the catalog creator r
 
 ## Add a catalog owner or an access package manager
 
-If you want to delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner. Follow these steps to assign a user to the catalog owner or access package manager role.
+To delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner. 
+
+The assigned catalog owner or access package manager must be familiar with the project. The catalog creator should create the access package if involved in the day to day operations of the project, and they know the following information:
+- what resources are needed
+- who will need access
+- who needs to approve access
+- how long the project will last
+
+The catalog creator should delegate the task to the project lead, who will create and manage the access package, if not involved in the day to day operations of the project. Follow these steps to assign a user to the catalog owner or access package manager role:
 
 **Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
