@@ -169,7 +169,7 @@ Select controllers or containers at the top of the page to review the status and
 
 - Resident memory or main memory, is the actual amount of machine memory available to the nodes of the cluster.
 
-- Virtual memory is reserved hard disk space (cache) used by the operating system to swap data from memory to disk and disk to memory when required.
+- Virtual memory is reserved hard disk space (cache) used by the operating system to swap data from memory to/from disk when under memory pressure.
 
 ![Container nodes performance view](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
