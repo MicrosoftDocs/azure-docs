@@ -244,7 +244,7 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-  - name: Visual interface sample pipelines
+  - name: Visual interface samples
     displayName: sample pipelines
     items:
     - name: "Predict price"
