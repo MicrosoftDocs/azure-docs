@@ -33,11 +33,7 @@ landingContent:
         links:
           - text: Install Chef using the Azure portal
             url: chef-extension-portal.md
-
-    # Card
-  - title: Use Chef Software Tools
-    linkLists:
-      - linkListType: tutorial
+      - linkListType: download
         links:
           - text: Chef Azure DevOps Services extension
             url: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks
