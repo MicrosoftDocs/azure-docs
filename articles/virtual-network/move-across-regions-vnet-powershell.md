@@ -154,7 +154,7 @@ The following steps show you how to prepare the virtual network for the move usi
                 ]
         ```
 
-In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+        In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
 
 9.  Save the **\<resource-group-name>.json** file.
 
