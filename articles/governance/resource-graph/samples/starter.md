@@ -7,7 +7,6 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Starter Resource Graph queries
 
@@ -33,8 +32,6 @@ We'll walk through the following starter queries:
 > - [Show distinct values for a specific alias](#distinct-alias-values)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Language support
 
@@ -103,7 +100,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"/>Show first five virtual machines by name and their OS type
 
-This query will use `limit` to only retrieve five matching records that are ordered by name. The type
+This query will use `top` to only retrieve five matching records that are ordered by name. The type
 of the Azure resource is `Microsoft.Compute/virtualMachines`. `project` tells Azure Resource Graph
 which properties to include.
 
@@ -295,7 +292,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 |
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
 ```
 
 ## <a name="distinct-alias-values"/>Show distinct values for a specific alias

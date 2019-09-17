@@ -1,7 +1,7 @@
 ---
 title: Access data in Azure storage services
-titleSuffix: Azure Machine Learning service
-description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -198,6 +198,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
 ### Compute and datastore matrix
 
 Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data access functionalities for the different compute targets and datastore scenarios. Learn more about the [compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -216,9 +217,20 @@ Datastores currently support storing connection information to the storage servi
 > [!NOTE]
 > There may be scenarios in which highly iterative, large data processes run faster using `as_download()` instead of `as_mount()`; this can be validated experimentally.
 
+### Accessing source code during training
+
+Azure blob storage has higher throughput speeds than Azure file share and will scale to large numbers of jobs started in parallel. For this reason, we recommend configuring your runs to use blob storage for transferring source code files.
+
+The following code example specifies in the run configuration which blob datastore to use for source code transfers.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
+```
+
 ## Access data during scoring
 
-The Azure Machine Learning service provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
+Azure Machine Learning provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
 
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |

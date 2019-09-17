@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 # Application types that can be used in Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C supports authentication for a variety of modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) or [OpenID Connect](active-directory-b2c-reference-protocols.md). This article describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
+Azure Active Directory B2C (Azure AD B2C) supports authentication for a variety of modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) or [OpenID Connect](active-directory-b2c-reference-protocols.md). This article describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
 
 Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
 
@@ -128,12 +128,12 @@ This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer
 
 Do not edit Azure AD B2C applications in these ways:
 
-- On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
+- On other application management portals such as the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Using Graph API or PowerShell.
 
 If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. Delete the application and create it again.
 
-To delete the application, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+To delete the application, go to the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
 ## Next steps
 

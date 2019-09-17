@@ -1,7 +1,7 @@
 ---
-title: Detect data drift (Preview) on AKS deployments
-titleSuffix: Azure Machine Learning service
-description: Detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning service.
+title: Detect data drift (preview) on AKS deployments
+titleSuffix: Azure Machine Learning
+description: Detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
+ms.date: 09/13/2019
 ---
 
 # Detect data drift (preview) on models deployed to Azure Kubernetes Service (AKS)
 
-In this article, you learn how to monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With the Azure Machine Learning service, you can monitor data drift and the service can send an email alert to you when drift is detected.
+In this article, you learn how to monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With Azure Machine Learning, you can monitor data drift and the service can send an email alert to you when drift is detected.
 
 ## What is data drift?
 
@@ -22,7 +22,7 @@ Data drift happens when data served to a model in production is different from t
 
 ## What can I monitor?
 
-With Azure Machine Learning service, you can monitor the inputs to a model deployed on AKS and compare this data to the training dataset for the model. At regular intervals, the inference data is [snapshot and profiled](how-to-explore-prepare-data.md), then computed against the baseline dataset to produce a data drift analysis that: 
+With Azure Machine Learning, you can monitor the inputs to a model deployed on AKS and compare this data to the training dataset for the model. At regular intervals, the inference data is [snapshot and profiled](how-to-explore-prepare-data.md), then computed against the baseline dataset to produce a data drift analysis that: 
 
 + Measures the magnitude of data drift, called the drift coefficient.
 + Measures the data drift contribution by feature, informing which features caused data drift.
@@ -31,22 +31,22 @@ With Azure Machine Learning service, you can monitor the inputs to a model deplo
 + Send alerts to data drift by email.
 
 > [!Note]
-> This service is in (Preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
+> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
 
-### How data drift is monitored in Azure Machine Learning service
+### How data drift is monitored in Azure Machine Learning
 
-Using Azure Machine Learning service, data drift is monitored through datasets or deployments. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A second dataset - usually model input data gathered from a deployment - is tested against the baseline dataset. Both datasets are profiled and input to the data drift monitoring service. A machine learning model is trained to detect differences between the two datasets. The model's performance is converted to the drift coefficient, which measures the magnitude of drift between the two datasets. Using [model interpretability](machine-learning-interpretability-explainability.md), the features that contribute to the drift coefficient are computed. From the dataset profile, statistical information about each feature is tracked. 
+Using Azure Machine Learning, data drift is monitored through datasets or deployments. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A second dataset - usually model input data gathered from a deployment - is tested against the baseline dataset. Both datasets are profiled and input to the data drift monitoring service. A machine learning model is trained to detect differences between the two datasets. The model's performance is converted to the drift coefficient, which measures the magnitude of drift between the two datasets. Using [model interpretability](machine-learning-interpretability-explainability.md), the features that contribute to the drift coefficient are computed. From the dataset profile, statistical information about each feature is tracked. 
 
 ## Prerequisites
 
-- An Azure subscription. If you don’t have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+- An Azure subscription. If you don’t have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 - The Azure Machine Learning SDK for Python installed. Use the instructions at [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  to do the following:
 
     - Create a Miniconda environment
     - Install the Azure Machine Learning SDK for Python
 
-- An [Azure Machine Learning service workspace](how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 - A workspace [configuration file](how-to-configure-environment.md#workspace).
 
@@ -128,7 +128,7 @@ There are multiple ways to view drift metrics:
 
 * Use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
-* View the metrics in the Azure portal on your model.
+* View the metrics from the **Models** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
 
@@ -153,21 +153,22 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen on the model details page in the Azure portal.
+The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your [workspace landing page (preview)](https://ml.azure.com).
 
-![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
+![Azure portal Data Drift](media/how-to-monitor-data-drift/drift-config.png)
 
-## View results in Azure portal
+## View results in your workspace landing page
 
-To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [workspace landing page (preview)](https://ml.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A **Data drift** tab is now available visualizing the data drift metrics. 
 
-![Azure portal Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
+[![workspace landing page Data Drift](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
+
 
 ## Receiving drift alerts
 
 By setting the drift coefficient alerting threshold and providing an email address, an [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) email alert is automatically sent whenever the drift coefficient is above the threshold. 
 
-In order for you to set up custom alerts and actions, all data drift metrics are stored in the [Application Insights](how-to-enable-app-insights.md) resource that was created along with the Azure Machine Learning service workspace. You can follow the link in the email alert to the Application Insights query.
+In order for you to set up custom alerts and actions, all data drift metrics are stored in the [Application Insights](how-to-enable-app-insights.md) resource that was created along with the Azure Machine Learning workspace. You can follow the link in the email alert to the Application Insights query.
 
 ![Data Drift Email Alert](media/how-to-monitor-data-drift/drift_email.png)
 

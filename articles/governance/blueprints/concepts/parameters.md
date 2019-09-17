@@ -7,7 +7,6 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Creating dynamic blueprints through parameters
 
@@ -19,7 +18,7 @@ assignment, to change properties on the artifacts deployed by the blueprint.
 
 A simple example is the resource group artifact. When a resource group is created, it has two
 required values that must be provided: name and location. When adding a resource group to your
-blueprint, if parameters didn’t exist, you would define that name and location for every use of the
+blueprint, if parameters didn't exist, you would define that name and location for every use of the
 blueprint. This repetition would cause every use of the blueprint to create artifacts in the same
 resource group. Resources inside that resource group would become duplicated and cause a conflict.
 
@@ -286,7 +285,7 @@ a dynamic parameter that isn't provided during assignment, the assignment will f
 ## Next steps
 
 - See the list of [blueprint functions](../reference/blueprint-functions.md).
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

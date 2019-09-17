@@ -1,7 +1,7 @@
 ---
 title: 'MLOps: Manage, deploy, & monitor ML models'
-titleSuffix: Azure Machine Learning service
-description: 'Learn how to use Azure Machine Learning Service for MLOps: deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning Service, on your local machine, or from other sources.'  
+titleSuffix: Azure Machine Learning
+description: 'Learn how to use Azure Machine Learning for MLOps: deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.'  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,18 +13,18 @@ ms.date: 06/24/2019
 ms.custom: seodec18
 ---
 
-# MLOps: Manage, deploy, and monitor models with Azure Machine Learning Service
+# MLOps: Manage, deploy, and monitor models with Azure Machine Learning
 
-In this article, learn about how to use Azure Machine Learning service to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach, which improves the quality and consistency of your machine learning solutions. 
+In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach, which improves the quality and consistency of your machine learning solutions. 
 
-Azure Machine Learning Service provides the following MLOps capabilities:
+Azure Machine Learning provides the following MLOps capabilities:
 
 - **Deploy ML projects from anywhere**
 - **Monitor ML applications for operational and ML related issues** - compare model inputs between training and inference, explore model-specific metrics and provide monitoring and alerts on your ML infrastructure.
 - **Capture the data required for establishing an end to end audit trail of the ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
 - **Automate the end to end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
-To hear more on the concepts behind MLOps and how they apply to the Azure Machine Learning service, watch the following video.
+To hear more on the concepts behind MLOps and how they apply to Azure Machine Learning, watch the following video.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
@@ -42,10 +42,10 @@ Model registration allows you to store and version your models in the Azure clou
 > [!TIP]
 > A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
  
-Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. The Azure Machine Learning service supports any model that can be loaded using Python 3.5.2 or higher.
+Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. Azure Machine Learning supports any model that can be loaded using Python 3.5.2 or higher.
 
 > [!TIP]
-> You can also register models trained outside the Azure Machine Learning service.
+> You can also register models trained outside Azure Machine Learning.
 
 You can't delete a registered model that is being used in an active deployment.
 For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
@@ -60,13 +60,13 @@ For more information, see [Deploy models](how-to-deploy-and-where.md#registermod
 
 ### Validate and profile models
 
-Azure Machine Learning service can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
+Azure Machine Learning can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
 ### Convert and optimize models
 
 Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-For more information on ONNX with Azure Machine Learning service, see the [Create and accelerate ML models](concept-onnx.md) article.
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
 
 ### Use models
 
@@ -85,14 +85,14 @@ Optionally, you can use the following parameters to further tune the deployment:
 
 * Enable GPU: Used to enable GPU support in the Docker image. The image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Kubernetes Service, Azure Machine Learning Compute, or Azure Virtual Machines.
 * Extra docker file steps: A file that contains additional Docker steps to run when creating the Docker image.
-* Base image: A custom image to use as the base image. If you do not use a custom image, the base image is provided by the Azure Machine Learning service.
+* Base image: A custom image to use as the base image. If you do not use a custom image, the base image is provided by Azure Machine Learning.
 
 You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
 
-When the image is created, components required by Azure Machine Learning Service are also added. For example, assets needed to run the web service and interact with IoT Edge.
+When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
 > [!NOTE]
-> You cannot modify or change the web server or IoT Edge components used in the Docker image. Azure Machine Learning service uses a web server configuration and IoT Edge components that are tested and supported by Microsoft.
+> You cannot modify or change the web server or IoT Edge components used in the Docker image. Azure Machine Learning uses a web server configuration and IoT Edge components that are tested and supported by Microsoft.
 
 #### Web service
 
@@ -118,7 +118,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### Analytics
 
-Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (Preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
 ## Monitor ML applications for operational and ML related issues
@@ -148,11 +148,11 @@ The [Azure Machine Learning extension](https://marketplace.visualstudio.com/item
 * Enables workspace selection when defining a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning Service MLOps](https://aka.ms/mlops) repository.
+For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
 
 ## Next steps
 
-Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with Azure Machine Learning. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Learn how to create [continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
 

@@ -81,6 +81,8 @@
     href: search-lucene-query-architecture.md
   - name: Cognitive search
     href: cognitive-search-concept-intro.md
+  - name: Skillsets
+    href: cognitive-search-working-with-skillsets.md
   - name: Knowledge store 
     href: knowledge-store-concept-intro.md
   - name: Projections
@@ -166,9 +168,7 @@
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
-      href: search-example-adventureworks-modeling.md
-    - name: Model multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+      href: index-sql-relational-data.md
   - name: Load data
     items:
     - name: Data import overview
@@ -241,10 +241,14 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: Connect using Power BI
-      href: knowledge-store-connect-powerbi.md
+    - name: Create a knowledge store in Azure portal
+      href: knowledge-store-create-portal.md
     - name: Create using REST and Postman
       href: knowledge-store-howto.md
+    - name: View with Storage Explorer
+      href: knowledge-store-view-storage-explorer.md
+    - name: Connect with Power BI
+      href: knowledge-store-connect-power-bi.md
   - name: Query data
     items:
     - name: Create a basic query
@@ -273,6 +277,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
+    - name: Example of multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Handle results
     items:
     - name: Page-related features

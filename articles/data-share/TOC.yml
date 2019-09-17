@@ -17,6 +17,10 @@
     href: terminology.md
   - name: Roles and requirements 
     href: concepts-roles-permissions.md
+- name: Samples
+  items:
+  - name: Azure Powershell
+    href: samples-powershell.md
 - name: How-to guides
   items:
   - name: Monitor
@@ -37,10 +41,16 @@
   items:
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
+  - name: Azure Powershell
+    href: https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0
   - name: REST API
     href: /rest/api/datashare
 - name: Resources
   items:
+  - name: MSDN Forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataShare
+  - name: Stack Overflow 
+    href: https://stackoverflow.com/questions/tagged/azure-data-share
   - name: Blog
     href: https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/
   - name: Microsoft Tech Community

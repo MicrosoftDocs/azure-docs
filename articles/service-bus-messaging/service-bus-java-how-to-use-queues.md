@@ -15,12 +15,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
-# How to use Service Bus queues with Java
+# Use Azure Service Bus queues with Java to send and receive messages
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In this tutorial, you learn how to create Java applications to send messages to and receive messages from a Service Bus queue. 
+In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!NOTE]
 > You can find Java samples on GitHub in the [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).

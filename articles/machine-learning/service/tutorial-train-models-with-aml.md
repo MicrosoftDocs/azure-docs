@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Train models"
-titleSuffix: Azure Machine Learning service
-description: Learn how to train an image classification model with scikit-learn in a Python Jupyter notebook with Azure Machine Learning service. This tutorial is part one of a two-part series. 
+titleSuffix: Azure Machine Learning
+description: Learn how to train an image classification model with scikit-learn in a Python Jupyter notebook with Azure Machine Learning. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning
 
-In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
-This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents.
+This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents.
 
 Learn how to take the following actions:
 
@@ -30,10 +30,10 @@ Learn how to take the following actions:
 
 You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.41.
+> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.57.
 
 ## Prerequisites
 
@@ -435,7 +435,7 @@ compute_target.delete()
 
 ## Next steps
 
-In this Azure Machine Learning service tutorial, you used Python for the following tasks:
+In this Azure Machine Learning tutorial, you used Python for the following tasks:
 
 > [!div class="checklist"]
 > * Set up your development environment.
