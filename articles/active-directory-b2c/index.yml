@@ -38,7 +38,7 @@ landingContent:
             url: tutorial-create-user-flows.md
       - linkListType: video
         links:
-          - text: What is Azure AD B2C?
+          - text: What is Azure AD B2C? (9:35)
             url: https://www.youtube.com/watch?v=GmBKlXED9Ug
 
   # Card
@@ -118,7 +118,7 @@ landingContent:
             url: active-directory-b2c-setup-fb-app.md
       - linkListType: video
         links:
-          - text: How to configure basic policies in Azure AD B2C
+          - text: How to configure basic policies (9:41)
             url: https://www.youtube.com/watch?v=nWJ3m82536A
 
   # Card
@@ -140,7 +140,7 @@ landingContent:
             url: active-directory-b2c-rest-api-validation-custom.md
       - linkListType: video
         links:
-          - text: Advanced use cases with Azure AD B2C
+          - text: Advanced use cases with Azure AD B2C (4:54)
             url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
 
 #  # Card
