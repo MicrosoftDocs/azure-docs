@@ -301,7 +301,7 @@ You can't change an Azure VNet gateway type from policy-based to route-based or 
    * [Delete a virtual network gateway using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal)
    * [Delete a virtual network gateway using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-powershell)
    * [Delete a virtual network gateway using PowerShell (classic)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell)
-3. Follow the steps in [Create the VPN gateway](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway) to create the new gateway of desired type and complete the VPN setup.
+3. Follow the steps in [Create the VPN gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway) to create the new gateway of desired type and complete the VPN setup.
 
 > [!Note]
 > This process will take around 60 minutes.
