@@ -60,10 +60,11 @@ Here are a few links to learn more:
 
 # [Python](#tab/python)
 
-MSAL Python is currently in public preview. For more info, see [MSAL Python client credentials in-repository sample](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py).
+MSAL Python is currently in public preview.
+For more info, see [MSAL Python's in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample).
 
 # [Java](#tab/java)
 
-msal4j (MSAL.Java) is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples).
+msal4j (MSAL.Java) is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 
 ---

@@ -40,7 +40,7 @@ Given that the daemon applications don't use delegated permissions, but applicat
 
 Therefore the authority specified in the application configuration should be tenant-ed (specifying a Tenant ID or a domain name associated with your organization).
 
-If you're an ISV and want to provide a multi-tenant tool, you can use `organizations`. But keep in mind that you'll also need to explain to your customers how to grant admin consent. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details. Also there's currently a limitation in MSAL: `organizations` is only allowed when the client credentials are an application secret (not a certificate). See [MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
+If you're an ISV and want to provide a multi-tenant tool, you can use `organizations`. But keep in mind that you'll also need to explain to your customers how to grant admin consent. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details. Also there's currently a limitation in MSAL: `organizations` is only allowed when the client credentials are an application secret (not a certificate).
 
 ## Application configuration and instantiation
 
@@ -75,9 +75,9 @@ Either you provide a clientSecret or a certificateName. Both settings are exclus
 
 # [Python](#tab/python)
 
-When building a confidential client with client secrets, the configuration file would be like this extract from the [confidential_client_secret_sample.py](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/confidential_client_secret_sample.py) sample in GitHub.
+When building a confidential client with client secrets, the configuration file would be like this extract from the [confidential_client_secret_sample.py#L4-L15](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/0.6.1/sample/confidential_client_secret_sample.py#L4-L15) sample in GitHub.
 
-```JSon
+```Json
 {
     "authority": "https://login.microsoftonline.com/organizations",
     "client_id": "your_client_id",
@@ -86,9 +86,9 @@ When building a confidential client with client secrets, the configuration file 
 }
 ```
 
-When building a confidential client with certificates, it will be like this extract from the [confidential_client_certificate_sample.py](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/confidential_client_certificate_sample.py) sample in GitHub.
+When building a confidential client with certificates, it will be like this extract from the [confidential_client_certificate_sample.py#L4-L15](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/4b34fd660e5574eb876cfba63a1b927ae375efd6/sample/confidential_client_certificate_sample.py#L4-L15) sample in GitHub.
 
-```JSon
+```Json
 {
     "authority": "https://login.microsoftonline.com/organizations",
     "client_id": "your_client_id",
@@ -106,10 +106,7 @@ Here is the class used in msal4j dev samples to configure the samples: [TestData
 public class TestData {
 
     final static String TENANT_SPECIFIC_AUTHORITY = "https://login.microsoftonline.com/<TenantId>/";
-
-    final static String PUBLIC_CLIENT_ID = "";
-
-    final static String GRAPH_DEFAULT_SCOPE = "https://graph.windows.net/.default";
+    final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
     final static String CONFIDENTIAL_CLIENT_ID = "";
     final static String CONFIDENTIAL_CLIENT_SECRET = "";
 }
@@ -150,12 +147,10 @@ import msal
 # [Java](#tab/java)
 
 ```java
-import com.microsoft.aad.msal4j.*;
-
-import java.util.Collections;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
+import com.microsoft.aad.msal4j.ClientCredentialFactory;
+import com.microsoft.aad.msal4j.ClientCredentialParameters;
+import com.microsoft.aad.msal4j.ConfidentialClientApplication;
+import com.microsoft.aad.msal4j.IAuthenticationResult;
 ```
 
 ---
@@ -181,7 +176,7 @@ config = json.load(open(sys.argv[1]))
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
-    client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
+    client_credential=config["secret"],
     # token_cache=...  # Default cache is in memory only.
                        # You can learn how to use SerializableTokenCache from
                        # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
@@ -297,7 +292,23 @@ Again, for details, see [Client assertions](msal-net-client-assertions.md).
 
 # [Python](#tab/python)
 
-MSAL python is in public preview. Signed assertions aren't yet supported
+In MSAL Python, you can provide client claims using the claims that will be signed by this `ConfidentialClientApplication`'s private key.
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+# Create a preferably long-lived app instance which maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    config["client_id"], authority=config["authority"],
+    client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
+    client_claims = {“client_ip”: “x.x.x.x”}
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
+For details, see MSAL.Python's reference documentation for [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)
 
 # [Java](#tab/java)
 

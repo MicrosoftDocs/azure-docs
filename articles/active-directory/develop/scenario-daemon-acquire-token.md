@@ -39,9 +39,8 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 In MSAL.Python, the configuration file would look like the following code snippet:
 
-```JSon
+```Json
 {
-  ...
     "scope": ["https://graph.microsoft.com/.default"],
 }
 ```
@@ -49,11 +48,7 @@ In MSAL.Python, the configuration file would look like the following code snippe
 # [Java](#tab/java)
 
 ```Java
-public class TestData {
-...
-  final static String GRAPH_DEFAULT_SCOPE = "https://graph.windows.net/.default";
-...
-}
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
 ---
@@ -129,7 +124,7 @@ else:
 
 ```Java
 ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
-        Collections.singleton(TestData.GRAPH_DEFAULT_SCOPE))
+        Collections.singleton(GRAPH_DEFAULT_SCOPE))
         .build();
 
 CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
@@ -143,14 +138,6 @@ BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
 
     /* call a protected API with res.accessToken() */
 };
-
-future.whenCompleteAsync(processAuthResult);
-future.join();
-
-SilentParameters silentParameters =
-        SilentParameters.builder(Collections.singleton(TestData.GRAPH_DEFAULT_SCOPE)).build();
-
-future = app.acquireTokenSilently(silentParameters);
 
 future.whenCompleteAsync(processAuthResult);
 future.join();

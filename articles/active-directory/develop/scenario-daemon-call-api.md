@@ -35,17 +35,11 @@ Here is how to use the token to call an API
 # [Python](#tab/python)
 
 ```Python
-def get_graph_info(result):
-    if 'access_token' not in result:
-        return flask.redirect(flask.url_for('index'))
-    endpoint = 'https://graph.microsoft.com/v1.0/user.readbasic.all/'
-    http_headers = {'Authorization': 'Bearer ' + result['access_token'],
-                    'User-Agent': 'msal-python-sample',
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'client-request-id': str(uuid.uuid4())}
-    graph_data = requests.get(endpoint, headers=http_headers, stream=False).json()
-    return graph_data
+endpoint = "url to the API" 
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
 ```
 
 # [Java](#tab/java)
