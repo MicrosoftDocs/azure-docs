@@ -59,10 +59,12 @@ We can illustrate the behavior further with an example. If you have set the numb
 2. If your application starts producing a failing probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and fails) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
 
 For this example, once detection has occured, the platform will then take a small amount of time to react to this change.  This means a depending on 
+
 1. when the application begins changing state and
 2. when this change is detected and met the required criteria (number of probes sent at the specified interval) and
 3. when the detection has been communicated across the platfrom 
-you can assume the reaction to a failing probe will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance.
+
+you can assume the reaction to a failing probe will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance illustrated in this example.
  
 ## <a name="types"></a>Probe types
 
