@@ -84,7 +84,7 @@ mkdir -p src/main/java
 Navigate to the new folder and create a file called *BingCustomSearchSample.java*. Open it and add the package statement, the following `import` statements:
 
 
-[!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearchsrc/main/java/com/microsoft/azure/cognitiveservices/search/customsearch/samples/BingCustomSearchSample.jav?name=imports)]
+[!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/com/microsoft/azure/cognitiveservices/search/customsearch/samples/BingCustomSearchSample.jav?name=imports)]
 
 Create a class named `BingCustomSearchSample`
 
@@ -95,7 +95,7 @@ public class BingCustomSearchSample {
 
 Create a `main` method and variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
 
-[!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearchsrc/main/java/com/microsoft/azure/cognitiveservices/search/customsearch/samples/BingCustomSearchSample.jav?name=main)]
+[!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/com/microsoft/azure/cognitiveservices/search/customsearch/samples/BingCustomSearchSample.jav?name=main)]
 
 
 ### Install the client library
@@ -139,7 +139,7 @@ BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKe
 
 Use the client's [BingCustomInstances.search()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) function to send a search query to your custom instance. Set the `withCustomConfig` to your custom configuration ID, or default to `1`. After getting a response from the API, check if any search results were found. If so, get the first search result by calling the response's `webPages().value().get()` function and print the result's name, and URL. 
 
-[!code-java[call custom search](~/cognitive-services-java-sdk-samples/Search/BingCustomSearchsrc/main/java/com/microsoft/azure/cognitiveservices/search/customsearch/samples/BingCustomSearchSample.jav?name=runSample)]
+[!code-java[call custom search](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/com/microsoft/azure/cognitiveservices/search/customsearch/samples/BingCustomSearchSample.jav?name=runSample)]
 
 ## Run the application
 
