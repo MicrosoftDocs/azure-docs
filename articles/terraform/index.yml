@@ -35,7 +35,7 @@ landingContent:
             url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
 
     # Card
-  - title: Using Terraform Tools
+  - title: Use Terraform Tools
     linkLists:
       - linkListType: tutorial
         links:
