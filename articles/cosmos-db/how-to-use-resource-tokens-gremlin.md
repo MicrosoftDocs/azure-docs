@@ -11,11 +11,11 @@ ms.author: olignat
 
 # Use Azure Cosmos DB resource tokens with the Gremlin SDK
 
-This article explains how to use [Cosmos DB resource tokens](secure-access-to-data.md) to access the Graph database through the Gremlin SDK.
+This article explains how to use [Azure Cosmos DB resource tokens](secure-access-to-data.md) to access the Graph database through the Gremlin SDK.
 
 ## Create a resource token
 
-The Apache TinkerPop Gremlin SDK doesn't have an API to create resource tokens. The term *resource token* is a Cosmos DB concept. To create resource tokens, download the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access the Graph database, it needs two separate SDKs.
+The Apache TinkerPop Gremlin SDK doesn't have an API to use to create resource tokens. The term *resource token* is an Azure Cosmos DB concept. To create resource tokens, download the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access the Graph database, it requires two separate SDKs.
 
 The object model hierarchy above resource tokens is illustrated in the following outline:
 
@@ -25,7 +25,7 @@ The object model hierarchy above resource tokens is illustrated in the following
       - **Permission**
         - **Token** - A Permission object property that denotes what actions are allowed or denied.
 
-A resource token has the following format: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. This string is opaque for the clients and should be used as is, without modification or interpretation.
+A resource token uses the following format: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. This string is opaque for the clients and should be used as is, without modification or interpretation.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -50,11 +50,11 @@ DocumentClient client = new DocumentClient(
 ```
 
 ## Use a resource token
-You can use resource tokens directly as a "password" property when you construct the `GremlinServer` class.
+You can use resource tokens directly as a "password" property when you construct the GremlinServer class.
 
 ```csharp
 // The Gremlin application needs to be given a resource token. It can't discover the token on its own.
-// The token can be obtained for a given permission by using the Cosmos DB SDK, or it can be passed into the application as a command line argument or configuration value.
+// You can obtain the token for a given permission by using the Azure Cosmos DB SDK, or you can pass it into the application as a command line argument or configuration value.
 string resourceToken = GetResourceToken();
 
 // Configure the Gremlin server to use a resource token rather than a master key.
@@ -90,7 +90,7 @@ builder.authProperties(authenticationProperties);
 
 ## Limit
 
-A single Gremlin account can issue an unlimited number of tokens. However, only up to 100 tokens can be used concurrently within 1 hour. If an application exceeds the token limit per hour, an authentication request will be denied with the following error message: *Exceeded allowed resource token limit of 100 that can be used concurrently*. Closing active connections with specific tokens to free up slots for new tokens doesn't work. The Azure Cosmos DB Gremlin database engine keeps track of unique tokens during the hour immediately prior to the authentication request.
+With a single Gremlin account, you can issue an unlimited number of tokens. However, you can use only up to 100 tokens concurrently within 1 hour. If an application exceeds the token limit per hour, an authentication request is denied, and you receive the following error message: *Exceeded allowed resource token limit of 100 that can be used concurrently*. It doesn't work to close active connections that use specific tokens to free up slots for new tokens. The Azure Cosmos DB Gremlin database engine keeps track of unique tokens during the hour immediately prior to the authentication request.
 
 ## Permission
 
