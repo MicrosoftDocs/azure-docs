@@ -3061,6 +3061,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/key-vault/key-vault-whatis.md",
+      "redirect_url": "/azure/key-vault/basic-concepts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-versions.md",
       "redirect_url": "/azure/key-vault",
       "redirect_document_id": false
@@ -35639,6 +35644,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-generate-connection-string.md",
+      "redirect_url": "/azure/iot-central",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
       "redirect_document_id": false
@@ -41579,6 +41589,21 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/php-domain.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/php/ComputerVision/use-domain-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-thumb-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
       "redirect_document_id": false
     },
     {

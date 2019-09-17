@@ -5,6 +5,7 @@ description: Learn about public and private IP addresses (Classic) in Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

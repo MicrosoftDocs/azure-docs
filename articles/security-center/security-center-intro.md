@@ -36,7 +36,7 @@ Azure Security Center addresses the three most urgent security challenges:
 To help you protect yourself against these challenges, Security Center provides
 you with the tools to:
 
--   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, are they secure or not?
+-   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, and whether they are secure.
 
 -   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and threat detection alerts.
 
