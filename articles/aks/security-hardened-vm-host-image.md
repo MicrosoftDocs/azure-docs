@@ -38,32 +38,24 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 | 1.1.1.3 |Ensure mounting of jffs2 filesystems is disabled|
 | 1.1.1.4 |Ensure mounting of HFS filesystems is disabled|
 | 1.1.1.5 |Ensure mounting of HFS Plus filesystems is disabled|
-|1.4.1 |Ensure permissions on bootloader config are configured |
 |1.4.3 |Ensure authentication required for single user mode |
 |1.7.1.2 |Ensure local login warning banner is configured properly |
 |1.7.1.3 |Ensure remote login warning banner is configured properly |
 |1.7.1.5 |Ensure permissions on /etc/issue are configured |
 |1.7.1.6 |Ensure permissions on /etc/issue.net are configured |
 |2.1.5 |Ensure that --streaming-connection-idle-timeout is not set to 0 |
-|2.2.1.3 |Ensure chrony is configured |
 |3.1.2 |Ensure packet redirect sending is disabled |
 |3.2.1 |Ensure source routed packages are not accepted |
 |3.2.2 |Ensure ICMP redirects are not accepted |
 |3.2.3 |Ensure secure ICMP redirects are not accepted |
 |3.2.4 |Ensure suspicious packets are logged |
 |3.3.1 |Ensure IPv6 router advertisements are not accepted |
-|3.3.2 | Ensure IPv6 redirects are not accepted |
 |3.5.1 |Ensure DCCP is disabled |
 |3.5.2 |Ensure SCTP is disabled |
 |3.5.3 |Ensure RDS is disabled |
 |3.5.4 |Ensure TIPC is disabled |
-|3.6.5 |Ensure firewall rules exist for all open ports |
-|4.1.2 |Ensure auditd service is enabled* | 
-|4.1.3 |Ensure auditing for processes that start prior to auditd is enabled* |
 |4.2.1.2 |Ensure logging is configured |
-|4.2.4 |Ensure permissions on all logfiles are configured |
 |5.1.2 |Ensure permissions on /etc/crontab are configured |
-|5.2.1 |Ensure permissions on /etc/ssh/sshd_config are configured |
 |5.2.4 |Ensure SSH X11 forwarding is disabled |
 |5.2.5 |Ensure SSH MaxAuthTries is set to 4 or less |
 |5.2.8 |Ensure SSH root login is disabled |
@@ -73,8 +65,6 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 |5.2.13 |Ensure SSH LoginGraceTime is set to one minute or less |
 |5.2.15 |Ensure SSH warning banner is configured |
 |5.3.1 |Ensure password creation requirements are configured |
-|5.3.2 |Ensure lockout for failed password attempts is configured |
-|5.3.3 |Ensure password reuse is limited |
 |5.4.1.1 |Ensure password expiration is 90 days or less |
 |5.4.1.4 |Ensure inactive password lock is 30 days or less |
 |5.4.4 |Ensure default user umask is 027 or more restrictive |
