@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: lyhughes
 ---
 
@@ -50,14 +50,14 @@ A role definition is a collection of permissions and other attributes that const
 
 >[!NOTE]
 > To retrieve the full definitions for the previous roles, query the system/roles API.
-> Learn more by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#all).
+> Learn more by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#retrieve-all-roles).
 
 ### Object identifier types
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Learn how to grant permissions to your service principal by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#grant).
+> Learn how to grant permissions to your service principal by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
 
 The following reference documentation articles describe:
 

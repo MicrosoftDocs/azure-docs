@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: lyhughes
 ms.custom: seodec18
 ---
@@ -14,7 +14,6 @@ ms.custom: seodec18
 # Create and manage role assignments in Azure Digital Twins
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -58,15 +57,13 @@ Previously, the **objectIdType** attribute was introduced.
 
 Azure Digital Twins supports full *CREATE*, *READ*, and *DELETE* operations for role assignments. *UPDATE* operations are handled by adding role assignments, removing role assignments, or modifying the [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) nodes that role assignments give access to.
 
-![Role assignment endpoints][1]
+[![Role assignment endpoints](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 The supplied Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
-
-<div id="grant"></div>
 
 ### Grant permissions to your service principal
 
@@ -103,11 +100,9 @@ With the following JSON body:
 }
 ```
 
-<div id="all"></div>
-
 ### Retrieve all roles
 
-![System roles][2]
+[![System roles](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 To list all available roles (role definitions), make an authenticated HTTP GET request to:
 
@@ -147,8 +142,6 @@ A successful request will return a JSON array with entries for each role that ma
     }
 ]
 ```
-
-<div id="check"></div>
 
 ### Check a specific role assignment
 
@@ -205,7 +198,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | The **id** of the role assignment to remove |
 
-A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
+A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check-a-specific-role-assignment) whether the role assignment still holds.
 
 ### Create a role assignment
 
@@ -277,7 +270,3 @@ The following examples demonstrate how to configure your JSON body in several co
 - To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
 
 - To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png
