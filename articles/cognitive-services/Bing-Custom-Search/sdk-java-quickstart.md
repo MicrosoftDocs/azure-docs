@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: quickstart
-ms.date: 07/31/2019
+ms.date: 09/17/2019
 ms.author: aahi
 ---
 
