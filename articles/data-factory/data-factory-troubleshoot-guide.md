@@ -313,6 +313,15 @@ The following table applies to Azure Batch.
 - **Recommendation**: Verify the pool name and the Batch access key in the linked service.
 
 
+### Error code:  2502
+
+- **Message**: `Cannot access user storage account; please check storage account settings.`
+
+- **Cause**: Incorrect storage account name or access key.
+
+- **Recommendation**: Verify the storage account name and the access key in the linked service.
+
+
 ### Error code:  2504
 
 - **Message**:  `Operation returned an invalid status code 'BadRequest'.` 
@@ -467,7 +476,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ## Web Activity
 
-### Error code:  2310
+### Error code:  2108
 
 - **Message**:  `Invalid HttpMethod: '...'.`
 
