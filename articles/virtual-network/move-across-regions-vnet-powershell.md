@@ -130,8 +130,8 @@ The following steps show you how to prepare the virtual network for the move usi
     
     ```
 
-    
-    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
+
+    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
     
         ```json
                  "subnets": [
