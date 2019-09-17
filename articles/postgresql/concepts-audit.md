@@ -16,11 +16,11 @@ Audit logging of database activities in Azure Database for PostgreSQL - Single S
 > pgAudit can be enabled on General Purpose and Memory Optimized servers only.
 
 ## Usage considerations
-By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL, these .log files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of 7 days (the default is 3 days). This is a short-term storage option.
+By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL, these .log files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of seven days (the default is three days). This service is a short-term storage option.
 
 Alternatively, you can configure all logs to be emitted to Azure Monitor's diagnostic log service. If you enable Azure Monitor diagnostic logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on your choice.
 
-Enabling pgAudit generates a large volume of logging on a server which has an impact on performance and log storage. We recommend that you use the Azure diagnostic log service which offers longer-term storage options, as well as analysis and alerting features. We recommend that you turn off standard logging to reduce the performance impact of additional logging:
+Enabling pgAudit generates a large volume of logging on a server, which has an impact on performance and log storage. We recommend that you use the Azure diagnostic log service, which offers longer-term storage options, as well as analysis and alerting features. We recommend that you turn off standard logging to reduce the performance impact of additional logging:
 
    1. Set the parameter `logging_collector` to OFF. 
    2. Restart the server to apply this change.
@@ -39,7 +39,7 @@ Using the [Azure portal](https://portal.azure.com):
    4. Select **pgaudit**.
    5. Restart the server to apply the change.
 
-   6. Connect to your server using a client (like psql) and enable the pgaudit extension
+   6. Connect to your server using a client (like psql) and enable the pgAudit extension
       ```SQL
       CREATE EXTENSION pgaudit;
       ```
@@ -82,4 +82,4 @@ To quickly get started, set `pgaudit.log` to `WRITE`, and open your logs to revi
 
 ## Next steps
 - [Learn about logging in Azure Database for PostgreSQL](concepts-server-logs.md)
-- Leran how to set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/configurations/createorupdate).
+- Learn how to set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/configurations/createorupdate).
