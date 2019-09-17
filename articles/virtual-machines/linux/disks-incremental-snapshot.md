@@ -6,7 +6,7 @@ author: roygara
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: overview
-ms.date: 07/24/2019
+ms.date: 09/24/2019
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -15,9 +15,9 @@ ms.subservice: disks
 
 Incremental snapshots consist only of all the changes since the last snapshot. This new capability for managed disk snapshots allows them to be considerably more cost effective, since each individual snapshot no longer requires storing the entire VHD, unless you choose to. Incremental snapshots can still be used to create a full managed disk or, to make another full snapshot in either the same or a different Azure subscription.
 
-Incremental snapshots offer a unique capability: They enable you to perform a diff to get the changes between two incremental snapshots of the same managed disks.
-
 There are a few differences between an incremental snapshot and a regular snapshot. Incremental snapshots will always use standard HDDs, irrespective of whatever disk type the source VHD is. Incremental snapshots use ZRS if ZRS is available in the selected region, otherwise LRS is used, this behavior cannot be changed.
+
+Incremental snapshots also offer a unique capability: They enable you to perform a diff to get the changes between two incremental snapshots of the same managed disks.
 
 ## Resource Manager template
 
