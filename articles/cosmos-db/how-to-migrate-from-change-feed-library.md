@@ -43,7 +43,7 @@ The SDK V3 change feed processor will detect any old library state and migrate i
 You can safely stop the application using the old code, migrate the code to the new version, start the migrated application, and any changes that happened while the application was stopped, will be picked up and processed by the new version.
 
 > [!NOTE]
-> Migrations from applications using the library to the .NET V3 SEK are one-way, since the state (leases) will be migrated to the new schema. The migration is not backward compatible.
+> Migrations from applications using the library to the .NET V3 SDK are one-way, since the state (leases) will be migrated to the new schema. The migration is not backward compatible.
 
 
 ## Additional resources
