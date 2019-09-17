@@ -140,11 +140,11 @@ You now have the necessary packages and compute resources to train a model in th
 
 ## Explore data
 
-Before you train a model, you need to understand the data that you use to train it. You also need to copy the data into the cloud. Then it can be accessed by your cloud training environment. In this section, you learn how to take the following actions:
+Before you train a model, you need to understand the data that you use to train it. You also need to upload the data to the cloud using so it can be accessed by your cloud training environment. In this section, you learn how to take the following actions:
 
 * Download the MNIST dataset.
 * Display some sample images.
-* Upload data to the cloud.
+* Upload data to your workspace in the cloud.
 
 ### Download the MNIST dataset
 
@@ -207,18 +207,29 @@ A random sample of images displays:
 
 Now you have an idea of what these images look like and the expected prediction outcome.
 
-### Upload data to the cloud
+### Create a FileDataset
 
-You downloaded and used the training data on the computer your notebook is running on.  In the next section, you will train a model on the remote Azure Machine Learning Compute.  The remote compute resource will also need access to your data. To provide access, upload your data to a centralized datastore associated with your workspace. This datastore provides fast access to your data when using remote compute targets in the cloud, as it is in the Azure data center.
-
-Upload the MNIST files into a directory named `mnist` at the root of the datastore. See [access data from your datastores](how-to-access-data.md) for more information.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets) guide on the `Dataset` package for more information.
 
 ```python
-ds = ws.get_default_datastore()
-print(ds.datastore_type, ds.account_name, ds.container_name)
+from azureml.core.dataset import Dataset
 
-ds.upload(src_dir=data_folder, target_path='mnist',
-          overwrite=True, show_progress=True)
+web_paths = [
+            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
+            ]
+dataset = Dataset.File.from_files(path=web_paths)
+```
+
+Use the `register()` method to register the data set to your workspace so it can be shared with others, reused across various experiments, and referred to by name in your training script.
+
+```python
+dataset = dataset.register(workspace=ws,
+                           name='mnist dataset',
+                           description='training and test dataset',
+                           create_new_version=True)
 ```
 
 You now have everything you need to start training a model.
@@ -251,6 +262,7 @@ To submit the job to the cluster, first create a training script. Run the follow
 import argparse
 import os
 import numpy as np
+import glob
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
@@ -258,7 +270,7 @@ from sklearn.externals import joblib
 from azureml.core import Run
 from utils import load_data
 
-# let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
+# let user feed in 2 parameters, the dataset to mount or download, and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
@@ -269,10 +281,10 @@ print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
 # note we scale the pixel intensity values to 0-1 (by dividing it with 255.0) so the model can converge faster.
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -321,19 +333,31 @@ An [SKLearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/
 * The training script name, **train.py**.
 * Parameters required from the training script.
 
-In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the datastore, `ds.path('mnist').as_mount()`:
+In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the dataset. First create an environment object that specifies the dependencies required for training. 
+
+```python
+from azureml.core.environment import Environment
+from azureml.core.conda_dependencies import CondaDependencies
+
+env = Environment('my_env')
+cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+env.python.conda_dependencies = cd
+```
+
+Then create the estimator with the following code.
 
 ```python
 from azureml.train.sklearn import SKLearn
 
 script_params = {
-    '--data-folder': ds.path('mnist').as_mount(),
+    '--data-folder': dataset.as_named_input('mnist').as_mount(),
     '--regularization': 0.5
 }
 
 est = SKLearn(source_directory=script_folder,
               script_params=script_params,
               compute_target=compute_target,
+              environment_definition=env, 
               entry_script='train.py')
 ```
 
