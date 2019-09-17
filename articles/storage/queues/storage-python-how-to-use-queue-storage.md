@@ -28,7 +28,7 @@ This guide shows you how to perform common scenarios using the Azure Queue stora
 
 ## Download and install Azure Storage SDK for Python
 
-The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python 2.7, 3.3, 3.4, 3.5, 3.6, or 3.7.
+The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python version 2.7, 3.3, or later.
  
 ### Install via PyPi
 
@@ -144,6 +144,7 @@ queue_service.delete_queue('taskqueue')
 
 Now that you've learned the basics of queue storage, follow these links to learn more.
 
+* [Azure Queues Python API reference](/python/api/azure-storage-queue)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
 
