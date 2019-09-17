@@ -48,7 +48,7 @@ Apply the following settings in your Xcode project to accomplish this:
 ## Example code using codec compressed audio input
 
 To stream in a compressed audio format to the Speech Services, create a `SPXPullAudioInputStream` or `SPXPushAudioInputStream`.
-The following snippet shows how to create an `SPXAudioConfiguration` from an instance of a `SPXPushAudioInputStream`, specifying mp3 as thee compression format of the stream.
+The following snippet shows how to create an `SPXAudioConfiguration` from an instance of a `SPXPushAudioInputStream`, specifying mp3 as the compression format of the stream.
 
 [!code-objectivec[Set up the input stream](~/samples-cognitive-services-speech-sdk/samples/objective-c/ios/compressed-streams/CompressedStreamsSample/CompressedStreamsSample/ViewController.m#setup-stream)]
 
