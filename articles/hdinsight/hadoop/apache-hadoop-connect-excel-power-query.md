@@ -53,12 +53,12 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
 5. For **Account Key**, enter the key for the Blob storage account, and then click **Save**. (You need to enter the account information only the first time you access this store.)
 6. In the **Navigator** pane on the left of the Query Editor, double-click the Blob storage container name. By default, the container name is the same name as the cluster name.
 7. Locate **HiveSampleData.txt** in the **Name** column (the folder path is **../hive/warehouse/hivesampletable/**), and then click **Binary** on the left of HiveSampleData.txt. HiveSampleData.txt comes with all the cluster. Optionally, you can use your own file.
-   
-    ![HDI.PowerQuery.ImportData](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+
+    ![HDI Excel power query import data](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 
 8. If you want, you can rename the column names. When you are ready, click **Close & Load**.  The data has been loaded to your workbook:
-   
-    ![HDI.PowerQuery.ImportedTable](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+
+    ![HDI Excel power query imported table](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
 ## Next steps
 In this article, you learned how to use Power Query to retrieve data from HDInsight into Excel. Similarly, you can retrieve data from HDInsight into Azure SQL Database. It is also possible to upload data into HDInsight. To learn more, see the following articles:
