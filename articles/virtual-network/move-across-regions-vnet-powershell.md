@@ -156,6 +156,40 @@ The following steps show you how to prepare the virtual network for the move usi
 
          In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
 
+        ```json
+         "type": "Microsoft.Network/virtualNetworks/subnets",
+           "apiVersion": "2019-06-01",
+           "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
+              "dependsOn": [
+                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
+                   ],
+              "properties": {
+                 "provisioningState": "Succeeded",
+                 "addressPrefix": "10.0.1.0/29",
+                 "serviceEndpoints": [],
+                 "delegations": [],
+                 "privateEndpointNetworkPolicies": "Enabled",
+                 "privateLinkServiceNetworkPolicies": "Enabled"
+                  }
+                 },
+                  {
+                  "type": "Microsoft.Network/virtualNetworks/subnets",
+                  "apiVersion": "2019-06-01",
+                  "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/subnet-1')]",
+                     "dependsOn": [
+                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
+                          ],
+                     "properties": {
+                        "provisioningState": "Succeeded",
+                        "addressPrefix": "10.0.0.0/24",
+                        "delegations": [],
+                        "privateEndpointNetworkPolicies": "Enabled",
+                        "privateLinkServiceNetworkPolicies": "Enabled"
+                         }
+                  }
+         ]
+        ```
+
 9.  Save the **\<resource-group-name>.json** file.
 
 10. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
