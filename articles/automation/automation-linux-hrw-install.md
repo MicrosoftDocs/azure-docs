@@ -45,7 +45,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |Glibc |GNU C Library| 2.5-12 |
 |Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported|
 |Curl | cURL web client | 7.15.5|
-|Python-ctypes | |
+|Python-ctypes | Python 2.x is required |
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
 | PowerShell Core | To run PowerShell runbooks, PowerShell needs to be installed, see [Installing PowerShell Core on Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) to learn how to install it.  | 6.0.0 |
