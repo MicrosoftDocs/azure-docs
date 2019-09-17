@@ -12,40 +12,72 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: allensu
 ---
 
 # Load Balancer health probes
 
-Azure Load Balancer provides health probes for use with load-balancing rules.  Health probe configuration and probe responses determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend instance. You can also generate a custom response to a health probe and use the health probe for flow control to manage load or planned downtime. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance.
+When using load-balancing rules with Azure Load Balancer, you need to specify a health probes to allow Load Balancer to detect the backend endpoint status.  The configuration of the health probe and probe responses determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend endpoint. You can also generate a custom response to a health probe and use the health probe for flow control to manage load or planned downtime. When a health probe fails, Load Balancer will stop sending new flows to the respective unhealthy instance.
 
-Health probes support multiple protocols. The availability of a specific type of health probe to support a specific protocol varies by Load Balancer SKU.  Additionally, the behavior of the service varies by Load Balancer SKU.
+Health probes support multiple protocols. The availability of a specific health probe protocol varies by Load Balancer SKU.  Additionally, the behavior of the service varies by Load Balancer SKU as ilustrated by the following table:
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
 | [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
-> [!IMPORTANT]
-> Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
 
+>[!IMPORTANT]
+>Review this document in its entirety, including important [design guidance](#design) below to create a reliable service.
+
+>[!IMPORTANT]
+>Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
+
+## <a name="probes"></a>Probe configuration
+
+Health probe configuration consists out of the following elements:
+
+- Duration of the interval between individual probes
+- Number of probe responses which have to be observed before the probe transitions to a different state
+- Protocol of the probe
+- Port of the probe
+- HTTP path to use for HTTP GET when using HTTP(S) probes
+
+## Understanding application signal, detection of the signal, and reaction of the platform
+
+The number of probe responses applies to both
+
+- the number of successful probes that allow an instance to be marked as up, and
+- the number of failed probes that cause an instance to be marked as down.
+
+The timeout and interval values specified determine whether an instance will be marked as up or down.  The duration of the interval multiplied by the number of probe responses determines the duration during which the probe responses have to be detected.  And the service will react after the required number of intervals have passed.
+
+We can illustrate this with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe failures must be observed within a 10 second interval.  We can bound the time to detect by two scenarios:
+
+1. If your application starts producing a failing probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the the application starting to signal a failure to when the the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
+2. If your application starts producing a failing probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and fails) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
+
+For this example, once detection has occured, the platform will then take a small amount of time to react to this change.  This means a depending on 
+1. when the application begins changing state and
+2. when this change is detected and
+3. when the detection has been communicated across the platfrom 
+you can assume the reaction to a failing probe will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance.
+ 
 ## <a name="types"></a>Probe types
 
-The health probe can be configured for listeners using the following three protocols:
+The protocol used by the health probe can be configured to one of the following:
 
 - [TCP listeners](#tcpprobe)
 - [HTTP endpoints](#httpprobe)
 - [HTTPS endpoints](#httpsprobe)
 
-The available types of health probes vary depending on the Load Balancer SKU selected:
+The available protocols depend on the oad Balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
 | Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
-
-Irrespective of which probe type you choose, health probes can observe any port on a backend instance, including the port on which the actual service is provided.
 
 ### <a name="tcpprobe"></a> TCP probe
 
@@ -57,7 +89,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking down the probe.
 * The probe receives a TCP reset from the instance.
 
-#### Resource Manager template
+The following illustrates how you could express this kind of probe configuration in a resource manager template:
 
 ```json
     {
@@ -72,8 +104,8 @@ A TCP probe fails when:
 
 ### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS probe
 
-> [!NOTE]
-> HTTPS probe is only available for [Standard Load Balancer](load-balancer-standard-overview.md).
+>[!NOTE]
+>HTTPS probe is only available for [Standard Load Balancer](load-balancer-standard-overview.md).
 
 HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration of all intervals cannot exceed 120 seconds.
 
@@ -86,7 +118,7 @@ An HTTP / HTTPS probe fails when:
 * Probe endpoint doesn't respond at all during the 31-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
 * Probe endpoint closes the connection via a TCP reset.
 
-#### Resource Manager templates
+The following illustrates how you could express this kind of probe configuration in a resource manager template:
 
 ```json
     {
@@ -127,30 +159,21 @@ If the guest agent responds with an HTTP 200, the load balancer sends new flows 
 When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Probe health
+## <a name="probehealth"></a>Probe up behavior
 
-TCP, HTTP, and HTTPS health probes are considered healthy and mark the role instance as healthy when:
+TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:
 
 * The health probe is successful once after the VM boots.
-* The specified number of probes required to mark the role instance as healthy has been achieved.
+* The specified number of probes required to mark the backend endpoint as healthy has been achieved.
 
 > [!NOTE]
-> If the health probe fluctuates, the load balancer waits longer before it puts the role instance back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
-
-## Probe count and timeout
-
-Probe behavior depends on:
-
-* The number of successful probes that allow an instance to be marked as up.
-* The number of failed probes that cause an instance to be marked as down.
-
-The timeout and interval values specified determine whether an instance is marked as up or down.
+> If the health probe fluctuates, the load balancer waits longer before it puts the backend endpoint back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
 
 ## <a name="probedown"></a>Probe down behavior
 
 ### TCP connections
 
-New TCP connections will succeed to remaining healthy backend instances.
+New TCP connections will succeed to remaining healthy backend endpoint.
 
 If a backend instance's health probe fails, established TCP connections to this backend instance continue.
 
