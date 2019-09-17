@@ -16,9 +16,14 @@ ms.author: mbullwin
 ---
 
 # Application Insights for .NET console applications
+
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
 
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
+
+> [!NOTE]
+> There is a new beta Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights for any Console Applications. It is recommended to use this package and associated instructions from (here)[../../azure-monitor/app/dotnet-core-worker-service.md]. This package targets NetStandard2.0, and hence can be used in .NET Core 2.0 or higher, and .NET Framework 4.7.2 or higher.
+This document will be deprecated once stable version of this new package is released.
 
 ## Getting started
 
