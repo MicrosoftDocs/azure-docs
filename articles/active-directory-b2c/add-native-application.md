@@ -18,7 +18,7 @@ ms.subservice: B2C
 Native client resources need to be registered in your tenant before your application can communicate with Azure Active Directory B2C.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select **Add**.
 2. Enter a name for the application. For example, *nativeapp1*.
