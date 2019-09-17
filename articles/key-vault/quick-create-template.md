@@ -37,7 +37,7 @@ To complete this article, you need:
         echo "Press [ENTER] to continue ..."
         ```
 
-        # [PowerShell] (#tab/PowerShell)
+        # [PowerShell](#tab/PowerShell)
         ```azurepowershell-interactive
         $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
         (Get-AzADUser -UserPrincipalName $upn).Id
@@ -88,7 +88,7 @@ az keyvault secret list --vault-name $keyVaultName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# [PowerShell] (#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $keyVaultName = Read-Host -Prompt "Enter your key vault name"
@@ -104,7 +104,7 @@ The output looks similar to:
 
 ![Resource Manager template Key Vault integration deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
-# [PowerShell] (#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 ![Resource Manager template Key Vault integration deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
@@ -123,7 +123,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# [PowerShell] (#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
