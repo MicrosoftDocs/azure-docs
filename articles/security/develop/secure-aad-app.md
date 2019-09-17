@@ -35,7 +35,7 @@ In developing and deploying this app, you'll learn how to
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
-## architecture
+## Architecture
 The app is a typical n-tier application with three tiers. The front end, back end, and database layer with monitoring and secret-management components integrated are shown here:
 
 ![App architecture](./media/secure-aad-app/architecture.png)
@@ -44,15 +44,15 @@ This solution uses the following Azure services. Details of the deployment archi
 
 The architecture consists of these components
 
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the gateway and firewall for our application architecture.
-- [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview). Provides an extensible Application Performance Management (APM) service on multiple platforms.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
-- [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis/).Provides cloud-based identity and access management service, sign in and access resources.
-- [Azure Domain Name System](https://docs.microsoft.com/en-us/azure/dns/dns-overview). Provide the service to host the domain.
-- [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/). Provides to scale your applications and create high availability for your services.
-- [Azure Web App](https://docs.microsoft.com/en-us/azure/app-service/overview/).  Provides an HTTP-based service for hosting web applications.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/). provides advanced threat protection across your hybrid workloads in the cloud.
-- [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview). Provides evaluating your resources for non-compliance with assigned policies.
+- [Azure Application Gateway](../../application-gateway/index.yml). Provides the gateway and firewall for our application architecture.
+- [Application Insights](../../azure-monitor/app/app-insights-overview.md). Provides an extensible Application Performance Management (APM) service on multiple platforms.
+- [Azure Key Vault](../../key-vault/index.yml). Stores and encrypts our app's secrets and manages the creation of access policies around them.
+- [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).Provides cloud-based identity and access management service, sign in and access resources.
+- [Azure Domain Name System](../../dns/dns-overview). Provide the service to host the domain.
+- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md/). Provides to scale your applications and create high availability for your services.
+- [Azure Web App](../../app-service/overview.md).  Provides an HTTP-based service for hosting web applications.
+- [Azure Security Center](../../security-center/index.yml). provides advanced threat protection across your hybrid workloads in the cloud.
+- [Azure Policy](../../governance/policy/overview.md). Provides evaluating your resources for non-compliance with assigned policies.
 
 ## Threat model
 Threat modeling is the process of identifying potential security threats to your business and application and then ensuring that a proper mitigation plan is in place.
@@ -137,8 +137,7 @@ It's a best practice to use managed identities for Azure resources in apps that 
 A root certificate is included in the container. The steps taken to obtain the certificate are
 
 1. Download the certificate file from the [Certificate Authority](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
-3. Decode your certificate file:
+2. Decode your certificate file:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
