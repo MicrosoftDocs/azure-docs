@@ -33,13 +33,15 @@ To complete this article, you need:
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
-        az ad user show --id $upn --query "objectId"
+        az ad user show --id $upn --query "objectId" &&
+        echo "Press [ENTER] to continue ..."
         ```
 
         # [PowerShell] (#tab/PowerShell)
         ```azurepowershell-interactive
         $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
         (Get-AzADUser -UserPrincipalName $upn).Id
+        Write-Host "Press [ENTER] to continue..."
         ```
 
         ---
@@ -82,7 +84,8 @@ You can either use the Azure portal to check the key vault and the secret, or us
 ```azurecli-interactive
 echo "Enter your key vault name:" &&
 read keyVaultName &&
-az keyvault secret list --vault-name $keyVaultName
+az keyvault secret list --vault-name $keyVaultName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 # [PowerShell] (#tab/PowerShell)
@@ -90,6 +93,7 @@ az keyvault secret list --vault-name $keyVaultName
 ```azurepowershell-interactive
 $keyVaultName = Read-Host -Prompt "Enter your key vault name"
 Get-AzKeyVaultSecret -vaultName $keyVaultName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ---
@@ -115,7 +119,8 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group delete --name $resourceGroupName
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 # [PowerShell] (#tab/PowerShell)
@@ -123,6 +128,7 @@ az group delete --name $resourceGroupName
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ---
