@@ -20,7 +20,7 @@ ms.author: allensu
 
 When using load-balancing rules with Azure Load Balancer, you need to specify a health probes to allow Load Balancer to detect the backend endpoint status.  The configuration of the health probe and probe responses determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend endpoint. You can also generate a custom response to a health probe and use the health probe for flow control to manage load or planned downtime. When a health probe fails, Load Balancer will stop sending new flows to the respective unhealthy instance.
 
-Health probes support multiple protocols. The availability of a specific health probe protocol varies by Load Balancer SKU.  Additionally, the behavior of the service varies by Load Balancer SKU as ilustrated by the following table:
+Health probes support multiple protocols. The availability of a specific health probe protocol varies by Load Balancer SKU.  Additionally, the behavior of the service varies by Load Balancer SKU as shown in this table:
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
