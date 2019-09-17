@@ -105,7 +105,7 @@ There are multiple ways to attach to a resource in Storage Explorer:
 * [Use a name and key](#use-a-name-and-key). If you know either of the account keys to your storage account, you can use this option to quickly connect. The keys for your storage account are located on the storage account **Access keys** panel in the [Azure portal](https://portal.azure.com).
 * [Attach to a local emulator](#attach-to-a-local-emulator). If you're using one of the available Azure Storage emulators, use this option to easily connect to your emulator.
 * [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Use this option if you have a connection string to a CosmosDB instance.
-* [Connect to Azure Data Lake Store by URI](#connect-to-azure-data-lake-store-by-uri). Use this option if you have a URI to an Azure Data Lake Store.
+* [Connect to Azure Data Lake Store by URI](#connect-to-azure-data-lake-store-by-uri). Use this option if you have a URI to Azure Data Lake Store.
 
 #### Add a resource via Azure AD
 
@@ -204,11 +204,11 @@ As an alternative to managing Azure Cosmos DB accounts through an Azure subscrip
 
 1. On the left side of the resource tree, expand **Local and Attached**, right-click **Azure Cosmos DB Accounts**, and select **Connect to Azure Cosmos DB**.
 
-    ![connect to Azure Cosmos DB by connection string][21]
+    ![Connect to Azure Cosmos DB by connection string][21]
 
 2. Select the Azure Cosmos DB API, enter your **Connection String** data, and then select **OK** to connect the Azure Cosmos DB account. For information about how to retrieve the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
-    ![connection-string][22]
+    ![Connection string][22]
 
 #### Connect to Azure Data Lake Store by URI
 
@@ -239,7 +239,7 @@ If you want to access a resource that's not in your subscription, you'll need so
 
     ![Get SAS dialog box][15]
 
-3. You can now either copy the **Connection string** or the raw **Query string** to your clipboard.
+3. You can now copy either the **Connection string** or the raw **Query string** to your clipboard.
 
 ### Service level SAS
 
