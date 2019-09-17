@@ -57,24 +57,36 @@ Follow these best practices when setting up your app and authentication:
 
 ## <a name="advanced"> </a>Configure with advanced settings
 
-You can also provide configuration settings manually, if the Azure Active Directory tenant you want to use is different from the tenant with which you sign into Azure. To complete the configuration, you must first create a registration in Azure Active Directory, and then you must provide some of the registration details to App Service.
+You can configure app settings manually if you want to use an Azure AD tenant that's different from the one you use to sign in to Azure. To complete this custom configuration, you'll need to:
+
+1. Create a registration in Azure AD
+1. Provide some of the registration details to App Service
 
 ### <a name="register"> </a>Create an app registration in Azure AD for your App Service app
 
-When creating an app registration manually, note three pieces of information that you will need later when configuring your App Service app: the client ID, the tenant ID, and optionally the client secret and the application ID URI.
+You'll need the following information when you configure your App Service app:
 
-1. In the [Azure portal], navigate to your App Service app and note your app's **URL**. You will use it to configure your Azure Active Directory app registration.
-1. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**. 
+- Client ID
+- Tenant ID
+- Client secret (optional)
+- Application ID URI
+
+1. In the [Azure portal], navigate to your App Service app and note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
+1. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
-1. In **Redirect URI**, select **Web** and type the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Then select **Create**.
-1. Once the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
+1. In **Redirect URI**, select **Web** and enter the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. Select **Create**.
+1. Aftger the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
 1. Select **Branding**. In **Home page URL**, type the URL of your App Service app and select **Save**.
 1. Select **Expose an API** > **Set**. Paste in the URL of your App Service app and select **Save**.
 
+\***
+
     > [!NOTE]
     > This value is the **Application ID URI** of the app registration. If you want to have a front-end web app to access a back-end API, for example, and you want the back end to explicitly grant access to the front end, you need the **Application ID URI** of the *front end* when you configure the App Service app resource of the *back end*.
-1. Select **Add a scope**. In **Scope name**, type *user_impersonation*. In the text boxes, type the consent scope name and description you want users to see on the consent page, such as *Access my app*. When finished, click **Add scope**.
-1. (Optional) To create a client secret, select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. Once you navigate away, it won't be shown again.
+
+1. Select **Add a scope**. In **Scope name**, enter *user_impersonation*. In the text boxes, enter the consent scope name and description you want users to see on the consent page, such as *Access my app*. Select **Add scope**.
+1. (Optional) To create a client secret, select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It won't be shown again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication** in the menu.
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your App Service app

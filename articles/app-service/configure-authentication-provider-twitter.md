@@ -41,7 +41,6 @@ To complete the procedure in this article, you need a Twitter account that has a
 
    > [!NOTE]
    > The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
-   >
 
 ## <a name="secrets"> </a>Add Twitter information to your application
 
