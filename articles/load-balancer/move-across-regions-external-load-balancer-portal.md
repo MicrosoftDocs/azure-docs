@@ -58,7 +58,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```
 
-Click **Save** in the editor.
+    Click **Save** in the editor.
 
 9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
 
@@ -149,6 +149,7 @@ Click **Save** in the editor.
 18. Check the box under **TERMS AND CONDITIONS**.
 
 19. Click the **Purchase** button to deploy the target public IP.
+20. If you have another public IP that is being used for outbound NAT for the load balancer being moved, repeat the steps above to export and deploy the second outbound public IP to the target region.
 
 ### Export the external load balancer template and deploy from the Azure portal
 
@@ -384,9 +385,9 @@ Click **Save** in the editor.
 
 12. Click **Save** in the online editor.
     
-13. 14. Click **BASICS** > **Subscription** to choose the subscription where the target external load balancer will be deployed.
+13. Click **BASICS** > **Subscription** to choose the subscription where the target external load balancer will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can click **Create new** to create a new resource group for the target public IP or choose the existing resource group that was created above for the public IP.  Ensure the name isn't the same as the source resource group of the existing source external load balancer. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can click **Create new** to create a new resource group for the target external load balancer or choose the existing resource group that was created above for the public IP.  Ensure the name isn't the same as the source resource group of the existing source external load balancer. 
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the external load balancer to be deployed.
 
