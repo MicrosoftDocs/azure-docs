@@ -1,9 +1,9 @@
-- name: Azure Machine Learning service Documentation
+- name: Azure Machine Learning Documentation
   href: ../index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning service?
+  - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
   - name: Architecture & terms
@@ -153,6 +153,9 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Train with datasets
+      displayName: data, dataset
+      href: how-to-train-with-datasets.md
   - name: Train models
     items:
     - name: Set up training environments
