@@ -136,6 +136,8 @@ You can load your data in either of the following ways:
 
 The new Azure Data Explorer linked service is created to copy the data into the Azure Data Explorer destination table (sink) that's specified in this section.
 
+#### Create the Azure Data Explorer linked service
+
 To create the Azure Data Explorer linked service, do the following;
 
 1. To use an existing data store connection or specify a new data store, in the **Destination data store** pane, select **Create new connection**.
@@ -233,7 +235,5 @@ After you've created the linked service connection, the **Destination data store
 ## Next steps
 
 * Learn about the [Azure Data Explorer connector](/azure/data-factory/connector-azure-data-explorer) in Azure Data Factory.
-
 * Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal).
-
 * Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
