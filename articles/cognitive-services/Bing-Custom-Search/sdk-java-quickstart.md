@@ -122,7 +122,7 @@ The API response is a [SearchResponse](https://docs.microsoft.com/java/api/com.m
 These code snippets show you how to do the following tasks with the Bing Custom Search client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Get search results from your custom search instance](#Get-search-results-from-your-custom-search-instance)
+* [Get search results from your custom search instance](#get-search-results-from-your-custom-search-instance)
 
 ## Authenticate the client
 
@@ -159,15 +159,10 @@ gradle run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Next article]()
-
-* [What is the Bing Custom Search API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)
