@@ -186,6 +186,8 @@
       href: functions-continuous-deployment.md
     - name: Deployment slots
       href: functions-deployment-slots.md
+    - name: Build and deploy using GitHub Actions
+      href: functions-how-to-github-actions.md
     - name: Build and deploy using Azure Pipelines
       href: functions-how-to-azure-devops.md
     - name: Zip deployment
