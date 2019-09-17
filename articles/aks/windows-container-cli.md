@@ -40,7 +40,7 @@ You must add an additional node pool after you create your cluster that can run 
 
 ### Install aks-preview CLI extension
 
-To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -77,7 +77,7 @@ az provider register --namespace Microsoft.ContainerService
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
+* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* feature for your subscription. You can't add or manage node pools with an existing AKS cluster created before this feature was successfully registered.
 * You can't delete the first node pool.
 
 While this feature is in preview, the following additional limitations apply:
@@ -139,7 +139,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
@@ -147,7 +147,7 @@ az aks create \
 > If you get a password validation error, try creating your resource group in another region.
 > Then try creating the cluster with the new resource group.
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases. 
 
 ## Add a Windows Server node pool
 
@@ -262,7 +262,7 @@ service/sample created
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally the service can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 

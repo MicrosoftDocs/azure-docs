@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Apache Hadoop clusters using Resource Manager - Azure HDInsight'
+title: 'Quickstart: Create Apache Hadoop clusters Resource Manager - Azure HDInsight'
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Resource Manager template
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 ms.service: hdinsight
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Enter or select the following values:
 
@@ -66,7 +66,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 1. Go back to the browser tab where you have the Azure portal. You shall be on the cluster overview page. If you only want to delete the cluster but retain the default storage account, select **Delete**.
 
-    ![HDInsight delete cluster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Delete HDInsight cluster")
+    ![HDInsight delete cluster from portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight delete cluster from portal")
 
 2. If you want to delete the cluster as well as the default storage account, select the resource group name (highlighted in the previous screenshot) to open the resource group page.
 

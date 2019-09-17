@@ -1,6 +1,6 @@
 ---
 title: MapReduce with Apache Hadoop on HDInsight 
-description: Learn how to run MapReduce jobs on Apache Hadoop in HDInsight clusters.
+description: Learn how to run Apache MapReduce jobs on Apache Hadoop in HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
 ---
+
 # Use MapReduce in Apache Hadoop on HDInsight
 
 Learn how to run MapReduce jobs on HDInsight clusters.

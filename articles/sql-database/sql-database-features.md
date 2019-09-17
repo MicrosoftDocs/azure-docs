@@ -13,21 +13,21 @@ ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
 ---
 
-# Feature comparison: Azure SQL Database versus SQL Server
+# Azure SQL Database Features
 
-Azure SQL Database shares a common code base with SQL Server. Most of the standard SQL features are identical in SQL server and Azure SQL Database. The features that are common in SQL Server and all flavors of Azure SQL Database are:
+Azure SQL Database service shares a common code base with the latest stable version of SQL Server. Most of the standard SQL language, query processing, and database management features are identical in SQL Server and Azure SQL Database. The features that are common in SQL Server and all flavors of Azure SQL Database are:
   - Language features - [Control of flow language keywords](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow), [Cursors](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql), [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql), [DML statements](https://docs.microsoft.com/sql/t-sql/queries/queries), [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates), [Sequence numbers](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers), [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine), and [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql).
   - Database features - [Automatic tuning (plan forcing)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning), [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Database collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation), [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases), [Contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Data compression](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression), [Database configuration settings](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Online index operations](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online), [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes), and [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) ([see getting started guide](sql-database-temporal-tables.md)).
   - Security features - [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ([see getting started guide](sql-database-dynamic-data-masking-get-started.md)), [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and Threat detection - see getting started guides for   [single database and elastic pools](sql-database-threat-detection.md) and [managed instance](sql-database-managed-instance-threat-detection.md).
   - Multi-model capabilities - [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview), [JSON data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](sql-database-json-features.md)), [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql), [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql).
 
-There are the database features that depend on the type of Azure SQL database that you create. These features are described in the tables below. With Azure SQL Database, you can create a database as part of a [managed instance](sql-database-managed-instance.md), as a single database, or as part of an elastic pool. If you need more details about the differences, you can find them in the separate pages for [Single database and Elastic pools](sql-database-transact-sql-information.md) or [Managed Instance](sql-database-managed-instance-transact-sql-information.md).
+Azure SQL Database manages your databases and guarantees their high-availability. Some features that might affect high-availability or cannot be used in PaaS world have limited functionalities in Azure SQL Database. In addition, some database features depend on the type of Azure SQL Database that you create. These features are described in the tables below. With Azure SQL Database, you can create a database as part of a [managed instance](sql-database-managed-instance.md), as a single database, or as part of an elastic pool. If you need more details about the differences, you can find them in the separate pages for [Single database and Elastic pools](sql-database-transact-sql-information.md) or [Managed Instance](sql-database-managed-instance-transact-sql-information.md).
 
 ## SQL features
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported in Managed Instance or Single Database and Elastic pools, with a link to more information about the feature.
 
-| **SQL Feature** | **Single databases and elastic pools** | **Managed instances** |
+| **SQL Feature** | **Single databases and elastic pools** | **Managed instances and instance pools** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability.md) is included with every database and [cannot be managed by user](sql-database-managed-instance-transact-sql-information.md#always-on-availability). Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
@@ -107,13 +107,14 @@ The following table lists the major features of SQL Server and provides informat
 
 Azure platform provides a number of PaaS capabilities that are added as an additional value to the standard Database features. There is a number of external services that can be used with Azure SQL Database service. 
 
-| **Platform Feature** | **Single databases and elastic pools** | **Managed instances** |
+| **Platform Feature** | **Single databases and elastic pools** | **Managed instances and instance pools** |
 | --- | --- | --- |
 | [Active geo-replication](sql-database-active-geo-replication.md) | Yes - all service tiers other than hyperscale | No, see [Auto-failover groups(preview)](sql-database-auto-failover-group.md) as an alternative |
 | [Auto-failover groups](sql-database-auto-failover-group.md) | Yes - all service tiers other than hyperscale | Yes, in [public preview](sql-database-auto-failover-group.md)|
-| Auto-scale | Yes, in [serverless model](sql-database-serverless.md) | No, you need to choose reserved compute and storage. |
+| Auto-scale | Yes, but only in [serverless model](sql-database-serverless.md). In the non-serverless model, the change of service tier (change of vCore, storage, or DTU) is fast and online. The service tier change requires minimal or no downtime. | No, you need to choose reserved compute and storage. The change of service tier (vCore or max storage) is online and requires minimal or no downtime. |
 | [Automatic backups](sql-database-automated-backups.md) | Yes. Full backups are taken every 7 days, differential 12 hours, and log backups every 5-10 min. | Yes. Full backups are taken every 7 days, differential 12 hours, and log backups every 5-10 min. |
 | [Automatic tuning (indexes)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Yes](sql-database-automatic-tuning.md)| No |
+| [Availability Zones](/azure/availability-zones/az-overview) | Yes | No |
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Yes | No |
 | Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Yes | Yes |
@@ -125,8 +126,9 @@ Azure platform provides a number of PaaS capabilities that are added as an addit
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
 | Public IP address | Yes. The access can be restricted using firewall or service endpoints.  | Yes. Needs to be explicitly enabled and port 3342 must be enabled in NSG rules. Public IP can be disabled if needed. See [Public endpoint](sql-database-managed-instance-public-endpoint-securely.md) for more details. | 
 | [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - all service tiers other than hyperscale - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | No. A single managed instance can have multiple databases that share the same pool of resources. Managed instances cannot share resources. |
+| Resource pools | Yes, as [Elastic pools](sql-database-elastic-pool.md) | Yes. A single managed instance can have multiple databases that share the same pool of resources. In addition, you can deploy multiple managed instances in [instance pools(Preview)](sql-database-instance-pools.md) that can share the resources. |
 | Scaling up or down (online) | Yes, you can either change DTU or reserved vCores or max storage with the minimal downtime. | Yes, you can change reserved vCores or max storage with the minimal downtime. |
+| SQL Alias | Yes, see [DNS Alias](dns-alias-overview.md) | No |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | No |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. |
@@ -139,7 +141,7 @@ Azure platform provides a number of PaaS capabilities that are added as an addit
 ## Tools
 Azure SQL database supports various data tools that can help you to manage your data.
 
-| **Tool** | **Single databases and elastic pools** | **Managed instances** |
+| **Tool** | **Single databases and elastic pools** | **Managed instances and instance pools** |
 | --- | --- | --- |
 | Azure portal | Yes | Yes |
 | Azure CLI | Yes | Yes|
@@ -160,7 +162,7 @@ Azure SQL database supports various data tools that can help you to manage your 
 
 You can use different migration methods to move your data between SQL Server, Single Database, and Managed Instance databases. Some methods are **Online** and picking-up all changes that are made on the source while you are running migration, while in **Offline** methods you need to stop your workload that is modifying data on the source while the migration is in progress.
 
-| **Source** | **Single database and elastic pool** | **Managed Instance** |
+| **Source** | **Single database and elastic pool** | **Managed Instance and instance pools** |
 | --- | --- | --- |
 | SQL Server (on-prem, AzureVM, Amazon RDS) | **Online:** [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [Transactional Replication](sql-database-managed-instance-transactional-replication.md) <br/> **Offline:** [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Online:** [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [Transactional Replication](sql-database-managed-instance-transactional-replication.md) <br/> **Offline:** Native backup/restore, [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [Snapshot replication](sql-database-managed-instance-transactional-replication.md) |
 | Single database | **Offline:** [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Offline:** [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
@@ -176,3 +178,4 @@ Microsoft continues to add features to Azure SQL Database. Visit the Service Upd
 For more information about the Azure SQL Database flavors, see:
 - [What is SQL Database?](sql-database-technical-overview.md)
 - [What is a Managed Instance?](sql-database-managed-instance.md)
+- [What are Managed Instance pools?](sql-database-instance-pools.md)

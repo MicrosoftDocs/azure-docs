@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Analyzing video and audio files with Azure Media Services | Microsoft Docs
-description: When using Azure Media Services, you can analyze your audio and video contnet using AudioAnalyzerPreset and VideoAnalyzerPreset.  
+description: When using Azure Media Services, you can analyze your audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset.  
 services: media-services
 documentationcenter: ''
 author: Juliako

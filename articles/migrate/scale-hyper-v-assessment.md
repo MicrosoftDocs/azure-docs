@@ -11,7 +11,7 @@ ms.author: raynew
 
 # Assess large numbers of Hyper-V VMs for migration to Azure
 
-This article describes how to assess large numbers (> 1000) of on-premises Hyper-V VMs for migration to Azure, using the Azure Migrate Server Assessment tool.
+This article describes how to assess large numbers of on-premises Hyper-V VMs for migration to Azure, using the Azure Migrate Server Assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
@@ -41,9 +41,10 @@ Use the limits summarized in this table for planning.
 
 **Planning** | **Limits**
 --- | --- 
-**Azure Migrate projects** | Assess up to 10,000 VMs in a project.
-**Azure Migrate appliance** | An appliance can discover up to 5000 VMs.<br/> An appliance can connect to up to 300 Hyper-V hosts.<br/> An appliance can only be associated with a single Azure Migrate project.<br/><br/> 
-**Azure Migrate assessment** | You can assess up to 10,000 VMs in a single assessment.
+**Azure Migrate projects** | Assess up to 35,000 VMs in a project.
+**Azure Migrate appliance** | An appliance can discover up to 5000 VMs.<br/> An appliance can connect to up to 300 Hyper-V hosts.<br/> An appliance can only be associated with a single Azure Migrate project.<br/> Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
+**Group** | You can add up to 35,000 VMs in a single group.
+**Azure Migrate assessment** | You can assess up to 35,000 VMs in a single assessment.
 
 
 

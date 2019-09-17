@@ -1,12 +1,12 @@
 ---
 title: Analytics for the Commercial Marketplace in Partner Center
 description: Learn how to access analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
-author: mattwojo 
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 09/09/2019
 ---
 
 # Analytics for the Commercial Marketplace in Partner Center
@@ -51,11 +51,11 @@ The **Totals** section displays a count of all orders created, or customers acqu
 
 ### Customers by geography
 
-The **Customers by geography** heatmap displays a customer count on a world map. 
+The **Customers by geography** heatmap displays a customer count on a world map.
 
-- You can move the map to view the exact location. 
-- You can zoom into a specific location. 
-- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location. 
+- You can move the map to view the exact location.
+- You can zoom into a specific location.
+- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location.
 - You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 - A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
 
@@ -117,7 +117,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 The **Active orders by offers** donut graph organizes all of your active orders according to their offer names.
 
-- The top 4 offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- The top four offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
 - You can select specific offers in the legend to display only those offers in the graph. 
 - Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - **Orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
@@ -239,13 +239,13 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Cloud Instance Name: Azure Government | Order| Government-specific Microsoft clouds for one of the following governments: China, Germany, or The United States of America.| |
 | Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer’s Azure Subscription.||
 | Customer Communication Language  | Customer| The language preferred by the customer for communication.||
-| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer’s Azure Subscription.|  |
+| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the name in a customer’s Azure Subscription.|  |
 | Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer’s Azure Subscription.|  |
 | Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer’s Azure Subscription.||
 | Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer’s Azure Subscription.| |
 | Customer ID | Customer, Order | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace Subscriptions.|  |
 | Customer Postal Code  | Customer| The postal code provided by the customer. Code could be different than the postal code provided in a customer’s Azure Subscription.| |
-| Customer State| Customer| The state (address) provided by the customer. State could be different than the last name provided in a customer’s Azure Subscription.| |
+| Customer State| Customer| The state (address) provided by the customer. State could be different than the state provided in a customer’s Azure Subscription.| |
 | Date Acquired| Customer| The first date the customer purchased any offer published by you.| |
 | Date Lost| Customer| The last date the customer canceled the last of all offers previously purchased.||
 | Is New Customer  | Order| The value will identify a new customer acquiring one or more of your offers for the first time (or not). Value will be “Yes” if within the same calendar month for “Date Acquired”. Value will be “No” if the customer has purchased any of your offers prior to the calendar month reported. |

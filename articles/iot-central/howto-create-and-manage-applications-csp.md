@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: philmea
 ---
 
-# As a CSP, create and manage an Azure IoT Central Application on behalf of your customer 
+# As a CSP, create and manage an Azure IoT Central Application on behalf of your customer
 
 The Microsoft Cloud Solution Provider (CSP) program is a Microsoft Reseller program. Its intent is to provide our channel partners with a one-stop program to resell all Microsoft Commercial Online Services. Learn more about the [Cloud Solution Provider program](https://partner.microsoft.com/cloud-solution-provider).
 
@@ -67,11 +67,14 @@ To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides
 
 ## Region
 
-Choose the region where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that is closest physically to your devices to get optimal performance.
+Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
 
-To learn more, see [Azure regions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
+> [!NOTE]
+> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
 
-You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/regions/services/) page.
+To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) page.
 
 > [!Note]
 > Once you choose a region, you cannot later move your application to a different region.

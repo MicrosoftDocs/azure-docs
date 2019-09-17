@@ -57,7 +57,8 @@ On the **Add application rule collection** screen, complete the following steps:
    | **Name** | **Source Address** | **Protocol:Port** | **Target FQDNS** | **Notes** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
-   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
+   | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
+   | Rule_4 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
 
 1. Click **Add**.
 
@@ -87,7 +88,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 1. Click **Add** to complete creation of your network rule collection.
 
-   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create and configure a route table
 

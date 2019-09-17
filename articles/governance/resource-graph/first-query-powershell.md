@@ -20,8 +20,6 @@ choice and run your first Resource Graph query.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
-
 ## Add the Resource Graph module
 
 To enable Azure PowerShell to query Azure Resource Graph, the module must be added. This module can

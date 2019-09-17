@@ -62,6 +62,14 @@ After the feature has been running in audit mode for a reasonable period, you ca
 * A Global Administrator account to register the proxy service for password protection and forest with Azure AD.
 * An account that has Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
 * Any Active Directory domain that runs the DC Agent service software must use Distributed File System Replication (DFSR) for sysvol replication.
+
+  If your domain is not already using DFSR, you MUST migrate it to use DFSR before installing Azure AD Password Protection. For more information, see the following link:
+
+  [SYSVOL Replication Migration Guide: FRS to DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+  > [!WARNING]
+  > The Azure AD Password Protection DC Agent software will currently install on domain controllers in domains that are still using FRS (the predecessor technology to DFSR) for sysvol replication, but the software will NOT work properly in this environment. Additional negative side-effects include individual files failing to replicate, and sysvol restore procedures appearing to succeed but silently failing to replicate all files. You should migrate your domain to use DFSR as soon as possible, both for DFSR's inherent benefits and also to unblock the deployment of Azure AD Password Protection. Future versions of the software will be automatically disabled when running in a domain that is still using FRS.
+
 * The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012. By default, this service is enabled via manual trigger start.
 
 ## Single-forest deployment
@@ -292,7 +300,7 @@ When a newer version of the Azure AD Password Protection Proxy software is avail
 
 It is not required to uninstall the current version of the Proxy software - the installer will perform an in-place upgrade. No reboot should be required when upgrading the Proxy software. The software upgrade may be automated using standard MSI procedures, for example: `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
-The Proxy agent supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default, and may be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet. Microsoft recommends that the automatic upgrade be left enabled.
+The Proxy agent supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default, and may be enabled or disabled using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet. The current setting can be queried using the `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. Microsoft recommends that the automatic upgrade be left enabled.
 
 The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the software version of all currently installed Proxy agents in a forest.
 
