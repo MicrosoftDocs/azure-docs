@@ -1,6 +1,6 @@
 ---
-title: Connect to HTTP or HTTPS endpoints from Azure Logic Apps
-description: Monitor HTTP or HTTPS endpoints in automated tasks, processes, and workflows by using Azure Logic Apps
+title: Call HTTP and HTTPS endpoints - Azure Logic Apps
+description: Check or call HTTP and HTTPS endpoints by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,9 +12,11 @@ ms.date: 07/05/2019
 tags: connectors
 ---
 
-# Call HTTP or HTTPS endpoints by using Azure Logic Apps
+# Send outgoing calls to HTTP or HTTPS endpoints by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP connector, you can automate workflows that regularly call any HTTP or HTTPS endpoint by building logic apps. For example, you can monitor the service endpoint for your website by checking that endpoint on a specified schedule. When a specific event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that regularly check or call any HTTP or HTTPS endpoint. To receive and respond to incoming HTTP or HTTPS calls, use the built-in [Request trigger or Response action] instead.
+
+For example, you can monitor the service endpoint for your website by checking that endpoint on a specified schedule. When a specific event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
 
 To check or *poll* an endpoint on a regular schedule, you can use the HTTP trigger as the first step in your workflow. On each check, the trigger sends a call or *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes along any content from the response to the actions in your logic app.
 
