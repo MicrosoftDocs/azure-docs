@@ -113,7 +113,7 @@ The following steps show you how to prepare the virtual network for the move usi
     * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **\<resource-group-name>.json** file:
 
     ```json
-    "resources": [
+            "resources": [
               {
                "type": "Microsoft.Network/virtualNetworks",
                "apiVersion": "2019-06-01",
@@ -127,11 +127,10 @@ The following steps show you how to prepare the virtual network for the move usi
                            "10.0.0.0/16"
                           ]
               },
-    
+    ]
     ```
 
-
-    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
+* **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
     
         ```json
                  "subnets": [
