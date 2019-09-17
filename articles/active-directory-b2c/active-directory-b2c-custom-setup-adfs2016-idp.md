@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for an ADFS user account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C. You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
+This article shows you how to enable sign-in for an ADFS user account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This article shows you how to enable sign-in for an ADFS user account by using [
 You need to store your certificate in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
@@ -41,7 +41,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 
 ## Add a claims provider
 
-If you want users to sign in using an ADFS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
+If you want users to sign in using an ADFS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define an ADFS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
@@ -134,7 +134,7 @@ Now that you have a button in place, you need to link it to an action. The actio
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
-    
+
     Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Contoso-SAML2`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
@@ -153,7 +153,7 @@ Replace the following values:
 - **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com.
 - **your-policy** with your policy name. For example, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** with the name of your SAML identity provider technical profile. For example, Contoso-SAML2.
- 
+
 Open a browser and navigate to the URL. Make sure you type the correct URL and that you have access to the XML metadata file. To add a new relying party trust by using the ADFS Management snap-in and manually configure the settings, perform the following procedure on a federation server. Membership in **Administrators** or equivalent on the local computer is the minimum required to complete this procedure.
 
 1. In Server Manager, select **Tools**, and then select **ADFS Management**.
@@ -164,7 +164,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 6. On the **Choose Access Control Policy** page, select a policy, and then click **Next**.
 7. On the **Ready to Add Trust** page, review the settings, and then click **Next** to save your relying party trust information.
 8. On the **Finish** page, click **Close**, this action automatically displays the **Edit Claim Rules** dialog box.
-9. Select **Add Rule**.  
+9. Select **Add Rule**.
 10. In **Claim rule template**, select **Send LDAP attributes as claims**.
 11. Provide a **Claim rule name**. For the **Attribute store**, select **Select Active Directory**, add the following claims, then click **Finish** and **OK**.
 
@@ -175,19 +175,19 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
     | Given-Name | given_name |
     | E-Mail-Address | email |
     | Display-Name | name |
-    
-    Note that these names will not display in the outgoing claim type dropdown. You need to manually type them in. (The dropdown is actually editable). 
-    
-12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-256`, and click **Ok**.  
+
+    Note that these names will not display in the outgoing claim type dropdown. You need to manually type them in. (The dropdown is actually editable).
+
+12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-256`, and click **Ok**.
 13. In Server Manager, select **Tools**, and then select **ADFS Management**.
-14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**. 
+14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**.
 
 ## Create an Azure AD B2C application
 
 Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application, for example *testapp1*.
