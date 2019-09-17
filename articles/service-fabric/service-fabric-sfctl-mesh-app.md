@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI- sfctl mesh app | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl mesh app commands.
 services: service-fabric
 documentationcenter: na
-author: Jeffrey-Jarry
+author: jeffj6123
 manager: chackdan
 editor: ''
 

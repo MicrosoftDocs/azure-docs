@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI- sfctl container | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl container commands.
 services: service-fabric
 documentationcenter: na
-author: Jeffrey-Jarry
+author: jeffj6123
 manager: chackdan
 editor: ''
 

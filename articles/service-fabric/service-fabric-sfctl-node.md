@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI- sfctl node | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl node commands.
 services: service-fabric
 documentationcenter: na
-author: Jeffrey-Jarry
+author: jeffj6123
 manager: chackdan
 editor: ''
 

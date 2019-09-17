@@ -3,7 +3,7 @@ title: Azure Service Fabric CLI- sfctl rpm| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl rpm commands.
 services: service-fabric
 documentationcenter: na
-author: Jeffrey-Jarry
+author: jeffj6123
 manager: chackdan
 editor: ''
 
