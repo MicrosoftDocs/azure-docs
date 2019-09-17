@@ -86,7 +86,10 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 ### Examples
 
 Start a cluster configuration update
-sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```	
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-	
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"	
+```
 
 ## sfctl sa-cluster upgrade-status
 Get the cluster configuration upgrade status of a Service Fabric standalone cluster.

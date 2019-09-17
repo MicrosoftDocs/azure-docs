@@ -50,11 +50,22 @@ Creates a deployment of Service Fabric Mesh Resources.
 ### Examples
 
 Consolidates and deploys all the resources to cluster by overriding the parameters mentioned in the yaml file
-sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters ./param.yaml
+```	
+sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters	
+./param.yaml	
+```
+
 Consolidates and deploys all the resources in a directory to cluster by overriding the parameters mentioned in the yaml file
-sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
+
+```	
+sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml	sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
+```
+
 Consolidates and deploys all the resources in a directory to cluster by overriding the parameters which are passed directly as json object
-sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'myparam' : {'value' : 'myvalue'} }"
+```	
+sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :	
+{'value' : 'my_value'} }"	
+```
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
