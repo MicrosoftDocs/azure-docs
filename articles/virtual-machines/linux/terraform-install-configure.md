@@ -1,5 +1,5 @@
 ---
-title: Install and configure Terraform for use with Azure | Microsoft Docs
+title: Install and configure Terraform to provision Azure resources | Microsoft Docs
 description: Learn how to install and configure Terraform to create Azure resources
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,11 +14,11 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
-ms.author: gwallace
+ms.date: 09/17/2019
+ms.author: tarcher
 ---
 
-# Install and configure Terraform to provision VMs and other infrastructure into Azure
+# Install and configure Terraform to provision Azure resources
  
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure.
 

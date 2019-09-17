@@ -35,6 +35,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Configure Azure Cloud Shell for Terraform
+            url: terraform-cloud-shell.md
           - text: Install and configure Terraform
             url: /azure/virtual-machines/linux/terraform-install-configure
 

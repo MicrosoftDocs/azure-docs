@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+    - name: Configure Azure Cloud Shell for Terraform
+      href: terraform-cloud-shell.md
     - name: Create a multi-service application
       href: terrafom-quickstart.md
     - name: Install and configure Terraform
@@ -67,10 +69,6 @@
   items:
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
-- name: Concepts
-  items:
-    - name: Azure Cloud Shell integration
-      href: terraform-cloud-shell.md
 - name: How-to guides
   items:
     - name: Store state in Azure Storage

@@ -1,5 +1,5 @@
 ---
-title: Use Terraform with Azure Cloud Shell
+title: Configure Azure Cloud Shell for Terraform
 description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
 services: terraform
 ms.service: azure
