@@ -5,14 +5,14 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 09/16/2019
 ms.author: rolyon
 ms.custom: include file
 ---
 
 ### Policy: For users in your directory
 
-Follow these steps if you want your policy to be for users in your directory that can request this access package.  The **users in your directory** refers to both internal users as well as external users that have been previously invited to the directory, either through them requesting entitlement management with another access package or being invited with Azure AD B2B. When defining the policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
+Follow these steps if you want your policy to be for users in your directory that can request this access package.  The **users in your directory** refers to both internal users as well as external users that have been previously invited to the directory, either through them requesting entitlement management with another access package or being invited with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). When defining the policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
 1. In the **Users who can request access** section, select **For users in your directory**.
 
@@ -30,31 +30,67 @@ Follow these steps if you want your policy to be for users in your directory tha
 
 ### Policy: For users not in your directory
 
-Follow these steps if you want your policy to be for users not in your directory that can request this access package. The **users not in your directory** refers to users who are in another Azure AD directory, and may not have yet been invited into your directory. Currently, you can only add users from organizations that have Azure AD. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
+Follow these steps if you want your policy to be for users not in your directory that can request this access package. The **users not in your directory** refers to users who are in another Azure AD directory, and may not have yet been invited into your directory. Currently, you can only add users from organizations that have Azure AD. Directories must be configured to be allowed in the **Collaboration restrictions** section of the [External collaboration settings](../articles/active-directory/b2b/allow-deny-list.md).
 
 > [!NOTE]
-> A guest external user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
+> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
 
 1. In the **Users who can request access** section, select **For users not in your directory**.
 
-1. In the **Select external Azure AD directory** section, click **Add directories**.
+    When you select this option, new options appear. You can select specific external Azure AD directories and domains or you can select all external Azure AD directories and domains that you previously added. A connected directory + domain is an external Azure AD directory and domain that you frequently collaborate with.
 
-1. Enter a domain name and search for an Azure AD directory with that domain name.
+    ![Access package - Policy - Users who can request access](./media/active-directory-entitlement-management-policy/policy-users-who-can-request-access.png)
+
+1. Click **Specific connected directories + domains** or **Any users from a connected directory + domain**.
+
+1. If you select **Specific connected directories + domains**, click **Add directories** to add specific external Azure AD directories and domains.
+
+    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-select-directories.png)
+
+1. Enter a domain name and search for an Azure AD directory with that domain name. If you frequently work with an organization the uses Azure AD, you can add it as a [connected directory + domain](#policy-add-connected-directory-domain).
+
+1. Click **Add** to add the directory.
+
+1. Once you have added all directories you'd like to include in the policy, click **Select**.
+
+1. Skip down to the [Policy: Request](#policy-request) section.
+
+### Policy: Add connected directory + domain
+
+If you frequently work with an organization the uses Azure AD, you add them as a connected directory + domain. Follow these steps to add an external Azure AD directory as a connected directory + domain.
+
+1. In the **Users who can request access** section, click **Add connected directory**.
+
+    This opens a new page where you can add a connected directory.
+
+1. On the **Basics** tab, enter a display name and description for the external Azure AD directory.
+
+    ![Access package - Policy - Add connected directory - Basics tab](./media/active-directory-entitlement-management-policy/add-directory-basics.png)
+
+1. On the **Directories** tab, click **Add connected directories + domains**.
+
+1. Enter a domain name to search for an Azure AD directory with that domain name.
 
 1. Verify it is the correct directory by the provided directory name and initial domain.
 
     > [!NOTE]
     > All users from the directory will be able to request this access package. This includes users from all subdomains associated with the directory, not just the domain used in the search.
 
-    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-select-directories.png)
-
 1. Click **Add** to add the directory.
-
-1. Repeat this step to add any more directories.
 
 1. Once you have added all directories you'd like to include in the policy, click **Select**.
 
-1. Skip down to the [Policy: Request](#policy-request) section.
+    ![Access package - Policy - Add connected directory - Select directories + domains](./media/active-directory-entitlement-management-policy/add-directory-select-directories-domains.png)
+
+    The directory appears in the list of directories.
+
+    ![Access package - Policy - Add connected directory - Directories tab](./media/active-directory-entitlement-management-policy/add-directory-directories.png)
+
+1. On the **Sponsors** tab, add optional sponsors for the specified directories. Sponsors are users already in your directory that can be utilized as approvers for an access package.
+
+    ![Access package - Policy - Add connected directory - Sponsors tab](./media/active-directory-entitlement-management-policy/add-directory-sponsors.png)
+
+1. On the **Review + create** tab, review your directory settings and click **Create**.
 
 ### Policy: None (administrator direct assignments only)
 
