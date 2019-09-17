@@ -268,13 +268,13 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 |icon|No|The icon of the command button. List of supported icons is defined in [JSON Schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Create UI Definition schema for command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).|
 
-## Custom resources
+## Associations
 
-`"kind": "CustomResources"`
+`"kind": "Associations"`
 
 You can define multiple views of this type. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
 
-In this view you can perform GET, PUT, DELETE and POST operations for your custom resource type. POST operations could be global custom actions or custom actions in a context of your custom resource type.
+In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource. 
 
 ```json
 {

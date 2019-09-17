@@ -5,7 +5,7 @@ services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
-author: jobreen
+author: jjbfour
 ms.date: 09/16/2019
 ---
 
@@ -21,7 +21,7 @@ The custom role definition artifact must be named **customRoleDefinition.json** 
 
 ## Custom role definition schema
 
-The **customRoleDefinition.json** file has only one top level `roles` property, which is an array of roles. Each of these roles are the permissions that the managed application needs to function. Currently, only built in roles are allowed, but multiple roles can be specified. The role can be referenced by the id of the role definition or by the role name.
+The **customRoleDefinition.json** file has only one top level `roles` property, which is an array of roles. Each of these roles are the permissions that the managed application needs to function. Currently, only built-in roles are allowed, but multiple roles can be specified. The role can be referenced by the ID of the role definition or by the role name.
 
 Sample JSON for custom role definition:
 
@@ -62,5 +62,5 @@ A role is composed of either a `$.properties.roleName` or `id`.
 
 |Property|Required|Description|
 |---------|---------|---------|
-|id|Yes*|The id of the built in role. This can be the full id or just the GUID.|
-|roleName|Yes*|The name of the built in role.|
+|ID|Yes*|The ID of the built-in role. This can be the full ID or just the GUID.|
+|roleName|Yes*|The name of the built-in role.|

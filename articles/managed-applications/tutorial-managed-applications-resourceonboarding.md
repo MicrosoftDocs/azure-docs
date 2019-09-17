@@ -436,7 +436,7 @@ The `viewDefinition.json` for the managed application:
 }
 ```
 
-To learn more about view definitions, [see the view definition basics](concept-custom-role-definition-artifact.md).
+To learn more about view definitions, [see the view definition basics](concepts-view-definition.md).
 
 ## Custom role definition artifact
 
@@ -456,7 +456,7 @@ The `customRoleDefinition.json` for the managed application:
 }
 ```
 
-To learn more about custom role definitions, [see the custom role definition basics](concept-custom-role-definition-artifact.md).
+To learn more about custom role definitions, [see the custom role definition basics](concepts-custom-role-definition.md).
 
 ## Managed application definition
 
