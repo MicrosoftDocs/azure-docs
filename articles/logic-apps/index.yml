@@ -29,7 +29,6 @@ landingContent:
         links:
           - text: Connectors for Azure Logic Apps
             url: /azure/connectors/apis-list.md
-        links:
           - text: Schedule recurring workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
       - linkListType: learn
