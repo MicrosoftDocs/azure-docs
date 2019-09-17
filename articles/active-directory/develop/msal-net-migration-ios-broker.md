@@ -33,7 +33,7 @@ This document assumes that you already have a Xamarin iOS app that is integrated
 
 ### What are brokers?
 
-Brokers are applications, provided by Microsoft, on Android and iOS ([Microsoft Authenticator](https://www.microsoft.com/account/authenticator) on iOS and Android, Intune Company Portal on Android). 
+Brokers are applications, provided by Microsoft, on Android and iOS ([Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) on iOS and Android, Intune Company Portal on Android). 
 
 They enable:
 
