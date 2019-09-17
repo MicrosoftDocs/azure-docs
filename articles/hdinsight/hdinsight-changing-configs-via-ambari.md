@@ -18,7 +18,7 @@ For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters b
 
 Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen  displays an overview dashboard.
 
-![Apache Ambari user dashboard displayd](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
+![Apache Ambari user dashboard displayed](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 The Ambari web UI can be used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create an HDInsight cluster, upgrade services, manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
 
@@ -140,7 +140,7 @@ By default, Hive follows a set of rules to find one optimal query execution plan
 
 To enable CBO, navigate to the Hive **Configs** tab and search for `parameter hive.cbo.enable`, then switch the toggle button to **On**.
 
-![HDInsight cost based optimizer](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
+![HDInsight cost-based optimizer](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 The following additional configuration parameters increase Hive query performance when CBO is enabled:
 
@@ -200,7 +200,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     e. Click **Add**.
 
-    ![Apache Hive custom property add](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
+		![Apache Hive custom property add](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
     This will compress the intermediate file using Snappy compression. Once the property is added, it appears in the Custom hive-site pane.
 
