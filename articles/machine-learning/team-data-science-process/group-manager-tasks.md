@@ -7,168 +7,135 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/16/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 
-# Tasks for a group manager on a data science team project
+# Team Data Science Process group manager tasks
 
-This topic outlines the tasks that a Group Manager is expected to complete for their data science organization. The objective is to establish collaborative group environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article describes the tasks that a *Group Manager* completes for a data science organization. The Group Manager manages the entire data science unit in an enterprise. A data science unit may have several teams, each of which is working on many data science projects in distinct business verticals. The Group Manager's objective is to establish a collaborative group environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). For an outline of all the personnel roles and associated tasks handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-The **Group Manager** is the manager of the entire data science unit in an enterprise. A data science unit may have multiple teams, each of which is working on multiple data science projects in distinct business verticals. A Group Manager may delegate their tasks to a surrogate, but the tasks associated with the role are the same. There are six main tasks as shown in the following diagram:
+The following diagram shows the six main Group Manager setup tasks. Group Managers may delegate their tasks to surrogates, but the tasks associated with the role don't change.
 
-![0](./media/group-manager-tasks/tdsp-group-manager.png)
+![Group Manager tasks](./media/group-manager-tasks/tdsp-group-manager.png)
 
+1. Set up an **Azure DevOps organization** for the group
+2. Create a **group project** in the Azure DevOps organization
+3. Create the **GroupProjectTemplate** repository in Azure Repos
+4. Create the **GroupUtilities** repository in Azure Repos
+5. Seed the **GroupProjectTemplate** and **GroupUtilities** repositories from the Microsoft TDSP team group common repositories
+6. Set up the **security controls** for team members to access the group
 
-> [!NOTE] 
-> We outline the steps needed to set up a TDSP group environment using Azure DevOps Services in the instructions that follow. We specify how to accomplish these tasks with Azure DevOps Services because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the group manager generally do not change. But the way to complete these tasks is going to be different.
-
-1. Set up **Azure DevOps Services** for the group.
-2. Create a **group project** on Azure DevOps Services (for Azure DevOps Services users)
-3. Create the **GroupProjectTemplate** repository
-4. Create the **GroupUtilities** repository
-5. Seed the **GroupProjectTemplate** and **GroupUtilities** repositories for the Azure DevOps Services with content from the TDSP repositories.
-6. Set up the **security controls** for team members to access to the GroupProjectTemplate and GroupUtilities repositories.
-
-Each of the preceding steps is described in detail. But first, we familiarize you with the abbreviations and discuss the pre-requisites for working with repositories.
-
-### Abbreviations for repositories and directories
-
-This tutorial uses abbreviated names for repositories and directories. These definitions make it easier to follow the operations between the repositories and directories. This notation is used in the following sections:
-
-- **G1**: The project template repository developed and managed by TDSP team of Microsoft.
-- **G2**: The utilities repository developed and managed by TDSP team of Microsoft.
-- **R1**: The GroupProjectTemplate repository on Git you set up on your Azure DevOps group server.
-- **R2**: The GroupUtilities repository on Git you set up on your Azure DevOps group server.
-- **LG1** and **LG2**: The local directories on your machine that you clone G1 and G2 to, respectively.
-- **LR1** and **LR2**: The local directories on your machine that you clone R1 and R2 to, respectively.
-
-### Pre-requisites for cloning repositories and checking code in and out
-
-- Git must be installed on your machine. If you are using a Data Science Virtual Machine (DSVM), Git has been pre-installed and you are good to go. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-- If you are using a **Windows DSVM**, you need to have [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the README.md file, scroll down to the **Download and Install** section and click the *latest installer*. This step takes you to the latest installer page. Download the .exe installer from here and run it.
-- If you are using **Linux DSVM**, create an SSH public key on your DSVM and add it to your group Azure DevOps Services. For more information about SSH, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-
-
-## 1. Create Account on Azure DevOps Services
-
-The Azure DevOps Services hosts the following repositories:
-
-- **group common repositories**: General-purpose repositories that can be adopted by multiple teams within a group for multiple data science projects. For example, the *GroupProjectTemplate* and *GroupUtilities* repositories.
-- **team repositories**:  Repositories for specific teams within a group. These repositories are specific for a team's need, and can be adopted by multiple projects executed by that team, but not general enough to be useful to multiple teams within a data science group.
-- **project repositories**: Repositories available for specific projects. Such repositories may not be general enough to be useful to multiple projects performed by a team, and to multiple teams in a data science group.
-
-
-### Setting up the Azure DevOps Services Sign into your Microsoft account
-
-Go to [Visual Studio online](https://www.visualstudio.com/), click **Sign in** in the upper right corner and sign into your Microsoft account.
-
-![1](./media/group-manager-tasks/login.PNG)
-
-If you do not have a Microsoft account, click **Sign up now** to create a Microsoft account, and then sign in using this account.
-
-If your organization has a Visual Studio/MSDN subscription, click the green **Sign in with your work or school account** box and sign in with the credentials associated with this subscription.
-
-![2](./media/group-manager-tasks/signin.PNG)
-
-
-
-After you sign in, click **Create New Account** in the upper right corner as shown in the following image:
-
-![3](./media/group-manager-tasks/create-account-1.PNG)
-
-Fill in the information for the Azure DevOps Services that you want to create in the **Create your account** wizard with the following values:
-
-- **Server URL**: Replace *mysamplegroup* with your own *server name*. The URL of your server is going to be: *https://\<servername\>.visualstudio.com*.
-- **Manage code using:** Select **_Git_**.
-- **Project name:** Enter *GroupCommon*.
-- **Organize work using:** Choose *Agile*.
-- **Host your projects in:** Choose a geo location. In this example, we choose *South Central US*.
-
-![4](./media/group-manager-tasks/fill-in-account-information.png)
+The following tutorial walks through the steps in detail. 
 
 > [!NOTE] 
-> If you see the following pop-up window after you click **Create new account**, then you need to click **Change details** to display all the fields itemized.
+> The article uses Azure DevOps and a [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) to set up a TDSP group environment, because that is how to implement TDSP at Microsoft. If your group uses other code hosting, work item management, or code development platforms, the Group Manager's tasks are the same, but the way to complete them may be different.
 
-![5](./media/group-manager-tasks/create-account-2.png)
+## Prerequisites and conventions
 
+The tutorial assumes the following prerequisites and conventions.
 
-Click **Continue**.
+### Prerequisites
 
-## 2. GroupCommon Project
+- Install **Git** on your local machine. If you're using a [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM), Git is pre-installed and you're good to go. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix) for instructions.
+- For a **Windows DSVM**, install [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) on your machine. In the Git Credential Manager *README.md* file, scroll down to the **Download and Install** section and select **latest installer**. This takes you to the latest installer page. Download the *.exe* installer and run it.
+- For a **Linux DSVM**, create an SSH public key on your DSVM and add it to your group Azure DevOps project. For instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix).
 
-The **GroupCommon** page (*https://\<servername\>.visualstudio.com/GroupCommon*) opens after your Azure DevOps Services is created.
+### Repositories
 
-![6](./media/group-manager-tasks/server-created-2.PNG)
+Azure Repos can host the following types of repositories:
 
-## 3. Create the GroupUtilities (R2) repository
+- **Group common repositories**: General-purpose repositories that multiple organizations within a data science unit can adopt for many data science projects. Examples are the **GroupProjectTemplate** and **GroupUtilities** repositories developed and managed by the Microsoft TDSP team.
+- **Organization repositories**:  Repositories for specific organizations. These repositories are specific for an organization's needs, and may be used for multiple projects within that organization, but are not general enough to be used across multiple organizations within a data science unit.
+- **Project repositories**: Repositories for specific projects. Such repositories may not be general enough for multiple projects within an organization, or other organizations in a data science unit.
 
-To create the **GroupUtilities** (R2) repository under Azure DevOps Services:
+This tutorial uses the following abbreviated names to make it easier to follow the operations between the repositories and directories:
 
-- To open the **Create a new repository** wizard, click **New repository** on the **Version Control** tab of your project.
+- **G1**: The group common template repository the Microsoft TDSP team developed and manages
+- **G2**: The group common utilities repository the Microsoft TDSP team developed and manages
+- **R1**: The *GroupProjectTemplate* Git repository you set up in the Azure DevOps project
+- **R2**: The *GroupUtilities* Git repository you set up in the Azure DevOps group project
+- **LG1** and **LG2**: The local directories on your machine that you clone *G1* and *G2* to, respectively
+- **LR1** and **LR2**: The local directories on your machine that you clone *R1* and *R2* to, respectively
 
-  ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png)
+## Create an organization and project in Azure DevOps
 
-- Select *Git* as the **Type**, and enter *GroupUtilities* as the **Name**, and then click **Create**.
+1. Go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com), select **Sign in** in the upper right corner, and sign into your Microsoft account. 
+   
+   ![Sign in to your Microsoft account](./media/group-manager-tasks/signinvs.png)
+   
+   If you don't have a Microsoft account, select **Sign up now**, create a Microsoft account, and sign in using this account. If your organization has a Visual Studio subscription, sign in with the credentials for this subscription.
+   
+1. After you sign in, at upper right on the Azure DevOps page, select **Create new organization**.
+   
+   ![Create new organization](./media/group-manager-tasks/create-organization.png)
+   
+1. If you're prompted to agree to the Terms of Service, Privacy Statement, and Code of Conduct, select **Continue**.
+   
+1. In the signup dialog, name your Azure DevOps organization and accept the region assignment, or drop down and select a different region. Then select **Continue**. 
 
-  ![8](./media/group-manager-tasks/create-grouputilities-repo-2.png)
+1. Under **Create a project to get started**, enter *GroupCommon*, and then select **Create project**. 
+   
+   ![Create project](./media/group-manager-tasks/create-project.png)
 
-Now you should see two Git repositories **GroupProjectTemplate** and **GroupUtilities** in the left column of the **Version Control** page:
+The **GroupCommon** project **Summary** page opens. The page URL is *https:\//\<servername>/\<organization-name>/GroupCommon
 
-![9](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
+![Project summary page](./media/group-manager-tasks/project-summary.png)
 
+## Set up the project code repositories:
 
-## 4. Create the GroupProjectTemplate (R1) repository
+To set up the two project code repositories: 
+- Rename the default **GroupCommon** repository to ***GroupProjectTemplate***
+- Create a new **GroupUtilities** repository
 
-The setup of the repositories for the Azure DevOps group server consists of two tasks:
+### Rename the default project repository to GroupProjectTemplate
 
-- Rename the default **GroupCommon** repository***GroupProjectTemplate***.
-- Create the **GroupUtilities** repository on the Azure DevOps Services under project **GroupCommon**.
+To rename the default **GroupCommon** project repository to ***GroupProjectTemplate***, referred to as **R1**:
 
-Instructions for the first task are contained in this section after remarks on naming conventions or our repositories and directories. The instructions for the second task are contained in the following section for step 4.
+1. On the **GroupCommon** project **Summary** page, select **Repos**. This takes you to the default **GroupCommon** repository of the GroupCommon project. This repository is currently empty.
+   
+1. At the top of the page, drop down the arrow next to **GroupCommon** and select **Manage repositories**.
+   
+  ![Manage repositories](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
+   
+1. On the **Project Settings** page, select the **...** next to **GroupCommon**, and then select **Rename repository**. 
+   
+  ![Select ... and then select Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
+   
+1. In the **Rename the GroupCommon repository** popup, enter *GroupProjectTemplate*, and then select **Rename**. 
+   
+ ![Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
-### Rename the default GroupCommon repository
+## Create the GroupUtilities repository
 
-To rename the default **GroupCommon** repository as *GroupProjectTemplate* (referred as **R1** in this tutorial):
+To create the **GroupUtilities** or **R2** repository:
 
-- Click **Collaborate on code** on the **GroupCommon** project page. This takes you to the default Git repository page of the project **GroupCommon**. Currently, this Git repository is empty.
+1. On the **Project Settings** page, select **New repository**.
+   
+  ![New repository](./media/group-manager-tasks/create-grouputilities-repo-1.png)
+   
+1. In the **Create a new repository** dialog, select **Git** as the **Type**, enter *GroupUtilities* as the **Repository name**, and then select **Create**.
+   
+  ![Create GroupUtilities repository](./media/group-manager-tasks/create-grouputilities-repo-2.png)
+   
+1. Select **Repos** > **Repositories** in the left navigation of the **Project Settings** page to see the two project repositories: **GroupProjectTemplate** and **GroupUtilities**.
+   
+   ![Two project repositories](./media/group-manager-tasks/two-repositories.png)
 
-  ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
+## Seed the R1 and R2 repositories with code from the G1 and G2 repositories
 
-- Click **GroupCommon** on the top left corner (highlighted with a red box in the following figure) on the Git repository page of **GroupCommon** and select **Manage repositories** (highlighted with a green box in the following figure). This  procedure brings up the **CONTROL PANEL**.
-- Select the **Version Control** tab of your project.
+In this part of the tutorial, you seed your **GroupProjectTemplate** (R1) and **GroupUtilities** (R2) repositories with the contents of the **ProjectTemplate** (G1) and **Utilities** (G2) repositories managed by the Microsoft TDSP team. When this seeding is complete, your R1 repository will have the directories and templates from the G1 repository, and your R2 repository will have the data science utilities from the Microsoft TDSP team's G2 repository. 
 
-  ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
+To do the seeding, you use the directories on your local DSVM as intermediate staging sites. The steps are:
 
-- Click the **...** to the right of the **GroupCommon** repository on the left panel, and select **Rename repository**.
+1. Clone GI and G2 to LG1 and LG2.
+1. Clone R1 and R2 to LR1 and LR2.
+1. Copy the LG1 and LG2 files into LR1 and LR2.
+1. Upload the LR1 and LR2 files to R1 and R2. 
 
-  ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
-
-- In the **Rename the GroupCommon repository** wizard that pops up, enter *GroupProjectTemplate* in the **Repository name** box, and then click **Rename**.
-
-  ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
-
-
-
-## 5. Seed the R1 & R2 repositories on the Azure DevOps Services
-
-In this stage of the procedure, you seed the *GroupProjectTemplate* (R1) and *GroupUtilities* (R2) repositories that you set up in the previous section. These repositories are seeded with the ***ProjectTemplate*** (**G1**) and ***Utilities*** (**G2**) repositories that are managed by Microsoft for the Team Data Science Process. When this seeding is completed:
-
-- your R1 repository is going to have the same set of directories and document templates that the G1 does
-- your R2 repository is going to contain the set of data science utilities developed by Microsoft.
-
-The seeding procedure uses the directories on your local DSVM as intermediate staging sites. Here are the steps followed in this section:
-
-- G1 & G2 - cloned to -> LG1 & LG2
-- R1 & R2 - cloned to -> LR1 & LR2
-- LG1 & LG2 - files copied into -> LR1 & LR2
-- (Optional) customization of LR1 & LR2
-- LR1 & LR2 - contents add to -> R1 & R2
-
-
-### Clone G1 & G2 repositories to your local DSVM
+### Clone the G1 and G2 repositories to your local DSVM
 
 In this step, you clone the Team Data Science Process (TDSP) ProjectTemplate repository (G1) and Utilities (G2) from the TDSP GitHub repositories to folders in your local DSVM as LG1 and LG2:
 
