@@ -69,8 +69,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          -text: Application Gateway Resource Health overview
-           url: resource-health-overview.md
+          - text: Application Gateway Resource Health overview
+            url: resource-health-overview.md
       - linkListType: how-to-guide
         links:
           - text: Use Log Analytics to examine Application Gateway Web Application Firewall Logs
