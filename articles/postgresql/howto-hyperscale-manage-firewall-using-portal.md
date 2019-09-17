@@ -23,6 +23,8 @@ To step through this how-to guide, you need:
 
    ![Azure portal - click Add client IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
+Alternately, clicking **+Add 0.0.0.0 - 255.255.255.255** (to the right of option B) allows not just your IP, but the whole internet to access the coordinator node's port 5432. In this situation, clients still must login with the correct username and password to use the cluster. Nevertheless, we recommend allowing worldwide access for only short periods of time and for only non-production databases.
+
 3. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Therefore, you may need to change the Start IP and End IP to make the rule function as expected.
    Use a search engine or other online tool to check your own IP address. You can also query OpenDNS:
 
