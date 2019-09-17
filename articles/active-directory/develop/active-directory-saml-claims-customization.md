@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 09/17/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -81,9 +81,7 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 
 For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
 
-If you want provide any specific **Source attribute** value whcih is not mentioned in the **Source attribute** dropdown, then perform the following steps:
-
-![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+You can also assign any constant (static) value to any claims which you define in Azure AD. please follow the below steps to assign a constant value:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
 
@@ -91,7 +89,9 @@ If you want provide any specific **Source attribute** value whcih is not mention
 
     ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
-1. Enter the **Source attribute** value as per your organization and click **Save**.
+1. Enter the constant value in the **Source attribute** as per your organization and click **Save** and constant value will be displayed as below.
+
+    ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### Special claims - Transformations
 
