@@ -44,10 +44,10 @@
       href: go-tutorial-object-detection.md
 - name: Tutorials
   items:
-  - name: Logo detector for mobile
-    href: logo-detector-mobile.md
   - name: IoT Visual Alerts app
     href: iot-visual-alerts-tutorial.md
+  - name: Logo detector for mobile
+    href: logo-detector-mobile.md
 - name: How-to guides
   items:
   - name: Test your model
