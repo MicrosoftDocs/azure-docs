@@ -19,7 +19,7 @@ To step through this how-to guide, you need:
 
    ![Azure portal - click Networking](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Click **Add client IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add client IP**, either on the toolbar (option A below), or in the link (option B). Either way automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
    ![Azure portal - click Add client IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
