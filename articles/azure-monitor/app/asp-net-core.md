@@ -31,7 +31,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
-> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) version or higher. This is the only version known to work well with ASP.NET Core 3.0. Also, Visual Studio based onboarding is not yet supported for ASP.NET Core 3.0 apps.
+> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) version or higher. This is the only version known to work well with ASP.NET Core 3.0. Also, Visual Studio based onboarding is not yet supported for ASP.NET Core 3.0 apps.
 
 ## Prerequisites
 

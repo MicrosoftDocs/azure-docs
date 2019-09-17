@@ -145,14 +145,14 @@ It might take a few minutes before telemetry starts appearing in the portal and 
 
 Following dependencies are automatically collected by Application Insights.
 
-|Dependency | Description|
-|----------------------------------------------------------------------------------|-------|
-|HTTP or HTTPS                                                                     | Calls made with `HttpClient`. |
-|SQL                                                                               | Calls made with `System.Data.SqlClient` or `Microsoft.Data.SqlClient`. |
-|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)             | Calls made with the Azure Storage client. |
-|[EventHubs client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs)  | Version 1.1.0 and later. |
-|[ServiceBus client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and later. |
-|Azure Cosmos DB                                                                   | Tracked automatically only if HTTP/HTTPS is used. Application Insights doesn't automatically capture TCP mode. |
+|Dependency | Description |
+|---------------|-------|
+|HTTP or HTTPS                                                                     | Calls made with `HttpClient` |
+|SQL                                                                               | Calls made with `System.Data.SqlClient` or `Microsoft.Data.SqlClient` |
+|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)             | Calls made with the Azure Storage client |
+|[EventHubs client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs)  | Version 1.1.0 and later |
+|[ServiceBus client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and later |
+|Azure Cosmos DB                                                                   | Tracked automatically only if HTTP/HTTPS is used. Application Insights doesn't automatically capture TCP mode |
 
 ### EventCounter
 
@@ -300,7 +300,6 @@ Application Insights uses telemetry modules to automatically collect telemetry a
 
 The following automatic-collection modules are enabled by default. These modules are responsible for automatically collecting telemetry. You can disable or configure them to alter their default behavior.
 
-* `RequestTrackingTelemetryModule`
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
@@ -490,6 +489,17 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+## Sample Applications
+
+[.NET Core Console Application](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+Use this sample if you are using a Console Application written in either .NET Core (2.0 or higher) or .NET Framework (4.7.2 or higher)
+
+[ASP .NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+Use this sample if you are in Asp.Net Core 2.1/2.2, and creating background tasks as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2)
+
+[.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+Use this if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
 
 ## Open-source SDK
 
