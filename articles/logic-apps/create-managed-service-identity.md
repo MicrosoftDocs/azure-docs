@@ -15,7 +15,7 @@ ms.date: 09/19/2019
 
 To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
-Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) managed identities. Your logic app can use either the system-assigned identity or a user-assigned identity, which you can share across a group of logic apps, but not both. You can use a managed identity for authentication in these built-in triggers and actions:
+Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) managed identities. Your logic app can use either the system-assigned identity or *one* user-assigned identity, which you can share across a group of logic apps, but not both. You can use a managed identity for authentication in these built-in triggers and actions:
 
 * HTTP
 * Azure Functions
@@ -151,6 +151,9 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
    Now you can add the user-assigned identity to your logic app.
 
+   > [!NOTE]
+   > You can add only one user-assigned identity to your logic app.
+
 1. In the Azure portal, find and open your logic app in Logic App Designer.
 
 1. On the logic app menu, under **Settings**, select **Identity**. Then, select **User assigned** > **Add**.
@@ -168,7 +171,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
    ![Select the user-assigned identity to use](./media/create-managed-service-identity/select-user-assigned-identity.png)
 
-   Your logic app is now associated with a user-assigned managed identity:
+   Your logic app is now associated with the user-assigned managed identity.
 
    ![Added user-assigned identity](./media/create-managed-service-identity/added-user-assigned-identity.png)
 
