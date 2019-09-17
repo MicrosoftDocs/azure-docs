@@ -80,6 +80,7 @@ az acr login --name containerpreview.azurecr.io
 
 This command will authenticate your current user with the corresponding Azure Container Registry. Now, you're free to execute the `docker pull` command.
 
+> [!NOTE]
 > Depending on what language support you need, provide the corresponding `<image-tag>`.
 
 ```Docker
@@ -122,8 +123,8 @@ For troubleshooting purposes, it may be useful to view the docker logs from the 
 ```Docker
 docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}"
 
-CONTAINER ID        IMAGE                                                            STATUS
-ed6f115697f3        containerpreview.azurecr.io/microsoft/cognitive-services-translator-text   Up 4 minutes
+CONTAINER ID    IMAGE                                                                       STATUS
+ed6f115697f3    containerpreview.azurecr.io/microsoft/cognitive-services-translator-text    Up 4 minutes
 ```
 
 Then, run the [docker logs](https://docs.docker.com/engine/reference/commandline/logs/) command with the `<Container ID>` for the corresponding container in question to view its logs.
@@ -138,6 +139,7 @@ The docker logs command above will collect the "Error" logs for the last four ho
 
 The `POST /translate` method supports the following languages conversions, moving from *English* to a target language and vice versa. Please note that while you can go to and from English with one of the languages listed, you *cannot* go from one *non-English* language to another *non-English* language.
 
+> [!NOTE]
 > For optimal quality consumers should only send one sentence per request.
 
 | Language Conversion | Language ISO Conversion | Image Tags |
@@ -161,6 +163,7 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=zh-C
     -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
+> [!TIP]
 > If you attempt this cURL POST before the container is ready, you'll end up getting a "Service is temporarily unavailable" response. Simply wait until the container is ready, then try again.
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
