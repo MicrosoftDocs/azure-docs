@@ -15,7 +15,7 @@ ms.author: dapine
 # Install and run Translator Text containers
 
 <!--
-    ACOM forward link proposal:
+    ACOM forward link:
     https://docs.microsoft.com/en-us/azure/cognitive-services/translator/howto-install-containers
 -->
 
@@ -29,6 +29,19 @@ You must meet the following prerequisites before using Translator Text container
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.|
+|Translator Text resource |In order to use the container, you must have:<br><br>An Azure [Translator Text resource](../../cognitive-services-apis-create-account.md) to get the associated API key and endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+
+[!INCLUDE [container-gathering-required-parameters](../containers/includes/container-gathering-required-parameters.md)]
+
+## Request access to the container registry
+
+** :loudspeaker: We need the correct URL to the request form! :eyes: **
+
+You must first complete and submit the [Cognitive Translator Text Containers Request form](https://aka.ms/tranlatortextcontainerspreview/) to request access to the container.
+
+[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ### The host computer
 
@@ -46,7 +59,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |-----------|---------|---------------|
 | Translator Text | 4 core, 4 GB memory | 4 |
 
-For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 4 language pairs. See [supported languages and transliteration](#supported-languages-and-transliteration) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 4 language pairs. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -91,12 +104,12 @@ docker pull containerpreview.azurecr.io/cognitive-services-translator-text:<imag
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run). More [examples](#example-docker-run-commands) of the `docker run` command are available.
+1. [Run the container](#run-the-container-with-docker-run). More [examples](translator-text-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 1. [Query the container's translate endpoint](#query-the-containers-translate-endpoint).
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. [Examples](../translator-text-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. [Examples](translator-text-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
 ### Run container example of docker run command
 
@@ -184,7 +197,7 @@ For more information about these options, see [Configure containers](translator-
 
 <!--blogs/samples/video course -->
 
-[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

@@ -50,7 +50,7 @@
       items:
       - name: Install and run containers
         href: how-to-install-containers.md
-      - name: configure containers
+      - name: Configure containers
         href: translator-text-container-config.md
     - name: Translate behind firewalls
       href: firewalls.md
