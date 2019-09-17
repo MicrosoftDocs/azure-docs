@@ -59,9 +59,12 @@ To set up the system-assigned identity, enable the identity directly on your log
 
 1. On the logic app menu, under **Settings**, select **Identity**. Under **System assigned** > **Status**, select **On** > **Save** > **Yes**.
 
-   ![Turn on system-assigned identity](./media/create-managed-service-identity/turn-on-system-assigned-identity.png)
+   ![Enable system-assigned identity](./media/create-managed-service-identity/turn-on-system-assigned-identity.png)
 
-   Your logic app now uses the system-assigned managed identity, which is registered with Azure Active Directory:
+   > [!NOTE]
+   > If you can't select **Save**, your logic app is already associated with a user-assigned identity.
+
+   Your logic app now uses the system-assigned managed identity, which is registered with Azure Active Directory.
 
    ![GUIDs for object ID](./media/create-managed-service-identity/object-id.png)
 
@@ -153,6 +156,9 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 1. On the logic app menu, under **Settings**, select **Identity**. Then, select **User assigned** > **Add**.
 
    ![Add user-assigned identity](./media/create-managed-service-identity/turn-on-user-assigned-identity.png)
+
+   > [!NOTE]
+   > If you can't select **Add**, your logic app is already associated with the system-assigned identity.
 
 1. Under **Add user assigned managed identity**, in the **Subscription** list, if the Azure subscription that you want isn't selected, select that subscription. From the list that shows *all* the managed identities in that subscription, select the user-assigned identity that you want, and then select **Add**.
 
