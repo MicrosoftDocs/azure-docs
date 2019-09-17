@@ -149,7 +149,7 @@ We will now look at these files in more detail and call out the MSAL specific co
 
 ### Add MSAL to the app
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ is installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle  
 implementation 'com.microsoft.identity.client:msal:1.0.0'
@@ -179,7 +179,7 @@ Single account apps are only used by a single user.  For example, you might just
 
 #### Single account MSAL initialization
 
-In `onCreateView()`, a single account `PublicClientApplication` is created using the config information stored in the `auth_config_single_account.json file`.  This is how you initialize the MSAL library for use in a single-account MSAL app:
+In `onCreateView()`, a single account `PublicClientApplication` is created using the config information stored in the `auth_config_single_account.json` file.  This is how you initialize the MSAL library for use in a single-account MSAL app:
 
 ```java
 ...
@@ -244,7 +244,7 @@ Some situations when the user may be prompted to select their account, enter the
 * The first time users sign in to the application
 * If a user resets their password, they will need to enter their credentials 
 * If consent is revoked 
-* If your app explicitly requires consent. 
+* If your app explicitly requires consent 
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
@@ -420,7 +420,7 @@ Some situations when the user may be prompted to select their account, enter the
 * The first time users sign in to the application
 * If a user resets their password, they will need to enter their credentials 
 * If consent is revoked 
-* If your app explicitly requires consent. 
+* If your app explicitly requires consent 
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
