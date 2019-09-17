@@ -178,7 +178,13 @@
     href: how-to-use-audio-input-streams.md
   - name: Consume codec compressed audio input streams (SDK)
     href: how-to-use-codec-compressed-audio-input-streams.md
-    displayName: mp3, opus, ogg, flac
+    displayName: mp3, opus, ogg, flac, alaw, mulaw
+  - name: Consume codec compressed audio input streams (SDK) on Android
+    href: how-to-use-codec-compressed-audio-input-streams-android.md
+    displayName: mp3, opus, ogg, flac, alaw, mulaw
+  - name: Consume codec compressed audio input streams (SDK) on iOS
+    href: how-to-use-codec-compressed-audio-input-streams-ios.md
+    displayName: mp3, opus, ogg, flac, alaw, mulaw
   - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
     displayName: audio, microphone, input, device
