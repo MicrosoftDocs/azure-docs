@@ -58,7 +58,7 @@ sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --para
 Consolidates and deploys all the resources in a directory to cluster by overriding the parameters mentioned in the yaml file
 
 ```	
-sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml	sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
+sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
 Consolidates and deploys all the resources in a directory to cluster by overriding the parameters which are passed directly as json object
