@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/14/2019
+ms.date: 09/16/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD entitlement management enables you to collaborate with people outside your organization. If you create an access package with a [policy](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory) that allows users who are in another Azure AD directory to request access, a guest user account will be created in your directory when the request is approved.
+Azure AD entitlement management utilizes [Azure AD B2B](../b2b/what-is-b2b.md) to collaborate with people outside your organization in another Azure AD directory. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.
 
 This article describes the settings you can specify to manage access for external users.
 
@@ -49,7 +49,7 @@ The following diagram shows an overview of how access to access packages works f
 
 1. The request goes into the [delivering state](entitlement-management-process.md).
 
-1. A guest user account is created in your directory (**Requestor A (Guest)** in this example).
+1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If there an [allow list or a deny list](../b2b/allow-deny-list.md) is defined, those setting will be applied.
 
 1. The guest user is assigned access to all of the resources in the access package.
 
@@ -57,13 +57,13 @@ The following diagram shows an overview of how access to access packages works f
 
 1. To access the resources, the external user must click the link in the email to complete the invitation process.
 
-1. Depending on the policy settings, the external user eventually loses their access to the access package.
+1. Depending on the policy settings, the access package assignment for the external user expires, and the external user's access is removed.
 
-1. Depending on the lifecycle of external users settings, the external user is blocked from signing in and the guest user account is removed from your directory.
+1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user is blocked from signing in and the guest user account is removed from your directory.
 
 ## Manage the lifecycle of external users
 
-You can select what happens when an external user, who was added to your directory through an access package request, loses their last assignment to any access package.
+You can select what happens when an external user, who was invited to your directory through an access package request being approved, no longer has any access package assignments. This can happen if the user relinquishes all their access package assignments, or their last access package assignment expires.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -82,7 +82,7 @@ You can select what happens when an external user, who was added to your directo
 1. Once an external user loses their last assignment to any access packages, if you want to remove their guest user account in your directory, set **Remove external user** to **Yes**.
 
     > [!NOTE]
-    > If a guest user account was created by entitlement management, that user will be blocked and removed even if that user was added to resources outside of entitlement management like OneDrive or SharePoint Online files.
+    > Entitlement management only removes accounts that were invited through entitlement management. Also, note that user will be blocked from sign-in and removed from your directory even if that user was added to resources in your directory that were not access package assignments. If the guest was present in your directory prior to receiving access package assignments, they will remain. However, if the guest was invited through an access package assignment, and after being invited was also assigned to a OneDrive for Business or SharePoint Online site, they will still be removed.
 
 1. If you want to remove the guest user account in your directory, you can set the number of days before it is removed. If you want to remove the guest user account as soon as they lose their last assignment to any access packages, set **Number of days before removing external user from this directory** to **0**.
 

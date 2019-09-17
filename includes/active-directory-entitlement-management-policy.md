@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 09/14/2019
+ms.date: 09/16/2019
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -77,6 +77,8 @@ In the Request section, you specify approval settings when users request the acc
 1. In the Select approvers pane, select one or more users and/or groups to be approvers.
 
     Only one of the selected approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
+
+    If you want an approver to be a user in another directory, you must first add that user as a guest user in your directory. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md).
 
     ![Access package - Policy- Select approvers](./media/active-directory-entitlement-management-policy/policy-select-approvers.png)
 
