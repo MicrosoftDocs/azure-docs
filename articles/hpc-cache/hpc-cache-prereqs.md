@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
@@ -17,7 +17,7 @@ Before using the Azure portal to create a new Azure HPC Cache, make sure your en
 A paid subscription is recommended.
 
 > [!NOTE]
-> During the public preview release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their test caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+> During the preview release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their test caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
 ## Network infrastructure
 
