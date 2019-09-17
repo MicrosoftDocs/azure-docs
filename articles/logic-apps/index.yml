@@ -56,8 +56,6 @@ landingContent:
         links:
           - text: "Template: Run timer jobs on a schedule"
             url: https://azure.microsoft.com/resources/templates/301-logicapps-jobscheduler/
-          - text: "Template: Alert to Slack"
-            url: https://azure.microsoft.com/resources/templates/201-alert-to-slack-with-logic-app/
       - linkListType: learn
         links:
           - text: Route and process data automatically
@@ -88,7 +86,7 @@ landingContent:
   # Card (optional)
   - title: Build B2B enterprise integrations
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
@@ -112,9 +110,9 @@ landingContent:
   # Card (optional)
   - title: Connect to virtual networks
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: Integration service environments
+          - text: About integration service environments
             url: connect-virtual-network-vnet-isolated-environment-overview.md
       - linkListType: how-to-guide
         links:
@@ -124,14 +122,6 @@ landingContent:
         links:
           - text: Introduction to Azure Integration Service Environment
             url: https://azure.microsoft.com/resources/videos/azure-friday-introduction-to-azure-integration-service-environment-for-logic-apps/
-
-  # Card (optional)
-  - title: Test logic apps
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Mock data with static results
-            url: test-logic-apps-mock-data-static-results.md
 
   # Card (optional)
   - title: Secure logic apps
@@ -160,12 +150,10 @@ landingContent:
         links:
           - text: Create and deploy with Azure Resource Manager templates
             url: https://docs.microsoft.com/learn/modules/create-deploy-logic-apps-using-arm-templates/
-          - text: "Sample: Connect to Azure Service Bus and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
           - text: "Sample: Connect to Azure Storage and deploy with Azure DevOps"
             url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-          - text: "Sample: Set up and deploy an Azure function app with Azure Logic Apps and Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
+          - text: "Sample: Connect to Azure Service Bus and deploy with Azure DevOps"
+            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
 
   # Card (optional)
   - title: Manage logic apps
@@ -178,7 +166,7 @@ landingContent:
             url: ise-manage-integration-service-environment.md
 
   # Card (optional)
-  - title: Reference
+  - title: More information
     linkLists:
       - linkListType: reference
         links:
