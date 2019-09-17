@@ -44,7 +44,7 @@ After you create an integration account and add your artifacts, you can start bu
 
 Here are the high-level steps that you must complete before you can create logic apps:
 
-![Prerequisites for creating B2B logic apps](./media/logic-apps-enterprise-integration-overview/overview-0.png)  
+![Prerequisites for creating B2B logic apps](./media/logic-apps-enterprise-integration-overview/overview.png)  
 
 ## Try now
 
