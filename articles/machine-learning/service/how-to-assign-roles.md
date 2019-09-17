@@ -106,7 +106,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
 
-For more information on the operations (actions) available usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+For more information on the operations (actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Next steps
 
