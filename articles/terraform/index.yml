@@ -21,10 +21,6 @@ landingContent:
         links:
           - text: About Terraform on Azure
             url: terraform-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Terraform Cloud Shell development
-            url: terraform-cloud-shell.md
       - linkListType: architecture
         links:
           - text: Terraform Azure Provider
@@ -36,7 +32,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Install and configure Terraform
-            url: /azure/virtual-machines/linux/terraform-install-configure%2Fen-us%2Fazure%2Fterraform%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+            url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
 
     # Card
   - title: Using Terraform Tools
