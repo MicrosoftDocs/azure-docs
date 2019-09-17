@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: active-directory
-author: rolyon
+author: msaburnley
 ms.service: active-directory
 ms.topic: include
 ms.date: 09/16/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.custom: include file
 ---
 
