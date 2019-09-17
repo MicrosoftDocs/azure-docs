@@ -129,7 +129,7 @@ You can opt out of getting your invoice by email by following the steps above an
 
 3. Click the download button of a invoice period that you want to check.
 
-4. Download your a daily breakdown of consumed quantities and estimated charges by clicking **Download csv**.  This may take a few minutes to prepare the csv file.
+4. Download a daily breakdown of consumed quantities and estimated charges by clicking **Download csv**.  This may take a few minutes to prepare the csv file.
 
 ### Download usage for EA customers
 
