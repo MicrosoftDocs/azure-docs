@@ -1,6 +1,6 @@
 ---
-title: 'Understand Azure Digital Twins API authentication | Microsoft Docs'
-description: Use Azure Digital Twins to connect and authenticate to APIs
+title: 'Understand API authentication using Azure Digital Twins | Microsoft Docs'
+description: Learn how to connect to and authenticate with APIs using Azure Digital Twins.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -10,7 +10,7 @@ ms.date: 09/17/2019
 ms.author: lyhughes
 ---
 
-# Connect and authenticate to APIs
+# Connect to and authenticate with APIs
 
 Azure Digital Twins uses Azure Active Directory (Azure AD) to authenticate users and protect applications. Azure AD supports authentication for a variety of modern architectures. All of them are based on the industry-standard protocols OAuth 2.0 or OpenID Connect. In addition, developers can use Azure AD to build  single-tenant and line-of-business (LOB) applications. Developers also can use Azure AD to develop multitenant applications.
 
