@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ---
 
-# Generate movie recommendations by using Apache Mahout with Linux-based Apache Hadoop in HDInsight (SSH)
+# Generate movie recommendations using Apache Mahout with Apache Hadoop in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 

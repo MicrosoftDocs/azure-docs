@@ -21,6 +21,7 @@ This article provides information and sample code to help you get started using 
 
 - [Node.js 8](https://www.nodejs.org/en/download/) or later installed.
 - [npm](https://www.npmjs.com/) installed.
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 

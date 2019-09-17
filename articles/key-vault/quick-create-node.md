@@ -24,7 +24,7 @@ This quickstart shows you how to store a secret in Azure Key Vault and how to re
 * Enable a [managed identity](../active-directory/managed-service-identity/overview.md) for the web app.
 * Grant the required permissions for the web application to read data from the key vault.
 
-Before you proceed, make sure that you're familiar with the [basic concepts for Key Vault](key-vault-whatis.md#basic-concepts).
+Before you proceed, make sure that you're familiar with the [basic concepts for Key Vault](basic-concepts.md).
 
 > [!NOTE]
 > Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. In keeping with security best practices, this first secret needs to be rotated periodically. 

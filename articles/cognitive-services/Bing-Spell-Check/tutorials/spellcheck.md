@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
 ---
 

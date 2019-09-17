@@ -1,6 +1,6 @@
 ---
 title: Create datasets to access data with azureml-datasets
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to create Datasets from various sources and register Datasets with your workspace
 services: machine-learning
 ms.service: machine-learning
@@ -14,7 +14,7 @@ ms.date: 08/22/2019
 
 ---
 
-# Create and access datasets (Preview) in Azure Machine Learning
+# Create and access datasets (preview) in Azure Machine Learning
 
 In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 
@@ -30,9 +30,9 @@ With Azure Machine Learning datasets, you can:
 
 To create and work with datasets, you need:
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An [Azure Machine Learning service workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
@@ -51,7 +51,7 @@ To find out more about upcoming API changes, see [here](https://aka.ms/tabular-d
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
 
-For the data to be accessible by Azure Machine Learning service, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web urls.
+For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web urls.
 
 To create Datasets from an [Azure datastore](how-to-access-data.md):
 
@@ -72,7 +72,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### Create TabularDatasets
+
+TabularDatasets can be created via the SDK or by using the workspace landing page (preview).
+
+#### SDK 
 
 Use the `from_delimited_files()` method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -99,7 +104,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
+#### Workspace landing page 
+
+Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
+
+The following animation shows how to create a dataset in the workspace landing page. 
+
+First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation. 
+
+![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### Create FileDatasets
+
 Use the `from_files()` method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
 
 ```Python
@@ -130,6 +146,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> Datasets created via the workspace landing page are automatically registered to the workspace. 
+
 ## Version datasets
 
 You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning: 
@@ -137,7 +156,7 @@ You can register a new dataset under the same name by creating a new version. Da
 * When you are applying different data preparation or feature engineering approaches.
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
