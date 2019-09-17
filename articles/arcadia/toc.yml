@@ -62,8 +62,8 @@
     #   href: article-template.md
   - name: Concepts
     items:
-    # - name: Workspace
-    #   items:
+    - name: Workspace
+      items:
     #   - name: Overview
     #     href: article-template.md
     - name: Pool
@@ -74,16 +74,16 @@
       #   href: article-template.md
       # - name: Spark pool template
       #   href: article-template.md
-      - name: Pipeline and activity
-        href: ../data-factory/concepts-pipelines-activities.md
-      - name: Execution and trigger
-        href: ../data-factory/concepts-pipeline-execution-triggers.md
-      - name: Linked service
-        href: ../data-factory/concepts-linked-services.md
-      - name: Integration runtime
-        href: ../data-factory/concepts-integration-runtime.md
-      - name: Metadata management
-        items:
+    - name: Pipeline and activity
+      href: ../data-factory/concepts-pipelines-activities.md
+    - name: Execution and trigger
+      href: ../data-factory/concepts-pipeline-execution-triggers.md
+    - name: Linked service
+      href: ../data-factory/concepts-linked-services.md
+    - name: Integration runtime
+      href: ../data-factory/concepts-integration-runtime.md
+    - name: Metadata management
+      items:
       # - name: Overview
       #   href: article-template.md
       - name: Storage objects
@@ -96,36 +96,26 @@
         #   href: article-template.md
         # - name: Views
         #   href: article-template.md
-       - name: Arcadia metadata sync
-         items:
-#         - name: Arcadia metadata
-#           href: article-template.md
-#         - name: Sync with SQL Analytics on-demand
-#           href: article-template.md
-#         - name: Sync with SQL Analytics pool metadata
-#           href: article-template.md
-     - name: Code artifacts
-       items:
+      - name: Arcadia metadata sync
+        items:
+        # - name: Arcadia metadata
+        #   href: article-template.md
+        # - name: Sync with SQL Analytics on-demand
+        #   href: article-template.md
+        # - name: Sync with SQL Analytics pool metadata
+        #   href: article-template.md
+      - name: Code artifacts
+        items:
 #       - name: Notebooks
 #         href: article-template.md
 #       - name: SQL script
 #         href: article-template.md
 #       - name: Mapping Data Flow
 #         href: article-template.md
-     - name: Maintenance schedule
-       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json
-#     - name: Backup and restore  
-#       href: article-template.md
-    - name: Workload management
-      items:
-      - name: Resource classes & workload management
-        href: ../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/arcadia/toc.json
-      - name: Workload classification
-        href: ../sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/arcadia/toc.json
-      - name: Workload importance
-        href: ../sql-data-warehouse/sql-data-warehouse-workload-importance.md?toc=/azure/arcadia/toc.json
-      - name: Memory & concurrency limits
-        href: ../sql-data-warehouse/memory-and-concurrency-limits.md?toc=/azure/arcadia/toc.json
+      - name: Maintenance schedule
+        href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json
+      - name: Backup and restore  
+        href: article-template.md
   - name: Monitoring 
     items:
     - name: Standard monitoring
@@ -230,8 +220,8 @@
       items:
       # - name: Overview, using tools to interact with Apache Spark
       #   href: article-template.md
-       - name: Using Arcadia Studio Notebooks
-         items:
+      - name: Using Arcadia Studio Notebooks
+        items:
       #   - name: Shortcuts and magics
       #     href: article-template.md
       #   - name: Session Management
