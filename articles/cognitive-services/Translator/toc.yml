@@ -52,6 +52,8 @@
         href: how-to-install-containers.md
       - name: Configure containers
         href: translator-text-container-config.md
+      - name: Use container instances
+        href: deploy-translator-on-container-instances.md
     - name: Translate behind firewalls
       href: firewalls.md
   - name: Samples
