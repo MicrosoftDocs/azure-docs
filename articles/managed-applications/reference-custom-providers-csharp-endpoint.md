@@ -11,11 +11,11 @@ ms.date: 06/20/2019
 
 # Custom provider C# RESTful endpoint reference
 
-This article is a basic reference for a custom provider C# RESTful endpoint. If you are unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
+This article is a basic reference for a custom-provider C# RESTful endpoint. If you are unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
 
 ## Azure Function RESTful endpoint
 
-The following code works with an Azure function app. To learn how to set up Azure Functions to work with custom providers, see [setting up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
+The following code works with an Azure function app. To learn how to set up Azure Functions to work with Azure Custom Providers, see [setting up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -144,7 +144,7 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
 /// <returns>The HTTP response containing a list of resources stored under 'value'.</returns>
 public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string resourceType)

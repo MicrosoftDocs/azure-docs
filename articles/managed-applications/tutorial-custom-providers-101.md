@@ -14,29 +14,25 @@ A custom provider is a contract between Azure and an endpoint. With custom provi
 
 This tutorial shows a simple example of how to add new actions and resources to Azure and then how to integrate them.
 
-This tutorial contains the following steps:
-
-1. Set up Azure Functions for Azure Custom Providers
-1. Author a RESTful endpoint for custom providers
-1. Create and use the custom provider
-
 ## Set up Azure Functions for Azure Custom Providers
 
-This part of the tutorial describes how to set up an Azure function app to work with custom providers. Custom providers can work with any public URL.
+Part one of this tutorial describes how to set up an Azure function app to work with custom providers:
 
 - [Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
 
+Custom providers can work with any public URL.
+
 ## Author a RESTful endpoint for custom providers
 
-This part of the tutorial describes how to author a RESTful endpoint for custom providers.
+Part two of this tutorial describes how to author a RESTful endpoint for custom providers:
 
 - [Authoring a RESTful endpoint for custom providers](./tutorial-custom-providers-function-authoring.md)
 
-## Create and use the custom provider
+## Create and use a custom provider
 
-This part of the tutorial describes how to create a custom provider and use its custom actions and resources.
+Part three of this tutorial describes how to create a custom provider and use its custom actions and resources:
 
-- [Create and utilize a Azure Custom Provider](./tutorial-custom-providers-create.md)
+- [Create and use a custom provider](./tutorial-custom-providers-create.md)
 
 ## Next steps
 
