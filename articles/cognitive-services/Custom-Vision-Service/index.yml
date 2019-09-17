@@ -97,7 +97,7 @@ landingContent:
             url: export-model-python.md
       - linkListType: tutorial
         links:
-          - text: IoT Visual Alert app
+          - text: IoT Visual Alerts app
             url: iot-visual-alerts-tutorial.md
           - text: Logo detector for mobile
             url: logo-detector-mobile.md
