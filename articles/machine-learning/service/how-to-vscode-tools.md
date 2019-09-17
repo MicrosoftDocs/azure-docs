@@ -59,30 +59,31 @@ To install the Azure Machine Learning extension:
 
 Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources.
 
-To create a workspace and add your first experiment:
+### Create a workspace
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
    [![Create a workspace](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
 
 
-1. Right-click your Azure subscription and select **Create Workspace**. A list appears. In the example animated image, the subscription name is **Free Trial**, and the workspace is **TeamWorkspace**.
+1. Right-click your Azure subscription and select **Create Workspace**. By default a name is generated containing the date and time of creation. Change the name to **TeamWorkspace** and press enter.
 
-1. Select a resource group from the list or create a new one by using the wizard in the command palette.
+1. Select a resource group from the list if you know which to choose or create a new one. If creating a new one, choose a location that is closest to the location you plan to deploy your model. In this case, we chose **West US 2**.
 
-1. In the field, type a unique and clear name for your new workspace. In the example image, the workspace is named **TeamWorkspace**.
+1. After pressing enter, Azure Machine Learning will receive the request to create your workspace. You will be notified of the process in the Visual Studio Code notification area.
 
-1. Select Enter to create the new workspace. It appears in the tree, below the subscription name.
+1. Expand the Subscription node, to find your newly created workspace.
 
-1. Right-click the **Experiment** node, and choose **Create Experiment** from the context menu.  Experiments keep track of your runs using Azure Machine Learning.
+### Create an experiment
+One or more experiments can be created in your workspace to track and analyze individual model training runs. Runs can be done in the Azure cloud or on your local machine.
 
-1. In the field, enter a name for your experiment. In the example screenshots, the experiment is named **MNIST**.
+1. Expand the **TeamWorkspace** workspace. Right-click the **Experiments** node, and choose **Create Experiment** from the context menu.
 
-1. Select Enter to create the new experiment. The experiment appears in the tree, below the workspace name.
+1. In the prompt, enter a name for your experiment. In the example screenshots, the experiment is named **MNIST**.
 
-1. In a workspace, you can right-click an experiment to set it as the **Active** experiment. The **Active** experiment is your current experiment. Your open folder in Visual Studio Code will be linked to this experiment in the cloud. This folder should contain your local Python scripts.
+1. Select Enter to create the new experiment. The new experiment appears in the tree as a child of the **Experiments** node.
 
-Now your key metrics will be stored within the experiment history. Similarly, the models you train will be automatically uploaded to Azure Machine Learning and stored alongside your experiment metrics and logs.
+1. In a workspace, you can right-click an experiment to set it as the **Active** experiment. The **Active** experiment links that experiment in the cloud to the folder you currently have open in Visual Studio Code. This folder should contain your local Python scripts. By setting an active experiment, key metrics for all training runs will be stored within the experiment, regardless of where they are executed.
 
 [![Attach a folder in Visual Studio Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
