@@ -21,7 +21,7 @@ The view definition artifact must be named **viewDefinition.json** and placed at
 
 ## View definition schema
 
-The **viewDefinition.json** file has only one top level `views` property, which is an array of views. Each view is shown in the managed application user interface as a separate menu item in the table of contents. Each view has a `kind` property that sets the type of the view. It must be set to one of the following values: [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+The **viewDefinition.json** file has only one top level `views` property, which is an array of views. Each view is shown in the managed application user interface as a separate menu item in the table of contents. Each view has a `kind` property that sets the type of the view. It must be set to one of the following values: [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources), [Associations](#associations). For more information, see current [JSON schema for viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Sample JSON for view definition:
 
@@ -90,10 +90,23 @@ Sample JSON for view definition:
                     {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
                 ]
             }
+        },
+        {
+            "kind": "Associations",
+            "properties": {
+                "displayName": "Test custom resource type",
+                "version": "1.0.0",
+                "targetResourceType": "Microsoft.Compute/virtualMachines",
+                "createUIDefinition": { },
+                "columns": [
+                    {"key": "name", "displayName": "Name"},
+                    {"key": "properties.myProperty1", "displayName": "Property 1"},
+                    {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
+                ]
+            }
         }
     ]
 }
-
 ```
 
 ## Overview
@@ -254,6 +267,41 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 |path|Yes|The custom provider action name. The action must be defined in **mainTemplate.json**.|
 |icon|No|The icon of the command button. List of supported icons is defined in [JSON Schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Create UI Definition schema for command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).|
+
+## Custom resources
+
+`"kind": "CustomResources"`
+
+You can define multiple views of this type. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+
+In this view you can perform GET, PUT, DELETE and POST operations for your custom resource type. POST operations could be global custom actions or custom actions in a context of your custom resource type.
+
+```json
+{
+    "kind": "Associations",
+    "properties": {
+        "displayName": "Test custom resource type",
+        "version": "1.0.0",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "createUIDefinition": { },
+        "columns": [
+            {"key": "name", "displayName": "Name"},
+            {"key": "properties.myProperty1", "displayName": "Property 1"},
+            {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
+        ]
+    }
+}
+```
+
+|Property|Required|Description|
+|---------|---------|---------|
+|displayName|Yes|The displayed title of the view. The title should be **unique** for each CustomResources view in your **viewDefinition.json**.|
+|version|No|The version of the platform used to render the view.|
+|targetResourceType|Yes|The target resource type. These are the resource types that will be displayed for resource onboarding.|
+|createUIDefinition|No|Create UI Definition schema for create custom resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
+|columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` and `"displayName"`. For key, provide the key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`. For display name, provide the display name of the property to display in a view. You can also provide an `"optional"` property. When set to true, the column is hidden in a view by default.|
+
+![CustomResources](./media/view-definition/customresources.png)
 
 ## Looking for help
 

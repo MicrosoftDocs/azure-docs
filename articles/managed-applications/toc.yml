@@ -31,6 +31,8 @@
     href: publish-marketplace-app.md 
   - name: Create managed application with custom provider
     href: tutorial-create-managed-app-with-custom-provider.md
+  - name: Create managed application with resource onboarding
+    href: tutorial-managed-applications-resourceonboarding.md
 - name: Samples
   items:
   - name: The Azure CLI
@@ -45,6 +47,10 @@
     href: custom-providers-overview.md
   - name: View definition artifact
     href: concepts-view-definition.md
+  - name: Role definition artifact
+    href: concepts-custom-role-definition.md
+  - name: Resource onboarding
+    href: concepts-custom-providers-resourceonboarding.md
 - name: How-to guides
   items:
   - name: Custom providers
