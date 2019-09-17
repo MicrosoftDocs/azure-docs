@@ -87,8 +87,8 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
-- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
-- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-how-to-regression-predict-automobile-price-basic.md)
+- [Sample 3 - Classification: Predict credit risk](ui-how-to-classification-predict-credit-risk-basic.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-how-to-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-how-to-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-how-to-classification-predict-flight-delay.md)
