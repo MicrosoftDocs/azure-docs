@@ -140,7 +140,7 @@ The code is organized into fragments that show how to write a single and multipl
 | MainActivity | Manages the UI |
 | MSGraphRequestWrapper  | Calls the Microsoft Graph API using the token provided by MSAL |
 | MultipleAccountModeFragment  | Initializes a multi-account application, loads a user account, and gets a token to call the Microsoft Graph API |
-| SingleAccountModeFragment | Initializes a multi-account application, loads a user account, and gets a token to call the Microsoft Graph API |
+| SingleAccountModeFragment | Initializes a single-account application, loads a user account, and gets a token to call the Microsoft Graph API |
 | res/auth_config_multiple_account.json  | The multiple account configuration file |
 | res/auth_config_single_account.json  | The single account configuration file |
 | Gradle Scripts/build.grade (Module:app) | The MSAL library dependencies are added here |
