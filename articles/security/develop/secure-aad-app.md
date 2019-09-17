@@ -48,8 +48,8 @@ The architecture consists of these components
 - [Application Insights](../../azure-monitor/app/app-insights-overview.md). Provides an extensible Application Performance Management (APM) service on multiple platforms.
 - [Azure Key Vault](../../key-vault/index.yml). Stores and encrypts our app's secrets and manages the creation of access policies around them.
 - [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).Provides cloud-based identity and access management service, sign in and access resources.
-- [Azure Domain Name System](../../dns/dns-overview). Provide the service to host the domain.
-- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md/). Provides to scale your applications and create high availability for your services.
+- [Azure Domain Name System](../../dns/dns-overview.md). Provide the service to host the domain.
+- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Provides to scale your applications and create high availability for your services.
 - [Azure Web App](../../app-service/overview.md).  Provides an HTTP-based service for hosting web applications.
 - [Azure Security Center](../../security-center/index.yml). provides advanced threat protection across your hybrid workloads in the cloud.
 - [Azure Policy](../../governance/policy/overview.md). Provides evaluating your resources for non-compliance with assigned policies.
