@@ -64,22 +64,22 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
 
 2. Select or enter the following values.
 
-    ![Resource Manager template Key Vault integration deploy portal](./media/quick-create-template/create-key-vault-using-template-portal.png)
+    ![Resource Manager template, Key Vault integration, deploy portal](./media/quick-create-template/create-key-vault-using-template-portal.png)
 
     Unless it is specified, use the default value to create the key vault and a secret.
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
     * **Location**: select a location.  For example, **Central US**.
-    * **Key Vault Name**: enter a name for the key vault which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validation the deployment.
-    * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value.
+    * **Key Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validate the deployment.
+    * **Tenant Id**: the template function automatically retrieves your tenant id.  Don't change the default value.
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
     * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**.
     * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:
 
-    ![Resource Manager template Key Vault integration deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![Resource Manager template, Key Vault integration, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 ## Validate the deployment
 
@@ -108,11 +108,11 @@ The output looks similar to:
 
 # [CLI](#tab/CLI)
 
-![Resource Manager template Key Vault integration deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Resource Manager template, Key Vault integration, deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # [PowerShell](#tab/PowerShell)
 
-![Resource Manager template Key Vault integration deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
+![Resource Manager template, Key Vault integration, deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
 ## Clean up resources
@@ -141,7 +141,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
