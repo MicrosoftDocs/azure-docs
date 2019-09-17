@@ -58,7 +58,7 @@ The following steps show how to prepare the external load balancer for the move 
 4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
-   notepad <source-resource-group-name>.json
+   notepad.exe <source-resource-group-name>.json
    ```
 
 5. To edit the parameter of the public IP name, change the property **defaultValue** of the source public IP name to the name of your target public IP, ensure the name is in quotes:
@@ -199,7 +199,7 @@ The following steps show how to prepare the external load balancer for the move 
     $sourceExtLBID = (Get-AzLoadBalancer -Name <source-external-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Export the source public IP to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Export the source external load balancer configuration to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
@@ -221,7 +221,7 @@ The following steps show how to prepare the external load balancer for the move 
         "type": "String"
             },
         "publicIPAddresses_myPubIP_in_externalid": {
-        "defaultValue": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB/providers/Microsoft.Network/publicIPAddresses/myPubIP-in",
+        "defaultValue": "<target-publicIP-resource-ID>",
         "type": "String"
             },
 
