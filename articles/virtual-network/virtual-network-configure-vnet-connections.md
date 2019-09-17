@@ -110,7 +110,7 @@ To check that your VPN connection is configured correctly, follow these instruct
 2. Verify that the address range for the Azure Resource Manager virtual network (1) is defined accurately in the **Connection object** instance (4).
 3. Verify that the address range for the Azure Resource Manager virtual network (6) is defined accurately in the **Connection object** instance (3).
 4. Verify that the pre-shared keys are matching on the connection objects.
-5. Verify that the Azure Resource Manager virtual ntwork gateway VIP (2) is defined accurately in the **Connection object** instance (4).
+5. Verify that the Azure Resource Manager virtual network gateway VIP (2) is defined accurately in the **Connection object** instance (4).
 6. Verify that the Azure Resource Manager virtual network gateway VIP (5) is defined accurately in the **Connection object** instance (3).
 
 ### Connect a classic virtual network to a Resource Manager virtual network
