@@ -275,6 +275,8 @@
           href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
+          - name: Android
+            href: msal-android-b2c.md
           - name: JavaScript
             href: msal-b2c-overview.md
           - name: .NET
