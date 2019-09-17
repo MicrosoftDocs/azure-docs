@@ -4,7 +4,7 @@ description: Learn about IP address 168.63.129.16 and how it works with your res
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
 

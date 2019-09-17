@@ -5,7 +5,7 @@ description: Learn how to troubleshoot the issue that the blue screen error is r
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows

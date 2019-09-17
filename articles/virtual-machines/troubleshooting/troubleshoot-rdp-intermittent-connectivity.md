@@ -4,7 +4,7 @@ description: Learn how to troubleshoot frequent disconnections of Remote Desktop
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
