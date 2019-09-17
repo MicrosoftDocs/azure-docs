@@ -19,8 +19,8 @@ This tutorial shows you how to add and configure a real device to your Microsoft
 
 This tutorial is made up of two parts:
 
-1. First, as an operator, you learn how to add and configure a real device in your Azure IoT Central application. At the end of this part, you retrieve a connection string to use in the second part.
-2. Then, as a device developer, you learn about the code in your real device. You add the connection string from the first part to the sample code.
+* First, as an operator, you learn how to add and configure a real device in your Azure IoT Central application. At the end of this part, you retrieve a connection string to use in the second part.
+* Then, as a device developer, you learn about the code in your real device. You add the connection string from the first part to the sample code.
 
 In this tutorial, you learn how to:
 
@@ -91,7 +91,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-1. On the Device Connection page, make a note of the **Scope ID**, **Device ID** and **Primary Key** values. You use these values ilater in this tutorial.
+1. On the Device Connection page, make a note of the **Scope ID**, **Device ID** and **Primary Key** values. You use these values later in this tutorial.
 
    ![Connection details](media/tutorial-add-device/device-connect.png)
 

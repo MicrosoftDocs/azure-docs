@@ -35634,6 +35634,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-generate-connection-string.md",
+      "redirect_url": "/azure/iot-central",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
       "redirect_document_id": false

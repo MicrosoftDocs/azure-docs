@@ -29,11 +29,11 @@ Using DPS enables:
 
 This article describes the following use cases:
 
-1. [Quickly connect a single device using SAS](#connect-a-single-device)
-1. [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
-1. [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
-1. [Connect without first registering devices](#connect-without-registering-devices)
-1. [Connect devices using IoT Plug and Play features](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Quickly connect a single device using SAS](#connect-a-single-device)
+- [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
+- [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
+- [Connect without first registering devices](#connect-without-registering-devices)
+- [Connect devices using IoT Plug and Play features](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## Connect a single device
 

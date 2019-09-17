@@ -20,8 +20,8 @@ This article describes how, as a device developer, to connect a generic Node.js 
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-1. A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
+- An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+- A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
 ## Create a Device Template
 
