@@ -27,29 +27,29 @@ landingContent:
             url: terraform-cloud-shell.md
       - linkListType: architecture
         links:
-          - text: Terraform reference
+          - text: Terraform Azure Provider
             url: https://aka.ms/terraform
 
   # Card
   - title: Install and Configure Terraform
     linkLists:
-      - linkListType: quickstart
+      - linkListType: tutorial
         links:
-          - text: Configure Azure Cloud Shell for Terraform
-            url: terraform-cloud-shell.md
           - text: Install and configure Terraform
-            url: /azure/virtual-machines/linux/terraform-install-configure
+            url: /azure/virtual-machines/linux/terraform-install-configure%2Fen-us%2Fazure%2Fterraform%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
 
-  # Card
-  - title: Manage AKS
+    # Card
+  - title: Using Terraform Tools
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create a Kubernetes cluster with AKS
-            url: terraform-create-k8s-cluster-with-tf-and-aks.md
-          - text: Create a Kubernetes cluster with Application Gateway
-            url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
-
+          - text: Install the Terraform Visual Studio Code extension
+            url: terraform-vscode-extension.md
+          - text: Create a Terraform base template using Yeoman
+            url: terraform-vscode-module-generator.md
+          - text: Test Terraform modules using Terratest
+            url: terratest-in-terraform-modules.md
+            
   # Card
   - title: Manage Infrastructure
     linkLists:
@@ -65,6 +65,16 @@ landingContent:
             url: terraform-create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image
             url: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+
+  # Card
+  - title: Manage AKS
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a Kubernetes cluster with AKS
+            url: terraform-create-k8s-cluster-with-tf-and-aks.md
+          - text: Create a Kubernetes cluster with Application Gateway
+            url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
   # Card
   - title: Manage Networks
@@ -83,15 +93,3 @@ landingContent:
             url: terraform-hub-spoke-spoke-network.md
           - text: 6. Validate network topology connectivity 
             url: terraform-hub-spoke-validation.md
-
-  # Card
-  - title: Using Terraform Tools
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Install the Terraform Visual Studio Code extension
-            url: terraform-vscode-extension.md
-          - text: Create a Terraform base template using Yeoman
-            url: terraform-vscode-module-generator.md
-          - text: Test Terraform modules using Terratest
-            url: terratest-in-terraform-modules.md

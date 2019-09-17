@@ -7,13 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Configure Azure Cloud Shell for Terraform
-      href: terraform-cloud-shell.md
-    - name: Create a multi-service application
-      href: terrafom-quickstart.md
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
+    - name: Create a multi-service application
+      href: terrafom-quickstart.md
     - name: Create a Linux VM
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
@@ -77,7 +75,7 @@
   items:
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
-    - name: Terraform reference
+    - name: Terraform Azure Provider
       href: https://aka.ms/terraform
 - name: Resources
   items:
