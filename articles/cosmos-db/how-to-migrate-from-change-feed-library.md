@@ -4,7 +4,7 @@ description: Learn how to migrate your application from using the change feed pr
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 09/17/2019
 ms.author: maquaran
 ---
 
@@ -36,7 +36,7 @@ And the delegate, can be a static method:
 
 ## State and lease container
 
-The change feed processor uses a [lease container](change-feed-processor.md#components-of-the-change-feed-processor) to store state, like the library, but the schemas are different.
+Similar to the change feed processor library, the change feed feature in .NET V3 SDK uses a [lease container](change-feed-processor.md#components-of-the-change-feed-processor) to store the state. However, the schemas are different.
 
 The SDK V3 change feed processor will detect any old library state and migrate it to the new schema automatically upon the first execution of the migrated application code. 
 
