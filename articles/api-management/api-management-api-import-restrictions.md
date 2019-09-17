@@ -46,9 +46,6 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   **Examples** isn't supported, but **example** is.
 -   **Multipart/form-data** isn't supported.
 
-> [!IMPORTANT]
-> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
-
 ## <a name="wsdl"> </a>WSDL
 
 WSDL files are used to create SOAP pass-through and SOAP-to-REST APIs.
