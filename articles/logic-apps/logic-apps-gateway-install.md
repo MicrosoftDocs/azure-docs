@@ -13,14 +13,14 @@ ms.date: 09/01/2019
 
 # Install on-premises data gateway for Azure Logic Apps
 
-Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the on-premises data gateway on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
+Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
 * [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
-This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic.
+This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic. For more information about the gateway, see [What is an on-premises gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
 <a name="requirements"></a>
 
@@ -270,8 +270,8 @@ Here are ways that you can match your on-premises Active Directory accounts with
 
 For more information, see these topics:
 
-* [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
-* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
+* [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/gateway-service-gateway-tshoot)
 * [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## Next steps

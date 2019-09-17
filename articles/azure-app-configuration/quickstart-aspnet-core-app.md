@@ -54,9 +54,9 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 ## Add Secret Manager
 
-Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
+To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
 
-- Open the *.csproj* file. Add a `UserSecretsId` element as shown here, and replace its value with your own, which typically is a GUID. Save the file.
+- Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own. Save the file.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -74,11 +74,13 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </Project>
     ```
 
+The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. For more information on Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+
 ## Connect to an app configuration store
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
 
 2. Run the following command to restore packages for your project:
 
@@ -91,6 +93,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     This command must be executed in the same directory as the *.csproj* file.
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+
+    > [!IMPORTANT]
+    > Some shells will truncate the connection string unless it is enclosed in quotes. Ensure that the output of the `dotnet user-secrets` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
     Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), for example, you use an application setting **Connection Strings** in App Service instead of with Secret Manager to store the connection string.
 
@@ -179,7 +184,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates how to configure your web app to dynamically refresh configuration settings.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
