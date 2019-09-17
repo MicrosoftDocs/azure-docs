@@ -26,7 +26,7 @@ When you load data into Azure Data Explorer, Data Factory provides the following
 * **High performance**: Get a data-loading speed of up to 1 gigabyte per second (GBps) into Azure Data Explorer. For more information, see [Copy activity performance](/azure/data-factory/copy-activity-performance).
 
 In this article, you use the Data Factory Copy Data tool to load data from Amazon Simple Storage Service (S3) into Azure Data Explorer. You can follow a similar process to copy data from other data stores, such as:
-* [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage)
+* [Azure Blob storage](/azure/data-factory/connector-azure-blob-storage)
 * [Azure SQL Database](/azure/data-factory/connector-azure-sql-database)
 * [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse)
 * [Google BigQuery](/azure/data-factory/connector-google-bigquery)
@@ -47,7 +47,7 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
    ![Create a data factory in the Azure portal](media/data-factory-load-data/create-adf.png)
 
-1. In the **New data factory** pane, do the following
+1. In the **New data factory** pane, do the following:
 
     ![New data factory pane](media/data-factory-load-data/my-new-data-factory.png)
 
@@ -93,7 +93,7 @@ You can load your data in either of the following ways:
 
     ![The Copy Data "Source data store" pane](media/data-factory-load-data/source-create-connection.png)
 
-1. Select **Amazon S3**, and then select **Continue**
+1. Select **Amazon S3**, and then select **Continue**.
 
     ![The New Linked Service pane](media/data-factory-load-data/amazons3-select-new-linked-service.png)
 
