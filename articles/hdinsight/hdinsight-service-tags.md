@@ -18,60 +18,92 @@ Some of the HDInsight service tags are region specific, and some of them apply t
 
 The following sections list the HDInsight service tags for each region.
 
-## Health and management services: All regions
+## Get started with HDInsight service tags
 
-Use the following service tags to allow traffic from the IP addresses for Azure HDInsight health and management services which apply to all Azure regions:
+The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall.
 
-| Azure cloud | Service tag |
-| ---- | ----- | ----- |
-| Public | HDInsight.WestUS |
-| Public | HDInsight.EastUS |
-| Mooncake | HDInsight.ChinaNorth |
-| Mooncake | HDInsight.ChinaEast |
-| Fairfax | HDInsight.USGovVirginia |
-| Fairfax | HDInsight.USGovIowa |
-| Blackforest | HDInsight.GermanyCentral |
-| Blackforest | HDInsight.GermanyNorthEast |
+This tag contains the IP addresses of health and management services for all of the public regions and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
 
 ## Health and management services: Specific regions
 
-Use the following service tags to allow traffic from the IP addresses for the Azure HDInsight health and management services in the specific Azure region where your resources are located:
+If you have stricter security requirements and need more restrictive whitelisting for your firewall, then you can add only the service tags applicable for your region.
 
-> [!IMPORTANT]  
-> If the Azure region you are using is not listed, then only use the four service tags from the previous section.
+To find out which service tags to add for your region, please consult the following sections.
+
+### Whitelist only a regional service tag
+
+If your cluster is located in one of the regions listed in this table, then you will only need to add the corresponding regional service tag next to it.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
+| Australia | Australia East | HDInsight.AustraliaEast |
+| &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
+| &nbsp; | Australia Central | HDInsight.AustraliaCentral |
+| China | China East | HDInsight.ChinaEast |
+| &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
+| &nbsp; | North Central US | HDInsight.NorthCentralUS |
+| &nbsp; | West US 2 | HDInsight.WestUS2 |
+| &nbsp; | West Central US | HDInsight.WestCentralUS |
+| Canada | Canada East | HDInsight.CanadaEast |
+| Brazil | Brazil South | HDInsight.BrazilSouth |
+| Korea | Korea Central | HDInsight.KoreaCentral |
+| &nbsp; | Korea South | HDInsight.KoreaSouth |
+| India | Central India | HDInsight.CentralIndia |
+| &nbsp; | South India | HDInsight.SouthIndia |
+| Japan | Japan West | HDInsight.JapanWest |
+| France | France Central| HDInsight.FranceCentral |
+| &nbsp; | UK South | HDInsight.UKSouth |
+| United States | North Central US   | HDInsight.NorthCentralUS |
+| &nbsp; | USDoD Central   | HDInsight.USDoDCentral |
+| &nbsp; | USGov Texas | HDInsight.USGovTexas |
+| &nbsp; | UsDoD East | HDInsight.USDoDEast |
+
+### Whitelist regional and global service tags
+
+If your HDInsight cluster is created in one of the following Azure regions, then you need to whitelist a regional and global service tag. 
+
+#### Group 1
+
+All of these regions will need to whitelist the following global service tags in addition to their regional one:
+
+* HDInsight.WestUS
+* HDInsight.EastUS
+
+| Country | Region | Service tag |
+| ---- | ---- | ---- |
+| United States | East US 2 | HDInsight.EastUS2 |
+| &nbsp; | Central US | HDInsight.CentralUS |
+| &nbsp; | NorthCentral US | HDInsight. NorthCentralUS |
+| &nbsp; | South Central US | HDInsight.SouthCentralUS |
+| &nbsp; | East US | HDInsight.EastUS |
+| &nbsp; | West US | HDInsight.WestUS |
+| Japan | Japan East | HDInsight.JapanEast |
+| Europe | North Europe | HDInsight.NorthEurope |
+| &nbsp; | West Europe| HDInsight.WestEurope |
 | Asia | East Asia | HDInsight.EastAsia |
 | &nbsp; | Southeast Asia | HDInsight.SoutheastAsia |
 | Australia | Australia East | HDInsight.AustraliaEast |
-| &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
-| Brazil | Brazil South | HDInsight.BrazilSouth |
-| Canada | Canada East | HDInsight.CanadaEast |
-| &nbsp; | Canada Central | HDInsight.CanadaCentral |
-| China | China North | HDInsight.ChinaNorth |
-| &nbsp; | China East | HDInsight.ChinaEast |
-| &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
-| &nbsp; | China East 2 | HDInsight.ChinaEast2 |
-| Europe | North Europe | HDInsight.NorthEurope |
-| &nbsp; | West Europe| HDInsight.WestEurope |
-| France | France Central| HDInsight.FranceCentral |
-| Germany | Germany Central | HDInsight.GermanyCentral |
-| &nbsp; | Germany Northeast | HDInsight.GermanyNorthEast |
-| India | Central India | HDInsight.CentralIndia |
-| &nbsp; | South India | HDInsight.SouthIndia |
-| Japan | Japan East | HDInsight.JapanEast |
-| &nbsp; | Japan West | HDInsight.JapanWest |
-| Korea | Korea Central | HDInsight.KoreaCentral |
-| &nbsp; | Korea South | HDInsight.KoreaSouth |
-| United Kingdom | UK West | HDInsight.UKWest |
-| &nbsp; | UK South | HDInsight.UKSouth |
-| United States | Central US | HDInsight.CentralUS |
-| &nbsp; | East US | HDInsight.EastUS |
-| &nbsp; | North Central US | HDInsight.NorthCentralUS |
-| &nbsp; | West Central US | HDInsight.WestCentralUS |
-| &nbsp; | West US | HDInsight.WestUS |
-| &nbsp; | West US 2 | HDInsight.WestUS2 |
+
+#### Group 2
+
+The regions of **China North** and **China East** will need to whitelist all of the following service tags:
+
+* HDInsight.ChinaNorth
+* HDInsight.ChinaEast
+
+#### Group 3
+
+The regions of **US Gov Iowa** and **US Gov Virginia**, need to whitelist all of the following service tags:
+
+* HDInsight.USGovIowa
+* HDInsight.USGovVirginia
+
+#### Group 4
+
+The regions of **Germany Central** and ***Germany Northeast** need to whitelist all of the following service tags:
+
+* HDInsight.GermanyCentral
+* HDInsight.GermanyNorthEast
 
 ## Next steps
 
