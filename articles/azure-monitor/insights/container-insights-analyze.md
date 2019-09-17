@@ -165,9 +165,9 @@ From an expanded node, you can drill down from the pod or container that runs on
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 
-**Memory working set** shows both the resident memory and virtual memory (cache) included and is a total of what the application is using. **Memory RSS** shows only main memory (which is nothing but the resident memory in other words). This metric shows the actual capacity of available memory. If you are unfamiliar with what the difference is between resident memory and virtual memory:
+**Memory working set** shows both the resident memory and virtual memory (cache) included and is a total of what the application is using. **Memory RSS** shows only main memory (which is nothing but the resident memory in other words). This metric shows the actual capacity of available memory. What is the difference between resident memory and virtual memory?
 
-- Resident memory or main memory, is the actual amount of memory available on the nodes of the cluster.
+- Resident memory or main memory, is the actual amount of machine memory available to the nodes of the cluster.
 
 - Virtual memory is reserved hard disk space (cache) used by the operating system to swap data from memory to disk and disk to memory when required.
 
