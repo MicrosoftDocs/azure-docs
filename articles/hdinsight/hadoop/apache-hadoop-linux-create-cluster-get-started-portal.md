@@ -31,7 +31,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. From the Azure portal, go to **Create a resource** > **Analytics** > **HDInsight**.
 
-    ![Databricks on Azure portal](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Databricks on Azure portal")
+    ![Create a resource HDInsight cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Create a resource HDInsight cluster")
 
 1. Under **HDInsight** > **Quick create** > **Basics**, enter or select the following values:
 
@@ -98,7 +98,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 3. Open **Hive View** as shown in the following screenshot:
 
-    ![Selecting Ambari views](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive Viewer menu")
+    ![Selecting Hive View from Ambari](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive Viewer menu")
 
 4. In the **QUERY** tab, paste the following HiveQL statements into the worksheet:
 
@@ -106,13 +106,13 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     SHOW TABLES;
     ```
 
-    ![HDInsight Hive views](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive View Query Editor")
+    ![HDInsight Hive View Query Editor](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive View Query Editor")
 
 5. Select **Execute**. A **RESULTS** tab appears beneath the **QUERY** tab and displays information about the job. 
 
     Once the query has finished, the **QUERY** tab displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
 
-    ![HDInsight Hive view results](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive view results")
+    ![HDInsight Apache Hive view results](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Apache Hive view results")
 
 6. Repeat step 4 and step 5 to run the following query:
 
@@ -122,7 +122,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 7. You can also save the results of the query. Select the menu button on the right, and specify whether you want to download the results as a CSV file or store it to the storage account associated with the cluster.
 
-    ![Save result of Hive query](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Save result of Hive query")
+    ![Save result of Apache Hive query](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Save result of Apache Hive query")
 
 After you have completed a Hive job, you can [export the results to Azure SQL database or SQL Server database](apache-hadoop-use-sqoop-mac-linux.md), you can also [visualize the results using Excel](apache-hadoop-connect-excel-power-query.md). For more information about using Hive in HDInsight, see [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
 
@@ -137,7 +137,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 1. Go back to the browser tab where you have the Azure portal. You shall be on the cluster overview page. If you only want to delete the cluster but retain the default storage account, select **Delete**.
 
-    ![HDInsight delete cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Delete HDInsight cluster")
+    ![Azure HDInsight delete cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Delete Azure HDInsight cluster")
 
 2. If you want to delete the cluster as well as the default storage account, select the resource group name (highlighted in the previous screenshot) to open the resource group page.
 

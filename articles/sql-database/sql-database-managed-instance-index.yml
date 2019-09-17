@@ -63,26 +63,6 @@ sections:
       - title: Advanced security
         href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
-- title: New and preview features
-  items:
-  - type: paragraph
-    text: 'We are continuously improving managed instance with new features:'
-  - type: list
-    style: unordered
-    items:
-    - html: (Preview) <a href="/azure/sql-database/sql-database-instance-pools"> Instance pools</a> - provide a convenient and cost-efficient way to migrate smaller SQL instances to the cloud.
-    - html: <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a>
-    - html: Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure monthly credit for Visual Studio subscribers </a>
-    - html: Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
-    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
-    - html: Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>. 
-    - html: Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
-    - html: (Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Re-create dropped databases using PowerShell</a> 
-    - html: Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
-    - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
-    - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> to keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario.
-    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
-    - html: (Preview) Create <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

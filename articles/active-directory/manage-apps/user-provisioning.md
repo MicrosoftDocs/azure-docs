@@ -106,18 +106,18 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
    - **Settings** control the operation of the provisioning service for an application, including whether it's currently running. The **Scope** menu lets you specify whether only assigned users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](assign-user-or-group-access-portal.md).
 
-In the app management screen, select **Audit logs** to view records of every operation run by the Azure AD provisioning service. For more information, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+In the app management screen, select **Provisioning logs (preview)** to view records of every operation run by the Azure AD provisioning service. For more information, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
-![Example - Audit logs screen for an app](./media/user-provisioning/audit_logs.PNG)
+![Example - Provisioning logs screen for an app](./media/user-provisioning/audit_logs.PNG)
 
 > [!NOTE]
 > The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
 ## What happens during provisioning?
 
-When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial sync against the source system and target system, followed by periodic incremental syncs.
+When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
 
-### Initial sync
+### Initial cycle
 
 When the provisioning service is started, the first sync ever run will:
 
@@ -127,13 +127,13 @@ When the provisioning service is started, the first sync ever run will:
 1. If a matching user isn't found in the target system, it's created using the attributes returned from the source system. After the user account is created, the provisioning service detects and caches the target system's ID for the new user, which is used to run all future operations on that user.
 1. If a matching user is found, it's updated using the attributes provided by the source system. After the user account is matched, the provisioning service detects and caches the target system's ID for the new user, which is used to run all future operations on that user.
 1. If the attribute mappings contain "reference" attributes, the service does additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
-1. Persist a watermark at the end of the initial sync, which provides the starting point for the later incremental syncs.
+1. Persist a watermark at the end of the initial cycle, which provides the starting point for the later incremental cycles.
 
 Some applications such as ServiceNow, G Suite, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](customize-application-attributes.md), the provisioning service synchronizes the users and the groups, and then later synchronizes the group memberships.
 
-### Incremental syncs
+### Incremental cycles
 
-After the initial sync, all other syncs will:
+After the initial cycle, all other cycles will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
 1. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -144,21 +144,21 @@ After the initial sync, all other syncs will:
 1. If a user that was previously in scope for provisioning is removed from scope (including being unassigned), the service disables the user in the target system via an update.
 1. If a user that was previously in scope for provisioning is disabled or soft-deleted in the source system, the service disables the user in the target system via an update.
 1. If a user that was previously in scope for provisioning is hard-deleted in the source system, the service deletes the user in the target system. In Azure AD, users are hard-deleted 30 days after they're soft-deleted.
-1. Persist a new watermark at the end of the incremental sync, which provides the starting point for the later incremental syncs.
+1. Persist a new watermark at the end of the incremental cycle, which provides the starting point for the later incremental cycles.
 
 > [!NOTE]
 > You can optionally disable the **Create**, **Update**, or **Delete** operations by using the **Target object actions** check boxes in the [Mappings](customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
 
-The provisioning service continues running back-to-back incremental syncs indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md), until one of the following events occurs:
+The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md), until one of the following events occurs:
 
 - The service is manually stopped using the Azure portal, or using the appropriate Graph API command 
-- A new initial sync is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
-- A new initial sync is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
+- A new initial cycle is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
+- A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
 - The provisioning process goes into quarantine (see below) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
 ### Errors and retries
 
-If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [audit logs](check-status-user-account-provisioning.md) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
+If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) to determine the root cause and take the appropriate action. Common failures can include:
 
 - Users not having an attribute populated in the source system that is required in the target system
 - Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record
@@ -169,7 +169,7 @@ These failures can be resolved by adjusting the attribute values for the affecte
 
 If most or all of the calls made against the target system consistently fail because of an error (such as for invalid admin credentials), then the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
 
-When in quarantine, the frequency of incremental syncs is gradually reduced to once per day.
+When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
 The provisioning job will be removed from quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
 
@@ -179,9 +179,9 @@ Performance depends on whether your provisioning job is running an initial provi
 
 ## How can I tell if users are being provisioned properly?
 
-All operations run by the user provisioning service are recorded in the Azure AD audit logs. This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
+All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
 
-For information on how to read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How do I troubleshoot issues with user provisioning?
 
