@@ -17,14 +17,15 @@ ms.author: dapine
 
 Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
 
-* [Anomaly Detector][ad-containers]
-* [Computer Vision][cv-containers]
-* [Face][fa-containers]
-* [Form Recognizer][fr-containers]
-* [Language Understanding (LUIS)][lu-containers]
-* [Speech Service API][sp-containers]
-* [Text Analytics][ta-containers]
-* [Translator Text][tt-containers]
+> [!div class="checklist"]
+> * [Anomaly Detector][ad-containers]
+> * [Computer Vision][cv-containers]
+> * [Face][fa-containers]
+> * [Form Recognizer][fr-containers]
+> * [Language Understanding (LUIS)][lu-containers]
+> * [Speech Service API][sp-containers]
+> * [Text Analytics][ta-containers]
+> * [Translator Text][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
