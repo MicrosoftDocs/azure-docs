@@ -32,7 +32,7 @@
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
-    - name: Batch scoring with pipelines (advanced)
+    - name: Machine Learning pipelines (advanced)
       items:
       - name: Batch score a classification model
         displayName: pipelines
@@ -153,6 +153,9 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Train with datasets
+      displayName: data, dataset
+      href: how-to-train-with-datasets.md
   - name: Train models
     items:
     - name: Set up training environments
@@ -397,4 +400,3 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
-    

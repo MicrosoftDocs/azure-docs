@@ -52,9 +52,10 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
     Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. Open *Function1.cs*, and add a reference to the .NET Core App Configuration provider.
+2. Open *Function1.cs*, and add a reference to the .NET Core general configuration provider and the .NET Core App Configuration provider.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
