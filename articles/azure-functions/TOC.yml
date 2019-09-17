@@ -132,6 +132,7 @@
     href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Performance considerations
     href: functions-best-practices.md 
+    displayName: best practice
   - name: Functions Proxies
     href: functions-proxies.md 
   - name: Networking options
@@ -156,6 +157,19 @@
       href: functions-develop-vs.md
     - name: Core Tools development
       href: functions-run-local.md
+    - name: Debug local PowerShell functions
+      href: functions-debug-powershell-local.md
+    - name: Dependency injection
+      href: functions-dotnet-dependency-injection.md
+    - name: Manage connections
+      href: manage-connections.md
+      displayName: best practice
+    - name: Error handling
+      href: functions-bindings-error-pages.md
+    - name: Manually run a non HTTP-triggered function
+      href: functions-manually-run-non-http.md
+    - name: Debug Event Grid trigger locally
+      href: functions-debug-event-grid-trigger-local.md
     - name: Create functions
       items:  
       - name: Azure portal
@@ -175,19 +189,7 @@
       - name: Linux Consumption plan
         href: functions-create-first-azure-function-azure-cli-linux.md
       - name: Azure for Students Starter
-        href: functions-create-student-starter.md
-    - name: Debug local PowerShell functions
-      href: functions-debug-powershell-local.md
-    - name: Dependency injection
-      href: functions-dotnet-dependency-injection.md
-    - name: Manage connections
-      href: manage-connections.md
-    - name: Error handling
-      href: functions-bindings-error-pages.md
-    - name: Manually run a non HTTP-triggered function
-      href: functions-manually-run-non-http.md
-    - name: Debug Event Grid trigger locally
-      href: functions-debug-event-grid-trigger-local.md
+        href: functions-create-student-starter.md  
   - name: Deploy
     items:
     - name: Continuous deployment

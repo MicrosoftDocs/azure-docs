@@ -5236,6 +5236,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
@@ -10938,16 +10948,6 @@
     {
       "source_path": "articles/functions/index.md",
       "redirect_url": "/azure/azure-functions/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/functions/create-visual-studio.md",
-      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/functions/create-visual-studio-code.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-function-visual-studio-code",
       "redirect_document_id": false
     },
     {
