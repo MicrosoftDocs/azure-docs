@@ -29,7 +29,7 @@ Azure Digital Twins applies to all types of environments, such as, warehouses, o
 - Analyze occupancy levels for a building.
 - Find the busiest cash register in your store.
 
-Whatever your real-world business scenario is, it's very likely a corresponding digital instance can be provisioned through Azure Digital Twins.
+Whatever your real-world business scenario is, it's likely a corresponding digital instance can be provisioned through Azure Digital Twins.
 
 The following video takes a closer look at Azure Digital Twins.
 
