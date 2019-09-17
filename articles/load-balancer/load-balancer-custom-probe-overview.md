@@ -51,16 +51,16 @@ The number of probe responses applies to both
 - the number of successful probes that allow an instance to be marked as up, and
 - the number of failed probes that cause an instance to be marked as down.
 
-The timeout and interval values specified determine whether an instance will be marked as up or down.  The duration of the interval multiplied by the number of probe responses determines the duration during which the probe responses have to be detected.  And the service will react after the required number of intervals have passed.
+The timeout and interval values specified determine whether an instance will be marked as up or down.  The duration of the interval multiplied by the number of probe responses determines the duration during which the probe responses have to be detected.  And the service will react after the required probes have been achieved.
 
-We can illustrate this with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe failures must be observed within a 10 second interval.  We can bound the time to detect by two scenarios:
+We can illustrate the behavior further with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe failures must be observed within a 10 second interval.  Because the time at which a probe is sent is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
 
 1. If your application starts producing a failing probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the the application starting to signal a failure to when the the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
 2. If your application starts producing a failing probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and fails) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
 
 For this example, once detection has occured, the platform will then take a small amount of time to react to this change.  This means a depending on 
 1. when the application begins changing state and
-2. when this change is detected and
+2. when this change is detected and met the required criteria (number of probes sent at the specified interval) and
 3. when the detection has been communicated across the platfrom 
 you can assume the reaction to a failing probe will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance.
  
@@ -166,6 +166,8 @@ TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend e
 * The health probe is successful once after the VM boots.
 * The specified number of probes required to mark the backend endpoint as healthy has been achieved.
 
+Any backend endpoint which has achieved a healthy state is eligible for receiving new flows.  
+
 > [!NOTE]
 > If the health probe fluctuates, the load balancer waits longer before it puts the backend endpoint back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
 
@@ -226,7 +228,7 @@ Do not configure your VNet with the Microsoft owned IP address range that contai
 
 If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  You may need to source network address translate this address in the VM on a per interface basis.
 
-Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling TCP timestamps will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.  TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
+Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling TCP timestamps can cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.  TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
 
 ## Monitoring
 
@@ -237,7 +239,7 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Limitations
 
 - HTTPS probes do not support mutual authentication with a client certificate.
-- Health probes will fail when TCP timestamps are enabled.
+- You should assumehHealth probes will fail when TCP timestamps are enabled.
 
 ## Next steps
 
