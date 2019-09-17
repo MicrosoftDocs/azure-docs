@@ -24,19 +24,19 @@
 #    href: article-template.md
 #    - name: Create Spark pool template
 #    href: article-template.md
-  - name: Ingest data into Data Lake
+#  - name: Ingest data into Data Lake
 #    href: article-template.md
-  - name: Ingest data into SQL Analytics pool
+#  - name: Ingest data into SQL Analytics pool
 #    href: article-template.md
-  - name: Browse data using workspace
+#  - name: Browse data using workspace
 #    href: article-template.md
   - name: Analyse and Visualize data
     items:
-    - name: With Spark
+#    - name: With Spark
 #    href: article-template.md
-    - name: With SQL Analytics pool
+#    - name: With SQL Analytics pool
 #    href: article-template.md
-    - name: With SQL on-demand
+#    - name: With SQL on-demand
 #    href: article-template.md
  - name: Tutorials
    items:
@@ -66,8 +66,8 @@
 #     items:
 #     - name: Overview
 #       href: article-template.md
-#     - name: Pool
-#       items:
+    - name: Pool
+      items:
 #       - name: SQL Analytics pool
 #         href: article-template.md
 #       - name: SQL Analytics on-demand
@@ -382,34 +382,34 @@
     items:
     - name: Manage access control 
       items:
-      - name: Configure users and groups
-        href: article-template.md
-      - name: Implement RBAC policies
-        href: article-template.md
-    - name: Manage network policies
-      href: article-template.md
+#       - name: Configure users and groups
+#         href: article-template.md
+#       - name: Implement RBAC policies
+#         href: article-template.md
+#     - name: Manage network policies
+#       href: article-template.md
     - name: Manage private endpoints
       items:
-      - name: Enable encryption - portal
-        href: article-template.md
-      - name: Enable encryption - TSQL
-        href: article-template.md
+#       - name: Enable encryption - portal
+#         href: article-template.md
+#       - name: Enable encryption - TSQL
+#         href: article-template.md
   - name: Manage and monitor
     items:
-    - name: Cost monitoring and budgeting
-      href: article-template.md  
-    - name: Explore current workspace activity
-      href: article-template.md
-    - name: Pipeline runs
-      href: article-template.md
-    - name: SQL Analytics requests
-      href: article-template.md
-    - name: Spark applications
-      href: article-template.md
-    - name: Spark pools
-      href: article-template.md
-    - name: Troubleshooting and performance enhancement
-      href: article-template.md 
+#     - name: Cost monitoring and budgeting
+#       href: article-template.md  
+#     - name: Explore current workspace activity
+#       href: article-template.md
+#     - name: Pipeline runs
+#       href: article-template.md
+#     - name: SQL Analytics requests
+#       href: article-template.md
+#     - name: Spark applications
+#       href: article-template.md
+#     - name: Spark pools
+#       href: article-template.md
+#     - name: Troubleshooting and performance enhancement
+#       href: article-template.md 
     - name: SQL Analytics
       items:
       - name: Monitor Gen2 cache
@@ -434,12 +434,12 @@
     items:
     - name: Collaborate on development
       items:
-      - name: Collaborate on SQL (Post PuPR)
-        href: article-template.md
-      - name: Collaborate on notebooks
-        href: article-template.md
-    - name: Collaborate on pipelines and Data Flows
-      href: article-template.md
+#       - name: Collaborate on SQL (Post PuPR)
+#         href: article-template.md
+#       - name: Collaborate on notebooks
+#         href: article-template.md
+#     - name: Collaborate on pipelines and Data Flows
+#       href: article-template.md
   - name: Load data
     items:
     - name: Into the Data warehouse
@@ -458,84 +458,84 @@
           items:
           - name: SQL Analytics pool
             href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json?toc=/azure/arcadia/toc.json
-          - name: SQL on demand
-            href: article-template.md
+#           - name: SQL on demand
+#             href: article-template.md
         - name: SSIS
           items:
           - name: SQL Analytics pool
             href: /sql/integration-services/load-data-to-sql-data-warehouse
-          - name: SQL on demand
-            href: article-template.md
-        - name: Load WideWorldImporters
-          href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/arcadia/toc.json
-        - name: with the copy activity 
-          href: article-template.md
-        - name: with T-SQL
-          href: article-template.md
-      - name: Data Flow and Data Ingest
-        href: article-template.md
-      - name: Spark
-        href: article-template.md
-      - name: Best practices
-        href: article-template.md
+#           - name: SQL on demand
+#             href: article-template.md
+         - name: Load WideWorldImporters
+           href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/arcadia/toc.json
+#         - name: with the copy activity 
+#           href: article-template.md
+#         - name: with T-SQL
+#           href: article-template.md
+#       - name: Data Flow and Data Ingest
+#         href: article-template.md
+#       - name: Spark
+#         href: article-template.md
+#       - name: Best practices
+#         href: article-template.md
     - name: Into the Data Lake
       items:
-      - name: Data Flow and Data Ingest
-        href: article-template.md
-      - name: Spark
-        href: article-template.md
-      - name: Best practices
-        href: article-template.md
+#       - name: Data Flow and Data Ingest
+#         href: article-template.md
+#       - name: Spark
+#         href: article-template.md
+#       - name: Best practices
+#         href: article-template.md
   - name: Transform & Analyze data
     items:
     - name: SQL Analytics
       items:
-      - name: Overview
-        href: article-template.md
+#       - name: Overview
+#         href: article-template.md
       - name: Connect
         items:
-        - name: Query with TSQL
-          href: article-template.md
-        - name: Query from notebook
-          href: article-template.md
+#         - name: Query with TSQL
+#           href: article-template.md
+#         - name: Query from notebook
+#           href: article-template.md
       - name: Power BI
         items:
-        - name: Overview
-          href: article-template.md
-        - name: Connection strings
-          href: article-template.md
-        - name: Create PBI datasets and reports from Sql pools and Sql Ondemand
-          href: article-template.md
+#         - name: Overview
+#           href: article-template.md
+#         - name: Connection strings
+#           href: article-template.md
+#         - name: Create PBI datasets and reports from Sql pools and Sql Ondemand
+#           href: article-template.md
       - name: Query data in storage
         items:
-        - name: Querying single CSV file
-          href: article-template.md
-        - name: Querying folders and multiple CSV files
-          href: article-template.md
-        - name: Querying specific files
-          href: article-template.md
-        - name: Querying Parquet files
-          href: article-template.md
-        - name: Querying Parquet nested types
-          href: article-template.md
-        - name: Querying JSON files
-          href: article-template.md
-        - name: Creating and using views
-          href: article-template.md
-        - name: Querying Spark tables
-          href: article-template.md
-      - name: Best practices
-        href: article-template.md
+#         - name: Querying single CSV file
+#           href: article-template.md
+#         - name: Querying folders and multiple CSV files
+#           href: article-template.md
+#         - name: Querying specific files
+#           href: article-template.md
+#         - name: Querying Parquet files
+#           href: article-template.md
+#         - name: Querying Parquet nested types
+#           href: article-template.md
+#         - name: Querying JSON files
+#           href: article-template.md
+#         - name: Creating and using views
+#           href: article-template.md
+#         - name: Querying Spark tables
+#           href: article-template.md
+#       - name: Best practices
+#         href: article-template.md
     - name: Spark
       items:
-      - name: Use Apache Spark to read and write data
-        href: article-template.md
-      - name: Use Apache Spark to explore data
-        href: article-template.md
-      - name: Use Apache Spark to query and aggregate data
-        href: article-template.md
-      - name: Analyze application insights and telemetry logs
-        href: article-template.md
+#       - name: Use Apache Spark to read and write data
+#         href: article-template.md
+#       - name: Use Apache Spark to explore data
+#         href: article-template.md
+#       - name: Use Apache Spark to query and aggregate data
+#         href: article-template.md
+#       - name: Analyze application insights and telemetry logs
+#         href: article-template.md
     - name: Data Flow and Data Ingest
       items:
       - name: Aggregate
@@ -953,16 +953,16 @@
       href: article-template.md
 - name: Reference
   items:
-  - name: .Net SDK
-    href: article-template.md
+  # - name: .Net SDK
+  #   href: article-template.md
   - name: Database collation types
     href: ../sql-data-warehouse/sql-data-warehouse-reference-collation-types.md?toc=/azure/arcadia/toc.json
   - name: PowerShell cmdlets
     href: ../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/arcadia/toc.json
   - name: REST APIs
     href: ../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/arcadia/toc.json
-  - name: Spark Connector
-    href: article-template.md
+  # - name: Spark Connector
+  #   href: article-template.md
   - name: System views
     href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md?toc=/azure/arcadia/toc.json
   - name: T-SQL
@@ -977,12 +977,12 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Datasets
-    href: article-template.md
+  # - name: Datasets
+  #   href: article-template.md
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
-  - name: Naming Rules
-    href: article-template.md
+  # - name: Naming Rules
+  #   href: article-template.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
   - name: Pricing calculator
