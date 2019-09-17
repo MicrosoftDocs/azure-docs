@@ -122,7 +122,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 To complete the creation process, register your datasets with a workspace.
 
-Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets in your workspace so they can be shared with others and reused across various experiments.
+Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
