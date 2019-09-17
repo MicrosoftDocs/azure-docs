@@ -48,7 +48,9 @@ They enable:
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
-In ADAL.NET, broker support was enabled on a per-authentication context basis. It's disabled by default. You had to set a `useBroker` flag to true in the `PlatformParameters` constructor to call the broker:
+In ADAL.NET, broker support was enabled on a per-authentication context basis. It's disabled by default. You had to set a 
+
+`useBroker` flag to true in the `PlatformParameters` constructor to call the broker:
 
 ```CSharp
 public PlatformParameters(
@@ -78,7 +80,7 @@ Then, include the parameters in the acquire token call:
 ```
 
 </td><td>
-In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. To enable it, use the: 
+In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. To enable it, use the 
 
 `WithBroker()` 
 parameter (set to true by default) in order to call the broker:
@@ -99,11 +101,13 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### Step 2: Set a UIViewController()
-In ADAL.NET, you passed in a UIViewController as part of PlatformParameters. (See the example in Step 1.) In MSAL.NET, to give developers more flexibility, an object window is used, but it's not required in regular iOS usage. To use the broker, set the object window in order to send and receive responses from the broker. 
+In ADAL.NET, you passed in a UIViewController as part of `PlatformParameters`. (See the example in Step 1.) In MSAL.NET, to give developers more flexibility, an object window is used, but it's not required in regular iOS usage. To use the broker, set the object window in order to send and receive responses from the broker. 
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
-A UIViewController is passed into PlatformParameters in the iOS-specific platform.
+A UIViewController is passed into 
+
+`PlatformParameters` in the iOS-specific platform.
 
 ```CSharp
 page.BrokerParameters = new PlatformParameters(
@@ -114,10 +118,10 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 In MSAL.NET, you do two things to set the object window for iOS:
 
-1) In `AppDelegate.cs`, set `App.RootViewController` to a new `UIViewController()`. 
+1. In `AppDelegate.cs`, set `App.RootViewController` to a new `UIViewController()`. 
 This assignment ensures that there's a UIViewController with the call to the broker. If it isn't set correctly, you might get this error:
 `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-2) On the AcquireTokenInteractive call, use 
+1. On the AcquireTokenInteractive call, use 
 `.WithParentActivityOrWindow(App.RootViewController)`,
  and pass in the reference to the object window you'll use.
 
@@ -190,7 +194,8 @@ For example:
 
 ### Step 5: Add the broker identifier to the LSApplicationQueriesSchemes section
 
-ADAL.NET and MSAL.NET both use `-canOpenURL:` to check if the broker is installed on the device. Add the correct identifier for the iOS broker to the LSApplicationQueriesSchemes section of the info.plist file as follows: 
+ADAL.NET and MSAL.NET both use `-canOpenURL:` to check if the broker is installed on the device. Add the correct identifier for the iOS broker to the LSApplicationQueriesSchemes section of the info.plist file as follows:
+
 <table>
 <tr><td>Current ADAL code:</td><td>MSAL counterpart:</td></tr>
 <tr><td>
@@ -241,7 +246,7 @@ Example:
 
 </table>
 
-For more information about how to register the redirectUri in the portal, see [Leverage the broker in Xamarin.iOS applications](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
+For more information about how to register the redirect URI in the portal, see [Leverage the broker in Xamarin.iOS applications](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
 
 ## Next steps
 
