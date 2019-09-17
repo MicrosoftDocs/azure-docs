@@ -23,7 +23,7 @@ Azure Data Factory is a fully managed, cloud-based, data-integration service. Yo
 You create the *Bulk Copy from Database to Azure Data Explorer* template by using *Lookup* and *ForEach* activities. For faster data copying, you can use the template to create many pipelines per database or per table. 
 
 > [!IMPORTANT]
-> Be sure to use appropriate tool for the quantity of data you want to copy.
+> Be sure to use the tool that's appropriate for the quantity of data you want to copy.
 > * Use the *Bulk Copy from Database to Azure Data Explorer* template to copy large amounts of data from databases such as SQL server and Google BigQuery to Azure Data Explorer. 
 > * Use the [*Data Factory Copy Data tool*](data-factory-load-data.md) to copy a few tables with small or moderate amounts of data into Azure Data Explorer. 
 
