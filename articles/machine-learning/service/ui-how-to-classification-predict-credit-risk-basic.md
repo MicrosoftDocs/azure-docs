@@ -32,8 +32,8 @@ Here's the completed graph for this experiment:
 
 ## Related sample
 
-[Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced experiment that solves the same problem as this experiment. It shows how to perform _cost sensitive_ classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiments.
+[Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](ui-how-to-classification-predict-credit-risk-cost-sensitive.md)
+provides an advanced pipeline that solves the same problem as this pipeline. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
 
 ## Data
 

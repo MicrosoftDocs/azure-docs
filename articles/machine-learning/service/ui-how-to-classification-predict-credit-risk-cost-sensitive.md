@@ -18,7 +18,7 @@ This article shows you how to build a complex machine learning experiment using 
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-If you're just getting started with machine learning, you can take a look at the [basic classifier sample](ui-sample-classification-predict-credit-risk-basic.md) first.
+If you're just getting started with machine learning, you can take a look at the [basic classifier sample](ui-how-to-classification-predict-credit-risk-basic.md) first.
 
 Here's the completed graph for this experiment:
 

@@ -16,7 +16,7 @@ ms.date: 05/10/2019
 
 Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface. This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this experiment so you can tackle your own machine learning problems.
 
-If you're just getting started with machine learning, you can take a look at the [basic version](ui-sample-regression-predict-automobile-price-basic.md) of this experiment to see a basic regression experiment.
+If you're just getting started with machine learning, take a look at the [basic version](ui-how-to-regression-predict-automobile-price-basic.md) of this pipeline.
 
 Here's the completed graph for this experiment:
 
