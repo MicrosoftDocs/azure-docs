@@ -196,9 +196,28 @@ This error indicates that due to heavy load in the region in which you are attem
 
 Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
-## IPs may not be accessible due to mismatched ports
+## Container group IP address may not be accessible due to mismatched ports
 
-Azure Container Instances does not currently support port mapping like with regular docker configuration, however this fix is on the roadmap. If you find IPs are not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
+Azure Container Instances does not currently support port mapping like with regular docker configuration, however this fix is on the roadmap. If you find a container group's IP address is not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
+
+If you want to confirm that Azure Container Instances can listen on the port you configured in your container image, test a deployment of the `aci-helloworld` image that exposes the port. Also run the `aci-helloworld` app so that it listens on the port. `aci-helloworld` accepts an optional environment variable `PORT` to override the default port 80 it listens on. For example, to test port 9000:
+
+1. Set up the container group to expose port 9000, and pass port 9000 as the value of the environment variable. Substitute a unique value of `dns-label-name`:
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --dns-name-label porttest001 --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Find the FQDN or IP address of the container group in the command output of `az container create`.
+1. After the container is provisioned successfully, browse to the FQDN and port of the container app in your browser, for example: `http://porttest001.eastus.azurecontainer.io:9000`. 
+
+    You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
+1. When you're done with the container, remove it using the `az container delete` command:
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## Next steps
 
