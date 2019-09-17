@@ -24,10 +24,10 @@ To give the workflow the ability to deploy to your function app, you will need t
 
 **Setting up a service principle**
 
-you can do that by executing the following [Azure CLI]{https://docs.microsoft.com/cli/azure/}, this can be done from the [Azure Cloud Shell]{https://shell.azure.com}.
+you can do that by executing the following [Azure CLI]{https://docs.microsoft.com/cli/azure/}, this can be done from the [Azure Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>                --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Click on Secrets
 
 ![Click Secrets](media/functions-how-to-github-actions/click-secrets.png)
 
-Add the **AZURE_CREDENTIALS** secrets with the value from the output from the Azure CLI command
+Add the **AZURE_CREDENTIALS** secret with the value from the output from the Azure CLI command
 
 ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
 
