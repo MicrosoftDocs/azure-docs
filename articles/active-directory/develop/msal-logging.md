@@ -100,7 +100,7 @@ Logger.getInstance().setExternalLogger(new ILoggerCallback()
 });
 ```
 
-By default, the MSAL logger will not capture any PII or OII.
+By default, the MSAL logger will not capture any personal identifiable information (PII) or organizational identifiable information (OII).
 To enable logging PII or OII:
 
 ```java

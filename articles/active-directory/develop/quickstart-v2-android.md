@@ -486,7 +486,7 @@ This is the configuration file for a MSAL app that uses multiple accounts.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
-Note that unlike the [auth_config_multiple_account.json](#auth_config_multiple_account.json) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
+Note that unlike the [auth_config_single_account.json](#auth-config-single-account.json) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 
 ```json
 {
