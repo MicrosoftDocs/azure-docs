@@ -144,6 +144,24 @@ For more information on the account address and password, see [Ethereum account]
 
 ## Get contract ABI
 
+The contract application binary interface (ABI) defines the smart contract interfaces. It describes how to interact with the smart contract. You can get contract ABI using the Azure Blockchain Development Kit for Ethereum or from the Solidity compiler contract metadata file.
+
+Using development kit:
+
+If you used development kit or Truffle to build your smart contract, you can use the extension to copy the contract ABI to the clipboard.
+
+1. In Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
+
+    [screenshot]
+
+1. Right-click the contract metadata JSON file.
+1. Choose **Copy contract ABI**. The contract ABI is copied to the clipboard.
+
+Using the contract metadata file:
+
+1. Find the "abi" section
+
+The smart contract ABI 
 From devkit - right click contract, get ABI.
 
 Select your compiled contract under the build > contracts folder in the VS Code Explorer pane.
