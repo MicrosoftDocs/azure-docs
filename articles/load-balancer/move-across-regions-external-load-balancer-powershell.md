@@ -10,7 +10,7 @@ ms.author: allensu
 
 # Move Azure external Load Balancer to another region using Azure PowerShell
 
-There are various scenarios in which you'd want to move your existing external load balancer from one region to another. For example, you may want to create an external load balancer with the same configuration for testing. You may also want to move a external load balancer to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing external load balancer from one region to another. For example, you may want to create an external load balancer with the same configuration for testing. You may also want to move an external load balancer to another region as part of disaster recovery planning.
 
 Azure external load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and public IP of an external load balancer.  You can then stage the resource in another region by exporting the load balancer and public IP to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
@@ -19,9 +19,9 @@ Azure external load balancers can't be moved from one region to another. You can
 
 - Make sure that the Azure external load balancer is in the Azure region from which you want to move.
 
-- Azure external load balancers cannot be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
+- Azure external load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
 
-- To export a external load balancer configuration and deploy a template to create a external load balancer in another region, you'll need the Network Contributor role or higher.
+- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you'll need the Network Contributor role or higher.
    
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups,  public IPs, and virtual networks.
 
@@ -31,7 +31,7 @@ Azure external load balancers can't be moved from one region to another. You can
 
 
 ## Prepare and move
-The following steps show how to prepare the external load balancer for the move using an Resource Manager template, and move the external load balancer configuration to the target region using Azure PowerShell.  As part of this process, the public IP configuration of the external load balancer must be included and must me done first before moving the external load balancer.
+The following steps show how to prepare the external load balancer for the move using a Resource Manager template, and move the external load balancer configuration to the target region using Azure PowerShell.  As part of this process, the public IP configuration of the external load balancer must be included and must me done first before moving the external load balancer.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
