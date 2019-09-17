@@ -22,8 +22,9 @@ ms.author: gangan
 Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
+> Azure portal for Commerical use is [https://portal.azure.com](https://portal.azure.com)
 > Azure portal for Germany is [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us).
+> Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us)
 
 
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
