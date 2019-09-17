@@ -150,11 +150,11 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
     sudo visudo
     ```
 
-1. Add the following entry to the end of */etc/sudoers* file:
+1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *contoso.com*:
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
-    %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
+    %AAD\ DC\ Administrators@contoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
     When done, save and exit the editor using the `:wq` command of the editor.
