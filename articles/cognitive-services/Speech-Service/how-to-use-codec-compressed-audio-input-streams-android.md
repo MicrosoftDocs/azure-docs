@@ -1,14 +1,14 @@
 ---
 title: Stream codec compressed audio with the Speech SDK on Android - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK. Available for C++, C#, and Java for Linux, Java in android and Objective-C in iOS.
+description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK on Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/17/2019
+ms.date: 09/20/2019
 ms.author: amishu
 ---
 
@@ -36,7 +36,7 @@ Handling compressed audio is implemented using [GStreamer](gstreamer.freedesktop
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
 ```
 
-An example Android<i></i>.mk and Application<i></i>.mk file is given below. Please follow the steps below to create the gstreamer shared object (libgstreamer_android.so).
+An example `Android.mk` and `Application.mk` file is given below. Please follow the steps below to create the gstreamer shared object (libgstreamer_android.so).
 
 ```make
 # Android.mk
@@ -90,9 +90,10 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-The following command line on Ubuntu 16.04 or 18.04 can help application developer to build libgstreamer_android.so
+Application developer can build libgstreamer_android.so using the following command line on Ubuntu 16.04 or 18.04. The following command lines are only tested for [Gstreamer Android version 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) with [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
+# assuming wget and unzip already installed on the system
 mkdir buildLibGstreamer
 cd buildLibGstreamer
 wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
@@ -127,23 +128,26 @@ Once the shared object (libgstreamer_android.so) is built application developer 
 
 To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
-Let's assume that you have an input stream class called `myPushStream` and are using OPUS/OGG. Your code may look like this:
+Let's assume that you have an input stream class called `myPullStream` and are using OPUS/OGG. Your code may look like this:
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
+```java
+import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+import com.microsoft.cognitiveservices.speech.audio.AudioInputStream;
+import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
+import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStream;
+import com.microsoft.cognitiveservices.speech.internal.AudioStreamContainerFormat;
 
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
 // Create an audio config specifying the compressed audio format and the instance of your input stream class.
-var audioFormat = AudioStreamFormat.GetCompressedFormat(AudioStreamContainerFormat.OGG_OPUS);
-var audioConfig = AudioConfig.FromStreamInput(myPushStream, audioFormat);
+AudioStreamFormat audioFormat = AudioStreamFormat.getCompressedFormat(AudioStreamContainerFormat.OGG_OPUS);
+AudioConfig audioConfig = AudioConfig.fromStreamInput(myPullStream, audioFormat);
 
-var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-var result = await recognizer.RecognizeOnceAsync();
+SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get()
 
-var text = result.GetText();
+String text = result.getText();
 ```
 
 ## Next steps

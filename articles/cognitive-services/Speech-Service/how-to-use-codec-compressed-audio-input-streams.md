@@ -1,14 +1,14 @@
 ---
 title: Stream codec compressed audio with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK. Available for C++, C#, and Java for Linux, Java in android and Objective-C in iOS.
+description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK. Available for C++, C#, and Java for Linux, Java in Android and Objective-C in iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/17/2019
+ms.date: 09/20/2019
 ms.author: amishu
 ---
 
