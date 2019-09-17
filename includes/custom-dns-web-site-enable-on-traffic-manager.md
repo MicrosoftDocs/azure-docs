@@ -24,7 +24,7 @@ If you have not already added your web app as a Traffic Manager endpoint, you mu
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. In the **Custom domains** blade, click **Add hostname**.
-4. Use the **Hostname** text boxes to enter the Traffic Manager domain name to associate with this web app.
+4. Use the **Hostname** text boxes to enter the custom domain name to associate with this web app.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Click **Validate** to save the domain name configuration.
