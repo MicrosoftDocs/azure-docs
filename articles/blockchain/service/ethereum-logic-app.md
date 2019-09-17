@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/13/2019
+ms.date: 09/17/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -15,82 +15,135 @@ manager: femila
 
 # How to use Ethereum Blockchain connector with Azure Logic Apps
 
-Use Ethereum Blockchain connector with Azure Logic App connector to perform smart contract actions and respond to smart contract events.
+Use the [Ethereum Blockchain connector](https://docs.microsoft.com/connectors/blockchainethereum/) with [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to perform smart contract actions and respond to smart contract events. For example, you want to provide a web API that returns information from a blockchain ledger. Using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
 
 ## Prerequisites
 
-Complete use smart contract quickstart.
+* Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you though installing the [Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) and setting up your blockchain development environment.
 
 ## Create a logic app
 
+Azure Logic Apps help you schedule, automate business processes and workflows when you need to integrate systems and services. First, you create a logic that uses the Ethereum Blockchain connector. 
+
 1. In the [Azure portal](https://portal.azure.com), choose **Create a resource > Integration > Logic App**.
-1. Under **Create logic app**, provide details about your logic app as shown here. After you're done, select **Create**.
+1. Under **Create logic app**, provide details where to create your logic app. After you're done, select **Create**. For more information on creating Azure Logic Apps, see [Create Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. After Azure deploys your app, select your logic app resource.
+1. In the Logic Apps Designer, under **Templates**, choose **Blank Logic App**.
 
-    [Provide logic app details]
+Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
 
-    | Property | Description |
-    |----------|-------------|
-    | **Name** | The name for your logic app |
-    | **Subscription** | The name for your Azure subscription |
-    | **Resource group** | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources |
-    | **Location** | The region where to store your logic app information |
-    | **Log Analytics** | Push the Logic App runtime events to Log Analytics to help monitor your workflows. |
+The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario.
 
-1. After Azure deploys your app, the Logic Apps Designer opens and shows a page with an introduction video and commonly used triggers. Under **Templates**, choose **Blank Logic App**.
+If your workflow:
 
- Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
-
-The Ethereum Blockchain connector has one trigger and several actions. 
+* Triggers when an event occurs on the blockchain, [use the event trigger](#use-the-event-trigger)
+* Queries or deploys a smart contract, [use actions](#use-actions)
 
 ## Use the event trigger
 
-The Ethereum Blockchain event trigger is used when you want a Logic App to run when a smart contract event occurs. For example, you want to send an email when a smart contract function is called.
+Use Ethereum Blockchain event triggers when you want a logic app to run after a smart contract event occurs. For example, you want to send an email when a smart contract function is called.
 
-In the Logic app designer, choose the Ethereum Blockchain connector.
-From the Triggers tab, choose **When a smart contract event occurs**
-Select or create an API connection to your blockchain.
+1. In the Logic App designer, choose the Ethereum Blockchain connector.
+1. From the **Triggers** tab, choose **When a smart contract event occurs**.
+1. Change or [create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
+1. Enter the details about the smart contract you want to check for events.
 
+    [screenshot]
 
-
+| Property | Description |
+|----------|-------------|
+| **Contract ABI** | How to [get the contract ABI](#get-contract-abi). |
+| **Smart contract address** | How to [get the contract address](#get-contract-address). |
+| **Event name** | Choose a smart contract event to check. The event triggers the logic app. |
+| **Interval** and **Frequency** | Choose how often you want to check for the event. |
 
 ## Use actions
 
-In Logic App Designer, under the search box, choose **All**.
+Use the Ethereum Blockchain actions when you want a logic app to perform an action on the blockchain ledger. For example, you want to call a smart contract function when an HTTP request is made to a logic app.
 
-In the search box, enter "Ethereum". From the triggers list, select **When a HTTP request is received**.
+Connector actions require a trigger. You can use an Ethereum Blockchain connector action as the next step after a trigger.
+
+1. In the Logic App designer, select **New step** following a trigger. 
+1. Choose the Ethereum Blockchain connector.
+1. From the **Actions** tab, choose one of the available actions.
+
+    [screenshot]
+
+1. Change or [create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
+1. Depending on the action you chose, provide the following details about your smart contract function.
+
+    | Property | Description |
+    |----------|-------------|
+    | **Contract ABI** | How to [get the contract ABI](#get-contract-abi). |
+    | **Contract bytecode** | The compiled smart contract bytecode. How to [get the contract bytecode](#get-contract-bytecode). |
+    | **Smart contract address** | How to [get the contract address](#get-contract-address). |
+    | **Smart contract function name** | Choose the smart contract function name for the action. The list is populated from the details in the contract ABI. |
+
+    After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
 
 ## Create an API connection
 
-Connectors require an API connection for the connector. To set up a connection to an Azure Blockchain Service member, you need the following information.
+An API connection to a blockchain is required for the Ethereum Blockchain connector. You can use the API connector for multiple logic apps. To set up a connection to an Azure Blockchain Service member, you need the following information:
 
-### Get the RPC endpoint
+| Property | Description |
+|----------|-------------|
+|**Connection name** | Name of the API connection. |
+|**Ethereum RPC endpoint** | HTTP address of the Azure Blockchain Service transaction node. How to [get the RPC endpoint](#get-rpc-endpoint). |
+|**Private key** | Ethereum account private key. How to [get the private key](#get-private-key). |
+|**Account address** | Azure Blockchain Service member account address. How to [get the account address](#get-account-address). |
+|**Account password** | The account password is set when you create the member. For information on resetting the password, see [Ethereum account](consortium.md#ethereum-account).|
 
-The RPC endpoint is the HTTP URL including the address and access key of your Azure Blockchain Service member transaction node.
+> [!IMPORTANT]
+> A private key or account address and password is required for creating transactions on a blockchain. Only one form of authentication is needed. You don't need to provide both the private key and account details. Querying contracts does not require a transaction. If you are using actions that query contract state, the private key or account address and password are not required.
 
-Portal:
-For your Azure Blockchain Service  member  , go to, transaction node > access keys
-copy the value for Http 1 or 2.
+## Get RPC endpoint
 
-DevKit
-In the Azure Blockchain DevKit extension, right click the consortium, select Copy RPC endpoint.
+You need the Azure Blockchain Service endpoint address to connect to a blockchain network. You can get endpoint address using the Azure Blockchain Development Kit for Ethereum or the Azure portal.
 
-### Private key 
+Using development kit:
 
-Your ethereum account public and private key is generated from a 12 word mnemonic. DevKit generates a mnemonic when you connect to a Azure Blockchain Service consortium member. 
+1. Under **Azure Blockchain Service** in Visual Studio Code, right click the consortium.
+1. Select **Copy RPC endpoint**.
 
-from devkit F1 Azure Blockchain: Retrieve private key
-Select mnemonic you saved when connecting to the consortium member. The private key is copied to your clipboard.
+    [screenshot]
 
-### Account address and password
+Using Azure portal:
 
-The member account and password is required to authenticate to the management smart contract at the root contract address. The password is set when you create the member. If you need to reset the password, select the **Member account** address link on the Azure Blockchain Service member's overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
 
-From the portal, go to your Azure Blockchain Service overview page.
-Copy the account address.
+    ![Select default transaction node](./media/connect-metamask/transaction-nodes.png)
 
-## Get smart contract details
+1. Select **Connection strings > Access keys**.
+1. Copy the endpoint address from **HTTPS (Access key 1)** or access key 2.
 
-### ABI
+    ![Connection string](./media/connect-metamask/connection-string.png)
+
+    The RPC endpoint is the HTTPS URL including the address and access key of your Azure Blockchain Service member transaction node.
+
+## Get private key 
+
+Your Ethereum account public and private key is generated from a 12 word mnemonic. Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to a Azure Blockchain Service consortium member. You can get endpoint address using the development kit extension.
+
+1. In Visual Studio Code, open the command palette (F1).
+1. Choose **Azure Blockchain: Retrieve private key**.
+1. Select mnemonic you saved when connecting to the consortium member. The private key is copied to your clipboard.
+
+    [screenshot]
+
+## Get account address
+
+The member account and password is required to authenticate to the management smart contract at the root contract address. The password is set when you create the member.
+
+1. In the Azure portal, go to your Azure Blockchain Service overview page.
+1. Copy the **member account** address.
+
+    [screenshot]
+
+For more information on the account address and password, see [Ethereum account](consortium.md#ethereum-account).
+
+## Get contract ABI
+
 From devkit - right click contract, get ABI.
 
 Select your compiled contract under the build > contracts folder in the VS Code Explorer pane.
@@ -99,169 +152,14 @@ Choose copy contract ABI.
 
 The abi section of the contract.json file is copied to your clipboard.
 
-### Contract address
-
-from truffle deployment output. 
-From build>contract> contract.json > networks > number > address file .
-
-### Get the byte code
+## Get contract bytecode
 
 from devkit - right click contract, get bytecode
 solc --bin sourcefile.sol
 
-## Deploy smart contract
+## Get contract address
 
-Use a logic app to deploy a smart contract.
-
-ABI
-Bytecode
-
-## Execute smart contract function
-
-ABI
-Smart contract address
-
-## Get smart contract state
-
-ABI
-Smart contract address
-
-## Query smart contract function
-
-ABI
-Smart contract address
-
-## Respond to a smart contract event
-
-ABI
-Smart contract name
-
-## HTTP request trigger
-
-
-
-In **Request Body JSON Schema**
-
-``` json
-{
-    "type": "object",
-    "properties": {
-        "message": {
-            "type": "string"
-        }
-    }
-}
-```
-[screenshot]
-
-Select **Save**.
-
-After save, note HTTP POST URL.
-
-Select **New step**.
-
-In **Choose an action**, search for "Ethereum".
-
-Choose **Ethereum Blockchain**.
-
-Choose **Execute smart contract function**.
-
-In **Ethereum Blockchain**, first you need to create a connection to the blockchain transaction node.
-Provide the following for the connection:
-
-
-| Property | Value | Description |
-|----------|-------|-------------|
-| **Connection Name** | contosofood |  |
-| **Ethereum RPC Endpoint** | <*rpc endpoint*> | RPC endpoint. Right click consortium in dev kit pane. |
-| **Private Key** |<*your-private-key*> | Either the private key or the account address/password is needed to sign transactions. From signature field in smartcontract.json |
-| **Account Address** |  | Not needed. |
-| **Account Password** |  | Not needed. |
-
-Contract ABI - right click contract in build folder
-Smart contract address from last network address.
-Function name - SendRequest
-
-Select **New step**
-
-In **Choose an action**, search for **Response**.
-
-Choose Action **Response**.
-
-Set
-
-| Property | Value | Description |
-|----------|-------|-------------|
-| **Status code** | 200 | HTTP status code returned. |
-| **Body** | | Add dynamic content. Select **Transaction Hash** |
-
-
-## Trigger Logic App
-
-Use cURL to create an HTTP POST request.
-
-``` bash
-curl -d "{'message':'Hello, blockchain!'}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
-```
-
-Response shows transaction hash.
-
-View logic app log in portal.
-
-## Query value
-
-Query the contract. Call a contract function.
-
-Create logic app resource.
-Name: BlockchainGetMessage.
-Select **Create**.
-
-Choose Blank Logic App template.
-
-Choose **When a HTTP request is received**.
-Defaults.
-Add method GET.
-Select **Save**.
-
-**New step**.
-**Ethereum Blockchain**.
-Choose **Query smart contract function**.
-
-Contract ABI - right click contract in build folder
-Smart contract address from last network address.
-Function name - GetMessage
-
-Select **New step**
-
-In **Choose an action**, search for **Response**.
-
-Choose Action **Response**.
-
-Set
-
-| Property | Value | Description |
-|----------|-------|-------------|
-| **Status code** | 200 | HTTP status code returned. |
-| **Body** | | Add dynamic content. Select **Function output** |
-
-Make a request in a browser.  Use HTTP POST URL.
-
-## Event
-
-Respond to event
-
-Create logic app.
-
-
-Choose Ethereum Blockchain.
-
-Enter contract function details.
-
-
-## Event?
-
-Make request in browser.
-
-## Clean up resources
+from truffle deployment output. 
+From build>contract> contract.json > networks > number > address file .
 
 ## Next steps
