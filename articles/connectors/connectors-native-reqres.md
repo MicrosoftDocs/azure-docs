@@ -22,7 +22,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 * Trigger a workflow when an external webhook event happens.
 * Receive and respond to an HTTP call from another logic app.
 
-To make outgoing HTTP or HTTPS calls, use the built-in [HTTP trigger or action instead](../connectors/connectors-native-http.md) instead.
+To make outgoing HTTP or HTTPS calls, use the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) instead.
 
 ## Prerequisites
 
