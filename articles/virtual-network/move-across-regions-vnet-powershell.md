@@ -103,10 +103,9 @@ The following steps show you how to prepare the virtual network for the move usi
     ```
 8.  You can also change other parameters in the **\<resource-group-name>.json** file if you choose, and are optional depending on your requirements:
 
-    * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** 
-    property in the **\<resource-group-name>.json** file:
+* **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **\<resource-group-name>.json** file:
 
-            ```json
+```json
             
              "resources": [
              {
@@ -123,13 +122,12 @@ The following steps show you how to prepare the virtual network for the move usi
                          ]
               },
 
-            ```
+```
 
-
-    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
+* **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
     
-            ```json
-             "subnets": [
+```json
+            "subnets": [
                        {
                         "name": "subnet-1",
                         "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
@@ -153,12 +151,11 @@ The following steps show you how to prepare the virtual network for the move usi
                             "privateLinkServiceNetworkPolicies": "Enabled"
                              }
                         }
-                        ]
 
-            ```
+                        ]
+```
     
-    
-    In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
 
 9.  Save the **\<resource-group-name>.json** file.
 
