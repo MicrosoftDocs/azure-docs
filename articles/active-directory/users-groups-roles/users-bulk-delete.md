@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk delete users (preview) in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Using Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
 ## To bulk delete users
 
