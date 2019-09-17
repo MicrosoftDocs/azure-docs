@@ -70,7 +70,7 @@ Some sample threats and potential vulnerabilities that the threat modeling tool 
 ### Prerequisites
 To get the application up and running, you need to install these tools:
 
-- A code editor to modify and view the application code.[Visual Studio Code](https://code.visualstudio.com/) is an open source option.
+- A code editor to modify and view the application code.[Visual Studio Code](https://code.visualstudio.com/) is an open-source option.
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) on your development computer.
 - [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
 - [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
@@ -343,8 +343,7 @@ Now that you've enabled the virtual network integration, you can add network sec
     *Add rules for Azure Service Health probes (App Service Environment only)*
 
 To limit the attack surface, modify the App Service network settings to allow only the application gateway to access the application.
-To apply the settings, go to App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service
-You can retrieve the IP address of the gateway from its overview page. On the **IP Address CIDR** tab, enter the IP address in this format: `<GATEWAY_IP_ADDRESS>/32`.
+To apply the settings, go to App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service. You can retrieve the IP address of the gateway from its overview page. On the **IP Address CIDR** tab, enter the IP address in this format: `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Allow only the gateway](./media/secure-web-app/app-allow-gw-only.png)
 
