@@ -14,7 +14,7 @@ ms.author: lyhughes
 
 Azure Digital Twins uses Azure Active Directory (Azure AD) to authenticate users and protect applications. Azure AD supports authentication for a variety of modern architectures. All of them are based on the industry-standard protocols OAuth 2.0 or OpenID Connect. In addition, developers can use Azure AD to build  single-tenant and line-of-business (LOB) applications. Developers also can use Azure AD to develop multitenant applications.
 
-For an overview of Azure AD, visit the [fundamentals page](../active-directory/fundamentals/index.md) for step-by-step guides, concepts, and quickstarts.
+For an overview of Azure AD, visit the [fundamentals page](https://docs.microsoft.com/azure/active-directory/fundamentals/) for step-by-step guides, concepts, and quickstarts.
 
 > [!TIP]
 > Follow the [Tutorial](tutorial-facilities-setup.md) to set up and run an Azure Digital Twins sample app.
@@ -29,7 +29,7 @@ To integrate an application or service with Azure AD, a developer must first reg
 * Web application to web API: A web application needs to get resources from a web API secured by Azure AD.
 * Daemon or server application to web API: A daemon application or a server application with no web UI needs to get resources from a web API secured by Azure AD.
 
-The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For details on the library and code samples, see [this article](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For details on the library and code samples, see [this the ADAL Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
 ## Call Digital Twins from a middle-tier web API
 
@@ -41,7 +41,7 @@ When developers architect Digital Twins solutions, they typically create a middl
 
 1. The acquired token is then used to authenticate with or call APIs that are further downstream using the On-Behalf-Of flow
 
-For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). You also can view code samples in [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples in [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## Next steps
 

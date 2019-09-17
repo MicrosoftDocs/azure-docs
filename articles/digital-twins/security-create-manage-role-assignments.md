@@ -188,7 +188,7 @@ A successful request will return a JSON array with each role assignment associat
 
 ### Revoke a permission
 
-To revoke a permissions from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
+To revoke a permission from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
