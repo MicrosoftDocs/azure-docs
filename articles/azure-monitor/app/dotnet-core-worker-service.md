@@ -155,7 +155,31 @@ Following dependencies are automatically collected by Application Insights.
 
 ### EventCounter
 
-The following list of EventCounters are automatically collected, if the application is .NET Core 3.0.
+[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, CPU etc.
+
+By default, the SDK collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
+
+|Category | Counter|
+|---------------|-------|
+|System.Runtime | cpu-usage |
+|System.Runtime | working-set |
+|System.Runtime | gc-heap-size |
+|System.Runtime | gen-0-gc-count |
+|System.Runtime | gen-1-gc-count |
+|System.Runtime | gen-2-gc-count |
+|System.Runtime | time-in-gc |
+|System.Runtime | gen-0-size |
+|System.Runtime | gen-1-size |
+|System.Runtime | gen-2-size |
+|System.Runtime | loh-size |
+|System.Runtime | alloc-rate |
+|System.Runtime | assembly-count |
+|System.Runtime | exception-count |
+|System.Runtime | threadpool-thread-count |
+|System.Runtime | monitor-lock-contention-count |
+|System.Runtime | threadpool-queue-length |
+|System.Runtime | threadpool-completed-items-count |
+|System.Runtime | active-timer-count |
 
 ### Manually tracking additional telemetry
 
@@ -165,7 +189,7 @@ While the SDK automatically collects telemetry as explained above, in most cases
 
 The default `TelemetryConfiguration` used by the worker service SDK is similar to the automatic configuration used in a ASP.NET or ASP.NET Core application, minus the TelemetryInitializers used to enrich telemetry from `HttpContext`.
 
-You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section inside the `Program.cs` class if using .NET Core 3.0 Worker Service templates. In ASP.NET Core 2.1/2.2 apps which uses background services, SDK configuration is done inside `ConfigureServices()` method in the `Startup.cs` class. The following sections offer more information.
+You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section inside the `Program.cs` class if using .NET Core 3.0 Worker Service templates. In ASP.NET Core 2.1/2.2 apps which uses background services, SDK configuration is done inside `Startup.ConfigureServices()` method. The following sections offer more information.
 
 > [!NOTE]
 > While using this SDK, changing configuration by modifying `TelemetryConfiguration.Active` isn't supported, and changes will not be reflected.
@@ -190,8 +214,16 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
 
 Please note that ApplicationInsightsServiceOptions in this SDK is in the namespace Microsoft.ApplicationInsights.WorkerService as opposed to Microsoft.ApplicationInsights.AspNetCore.Extensions in the ASP.NET Core SDK.
 
-TODO Update this:
-For more information, see the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs).
+Full List of settings in `ApplicationInsightsServiceOptions`
+
+|Setting | Description | Default
+|---------------|-------|-------
+|EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
+|EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
+|EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15 min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
+|AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
+
+See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
 ### Sampling
 
@@ -335,6 +367,91 @@ If you want to disable telemetry conditionally and dynamically, you may resolve 
         ...
     }
 ```
+
+## Setting up Application Insights in a .NET Core/.NET Framework Console application
+
+As mentioned in the beginning of this article, the new package can be used to enable Application Insights Telemetry from even a regular console application. Simply install the package, and use the example given below.
+
+Packages installed:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+</ItemGroup>
+```
+
+```csharp
+class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create the DI container.
+            IServiceCollection services = new ServiceCollection();
+
+            // Add or configure channel
+            services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { StorageFolder = @"C:\temp\aisdkstorage" });
+
+            // Add custom TelemetryInitializer
+            services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
+
+            // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
+            // Hence instrumentation key must be specified here.
+            services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
+
+            // Add custom TelemetryProcessor
+            services.AddApplicationInsightsTelemetryProcessor<MyCustomTelemetryProcessor>();
+
+            // Example on Configuring TelemetryModules.
+            services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((mod, opt) => mod.AuthenticationApiKey = "putactualauthenticationkey" );
+
+            // Build ServiceProvider.
+            IServiceProvider serviceProvider = services.BuildServiceProvider();
+            // Obtain logger instance from DI.
+            ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+            // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
+            var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
+
+            var res = new HttpClient().GetAsync("https://bing.com").Result.StatusCode; // this dependency will be captured by Application Insights.
+            logger.LogWarning("Response from bing is:" + res); // this will be captured by Application Insights.
+
+            telemetryClient.TrackEvent("sampleevent");
+
+            // Explicitly call Flush() followed by sleep is required in Console Apps.
+            // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+            telemetryClient.Flush();
+            Task.Delay(5000).Wait();
+        }
+    }
+
+    internal class MyCustomTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            // Replace with actual properties.
+            (telemetry as ISupportProperties).Properties["MyCustomKey"] = "MyCustomValue";
+        }
+    }
+
+    internal class MyCustomTelemetryProcessor : ITelemetryProcessor
+    {
+        ITelemetryProcessor next;
+
+        public MyCustomTelemetryProcessor(ITelemetryProcessor next)
+        {
+            this.next = next;
+
+        }
+        public void Process(ITelemetry item)
+        {
+            // Example processor - not filtering out anything.
+            // This should be replaced with actual logic.
+            this.next.Process(item);
+        }
+    }
+```
+
+This console application also uses the same default `TelemetryConfiguration`, and it can be customized in the same way as the examples in earlier section.
 
 ## Frequently asked questions
 

@@ -24,14 +24,14 @@ The example we'll use here is an [MVC application](https://docs.microsoft.com/as
 
 The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. Support covers:
 * **Operating system**: Windows, Linux, or Mac.
-* **Hosting method**: In process or out of process. 
+* **Hosting method**: In process or out of process.
 * **Deployment method**: Framework dependent or self-contained.
-* **Web server**: IIS (Internet Information Server) or Kestrel. 
+* **Web server**: IIS (Internet Information Server) or Kestrel.
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
-> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) version or higher. This is the only version known to work well with ASP.NET Core 3.0. Also, Visual Studio based onboarding is not yet supported for ASP.NET Core 3.0 apps.
+> If you are using ASP.NET Core 3.0-preview along with Application Insights, please use the [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) version or higher. This is the only version known to work well with ASP.NET Core 3.0. Also, Visual Studio based onboarding is not yet supported for ASP.NET Core 3.0 apps.
 
 ## Prerequisites
 
@@ -236,7 +236,7 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
 |RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by the Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
 
-See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
+See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
 ### Sampling
 
