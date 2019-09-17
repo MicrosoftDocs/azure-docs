@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -30,6 +30,7 @@ Microsoft identity platform supports the [resource owner password credential (RO
 > * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
 > * Accounts that don't have passwords can't sign in through ROPC. For this scenario, we recommend that you use a different flow for your app instead.
 > * If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
+> * ROPC is not supported in hybrid identity scenarios (for example, Azure AD and ADFS used to authenticate on-premise accounts). If users are full-page redirected to an on-premises identity providers, Azure AD is not able to test the username and password against that identity provider.
 
 ## Protocol diagram
 
