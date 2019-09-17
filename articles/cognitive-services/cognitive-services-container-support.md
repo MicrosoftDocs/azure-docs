@@ -8,7 +8,11 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 10/07/2019
+=======
+ms.date: 09/17/2019
+>>>>>>> Working towards translator text docs for ignite
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -24,6 +28,7 @@ Container support in Azure Cognitive Services allows developers to use the same 
 * [Language Understanding (LUIS)][lu-containers]
 * [Speech Service API][sp-containers]
 * [Text Analytics][ta-containers]
+* [Translator Text][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
