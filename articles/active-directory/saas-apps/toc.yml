@@ -567,6 +567,8 @@
         href: hornbill-tutorial.md
       - name: Hosted Graphite
         href: hostedgraphite-tutorial.md
+      - name: Hosted Heritage Online SSO
+        href: hosted-heritage-online-sso-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
