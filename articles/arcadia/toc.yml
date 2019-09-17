@@ -6,10 +6,10 @@
     href: overview-what-is.md
   - name: Who can benefit from Arcadia
     href: overview-who-can-benefit-from-arcadia.md
-#  - name: Cheat sheet 
-#    href: article-template.md
-#  - name: FAQ
-#    href: article-template.md
+  # - name: Cheat sheet 
+  #   href: article-template.md
+  # - name: FAQ
+  #   href: article-template.md
 - name: Release notes
   items:
   - name: Recent release
@@ -20,82 +20,82 @@
     href: quickstart-create-a-workspace.md
   - name: Create pools
     items:
-#    - name: Create SQL Analytics pool
-#    href: article-template.md
-#    - name: Create Spark pool template
-#    href: article-template.md
-#  - name: Ingest data into Data Lake
-#    href: article-template.md
-#  - name: Ingest data into SQL Analytics pool
-#    href: article-template.md
-#  - name: Browse data using workspace
-#    href: article-template.md
+    # - name: Create SQL Analytics pool
+    #   href: article-template.md
+    # - name: Create Spark pool template
+    #   href: article-template.md
+    # - name: Ingest data into Data Lake
+    #   href: article-template.md
+    # - name: Ingest data into SQL Analytics pool
+    #   href: article-template.md
+    # - name: Browse data using workspace
+    #   href: article-template.md
   - name: Analyse and Visualize data
     items:
-#    - name: With Spark
-#    href: article-template.md
-#    - name: With SQL Analytics pool
-#    href: article-template.md
-#    - name: With SQL on-demand
-#    href: article-template.md
+    # - name: With Spark
+    # href: article-template.md
+    # - name: With SQL Analytics pool
+    # href: article-template.md
+    # - name: With SQL on-demand
+    # href: article-template.md
   - name: Tutorials
-   items:
-#   - name: BI Professional
-#     href: article-template.md
-   - name: Data Scientist
-     items:
+    items:
+  # - name: BI Professional
+  #   href: article-template.md
+  - name: Data Scientist
+    items:
      - name: Predict food inspection results
        href: tutorial-predict-food-inspection-results.md 
-#     - name: Analyze website logs
-#      href: article-template.md
-#     - name: use Tensorflow for deep learning
-#       href: article-template.md
-#     - name: Use Torch for deep learning
-#       href: article-template.md
-   - name: Data Engineer
-     items:
-#     - name: Data Preparation
-#       href: article-template.md
-#   - name: Data Analyst
-#     href: article-template.md
-#   - name: IT Administrator
-#     href: article-template.md
- - name: Concepts
-   items:
-#   - name: Workspace
-#     items:
-#     - name: Overview
-#       href: article-template.md
+    # - name: Analyze website logs
+    #  href: article-template.md
+    # - name: use Tensorflow for deep learning
+    #   href: article-template.md
+    # - name: Use Torch for deep learning
+    #   href: article-template.md
+  - name: Data Engineer
+    items:
+    # - name: Data Preparation
+    #   href: article-template.md
+    # - name: Data Analyst
+    #   href: article-template.md
+    # - name: IT Administrator
+    #   href: article-template.md
+  - name: Concepts
+    items:
+    # - name: Workspace
+    #   items:
+    #   - name: Overview
+    #     href: article-template.md
     - name: Pool
       items:
-#       - name: SQL Analytics pool
-#         href: article-template.md
-#       - name: SQL Analytics on-demand
-#         href: article-template.md
-#       - name: Spark pool template
-#         href: article-template.md
-     - name: Pipeline and activity
-       href: ../data-factory/concepts-pipelines-activities.md
-     - name: Execution and trigger
-       href: ../data-factory/concepts-pipeline-execution-triggers.md
-     - name: Linked service
-       href: ../data-factory/concepts-linked-services.md
-     - name: Integration runtime
-       href: ../data-factory/concepts-integration-runtime.md
-     - name: Metadata management
-       items:
-#       - name: Overview
-#         href: article-template.md
-       - name: Storage objects
-         items:
-#         - name: Objects
-#           href: article-template.md
-#         - name: Database
-#           href: article-template.md
-#         - name: Tables
-#           href: article-template.md
-#         - name: Views
-#           href: article-template.md
+      # - name: SQL Analytics pool
+      #   href: article-template.md
+      # - name: SQL Analytics on-demand
+      #   href: article-template.md
+      # - name: Spark pool template
+      #   href: article-template.md
+      - name: Pipeline and activity
+        href: ../data-factory/concepts-pipelines-activities.md
+      - name: Execution and trigger
+        href: ../data-factory/concepts-pipeline-execution-triggers.md
+      - name: Linked service
+        href: ../data-factory/concepts-linked-services.md
+      - name: Integration runtime
+        href: ../data-factory/concepts-integration-runtime.md
+      - name: Metadata management
+        items:
+      # - name: Overview
+      #   href: article-template.md
+      - name: Storage objects
+        items:
+        # - name: Objects
+        #   href: article-template.md
+        # - name: Database
+        #   href: article-template.md
+        # - name: Tables
+        #   href: article-template.md
+        # - name: Views
+        #   href: article-template.md
        - name: Arcadia metadata sync
          items:
 #         - name: Arcadia metadata
@@ -186,14 +186,14 @@
           href: ../sql-data-warehouse/column-level-security.md?toc=/azure/arcadia/toc.json
         - name: Row-level security
           href: /sql/relational-databases/security/row-level-security?toc=/azure/arcadia/toc.json
-#         - name: Storage access
-#           href: article-template.md
-       - name: Artifacts
-         items:
-#         - name: Linked services
-#           href: article-template.md
-#         - name: Code Artifacts
-#           href: article-template.md
+        # - name: Storage access
+        #   href: article-template.md
+      - name: Artifacts
+        items:
+        # - name: Linked services
+        #   href: article-template.md
+        # - name: Code Artifacts
+        #   href: article-template.md
     - name: Data Encryption
       items:
       - name: Transparent Data Encryption (TDE) overview
@@ -220,64 +220,64 @@
     items:
     - name: Overview
       items:
-#       - name: Runtime language and library support
-#         href: article-template.md
-#       - name: Apache Spark Pools sizes
-#         href: article-template.md
-#       - name: Cheat sheet
-#         href: article-template.md
-     - name: Development
-       items:
-#       - name: Overview, using tools to interact with Apache Spark
-#         href: article-template.md
+      # - name: Runtime language and library support
+      #   href: article-template.md
+      # - name: Apache Spark Pools sizes
+      #   href: article-template.md
+      # - name: Cheat sheet
+      #   href: article-template.md
+    - name: Development
+      items:
+      # - name: Overview, using tools to interact with Apache Spark
+      #   href: article-template.md
        - name: Using Arcadia Studio Notebooks
          items:
-#         - name: Shortcuts and magics
-#           href: article-template.md
-#         - name: Session Management
-#           href: article-template.md
-#       - name: Using IntelliJ
-#         href: article-template.md
-#       - name: Use Visual Studio Code and Spark.Net
-#         href: article-template.md
-#       - name: Use an interactive Spark Shell
-#         href: article-template.md
-#       - name: Remote Jobs with Apache Livy
-#         href: article-template.md
-#       - name: Debug Jobs remotely with IntelliJ through VPN
-#         href: article-template.md
-       - name: Apache Spark streaming
-         items:
-#         - name: Streaming overview
-#           href: article-template.md
-#         - name: Structured streaming overview
-#           href: article-template.md
-#         - name: Create high-availability Apache Spark Streaming jobs with YARN
-#           href: article-template.md
-#         - name: Create Apache Spark streaming jobs with exactly-once event processing
-#           href: article-template.md
-       - name: Apache Spark machine learning
-         items:
-#         - name: Machine Learning overview
-#           href: article-template.md
-#         - name: Create an Apache Spark machine learning pipeline
-#           href: article-template.md
-#       - name: Querying
-#         href: article-template.md
-#       - name: Workload Management
-#         href: article-template.md
-   - name: SQL Analytics
-     items:
+      #   - name: Shortcuts and magics
+      #     href: article-template.md
+      #   - name: Session Management
+      #     href: article-template.md
+      # - name: Using IntelliJ
+      #   href: article-template.md
+      # - name: Use Visual Studio Code and Spark.Net
+      #   href: article-template.md
+      # - name: Use an interactive Spark Shell
+      #   href: article-template.md
+      # - name: Remote Jobs with Apache Livy
+      #   href: article-template.md
+      # - name: Debug Jobs remotely with IntelliJ through VPN
+      #   href: article-template.md
+      - name: Apache Spark streaming
+        items:
+        # - name: Streaming overview
+        #   href: article-template.md
+        # - name: Structured streaming overview
+        #   href: article-template.md
+        # - name: Create high-availability Apache Spark Streaming jobs with YARN
+        #   href: article-template.md
+        # - name: Create Apache Spark streaming jobs with exactly-once event processing
+        #   href: article-template.md
+      - name: Apache Spark machine learning
+        items:
+      #   - name: Machine Learning overview
+      #     href: article-template.md
+      #   - name: Create an Apache Spark machine learning pipeline
+      #     href: article-template.md
+      # - name: Querying
+      #   href: article-template.md
+      # - name: Workload Management
+      #   href: article-template.md
+    - name: SQL Analytics
+      items:
     - name: Overview
       items:
       - name: What is SQL Analytics pool and SQL on demand
         href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/arcadia/toc.json
-#       - name: SQL on demand 
-#         href: article-template.md
+      # - name: SQL on demand 
+      #   href: article-template.md
       - name: SQL Analytics pool 
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/arcadia/toc.json
-#       - name: Architecture
-#         href: article-template.md
+      # - name: Architecture
+      #   href: article-template.md
       - name: Resource consumption models
         href: ../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md?toc=/azure/arcadia/toc.json
       - name: Best practices
@@ -326,10 +326,10 @@
           href: ../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/arcadia/toc.json
         - name: Temporary
           href: ../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/arcadia/toc.json
-#         - name: External tables
-#           href: article-template.md
-#         - name: CETAS
-#           href: article-template.md
+        # - name: External tables
+        #   href: article-template.md
+        # - name: CETAS
+        #   href: article-template.md
       - name: T-SQL language elements
         items:
         - name: Loops
@@ -354,8 +354,8 @@
         href: ../sql-data-warehouse/sql-data-warehouse-develop-group-by-options.md?toc=/azure/arcadia/toc.json
       - name: Labels
         href: ../sql-data-warehouse/sql-data-warehouse-develop-label.md?toc=/azure/arcadia/toc.json
-#       - name: Storage files
-#         href: article-template.md
+      # - name: Storage files
+      #   href: article-template.md
     - name: Workload management
       items:
       - name: Resource classes & workload management
@@ -368,48 +368,48 @@
         href: ../sql-data-warehouse/memory-and-concurrency-limits.md?toc=/azure/arcadia/toc.json 
   - name: Integrate AI and BI
     items:
-#     - name: Integrate with AML
-#       href: article-template.md
-     - name: Integrate with Power BI
-       items:
-#       - name: Link/Attach your Power BI workspace to Arcadia
-#         href: article-template.md
-#       - name: Get data from your Sql pools
-#         href: article-template.md
+    # - name: Integrate with AML
+    #   href: article-template.md
+    - name: Integrate with Power BI
+      items:
+      # - name: Link/Attach your Power BI workspace to Arcadia
+      #   href: article-template.md
+      # - name: Get data from your Sql pools
+      #   href: article-template.md
 - name: How to
   items:
   - name: Secure
     items:
     - name: Manage access control 
       items:
-#       - name: Configure users and groups
-#         href: article-template.md
-#       - name: Implement RBAC policies
-#         href: article-template.md
-#     - name: Manage network policies
-#       href: article-template.md
+    #   - name: Configure users and groups
+    #     href: article-template.md
+    #   - name: Implement RBAC policies
+    #     href: article-template.md
+    # - name: Manage network policies
+    #   href: article-template.md
     - name: Manage private endpoints
       items:
-#       - name: Enable encryption - portal
-#         href: article-template.md
-#       - name: Enable encryption - TSQL
-#         href: article-template.md
+      # - name: Enable encryption - portal
+      #   href: article-template.md
+      # - name: Enable encryption - TSQL
+      #   href: article-template.md
   - name: Manage and monitor
     items:
-#     - name: Cost monitoring and budgeting
-#       href: article-template.md  
-#     - name: Explore current workspace activity
-#       href: article-template.md
-#     - name: Pipeline runs
-#       href: article-template.md
-#     - name: SQL Analytics requests
-#       href: article-template.md
-#     - name: Spark applications
-#       href: article-template.md
-#     - name: Spark pools
-#       href: article-template.md
-#     - name: Troubleshooting and performance enhancement
-#       href: article-template.md 
+    # - name: Cost monitoring and budgeting
+    #   href: article-template.md  
+    # - name: Explore current workspace activity
+    #   href: article-template.md
+    # - name: Pipeline runs
+    #   href: article-template.md
+    # - name: SQL Analytics requests
+    #   href: article-template.md
+    # - name: Spark applications
+    #   href: article-template.md
+    # - name: Spark pools
+    #   href: article-template.md
+    # - name: Troubleshooting and performance enhancement
+    #   href: article-template.md 
     - name: SQL Analytics
       items:
       - name: Monitor Gen2 cache
@@ -434,12 +434,12 @@
     items:
     - name: Collaborate on development
       items:
-#       - name: Collaborate on SQL (Post PuPR)
-#         href: article-template.md
-#       - name: Collaborate on notebooks
-#         href: article-template.md
-#     - name: Collaborate on pipelines and Data Flows
-#       href: article-template.md
+    #   - name: Collaborate on SQL (Post PuPR)
+    #     href: article-template.md
+    #   - name: Collaborate on notebooks
+    #     href: article-template.md
+    # - name: Collaborate on pipelines and Data Flows
+    #   href: article-template.md
   - name: Load data
     items:
     - name: Into the Data warehouse
@@ -458,26 +458,26 @@
           items:
           - name: SQL Analytics pool
             href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json?toc=/azure/arcadia/toc.json
-#           - name: SQL on demand
-#             href: article-template.md
+          # - name: SQL on demand
+          #   href: article-template.md
         - name: SSIS
           items:
           - name: SQL Analytics pool
             href: /sql/integration-services/load-data-to-sql-data-warehouse
-#           - name: SQL on demand
-#             href: article-template.md
-         - name: Load WideWorldImporters
-           href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/arcadia/toc.json
-#         - name: with the copy activity 
-#           href: article-template.md
-#         - name: with T-SQL
-#           href: article-template.md
-#       - name: Data Flow and Data Ingest
-#         href: article-template.md
-#       - name: Spark
-#         href: article-template.md
-#       - name: Best practices
-#         href: article-template.md
+      #     - name: SQL on demand
+      #       href: article-template.md
+      #   - name: Load WideWorldImporters
+      #      href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/arcadia/toc.json
+      #   - name: with the copy activity 
+      #     href: article-template.md
+      #   - name: with T-SQL
+      #     href: article-template.md
+      # - name: Data Flow and Data Ingest
+      #   href: article-template.md
+      # - name: Spark
+      #   href: article-template.md
+      # - name: Best practices
+      #   href: article-template.md
     - name: Into the Data Lake
       items:
 #       - name: Data Flow and Data Ingest
@@ -939,8 +939,8 @@
       items:
       - name: Overview
         href: ../sql-data-warehouse/sql-data-warehouse-connect-overview.md?toc=/azure/arcadia/toc.json
-      - name: Query with ADS
-        href: article-template.md
+      # - name: Query with ADS
+      #   href: article-template.md
       - name: Connection strings
         href: ../sql-data-warehouse/sql-data-warehouse-connection-strings.md?toc=/azure/arcadia/toc.json
       - name: sqlcmd
@@ -949,8 +949,8 @@
         href: ../sql-data-warehouse/sql-data-warehouse-query-ssms.md?toc=/azure/arcadia/toc.json
       - name: Query with Visual Studio
         href: ../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/arcadia/toc.json
-    - name: Spark pool
-      href: article-template.md
+    # - name: Spark pool
+    #   href: article-template.md
 - name: Reference
   items:
   # - name: .Net SDK
